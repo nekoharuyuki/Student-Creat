@@ -1,0 +1,486 @@
+<HTML>
+<HEAD>
+<TITLE>平成14年度秋期試験　問題(午後問6～問9)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0">
+<blockquote>
+  <hr>
+  <H3 align="center">平成14年度秋期試験　問題(問6～問9)</H3>
+<hr>
+<P>次の問6から問9までの4問については、この中から1問を選択し、答案用紙の選択欄の 
+選 をマークして解答してください。<br>         
+　なお、2問以上選択した場合には、はじめの1問について採点します。
+<hr>
+<p><b><a name="60">問6</a>　</b>次のCプログラムの説明及びプログラムを読んで，設問に答えよ。<br>
+<br>
+[プログラムの説明]<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">（1）</td>
+            <td>自然数num（num≧2）を素因数に分解し，結果を例のように印字するプログラムである。<br>
+例1.　自然数12を入力した場合<br>
+　　<b>数値（2以上の自然数）を入力してください。:12<br>
+　　12 = 2×2×3</b><br>
+例2.　自然数3を入力した場合<br>
+　　<b>数値（2以上の自然数）を入力してください。: 3<br>
+　　3 = 素数</b>
+</td>
+          </tr>
+          <tr>
+            <td valign="top">（2）</td>
+            <td>素因数分解及び素数の判定手順は，次のとおりである。<br>
+　<img border="0" src="image/01_maru.GIF">　変数factorの値を2から始めて1ずつ増やしながら，numをfactorで割った結果がfactor以上である間，<img border="0" src="image/02_maru.GIF">を実行する。<br>
+　<img border="0" src="image/02_maru.GIF">　numがfactorで割り切れる場合，次の処理をnumがfactorで割り切れなくなるまで繰り返す。<br>
+　（a）factorの値を素因数として抽出する。<br>
+　（b）numをfactorで割った商を新たなnumとする。<br>
+　<img border="0" src="image/03_maru.GIF">　最終的に割り切るfactorがなかった場合には，numは素数であると判定する。
+</td>
+          </tr>
+          <tr>
+            <td valign="top">（3）</td>
+            <td>このプログラムでは，（2）の手順<img border="0" src="image/01_maru.GIF">での繰返し処理の回数を減らすために，まず最初に自然数numが2の倍数であるかどうかを判定する。numが2の倍数の場合には，（2）の手順<img border="0" src="image/02_maru.GIF">によって，最初に2の因子をすべて抽出する。続いて，変数factorの値を，3から始めて2ずつ増やしながら，numをfactorで割った結果がfactor以上である間，素因数の抽出を繰り返す。</td>
+          </tr>
+        </table>
+<br>
+〔プログラム〕<br>
+　<br>
+　（行番号）<br>
+<pre>
+　 1　#include <stdio.h><br>
+　 2　#define TRUE　1<br>
+　 3　#define FALSE 0<br>
+　 4　main()<br>
+　 5　{<br>
+　 6　　　 int num, prime = TRUE . factor = 2;<br>
+　 7　　　 printf( "数値 (2以上の自然数)を入力してください。: " ) ;<br>
+　 8　　　 scanf( "%d", &num );<br>
+　 9　　　 printf( "%d =", num );<br>
+　10　　　 if ( num ! =factor )<br>
+　11　　　　　　while ( num % factor == 0 ) { /* 数値が2の倍数？ */<br>
+　12　　　　　　　　 if ( prime == FALSE ) printf( " ×" );<br>
+　13　　　　　　　　 printf( "%d", factor );<br>
+　14　　　　　　　　［　　　a　　　］;<br>
+　15　　　　　　　　 prime = FALSE;<br>
+　16　　　　　　}<br>
+　17　　　 factor++;<br>
+　18　　　 while (［　　　b　　　］) {<br>
+　19　　　　　　while ( num % factor == 0 ) {<br>
+　20　　　　　　　　 if ( prime == FALSE ) printf( " ×" );<br>
+　21　　　　　　　　 printf( " %d", factor );<br>
+　22　　　　　　　　［　　　a　　　］;<br>
+　23　　　　　　　　 prime = FALSE;<br>
+　24　　　　　　}<br>
+　25　　　　　 ［　　　c　　　］;<br>
+　26　　　 }<br>
+　27　　　 if ( prime == TRUE ) print( " 素数＼n" );<br>
+　28　　　 else if ( num > 1 ) printf( " × %d＼n",［　　　d　　　］);<br>
+　29　　　 else printf( "＼n" );<br>
+　30　}
+</pre>
+<p></p>      
+<hr>      
+<p><b><a name="61">設問</a>　</b>設問　プログラム中の［　　　　　　］に入れる正しい答えを，解答群の中から選べ。<br>
+<br>
+a，cに関する解答群<br>
+ア　factor--　　　　 イ　factor += 2　　　ウ　num/= factor<br>
+エ　num %= factor　　オ　prime = FALSE　　カ　prime = TRUE<br>
+<br>
+bに関する解答群<br>
+ア　num / factor >= factor　　イ　num % factor != 0<br>
+ウ　prime == FALSE　　　　　　 エ　prime == TRUE<br>
+<br>
+dに関する解答群<br>
+ア　factor　　イ　nem / factor<br>
+ウ　num % factor　　エ　num<br>
+オ　prime<br>
+
+<hr WIDTH="100%">
+  <a HREF="14F_P_A3.HTM#61">設問の正解例と解説へ</a>
+<hr WIDTH="100%">
+<br>
+<a HREF="index.htm">メニューへ戻る</a><br>
+<HR WIDTH=100%>
+<a NAME="70">　<BR>
+<b>
+問7</b></a><b>　</b>次のCOBOLプログラムの説明及びプログラムを読んで設問1，2に答えよ。<br>
+<br>
+〔プログラムの説明〕<br>
+ユーザIDの発行順に記録してある顧客情報ファイルを読み込んで，ユーザIDをキー項目とした二分探索木を作成し，顧客リストとして出力するプログラムである。<br>
+顧客情報ファイルCUSTOM-INのレコード様式は，次のとおりである。<br>
+<br>
+<img border="0" src="image/FP07-01.gif"><br>
+<br>
+（1）順ファイルである。<br>
+（2）ユーザIDは乱数を利用して発行した12けたの英数字列であり，重複はない。<br>
+（3）レコードの順序は，ユーザIDの発行順である。<br>
+（4）顧客数は2,000以下である。<br>
+<br>
+顧客リストCUSTOM-OUTのレコード様式は，次のとおりである。<br>
+
+<br>
+<img border="0" src="image/FP07-02.gif"><br>
+<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">（1）</td>
+            <td>順ファイルである。</td>
+          </tr>
+          <tr>
+            <td valign="top">（2）</td>
+            <td>ユーザIDが，"左側の子＜親＜右側の子" の規則で二分探索木を構成するようにレコードを記録する。<br>
+<br>
+<img border="0" src="image/FP07-03.gif"><br>
+<br>
+　　　　　図1　二分探索木の例<br><br>
+</td>
+          </tr>
+          <tr>
+            <td valign="top">（3）</td>
+            <td>左ポインタは，自身を親としたときの左側の子のレコードを指し，右ポインタは，右側の子のレコードを指す。</td>
+          </tr>
+          <tr>
+            <td valign="top">（4）</td>
+            <td>子をもたないときのポインタの値は，0とする。図1のレコードが，10，6，15，1，12，20の順に記録されるときのポインタ及びユーザIDは次のようになる。<br>
+<br>
+<img border="0" src="image/FP07-04.gif"><br><br>
+　　　　図2　ポインタ及びユーザIDの例<br>
+
+<br>
+</td>
+         </tr>
+        </table>
+
+<pre>〔プログラム〕<br>
+　DATA DIVISION.<br>
+　FILE SECTION.<br>
+　FD　CUSTOM-IN.<br>
+　01　IN-R.<br>
+　　　03　IN-ID　　PIC X(12).<br>
+　　　03　IN-DATA PIC X(200).<br>
+　FD　CUSTOM-OUT.<br>
+　01　OUT-R　　　 PIC X(220).<br>
+　WORKING-STORAGE SECTION.<br>
+　01　W-KENSU　　PIC 9(4) VALUE 0.<br>
+　01　W-1　　　　 PIC 9(4).<br>
+　01　W-2　　　　 PIC 9(4).<br>
+　01　W-TABLE.<br>
+　　　03　W-R OCCURS 2000.<br>
+　　　　　05　 POINT-L PIC 9(4).<br>
+　　　　　05　 POINT-R PIC 9(4).<br>
+　　　　　05　 W-ID　　PIC X(12).<br>
+　　　　　05　 W-DATA　PIC X(200).<br>
+　01　END-SW　　　　　 PIC X VALUE SPACE.<br>
+　PROCEDURE DIVISION.<br>
+　HAJIME.<br>
+　　　 OPEN INPUT CUSTOM-IN OUTPUT CUSTOM-OUT.<br>
+　　　［　　　a　　　］.<br>
+　　　 PERFORM UNTIL END-SW = "E"<br>
+　　　　　　READ CUSTOM-IN<br>
+　　　　　　AT END<br>
+　　　　　　　　MOVE "E" TO END-SW<br>
+　　　　　　NOT AT END<br>
+　　　　　　　　 COMPUTE W-KENSU = W-KENSU + 1<br>
+　　　　　　　　 MOVE IN-ID TO W-ID(W-KENSU)<br>
+　　　　　　　　 MOVE IN-DATA TO W-DATA (W-KENSU)<br>
+　　　　　　　　 IF W-KENSU > 1 THEN<br>
+　　　　　　　　　　 MOVE 1 TO 2 W-1<br>
+　　　　　　　　　　 PERFORM UNTIL W-2 = 0<br>
+　　　　　　　　　　     MOVE W-2 TO W-1<br>
+　　　　　　　　　　     IF IN-ID > W-ID(W-1) THEN<br>
+　　　　　　　　　　　　     MOVE POINT-R(W-1) TO W-2<br>
+　　　　　　　　　　     ELSE<br>
+　　　　　　　　　　　　     MOVE POINT-L(W-1) TO W-2<br>
+　　　　　　　　　　     END IF<br>
+　　　　　　　　　　 END PERFORM<br>
+                     IF IN-ID > W-ID(W-1) THEN<BR>
+                         MOVE W-KESU TO POINT-R(W-1)<BR>
+　　　　　　　　     ELSE<br>
+                         MOVE W-KESU TO POINT-L(W-1)<BR>
+　　　　　　　　     END IF<br>
+　　　　　　　　 END IF<br>
+　　　　　　END-READ<br>
+　　　 END-PERFORM.<br>
+　　　 PERFORM VARYING W-1 FROM 1 BY 1 UNTIL W-1 > W-KENSU<br>
+　　　　　 ［　　　b　　　］<br>
+　　　 END-PERFORM.<br>
+　　　 CLOSE CUSTOM-IN COUSTOM-OUT.<br>
+　　　 STOP RUN.<br>
+
+</pre>
+<hr> 
+<a NAME="71">　<BR>
+<b>
+設問</b></a><b>1　</b>プログラム中の［　　　　　　］に入れる正しい答えを，解答群の中から選べ。<br>
+<br>
+aに関する解答群<br>
+ア　INITIALIZE W-TABLE　　　　　イ　MOVE SPACE TO W-TABLE<br>
+ウ　MOVE 0 TO W-1 W-2<br>
+<br>
+bに関する解答群<br>
+ア　WRITE OUT-R　　　　　　　　　　イ　WRITE OUT-R FROM IN-R<br>
+ウ　WRITE OUT-R FROM W-R(W-1)　　　エ　WRITE OUT-R FROM W-R(W-KENSU)<br>
+<br>
+<HR WIDTH=100%>  
+  <a HREF="14F_P_A3.HTM#71">設問1の正解例と解説へ</a>  
+<HR WIDTH=100%>  
+<p><b><a name="72">設問2</a>　</b>顧客情報ファイルが次のとおりであった場合，このプログラムで出力される顧客リストを解答群の中から選べ。<br>
+<br>
+<img border="0" src="image/FP07-21.gif">
+<br>
+<br>
+解答群<br>
+<img border="0" src="image/FP07-22.gif">
+
+
+<br>
+<hr WIDTH="100%">    
+  <a HREF="14F_P_A3.HTM#72">設問2の正解例と解説へ</a>    
+<hr WIDTH="100%">    
+<p><A HREF="index.htm">メニューへ戻る</A>　</p>     
+<HR WIDTH=100%>     
+<a NAME="80">　<BR> 
+<b> 
+問8</b></a>　次のJavaプログラムの説明及びプログラムを読んで，設問に答えよ。<br>
+[プログラムの説明]<br>
+<BR>　ディジタル論理回路シミュレータを作成するためのクラスとテスト用クラスである。</p>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">(1)</td>
+            <td>ゲートを表す抽象クラスGateのサブクラスとして，NOTゲートを表すクラスNotGate及びANDゲートを表すクラスAndGateを定義する。</td>
+          </tr>
+          <tr>
+            <td valign="top">(2)</td>
+            <td>Gateのすべてのサブクラスは，メソッドconnectOutputTo，getInput及びgetOutputを継承し，メソッドtickを実装する。</td>
+          </tr>
+          <tr>
+            <td valign="top">(3)</td>
+            <td>メソッドconnectOutputToは，ゲートの出力信号線を，指定されたゲートの入力信号線に接続する。</td>
+          </tr>
+          <tr>
+            <td valign="top">(4)</td>
+            <td>メソッドgetInput及びgetOutputは，ゲートの入力信号線及び出力信号線をそれぞれ返す。</td>
+          </tr>
+          <tr>
+            <td valign="top">(5)</td>
+            <td>メソッドtickは，各ゲート固有の演算を実行し，出力信号線にtrue又はfalseのいずれかの値を出力する。</td>
+          </tr>
+          <tr>
+            <td valign="top">(6)</td>
+            <td>クラスWireは，入力信号線又は出力信号線を表す。</td>
+          </tr>
+          <tr>
+            <td valign="top">(7)</td>
+            <td>各ゲートの出力信号線は，1本とする。</td>
+          </tr>
+          <tr>
+            <td valign="top">(8)</td>
+            <td>テスト用クラスLogicCircuitTestで作成する回路及び動作の例を，次に示す。メソッドmainは，演算結果の値を標準出力に表示する。</td>
+          </tr>
+        </table>
+<BR>
+プログラム2は，IntStackのテストプログラムである。端末に表示したプロンプト=>に対して入力された整数値をIntStack型のオブジェクトに格納し，空の値（改行文字だけ）が入力された時点で，その内容を表示する。<BR>
+
+        <p><img border="0" src="image/FP08.gif"><br>
+<br>図　LogicCircuitTestで作成する回路及び動作の例<br>
+<br>
+
+<pre>
+〔プログラム1〕<BR>
+class Wire {
+  private boolean value;
+  public boolean getValue() { return value; }
+  public void setValue(boolean value) { this.value = value; }
+}
+
+abstract class Gate {
+  protected Wire[] input;
+  protected Wire output;
+  public Gate(int nInputs) {
+    input = <B>［　　　a　　　］</B>;
+    for (int i = 0; i < nInputs; i++) { input[i] = new Wire(); }
+    output = new Wire();
+  }
+  public void connectOutputTo(Gate otherGate, int nthInput) {
+    try {
+        <B>［　　　b　　　］</B>;
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+  }
+  public Wire getInput(int n) { return input[n]; }
+  public Wire getOutput() { return output; }
+  abstract public void tick();
+}
+
+class NotGate extends Gate {
+  public NotGate() { super(1); }
+  public void tick() { output.setValue(<B>［　　　c　　　］</B>); }
+}
+
+class AndGate extends Gate {
+  public AndGate() { super(2); }
+  public void tick() { output.setValue(<B>［　　　d　　　］</B>); }
+}
+
+public class LogicCircuitTest {
+  public static void main (string[] args) {
+    Gate not = new NotGate();
+    Gate and = new AndGate();
+    not.connectOutputTo(and, 0);
+    not.getInput(0).setValue(false);
+    and.getInput(1).setValue(true);
+    not.tick();
+    and.tick();
+    System.out.println(and.getOutput().getValue());
+  }
+}</pre>
+<br>
+<A NAME="80">       
+<HR WIDTH=100%>       
+</a><a NAME="81"><b>　<BR>  
+設問</b></a><b><a NAME="81"></a>　</b>プログラム中の[　　　　　]に入れる正しい答えを，解答群の中から選べ。<br>      
+<br>      
+aに関する解答群      
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td width="200">ア　new Wire(nInputs)</td>
+            <td>	イ　new Wire[nInputs]</td>
+          </tr>
+          <tr>
+            <td>	ウ　new Wire()</td>
+            <td>	エ　new Wire[] {new Wire()}</td>
+          </tr>
+        </table>
+<br>
+      bに関する解答群<br>
+
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">ア</td>
+            <td>　input[nthInput].setValue(otherGate.output.getValue())</td>
+          </tr>
+          <tr>
+            <td valign="top">イ</td>
+            <td>　input[nthInput] = otherGate.output</td>
+          </tr>
+          <tr>
+            <td valign="top">ウ</td>
+            <td>　otherGate.input[nthInput].setValue(output.getValue())</td>
+          </tr>
+          <tr>
+            <td valign="top">エ</td>
+            <td>　otherGate.input[nthInput] = output</td>
+          </tr>
+        </table>
+<br>
+      c，dに関する解答群<br> 
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">ア</td>
+            <td>　input[0].getValue() || input[1].getValue()</td>
+          </tr>
+          <tr>
+            <td valign="top">イ</td>
+            <td>　!input[0].getValue() || input[1].getValue()</td>
+          </tr>
+          <tr>
+            <td valign="top">ウ</td>
+            <td>　input[0].getValue() && input[1].getValue()</td>
+          </tr>
+          <tr>
+            <td valign="top">エ</td>
+            <td>　!input[0].getValue() && input[1].getValue()</td>
+          </tr>
+          <tr>
+            <td valign="top">オ</td>
+            <td>　input[0].getValue() != input[1].getValue()</td>
+          </tr>
+          <tr>
+            <td valign="top">カ</td>
+            <td>　input[0].getValue()</td>
+          </tr>
+          <tr>
+            <td valign="top">キ</td>
+            <td>　!input[0].getValue()</td>
+          </tr>
+          <tr>
+            <td valign="top">ク</td>
+            <td>　1 - input[0].getValue()</td>
+          </tr>
+        </table>
+<p>　</p>    
+<A NAME="81">     
+<HR WIDTH=100%>     
+</a><a HREF="14F_P_A3.HTM#81">設問の正解例と解説へ</a>    
+<HR WIDTH=100%>    
+<br>
+<a HREF="index.htm">メニューへ戻る</a><br>
+<HR WIDTH=100%>
+
+<p>          
+<a NAME="90">          
+<b>問9</b></a><b>　</b>次のアセンブラプログラムの説明及びプログラムを読んで，設問1～3に答えよ。<br>
+<br>
+〔プログラムの説明〕<br>
+副プログラムBINDECは，整数n（0≦n≦32767）を10進数の文字列として出力する。<br>
+（1）整数nは，2進数としてGR1に格納されて，主プログラムから渡される。<br>
+（2）表示文字列の長さは，5けたとする。<br>
+例えば，GR1の内容が0000 0000 0110 1001のとき，表示文字列は00105となる。<br>
+<br>
+<img border="0" src="image/FP09-01.gif">
+<br>
+<HR WIDTH=100%>         
+<a NAME="91"><BR>         
+<b>         
+設問1</b></a>　プログラム中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。<br>
+<br>
+解答群<br>
+ア　JMI　FIN　　　　イ　JMI　NEXTD　　　　ウ　JNZ　FIN<br>
+エ　JNZ　NEXTD　　　オ　JPL　FIN　　　　　カ　JPL　NEXTD<br>
+キ　JUMP　FIN　　　 ク　JUMP　NEXTD　　　 ケ　JZE　FIN<br>
+コ　JZE　NEXTD<br>
+<br>
+<HR WIDTH=100%>
+  <a HREF="14F_P_A3.HTM#91">設問1の正解例へ</a>
+<hr>
+<b>　</b><a NAME="92">
+<b>
+<br>
+設問</b></a><b>2　</b>nが#01A5のとき，行番号9のSUBA命令の実行回数として正しい答えを，解答群の中から選べ。<br>
+	<br>
+解答群<br>
+ア　3　　 イ　4　　 ウ　6　　 エ　7　　　オ　10<br>
+カ　11　　キ　16　　ク　42　　ケ　420　　コ　421<br>
+<br>
+<A NAME="92">
+<HR WIDTH=100%>
+</a><a HREF="14F_P_A3.HTM#92">設問2の正解例へ</a>
+<HR WIDTH=100%>
+<b>　</b><a NAME="93">
+<b>
+<br>
+設問</b></a><b><a NAME="93">3</a>　</b>副プログラムBINDECを，nが負の場合も扱えるようにする（－32767≦n≦32767）。nが負のときは“－”を，そうでないときは“＋”を，それぞれ文字列の最後に表示するように変更するため，プログラム中のαに命令群1を挿入し，βを命令群2と置き換えることにした。<br>
+命令群1の［　　　　　　］に入れる正しい答えを，解答群の中から選べ。<br>
+<br>
+<br>
+<img border="0" src="image/FP09-2.GIF">
+<br>
+<br>
+
+
+
+解答群<br>
+ア　ADDA　GR1, GR3　　イ　ADDA  GR3, GR1　　ウ　AND　GR3, =#7FFF<br>
+エ　SUBA　GR1, GR3　　オ　SUBA  GR3, GR1　　カ　XOR　GR3, =#FFFF<br>
+<br>
+<A NAME="93">
+<HR WIDTH=100%>
+</a><a HREF="14F_P_A3.HTM#93">設問3の正解例へ</a>
+<HR WIDTH=100%>
+<p align="center"><a href="14F_P_E4.HTM">■問10へ進む</a>　　　　　　<a HREF="INDEX.HTM">■メニューへ戻る</a><br>    
+    
+<HR WIDTH=100%>    
+<p>　</p>   
+</blockquote>   
+</BODY>   
+</HTML>   

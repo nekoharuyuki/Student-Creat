@@ -1,0 +1,776 @@
+<HTML>
+<HEAD>
+<TITLE>平成15年度秋期試験　問題(午後問10～問13)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0">
+<blockquote>
+  <hr>
+  <H3 align="center">平成15年度秋期試験　問題(問10～問13)</H3>
+<hr>
+<P>次の問10から問13までの4問については、この中から1問を選択し、答案用紙の選択欄の             
+選 をマークして解答してください。なお、2問以上選択した場合には、はじめの1問について採点します。<br>            
+<hr>         
+<b><a name="100">問10</a>　</b>次のCプログラムの説明及びプログラムを読んで，設問1，2に答えよ。<br>
+<br>
+〔プログラムの説明〕<br>
+表計算ソフトなどで使用されるデータ交換処理用のプログラムである。
+<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">（1）</td>
+            <td>関数loadcsvは，（2）に示す様式（CSV形式と呼ぶ）のレコードをテキストファイルから読み込み，2次元配列の表に格納する。関数savecsvは，表内の要素をCSV形式に戻してテキストファイルに出力する。</td>
+          </tr>
+          <tr>
+            <td valign="top">（2）</td>
+            <td>このプログラムで扱うCSV形式の仕様は，次のとおりである。<br>
+<img border="0" src="image/01_maru.GIF">　文字列からなるデータをコンマ“,”で区切って並べたものである。<br>
+<img border="0" src="image/02_maru.GIF">　コンマの前後には空白が許される。<br>
+<img border="0" src="image/03_maru.GIF">　文字列は，全体を引用符で囲んでも囲まなくてもよい。ただし，文字列内に空白文字，コンマ“,”を含む場合には，図1のように文字列全体を引用符で囲む。文字列内に引用符は含まないものとする。<br>
+<img border="0" src="image/04_maru.GIF">　CSV形式ファイルには，表の1行に対応するデータ群が1レコードとして格納されている。<br>
+<img border="0" src="image/05_maru.GIF">　レコードの終端は“＼n”である。<br>
+<br>
+        <p><img border="0" src="image/P_10_01.gif"></p>
+        <p></td>
+          </tr>
+          <tr>
+            <td valign="top">（3）</td>
+            <td>レコード内の文字列は，動的に確保した領域に格納し，表の要素にはその領域へのポインタを格納する。</td>
+          </tr>
+          <tr>
+            <td valign="top">（4）</td>
+            <td>引用符で囲まれたデータ形式の場合は，動的に確保した領域に前後の引用符を除いた文字列を格納する。</td>
+          </tr>
+          <tr>
+            <td valign="top">（5）</td>
+            <td>対応するデータがない要素には，NULLを格納する。</td>
+          </tr>
+          <tr>
+            <td valign="top">（6）</td>
+            <td>図1のレコードを格納した表を図2に示す。<br>
+        <p><img border="0" src="image/P_10-0-1.gif"></p>
+        <p></td>
+</td>
+          </tr>
+          <tr>
+            <td valign="top">（7）</td>
+            <td>ここで使用される文字の種類は，JIS X 0201（7ビット及び8ビットの情報交換用符号化文字集合）の文字とする。</td>
+          </tr>
+          <tr>
+            <td valign="top">（8）</td>
+            <td>表の行数及び列数の最大値は，ともに64とし，レコードの文字長は255以下とする。</td>
+          </tr>
+          <tr>
+            <td valign="top">（9）</td>
+            <td>CSV形式ファイル内のレコードに記述の誤りはないものとし，ファイル入出力でのエラーも発生しないものとする。</td>
+          </tr>
+          <tr>
+            <td valign="top">（10）</td>
+            <td>各関数の仕様は，次のとおりである。<br>
+<img border="0" src="image/01_maru.GIF">　関数loadcsv<br>
+　　形式：int loadcsv( char fname[], char *tbl[][TBLSZ] );<br>
+　　引数：fname　入力ファイルへのポインタ<br>
+　　　　　tbl　　表（2次元配列）へのポインタ（ここで，TBLSZは，表の行数及び列数の最大値）<br>
+　　返却値：表に格納したレコード数<br>
+<br>
+<img border="0" src="image/02_maru.GIF">　関数savecsv<br>
+　　形式：void savecsv( char fname[], char *tbl[][TBLSZ], int ln );<br>
+　　引数：fname　出力ファイル名へのポインタ<br>
+　　　　　tbl　　表（2次元配列）へのポインタ<br>
+　　　　　ln　　 出力するレコード数<br>
+</td>
+          </tr>
+        </table>
+<br>
+〔プログラム〕<br>
+#inclede &lt;stdio.h&gt;<br>
+#inclede &lt;stdlib.h&gt;<br>
+#inclede &lt;string.h&gt;<br>
+<br>
+#define　TBLSZ　 64<br>
+#define　RECSZ　 256<br>
+<br>
+int　loadcsv( char*, char*[][TBLSZ] );<br>
+void savecsv( char*, char*[][TBLSZ], int );<br>
+<br>
+int loadcsv( char fname[], char *tbl[][TBLSZ] )<br>
+{<br>
+　　FILE *fp;<br>
+　　char buf[RECSZ], *cp, *dp;<br>
+　　int　col, row, len;<br>
+<br>
+　　for ( row = 0; row < TBLSZ; row++ ) {<br>
+　　　　 for ( col = 0; col < TBLSZ; col++ ) tbl[row][col] = NULL;<br>
+　　}<br>
+　　fp = fopen( fname, "r" );<br>
+　　for ( row = 0; fgets( buf, RECSZ, fp ) != NULL; row++ ) {<br>
+　　　　 col = 0;<br>
+　　　　 for ( cp = buf; *cp != '＼n'; cp++) {<br>
+　　　　　　 while ( *cp == ' ' ) cp++;　　　/* 空白の読み飛ばし */<br>
+<br>
+　　　　　　 if ( *cp == '＼n' ) break;<br>
+　　　　　　 else if ( *cp == ',' ) <B>[　　a　　]</B>;　/* コンマの処理 */<br>
+　　　　　　 else {<br>
+　　　　　　　　　 if ( *cp == '＼"' ) {　/* データが引用符で囲まれている場合 */<br>
+　　　　　　　　　　　 dp = <B>[　　 b　　 ]</B>;<br>
+　　　　　　　　　　　 for ( len = 0; *cp != '＼"'; len++, <B>[　　 c　　 ]</B> );<br>
+　　　　　　　　　 }<br>
+　　　　　　　　　 else {<br>
+　　　　　　　　　　　 dp = <B>[　 d　 ]</B>;<br>
+　　　　　　　　　　　 for ( len = 0; *cp != '＼n'; len++, <B>[　　 c　　 ]</B><br>
+　　　　　　　　　　　　 if (( *cp == ' ' ) || ( *cp == ',' )<br>
+　　　　　　　　　　　　　 || (*cp == '＼n' )) break;<br>
+　　　　　　　　　　　 <B>[　　 e　　 ]</B>;<br>
+　　　　　　　　　 }<br>
+　　　　　　　　　if ( len != 0 ) { /* データが空でない場合 */<br>
+　　　　　　　　　　　 tbl[row][col] = malloc( len+1 );<br>
+　　　　　　　　　　　　　　　　　　　 /* 動的に領域を確保 */<br>
+　　　　　　　　　　　 strncpy( tbl[row][col], dp, len );<br>
+　　　　　　　　　　　 *(tbl[row][col]+len) = '＼0';<br>
+　　　　　　　　　}<br>
+　　　　　　 }<br>
+　　　　 }<br>
+　　}<br>
+　　fclose( fp );<br>
+　　return row;<br>
+}<br>
+<br>
+void savecsv( char fname[], char *tbl[][TBLSZ], int ln )<br>
+{<br>
+　　FILE *fp;<br>
+　　int　　row, col, last;<br>
+<br>
+　　fp = fopen( fname, "W" );<br>
+　　for ( row = 0; row < ln; row++ ) {<br>
+　　　　 for ( last = TBLSZ-1; last >= 0; last-- )<br>
+　　　　　　　if ( tbl[row][last] != NULL ) break;<br>
+　　　　 for ( col = 0; col <= last; col++ ) {<br>
+　　　　　　　if ( tbl[row][col] != NULL ) {<br>
+　　　　　　　　　 fputs( "＼"", fp );<br>
+　　　　　　　　　 fputs( tbl[row][lol], fp );<br>
+　　　　　　　　　 fputs( "＼"", fp );<br>
+　　　　　　　}<br>
+　　　　　　　if ( col < last ) fputs( ",", fp );<br>
+　　　　 }<br>
+　　　　 fputs( "＼n", fp );<br>
+　　}<br>
+　　fclose( fp );<br>
+}<br>
+
+<br>
+<hr> 
+<p><b><a name="101">設問1</a>　</b>プログラム中の<b>［　　　　］</b>に入れる正しい答えを，解答群の中から選べ。なお，解答は重複して選んでもよい。</p> 
+<br>
+aに関する解答群<br>
+ア　col++　　　イ　dp = NULL　　　ウ　dp++<br>
+エ　len++　　　オ　tbl[row][col] = NULL<br>
+<br>
+<br>
+b～eに関する解答群<br>
+ア　cp　　　イ　cp--　　　ウ　cp+1　　　エ　++cp<br>
+<br> 
+<HR WIDTH=100%>  
+  <a HREF="15F_P_A4.HTM#101">設問1の正解例と解説へ</a>  
+<p><b>
+<a name="102">設問2</a>　</b>次のCSV形式の2レコードを関数loadcsvによって表に格納し，それから関数savecsvによってCSV形式で出力する。出力結果の説明として適切なものを，解答群の中から選べ。<br>
+<br>
+　　　　　"Taro Yamada", 43, "175.5", M, "550,000"<br>
+　　　　　Hanako-Yamada, 12, "156.7", F,<br>
+</p> 
+<br>
+解答群<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">ア</td>
+            <td>　すべてのデータに対して，引用符で囲んだものをコンマで区切って出力する。各レコードの末尾には，不要なコンマは出力されない。<br>
+<br>
+　　　　　"Taro Yamada", "43", "175.5", "M", "550,000"<br>
+　　　　　"Hanako-Yamada", "12", "156.7", "F"<br><br>
+</td>
+          </tr>
+          <tr>
+            <td valign="top">イ</td>
+            <td>　すべてのデータに対して，引用符で囲んだものをコンマで区切って出力する。出力レコードのデータの個数は最大のものにそろえられる。<br>
+<br>
+　　　　　"Taro Yamada", "43", "175.5", "M", "550,000"<br>
+　　　　　"Hanako-Yamada", "12", "156.7", "F", ""<br><br>
+</td>
+          </tr>
+          <tr>
+            <td valign="top">ウ</td>
+            <td>　入力時と同じ形式で出力する。出力レコードのデータ個数は最大のものにそろえられる。<br>
+　　　　　"Taro Yamada", 43, "175.5", M, "550,000"<br>
+　　　　　Hanako-Yamada, 12, "156.7", F,<br><br>
+</td>
+          </tr>
+          <tr>
+            <td valign="top">エ</td>
+            <td>　入力時と同じ形式で出力する。レコードの末尾には，不要なコンマは出力されない。<br>
+　　　　　"Taro Yamada", 43, "175.5", M, "550,000"<br>
+　　　　　Hanako-Yamada, 12, "156.7", F<br><br>
+</td>
+          </tr>
+        </table>
+<br> 
+<HR WIDTH=100%>  
+  <a HREF="15F_P_A4.HTM#102">設問2の正解例と解説へ</a>  
+<HR WIDTH=100%>  
+  　<BR>
+<A HREF="INDEX.HTM">メニューへ戻る</A>
+<HR WIDTH=100%>   
+<a NAME="110">　<BR>  
+<b>  
+問11</b></a>　次のCOBOLプログラムの説明及びプログラムを読んで，設問に答えよ。<BR>
+<BR>
+〔プログラムの説明〕<BR>
+<BR>
+航空便を使った旅程の中で，出発地の空港から目的地の空港までの飛行時間と乗継時間を求めるプログラムである。出発する空港と日時及び到着する空港と日時を一組にしたレコードを，利用する航空便の数だけファイルに格納してある。格納されている日時はそれぞれの空港の現地日時である。各空港の現地時間の世界標準時からの時差を格納した索引ファイルを参照しながら，一連の航空便の飛行時間，飛行時間合計及び乗継時間合計を求めて印字する。この問題では夏時間は考慮しない。<BR>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">（1）</td>
+            <td>飛行予定情報ファイルitinerary-fileは，次のレコード様式の順ファイルである。<BR>
+        <p><img border="0" src="image/P_11_01.gif"></p>
+        <p><br>
+<img border="0" src="image/01_maru.GIF">　プログラムでは，“出発空港と日時”を繰返し項目の1番目の要素で，“到着空港と日時”を繰返し項目の2番目の要素で表現している。<br>
+<img border="0" src="image/02_maru.GIF">　レコードは，対象となる旅程で利用する航空便の順番に格納されている。あるレコードの到着時刻から次のレコードの出発時刻までが乗継時間である。一つの航空便で直接目的地に到着する場合は，レコードは一つであり，乗継ぎはない。<br>
+<img border="0" src="image/03_maru.GIF">　便名は6けた以内の英数字項目であり，左詰めに格納されている。<br>
+<img border="0" src="image/04_maru.GIF">　空港コードは，英字3文字のコードであり，コードは重複しない。<br>
+<img border="0" src="image/05_maru.GIF">　日付は，4けたの西暦年YYYY，2けたの月MM及び2けたの日DDを，YYYYMMDDの形の10進数として格納している。
+</td>
+          </tr>
+          <tr>
+            <td valign="top">（2）</td>
+            <td>空港と現地時間の世界標準時からの時差を格納するファイルairports-fileのレコード様式は，次のとおりである。<br>
+        <p><img border="0" src="image/P_11_02.gif"></p>
+        <p><br>
+<img border="0" src="image/01_maru.GIF">　3文字の空港コードをキーとする索引ファイルである。<br>
+<img border="0" src="image/02_maru.GIF">　世界標準時からの時差の“時”は，符号付き数字項目であり，1けたの符号に続く2けたの数字で表現されている。“分”は，符号なし数字項目である。<br>
+<img border="0" src="image/03_maru.GIF">　飛行予定情報ファイルに格納されている空港コードは，必ずファイル中に存在する。
+</td>
+          </tr>
+          <tr>
+            <td valign="top">（3）</td>
+            <td>一連の航空便の飛行時間，飛行時間合計及び乗継時間合計の印字例を，図1に示す。このときのプログラムへの入力は，図2の飛行予定情報ファイルと図3の空港と現地時間の世界標準時からの時差を格納するファイルである。各航空便について，便名，出発空港コード，出発日付，出発時刻，到着空港コード，到着日付，到着時刻，飛行時間を印字し，最後に飛行時間合計及び乗継時間合計を印字する。飛行時間合計と乗継時間合計は，それぞれ100時間未満とする。<br>
+        <p><img border="0" src="image/P_11_03.gif"></p>
+        <p>
+図1　印字例<br>
+<br>
+        <p><img border="0" src="image/P_11_04.gif"></p>
+        <p>
+図2　飛行予定情報ファイルの例<br>
+<br>
+        <p><img border="0" src="image/P_11_05.gif"></p>
+        <p>
+図3　空港と現地時間の世界標準時からの時差を格納するファイルの例<br>
+<br>
+</td>
+          </tr>
+          <tr>
+            <td valign="top">（4）</td>
+            <td>プログラム中で使われている組込み関数INTEGER-OF-DATEは，飛行予定情報ファイルの日付の形式の整数を引数として受け取り，グレゴリオ暦で1600年12月31日からその日までの総日数を返す。</td>
+          </tr>
+        </table>
+<br>
+<br>
+〔プログラム〕<br>
+<br>
+DATA DIVISION.<br>
+FILE SECTION.<br>
+FD　airports-file.<br>
+01　airport-timediff-rec.<br>
+　05　3-letter-code　　　　　　　　　PIC X(3).<br>
+　05　local-timediff.<br>
+　　10　local-hh-diff　　　　　　　　PIC S9(2) LEADING SEPARATE.<br>
+　　10　local-mm-diff　　　　　　　　PIC 9(2).<br>
+FD　itinerary-file.<br>
+01　flight-schedule.<br>
+　05　flight-number　　　　　　　　　PIC X(6).<br>
+　05　flight-time-and-location occurs 2.<br>
+　　10　airport-of-call　　　　　　　PIC X(3).<br>
+　　10　arrv-dprt-date-grp.<br>
+　　　15　arrv-dprt-date　　　　　　 PIC 9(8).<br>
+　　10　arrv-dprt-time.<br>
+　　　15　arrv-dprt-hh　　　　　　　 PIC 9(2).<br>
+　　　15　arrv-dprt-mm　　　　　　　 PIC 9(2).<br>
+WORKING-STORAGE SECTION.<br>
+01　departure　　　　　　　　　　　　PIC 9 VALUE 1.<br>
+01　arrival　　　　　　　　　　　　　PIC 9 VALUE 2.<br>
+01　this-airport　　　　　　　　　　 PIC 9.<br>
+01　.<br>
+　05　normalized-minutes　　　　　　 PIC 9(9)　OCCURS 2.<br>
+01　arrival-normalized-minutes　　　 PIC 9(9).<br>
+01　time-in-minutes　　　　　　　　　PIC 9(9).<br>
+01　time-diff-in-minutes　　　　　 　PIC S9(9).<br>
+01　flight-minutes　　　　　　　　　 PIC S9(9).<br>
+01　transit-minutes　　　　　　　　　PIC S9(9).<br>
+01　accumulated-flight-minutes　　　 PIC 9(9).<br>
+01　accumulated-transit-minutes　 　 PIC 9(9).<br>
+01　elapsed-time-hhmm.<br>
+　05　elapsed-hours　　　　　　　　　PIC 9(2).<br>
+　05　　　　　　　　　　　　　　　　 PIC X　　 VALUE ":".<br>
+　05　elapsed-minutes　　　　　　　　PIC 9(2).<br>
+01　end-of-itinerary-file　　　　　　PIC X.<br>
+PROCEDURE DIVISION.<br>
+main-paragraph.<br>
+　　OPEN INPUT airpots-file itinerary-file.<br>
+　　MOVE "n" TO end-of-itinerary-file<br>
+　　INITIALIZE accumulated-flight-minutes<br>
+　　　　　　　　accumulated-transit-minutes<br>
+　　　　　　　　arrival-normalized-minutes<br>
+　　　　　　　　transit-minutes.<br>
+　PERFORM UNTIL end-of-itinerary-file = "y"<br>
+　　 READ itinerary-file AT END<br>
+　　　　MOVE "y" TO end-of-itinerary-file<br>
+　　 NOT AT END<br>
+　　　　PERFORM caluculate-flight-time<br>
+　　　　ADD transit-minutes TO accumulated-transit-minutes<br>
+　　　　ADD flight-minutes TO accumulated-flight-minutes<br>
+　　　　PERFORM display-flight-time<br>
+　　 END-READ<br>
+　END-PERFORM.<br>
+　PERFORM display-accumulated-time.<br>
+　CLOSE airports-file itinerary-file.<br>
+　STOP RUN.<br>
+calculate-flight-time.<br>
+　MOVE arrival TO this-airport.<br>
+　PERFORM normalize-time.<br>
+　MOVE departure TO this-airport.<br>
+　PERFORM normalize-time.<br>
+　IF　<B>[　　　　　　　a　　　　　　　]</B> THEN<br>
+　　　COMPUTE transit-minutes<br>
+　　　　　　 = <B>[　　　　　　　b　　　　　　　]</B><br>
+　END-IF.<br>
+　COMPUTE flight-minutes<br>
+　　　　 = <B>[　　　　　　　c　　　　　　　].</B><br>
+　MOVE normalized-minutes(arrival)<br>
+　　　　TO arrival-normalized-minutes.<br>
+normalize-time.<br>
+　MOVE <B>[　　　　　　　d　　　　　　　]</B> TO 3-letter-code.<br>
+　READ airports-file.<br>
+　IF 0 <= local-hh-diff THEN<br>
+　　 COMPUTE time-diff-in-minutes<br>
+　　　　　　= local-hh-diff * 60 + local-mm-diff<br>
+　ELSE<br>
+　　　COMPUTE time-diff-in-minutes<br>
+　　　　　　 = local-hh-diff * 60 - local-mm-diff<br>
+　END-IF.<br>
+　　 COMPUTE <B>[　　　　　　　e　　　　　　　]</B><br>
+　　　 = (FUNCTION INTEGER-OF-DATE(arrv-dprt-date(this-airport))<br>
+　　　　* 24 + arrv-dprt-hh(this-airport))<br>
+　　　　* 60 + arrv-dprt-mm(this-airport) - time-diff-in-minutes.<br>
+display-flight-time.<br>
+　　 MOVE flight-minutes TO time-in-minutes.<br>
+　　 PERFORM transform-minutes-to-hhmm.<br>
+　　 DISPLAY flight-number　　　　　　　　　　" "<br>
+　　　　　　　airport-of-call(departure)　　　" "<br>
+　　　　　　　arrv-dprt-date-grp(departure)　 " "<br>
+　　　　　　　arrv-dprt-time(departure)　　　 " to "<br>
+　　　　　　　airport-of-call(arrival)　　　　" "<br>
+　　　　　　　arrv-dprt-date-grp(arrival)　　 " "<br>
+　　　　　　　arrv-dprt-time(arrival)　　　　 ", flight time = "<br>
+　　　　　　　elapsed-time-hhmm.<br>
+display-accumulated-time.<br>
+　　 MOVE accumulated-flight-minutes TO time-in-minutes.<br>
+　　 PERFORM transform-minutes-to-hhmm.<br>
+　　 DISPLAY "Total flight time = " elapsed-time-hhmm.<br>
+　　 MOVE accumulated-transit-minutes TO time-in-minutes.<br>
+　　 PERFORM transform-minutes-to-hhmm.<br>
+　　 DISPLAY "Total transit time = " elapsed-time-hhmm.<br>
+transform-minutes-to-hhmm.<br>
+　　 DEVIDE time-in-nimutes BY 60<br>
+　　　　　　　GIVING elapsed-hours<br>
+　　　　　　　REMAINDER elapsed-minutes.<br>
+
+<br>  
+<hr>  
+<a NAME="111">　<BR>  
+<b>  
+設問</b></a><b><a NAME="111"></a>　</b>プログラム中の[　　　]に入れる正しい答えを，解答群の中から選べ。<br>
+<br>
+aに関する解答群<br>
+ア　0 < arrival-normalized-minutes<br>
+イ　0 < normalized-minutes(arrival)<br>
+ウ　0 < normalized-minutes(departure)<br>
+エ　0 = arrival-normalized-minutes<br>
+<br>
+<br>
+b，cに関する解答群<br>
+ア　arrival-normalized-minutes - normalized-minutes(departure)<br>
+イ　normalized-minutes(arrival) - normalized-minutes(departure)<br>
+ウ　normalized-minutes(departure) - arrival-normalized-minutes<br>
+エ　normalized-minutes(departure) - normalized-minutes(arrival)<br>
+オ　normalized-minutes(this-airport) - normalized-minutes(departure)<br>
+<br>
+d，eに関する解答群<br>
+ア　airport-of-call(arrival)<br>
+イ　airport-of-call(this-airport)<br>
+ウ　normalized-minutes<br>
+エ　normalized-minutes(arrival)<br>
+オ　normalized-minutes(this-airport)<br>
+カ　this-airport<br>
+<br>
+<br>
+<HR WIDTH=100%>
+  <a HREF="15F_P_A4.HTM#111">設問の正解例と解説へ</a>
+<HR WIDTH=100%>
+<p><A HREF="INDEX.HTM">メニューへ戻る</A>　</p>
+<HR WIDTH=100%>
+  　<BR>
+<b><a name="120">問12</a>　</b>次のJavaプログラムの説明及びプログラムを読んで，設問に答えよ。<br>
+<br>
+〔プログラムの説明〕<br>
+クラスMatrixは，要素の値が実数である行列を表すクラスであり，主な行列演算のためのメソッドを定義する。クラスMatrixTestは，クラスMatrixのオブジェクトクラスをテストするメソッドmainを定義するクラスである。<br>
+クラスMatrixの仕様は，次のとおりである。<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">（1）</td>
+            <td>クラスMatrixのコンストラクタは，行列の要素の値を含むdouble[][]型の引数をもつ。行及び列はnullではなく，各行の要素の個数は同一であるとする。空行列は考えない。</td>
+          </tr>
+          <tr>
+            <td valign="top">（2）</td>
+            <td>メソッドtoStringによって返される行列オブジェクトの文字列表現は，次のとおりである。<br>
+[[1行1列1行2列･･･1行N列]･･･[M行1列M行2列･･･M行N列]]<br>
+        <p><img border="0" src="image/P_12_01.gif"></p><br>
+</td>
+          </tr>
+          <tr>
+            <td valign="top">（3）</td>
+            <td>メソッドaddに，行列オブジェクトの引数を渡すと，オブジェクトthisと引数のオオブジェクトとの和の行列を返す。行列の和は，二つの行列の行数と列数がそれぞれ等しい場合にだけ定義される。<br>
+        <p><img border="0" src="image/P_12_02.gif"></p>
+オブジェクトthisとの和が定義されない行列オブジェクトが引数に渡された場合には，例外MatrixArithmeticExceptionを投げる。<br>
+</td>
+</td>
+          </tr>
+          <tr>
+            <td valign="top">（4）</td>
+            <td>メソッドmultiplyに，実数の引数を渡すと，オブジェクトthisの要素ごとにその引数を乗算した結果の行列を返す。<br>
+        <p><img border="0" src="image/P_12_03.gif"></p><br>
+</td>
+          </tr>
+          <tr>
+            <td valign="top">（5）</td>
+            <td>メソッドmultiplyに，行列オブジェクトの引数を渡すと，オブジェクトthisと引数のオブジェクトとの積の行列を返す。k行l列の行列Aと，m行n列の行列Bとの積ABは，行列Aの列数と行列Bの行数が等しい，すなわちl = mであるときにだけ定義される。AB=Cとするとき，積の行列Cはk行n列になる。このとき，行列Cの第i行第j列の要素の値は，行列Aのi行x列（ここで，x = 1,･･･，l）の値と行列Bのx行j列の値とを掛けて得られるl個の実数の和である。<br>
+        <p><img border="0" src="image/P_12_04.gif"></p><br>
+オブジェクトthisとの積が定義されない行列オブジェクトが引数に渡された場合には，例外MatrixArithmeticExceptionを投げる。
+</td>
+          </tr>
+        </table>
+
+<br>
+〔プログラム〕<br>
+class MatrixArithmeticException extends Exception{ }<br>
+<br>
+public class Matirx {<br>
+　 private double[][] values;<br>
+<br>
+　 public Matrix(double[][] initVal) {<br>
+　　　values = new double[initVal.length][initVal[0].lenght];<br>
+　　　// 配列 initValの内容を配列valueにコピーする<br>
+　　 for (int i = 0; i < initVal.length; i++) {<br>
+　　　　System.arraycopy(initVal[i], 0, values[i], 0,<br>
+　　　　　　　　　　　　　　initVal[i].length);<br>
+　　 }<br>
+　 }<br>
+<br>
+　 public Matrix add(Matrix m) throws MatrixArithmeticException {<br>
+　　 if (<B>[　　　　　　　　a　　　　　　　　]</B>)<br>
+　　　　 throw new MatrixArithmeticException();<br>
+　　 double[][] result =<br>
+　　　　 new double[values.length][values[0].length];<br>
+　　 for (int i = 0; i < values.length; i++) {<br>
+　　　　　for (int j = 0; j < values[0].length; j++) {<br>
+　　　　　　 result[i][j] = values[i][j] + m.values[i][j];<br>
+　　　　 }<br>
+　　 }<br>
+　　 <B>[　　　　　　　 b　　　　　　　 ]</B>;<br>
+　 }<br>
+　 public Matrix multiply(Matrix m)<br>
+　　　throws MatrixArithmeticException {<br>
+　　　if (<B>[　　　　　　　 c　　　　　　　 ]</B>)<br>
+　　　　　throw new MatrixArithmeticException();<br>
+　　　double[][] result =<br>
+　　　　 new double[values.length][m.values[0].length];<br>
+　　　for (int i = 0; i < values.length; i++) {<br>
+　　　　 for (int j = 0; j < m.values[0].length; j++) {<br>
+　　　　　　 for (int k = 0; k < m.values.length; k++) {<br>
+　　　　　　　　 result[i][j] += values[i][k] * m.values[k][j];<br>
+　　　　　　 }<br>
+　　　　 }<br>
+　　　}<br>
+　　　<B>[　　　　　　　 b　　　　　　　 ]</B>;<br>
+　 }<br>
+　 public Matrix multiply(double d) {<br>
+　　　double[][] result =<br>
+　　　 new double[values.length][values[0].length];<br>
+　　for (int i = 0; i < values.length; i++) {<br>
+　　　　for (int j = 0; j < values[0].length; j++) {<br>
+　　　　　 result[i][j] = values[i][j] * d;<br>
+　　　　}<br>
+　　}<br>
+　　<B>[　　　　　　　 b　　　　　　　 ]</B>;<br>
+}<br>
+<br>
+　 public String toString() {<br>
+　　　StringBuffer rep = new StringBuffer("[");<br>
+　　　for (int i = 0; i < values.length; i++) {<br>
+　　　　 rep.append("[");<br>
+　　　　 for (int j = 0; j < values[0].length; j++) {<br>
+　　　　　　rep.append(((j > 0) ? " " : "") + values[i][j]);<br>
+　　　　 }<br>
+　　　　 rep.append("]");<br>
+　　　}<br>
+　　　rep.append("]");<br>
+　　　<B>[　　　　　　　 d　　　　　　　 ]</B>;<br>
+　 }<br>
+}<br>
+<br>
+class MatrixTest {<br>
+　 public static void main(String[] args)<br>
+　　throws MatixArithmeticException {<br>
+　　// 例1<br>
+　　Matix matrix0 =<br>
+　　 new Matrix(new double[][]{{1.0, 2.0}, {3.0, 4.0}});<br>
+　　System.out.println(matrix0);<br>
+<br>
+　　// 例2<br>
+　　Matix matrix1 =<br>
+　　 new Matrix(new double[][]{{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}});<br>
+　　Matix matrix2 =<br>
+　　 new Matrix(new double[][]{{1.2, 1.3, 1.4}, {1.5, 1.6, 1.7}});<br>
+　　System.out.println(matrix1.add(matrix2));<br>
+<br>
+　　// 例3<br>
+　　double d = 2.0;<br>
+　　System.out.println(matrix0.multiply(d));<br>
+<br>
+　　// 例4<br>
+　　Matrix matrix3 =<br>
+　　 new Matrix(new double[][]{{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}});<br>
+　　Matix matrix4 =<br>
+　　 new Matrix(new double[][]{{1.0, 0.0}, {0.0, 1.0}, {1.0, 0.0}});<br>
+　　System.out.println(matrix3.multiply(matrix4));<br>
+　　}<br>
+}<br>
+
+<br>
+<p><b><a name="121">設問</a></b>　プログラム中の［　　　　］に入れる正しい答えを，解答群の中から選べ。<br>
+<br>
+a，cに関する解答群<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">ア</td>
+            <td>　values.length == m.valuese[0].length</td>
+          </tr>
+          <tr>
+            <td valign="top">イ</td>
+            <td>　values.length != m.valuese[0].length</td>
+          </tr>
+          <tr>
+            <td valign="top">ウ</td>
+            <td>　values[0].length == m.values.length</td>
+          </tr>
+          <tr>
+            <td valign="top">エ</td>
+            <td>　values[0].length != m.values.length</td>
+          </tr>
+          <tr>
+            <td valign="top">オ</td>
+            <td>　values.length == m.values.length &&<br>
+　values[0].length == m.values[0].length</td>
+          </tr>
+          <tr>
+            <td valign="top">カ</td>
+            <td>　values.length != m.values.length ||<br>
+　values[0].length != m.values[0].length</td>
+          </tr>
+          <tr>
+            <td valign="top">キ</td>
+            <td>　values[0].length == m.values.length &&<br>
+　values.length == m.values[0].length</td>
+          </tr>
+          <tr>
+            <td valign="top">ク</td>
+            <td>　values[0].length != m.values.length ||<br>
+　values.length != m.values[0].length</td>
+          </tr>
+        </table>
+<br>
+b，dに関する解答群<br>
+ア　return (Matrix)null<br>
+イ　return new Matrix()<br>
+ウ　return new Matrix(result)<br>
+エ　return new String(rep)<br>
+オ　return rep<br>
+カ　return rep.getBytes()<br>
+キ　return result<br>
+ク　System.out.println(rep)<br>
+<HR WIDTH=100%>  
+  <a HREF="15F_P_A4.HTM#121">設問の正解例と解説へ</a>  
+<HR WIDTH=100%>
+<A HREF="INDEX.HTM">メニューへ戻る</A>
+<HR WIDTH=100%>   
+<a NAME="120">　<BR>
+<b> 
+問13</b></a>　次のアセンブラプログラムの説明及びプログラムを読んで，設問1～3に答えよ。<BR>
+<BR>
+〔プログラムの説明〕<BR>
+副プログラムBINSは，次に示すように，ビット列1の左端の部分ビット列Aをビット列2の指定された位置に挿入する。m，nはそれぞれビット数を表す。<BR>
+<p><img border="0" src="image/P_13_01.gif"><br>
+<br>
+</p>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">（1）</td>
+    <td>ビット列1とビット列2の長さは，それぞれ16ビット（1語）とする。</td>
+  </tr>
+  <tr>
+    <td valign="top">（2）</td>
+    <td>GR0～GR3には，それぞれ次の内容が設定されて，主プログラムから渡される。<br>
+　　　GR0：ビット列1<br>
+　　　GR1：ビット列2が格納されている語のアドレス<br>
+　　　GR2：m<br>
+　　　GR3：n<br>
+</td>
+  </tr>
+  <tr>
+    <td valign="top">（3）</td>
+    <td>0 ≦ m ＜ 16，0 ≦ n ＜ 16，m＋n ≦ 16とする。</td>
+  </tr>
+  <tr>
+    <td valign="top">（4）</td>
+    <td>部分ビット列Cのはみ出した部分は捨てられる。</td>
+  </tr>
+  <tr>
+    <td valign="top">（5）</td>
+    <td>副プログラムから戻るとき，汎用レジスタGR1～GR7の内容は元に戻す。<br>
+  </tr>
+</table>
+<br>
+
+〔プログラム〕<br>
+　（行番号）<br>
+　 1　BINS　START<br>
+　 2　　　　 PRUSH<br>
+　 3　　　　 LD　　　 GR4, GR2<br>
+　 4　　　　 ADDA　　 GR4, GR3　　　　　; GR4 ← m + n<br>
+　 5　　　　 LAD　　　GR5, 16<br>
+　 6　　　　 SUBA　　 GR5, GR2　　　　　; GR5 ← 16－m<br>
+　 7　　　　 LAD　　　GR6, 16<br>
+　 8　　　　 SUBA　　 GR6, GR4　　　　　; GR6 ← 16－(m + n)<br>
+　 9　　　　 LAD　　　GR2, 16<br>
+　10　　　　 SUBA　　 GR2, GR3　　　　　; GR2 ← 16－n<br>
+　11　　　　 LD　　　 GR7, 0, GR1　　　 ; GR7 ← ビット列2<br>
+　12　　　　 SRL　　　GR7, 0, GR2<br>
+　13　　　　 SLL　　　GR7, 0, GR2　　　 ; 部分ビット列Cをすべて0にする<br>
+　14　　　　 SRL　　　GR0, 0, GR5<br>
+　15　　　　 <B>[　　　　　　a　　　　　　]</B>　; 部分ビット列Aを挿入位置に移動<br>
+　16　　　　 OR　　　　GR7, GR0<br>
+　17　　　　 LD　　　　GR2, 0, GR1　　　; ビット列2の元の内容<br>
+　18　　　　 SLL　　　 GR2, 0, GR3<br>
+　19　　　　 <B>[　　　　　　b　　　　　　]</B>　; 部分ビット列Cを結果の位置に移動<br>
+　20　　　　 OR　　　　 GR7, GR2<br>
+　21　　　　 ST　　　　 GR7, 0, GR1<br>
+　22　　　　 RPOP<br>
+　23　　　　 RET<br>
+　24　　　　 END<br>
+<br>  
+<hr>  
+<a NAME="131">　<BR>
+<b>  
+設問</b></a><b><a NAME="131">1</a>　</b>プログラムの中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。<BR>
+<BR>
+ア　SLL     GR0, 0, GR2<BR>
+イ　SLL     GR0, 0, GR4<BR>
+ウ　SLL     GR0, 0, GR5<BR>
+エ　SLL     GR0, 0, GR6<BR>
+オ　SRL     GR2, 0, GR3<BR>
+カ　SRL     GR2, 0, GR4<BR>
+キ　SRL     GR2, 0, GR5<BR>
+ク　SRL     GR2, 0, GR6<BR>
+<br> 
+<HR WIDTH=100%> 
+  <a HREF="15F_P_A4.HTM#131">設問1の正解例へ</a> 
+<HR WIDTH=100%> 
+<a NAME="132"> 
+<b> 
+設問</b></a><b>2　</b>次の記述中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。<BR>
+<BR>
+主プログラムから渡されたビット列1，ビット列2，m，nの内容が次のとおりのとき，行番号16のOR命令実行直前のGR7の内容は<B>［　　c　　］</B>で，GR0の内容は<B>［　　d　　］</B>である。<BR>
+<br>
+        <p><img border="0" src="image/P_13_21.gif"></p>
+        <p>
+解答群<BR>
+        <p><img border="0" src="image/P_13_22.gif"></p>
+        <p>
+<HR WIDTH=100%>
+  <a HREF="15F_P_A4.HTM#132">設問2の正解例へ</a>
+<HR WIDTH=100%>
+<a NAME="133"> 
+<b> 
+設問</b></a><b>3　</b>副プログラムBINSを使用して，次に示すように，部分ビット列Aを長さが32ビット（2語）のビット列2に挿入する副プログラムBINSLを作成した。<br>
+        <p><img border="0" src="image/P_13_31.gif"></p>
+        <p>
+主プログラムから渡されるレジスタの内容は，次のとおりとする。<br>
+　　　GR0：ビット列1<br>
+　　　GR1：ビット列2が格納されている領域の先頭アドレス<br>
+　　　GR2：m<br>
+　　　GR3：n<br>
+　なお，0 ≦ m ＜ 16，0 ≦ n ＜ 32，m＋n≦32とする。<br>
+　<br>
+　副プログラムBINSL中の<B>［　　　　］</B>に入れる正しい答えを，解答群の中から選べ。<br>
+　<br>
+　<br>
+　BINSL　START<br>
+　　　　　RPUSH<br>
+　　　　　CPA　　 GR3,=15　　　　　 ; n≧16 ?<br>
+　　　　　JPL　　 RIGHT　　　　　　 ; YES<br>
+　　　　　LD　　　GR7, 0, GR1　　　; ビット列2の第1語を退避<br>
+　　　　　LD　　　GR5, GR2<br>
+　　　　　ADDA　　GR5, GR3　　　　 ; GR5 ← m + n<br>
+　　　　　CPA　　 GR5,=17　　　　　; m + n ≦ 16 ?<br>
+　　　　　JMI　　 LEFT　　　　　　　; YES<br>
+　　　　　LAD　　 GR2, 16<br>
+　　　　　SUBA　　GR2, GR3<br>
+　　　　　LD　　　GR6, GR0　　　　 ; 部分ビット列Aのはみ出す部分を<br>
+　　　　　SLL　　 GR6, 0, GR2　　 ;　　 左端に寄せてビット列1を退避<br>
+　LEFT　 CALL　　BINS　　　　　　　; 部分ビット列Aをビット列2に挿入<br>
+　　　　　LAD　　 GR1, 1, GR1　　　; GR1 ←ビット列2の第2語のアドレス<br>
+　　　　　LAD　　 GR3, 16<br>
+　　　　　<B>[　　　　 e　　　　 ]</B><br>
+　　　　　LD　　　GR0, GR7　　　　; ビット列2の第1語のはみ出した部分を<br>
+　　　　　SLL　　 GR0, 0, GR3   　　;　　 左端に寄せる<br>
+　　　　　LD　　　GR3, 0　　　　　; n ← 0<br>
+　　　　　CALL　　BINS　　　　　　; はみ出したビット列を第2語に挿入<br>
+　　　　　LD　　　GR2, GR5<br>
+　　　　　SUBA　 GR2, =16　　　　 ; m ← (m + n)－16<br>
+　　　　　JMI　　FIN<br>
+　　　　　LD　　　GR0, GR6　　　　; 部分ビット列Aのはみ出す部分を<br>
+　　　　　CALL　　BINS　　　　　　;　　　　第2語に挿入<br>
+　　　　　JUMP　　FIN<br>
+　RIGHT　<B>[　　　　　 f　　　　　 ]</B><br>
+　　　　　LAD　　 GR1, 1, GR1　　; GR1 ←ビット列2の第2語のアドレス<br>
+　　　　　CALL　　BINS<br>
+　FIN　　 RPOP<br>
+　　　　　RET<br>
+　　　　　END<br>
+　<br>
+　解答群<br>
+　<br>
+　ア　ADDA　　GR2, GR3<br>
+　イ　ADDA　　GR3, GR2<br>
+　ウ　LAD　　 GR2, -16, GR3<br>
+　エ　LAD　　 GR2, -16, GR5<br>
+　オ　LAD　　 GR3, -16, GR3<br>
+　カ　LAD　　 GR3, -16, GR5<br>
+　キ　SUBA　　GR2, GR3<br>
+　ク　SUBA　　GR3, GR2<br>
+<br>
+<HR WIDTH=100%>
+  <a HREF="15F_P_A4.HTM#133">設問3の正解例へ</a>
+<HR WIDTH=100%>
+<p><A HREF="INDEX.HTM">メニューへ戻る</A>　</p>
+<HR WIDTH=100%>
+<BR>
+  <br>
+</blockquote>
+</BODY>
+</HTML>

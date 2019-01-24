@@ -1,0 +1,203 @@
+<HTML>
+<HEAD>
+<TITLE>平成12年度秋期試験</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0">
+<blockquote>
+  <hr>
+  <H3 align="center"><font size="4">平成12年度秋期試験　正解例と解説(問7～問10)</font></H3>
+<hr>
+<P>
+<a NAME="70">
+<b>
+問7</b></a><b>　</b>
+<hr> 
+<a NAME="71">　<BR>
+<b>
+設問</b></a><b>　</b>
+  <p>＜解答＞a　カ　　　b　ア　　　c　イ　　　d　エ　　　e　ウ</p>
+  <p>＜解説＞空欄aについて<br>
+  　空欄aは、whileループの繰返しの条件になっている。デスクトップPCのアドレス帳の配列とノートPCのアドレス帳の配列を先頭から順に処理し、両者とも配列の要素をすべて処理し終わったとき、ループの繰返しを終了すればよい。この場合はループの繰返し条件であるから、終了条件の否定となる。いずれかのPCのアドレス帳の配列要素が最後まで処理し終わってない場合、つまり“デスクトップPCのアドレス帳の配列要素が最後まで処理し終わってないか、またはノートPCのアドレス帳の配列要素が最後まで処理し終わってない間”はループを繰返す。<br>
+  ADDR配列のfragの最後の要素には、配列要素の終端を示す"E"が格納されている。したがって繰返し条件は、"desk[didx].flag ! = "E" || note[nidx].flag ! = "E" となり、解答群のカが正解。</p>   
+  <p>空欄b、c、dについて<br>   
+  　whileループの最初に関数namecomp ( )が実行され、その戻り値がcompにセットされている。関数namecomp ( )は、デスクトップPCおよびノートPCのアドレス帳の氏名と氏名の長さを引数とし、関数の処理の中でstrncmp ( )により文字列の大小比較をしている。その結果により戻り値がcompにセットされる。<br>   
+  　次のif文でこのcompの値により3つに分岐し、comp＜0の場合の最後の処理で空欄bが実行され、comp＞0の場合は空欄c、comp＝0の場合は空欄dが実行される。空欄b、c、dの解答群は、配列の添字didx、nidx、sidxのインクリメントに関するものである。したがって空欄b、空欄c、空欄dはそれぞれcomp＜0、comp＞0、comp＝0の場合における添字のインクリメント処理である。</p>
+  <table border="0" cellpadding="3" cellspacing="0">
+    <tr>
+      <td valign="top">(1)</td>
+      <td> comp＜0の場合
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">①</td>
+            <td>デスクトップPCのアドレス帳配列のflagが "D"でないとき、デスクトップPCのアドレス帳の配列desk[didx]を、同期したアドレス帳の配列sync[sidx]にセット</td>   
+          </tr>   
+          <tr>   
+            <td valign="top">②</td>   
+            <td>セット後、sync[sidx]のflagに " "をセットし、sidxをインクリメント</td>   
+          </tr>   
+          <tr>   
+            <td valign="top">③</td>   
+            <td>その後、空欄bのインクリメント処理を実行</td>   
+          </tr>   
+        </table>   
+        <p>したがって空欄bで、didxのインクリメントが必要となり、解答群のアが正解。つまりcomp＜0の場合は、デスクトップPCのアドレス帳にだけ氏名が存在する場合に相当する</td>   
+    </tr>   
+    <tr>   
+      <td valign="top">(2)</td>  
+      <td>comp＞0の場合  
+        <table border="0" cellpadding="3" cellspacing="0">  
+          <tr>  
+            <td valign="top">①</td>  
+            <td>ノートPCのアドレス帳配列のflagが "D"でないとき、ノートPCのアドレス帳の配列desk[didx]を同期したアドレス帳の配列sync[sidx]にセット</td>   
+          </tr>   
+          <tr>   
+            <td valign="top">②</td>   
+            <td>セット後、sync[sidx]のfalgに " "をセットし、sidxをインクリメント</td>   
+          </tr>   
+          <tr>   
+            <td valign="top">③</td>   
+            <td>その後、空欄cのインクリメント処理を実行</td>   
+          </tr>   
+        </table>   
+        <p>したがって空欄cで、nidxのインクリメントが必要となり、解答群のイが正解。<br>   
+        つまりcomp＞0の場合は、ノートPCのアドレス帳にだけ氏名が存在する場合に相当する</td>   
+    </tr>   
+    <tr>   
+      <td valign="top">(3)</td>  
+      <td>comp＝0の場合  
+        <table border="0" cellpadding="3" cellspacing="0">  
+          <tr>  
+            <td valign="top">①</td>  
+            <td>デスクトップPCのアドレス帳の更新日付の方が新しいとき  
+              <table border="0" cellpadding="3" cellspacing="0">  
+                <tr>  
+                  <td valign="top">1)</td>  
+                  <td>flagが "D"以外であればデスクトップPCのアドレス帳の配列desk[didx] を、同期した同期したアドレス帳の配列sync[sidx]にセット</td>   
+                </tr>   
+                <tr>   
+                  <td valign="top">2)</td>  
+                  <td>セット後、sync[sidx]のflagに " "をセットし、sidxをインクリメント</td>   
+                </tr>   
+              </table>   
+            </td>   
+          </tr>   
+          <tr>   
+            <td valign="top">②</td>  
+            <td>ノートPCのアドレス帳の更新日付の方が新しいとき  
+              <table border="0" cellpadding="3" cellspacing="0">  
+                <tr>  
+                  <td valign="top">1)</td>  
+                  <td>flagが "D"以外であればノートPCのアドレス帳の配列note[didx] を、同期した同期したアドレス帳の配列sync[sidx]にセット</td>   
+                </tr>   
+                <tr>   
+                  <td valign="top">2)</td>   
+                  <td>セット後、sync[sidx]のflagに " "をセットし、sidxをインクリメント</td>   
+                </tr>   
+              </table>   
+            </td>   
+          </tr>   
+          <tr>   
+            <td valign="top">③</td>  
+            <td>その後、空欄dのインクリメント処理を実行</td>  
+          </tr>  
+        </table>  
+      </td>  
+    </tr>  
+  </table>  
+  <p>つまりcomp＝0の場合は、デスクトップPC、ノートPCの両方のアドレス帳に氏名が存在する場合に相当し、更新日付の新しい方をセットするので、didxおよびnidxの両方のインクリメントが必要となり、解答群のエが正解。</p>  
+  <p>空欄eについて<br>  
+  　空欄eの解答群は、関数namecomp ( )の戻り値resultに対する設定値に関するものである。<br>   
+  　関数namecomp ( )の引数*str1、len1にはデスクトップPCのアドレス帳の氏名、氏名の長さがセットされ、*str2、len2にはノートPCのアドレス帳の氏名、氏名の長さがセットされる。アドレス帳の配列が終端となれば、氏名の長さには－1がセットされる。</p>   
+  <table border="0" cellpadding="3" cellspacing="0">  
+    <tr>  
+      <td valign="top">①</td>  
+      <td>デスクトップPCの方の配列が終端となれば、len1＝－1となり、戻り値としてcompに1がセットされ、comp＞0の場合の処理になる。</td>  
+    </tr>  
+    <tr>  
+      <td valign="top">②</td>  
+      <td>逆にノートPCの配列が終端となれば、len2＝－1となり、戻り値としてcompに－1がセットされ、comp＜0の場合の処理になる。</td>  
+    </tr>  
+    <tr>  
+      <td valign="top">③</td>  
+      <td>両方とも配列が終端でない場合、デスクトップPCとノートPCのアドレス帳の氏名の長さの小さい方がlengにセットされ、次の関数strncomp ( )により両者の氏名str1とstr2が先頭からleng文字比較される。この結果</td>   
+    </tr>   
+  </table>   
+  <table border="0" cellpadding="3" cellspacing="0">  
+    <tr>  
+      <td valign="top">1)</td>  
+      <td> デスクトップPCの方のstr1の氏名が大きければ、戻り値resultが正の整数となり、comp＞0の場合の処理となる。</td>  
+    </tr>  
+    <tr>  
+      <td valign="top">2)</td>  
+      <td> 逆にノートPCの方のstr2の氏名が大きければ、戻り値resultが負の整数となり、comp＜0の場合の処理となる。</td>  
+    </tr>  
+    <tr>  
+      <td valign="top">3)</td>  
+      <td> 氏名str1とstr2の先頭部分leng文字が一致した場合、戻り値resultが0となるので、次のif文で空欄eで戻り値resultの設定が行われる。氏名の先頭部分のleng文字が一致しても、氏名str1とstr2の文字列の大小関係は、氏名の長さlen1とlen2の比較により決まる。len1＜len2のときcomp＜0の場合の処理を、len1＞len2のときcomp＞0の場合の処理を行えばよいので、result＝len1－len2とすればよい。</td>  
+    </tr>  
+  </table>  
+  <p>&nbsp;つまり解答群のウが正解。<br>  
+  </p>  
+<HR WIDTH=100%>   
+  <a HREF="12f_p_e3.htm#71">問題へ</a>   
+<HR WIDTH=100%>   
+<p><A HREF="index.htm">メニューへ戻る</A>　</p>   
+<HR WIDTH=100%>   
+<a NAME="80">　<BR>  
+<b>  
+問8</b></a>　
+<HR WIDTH=100%> 
+<a NAME="81"><b>　<BR> 
+設問</b></a><b>　</b>
+  <p>＜解答＞ａ　エ　　ｂ　ア　　ｃ　ケ　　ｄ　ウ　　ｅ　イ</p>
+  <p>＜解説＞空欄ａ<br>
+  　このカレンダーの印字処理では，OPEN文直後のPERFORM文でWMONTHを1から12まで変えながら，カレンダーの1月から12月までの印字処理をしています。<br>
+  空欄ａを含むPERFORM文の繰り返し処理は，WDAYの日付を1日から月末日まで変えながら，7日分ずつ作業領域DAYSに休日マーク＊と日付を格納して1カ月分のカレンダーを印字する処理です。この空欄ａには日付WDAYに関する終了条件が必要になります。<br>
+  テーブルMMAX(1)からMMAX(12)には各月の日数が格納されており，WMONTHを1から12まで変えながら，カレンダーの1月から12月までの印字処理をしているので，ループの終了条件はWDAY＞MMAX(WMONTH)とすればよい。</p>
+  <p>空欄ｂ<br>
+  　空欄ｂを含むIF文での処理では，WDATE＝7であれば作業領域DAYSに1週間分の日付と休日マーク＊が格納されるので1行分印字しますが，WDATE＝7でない場合はWDATEを＋１だけ進める必要があります。空欄ｂはWDATE＝7でない場合の処理に該当するので，COMPUTE　WDATE = WDATE ＋ 1 とすればよい。</p>  
+  <p>空欄ｃ<br>  
+  　空欄ｃを含むYOUBI-SHORIは，Zellerの公式による曜日処理に関する部分で，空欄ｃを含むIF文は，その公式中で使われているWMM≦2の場合に行うべき処理に該当しています。Zellerの公式では１月，2月はそれぞれ前年の13月，14月として処理するので，公式で計算する前にWMM≦2の場合はWMMに12を加算しておく必要があります。したがって空欄ｃは，COMPUTE　WMM ＝ WMM ＋ 12とすればよい。</p>  
+  <p>空欄ｄ<br>  
+  　曜日処理ではZellerの公式により，WDATEを7で割った余り0～6を計算し，日曜日～土曜日の曜日を判定しています。したがって空欄ｄでWDATEを7で割った余りを計算する処理が必要になります。また次の空欄ａを含むPERFORM文の処理中で，日付WDAYをテーブルDDAY（WDATE）に格納しています。テーブルDDAYの添字は1～7である必要があるので，この余りに＋１を加算する必要があります。したがって空欄ｄは，<br>
+  COMPUTE　WDATE＝（WDATE／7）＊ 7 ＋ 1 とすればよい。</p>  
+  <p>空欄ｅ<br>  
+  　空欄ｅは，作業領域WKYUJITSUに休日マーク＊をセットする条件になっています。休日マーク＊は，①日曜日②祝日③祝日が日曜日のときの翌日のいずれかの場合にセットします。①の条件はWDATE＝1になります。また空欄ｅ直前のIF文の処理で祝日の場合はWSHUKU＝1にセットされるので，②の条件はWSYUKU＝1になります。月曜日の場合はWDATE＝2であり，前日が祝日の場合WBKSHUKU＝1にセットされるので，③の条件はWDATE＝2かつWBKSHUKU＝1となります。したがって空欄ｅは，WDATE＝1 OR WSYUKU＝1 OR WDATE＝2 AND WBKSHUKU＝1 となります。</p>  
+<p>　</p> 
+<HR WIDTH=100%>  
+  <a HREF="12f_p_e3.htm#81">問題へ</a>  
+<HR WIDTH=100%>  
+<A HREF="index.htm"><br>  
+メニューへ戻る<br>  
+</A>  
+<HR WIDTH=100%>  
+  <p>  
+<a NAME="90">  
+<b>問9</b></a>　　（解説は省略します。）</p> 
+<HR WIDTH=100%> 
+<a NAME="91">　<BR> 
+<b> 
+設問</b></a><b>　</b>
+  <p>＜解答＞　a　ア　　b　イ　　c　イ　　d　エ<br>
+  　</p>
+<HR WIDTH=100%>
+  <a HREF="12f_p_e3.htm#91">問題へ</a>
+<HR WIDTH=100%>
+  　<BR>
+<b><a name="100">問10</a>　　</b>（解説は省略します。）
+<hr>
+<p><b><a name="101">設問</a>　</b></p>
+<p>＜解答＞　a　イ　　b　ア　　c　ウ　　d　オ　　e　イ<br>
+　</p>
+<HR WIDTH=100%>
+  <a HREF="12f_p_e3.htm#101">問題へ</a>
+<HR WIDTH=100%>
+  　<BR>
+<A HREF="index.htm">メニューへ戻る</A>
+<HR WIDTH=100%>
+<p><BR>
+</p>
+  <p>　</p>
+</blockquote>
+</BODY>
+</HTML>

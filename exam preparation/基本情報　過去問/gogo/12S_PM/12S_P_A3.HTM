@@ -1,0 +1,141 @@
+<HTML>
+<HEAD>
+<TITLE>平成12年度春期試験</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0">
+<blockquote>
+  <hr>
+  <H3 align="center">平成12年度春期試験　正解例と解説(問7～問10)</H3>
+<HR WIDTH=100%>
+<a NAME="70">　<BR>
+<b>
+問7</b></a><b>　</b>
+  <br>
+<hr> 
+<a NAME="71">　<BR>
+<b>
+設問</b></a><b>　</b>
+  <p>＜解答＞　a イ　　b エ　　c エ　　dオ　　eウ
+  <p>＜解説＞空欄aについて<br>
+  　空欄aを含むforループは、－90を初期値とし270未満の範囲で変数wを変えて、時計の目盛りのx座標、y座標を計算し、2次元配列PlateX[x]、PlateY[y]にその座標値を格納する処理である。このforループ内にx, y, wに関するインクリメントの処理がないので、この空欄aで以下のインクリメントを行う必要がある。</p>   
+  <table border="0" cellpadding="3" cellspacing="0">  
+    <tr>  
+      <td valign="top">①</td>  
+      <td>配列に格納するごとにx, yを＋1ずつインクリメントする（増加させる）</td>   
+    </tr>   
+    <tr>   
+      <td valign="top">②</td>  
+      <td>配列PlateX[x]、PlateY[y]は、目盛り円上の座標値を回転角1度ごとに計算し格納していく配列であり、0から359まで360個の要素が定義されている。これを計算するためにwを＋1ずつインクリメントして計算し格納していく。</td>  
+    </tr>  
+  </table>  
+  <p>したがって空欄aの処理は、“w++，x++，y++”である。<br>  
+  <br>  
+  空欄bについて<br>  
+  空欄bを含むforループでは、angleを6ごとに、つまり6度ごとに60個の目盛りを描画する。空欄bはLargeMarkのサイズで大型円形マーカを描画するためのif文の条件である。この大型円形マーカは5個ごと、つまり6×5＝30度ごとに描画する。したがってangleが30の倍数、つまりangleを30で割った余りが0のときSize=LargeMarkにセットして描画すればよく、“angle % 30 = =0”が正解。<br>   
+  <br>   
+  空欄c、dについて<br>   
+  空欄cは分針の角度angleの計算で、分針は1分で6度、10秒で1度進むので<br>   
+  　　angle＝描画する時刻Minute（分）×6＋描画する時刻Second(秒)÷10<br>
+  したがって“pt->Minute*6 + pt->Second/10”正解。<br>   
+  空欄dは時針の角度angleの計算で、時針は1時間で30度、2分で1度進むので<br>   
+  　　angle＝描画する時刻Hour（時）×30＋描画する時刻Minute（分）÷2<br>
+  したがって“pt->Hour*30 + pt->Minute/2”が正解。<br>   
+  <br>   
+  空欄eについて<br>   
+  空欄eは、分針の75％の長さの時針の先端の座標計算に関する部分で、y座標では、</p>   
+  <table border="0" cellpadding="3" cellspacing="0">  
+    <tr>  
+      <td>①</td>  
+      <td> (Cx, Cy) と (PlateX(angle), PlateY(angle)) の中点 (Hx, Hy) を計算</td>   
+    </tr>   
+    <tr>   
+      <td>②</td>   
+      <td> (Hx, Hy) と (PlateX(angle), PlateY(angle)) の中点として (Hx, Hy)   
+        を計算</td>  
+    </tr>  
+  </table>  
+  <p>しているので、同様にx座標も計算すればよい。 空欄eは②の部分に該当し、Hx＝(Hx＋pt->PlateX[angle])／2とすればよく、“pt->PlateX[angle]”が正解。</p>  
+  <p>　</p>  
+<HR WIDTH=100%>   
+<a HREF="12s_p_e3.htm#71">問題へ</a>   
+<HR WIDTH=100%>   
+<p><A HREF="index.htm">メニューへ戻る</A>　</p>   
+<HR WIDTH=100%>   
+<a NAME="80">　<BR> 
+<b> 
+問8</b></a>　
+<HR WIDTH=100%> 
+<a NAME="81"><b>　<BR> 
+設問</b></a><b>　</b>
+  <p>＜解答＞ａ　ウ　　ｂ　カ　　ｃ　エ　　ｄ　ク　　ｅ　ア</p>
+  <p>＜解説＞<br>
+  プログラムでは、ソートの直前と直後にそれぞれ入力手続、出力手続がある以下のSORT文が使われている。（前記COBOLにおけるSORT文参照）<br>
+  SORT文では、</p>
+  <table border="0" cellpadding="3" cellspacing="0">
+    <tr>
+      <td>①</td>
+      <td>ソート前に入力手続としてKENSAKU-SHORIを行った後</td>
+    </tr>
+    <tr>
+      <td>②</td>
+      <td>GAITO-FILEを習熟度の合計G-POINTの降順にソート</td>
+    </tr>
+    <tr>
+      <td>③</td>
+      <td>ソート後に出力手続としてHYOJI-SHORIを行っている</td>
+    </tr>
+  </table>
+  <p>空欄aについて<br>
+  空欄aは、SORT命令におけるソートキーに関する指定である。ソートファイルはGAITO-FILEで、習熟度の合計G-POINTの降順にソートする。したがって解答群のウ、ON DESCENDING KEY G-POINTが正解。<br>  
+  <br>  
+  空欄bについて<br>  
+  KENSAKU-SHORIにおいて、IF文の条件がMATCH=1である場合、RELEASE文によりGAITO-FILEが出力されている。要求条件1～10をすべて満たす人材登録ファイルのレコードを出力するので、MATCH=1は検索条件をすべて満たした場合であることが分かる。このMATCHは、IF文の空欄cの条件のとき0にセットされる。つまり要求条件1～10のうち1つでも満たさないものがあれば、0にセットする処理が、この空欄cを含むPERFORM文のループである。したがってこのPERFORMループの直前の空欄bで、MATCHを1にセットしておく必要があり、解答群のカ、MOVE 1 TO MATCHが正解。<br>  
+  <br>  
+  空欄cについて<br>  
+  IF文の空欄cの条件のとき、MATCHに0がセットされている。技能J-SKILL(K)が要求条件JOKEN(K)を満たさないとき0をセットすればよいので、解答群のエ、<br>  
+  J-SKIL(K)＜JOKEN(K)が正解。<br>  
+  <br>  
+  空欄d、eについて<br>  
+  空欄d、eは、空欄cの条件J-SKIL(K)＜JOKEN(K)が成り立たない場合、つまりJ-SKILL(K)≧JOKEN(K)が成り立つ場合の処理である。この条件は人材の技能の習熟度が要求条件以上であるという条件である。したがって空欄eで必要な技能について習熟度を加算する処理を行えばよい。要求条件JOKEN(K)=0のときは習熟度が不要なので、JOKEN(K)＞0のときだけこの習熟度の加算処理を行う。つまり空欄dは解答群のク、JOKEN(K)＞0、空欄eは解答群のア、COMPUTE G-POINT = G-POINT ＋ J-SKILL(K)が正解。<br>  
+  </p>  
+<HR WIDTH=100%>   
+<a HREF="12s_p_e3.htm#81">問題へ</a>  
+<HR WIDTH=100%>  
+<A HREF="index.htm"><br>  
+メニューへ戻る<br>  
+</A>  
+<HR WIDTH=100%>  
+<p>  
+<a NAME="90">  
+<b>問9</b></a><b>　　</b>（解説は省略します。）</p> 
+<HR WIDTH=100%> 
+<a NAME="91">　<BR> 
+<b> 
+設問</b></a>
+  <p>＜解答＞　a ウ　　b ウ　　c ア　　d イ<br> 
+  　</p>
+<HR WIDTH=100%>
+<a HREF="12s_p_e3.htm#91">問題へ</a>
+<HR WIDTH=100%>
+  　<BR>
+  <A HREF="index.htm">メニューへ戻る</A>　 
+<HR WIDTH=100%> 
+  <p>
+<b><a name="100">問10</a>　　</b>（解説は省略します。）
+  </p>
+<hr>
+<p><b><a name="101">設問</a>　</b></p>
+  <p>＜解答＞　a ウ　　b ア　　c ウ　　d エ<br>
+  　</p>
+<HR WIDTH=100%>
+<a HREF="12s_p_e3.htm#101">問題へ</a>
+<HR WIDTH=100%>
+  　<BR>
+<A HREF="index.htm">メニューへ戻る</A>
+<HR WIDTH=100%>
+<p><BR>
+</p>
+  <p>　</p>
+</blockquote>
+</BODY>
+</HTML>

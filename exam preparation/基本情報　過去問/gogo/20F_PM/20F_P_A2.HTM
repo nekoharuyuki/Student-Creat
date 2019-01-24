@@ -1,0 +1,197 @@
+<html>
+
+<head>
+<title>平成20年度 秋期　基本情報技術者 午後 解説</title>
+<style type="text/css">
+body{line-height:150%;}
+code{font-size:12pt;}
+</style>
+</head>
+
+<body>
+
+<blockquote>
+	<hr>
+	<h3 align="center">平成20年度秋期試験　正解例と解説(問3～問5)</h3>
+	<hr>
+	<p><a name="30"><strong>問3</strong></a></p>
+	<hr>
+	<p><strong><a name="31">設問1</a></strong></p>
+	<p>〈解答〉　ア，ウ，オ</p>
+	<p>〈解説〉</p>
+	<p>
+	　受講表，研修実施表，社員表の3つの表を用いてデータを抽出しているので，これらの表に関する結合条件が必要である。受講表と社員表の結合条件はあるが，受講表と研修実施表の結合条件がなく，これを空欄で指定する必要がある。2つの表に共通するキーが年度と研修コードなので，<br>
+	<br>
+	<code><strong>　　研修実施表.年度 = 受講表.年度<br>
+	　　研修実施表.研修コード = 受講表.研修コード<br>
+	</strong></code><br>
+	とすればよい。<br>
+	　また入社した年度が2007年度で，かつ在職中の社員に関する条件はあるが，入社以来1日でも受講した研修に関する条件がなく，これに関する条件として，受講日数<code> 
+	&gt; 0</code>という条件が必要である。したがってア，ウ，オが適切。</p>
+	<hr>
+	<p><a href="20F_P_E2.HTM#31">問題へ</a></p>
+	<hr>
+	<p><strong><a name="32">設問2</a></strong></p>
+	<p>〈解答〉　a：エ，b：ウ，c：オ，d：エ</p>
+	<p>〈解説〉</p>
+	<p>空欄aについて</p>
+	<blockquote>
+		<p>　役職名に“部長”という文字列を含むという条件については，抽出条件としてWHERE句で，役職名<code> LIKE '%</code>部長<code>%'</code>と指定すればよく，エが適切。<br>
+		ア　×　役職名が部長である役職コードしか抽出されない。<br>
+		イ　×　役職名が部長，副部長，部長代理のいずれかである役職コードしか抽出されない。<br>
+		ウ　×　役職名が部長，副部長，部長代理のいずれかである役職コードしか抽出されない。<br>
+		エ　○<br>
+		オ　×　先頭に部長の文字がある役職コードしか抽出されない。</p>
+	</blockquote>
+	<p>空欄b，c，dについて</p>
+	<blockquote>
+		<p>
+		　受講表には社員コードという項目があるが，これだけではその社員が同じ所属部署であるかわからない。同じ所属部署であるかどうかを知るためには，部署コードという項目が必要になる。同じ所属部署にいる社員の受講実績を抽出するには，社員表と受講表を結合し，社員表のもつ部署コードをもとに同じ所属部署の社員を抽出する必要がある。したがって空欄bはウの社員コード，空欄cはオの部署コード，空欄dはエの社員表が適切。</p>
+	</blockquote>
+	<hr>
+	<p><a href="20F_P_E2.HTM#32">問題へ</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a></p>
+	<hr>
+	<p><a name="40"><strong>問4</strong></a></p>
+	<hr>
+	<p><a name="41"><strong>設問1</strong></a></p>
+	<p>〈解答〉　a：エ，b：ウ</p>
+	<p>〈解説〉</p>
+	<p>空欄aについて</p>
+	<blockquote>
+		<p>　地点k（k＝2）を経由する地点i（i＝3，5）の仮最短距離<code>Sd[i]</code>の更新は，以下のように行う。</p>
+		<p><img border="0" src="img/ans11.png" width="437" height="122">　　</p>
+		<p>　<code>Sd[k] </code>＋<code> Dt[k][i]</code>と更新前の<code>Sd[i]</code>を比べ，<code>Sd[k]
+		</code>＋<code> Dt[k][i]</code>の方が小さければ更新する。<br>
+		　　<code>Sd[i]</code> ← <code>min(Sd[i], Sd[k] </code>＋<code> Dt[k][i])</code><br>
+		　したがって空欄aは<code>Sd[k] </code>＋<code> Dt[k][i]</code>になり，エが適切。</p>
+	</blockquote>
+	<p>空欄bについて</p>
+	<blockquote>
+		<p>　手順⑤では，地点3から直接行ける地点6の仮最短距離<code>Sd[6]</code>の値を更新する。<code>Sd[3]
+		</code>＋<code> Dt[3][6]</code>と更新前の<code>Sd[6]</code>の値50を比べ，<code>Sd[3]
+		</code>＋<code> Dt[3][6]</code>の方が小さければ更新する。<br>
+		　　<code>Sd[6]</code> ＝<code> min(Sd[6], Sd[3] ＋ Dt[3][6])</code><br>
+		　　 ＝<code> min(50, 30 ＋ 30）</code><br>
+		　　 ＝<code> 50</code><br>
+		　この場合，更新前の<code>Sd[6]</code>の値の方が小さくなるので更新せず，<code>Sd[6]＝50</code>になる。したがってウが適切。</p>
+	</blockquote>
+	<hr>
+	<p><a href="20F_P_E2.HTM#41">問題へ</a></p>
+	<hr>
+	<p><a name="42"><strong>設問2</strong></a></p>
+	<p>〈解答〉　c：エ，d：ウ，e：ア，f：エ</p>
+	<p>〈解説〉</p>
+	<p>手順①</p>
+	<blockquote>
+		<p><img border="0" src="img/ans12.png" width="286" height="189"><br>
+		　地点1から直接つながる地点2，4までの距離を<code>Sd[2]</code>，<code>Sd[4]</code>に設定する。<br>
+		　　<code>Sd[2]</code>＝<code>20</code>，<code>Sd[4]</code>＝<code>10</code><br>
+		　　<code>Pe[1]</code>＝<code>true</code></p>
+	</blockquote>
+	<p>手順②</p>
+	<blockquote>
+		<p><img border="0" src="img/ans13.png" width="286" height="189"><br>
+		　未処理の地点のうち，地点1からの仮最短距離が最も小さい地点4を処理済み<code>Pe[4]</code>＝<code>true</code>とし，<code>Sd[4]</code>＝<code>10</code>を地点1から4の最短距離として確定する。<br>
+		　地点4から直接行ける地点2と地点5の仮最短距離を更新する。<br>
+		　　<code>Sd[2]</code> ＝<code>min(Sd[2], Sd[4]</code>＋<code>Dt[4][2])</code><br>
+		　　 ＝<code>min(20, 10</code>＋<code>20)＝20</code><br>
+		　　<code>Sd[5]</code> ＝<code>min(Sd[5], Sd[4]</code>＋<code>Dt[4][5])</code><br>
+		　　 ＝<code>min(</code>∞<code>, 10</code>＋<code>20)</code>＝<code>30</code></p>
+	</blockquote>
+	<p>手順③</p>
+	<blockquote>
+		<p><img border="0" src="img/ans14.png" width="292" height="185"><br>
+		　未処理の地点のうち，地点1からの仮最短距離が最も小さい地点2を処理済み<code>Pe[2]</code>＝<code>true</code>とし，<code>Sd[2]</code>＝<code>20</code>を地点1から2の最短距離として確定する。地点2から直接行ける地点3と地点5の仮最短距離を更新する。<br>
+		　　<code>Sd[3]</code> ＝<code>min(Sd[3], Sd[2]</code>＋<code>Dt[2][3])</code><br>
+		　　 ＝<code>min(</code>∞<code>, 20</code>＋<code>30)</code>＝<code>50</code><br>
+		　　<code>Sd[5]</code> ＝<code>min(Sd[5], Sd[2]</code>＋<code>Dt[2][5])</code><br>
+		　　 ＝<code>min(30, 20</code>＋<code>20)</code>＝<code>30</code></p>
+	</blockquote>
+	<p>手順④</p>
+	<blockquote>
+		<p><img border="0" src="img/ans15.png" width="293" height="188"><br>
+		　未処理の地点のうち，地点1からの仮最短距離が最も小さい地点5を処理済み<code>Pe[5]</code>＝<code>true</code>とし，<code>Sd[5]</code>＝<code>30</code>を地点1から5の最短距離として確定する。地点5から直接行ける地点3と地点6の仮最短距離を更新する。<br>
+		　　<code>Sd[3]</code> ＝<code>min(Sd[3], Sd[5]</code>＋<code>Dt[5][3])</code><br>
+		　　 ＝<code>min(50, 30</code>＋<code>30)</code>＝<code>50</code><br>
+		　　<code>Sd[6]</code> ＝<code>min(Sd[6]，Sd[5]</code>＋<code>Dt[5][6])</code><br>
+		　　 ＝<code>min(</code>∞<code>, 30</code>＋<code>40)</code>＝<code>70</code></p>
+	</blockquote>
+	<p>手順⑤</p>
+	<blockquote>
+		<p><img border="0" src="img/ans16.png" width="294" height="188"><br>
+		　未処理の地点のうち，地点1からの仮最短距離が最も小さい地点3を処理済み<code>Pe[3]</code>＝<code>true</code>とし，<code>Sd[3]</code>＝<code>50</code>を地点1から3の最短距離として確定する。地点3から直接行ける地点6の仮最短距離を更新する。<br>
+		　　<code>Sd[6]</code> ＝<code>min(Sd[6], Sd[3]</code>＋<code>Dt[3][6])</code><br>
+		　　 ＝<code>min(70, 50</code>＋<code>10)</code>＝<code>60</code></p>
+	</blockquote>
+	<p>手順⑥</p>
+	<blockquote>
+		<p><img border="0" src="img/ans17.png" width="294" height="185"><br>
+		　未処理の地点のうち，地点1からの仮最短距離が最も小さい地点6を処理済み<code>Pe[6]</code>＝<code>true</code>とし，<code>Sd[6]</code>＝<code>60</code>を地点1から6の最短距離として確定する。すべての地点が処理済みとなり終了する。</p>
+	</blockquote>
+	<p>　したがって地点1→地点4→地点2→地点5→地点3→地点6の順に最短距離が確定し，空欄cはエが適切。また<code>Sd[3]</code>＝<code>50</code>，<code>Sd[5]</code>＝<code>30</code>，<code>Sd[6]</code>＝<code>60</code>となり，空欄dはウ，空欄eはア，空欄fはエが適切。</p>
+	<hr>
+	<p><a href="20F_P_E2.HTM#42">問題へ</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a></p>
+	<hr>
+	<p><a name="50"><strong>問5</strong></a></p>
+	<hr>
+	<p><a name="51"><strong>設問1</strong></a></p>
+	<p>〈解答〉　a：ア，b：オ</p>
+	<p>〈解説〉</p>
+	<p>空欄aについて</p>
+	<blockquote>
+		<p>
+		　ダウンロード実績ファイルの主キーは，会員番号，ダウンロード日付，ダウンロード時刻になっている。ログインした会員の当日のダウンロード件数を求めるには，ログインした会員の会員番号と現在日付をキーとしてダウンロード実績ファイルを検索し，該当するレコードの件数を数えればよい。したがって空欄aはアの会員番号が適切。</p>
+	</blockquote>
+	<p>空欄bについて</p>
+	<blockquote>
+		<p>
+		　システムの概要（8）より，ダウンロードが完了すればダウンロードした日時がダウンロード実績ファイルに格納される。ログイン後ダウンロード実行前に日付が変った場合，ダウンロードしたその楽曲のダウンロード実績ファイルのダウンロード日付は翌日の実績になる。したがってダウンロード件数を求めるモジュールは，楽曲のダウンロードモジュール実行の直前に実行する必要があり，オが適切。</p>
+	</blockquote>
+	<hr>
+	<p><a href="20F_P_E2.HTM#51">問題へ</a></p>
+	<hr>
+	<p><a name="52"><strong>設問2</strong></a></p>
+	<p>〈解答〉　c：イ，d：イ</p>
+	<p>〈解説〉</p>
+	<p>空欄cについて</p>
+	<blockquote>
+		<p>
+		　ダウンロード実績ファイルには，会員番号と楽曲番号の項目がある。したがって抽出した楽曲番号が，その会員が既にダウンロード済みの楽曲であるかどうかは，ダウンロード実績ファイルを，会員番号と抽出したレコードの楽曲番号で検索し，該当するレコードがあればダウンロード済みであることが分かる。したがって空欄cは会員番号と楽曲番号で，イが適切。</p>
+	</blockquote>
+	<p>空欄dについて</p>
+	<blockquote>
+		<p>
+		　このダウンロード実績ファイルに対する検索で，楽曲管理ファイルから抽出した1件のレコードに対して，ダウンロード済みでなければ，検索件数は0件，ダウンロード済みであれば1件以上ダウンロード実績ファイルから検索される。したがって空欄dは0件以上で，イが適切。</p>
+	</blockquote>
+	<hr>
+	<p><a href="20F_P_E2.HTM#52">問題へ</a></p>
+	<hr>
+	<p><a name="53"><strong>設問3</strong></a></p>
+	<p>〈解答〉　e：イ，f：エ</p>
+	<p>〈解説〉</p>
+	<p>空欄eについて</p>
+	<blockquote>
+		<p>
+		　会員ファイルには会員番号と入会日の項目があり，ダウンロード実績ファイルには会員番号とダウンロードされた楽曲番号に関する項目がある。処理1では，ファイルXとファイルYのレコードを会員番号をキーとして付き合せ，キーが一致した場合，ダウンロード日付がその会員の入会後1週間以内のとき，該当する楽曲番号を出力している。したがってファイルX，ファイルYが会員ファイル，ダウンロード実績ファイルに該当する。<br>
+		　処理2で処理1の結果を楽曲番号をキーとして整列し，処理3で同一の楽曲番号のレコードの件数を集計して，楽曲番号とそのレコードの集計件数を中間ファイルに出力している。<br>
+		　処理4で空欄eと中間ファイルのレコードを，楽曲番号をキーとして付き合せている。ジャンル別の楽曲数を集計するには，この付き合わせ処理により楽曲番号の一致するレコードについて，ジャンルの項目を出力する必要がある。したがって空欄eがレコード項目にジャンルを含む楽曲管理ファイルであり，イが適切。</p>
+	</blockquote>
+	<p>空欄fについて</p>
+	<blockquote>
+		<p>
+		　処理4の結果として出力されるファイルのレコード項目には，ジャンル，楽曲番号，楽曲番号ごとの集計件数が出力される。処理6でジャンル別の楽曲数とダウンロード件数を集計するには，処理5の整列処理で，処理4の結果として出力されるファイルのレコードをジャンル別に並べ替えておく必要がある。したがって空欄fのキーはジャンルであり，エが適切。</p>
+	</blockquote>
+	<hr>
+	<p><a href="20F_P_E2.HTM#53">問題へ</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a> </p>
+	<hr>
+</blockquote>
+
+</body>
+
+</html>

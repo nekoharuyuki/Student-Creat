@@ -1,0 +1,123 @@
+<HTML>
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<meta http-equiv="Content-Language" content="ja">
+<TITLE>平成13年度秋期試験　(午後問1～2)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0" style="font-size: 12pt">
+<BLOCKQUOTE>
+<hr>
+<H3 align="center">平成年13年度秋期試験　正解例と解説(午後問1～問2)</H3>
+
+<HR WIDTH=100%>
+<font size="3">
+<A NAME="10">
+<b>
+問1</b></a><b>　</b></font>
+<A NAME="10">
+<HR WIDTH=100%>
+</a><font size="3"><A NAME="11">
+<b>
+設問</b></a><b>　</b></font>
+<p>＜解答＞ａ　ア　　ｂ　ウ　　ｃ　カ　　ｄ　イ</p>
+<p>＜解説＞　空欄ａについて<br>
+　図のように命令語1の場合，修飾部γは0になります。
+</p>
+<table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#FFFFFF" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+  <tr>
+    <td>命令語1　</td>
+    <td bordercolor="#000000">　4　A　</td>
+    <td bordercolor="#000000">　3　</td>
+    <td bordercolor="#000000">　0　</td>
+    <td bordercolor="#000000">　0　1　A　0　</td>
+  </tr>
+  <tr>
+    <td>　</td>
+    <td align="center">α</td>
+    <td align="center">β</td>
+    <td align="center">γ</td>
+    <td align="center">δ</td>
+  </tr>
+</table>
+<br>
+空欄ｂ，ｃについて<br>
+　命令語1の命令部には命令コード４Ａが格納されています。命令コード４Ａの意味は，「実効アドレスをレジスタβに設定する」です。修飾部γの値が0のとき，実効アドレスはδになります。命令語1ではδは０１Ａ０で，βは3です。したがって実効アドレス０１Ａ０がレジスタ3に設定されます。<br>
+空欄ｄについて<br>
+　
+<table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#FFFFFF" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+  <tr>
+    <td>命令語2　</td>
+    <td bordercolor="#000000">　4　B　</td>
+    <td bordercolor="#000000">　4　</td>
+    <td bordercolor="#000000">　5　</td>
+    <td bordercolor="#000000">　0　0　0　3　</td>
+  </tr>
+  <tr>
+    <td>　</td>
+    <td align="center">α</td>
+    <td align="center">β</td>
+    <td align="center">γ</td>
+    <td align="center">δ</td>
+  </tr>
+</table>
+<p>　命令語2の命令部には命令コード4Ｂが格納されています。命令コード4Ｂの意味は，「実効アドレスが指す語の内容をレジスタβに設定する」です。命令語2ではγの値が5なので，実効アドレスはレジスタ5の内容にδの値003を加算したものになります。レジスタ5の内容は図1より019Ｆです。したがって実効アドレスは(019Ｆ)16＋(003)16＝(01Ａ2)16になります。図2より実効アドレス(01Ａ2)16が指す主記憶の語の内容は0002です。つまり0002がレジスタ4に格納されます。<br>
+</p>
+<HR WIDTH=100%>
+<A HREF="13f_p_e1.htm#11"><font size="3">問題へ</font></A>
+<HR WIDTH=100%>
+<p><font size="3"> 
+<A HREF="index.htm">メニューへ戻る</A> 
+</font> 
+</p>
+<hr>
+<p>
+<font size="3">
+<a NAME="20">
+<b>問2</b></a><b>　</b>
+</font>
+</p>
+
+<hr> 
+<p> 
+<font size="3"> 
+<b><a name="21">設問</a></b>　</font>
+</p>
+<p> 
+＜解答＞ａ　エ　　ｂ　ア　　ｃ　ウ　　d　ウ
+</p>
+<p> 
+＜解説＞　<br>
+空欄ａについて<br>
+　ＭにはValの絶対値が格納されます。この値が0でない場合は，Mの最後の桁の数字は<br>
+M－（M／10）＊10により求めることができます。<br>
+　M＞0の場合Ctrl［Loop1］＝"＃"であれば，Out［Loop1］にはMの該当する桁の数字Digit［N］がセットされます。最後尾の桁から配列Outに格納していくので，Mの最後の桁はM－（M／10）＊10により求めることができます。したがって空欄ａで“Ｎ ← M－（（M／10）＊10）”とすればよい。   
+</p>   
+<p>    
+空欄ｂについて<br>   
+　Ctrl［Loop1］≠"＃"であるときは，Ctrl［Loop1］の内容である"，"または"  "をそのまま配列Outにセットすればよいので，空欄ｂは“Out［Loop1］←Ctrl［Loop1］”になります。   
+</p>   
+<p>    
+空欄ｃについて<br>   
+　M＞0でなくなったときは，最後の数字まで変換して格納できたことになるので，Ctrl［Loop1］書式が"　"であれば，そのままOut［Loop1］に転送します。<br>
+　sign＝"－"のときは，数字の先頭の負符号"－"をOut［Loop1］に転送します。<br>
+　sign≠"－"のときは，Val＝0でかつCtrl［Loop1］＝"＃"であれば，"0"だけをOut［Loop1］に転送します。Val≠0またはCtrl［Loop1］≠"＃"であれば，整数値の先頭部分の"　"に該当する部分になるので，"　"をOut［Loop1］に転送します。
+</p>
+<p> 
+空欄ｄについて<br>
+　空欄ｄは判定条件に相当し，空欄ｄ直後の繰返し処理でOut［Loop2］に"＊"をセットしているので，空欄ｄは「変数Valの整数値が正しく変換できない場合」の条件になります。Loop1は書式文字配列Ctrlの配列要素番号に該当し，空欄ｄ直前の繰返し処理では配列Ctrlの最後の要素から先頭に向かって，変数Valの整数値を最後尾の数値より変換し，配列Outに出力しています。<br>
+この空欄ｄは，直前の繰返し処理の条件でLoop1＜0になり，繰返し処理を終了した直後に行われます。この時点で変数Valの整数値に未変換の数字または負符号がまだ残っている場合，書式配列Ctrlの書式から桁あふれを起こして正しく変換できなくなります。変数MにはValの絶対値が格納され，各桁の数字を書式配列Ctrlの書式に合わせ配列Outに転送するごとに，M／10 → Mの処理により，1つ上位の桁が下位にシフトします。したがってLoop1＜0になったときにM＞0であると，未変換の数字がまだ残っていることになり，桁あふれを起こします。<br>   
+またsign＝"－"である場合，M≦0であれば繰返し処理でOut［Loop1］に"－"を転送した後，signに"　"がセットされます。ところがLoop1＜0になったときに，sign＝"－"である場合は符号"－"が桁あふれを起こし正しく配列Outに格納できなくなります。したがって空欄ｄは“M＞0 OR sign＝"－"”になります。<br>   
+　
+</p>
+<HR WIDTH=100%> 
+<a HREF="13f_p_e1.htm#21"><font size="3">問題へ</font></a> 
+<HR WIDTH=100%> 
+<p><font size="3">  
+<A HREF="index.htm">メニューへ戻る</A>  
+</font>  
+</p>  
+<HR WIDTH=100%>  
+</BLOCKQUOTE>  
+<p>　  
+</BODY>  
+</HTML>  

@@ -1,0 +1,753 @@
+<HTML>
+<HEAD>
+<TITLE>平成13年度秋期試験　問題(午後問1～2)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0" style="font-size: 12pt">
+<blockquote>
+  <hr>
+  <H3 align="center">平成年13年度秋期試験　問題(問1～問2)</H3>
+<basefont size="4">
+<hr>
+<br>
+<b><font size="3">次の問1から問5は必須問題です。全問解答してください。</font></b><font size="3"><br>
+</font>
+<HR WIDTH=100%>
+<font size="3">
+<A NAME="10">
+<b>
+問1</b></a><b>　</b>命令語に関する次の記述を呼んで，設問に答えよ。</font>
+<p><font size="3">次に示す形式の命令語がある。</font></p>
+<table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolor="#FFFFFF" bordercolordark="#FFFFFF">
+  <tr>
+    <td width="60" align="center">命令部</td>
+    <td width="80" align="center">レジスタ部</td>
+    <td width="60" align="center">修飾部</td>
+    <td width="100" align="center">アドレス部</td>
+  </tr>
+  <tr>
+    <td align="center">α</td>
+    <td align="center">β</td>
+    <td align="center">γ</td>
+    <td align="center">δ</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td width="60"><font size="2">0　　　　　7</font></td>
+    <td width="80"><font size="2">8　　　　　　11</font></td>
+    <td width="60"><font size="2">12　　　15</font></td>
+    <td width="100"><font size="2">16　　　　　　　　31</font></td>
+    <td width="100"><font size="2">←　ビット番号</font></td>
+  </tr>
+</table>
+<p>　</p>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">
+<font size="3">
+（1）</font></td>
+    <td>
+<font size="3">
+命令語は2語（32ビット）で1命令を表す。1語は16ビットである。</font></td>
+  </tr>
+  <tr>
+    <td valign="top">
+<font size="3">
+（2）</font></td>
+    <td>
+<font size="3">
+各部の意味は，次のとおりである。</font>
+      <table border="0" cellpadding="3" cellspacing="0">
+        <tr>
+          <td valign="top">
+<font size="3">
+①</font></td>
+          <td>
+<font size="3">
+命令部（ビット番号0～7）<br>
+命令コードαが格納されている。</font></td>
+        </tr>
+        <tr>
+          <td valign="top">
+<font size="3">
+②</font></td>
+          <td>
+<font size="3">
+レジスタ部（ビット番号8～11）<br>
+レジスタ番号βが格納されている（0≦β≦15）。</font></td>
+        </tr>
+        <tr>
+          <td valign="top">
+<font size="3">
+③</font></td>
+          <td>
+<font size="3">
+修飾部（ビット番号12～15）<br>
+アドレス部の修飾方式を示すγが格納されている（0≦γ≦15）。</font></td>
+        </tr>
+        <tr>
+          <td valign="top">
+<font size="3">
+④</font></td>
+          <td>
+<font size="3">
+アドレス部（ビット番号16～31）<br>
+主記憶の語のアドレスδが格納されている。</font></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">
+<font size="3">
+（3）</font></td>
+    <td>
+<font size="3">
+実効アドレスは，γに対応して，次のとおりである。</font>
+      <table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+        <tr>
+          <td align="center">
+<font size="3">
+γの値</font></td>
+          <td align="center">
+<font size="3">
+	実効アドレス</font></td>
+        </tr>
+        <tr>
+          <td align="center">
+<font size="3">
+0</font></td>
+          <td align="center">δ</td>
+        </tr>
+        <tr>
+          <td align="center">
+<font size="3">
+1～15</font></td>
+          <td align="center">
+<font size="3">
+	レジスタγの内容+δ</font></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">
+<font size="3">
+（4）</font></td>
+    <td><font size="3">16進数で表す命令コードの一部とその意味を次に示す。</font>
+      <table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+        <tr>
+          <td align="center"><font size="3">命令コード</font></td>
+          <td align="center"><font size="3">	命令コードの意味</font></td>
+        </tr>
+        <tr>
+          <td align="center"><font size="3">：</font></td>
+          <td align="center"><font size="3">	：</font></td>
+        </tr>
+        <tr>
+          <td align="center"><font size="3">4A</font></td>
+          <td align="center">
+            <p align="left"><font size="3">	実効アドレスをレジスタβに設定する。</font></p>
+          </td>
+        </tr>
+        <tr>
+          <td align="center"><font size="3">4B</font></td>
+          <td align="center"><font size="3">	実効アドレスが指す語の内容をレジスタβに設定する。</font></td>
+        </tr>
+        <tr>
+          <td align="center"><font size="3">：</font></td>
+          <td align="center"><font size="3">	：</font></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<p>
+<A NAME="10">
+</p>
+<HR WIDTH=100%>
+</a><font size="3"><A NAME="11">
+<b>
+設問</b></a><b>　</b>次の記述中の[　　]に入れる正しい答えを，解答群の中から選べ。<br>
+<br>
+  　次の二つの命令語がある。これらの命令語の実行直前の各レジスタ及び主記憶の内容は，それぞれ図1及び図2に示すとおりとする。各内容は，16進数で表している。<br>
+<br>
+命令語1　　　	4A3001A0<br>       
+命令語2 　　　4B450003<br>
+  　
+</font>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>
+      <div align="right">
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td>
+              <p align="right">レジスタ番号<br>
+              ↓</td>
+          </tr>
+          <tr>
+            <td align="right">0</td>
+          </tr>
+          <tr>
+            <td align="right">1</td>
+          </tr>
+          <tr>
+            <td align="right">2</td>
+          </tr>
+          <tr>
+            <td align="right">3</td>
+          </tr>
+          <tr>
+            <td align="right">4</td>
+          </tr>
+          <tr>
+            <td align="right">5</td>
+          </tr>
+          <tr>
+            <td align="right">：</td>
+          </tr>
+        </table>
+      </div>
+    </td>
+    <td>
+      <div align="left">
+        <table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#FFFFFF" bordercolor="#FFFFFF" bordercolordark="#FFFFFF">
+          <tr>
+            <td>　<br>
+            </td>
+          </tr>
+          <tr>
+            <td bordercolor="#000000" width="60" align="center">0003</td>
+          </tr>
+          <tr>
+            <td bordercolor="#000000" align="center">01A3</td>
+          </tr>
+          <tr>
+            <td bordercolor="#000000" align="center">01A2</td>
+          </tr>
+          <tr>
+            <td bordercolor="#000000" align="center">0002</td>
+          </tr>
+          <tr>
+            <td bordercolor="#000000" align="center">01A1</td>
+          </tr>
+          <tr>
+            <td bordercolor="#000000" align="center">019F</td>
+          </tr>
+          <tr>
+            <td bordercolor="#000000" align="center">：</td>
+          </tr>
+        </table>
+      </div>
+    </td>
+    <td>　　　</td>
+    <td>
+      <div align="right">
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td>
+              <p align="center">アドレス<br>
+              ↓</td>
+          </tr>
+          <tr>
+            <td align="center">：</td>
+          </tr>
+          <tr>
+            <td align="center">019F</td>
+          </tr>
+          <tr>
+            <td align="center">01A0</td>
+          </tr>
+          <tr>
+            <td align="center">01A1</td>
+          </tr>
+          <tr>
+            <td align="center">01A2</td>
+          </tr>
+          <tr>
+            <td align="center">01A3</td>
+          </tr>
+          <tr>
+            <td align="center">：</td>
+          </tr>
+        </table>
+      </div>
+    </td>
+    <td>
+      <div align="left">
+        <table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#FFFFFF" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+          <tr>
+            <td bordercolordark="#FFFFFF" bordercolor="#FFFFFF" bordercolorlight="#FFFFFF">　<br>
+              　</td>
+          </tr>
+          <tr>
+            <td bordercolor="#000000" width="60" align="center">：</td>
+          </tr>
+          <tr>
+            <td bordercolor="#000000" align="center">01A4</td>
+          </tr>
+          <tr>
+            <td bordercolor="#000000" align="center">019E</td>
+          </tr>
+          <tr>
+            <td bordercolor="#000000" align="center">0003</td>
+          </tr>
+          <tr>
+            <td bordercolor="#000000" align="center">0002</td>
+          </tr>
+          <tr>
+            <td bordercolor="#000000" align="center">0000</td>
+          </tr>
+          <tr>
+            <td bordercolor="#000000" align="center">：</td>
+          </tr>
+        </table>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">図1　各レジスタの内容（一部）</td>
+    <td></td>
+    <td colspan="2">図2　主記憶の内容（一部）</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">　<br>
+      <font size="3">（1）
+</font>
+    </td>
+    <td>　<br>
+      <font size="3">命令語1のγの値は，<b>[　　a　　]</b>である。
+</font>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top"><font size="3">（2）
+</font>
+    </td>
+    <td><font size="3">命令語1を実行すると，レジスタ<b>[　　b　　]</b>に<b>[　　c　　]</b>が設定される。
+</font>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top"><font size="3">（3）
+</font>
+    </td>
+    <td><font size="3">命令語2を実行すると，レジスタ4に<b>[　　d　　]</b>が設定される。
+</font>
+    </td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td><font size="3">　<br>
+      　<br>
+      a，bに関する解答群
+</font>
+    </td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td width="80"><font size="3">ア　0
+</font>
+    </td>
+    <td width="80"><font size="3">	イ　1
+</font>
+    </td>
+    <td width="80"><font size="3">	ウ　3
+</font>
+    </td>
+    <td><font size="3">	エ　4
+</font>
+    </td>
+  </tr>
+  <tr>
+    <td><font size="3">	オ　5
+</font>
+    </td>
+    <td><font size="3">	カ　A
+</font>
+    </td>
+    <td><font size="3">	キ　B
+</font>
+    </td>
+    <td></td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>　<font size="3"><br>
+      c，dに関する解答群
+</font>
+    </td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td width="80"><font size="3">ア　0000
+</font>
+    </td>
+    <td width="80"><font size="3">	イ　0002
+</font>
+    </td>
+    <td width="80"><font size="3">	ウ　0003
+</font>
+    </td>
+    <td><font size="3">	エ　019E
+</font>
+    </td>
+  </tr>
+  <tr>
+    <td><font size="3">	オ　019F
+</font>
+    </td>
+    <td><font size="3">	カ　01A0
+</font>
+    </td>
+    <td><font size="3">	キ　01A1
+</font>
+    </td>
+    <td><font size="3">	ク　01A2
+</font>
+    </td>
+  </tr>
+  <tr>
+    <td><font size="3">	ケ　01A3
+</font>
+    </td>
+    <td><font size="3">	コ　01A4
+</font>
+    </td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+<p>　</p>
+<HR WIDTH=100%>
+  <a HREF="13f_p_a1.htm#11"><font size="3">設問の正解例と解説へ</font></a>
+<HR WIDTH=100%>
+<p><font size="3"> 
+<A HREF="index.htm">メニューへ戻る</A> 
+</font> 
+</p>
+<hr>
+<p>
+<font size="3">
+<a NAME="20">
+<b>問2</b></a><b>　</b>次のプログラムの説明，擬似言語の記述形式の説明及びプログラムを読んで，設問に答えよ。<br>
+<br>
+[プログラムの説明]<br>
+　整数値を，指定された書式に従って10進の数字列に変換する副プログラムである。
+</font>
+</p>
+
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">
+<font size="3">
+（1）
+</font>
+    </td>
+    <td>
+<font size="3">
+副プログラムFormatは，配列Ctrlに格納されている書式文字に従って，変数Valに格納されている整数値を10進の数字列に変換し，配列Outに格納する。<br>
+　Formatの引数の仕様を表1に示す。<br>
+<br>
+表1　引数の仕様
+</font>
+      <table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+        <tr>
+          <td>
+<font size="3">
+変数名
+</font>
+          </td>
+          <td>
+<font size="3">
+	入力/出力
+</font>
+          </td>
+          <td>
+<p align="center">
+<font size="3">
+	意味
+</font>
+</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+<font size="3">
+Val
+</font>
+          </td>
+          <td>
+<font size="3">
+	入力
+</font>
+          </td>
+          <td>
+<font size="3">
+	変換対象の整数値
+</font>
+          </td>
+        </tr>
+        <tr>
+          <td>
+<font size="3">
+Ctrl[　]
+</font>
+          </td>
+          <td>
+<font size="3">
+	入力
+</font>
+          </td>
+          <td>
+<font size="3">
+	書式文字が格納されている文字型の配列
+</font>
+          </td>
+        </tr>
+        <tr>
+          <td>
+<font size="3">
+Out[　]
+</font>
+          </td>
+          <td>
+<font size="3">
+	出力
+</font>
+          </td>
+          <td>
+<font size="3">
+	変換結果を格納する文字型の配列&nbsp;<br>
+	要素数は配列Ctrlと同じ
+</font>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">
+<font size="3">
+（2）
+</font>
+    </td>
+    <td>
+<font size="3">
+配列Ctrlの各要素には，表2に示す書式文字だけが格納されている。Formatは，配列Ctrlの最後の要素から最初に向かって，各書式文字の意味する処理を行い，配列Outの対応する位置に結果を格納する。<br>
+　<br>
+表2　書式文字の種類と意味
+</font>
+      <table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+        <tr>
+          <td width="70" align="center">
+<font size="3">
+書式文字
+</font>
+          </td>
+          <td width="556">
+<font size="3">
+	意味
+</font>
+          </td>
+        </tr>
+        <tr>
+          <td width="72" align="center">
+<font size="3">
+“#”
+</font>
+          </td>
+          <td width="556">
+<font size="3">
+	10進数の1けた又は負符号を格納する。ただし，整数値の変換が終わっている場合は，空白文字を格納する。
+</font>
+          </td>
+        </tr>
+        <tr>
+          <td width="72" align="center">
+<font size="3">
+“,”
+</font>
+          </td>
+          <td width="556">
+<font size="3">
+けた区切りのコンマ又は負符号を格納する。ただし，整数値の変換が終わっている場合は，空白文字を格納する。</font></td>
+        </tr>
+        <tr>
+          <td width="72" align="center">
+            <p align="center">
+<font size="3">
+“ ”</font></td>      
+          <td width="556">     
+<font size="3">     
+	空白文字を格納する。     
+</font>     
+          </td>     
+        </tr>     
+      </table>     
+    </td>     
+  </tr>     
+  <tr>     
+    <td valign="top">     
+<font size="3">     
+（3）     
+</font>     
+    </td>     
+    <td>     
+<font size="3">     
+変数Valの整数値が正しく変換できない場合は，配列Outの全要素に“*”を格納する。     
+</font>     
+    </td>     
+  </tr>     
+  <tr>     
+    <td valign="top">     
+<font size="3">     
+（4）     
+</font>     
+    </td>     
+    <td>     
+<font size="3">     
+配列Ctrlには，少なくとも一つの“#”が含まれる。     
+</font>     
+    </td>     
+  </tr>     
+</table>     
+<p>     
+<img border="0" src="image/pm4h.gif" width="339" height="277">   
+</p>   
+   
+<p>   
+<img border="0" src="image/pm2d.gif" width="371" height="367">   
+</p>   
+   
+<p>   
+<img border="0" src="image/pm2e.gif" >   
+</p>   
+   
+<p>   
+<font size="3">   
+<br>   
+</font>   
+</p>   
+   
+<hr>    
+<p>    
+<font size="3">    
+<b><a name="21">設問</a></b>　プログラム中の<img border="0" src="image/box.gif" width="58" height="17">に入れる正しい答えを，解答群の中から選べ。<br>
+　
+</font>
+</p>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td> 
+<font size="3"> 
+aに関する解答群
+</font>
+    </td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td width="220"> 
+<font size="3"> 
+ア　N ← M － ( M * 10 )   
+</font>   
+    </td>   
+    <td><font size="3">	イ　N ← M － ( M / 10 )   
+</font>   
+    </td>   
+  </tr>   
+  <tr>   
+    <td><font size="3">ウ　N ← M － (( M * 10 ) / 10)   
+</font>   
+    </td>   
+    <td><font size="3">エ　N ← M － (( M / 10 ) * 10)   
+</font>   
+    </td>   
+  </tr>   
+</table>   
+<table border="0" cellpadding="3" cellspacing="0">  
+  <tr>  
+    <td><font size="3">　<br>
+      b，cに関する解答群
+</font>
+    </td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td width="220"><font size="3">ア　Out[Loop1] ← Ctrl[Loop1]   
+</font>   
+    </td>   
+    <td><font size="3">	イ　Out[Loop1] ← Digit[N]   
+</font>   
+    </td>   
+  </tr>   
+  <tr>   
+    <td><font size="3">ウ　Out[Loop1] ← " "   
+</font>   
+    </td>   
+    <td><font size="3">	エ　Out[Loop1] ← "-"   
+</font>   
+    </td>   
+  </tr>   
+  <tr>   
+    <td><font size="3">オ　Out[Loop1] ← "0"   
+</font>   
+    </td>   
+    <td><font size="3">	カ　Out[Loop1] ← ","   
+</font>   
+    </td>   
+  </tr>   
+</table>   
+<table border="0" cellpadding="3" cellspacing="0">  
+  <tr>  
+    <td>　<br>
+      <font size="3">dに関する解答群
+</font>
+    </td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td width="220"><font size="3">ア　M > 0   
+</font>   
+    </td>   
+    <td><font size="3">	イ　M > 0 and Sign = "-"   
+</font>   
+    </td>   
+  </tr>   
+  <tr>   
+    <td><font size="3">ウ　M > 0 or Sign = "-"   
+</font>   
+    </td>   
+    <td><font size="3">エ　M > 0 and Zero = false   
+</font>   
+    </td>   
+  </tr>   
+  <tr>   
+    <td><font size="3">オ　M > 0 or Zero = false   
+</font>   
+    </td>   
+    <td></td>   
+  </tr>   
+</table>   
+<p>　</p> 
+<HR WIDTH=100%> 
+  <a HREF="13f_p_a1.htm#21"><font size="3">設問の正解例と解説へ</font></a> 
+<HR WIDTH=100%> 
+<p align="center"><a href="13f_p_e2.htm"><font size="3">■問3へ</font></a><font size="3">　</font>　　　　<font size="3"><A HREF="index.htm">■メニューへ戻る</A>  
+</font>  
+</p>  
+<HR WIDTH=100%>  
+  <p align="left">　</p>
+</blockquote>
+</BODY>  
+</HTML>  

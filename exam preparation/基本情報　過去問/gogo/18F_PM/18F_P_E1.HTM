@@ -1,0 +1,200 @@
+<html>
+
+<head>
+<title>平成18年度 秋期 基本情報技術者試験 問題（午後問1～2） </title>
+<style type="text/css">
+body{line-height:150%;}
+code{font-size:12pt;}
+</style>
+</head>
+
+<body>
+<blockquote>
+<hr>
+<h3 align="center">平成18年度秋期試験　問題(問1～問2)</h3>
+<hr>
+<div align="center">
+<center>
+<table border="1" cellpadding="8" cellspacing="0" bordercolor="#000000">
+<tr>
+<td>次の<strong>問1</strong>から<strong>問5</strong>までの5問については，全問解答してください。</td>
+</tr>
+</table>
+</center>
+</div>
+<hr>
+<p><a name=" 10"><strong>問1</strong></a>　ハードディスク装置に関する次の記述を読んで，設問に答えよ。</p>
+<p>
+　X社は，同型のハードディスク装置1,200台で構成されるデータセンタを運営している。このうち，1年当たり平均24台の装置が故障し，置き換えられる（以下，交換という）。故障によるハードディスク装置の交換には，1台当たり10万円の交換費用がかかるが，装置購入費（装置価格）はかからない。</p>
+<p>
+　また，データセンタを構成するハードディスク装置は，耐用年数に達する前に，毎年200台ずつ計画的に置き換えられる（以下，入替えという）。この入替台数は，故障の発生数とは無関係である。入替費用は，次式で計算される。作業費は1万円である。</p>
+<p><code>　　　入替費用＝（装置価格＋作業費）×入替台数</code></p>
+<p>　X社は，来年ハードディスク装置の総入替えを行うことになり，新たに利用するハードディスク装置を，表に示す機種の中から選定する。各機種は，MTTF（Mean
+Time To Failure：故障までの平均時間）と装置価格が異なる。表中のyは現在使用しているハードディスク装置のMTTFと同じ値である。MTTFは，次式で計算される。</p>
+<p><code>　　　MTTF＝延べ稼働時間÷故障台数</code></p>
+<p><img border="0" src="img/06f-PM-01-1.png" width="329" height="218"></p>
+<p>　MTTFがyのときの1年当たりの平均故障台数が24台であることから，データセンタで利用するハードディスク装置を，MTTFが1.2yである機種Bに総入替えすると，1年当たりの平均故障台数は24÷1.2＝20（台）になると見込まれる。</p>
+<p><p><a name="11"><strong>設問</strong></a><b>　</b>次の記述中の【　　　　】に入れる正しい答えを，解答群の中から選べ。</p>
+<p>　X社のデータセンタが現在利用しているハードディスク装置のMTTFは，【　　a　　】年である。また，ハードディスク装置を，MTTFが100年の機種に総入替えすると，1年当たりの平均故障台数は【　　b　　】台になると見込まれる。</p>
+<p>
+　データセンタで利用するハードディスク装置を，表中のいずれかの機種に総入替えした後の，ハードディスク装置の年間の入替え及び故障による交換にかかる総費用が最も安くなると見込まれる機種は【　　c　　】であり，最も高くなる機種は【　　d　　】である。総費用は，機種の違いによって，次式で計算される額だけ差が出る。</p>
+<p><code>　機種の違いによる総費用の差額＝（装置価格の差×入替台数）<br>
+　　　　　　　　　　　　　　　　　　　　　　　＋（交換費用×故障台数の差）<br>
+　　　　　　　　　　　　　　　＝（装置価格の差×200）<br>
+　　　　　　　　　　　　　　　　　　　　　　　＋（100,000×故障台数の差）</code></p>
+<p>a，bに関する解答群</p>
+<table border="0" cellpadding="0" cellspacing="6" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber2" width="100%">
+<tr>
+<td>ア　0</td>
+<td>イ　1</td>
+<td>ウ　2</td>
+<td>エ　5</td>
+</tr>
+<tr>
+<td>オ　6</td>
+<td>カ　12</td>
+<td>キ　24</td>
+<td>ク　50</td>
+</tr>
+</table>
+<p>c，dに関する解答群</p>
+<table border="0" cellpadding="0" cellspacing="6" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber2" width="100%">
+<tr>
+<td>ア　A</td>
+<td>&nbsp;イ　B</td>
+<td>&nbsp;ウ　C</td>
+<td>エ　D</td>
+</tr>
+</table>
+<p>　</p>
+<hr>
+<a href="18F_P_A1.HTM#11">設問の正解例と解説へ</a>
+<hr>
+<hr>
+<a href="index.htm">■メニューへ戻る</a>
+<hr>
+<p><a name=" 20"><strong>問2</strong></a>　関係データベースに関する次の記述を読んで，設問1～4に答えよ。</p>
+<p>　</p>
+<p>　ある酒屋では，次に示すファイル様式で管理していた会員への販売データをデータベース化することにした。</p>
+<p><img border="0" src="img/06f-PM-02-1.png" width="803" height="123"></p>
+<p>　伝票番号は，1回の支払いに対して一つ割り振られる。</p>
+<p>　管理すべき情報を精査し，情報を追加するとともに正規化を実施して，次に示す四つの表からなるデータベースを設計した。網掛けした項目は主キーである。</p>
+<p><img border="0" src="img/06f-PM-02-2.png" width="731" height="694"></p>
+<p><a name="21"><strong>設問1</strong></a><b>　</b>　データベース設計における第1正規化の考えに基づいて実施した操作を，解答群の中から選べ。</p>
+<p>解答群</p>
+<table border="0" cellpadding="0" cellspacing="6" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber3" width="75%">
+<tr>
+<td>ア</td>
+<td>会員表を作成し，データの重複をなくした。</td>
+</tr>
+<tr>
+<td>イ</td>
+<td>商品表を作成し，情報の独立性を高めた。</td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>販売明細表を作成し，販売情報から繰返し要素を排除した。</td>
+</tr>
+</table>
+<hr>
+<a href="18F_P_A1.HTM#21">設問1の正解例と解説へ</a>
+<hr>
+<p><a name="22"><strong>設問2</strong></a><b>　</b>　データベース設計における正規化による直接の効果として適切なものを，解答群の中から選ぺ。</p>
+<p>解答群</p>
+<table border="0" cellpadding="0" cellspacing="6" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber4">
+<tr>
+<td>ア</td>
+<td>会員情報の集約によって，セキュリティが強化できる。</td>
+</tr>
+<tr>
+<td>イ</td>
+<td>表間の独立性が高まり，会員情報や商品情報を更新する際の影響を局所化できる。</td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>将来，OSやDBMSなどを変更する際，移行が容易になる。</td>
+</tr>
+<tr>
+<td>エ</td>
+<td>会員の購入歴など，複数の表を連結してデータを検索する際，処理性能が向上する。</td>
+</tr>
+</table>
+<hr>
+<a href="18F_P_A1.HTM#22">設問2の正解例と解説へ</a>
+<hr>
+<p><a name="23"><strong>設問3</strong></a><b>　</b>　作成したデータベースを利用して，販売促進のためのデータを抽出する。1回の支払いが1万円以上の買物をした会員の氏名と住所を抽出したい。次のSQL文の【　　　　】に入れる正しい答えを，解答群の中から選べ。</p>
+<p><code>SELECT DISTINCT 会員表.氏名, 会員表.住所<br>
+&nbsp; FROM 会員表, 販売表 WHERE 【　　　　】</code></p>
+<p>解答群</p>
+<table border="0" cellpadding="0" cellspacing="6" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber5">
+<tr>
+<td>ア</td>
+<td><code>MAX(販売表.販売額) &gt;= 10000</code></td>
+</tr>
+<tr>
+<td>イ</td>
+<td><code>SUM(販売表.販売額) &gt;= 10000</code></td>
+</tr>
+<tr>
+<td>ウ</td>
+<td><code>販売表.販売額 &gt;= 10000</code></td>
+</tr>
+<tr>
+<td>エ</td>
+<td><code>会員表.会員ID = 販売表.会員ID AND 販売表.販売額 &gt;= 10000</code></td>
+</tr>
+<tr>
+<td>オ</td>
+<td><code>会員表.会員ID = 販売表.会員ID AND MAX(販売表.販売額) &gt;= 10000</code></td>
+</tr>
+<tr>
+<td>カ</td>
+<td><code>会員表.会員ID = 販売表.会員ID AND SUM(販売表.販売額) &gt;= 10000</code></td>
+</tr>
+</table>
+<p><br>
+<hr>
+<a href="18F_P_A1.HTM#23">設問3の正解例と解説へ</a>
+<hr>
+<p><a name="24"><strong>設問4</strong></a><b>　</b>　過去にワインの購入歴がある会員の氏名と住所を抽出したい。次のSQL文の【　　　　】に入れる正しい答えを，解答群の中から選べ。</p>
+<p><code>SELECT DISTINCT 会員表.氏名, 会員表.住所<br>
+&nbsp; FROM 会員表, 販売表, 販売明細表, 商品表 WHERE 【　　　　】</code></p>
+<p>解答群</p>
+<table border="0" cellpadding="0" cellspacing="6" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber6">
+<tr>
+<td valign="top">ア</td>
+<td><code>会員表.会員ID IN (SELECT 販売表.会員ID FROM 販売表, 商品表<br>
+&nbsp; WHERE 商品表.分類 = 'ワイン')</code></td>
+</tr>
+<tr>
+<td valign="top">イ</td>
+<td><code>会員表.会員ID = (SELECT 販売表.会員ID FROM 販売表, 商品表<br>
+&nbsp; WHERE 商品表.分類 = 'ワイン')</code></td>
+</tr>
+<tr>
+<td valign="top">ウ</td>
+<td><code>会員表.会員ID = 販売表.会員ID <br>
+&nbsp; AND 販売明細票.商品コード = 商品表.商品コード<br>
+&nbsp;&nbsp;&nbsp; AND 商品表.分類 = 'ワイン'</code></td>
+</tr>
+<tr>
+<td valign="top">エ</td>
+<td><code>会員表.会員ID = 販売表.会員ID <br>
+&nbsp; AND 販売表.伝票番号 = 販売明細票.伝票番号<br>
+&nbsp;&nbsp;&nbsp; AND 販売明細票.商品コード = 商品表.商品コード<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AND 商品表.分類 = 'ワイン'</code></td>
+</tr>
+</table>
+<p>　</p>
+<hr>
+<a href="18F_P_A1.HTM#24">設問4の正解例と解説へ</a>
+<hr>
+<hr>
+<a href="18F_P_E2.HTM">■問3へ進む</a>
+<hr>
+<a href="index.htm">■メニューへ戻る</a>
+<hr>
+</blockquote>
+</body>
+
+</html>

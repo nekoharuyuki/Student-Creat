@@ -1,0 +1,128 @@
+<HTML>
+<HEAD>
+<TITLE>平成11年度秋期試験　(問1～2)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0">
+<blockquote>
+<hr>
+<H3 align="center">平成年11度秋期試験　正解例と解説(問1～問2)</H3>
+<basefont size="3">
+<hr>
+<p><a NAME="10"><b>問1</b></a></p>
+<HR WIDTH=100%>
+<A NAME="11">
+<b>
+設問1</b></a>
+<p>＜解答＞a　ア　　　　b　カ　　　　c　オ</p>
+<table border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td>＜解説＞</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">(1)</td>
+    <td>挿入位置PXにより流れ図は３つに分岐している。<br>
+      挿入位置PX＝AX＋1の場合は、配列Aの最後尾の文字A[AX]の直後から挿入するので、移動処理と空白挿入処理は不要であり、直接文字列挿入処理を行っている。</td>
+  </tr>
+  <tr>
+    <td valign="top">(2)</td>
+    <td> 挿入位置PX＜AX＋1の場合は、配列Aの文字列の途中に挿入するので、移動処理の後、文字列挿入処理を行っている。</td>
+  </tr>
+  <tr>
+    <td valign="top">(3)</td>
+    <td> 挿入位置PX＞AX＋1の場合は、配列Aの最後尾の文字A[AX]の直後よりも後方に挿入するので、空白挿入処理の後、文字列挿入処理を行っている。</td>
+  </tr>
+</table>
+<p>空欄ａについて<br>
+配列Bの文字列を配列Aの文字列の途中の挿入位置PX以降に挿入するには、<br>
+A[PX]～A[AX]をBXだけ右のA[PX＋BX]～A[AX＋BX]に移動する。</p>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">①</td>
+    <td>&nbsp;AX＋BX≦AMAXの場合、移動後の最後尾のA[AX＋BX]がA[AMAX]よりも左となるので、移動後のA[PX＋BX]～A[AX＋BX]はすべて配列A内に収まる。<br>
+      　　移動処理は最後尾から開始するので、まずA[AX]をA[AX＋BX]に移動し、最後にA[PX]をA[PX＋BX]に移動することになる。<br>
+      　　したがって移動処理の初期値YはAX、終値はPXとなる。</td>
+  </tr>
+  <tr>
+    <td valign="top">②</td>
+    <td>AX＋BX＞AMAXの場合、A[PX]～A[AMAX－BX]までは移動後、配列A内に収まりA[PX＋BX]～A[AMAX]となるが、それ以降の要素が配列A内　に収まらない。　移動処理は最後尾から開始するので、まずA[AMAX－BX]をA[AMAX]に移動し、最後にA[PX]をA[PX＋BX]に移動することになる。<br>
+      　　したがって移動処理の初期値YはAMAX－BX、終値はPXとなる。</td>
+  </tr>
+</table>
+<p>　つまりAMAX－BXとAXのうちで小さいほうを初期値Yにセットすればよく、Y＝MIN（AMAX－BX，AX）。空欄ａは、AMAX－BXが正解。<br>
+<img border="0" src="image/A11a01f1.gif" width="454" height="220"><br>
+<br>
+空欄ｂについて<br>
+挿入位置PXより配列Bの文字BX個をすべて挿入すると、配列Bの最後の文字位置はPX＋BX－1となる。</p>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">①</td>
+    <td>PX＋BX－1≦AMAX の場合、配列Aにすべて格納でき、挿入処理の終値YはPX＋BX－1となる。<br>   
+      <br>   
+      <img border="0" src="image/A11a01f2.gif" width="454" height="246"></td>  
+  </tr>  
+  <tr>  
+    <td valign="top">②</td>  
+    <td> PX＋BX－1＞AMAXの場合、配列Aに途中までしか格納できず、格納できるのはA[AMAX]までで、挿入処理の終値YはAMAXとなる。</td>  
+  </tr>  
+</table>  
+<p>　つまりPX＋BX－1とAMAXのうちで小さいほうを終値Yにセットすればよく、Y＝MIN（PX＋BX－1，AMAX）。空欄ｂはPX＋BX－1が正解。<br>
+<br>
+空欄ｃについて<br>
+挿入位置PXに挿入する文字は、配列Bの１文字目B[1]であるから、X＝PXのときB[1]となるようにするにはB[X－PX＋1]とすればよい。したがって空欄ｃは、B[X－PX＋1]が正解。<br>
+<b>　</b>
+
+
+</p>
+
+
+<HR WIDTH=100%>
+
+<A HREF="11f_p_e1.htm#11">問題へ</A>
+<HR WIDTH=100%>
+<a NAME="20">　<br>
+<b>問2</b></a><b>　</b>
+<hr>
+<p>
+<b><a name="21">設問1</a></b>　
+</p>
+<p>
+＜解答＞　ウ
+</p>
+<p>
+＜解説＞<br>
+設問１について<br>
+運賃は基本料金150円に、各乗車区間に対応した区間運賃を乗じた区間料金を加算して求めることができる。
+</p>
+<p>
+運賃＝基本料金＋（乗車区間10～20Kmの区間料金）<br>
+　　　　　　　　　　＋（乗車区間20～35Kmの区間料金）<br>
+　　　＝p(1)＋(D(2)－D(1))×p(2)＋(d－D(2))×p(3)<br>
+　　　＝150＋（20－10）×30＋（35－20）×20<br>
+　　　＝750円<br>
+</p>
+<HR WIDTH=100%>
+<a HREF="11f_p_e1.htm#21">問題へ</a>
+<HR WIDTH=100%>
+
+<p><b><a name="22">設問2</a></b></p>
+
+<p>＜解答＞　　ａ　ウ　　ｂ　エ</p>
+
+<p>＜解説＞変更後の運賃計算は、基本運賃を P(1)として各距離区分の上限 D(i)を超えるごとに、次の距離区分の追加料金 p(i＋1)を加算して行けばよい。<br> 
+ループでは、各距離区分の上限を超えるごとに、変数 iが＋１された後、空欄ｂの処理が行われており、この繰返し処理で次の距離区分の追加料金を加算すればよいことが分かる。したがって空欄ｂは、ｆ＋P(i) → ｆとすればよく、解答群のエが正解。<br> 
+<br> 
+空欄ａはその初期値設定である。ｄ≦D(1)のとき、運賃ｆにはP(i)がセットすればよいので、iの初期値は1、ｆの初期値は0とすればよい。またループの終了条件を決めるＬの初期設定値には配列の個数５をセットすればよい。</p> 
+ 
+<hr> 
+<p><a HREF="11f_p_e1.htm#22">問題へ</a></p> 
+<hr> 
+<p> 
+<A HREF="index.htm">メニューへ戻る</A> 
+</p> 
+<HR WIDTH=100%> 
+<p>　</p> 
+  </blockquote> 
+</BODY> 
+</HTML> 

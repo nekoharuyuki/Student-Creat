@@ -1,0 +1,233 @@
+<HTML>
+<HEAD>
+<TITLE>平成16年度秋期試験　</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0">
+<blockquote>
+  <hr>
+  <H3 align="center">平成16年度秋期試験　正解例と解説(問10～問13)</H3>
+<hr>
+<BR>
+<b><a name="100">問10</a></b>
+<hr> 
+<p><b><a name="101">設問</a>　</b></p> 
+<br>＜解答＞　a　ア　　　b　ウ　　　c　ア　　　d　ク　　　e　オ　　　f　カ　　　g　ウ<br>
+<br>＜解説＞配列insts[ ]は，命令列を格納している構造体配列で，プログラムのwhileループの繰返処理で配列insts[ ]の命令コードinsts[opno].codeを取出し，switch文で命令コードの種類により分岐処理を行っている。命令コードinsts[opno].codeが命令列の終了を示す'＼0'でない間，whileループを繰返している。<br>
+<br>
+空欄aについて<br>
+空欄aを含む処理は，命令コードに繰返しの開始を示す '{ ' が出現した場合の処理で，構造体配列stack[ ]に，繰返しの開始が定義されている配列要素insts[opno]の要素番号opnoと，繰返し回数valを格納している。このopnoは繰返しを行う範囲の先頭の命令が格納されている要素の番号である。スタックポインタspの初期値は－1にセットされているので，構造体配列のstack[0]から格納を開始するためには，スタックポインタsptをインクリメントしておく必要があり，空欄aで++sptとするのが適切。<br>
+<br>
+空欄bについて<br>
+空欄bを含む処理は，命令コードに進行方向の変更を示す ' t ' が出現した場合の処理である。現在の方向mark.dirに対して，valの値が1増えるごとに90°反時計回りに方向転換し，進行方向は0～3の範囲で変るので，mark.dirにはmark.dir＋insts[opno].valを4で割った剰余をセットすればよい。したがって空欄bは(mark.dir＋insts[opno].val) % 4が適切。<br>
+<br>
+空欄c，dについて<br>
+空欄c，dを含む処理は，命令コードに現在の進行方向にval画素分だけ進むことを示す ' f ' が出現した場合の処理である。<br>
+mark.dir % 2 == 0 の場合は，進行方向が右または左であり，mark.dirが0のときは進行方向が右になるのでx座標をval画素分だけプラスし，mark.dirが2のときは進行方向が左になるのでマイナスする必要がある。mark.dir % 2 == 0 でない場合は，進行方向が上または下なので，x座標の変化はなく0である。したがって空欄cのx座標の変化dxは，mark.dir % 2 == 0のとき( 1－mark.dir )＊insts[opno].val，以外は0になる。<br>
+mark.dir % 2 == 0 の場合は，進行方向が右または左なので，y座標の変化はなく0である。<br>mark.dir % 2 == 0 でない場合は，進行方向が上または下であり，mark.dirが1のときは進行方向が上になるのでy座標をval画素分だけマイナスし，mark.dirが3のときは進行方向が下になるのでプラスする必要がある。したがって空欄dのy座標の変化dyは，mark.dir % 2 == 0のとき0，以外は(mark.dir－2 )＊insts[opno].valになる。<br>
+<br>
+空欄eについて<br>
+空欄eを含む処理は，命令コードに繰返しの終了を示す '} ' が出現した場合の処理である。繰返しの開始が定義されている命令の要素番号が，空欄aに関する処理でスタックに保存されており，空欄eを含むif文の条件が成立つ場合，この命令の要素番号stack[spt].opnoをスタックから取出し変数opnoにセットした後，繰返しの残り回数stack[spt].restを－1だけ減らしている。したがって空欄eを含むif文の条件は，繰返しの残り回数が0でない，つまりstack[spt].rest＞1となる。<br>
+<br>
+空欄fについて<br>
+空欄fは，繰返しの残り回数が0になった場合の処理で，この場合は1つ下のスタックに移動するためにスタックポインタsptをデクレメントすればよい。したがって空欄fでspt++とするのが適切。<br>
+<br>
+空欄gについて<br>
+命令列の構造体配列insts[opno]の次の命令に進めるために配列の要素番号opnoをインクリメントする処理が必要で，これを空欄gで行う必要がある。したがって空欄gはopno++が適切。<br>
+<br>
+<HR WIDTH=100%>    
+  <a HREF="16F_P_E4.HTM#101">問題へ</a>   
+<HR WIDTH=100%>   
+  　<BR>
+<A HREF="INDEX.HTM">メニューへ戻る</A>
+<HR WIDTH=100%>
+<BR>
+<b><a name="110">問11</a></b>
+<hr> 
+<p><b><a name="111">設問</a>　</b></p> 
+＜解答＞a　イ　　　b　ウ　　　c　ア　　　d　カ　　　e　エ　　　f　イ<br>
+<br>
+＜解説＞<br>
+空欄a，cについて<br>
+SET-VIEW-COUNTの最初の2行のCOMPUTE命令で，視聴データファイルの各視聴レコードの検出開始時刻，検出終了時刻を分単位に変換したものをSTART-MMMM，END-MMMMに計算している。検出開始時刻START-MMMMから検出終了時刻END-MMMMまでの時間帯について視聴が検出されているので，チャンネル番号VIEW-CHANNELごとに分単位で，視聴カウント表の要素<br>
+　　　　COUNT-OF-MINUTE(VIEW-CHANNEL  START-MMMM)<br>
+　　　　　　　　 ～ COUNT-OF-MINUTE(VIEW-CHANNEL  END-MMMM)<br>
+に1を加算しテーブル集計すればよい。したがって空欄cを含むPERFORM命令で変数Mの値をSTART-MMMMからEND-MMMMまで変えてCOUNT-OF-MINUTE(VIEW-CHANNEL  M)によりテーブル集計すればよく，空欄cはCOUNT-OF-MINUTE(VIEW-CHANNEL  M)が適切。<br>
+テーブルCOUNT-OF-MINUTEを用いてテーブル集計を行うには，集計前にテーブルのゼロクリアが必要であり，これを空欄aで行う必要がある。<br>
+<br>
+空欄bについて<br>
+PERFORM　EXPAND-VIEW-COUNTの処理で，視聴データファイルのデータが無くなればEND-OF-FILE＝”Y”にセットされて，次のPERFORM　CALCULATE-RATING-PRINTの処理に入るが，空欄bでEND-OF-FILE＝”N”にセットしないと，直後のPERFORM命令の終了条件をいきなり満たし終了してしまう。したがって空欄bはMOVE  “N”  TO  END-OF-FILEが適切。<br>
+<br>
+空欄fについて<br>
+空欄fを含むCOMPUTE命令は番組の平均視聴率を計算している処理である。(3)②の計算式により計算できる。<br>
+標本世帯数×その番組の放送時間＝SAMPLE-SIZE＊(END-MMMM － START-MMMM + 1)で，各世帯がその番組を視聴した時間の合計はSUMMATIONにセットされる。したがって空欄fは100＊SUMMATION／( (END-MMMM － START-MMMM + 1)＊SAMPLE-SIZE)が適切。<br>
+<br>
+空欄d，eについて<br>
+CALCURATE-RATINGの最初の2行のCOMPUTE命令で，番組データファイルの各番組レコードの番組開始時刻，番組終了時刻を分単位に変換したものをSTART-MMMM，END-MMMMに計算している。番組開始時刻START-MMMMから番組終了時刻END-MMMMまでの時間帯についてチャンネル番号<br>PROG-CHANNELごとに分単位で，視聴カウント表の要素<br>
+　　　　COUNT-OF-MINUTE(PROG-CHANNEL  START-MMMM)<br>
+　　　　　　　　 ～ COUNT-OF-MINUTE(PROG-CHANNEL  END-MMMM)<br>
+を集計すれば，各世帯がその番組を視聴した時間の合計が求まる。<br>
+したがって空欄eはADD COUNT-OF-MINUTE(PROG-CHANNEL  M) TO SUMMATIONが適切。この集計前に集計エリアSUMMATIONのゼロクリアが必要で，これを空欄dで行う必要があり，空欄dはMOVE  ZERO  TO  SUMMATIONが適切。<br>
+<br>
+<HR WIDTH=100%>    
+  <a HREF="16F_P_E4.HTM#111">問題へ</a>   
+<HR WIDTH=100%>   
+  　<BR>
+<A HREF="INDEX.HTM">メニューへ戻る</A>
+<HR WIDTH=100%>
+<BR>
+<b><a name="120">問12</a></b>
+<hr> 
+<p><b><a name="121">設問1</a>　</b></p> 
+＜解答＞　　a　ウ　　　b　エ　　　c　イ　　　d　エ　　　e　ウ　　　f　ア<br>
+<br>＜解説＞<br>
+この問題では，synchronizedブロックを用いることにより，同じオブジェクトを共有しているスレッドに対して，1つのスレッドがオブジェクトに対して処理ブロックを実行している間，共有しているオブジェクトをロックし，ロックが解放されるまでは他のスレッドが処理ブロックを実行できないように排他的に同期させ，オブジェクトのロックが解放されるまでは，他のスレッドは待機し，オブジェクトのロックが解放された後，そのオブジェクトのロックを取得するように制御している。また利用者の呼出しが生成されるまでの間wait( )メソッドにより待機中のスレッドに対し，オペレータに割り当てるべき呼出しが生成されればnotify( )メソッドにより再開を通知するスレッド間通信による処理を組合わせている。処理の概要は以下のようになっている。<br>
+<br>
+(1)waitingListに利用者の呼出を格納するときは，waitingListをロックした後，利用者の呼出を生成する。利用者の呼出が生成されると待機中の他のスレッドにnotify( )メソッドにより再開を通知し，waitingListのロックを解放する。<br>
+(2)他のスレッドはwaitingListのロックが解放されるのを待ち，オペレータのスレッドに割り当てられるべき利用者の呼出がwaitingListに生成されれば，notify( )メソッドによりスレッドの再開の通知を受け，waitingListのロックを取得したのちオペレータのスレッドを再開する。waitingListに生成されるまでの間は，wait( )メソッドによりオペレータのスレッドを待機させる。<br>
+<br>
+空欄aについて<br>
+オペレータのスレッドの生成・開始時点の時刻がnextCallTimeの初期値として設定された後，空欄aの直前のnextCallTime += interval＊100により，次の呼び出しの時刻がnextCallTimeにセットされる。空欄aの直後のif文で，sleeping＞0の場合はsleep( )メソッドによりオペレータのスレッドの実行がsleepingミリ秒停止して待ち状態に入る。したがってsleepingは現在時刻から利用者の次の呼び出しが生成されるまでのスレッドの待ち時間になるので，sleep = nextCallTime－System.currentTimeMillis( )とすればよく，空欄aはウが適切。<br>
+<br>
+空欄bについて<br>
+wait( )メソッドにより待ち状態にあるスレッドに対して，notifyAll( )メソッドにより通知を行いスレッドを再開させるには，synchronized(waitingList)ブロックによりロックをかける必要があるので，空欄bはsynchronized(waitingList)が適切。<br>
+<br>
+空欄c，dについて<br>
+メソッドanswer( )は，オペレータに割当てるべき呼び出しが発生するまでオペレータのスレッドを待たせる。オペレータに割当てる利用者の呼び出しはwaitingListに格納されるが，スレッドの開始中（runningがtrueのとき）に，waitingListの利用者の呼び出しが空になると，オペレータのスレッドを待たせる。したがって空欄cを含むwhileループの繰返条件は，waitingList.isEmpty( ) &amp&amp running，空欄dはwaitingList.wait( )になり，空欄cはイ，空欄dはエが適切。<br>
+<br>
+空欄eについて<br>
+OperatorはThreadクラスを継承したサブクラスで，メソッドrun( )をオーバライドし，空欄eを含む処理により再定義している。メソッドtalk( )は，プログラム(2)のクラスCallで定義されたメソッドで，オペレータに割当てられた利用者の待ち時間を表示した後，利用者との通話時間durationの間オペレータのスレッドを停止させる。したがってオペレータに割当てられるべき呼び出しがなくならない間は，利用者の呼び出しcallに対してtalk( )メソッドを実行する必要がある。オペレータに割当てるべき呼び出しがなくなるとメソッドanswer( )はnullを返すので，空欄eを含む行で，while ( ( call = answer( ) ) ! = null ) call.talk( ); とすべきであり，空欄eはウが適切。 <br>
+<br>
+空欄fについて<br>
+<br>
+プログラム(2)の利用者の呼び出しのクラスCallにおけるコンストラクタ中でstartには，通話時間がdurationの利用者の呼び出しの生成時刻System.currentTimeMillis ( )がセットされる。したがってメソッドtalk( )中のelapsesdは，利用者の呼び出しが生成されてからオペレータに割当てられるまでの利用者の待ち時間である。空欄fを含む行で，この利用者の待ち時間を四捨五入して表示している。このシミュレータでは実世界の1秒を0.1秒として扱い，1秒未満を四捨五入し，秒単位で表示するので，空欄fはアの( ( elapsed＋50)／100が適切。
+<br>
+<HR WIDTH=100%>    
+  <a HREF="16F_P_E4.HTM#121">問題へ</a>   
+<hr> 
+<p><b><a name="122">設問2</a>　</b></p> 
+＜解答＞　　ウ<br>
+<br>＜解説＞<br>
+以下の図のように開始後80秒後に通話中にあるのはオペレータ2とオペレータ3となり，2人である。<br>
+<img border="0" src="image/A_PM12_1.jpg"><br>
+<br>
+<!-- <font size="4">
+<font face="MS ゴシック">
+<font color="#cc000">
+<b>
+★★★Hot！スレッドによる処理★★★</b></font></font></font><br> -->
+プログラム（プロセス）内部で同時に実行する処理単位を「スレッド」という。Javaでは，Javaの基本的なクラスやインタフェースを集めたjava.langクラスに，スレッドを扱うクラスjava.lang.Threadがあり，これを利用できる。<br>
+<br>
+■スレッドの作成方法<br><br>
+スレッドの作成には2種類の方法がある。<br>
+<br>
+・Threadクラスの継承によるスレッドの生成<br>
+・インタフェースRunnableを実装したクラスによるスレッドの生成<br>
+<br>
+(1)Threadクラスの継承によるスレッドの生成<br>
+Threadクラスを継承してサブクラスを定義して生成する方法<br>
+<font size="+1"><pre>
+class FirstThread <font color="#cc000">extends Thread</font> {
+   public void run( ) {
+      //  スレッドで実行する内容をここに記述
+   }
+}
+</font></pre>
+　スレッドを起動するには，生成したサブクラスのインスタンスを生成し，start( )メソッドを呼ぶ。<br>
+FirstThread Trd = new FirstThread( );
+Trd.start( );
+<br>
+<br>
+(2)インタフェースRunnableを実装したクラスを定義して生成する方法<br>
+<font size="+1"><pre>
+class FirstThread <font color="#cc000">implements Runnable</font> {
+   public void run( ) {
+      //  スレッドで実行する内容をここに記述
+   }
+}
+</font></pre>
+
+実装したクラスのインスタンスを作成し，これを引数としてThreadクラスのインスタンスを作成して，start( )メソッドにより起動する。
+<font size="+1"><pre>
+FirstThread Trd = new FirstThread( );
+Thread tr = new Thread(Trd);
+tr.start( );
+</font></pre>
+
+■sleep( )メソッド<br>
+sleep(停止時間)は，スレッドの実行を引数で指定したミリ秒間停止する<br>
+<br>
+■synchronizedブロックによる排他的な制御<br>
+<pre><font size="+1">
+synchronized(object) {
+　 処理ブロック;
+}
+</font></pre>
+object：処理ブロックを実行している間，ロックをかけるオブジェクト<br>
+処理ロジック：ロックをかけたobjectに対してスレッドが実行する処理<br>
+synchronizedブロックを用いると，同じオブジェクトを共有している複数のスレッドに対し，同じ処理を同時に実行できないように同期をとることができます。同じオブジェクトを共有しているスレッドに対して，1つのスレッドがオブジェクトに対して処理ブロックを実行している間，共有しているオブジェクトをロックし，ロックが開放されるまでは他のスレッドが処理ブロックを実行できないように排他的に同期させて実行することができます。オブジェクトのロックが解放されるまで，他のスレッドは待機し，オブジェクトのロックが解放された後，そのオブジェクトのロックを取得します。<br>
+<br>
+■wait( )メソッドとnotify( )，notifyAll( )メソッドによるスレッド間通信<br>
+これらのメソッドを組合わせたスレッド間通信により同期を制御することができる。<br>
+<br>wait( )メソッドはsynchronizedが指定されているオブジェクトの処理にロックをかけ実行中のスレッドを待機させて，notify( )またはnotifyAll( )で呼び出されるまでスレッドを待機させる。wait( )メソッドを実行するスレッドのオブジェクトはロックを取得している必要がある。
+<br>notify( )メソッドは、待機中のスレッドを1つだけ再開させる。<br>
+notifyAll( )メソッドは，待機中のスレッドを全て再開させる。<br>
+<br>
+<br>
+<HR WIDTH=100%>    
+  <a HREF="16F_P_E4.HTM#122">問題へ</a>   
+
+<HR WIDTH=100%>   
+  　<BR>
+<A HREF="INDEX.HTM">メニューへ戻る</A>
+<HR WIDTH=100%>
+
+<a NAME="130">　<BR>  
+<b>  
+問13</b></a>　　　（解説は省略します。）
+<hr> 
+<a NAME="131">　<BR> 
+<b> 
+設問</b></a><b><a NAME="131">1</a>　</b>
+  <p>＜解答＞a　イ　　　b　キ<br>
+
+<HR WIDTH=100%> 
+  <a HREF="16F_P_E4.HTM#131">問題へ</a> 
+<HR WIDTH=100%> 
+  <b>　</b> 
+<a NAME="132"> 
+<b> 
+<br>
+設問</b></a><b>2</b>
+  <p>＜解答＞　エ</p>
+
+<HR WIDTH=100%>
+  <a HREF="16F_P_E4.HTM#132">問題へ</a>
+<HR WIDTH=100%> 
+  <b>　</b> 
+<a NAME="133"> 
+<b> 
+<br>
+設問</b></a><b>3</b>
+  <p>＜解答＞　エ</p>
+
+<HR WIDTH=100%>
+  <a HREF="16F_P_E4.HTM#133">問題へ</a>
+<HR WIDTH=100%> 
+  <b>　</b> 
+<a NAME="134"> 
+<b> 
+<br>
+設問</b></a><b>4</b>
+  <p>＜解答＞　c　イ　　　d　エ</p>
+
+<HR WIDTH=100%>
+  <a HREF="16F_P_E4.HTM#134">問題へ</a>
+<HR WIDTH=100%>
+<p><a HREF="INDEX.HTM">メニューへ戻る</a>　</p>
+<HR WIDTH=100%>
+  　<BR>
+<BR>
+  <p>　</p>
+</blockquote>
+</BODY>
+</HTML>

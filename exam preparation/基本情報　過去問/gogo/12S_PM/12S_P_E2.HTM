@@ -1,0 +1,948 @@
+<HTML>
+<HEAD>
+<TITLE>平成12年度春期試験　問題(午後問3～問6)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0">
+<blockquote>
+  <hr>
+  <H3 align="center">平成12年度春期試験　問題(問3～問6)</H3>
+<hr>
+<P>
+次の問3から問6までの4問については、この中から2問を選択し、答案用紙の選択欄の選をマークして解答してください。<br>
+なお、3問以上選択した場合には、はじめの2問について採点します。<br>
+<HR WIDTH=100%>
+<A NAME="30">　<BR>
+<b>
+問3</b></a><b>　</b>スケジューラに関する次の説明を読んで、設問に答えよ。
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>　<br>
+      　<br>
+      〔スケジューラの説明〕</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">(1)</td>
+    <td>単一のプロセッサを用いて、多重プログラミングを実現するスケジューラである。</td>
+  </tr>
+  <tr>
+    <td valign="top">(2)</td>
+    <td>タイムスライスは 50 ミリ秒である。</td>      
+  </tr>      
+  <tr>      
+    <td valign="top">(3)</td>     
+    <td>プロセスに優先順位はなく、ラウンドロビン方式で実行する。</td>     
+  </tr>     
+  <tr>     
+    <td valign="top">(4)</td>     
+    <td> プロセスの実行中に入出力が発生した場合は、次のプロセスを実行する。 また、入出力待ちのプロセスに実行順序が回ってきた場合は、そのプロセスを飛ばして、次のプロセスを実行する。</td>      
+  </tr>      
+</table>      
+<A NAME="30">      
+<p>　</p>      
+<HR>      
+</a><A NAME="31">　<BR>    
+<b>    
+設問1</b></a><b>　</b>次の記述中の　　　  に入れる正しい答えを、解答群の中から選べ。<br>      
+  　三つのプロセス P1、P2、P3 がある。各プロセスを単独で実行した場合の、プロセッサと入出力装置の使用順序と使用時間は図のとおりである。      
+<p><img border="0" src="image/A00s03f1.gif" width="396" height="127"><br>    
+　　　　　<font size="2">図　プロセッサと入出力装置の使用順序と使用時間</font><br>
+<br>
+　今，三つのプロセス P1，P2，P3 を，P1→P2→P3→P1→… の順にラウンドロビン方式で実行することにする。ここで、プロセス切替えのオーバヘッドは無視する。</p>      
+<table border="0" cellpadding="3" cellspacing="0">     
+  <tr>     
+    <td>(1)</td>     
+    <td> 三つのプロセスがそれぞれ異なる入出力装置α，β，γを用いる場合、最初に終了するプロセスは<b>[　　a　　]</b>であり、最初に P1 が起動してから全部のプロセスが終了するまでの時間は<b>[      
+      　ｂ　]</b>　ミリ秒 となる。</td>      
+  </tr>      
+  <tr>      
+    <td>(2)</td>      
+    <td> プロセス P1 は入出力装置 α を、プロセス P2 と P3 は同一の入出力装置 β を用いる（先に使用を開始した方の入出力が終了するまで他方は待たされる）場合、(1)に比べて終了時間が延びるのはプロセス<b>[　　ｃ　　]</b>であり、その延びる時間は<b>[　　ｄ　　]</b>ミリ秒である。<br>     
+    </td>     
+  </tr>     
+</table>     
+<table border="0" cellpadding="3" cellspacing="0">     
+  <tr>     
+    <td>　<br>
+      a，c に関する解答群</td>      
+  </tr>      
+</table>      
+<table border="0" cellpadding="3" cellspacing="0">     
+  <tr>     
+    <td width="100">ア　P1</td>
+    <td width="100">イ　P1 と P2</td>      
+    <td>ウ　P1 と P3&nbsp;</td>     
+  </tr>     
+  <tr>     
+    <td>  エ　P2</td>
+    <td>オ　P2 と P3</td>      
+    <td>カ　P3</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>　<br>
+      b に関する解答群</td>      
+  </tr>      
+</table>      
+<table border="0" cellpadding="3" cellspacing="0">     
+  <tr>     
+    <td width="80">ア　250</td>
+    <td width="80">イ　260</td>
+    <td width="80">ウ　270</td>
+    <td>エ　280</td>
+  </tr>
+  <tr>
+    <td>  オ　290</td>
+    <td>カ　300</td>
+    <td>キ　310</td>
+    <td>ク　320</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>　<br>
+      d に関する解答群</td>      
+  </tr>      
+</table>      
+<table border="0" cellpadding="3" cellspacing="0">     
+  <tr>     
+    <td width="60">  ア　10</td>
+    <td width="60">イ　20</td>
+    <td width="60">ウ　30</td>
+    <td>エ　40</td>
+  </tr>
+  <tr>
+    <td>  オ　50</td>
+    <td>カ　60</td>
+    <td>キ　70</td>
+    <td>ク　80</td>
+  </tr>
+</table>
+  <p>　</p>
+  <hr width="100%">
+  <a href="12s_p_a2.htm#31">設問の正解例と解説へ</a>
+  <hr width="100%">
+<p><A HREF="index.htm">メニューへ戻る</A>　</p>
+<HR WIDTH=100%>
+<A NAME="40">　<BR>
+<b>
+問4</b></a>　次のプログラムの説明、擬似言語の記述形式の説明及びプログラムを読んで、設問 1、2 に答えよ。<br>      
+〔プログラムの説明〕<br>      
+  　英単語帳ファイル（レコード数≧1）を更新するプログラムである。利用者が英単語と日本語の訳語を入力し、英単語帳ファイルにその英単語があれば訳語を書き換え、なければその英単語と訳語を追加する。
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">(1)</td>
+    <td>英単語帳ファイルの内容を、英単語の配列 eitan と訳語の配列 yaku に読み込む。</td>     
+  </tr>     
+  <tr>     
+    <td valign="top">(2)</td>    
+    <td>英単語帳ファイルの単語数は、ファイルを読み込んだときに変数 n に代入される。</td>     
+  </tr>     
+  <tr>     
+    <td valign="top">(3)</td>    
+    <td>入力データとして英単語（E）と訳語（J）を入力し、E を 2 分探索法を用いて検索する。</td>     
+  </tr>     
+  <tr>     
+    <td valign="top">(4)</td>    
+    <td> E が配列 eitan 中にあれば、その訳語を J に置き換える。 なければ、配列 eitanと yaku の内容をそれぞれ配列の最後尾から順にずらしていき， E と J を正しい位置に挿入する。</td>     
+  </tr>     
+  <tr>     
+    <td valign="top">(5)</td>    
+    <td> E が空白文字のとき、データ入力処理を終了し、配列 eitan と yaku の内容を英単語帳ファイルに書き出す。</td>     
+  </tr>     
+</table>     
+<p>〔擬似言語の記述形式の説明〕</p>     
+<p><img border="0" src="image/12s4a.gif" width="427" height="543"></p>    
+<p><br>
+〔プログラム〕</p>    
+<p><img border="0" src="image/12s4b.gif"></p>    
+<HR WIDTH=100%>   
+<A NAME="41">   
+<b>　<BR>  
+設問1</b></a><b>　</b>ファイル入力処理を実行した直後の eitan と yaku の配列として， このプログラムで正しく処理されるものを、解答群の中から選べ。<br>      
+  　
+<table border="0" cellspacing="0" cellpadding="0">
+  <tbody>
+    <tr>
+      <td vAlign="top">ア　eitan　　　yaku
+        <table border="1" bordercolorlight="#000000" cellspacing="0" cellpadding="3" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+          <tbody>
+            <tr>
+              <td>　bread　</td>
+              <td>　パン　</td>
+            </tr>
+            <tr>
+              <td>　cat　</td>
+              <td>　猫　</td>
+            </tr>
+            <tr>
+              <td>　head　</td>
+              <td>　頭　</td>
+            </tr>
+            <tr>
+              <td>　kitchen　</td>
+              <td>　台所　</td>
+            </tr>
+            <tr>
+              <td>　mountain　</td>
+              <td>　山　</td>
+            </tr>
+            <tr>
+              <td>　program　</td>
+              <td>　計画　</td>
+            </tr>
+            <tr>
+              <td>　water　</td>
+              <td>　水　</td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      <td vAlign="top">イ　eitan　　　yaku
+        <table border="1" bordercolorlight="#000000" cellspacing="0" cellpadding="3" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+          <tbody>
+            <tr>
+              <td>　bread　</td>
+              <td>　パン　</td>
+            </tr>
+            <tr>
+              <td>　head　</td>
+              <td>　頭　</td>
+            </tr>
+            <tr>
+              <td>　mountain　</td>
+              <td>　山　</td>
+            </tr>
+            <tr>
+              <td>　water　</td>
+              <td>　水　</td>
+            </tr>
+            <tr>
+              <td>　program　</td>
+              <td>　計画　</td>
+            </tr>
+            <tr>
+              <td>　kitchen　</td>
+              <td>　台所　</td>
+            </tr>
+            <tr>
+              <td>　cat　</td>
+              <td>　猫　</td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+  <tbody>
+    <tr>
+      <td vAlign="top">　<br>
+        ウ　eitan　　　yaku
+        <table border="1" bordercolorlight="#000000" cellspacing="0" cellpadding="3" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+          <tbody>
+            <tr>
+              <td>　mountain　</td>
+              <td>　山　</td>
+            </tr>
+            <tr>
+              <td>　water　</td>
+              <td>　水　</td>
+            </tr>
+            <tr>
+              <td>　cat　</td>
+              <td>　猫　</td>
+            </tr>
+            <tr>
+              <td>　head　</td>
+              <td>　頭　</td>
+            </tr>
+            <tr>
+              <td>　bread　</td>
+              <td>　パン　</td>
+            </tr>
+            <tr>
+              <td>　kitchen　</td>
+              <td>　台所　</td>
+            </tr>
+            <tr>
+              <td>　program　</td>
+              <td>　計画　</td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+      <td>　　　　　</td>
+      <td vAlign="top">　<br>
+        エ　eitan　　　yaku
+        <table border="1" bordercolorlight="#000000" cellspacing="0" cellpadding="3" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+          <tbody>
+            <tr>
+              <td>　water　</td>
+              <td>　水　</td>
+            </tr>
+            <tr>
+              <td>　program　</td>
+              <td>　計画　</td>
+            </tr>
+            <tr>
+              <td>　mountain　</td>
+              <td>　山　</td>
+            </tr>
+            <tr>
+              <td>　kitchen　</td>
+              <td>　台所　</td>
+            </tr>
+            <tr>
+              <td>　head　</td>
+              <td>　頭　</td>
+            </tr>
+            <tr>
+              <td>　cat　</td>
+              <td>　猫　</td>
+            </tr>
+            <tr>
+              <td>　bread　</td>
+              <td>　パン　</td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<HR WIDTH=100%>
+<A HREF="12s_p_a2.htm#41">設問1の正解例と解説へ</A>
+<HR WIDTH=100%>
+<p align="left">
+<A NAME="42">
+　<BR>
+<b>
+設問2</b></a><b>&nbsp;</b> 
+&nbsp;設問１の正しい配列を用いて，表の入力データを順に読み込むとき，<b>[　　　　　]</b>   
+に入れる正しい答えを，解答群の中から選べ。　<br>
+　<br>
+　<br>
+表　入力データ<center>
+<div align="left">
+  <table border="1" cellPadding="3" bordercolorlight="#000000" cellspacing="0" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+    <tbody>
+      <tr>
+        <td>　</td>
+        <td>　　　英単語　　　</td>
+        <td>　　　訳語　　　　</td>
+      </tr>
+      <tr>
+        <td vAlign="top">①</td>
+        <td>program</td>
+        <td>プログラム</td>
+      </tr>
+      <tr>
+        <td vAlign="top">②</td>
+        <td>computer</td>
+        <td>コンピュータ</td>
+      </tr>
+      <tr>
+        <td vAlign="top">③</td>
+        <td>zoo</td>
+        <td>動物園</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</center>
+<p>プログラム中のα～γの処理のうち，表の入力データ ①   
+ではαだけが実行され，入力データ ② では <b>[　　a　　]</b>   
+が実行され，入力データ ③ では <b>[　　b　　] </b>が実行される。また，入力データ   
+② が挿入される位置は，配列の <b>[　　c　　]</b> である。  
+<p>a，b に関する解答群  
+<table border="0" cellpadding="3" cellspacing="0">  
+  <tr>  
+    <td width="150">ア　α～γのすべて</td>
+    <td>イ　αとβだけ</td>
+  </tr>
+  <tr>
+    <td>ウ　αとγだけ</td>
+    <td>エ　αだけ</td>
+  </tr>
+  <tr>
+    <td>オ　βとγだけ</td>
+    <td>カ　βだけ</td>
+  </tr>
+  <tr>
+    <td>キ　γだけ</td>
+    <td></td>
+  </tr>
+</table>
+<p>c に関する解答群  
+<table border="0" cellpadding="3" cellspacing="0">  
+  <tr>  
+    <td width="180">ア　先頭</td>  
+    <td>イ　1 番目と 2 番目の間</td>  
+  </tr>  
+  <tr>  
+    <td>ウ　2 番目と 3 番目の間</td>  
+    <td>エ　3 番目と 4 番目の間</td>  
+  </tr>  
+  <tr>  
+    <td>オ　4 番目と 5 番目の間</td>  
+    <td>カ　5 番目と 6 番目の間</td>  
+  </tr>  
+  <tr>  
+    <td>キ　6 番目と 7 番目の間</td>  
+    <td>ク　末尾</td>  
+  </tr>  
+</table>  
+<A NAME="42">  
+<p>　</p>  
+<HR WIDTH=100%>  
+</a>  
+<A HREF="12s_p_a2.htm#42">設問2の正解例と解説へ</A>  
+<HR WIDTH=100%>  
+　<BR>
+<b><a name="50">問5</a>　</b>オブジェクト指向におけるオブジェクト表現に関する次の記述を読んで、設問１～3に答えよ。
+<p style="line-height: 120%">　オブジェクト指向では、システム開発の対象をモデル化し、データと手続をまとめてオブジェクトとして表現する。<br>
+  オブジェクト指向では、オブジェクト間の関係を明確にするために、オブジェクトを階層化して表現する。階層化には、“is-a の関係”、“part-of の関係”、“has-a の関係”の 3 種類がある。<br>   
+is-a の関係は、オブジェクトの一般化や特殊化を示し、“A is-a B”は、“A は B（の一種）である”ことを示す。A には複数のオブジェクトが指定され、B はそれらに共通な性質をもつオブジェクトである。 A のオブジェクトが幾つか欠けた場合でも、B はオブジェクトとして成立するものとする。<br>   
+　例えば，“V　W is-a X”かつ“X　Y is-a Z”の関係があるとき、V と W に共通する性質が X であり、X と Y に共通する性質が Z である。 また，このとき“V　W　X　Y is-a Z”の関係も成り立つ。<br>   
+  part-of の関係は、構成要素としてのオブジェクトを示し、“A part-of B”は、“A は B の部品又は一部である”ことを示す。A には複数のオブジェクトが指定され、B はそれらで構成されたオブジェクトである。A のオブジェクトが一つでも欠けた場合には、B はオブジェクトとして成立しないものとする。<br>   
+  例えば、“V　W part-of X”かつ“X　Y part-of Z”の関係があるとき、Ｘ は V と W で構成され、Z は X と Y で構成される。また、このとき “V　W　Y part-of Z”の関係も成り立つが、V　W　Y のうち一つでも欠けると Z はオブジェクトとして成立しない。<br>   
+  has-a の関係は、あるオブジェクトがほかのオブジェクトを所有している場合に成立する関係で、“A has-a B”は、“A は B を所有している”ことを示す。 B には複数のオブジェクトが指定され、A はそれらを所有するオブジェクトである。 B のオブジェクトが幾つか欠けた場合でも、A はオブジェクトとして成立するものとする。<br>   
+  例えば、“V has-a W　X”かつ“X has-a Y　Z”の関係があるとき、V は W と X を所有し、X は Y と Z を所有する。また、このとき“V has-a W　X　Y　Z”や“V　has-a W　Y　Z”の関係も成り立つ。</p>
+<p style="line-height: 150%">　ホテル及びホテルを構成する要素をオブジェクトとし、それらの関係を次のように定義する。<br>
+      従業員　基本設備　part-of　ホテル<br>
+フロント　客室　ロビー　part-of　基本設備<br>
+      ベッド　浴室　トイレ　part-of　客室<br>
+      サウナ　バルコニー　part-of　特別室<br>
+      シェフ　ウェイタ　ウェイトレス　フロント係　ポータ　マネージャ　is-a　従業員<br>
+      基本設備　サービス設備　is-a　ホテルの設備<br>
+      レストラン　プール　エレベータ　is-a　サービス設備<br>
+      宿泊者用エレベータ　運搬用エレベータ　is-a　エレベータ<br>
+      一般室　特別室　is-a　客室</p>
+<p>　</p>
+<hr>
+<p><b><a name="51">設問1</a>　</b>“<b>[　　　　　] </b> is-a サービス設備”の<b>[　　　　　]</b>に当てはまるオブジェクトを すべて列挙したときの組合せとして正しい答えを、解答群の中から選べ。   
+</p>   
+<table border="0" cellpadding="3" cellspacing="0">  
+  <tr>  
+    <td>解答群</td>  
+  </tr>  
+</table>  
+<table border="0" cellpadding="3" cellspacing="0">  
+  <tr>  
+    <td valign="top">ア</td>  
+    <td>エレベータ　宿泊者用エレベータ　運搬用エレベータ　レストラン　プール</td>  
+  </tr>  
+  <tr>  
+    <td valign="top">  イ</td>  
+    <td>エレベータ　レストラン　プール</td>  
+  </tr>  
+  <tr>  
+    <td valign="top">  ウ</td>  
+    <td>従業員　基本設備</td>  
+  </tr>  
+  <tr>  
+    <td valign="top">  エ</td>  
+    <td>従業員　基本設備　ホテル</td>  
+  </tr>  
+  <tr>  
+    <td valign="top">  オ</td>  
+    <td>宿泊者用エレベータ　運搬用エレベータ　レストラン　プール</td>  
+  </tr>  
+</table>  
+<A NAME="44">  
+<p>　</p>  
+<HR WIDTH=100%>  
+</a><a HREF="12s_p_a2.htm#51">設問1の正解例と解説へ</a>  
+<HR WIDTH=100%>  
+　<BR>
+<b><a name="52">設問2</a>　</b>次の記述中の<b>[　　　　] </b>  に入れる正しい答えを、解答群の中から選べ。
+<p>記述文中の定義に加えて“1 号室　2 号室　is-a　一般室”及び“3 号室　is-a　特別室”という関係が成り立っていたホテルで、ある日 1 号室のトイレと 3 号室のサウナが故障した。1 号室、2 号室及び 3 号室のうち、客室としての性質を保っている部屋は<b>[　　　　]</b>である。</p>  
+<table border="0" cellpadding="3" cellspacing="0">  
+  <tr>  
+    <td>解答群</td>  
+  </tr>  
+</table>  
+<table border="0" cellpadding="3" cellspacing="0">  
+  <tr>  
+    <td>ア　1 号室</td>   
+    <td>イ　1 号室及び 2 号室</td>   
+  </tr>   
+  <tr>   
+    <td width="220">  ウ　1 号室， 2 号室及び 3 号室</td>   
+    <td>エ　1 号室及び 3 号室</td>   
+  </tr>   
+  <tr>   
+    <td>  オ　2 号室</td>   
+    <td>カ　2 号室及び 3 号室</td>   
+  </tr>   
+  <tr>   
+    <td>  キ　3 号室</td>   
+    <td></td>   
+  </tr>   
+</table>   
+<p>　</p>   
+<A NAME="44">   
+<HR WIDTH=100%>   
+</a><a HREF="12s_p_a2.htm#52">設問2の正解例と解説へ</a>   
+<HR WIDTH=100%>   
+<p><b><a name="53">設問3</a>　</b>あるホテルでは、“ホテル　has-a　フロント　客室　ロビー　レストラン 
+　プール　エレベータ　バルコニー　従業員”という関係が成り立つとする。 記述文中の定義に従った場合、このホテルがホテルとして成立するために最小限必要なオブジェクトの組合せとして正しい答えを、解答群の中から選べ。</p>   
+<table border="0" cellpadding="3" cellspacing="0">  
+  <tr>  
+    <td>解答群</td>  
+  </tr>  
+</table>  
+<table border="0" cellpadding="3" cellspacing="0">  
+  <tr>  
+    <td valign="top">ア</td>  
+    <td>フロント　客室　レストラン　エレベータ</td>  
+  </tr>  
+  <tr>  
+    <td valign="top">  イ</td>  
+    <td>フロント　客室　ロビー</td>  
+  </tr>  
+  <tr>  
+    <td valign="top">  ウ</td>  
+    <td>フロント　客室　ロビー　従業員</td>  
+  </tr>  
+  <tr>  
+    <td valign="top">  エ</td>  
+    <td>フロント　客室　ロビー　従業員　レストラン</td>  
+  </tr>  
+  <tr>  
+    <td valign="top">  オ</td>  
+    <td>フロント　客室　ロビー　従業員　レストラン　プール</td>  
+  </tr>  
+  <tr>  
+    <td valign="top">  カ</td>  
+    <td>フロント　客室　ロビー　従業員　レストラン　プール　エレベータ</td>  
+  </tr>  
+</table>  
+<p>　</p>  
+<A NAME="44">  
+<HR WIDTH=100%>  
+</a><a HREF="12s_p_a2.htm#53">設問3の正解例と解説へ</a>  
+<p>　  
+<hr>  
+<p>  
+<A HREF="index.htm">メニューへ戻る</A></p>  
+<HR WIDTH=100%>  
+<p><b><a name="60">問6</a>　</b>通信とデータ圧縮に関する次の記述を読んで、設問 1，2 に答えよ。   
+</p>   
+<p>　通信回線を経由してデータを伝送する場合、データ圧縮によって伝送するデータ量を減らし、伝送効率の向上を図ることがある。その代表例に、ハフマン符号を用いる圧縮法がある。<br>
+  ハフマン符号とは、テキストデータの中で文字が出現する頻度が一様ではない点に注目し、出現す頻度（生起確率）の高い文字は短いビット列に、低い文字は長いビット列に対応させるものである。<br>
+　ここでは、1文字を 1 バイト（8 ビット）で表すテキストデータを、次の仕様のハフマン符号に置き換えて伝送する処理を考える。   
+</p>   
+<table border="0" cellpadding="3" cellspacing="0">  
+  <tr>  
+    <td valign="top">(1)</td>  
+    <td>伝送するテキストデータに含まれる文字は、表に示す 30 種類とする（△は空白文字を表す）。</td>   
+  </tr>   
+  <tr>   
+    <td valign="top">(2)</td>  
+    <td>英文の文字の生起確率は表に基づくものとして、各文字を符号化する。</td>  
+  </tr>  
+</table>  
+<div align="left">  
+  <table bordercolorlight="#000000" cellspacing="0" cellpadding="2" bordercolordark="#FFFFFF" bordercolor="#FFFFFF" border="1">  
+    <tr>  
+      <td vAlign="center">  
+        <p align="center"><font size="2">文字</font></p>  
+      </td>  
+      <td vAlign="center">  
+        <p align="center"><font size="2">生起</font>  
+        <p align="center"><font size="2">確率（％）</font></p>  
+      </td>  
+      <td vAlign="center">  
+        <p align="center"><font size="2">生起確率<br>  
+        の累計（％）</font></p>  
+      </td>  
+      <td vAlign="center">  
+        <p align="center"><font size="2">ハフマン符号</font></p>  
+      </td>  
+      <td vAlign="center">  
+        <p align="center"><font size="2">文字</font></p>  
+      </td>  
+      <td vAlign="center">  
+        <p align="center"><font size="2">生起<br>  
+        確率<br>  
+        （％）</font></td>  
+      <td vAlign="center">  
+        <p align="center"><font size="2">生起確率<br>  
+        の累計（％）</font></p>  
+      </td>  
+      <td vAlign="center">  
+        <p align="center"><font size="2">ハフマン符号</font></p>  
+      </td>  
+      <td vAlign="center">  
+        <p align="center"><font size="2">文字</font></p>  
+      </td>  
+      <td vAlign="center">  
+        <p align="center"><font size="2">生起<br>  
+        確率（％）</font></td>  
+      <td vAlign="center">  
+        <p align="center"><font size="2">生起確率<br>  
+        の累計（％）</font></p>  
+      </td>  
+      <td vAlign="center">  
+        <p align="center"><font size="2">ハフマン符号</font></p>  
+      </td>  
+    </tr>  
+    <tr>  
+      <td>  
+        <p align="center">△</p>  
+      </td>  
+      <td>19.0</td>  
+      <td>19.0</td>  
+      <td>  
+        <p align="right">000</p>  
+      </td>  
+      <td>  
+        <p align="center">D</p>  
+      </td>  
+      <td>3.1</td>  
+      <td>76.5</td>  
+      <td>  
+        <p align="right">110010</p>  
+      </td>  
+      <td>  
+        <p align="center">B</p>  
+      </td>  
+      <td>1.2</td>  
+      <td>96.3</td>  
+      <td>  
+        <p align="right">111100</p>  
+      </td>  
+    </tr>  
+    <tr>  
+      <td>  
+        <p align="center">E</p>  
+      </td>  
+      <td>9.6</td>  
+      <td>28.6</td>  
+      <td>  
+        <p align="right">001</p>  
+      </td>  
+      <td>  
+        <p align="center">C</p>  
+      </td>  
+      <td>3.0</td>  
+      <td>79.5</td>  
+      <td>  
+        <p align="right">110011</p>  
+      </td>  
+      <td>  
+        <p align="center">.</p>  
+      </td>  
+      <td>1.0</td>  
+      <td>97.3</td>  
+      <td>  
+        <p align="right">111101</p>  
+      </td>  
+    </tr>  
+    <tr>  
+      <td>  
+        <p align="center">T</p>  
+      </td>  
+      <td>7.3</td>  
+      <td>35.9</td>  
+      <td>  
+        <p align="right">010</p>  
+      </td>  
+      <td>  
+        <p align="center">L</p>  
+      </td>  
+      <td>2.9</td>  
+      <td>82.4</td>  
+      <td>  
+        <p align="right">110100</p>  
+      </td>  
+      <td>  
+        <p align="center">V</p>  
+      </td>  
+      <td>0.9</td>  
+      <td>98.2</td>  
+      <td>  
+        <p align="right">11111000</p>  
+      </td>  
+    </tr>  
+    <tr>  
+      <td>  
+        <p align="center">A</p>  
+      </td>  
+      <td>6.5</td>  
+      <td>42.4</td>  
+      <td>  
+        <p align="right">011</p>  
+      </td>  
+      <td>  
+        <p align="center">M</p>  
+      </td>  
+      <td>2.6</td>  
+      <td>85.0</td>  
+      <td>  
+        <p align="right">110101</p>  
+      </td>  
+      <td>  
+        <p align="center">,</p>  
+      </td>  
+      <td>0.9</td>  
+      <td>99.1</td>  
+      <td>  
+        <p align="right">11111001</p>  
+      </td>  
+    </tr>  
+    <tr>  
+      <td>  
+        <p align="center">O</p>  
+      </td>  
+      <td>5.8</td>  
+      <td>48.2</td>  
+      <td>  
+        <p align="right">1000</p>  
+      </td>  
+      <td>  
+        <p align="center">P</p>  
+      </td>  
+      <td>2.3</td>  
+      <td>87.3</td>  
+      <td>  
+        <p align="right">110110</p>  
+      </td>  
+      <td>  
+        <p align="center">K</p>  
+      </td>  
+      <td>0.3</td>  
+      <td>99.4</td>  
+      <td>  
+        <p align="right">11111010</p>  
+      </td>  
+    </tr>  
+    <tr>  
+      <td>  
+        <p align="center">I</p>  
+      </td>  
+      <td>5.6</td>  
+      <td>53.8</td>  
+      <td>  
+        <p align="right">1001</p>  
+      </td>  
+      <td>  
+        <p align="center">U</p>  
+      </td>  
+      <td>2.1</td>  
+      <td>89.4</td>  
+      <td>  
+        <p align="right">110111</p>  
+      </td>  
+      <td>  
+        <p align="center">X</p>  
+      </td>  
+      <td>0.2</td>  
+      <td>99.6</td>  
+      <td>  
+        <p align="right">11111011</p>  
+      </td>  
+    </tr>  
+    <tr>  
+      <td>  
+        <p align="center">N</p>  
+      </td>  
+      <td>5.5</td>  
+      <td>59.3</td>  
+      <td>  
+        <p align="right">1010</p>  
+      </td>  
+      <td>  
+        <p align="center">F</p>  
+      </td>  
+      <td>1.8</td>  
+      <td>91.2</td>  
+      <td>  
+        <p align="right">111000</p>  
+      </td>  
+      <td>  
+        <p align="center">J</p>  
+      </td>  
+      <td>0.1</td>  
+      <td>99.7</td>  
+      <td>  
+        <p align="right">11111100</p>  
+      </td>  
+    </tr>  
+    <tr>  
+      <td>  
+        <p align="center">R</p>  
+      </td>  
+      <td>5.4</td>  
+      <td>64.7</td>  
+      <td>  
+        <p align="right">1011</p>  
+      </td>  
+      <td>  
+        <p align="center">G</p>  
+      </td>  
+      <td>1.3</td>  
+      <td>92.5</td>  
+      <td>  
+        <p align="right">111001</p>  
+      </td>  
+      <td>  
+        <p align="center">Q</p>  
+      </td>  
+      <td>0.1</td>  
+      <td>99.8</td>  
+      <td>  
+        <p align="right">11111101</p>  
+      </td>  
+    </tr>  
+    <tr>  
+      <td>  
+        <p align="center">S</p>  
+      </td>  
+      <td>5.1</td>  
+      <td>69.8</td>  
+      <td>  
+        <p align="right">110000</p>  
+      </td>  
+      <td>  
+        <p align="center">W</p>  
+      </td>  
+      <td>1.3</td>  
+      <td>93.8</td>  
+      <td>  
+        <p align="right">111010</p>  
+      </td>  
+      <td>  
+        <p align="center">Z</p>  
+      </td>  
+      <td>0.1</td>  
+      <td>99.9</td>  
+      <td>  
+        <p align="right">11111110</p>  
+      </td>  
+    </tr>  
+    <tr>  
+      <td>  
+        <p align="center">H</p>  
+      </td>  
+      <td>3.6</td>  
+      <td>73.4</td>  
+      <td>  
+        <p align="right">110001</p>  
+      </td>  
+      <td>  
+        <p align="center">Y</p>  
+      </td>  
+      <td>1.3</td>  
+      <td>95.1</td>  
+      <td>  
+        <p align="right">111011</p>  
+      </td>  
+      <td>  
+        <p align="center">？</p>  
+      </td>  
+      <td>0.1</td>  
+      <td>100.0</td>  
+      <td>  
+        <p align="right">11111111</p>  
+      </td>  
+    </tr>  
+  </table>  
+</div>  
+<p>&nbsp;表　文字の生起確率と符号<br>
+</p>
+<hr>
+<p><b><a name="61">設問1</a>　</b>表のハフマン符号によって符号化されたビット列ではないものを解答群の中から選べ。<br>
+　</p>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>解答群</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td width="220">ア　01010001101010110101000</td>
+    <td>イ　011110110110110110100001</td>
+  </tr>
+  <tr>
+    <td>  ウ　11011010000100110101000</td>
+    <td>エ　111100011101000111010011</td>
+  </tr>
+</table>
+<A NAME="44">
+<HR WIDTH=100%>
+</a><a HREF="12s_p_a2.htm#61">設問1の正解例と解説へ</a>
+<HR WIDTH=100%>
+　
+<p><b><a name="62">設問2</a>　</b>次の記述中の<b>[　　　　　] </b>  に入れる正しい答えを、解答群の中から選べ。</p>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">(1)</td>
+    <td>“HOW△ARE△YOU？”という英文を符号化した場合、テキストデータの圧縮率はおよそ<b>[　ａ　]</b>％となる。</td>
+  </tr>
+  <tr>
+    <td valign="top">(2)</td>
+    <td>表に示した文字の生起確率に従う 5,000 文字のテキストデータを伝送する場合、伝送するデータの長さの期待値は<b>[　   ｂ　]   
+      </b>    バイトになる。</td>  
+  </tr>  
+</table>  
+<table border="0" cellpadding="3" cellspacing="0">  
+  <tr>  
+    <td>　<br>
+      a に関する解答群</td>   
+  </tr>   
+</table>   
+<table border="0" cellpadding="3" cellspacing="0">  
+  <tr>  
+    <td width="80">ア　44</td>
+    <td width="80">イ　45</td>
+    <td width="80">ウ　55</td>
+    <td width="80">エ　56</td>
+    <td>オ　58</td>
+  </tr>
+  <tr>
+    <td>  カ　60</td>
+    <td>キ　71</td>
+    <td>ク　88</td>
+    <td>ケ　89</td>
+    <td>コ　96</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>　<br>
+      b に関する解答群</td>   
+  </tr>   
+</table>   
+<table border="0" cellpadding="3" cellspacing="0">  
+  <tr>  
+    <td width="80">  ア　2,000</td>
+    <td width="80">イ　2,168</td>
+    <td width="80">ウ　2,710</td>
+    <td width="80"> エ　2,933</td>
+    <td> オ　3,667</td>
+  </tr>
+  <tr>
+    <td>  カ　5,866</td>
+    <td>キ　21,680</td>
+    <td>ク　27,100</td>
+    <td>ケ　29,333</td>
+    <td>コ　36,667</td>
+  </tr>
+</table>
+<p>　</p>
+<HR WIDTH=100%>
+  <a HREF="12s_p_a2.htm#62">設問2の正解例と解説へ</a>
+<HR WIDTH=100%>
+  <p align="center"><a href="12s_p_e3.htm">■問7へ進む　</a>　　　　　　　　<a HREF="index.htm">■メニューへ戻る</a></p>
+  <hr WIDTH="100%">
+  <p align="left">　</p>
+</blockquote>
+</BODY>
+</HTML>

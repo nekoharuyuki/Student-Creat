@@ -1,0 +1,1096 @@
+<HTML>
+<HEAD>
+<TITLE>平成11年度秋期試験　問題(問11～問14)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0">
+<BLOCKQUOTE>
+<hr>
+<H3 align="center">平成11年度秋期試験　問題(問11～問14)</H3>
+<hr>
+<P> 次の問11から問14までの4問については、この中から1問を選択し、答案用紙の選択欄の        
+選 をマークして解答してください。なお、2問以上選択した場合には、はじめの1問について採点します。<br>       
+<HR WIDTH=100%>       
+<a NAME="110">　<BR>     
+<b>     
+問11</b></a>　次のＣプログラムの説明及びプログラムを読んで、 設問１、2に答えよ。<br>      
+<br>      
+〔プログラムの説明〕<br>      
+　関数wordwrapは、単語が行末で切れないように英文を出力する。<br>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">(1)</td>
+    <td>関数wordwrapの引数は、英文が格納された入力文字列の配列str[]と、出力する１行の最大文字数 max（ただし,改行文字を含まない）である。</td>      
+  </tr>      
+  <tr>      
+    <td valign="top">(2)</td>     
+    <td>入力文字列中の単語は、１文字の空白文字で区切られている。入力文字列の先頭と最後に空白文字はない。</td>     
+  </tr>     
+  <tr>     
+    <td valign="top">(3)</td>     
+    <td>単語の途中で１行の最大文字数を超える場合は、その単語が次の行の先頭になるように出力する。</td>     
+  </tr>     
+  <tr>     
+    <td valign="top">(4)</td>     
+    <td>単語の最大長を wx、入力文字列の長さを sxとすると、      
+      <p>　　　　0 ＜ wx ＜ 16 ≦ max ＜ sx ＜ 1024</p>      
+      <p>の関係が成り立つものとする。</td>      
+  </tr>      
+</table>      
+<p><img border="0" src="image/A99a11f1.gif" width="525" height="117"></p>    
+<p>〔プログラム〕<br>    
+（行番号）<br>    
+01 #include &lt;stdio.h><br>      
+02 #include &lt;string.h&gt;<br>     
+03 #define  BUFFMAX  1024<br>      
+04 #define  WORDMAX  16<br>      
+05<br>     
+06 void wordwrap(char str[], int max)<br>      
+07 {<br>      
+08     char word[BUFFMAX / 2][WORDMAX], buff[BUFFMAX];<br>      
+09     int  leng[BUFFMAX / 2], i, idx, cnt, pos;<br>      
+10                          /*** 文字列を単語に分解する ***/<br>      
+11     i = idx = cnt = 0;<br>      
+12     while (str[i] != '＼0') {<br>      
+13         if (str[i] == ' ') {<br>      
+14             word[idx][cnt] = '＼0';<br>      
+15             leng[idx] = cnt;<br>      
+16             idx++;<br>      
+17             cnt = 0;<br>      
+18         }<br>      
+19         else {<br>      
+20             word[idx][cnt] = str[i];<br>      
+21             cnt++;<br>      
+22         }<br>      
+23         i++;<br>      
+24     }<br>      
+25     word[idx][cnt] = str[i];<br>      
+26     leng[idx] = cnt;<br>      
+27                          /*** 出力する ***/<br>      
+28     i = pos = 0;<br>      
+29     while (i &lt;= idx) {<br>      
+30         if ((pos + leng[i]) > max) {<br>      
+31             buff[pos-1] = '＼0';<br>      
+32             printf("%s＼n", buff);<br>      
+33             pos = 0;<br>      
+34         }<br>      
+35         strcpy(&amp;buff[pos], word[i]);<br>      
+36         pos += leng[i];<br>      
+37         buff[pos] = ' ';<br>      
+38         pos++;<br>      
+39         i++;<br>      
+40     }<br>      
+41     buff[pos-1] = '＼0';<br>      
+42     printf("%s＼n", buff);<br>      
+43 }</p>      
+<p>　</p> 
+<hr> 
+<a NAME="111">　<BR> 
+<b> 
+設問</b></a><b><a NAME="111">1</a> </b>次の記述中の<b>[　　　　　]</b>に入れる正しい答えを、解答群の中から選べ。<br>
+<br>
+　入力文字列と１行の最大文字数が次の値のとき、21行目は<b>[　　ａ　　]</b>回実行される。また、プログラムが終了したときの変数 posの値は<b>[　　ｂ　　]</b>である。<br>  
+&nbsp; 
+<table border="1" cellPadding="3" bordercolorlight="#000000" cellspacing="0" bordercolordark="#FFFFFF" bordercolor="#FFFFFF"> 
+  <tbody> 
+    <tr> 
+      <td vAlign="center"> 
+        <p>入力文字列：</p> 
+      </td> 
+      <td vAlign="center"> 
+        <p>AAAA△BBBBB△CCC△DDDD△EEE△FFF\0</p> 
+      </td> 
+    </tr> 
+  </tbody> 
+</table> 
+<p>1 行の最大文字数：　18</p>
+<p>  
+<br>  
+解答群</p>
+<table border="0" cellpadding="3" cellspacing="0">  
+  <tr>  
+    <td width="60">ア　5</td>
+    <td width="60"> イ　7</td>
+    <td width="60">ウ　8</td>
+    <td width="60">エ　12</td>
+    <td>オ　13</td>
+  </tr>
+  <tr>
+    <td>カ　15</td>
+    <td>キ　16</td>
+    <td>ク　22</td>
+    <td> ケ　27</td>
+    <td></td>
+  </tr>
+</table>
+<p><br>
+</p>
+<A NAME="31">
+<HR WIDTH=100%>
+</a><a HREF="11f_p_a4.htm#111">設問の正解例と解説へ</a>
+<HR WIDTH=100%>
+<a NAME="112">
+<b>
+設問</b></a><b>2　</b>次の記述中の<b>[　　　　　　]</b>に入れる正しい答えを、解答群の中から選べ。<br>
+<br>
+　入力文字列の先頭の空白文字はそのまま出力するように、最初の単語に先頭の空白文字列を含め、また単語間の空白文字が何文字あっても、１文字にするようにプログラムを修正する。<br>
+<br>
+　そのためには、<b>α</b>を12行目の直前に、<b>β</b>を18行目の直前に挿入すればよい。<br>
+<p>　
+<table border="1" cellPadding="3" width="300" cellspacing="0" bordercolorlight="#000000" bordercolor="#FFFFFF" bordercolordark="#FFFFFF">
+  <tbody>
+    <tr>
+      <td vAlign="top" width="10%">
+        <p>α</p>
+      </td>
+      <td vAlign="top" width="90%">while(str[i] == ' '){<br>     
+        word[idx][cnt] = str[i];<br>     
+        <b>[　　c　　]</b>;<br>
+        <b>[　　d　　]</b>;<br>
+        }</td>
+    </tr>
+  </tbody>
+</table>
+<p>　
+<table border="1" cellPadding="3" width="300" bordercolorlight="#000000" cellspacing="0" bordercolor="#FFFFFF" bordercolordark="#FFFFFF">
+  <tbody>
+    <tr>
+      <td vAlign="top" width="10%">
+        <p>β</p>
+      </td>
+      <td vAlign="top" width="90%">while(str[　<b>[　　e　　]　</b>] == '      
+        ')<br>     
+        i++;</td>     
+    </tr>     
+  </tbody>     
+</table>     
+<p><br>     
+解答群</p>     
+<table border="0" cellpadding="3" cellspacing="0">     
+  <tr>     
+    <td width="80">ア　cnt++</td>
+    <td width="80">イ　cnt--　</td>
+    <td width="80">ウ　i　</td>
+    <td width="80">エ　i++</td>
+    <td>オ　i--</td>
+  </tr>
+  <tr>
+    <td>カ　i+1</td>
+    <td>キ　i-1</td>
+    <td>ク　idx++</td>
+    <td>ケ　idx--</td>
+    <td></td>
+  </tr>
+</table>
+<p>　</p>
+<A NAME="31">
+<HR WIDTH=100%>
+</a><a HREF="11f_p_a4.htm#112">設問の正解例と解説へ</a>
+<HR WIDTH=100%>
+<p><A HREF="index.htm">メニューへ戻る</A>　</p>
+<HR WIDTH=100%>
+<a NAME="120">　<BR>
+<b>
+問12</b></a>　次のCOBOLプログラムの説明及びプログラムを読んで、設問１、2に答えよ。<br>
+<br>
+〔プログラムの説明〕<br>
+　ある学校の第2外国語選択科目別人数を棒グラフで出力する。
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">(1)</td>
+    <td>選択科目別人数は、呼ばれるプログラムKEISANによって得ることができ、次の順にSENTAKU-Tに格納される。
+      <p>フランス語(F)、ドイツ語(G)、中国語(C)、ロシア語(R)、スペイン語(S)</td>
+  </tr>
+  <tr>
+    <td valign="top">(2)</td>
+    <td>棒グラフの印字様式は、次のとおりである。<br>
+      <br>
+      ①縦軸に科目、横軸に選択人数をとる。<br>
+      ②選択人数の範囲は 0～30 人であり、一人につき、“*”一つで表す。<br>      
+      ③フランス語 30 人、ドイツ語 15 人、中国語 20 人、ロシア語 0 人、<br>      
+      スペイン語 5 人の場合の出力例を図に示す。</td>      
+  </tr>      
+</table>      
+<p><img border="0" src="image/A99a12f1.gif" width="378" height="149"></p>    
+<p>〔プログラム〕</p>    
+<pre>01 DATA DIVISION.
+02 FILE SECTION.
+03 FD  PRINT-F.
+04 01  PRINT-R.
+05     03                  PIC X(2).
+06     03  KOMOKU          PIC X(3).
+07     03  JIKU            PIC X.
+08     03  BO.       
+09       05  KAZU          OCCURS 30  PIC X.
+10     03                  PIC X.
+11 WORKING-STORAGE SECTION.
+12 01  YOKOJIKU.
+13     03                  PIC X(6)  VALUE &quot;  ---+&quot;.
+14     03                  PIC X(31) VALUE ALL &quot;----+&quot;.
+15 01  MEMORI              PIC X(37)  
+16     VALUE &quot;     0         10        20        30&quot;.
+17 01  SENTAKU-T.
+18     03  NINZU           OCCURS 5 PIC 9(2).
+19 01  KAMOKU-T            VALUE &quot;F  G  C  R  S  &quot;.
+20     03  NAMAE           OCCURS 5 PIC X(3). 
+21 01  S                   PIC 9.
+22 01  T                   PIC 99.
+23 PROCEDURE DIVISION.
+24 HAJIME.
+25     OPEN OUTPUT PRINT-F.
+26     CALL &quot;KEISAN&quot; USING SENTAKU-T.
+27     PERFORM VARYING S FROM 1 BY 1 UNTIL S &gt; 5
+28        MOVE SPACE TO PRINT-R
+29        MOVE NAMAE(S) TO KOMOKU
+30        MOVE  &quot;:&quot; TO JIKU
+31        PERFORM VARYING T FROM 1 BY 1 UNTIL T &gt; NINZU(S)
+32           MOVE &quot;*&quot; TO KAZU(T)
+33        END-PERFORM
+34        WRITE PRINT-R
+35     END-PERFORM.
+36     WRITE PRINT-R FROM YOKOJIKU.
+37     WRITE PRINT-R FROM MEMORI.   
+38     CLOSE  PRINT-F.
+39     STOP RUN.
+</pre> 
+<p>　棒グラフを横向きから縦向きへ変更するためにプログラムを修正する。データ部は次のように変更し、手続き部の 27 行目から 35 行目の変更を、表の a、b、cの 3通り考えた。</p>  
+<pre>FILE SECTION.
+FD  PRINT-F.
+01  PRINT-R.
+    03              PIC X(2).
+    03  KOMOKU      PIC ZZ9.
+    03  JIKU        PIC X.
+    03  BO          OCCURS 5.       
+       05           PIC X(2).   
+       05  KAZU     PIC X(3).
+    03              PIC X(2).
+WORKING-STORAGE  SECTION.
+01  YOKOJIKU.
+    03              PIC X(6)  VALUE &quot;  ---+&quot;.  
+    03              PIC X(27) VALUE ALL &quot;-&quot;.
+01  MEMORI          PIC X(33)
+    VALUE    &quot;         F    G    C    R    S   &quot;.
+01  SENTAKU-T.
+    03  NINZU       OCCURS 5 PIC 9(2).
+01  S               PIC 99.
+01  T               PIC 99.
+01  K               PIC 99.</pre> 
+<p>      
+<br>      
+　　　</p>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>表　手続き部修正内容（ 27 行目から 35 行目を置換）</td>  
+  </tr>  
+</table>  
+<table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">    
+  <tr>    
+    <td> 　</td>    
+    <td>    
+      <p align="center">文&nbsp;</td>    
+  </tr>    
+  <tr>   
+    <td> a</td>   
+    <td>   
+      <p align="left">&nbsp;PERFORM VARYING S FROM 1 BY 1 UNTIL S > 30&nbsp;<br>     
+            MOVE SPACE TO PRINT-R&nbsp;</p>   
+      <p align="center"><img border="0" src="image/A99a12f2.gif" width="236" height="40"></p>   
+      <p align="left">    
+            MOVE ":" TO JIKU&nbsp;<br>     
+            PERFORM VARYING T FROM 1 BY 1 UNTIL T > 5&nbsp;<br>     
+               IF S &lt;= NINZU(T) THEN MOVE "***" TO KAZU(T)  END-IF&nbsp;<br>     
+            END-PERFORM&nbsp;<br>     
+            WRITE PRINT-R&nbsp;<br>     
+         END-PERFORM.</p>    
+    </td>     
+  </tr>     
+  <tr>     
+    <td> b</td>     
+    <td>&nbsp;PERFORM VARYING S FROM 1 BY 1 UNTIL S > 30&nbsp;<br>     
+            MOVE SPACE TO PRINT-R&nbsp;<br>     
+            COMPUTE K = 30 - S&nbsp;<br>     
+            IF K = 10 OR 20 OR 30 THEN&nbsp;<br>     
+      　             MOVE K TO KOMOKU  END-IF&nbsp;<br>     
+            MOVE ":" TO JIKU&nbsp;<br>     
+            PERFORM VARYING T FROM 1 BY 1 UNTIL T > 5&nbsp;<br>     
+               IF K &lt;= NINZU(T) THEN MOVE "***" TO KAZU(T)  END-IF&nbsp;<br>     
+            END-PERFORM&nbsp;<br>     
+            WRITE PRINT-R&nbsp;<br>     
+         END-PERFORM.<br>     
+    </td>     
+  </tr>     
+  <tr>     
+    <td> c</td>     
+    <td>&nbsp; PERFORM VARYING S FROM 30 BY -1 UNTIL S &lt; 1&nbsp;<br>     
+            MOVE SPACE TO PRINT-R&nbsp;<br>     
+            IF S = 10 OR 20 OR 30 THEN&nbsp;<br>     
+               MOVE S TO KOMOKU  END-IF&nbsp;<br>     
+            MOVE ":" TO JIKU&nbsp;<br>     
+            PERFORM VARYING T FROM 1 BY 1 UNTIL T > 5&nbsp;<br>     
+               IF S &lt;= NINZU(T) THEN MOVE "***" TO KAZU(T)  END-IF&nbsp;<br>     
+            END-PERFORM&nbsp;<br>     
+            WRITE PRINT-R&nbsp;<br>     
+         END-PERFORM.&nbsp;</td>     
+  </tr>     
+</table>     
+<A NAME="40">    
+<HR WIDTH=100%>    
+</a><a NAME="121"><b>　<BR>  
+設問</b></a><b>1　</b>表中の<img border="0" src="image/box.gif" width="58" height="17">で 囲まれた IF 文を“10 の倍数のとき”となるように変更する場合、正しい答えを解答群の中から選べ。<br>    
+<br>    
+解答群<br>    
+       ア　COMPUTE K = S / 10<br>      
+　　IF K = 0 THEN MOVE S TO KOMOKU END-IF<br>      
+       イ　COMPUTE K = S / 10<br>      
+　　IF S = K * 10 THEN MOVE S TO KOMOKU END-IF<br>      
+       ウ　COMPUTE K = S / 10<br>      
+　　COMPUTE K = S / K<br>      
+　　IF K = 10 THEN MOVE S TO KOMOKU END-IF<br>      
+       エ　COMPUTE K = S / 10<br>      
+　　COMPUTE K = K * 10<br>      
+　　MOVE K TO KOMOKU&nbsp;<br>     
+　<br>
+　
+<A NAME="41">
+<HR WIDTH=100%>
+</a><a HREF="11f_p_a4.htm#121">設問1の正解例と解説へ</a>
+<A NAME="40">
+<HR WIDTH=100%>
+</a><a NAME="122"><b>　<BR>
+設問</b></a><b>2　</b>　a、b、c それぞれで修正した結果、印字されるグラフはどうなるか、解答群の中<br>      
+　　　から選べ。ここで、選択人数はプログラムの説明(2)の出力例と同じとする。
+<p>解答群</p>
+<p><img border="0" src="image/A99a12f3.gif" width="613" height="714"><br>
+</p>
+　
+<A NAME="41">
+<HR WIDTH=100%>
+</a><a HREF="11f_p_a4.htm#122">設問2の正解例と解説へ</a>
+<HR WIDTH=100%>
+<p>
+<A HREF="index.htm">メニューへ戻る</A></p>
+<HR WIDTH=100%>
+<p>
+<a NAME="130">
+<b>問13</b></a><b>　</b>次の Fortran      
+プログラムの説明及びプログラムを読んで、設問１～ 3      
+に答えよ。</p>     
+<p>〔プログラムの説明〕<br>     
+　食品の好みの度合いについてのアンケートを実施した。その結果から食品間の好みの<br>     
+相関係数を求め、印字するプログラムである。<br>     
+<table border="0" cellpadding="3" cellspacing="0">     
+  <tr>     
+    <td valign="top">(1)</td>     
+    <td>回答者数は、2 人以上 100 人以下である。</td>     
+  </tr>     
+  <tr>     
+    <td valign="top">(2)</td>     
+    <td>アンケートは、9 食品の好みの度合いをそれぞれ 10      
+      点満点で回答するものである。</td>     
+  </tr>     
+  <tr>     
+    <td valign="top">(3)</td>     
+    <td>アンケートの結果の例を表１に示す。アンケートの結果ファイルには、回答者番号及び      
+      9 食品の好みの得点が格納されている。</td>     
+  </tr>     
+</table>     
+<p><img border="0" src="image/a99a13f1.gif" width="568" height="136">    
+<p>表１　アンケートの結果<br>   
+<p>(4)　食品間の好みの相関係数は、次のとおりに計算する。
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">①</td>
+    <td>食品 s の得点の平均値を Hs、回答者 n の食品 j と食品      
+      k の得点を Pnj、Pnk、回答者の人数を M として、次の Cjk      
+      を計算する。<br>     
+      <img border="0" src="image/a99a13f2.gif" width="239" height="43"></td>   
+  </tr>   
+  <tr>   
+    <td valign="top">②</td>   
+    <td>食品 j と食品 k の相関係数 Rjk      
+      は、次の式で計算する。ここで、Cjj、Ckk の値は、0      
+      にならないものとする。<br>     
+      <img border="0" src="image/a99a13f3.gif" width="143" height="50"></td>   
+  </tr>   
+</table>   
+<p>(5)　出力結果の例を次に示す。<br>
+<img border="0" src="image/a99a13f4.gif" width="576" height="161">
+<pre>〔プログラム〕
+（行番号）
+01    program konomi_no_sokan
+02    integer,parameter :: msaidai=100,ssaidai=9
+03    real,dimension(ssaidai,ssaidai) :: r
+04    integer,dimension(msaidai,ssaidai) :: t
+05    integer :: bango,k,n,ninzu,s
+06    character(len=7),dimension(ssaidai) :: shokuhin    &amp;
+07       &amp;          =  (/'Kimuti ','Gyunyu ','Konbu  ',  &amp;
+08       &amp;               'Suika  ','Tamago ','Tohu   ',  &amp;
+09       &amp;               'Tomato ','Natto  ','Pizza  '/) 
+10    do n=1,msaidai
+11       read(*,*,end=10) bango,(t(n,s),s=1,ssaidai)
+12    end do
+13 10 ninzu = n - 1
+14    call sokan(t,ninzu,r)
+15    write(*,'(t10,9a7)') (shokuhin(s),s=1,ssaidai)
+16    do k=1,ssaidai
+17       write(*,'(t2,a7,9(f5.2,tr2))')                     &amp;
+18       &amp;        shokuhin(k),(r(k,s),s=1,ssaidai)
+19    end do
+20    contains
+21
+22    subroutine sokan(shiryo,shiryosu,r)
+23    integer :: shiryo(:,:),shiryosu,j,k,n,m
+24    real :: r(:,:),c(ssaidai,ssaidai),h(ssaidai),wrk,wrkj,wrkk
+25     ! 食品ごとの平均値を求める
+26    h = real(sum(shiryo(1:shiryosu,1:ssaidai),dim=1)) / real(shiryosu)
+27    do j=1,ssaidai
+28       do k=1,ssaidai
+29          c(j,k) = sum((real(shiryo(1:shiryosu,j)) - h(j)) *   &amp;
+30        &amp;           (real(shiryo(1:shiryosu,k)) - h(k))) / real(shiryosu)
+31       end do
+32    end do
+33    do j=1,ssaidai
+34       do k=1,ssaidai
+35          r(j,k) = c(j,k) / sqrt(c(j,j) * c(k,k))
+36       end do
+37    end do
+38    end subroutine sokan
+39    end program konomi_no_sokan</pre>
+<pre>
+</pre>
+<HR WIDTH=100%>
+<a NAME="131">　<BR>
+<b>
+設問</b></a><b>1</b>&nbsp;　このプログラムに 101      
+人以上のデータを与えるとどうなるか。正しい答えを解答群の中から選べ。     
+<p>解答群     
+<table border="0" cellpadding="3" cellspacing="0">     
+  <tr>     
+    <td valign="top">ア</td>     
+    <td>101      
+      人目以降のデータが入力されたとき、どのデータが読み捨てられるかは不定である。したがって、計算された相関係数も、どの      
+      100 人のデータであるか分からない。</td>     
+  </tr>     
+  <tr>     
+    <td valign="top">イ</td>     
+    <td>101 人目以降のデータも含めた相関係数を計算する。</td>     
+  </tr>     
+  <tr>     
+    <td valign="top">ウ</td>     
+    <td>101      
+      人目以降のデータを配列として確保した領域外に格納するので、結果は予想できない。</td>     
+  </tr>     
+  <tr>     
+    <td valign="top">エ</td>     
+    <td>最後の 100 人のデータについて相関係数を計算する。</td>     
+  </tr>     
+  <tr>     
+    <td valign="top">オ</td>     
+    <td>最初の 100 人のデータについて相関係数を計算する。</td>     
+  </tr>     
+</table>     
+<A NAME="43">     
+<HR WIDTH=100%>     
+</a><a HREF="11f_p_a4.htm#131">設問の正解例と解説へ</a>     
+<HR WIDTH=100%>     
+<a NAME="132">　<BR>     
+<b>     
+設問2</b></a>&nbsp;　
+<p>プログラム中の 27 行目から 32      
+行目までと同等な結果が得られる答えを，解答群の中から選べ。     
+<p>解答群<br>     
+<table border="0" cellpadding="3" cellspacing="0" width="500">     
+  <tr>     
+    <td width="432">ア&nbsp;&nbsp; do j=1,ssaidai<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; do k=1,ssaidai<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; wrkj = 0.0<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; wrkk = 0.0<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; do      
+      n=1,shiryosu<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      wrkj = wrkj + real(shiryo(n,j))&nbsp;&nbsp;<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      wrkk = wrkk + real(shiryo(n,k))<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end do<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; c(j,k) =      
+      (wrkj - h(j)) * (wrkk - h(k)) / real(shiryosu)&nbsp;<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end do<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp; end do<br>     
+      　</td>
+  </tr>
+  <tr>
+    <td width="432">イ&nbsp;&nbsp; do j=1,ssaidai<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; do k=1,ssaidai<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; wrkj = 0.0<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; wrkk = 0.0<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; do      
+      n=1,shiryosu<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      wrkj = wrkj + (real(shiryo(n,j)) - h(j))&nbsp;&nbsp;<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      wrkk = wrkk + (real(shiryo(n,k)) - h(k))<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end do<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; c(j,k) = wrkj      
+      * wrkk / real(shiryosu)&nbsp;<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end do<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp; end do<br>     
+      　</td>
+  </tr>
+  <tr>
+    <td width="432">ウ&nbsp;&nbsp; do j=1,ssaidai<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; do k=1,ssaidai<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; wrk = 0.0<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; do      
+      n=1,shiryosu<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      wrk = wrk + (real(shiryo(n,j)) - h(j))&nbsp; &amp;<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      &amp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * (real(shiryo(n,k))      
+      - h(k))<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end do<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; c(j,k) = wrk      
+      / real(shiryosu)&nbsp;<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end do<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp; end do<br>     
+      　</td>
+  </tr>
+  <tr>
+    <td width="432">エ&nbsp;&nbsp; do j=1,ssaidai<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; do k=1,ssaidai<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; wrk = 0.0<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; do      
+      n=1,shiryosu<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      do m=1,shiryosu<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      wrk = (real(shiryo(n,j)) - h(j))&nbsp; &amp;<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      &amp;&nbsp;&nbsp; * (real(shiryo(m,k)) - h(k))&nbsp;&nbsp;<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      end do<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end do<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; c(j,k) = wrk      
+      / real(shiryosu)&nbsp;<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end do<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp; end do<br>     
+    </td>     
+  </tr>     
+</table>     
+<dir>     
+  <div align="left">     
+    <pre>
+</pre>     
+  </div>     
+</dir>     
+<A NAME="43">     
+<HR WIDTH=100%>     
+</a><a HREF="11f_p_a4.htm#132">設問の正解例と解説へ</a>     
+<HR WIDTH=100%>     
+<a NAME="133">　<BR>     
+<b>     
+設問3</b></a>&nbsp;　次の 2      
+点について，プログラムを変更する。表 2 中の <b>[　　　　　]      
+</b>に入れる正しい答えを，解答群の中から選べ。     
+<table border="0" cellpadding="3" cellspacing="0">     
+  <tr>     
+    <td valign="top">(1)</td>     
+    <td>同じ食品同士の相関係数は，計算しないで 1.0      
+      とする。</td>     
+  </tr>     
+  <tr>     
+    <td valign="top">(2)</td>     
+    <td>結果の行列の対称性を利用して，食品の逆の組合せについては計算しないで，対応する値を代入する。</td>     
+  </tr>     
+</table>     
+<p align="left">表２ プログラムの変更箇所     
+<dir>     
+</dir>     
+<center>     
+<div align="left">     
+  <table border="1" cellPadding="3" bordercolorlight="#000000" cellspacing="0" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">     
+    <tbody>     
+      <tr>     
+        <td height="26" vAlign="center">     
+          <p align="center">位置</p>     
+        </td>     
+        <td height="26" vAlign="center">     
+          <p align="center">変更後</p>     
+        </td>     
+      </tr>     
+      <tr>     
+        <td height="26" vAlign="center">     
+          <p align="center">28 行目</p>     
+        </td>     
+        <td height="26" vAlign="center">     
+          <p align="center">do k=1,j</p>     
+        </td>     
+      </tr>     
+      <tr>     
+        <td height="26" vAlign="center">     
+          <p align="center">32～36 行目</p>     
+        </td>     
+        <td height="26" vAlign="center">     
+          <p align="center"><b>[　　　]</b></p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</center>
+<p>解答群
+<table border="0" cellpadding="3" cellspacing="0" width="345">
+  <tr>
+    <td width="337">ア　&nbsp;&nbsp; r(j,j) = 1.0&nbsp;<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; do k=1,j-1<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      r(k,j) =      
+      r(j,k)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      r(j,k) = c(j,k) / sqrt(c(j,j) * c(k,k))&nbsp;&nbsp;&nbsp;&nbsp;<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end do</td>     
+  </tr>     
+  <tr>     
+    <td width="337">イ　&nbsp;&nbsp; r(j,j) = 1.0&nbsp;<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; do k=1,j-1<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      r(j,k) = c(j,k) / sqrt(c(j,j) * c(k,k))&nbsp;&nbsp;&nbsp;&nbsp;<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      r(k,j) =      
+      r(j,k)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end do</td>     
+  </tr>     
+  <tr>     
+    <td width="337">ウ　&nbsp;&nbsp; r(j,j) = 1.0&nbsp;<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; do k=1,j-1<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      r(k,j) = r(ssaidai-j+1,ssaidai-k+1)&nbsp;&nbsp;&nbsp;<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      r(j,k) = c(j,k) / sqrt(c(j,j) * c(k,k))&nbsp;&nbsp;&nbsp;<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end do</td>     
+  </tr>     
+  <tr>     
+    <td width="337">エ　&nbsp;&nbsp; r(j,j) = 1.0<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; do k=1,j-1<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      r(j,k) = c(j,k) / sqrt(c(j,j) * c(k,k))&nbsp;&nbsp;&nbsp;<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      r(k,j) = r(ssaidai-j+1,ssaidai-k+1)&nbsp;&nbsp;&nbsp;<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end do</td>     
+  </tr>     
+</table>     
+<pre>
+</pre>     
+<A NAME="43">     
+<HR WIDTH=100%>     
+</a><a HREF="11f_p_a4.htm#133">設問の正解例と解説へ</a>     
+<HR WIDTH=100%>     
+<p>     
+<A HREF="index.htm">メニューへ戻る</A></p>     
+<HR WIDTH=100%>     
+　<BR>
+<b><a name="140">問14</a>　</b>
+<p>次のアセンブラプログラムの説明及びプログラムを読んで，設問      
+1，2 に答えよ。     
+<p>〔プログラムの説明〕     
+<p>副プログラム ADDP は，主プログラムから，BCD      
+コードで表現された二つの整数 a，b（a ≧ 0，b ≧ 0）を受け取り，a      
+と b の和を BCD コードとして求める。     
+<table border="0" cellpadding="3" cellspacing="0">     
+  <tr>     
+    <td>(1)</td>     
+    <td>BCD コードとは，10 進数の値に対して，その 10      
+      進数の各けたを 4 ビットの 2      
+      進数で表現したものである。例えば，10 進数の 5973 を      
+      BCD コードで表現すると，次のとおりになる。</td>     
+  </tr>     
+</table>     
+<center>     
+<div align="left">     
+  <table border="0" cellSpacing="0">     
+    <tbody>     
+      <tr>     
+        <td vAlign="center" width="25%">     
+          <p align="center">千の位</p>     
+        </td>     
+        <td vAlign="center" width="25%">     
+          <p align="center">百の位</p>     
+        </td>     
+        <td vAlign="center" width="25%">     
+          <p align="center">十の位</p>     
+        </td>     
+        <td vAlign="center" width="25%">     
+          <p align="center">一の位</p>     
+        </td>     
+      </tr>     
+      <tr>     
+        <td vAlign="center" width="25%">     
+          <p align="center">5<br>     
+          ↓</p>     
+        </td>     
+        <td vAlign="center" width="25%">     
+          <p align="center">9<br>     
+          ↓</p>     
+        </td>     
+        <td vAlign="center" width="25%">     
+          <p align="center">7<br>     
+          ↓</p>     
+        </td>     
+        <td vAlign="center" width="25%">     
+          <p align="center">3<br>     
+          ↓</p>     
+        </td>     
+      </tr>     
+      <tr>     
+        <td vAlign="center" width="25%">     
+          <p align="center">0101</p>     
+        </td>     
+        <td vAlign="center" width="25%">     
+          <p align="center">1001</p>     
+        </td>     
+        <td vAlign="center" width="25%">     
+          <p align="center">0111</p>     
+        </td>     
+        <td vAlign="center" width="25%">     
+          <p align="center">0011</p>     
+        </td>     
+      </tr>     
+    </tbody>     
+  </table>     
+</div>     
+</center>     
+<p>(2)　a と b は共に 4 けた（16 ビット）であり，それぞれ      
+GR1 と GR2 に格納されて，主プログラムから渡される。     
+<p>(3)　副プログラム ADDP の実行例を図に示す。     
+<p><img border="0" src="image/a99a14f2.gif" width="518" height="104">    
+<p align="left">図　副プログラム ADDP の実行例     
+<p>(4)　主プログラムに戻るとき，汎用レジスタ GR2，GR3      
+の内容を元に戻す。     
+<p>〔副プログラム ADDP〕     
+<table border="0" cellpadding="3" cellspacing="0">     
+  <tr>     
+    <td>ADDP&nbsp;&nbsp;&nbsp;&nbsp; START<br>     
+      　　　　　　ST&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GR1,A<br>     
+      　　　　　　ST&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GR2,B&nbsp;<br>     
+      　　　　　　PUSH&nbsp;&nbsp;&nbsp; 0,GR3<br>     
+      　　　　　　LEA&nbsp;&nbsp;&nbsp;&nbsp; GR3,0<br>     
+      　　　　　　ST&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GR3,RES<br>     
+      LOOP1&nbsp;&nbsp;&nbsp; AND&nbsp;&nbsp;&nbsp;&nbsp; GR1,MASK1&nbsp;&nbsp;<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      AND&nbsp;&nbsp;&nbsp;&nbsp; GR2,MASK1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      LEA&nbsp;&nbsp;&nbsp;&nbsp;      
+      GR0,0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      ST&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      GR2,WORK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      ADD&nbsp;&nbsp;&nbsp;&nbsp;      
+      GR1,WORK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      CPA&nbsp;&nbsp;&nbsp;&nbsp;      
+      GR1,TEN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      JMI&nbsp;&nbsp;&nbsp;&nbsp;      
+      NOTOVR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      SUB&nbsp;&nbsp;&nbsp;&nbsp;      
+      GR1,TEN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      LEA&nbsp;&nbsp;&nbsp;&nbsp;      
+      GR0,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>     
+      NOTOVR&nbsp;&nbsp; SLL&nbsp;&nbsp;&nbsp;&nbsp; GR1,0,GR3<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      OR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GR1,RES<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      LEA&nbsp;&nbsp;&nbsp;&nbsp; GR3,4,GR3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      CPA&nbsp;&nbsp;&nbsp;&nbsp; GR3,SIXTEN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      JZE&nbsp;&nbsp;&nbsp;&nbsp;      
+      FIN1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      ST&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GR1,RES<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      LD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GR1,A<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      SRL&nbsp;&nbsp;&nbsp;&nbsp; GR1,0,GR3<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      LD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GR2,B<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      SRL&nbsp;&nbsp;&nbsp;&nbsp; GR2,0,GR3<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      ST&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GR0,WORK<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      ADD&nbsp;&nbsp;&nbsp;&nbsp;      
+      GR1,WORK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      JMP&nbsp;&nbsp;&nbsp;&nbsp;      
+      LOOP1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>     
+      FIN1&nbsp;&nbsp;&nbsp;&nbsp; POP&nbsp;&nbsp;&nbsp;&nbsp;      
+      GR3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      LD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      GR2,B&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      RET&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>     
+      MASK1&nbsp;&nbsp;&nbsp; DC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      #000F&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>     
+      TEN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>     
+      SIXTEN&nbsp;&nbsp; DC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      16&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>     
+      A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      DS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>     
+      B&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      DS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>     
+      RES&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>     
+      WORK&nbsp;&nbsp;&nbsp;&nbsp; DS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      END&nbsp;&nbsp;&nbsp;&nbsp;</td>     
+    <td>;<br>     
+      ;&nbsp;<br>     
+      ;<br>     
+      ;<br>     
+      ;&nbsp; 結果の領域の初期化<br>     
+      ;<br>     
+      ;整数aから4ビットを抽出<br>     
+      ;整数bから4ビットを抽出<br>     
+      ;<br>     
+      ;&nbsp; 4ビットの加算<br>     
+      ;<br>     
+      ;結果≧10？<br>     
+      ;NO<br>     
+      ;結果から10減算<br>     
+      ;けた上げの設定<br>     
+      ;4ビットの加算結果を元のビット位置へ<br>     
+      ;中間結果に併合<br>     
+      ;<br>     
+      ;全けた終了？<br>     
+      ;YES<br>     
+      ;中間結果を格納<br>     
+      ;&nbsp; 整数aの次の4ビットを右端へ<br>     
+      ;<br>     
+      ;&nbsp; 整数bの次の4ビットを右端へ<br>     
+      ;<br>     
+      ;&nbsp; けた上げ分を加算<br>     
+      ;<br>     
+      ;<br>     
+      ;<br>     
+      ;<br>     
+      ;<br>     
+      ;<br>     
+      ;<br>     
+      ;<br>     
+      ;<br>     
+      ;<br>     
+      ;<br>     
+      ;<br>     
+      ;<br>     
+    </td>     
+  </tr>     
+</table>     
+<p>　</p>
+<hr>
+<p><b><a name="141">設問</a>1　</b>次の文中の<b>[　　　　]</b>に入れる正しい答えを、解答群の中から選べ。<br>
+</p>
+<p>　主プログラムから渡された GR1 と GR2      
+の内容が次のとおりであった場合、ADDP は<br>     
+その実行後、GR0 に<b>[　　a　　]</b>を、GR1 に<b>[　　b　　]</b>を設定して、主プログラムに返す。<br>     
+<br>     
+GR1 ＝ 0101 0010 1001 1000<br>     
+GR2 ＝ 0100 1000 0101 0011<br>     
+<br>     
+解答群     
+<table border="0" cellpadding="3" cellspacing="0">     
+  <tr>     
+    <td width="200">ア　0000 0000 0000 0000</td>     
+    <td>イ　0000 0000 0000 0001</td>     
+  </tr>     
+  <tr>     
+    <td>ウ　0000 0001 0101 0001</td>     
+    <td>エ　0100 1000 0101 0011</td>     
+  </tr>     
+  <tr>     
+    <td>オ　0101 0010 1001 1000</td>     
+    <td>カ　1001 1001 1001 1001</td>     
+  </tr>     
+  <tr>     
+    <td>キ　1010 0001 0101 0001</td>     
+    <td>ク　1111 1111 1111 1111</td>     
+  </tr>     
+</table>     
+<p>　</p>
+<A NAME="44">
+<HR WIDTH=100%>
+</a><a HREF="11f_p_a4.htm#141">設問1の正解例と解説へ</a>
+<HR WIDTH=100%>
+<p><b><a name="142">設問</a>2　</b>副プログラム ADDP を使用して，      
+BCD コードで表現された二つの整数 m，n<br>     
+（m ≧ 0，n ≧ 0）に対し，ある演算を行う副プログラム CALC      
+を作成した。</p>     
+<table border="0" cellpadding="3" cellspacing="0">     
+  <tr>     
+    <td valign="top">(1)</td>     
+    <td>m と n は，それぞれ GR1 と GR2      
+      に格納されて，主プログラムから渡される。</td>     
+  </tr>     
+  <tr>     
+    <td valign="top">(2)</td>     
+    <td>演算結果を GR1 に格納する。</td>     
+  </tr>     
+  <tr>     
+    <td valign="top">(3)</td>     
+    <td>主プログラムに戻るとき，汎用レジスタ GR2，GR3      
+      の内容を元に戻す。</td>     
+  </tr>     
+</table>     
+<p>表は，主プログラムから渡される m と n      
+の値，主プログラムに返す GR1 の値，及び副プログラム ADDP      
+を呼び出す回数を示す。ただし，表中及び解答群中の値はすべて      
+10 進数とする。     
+<p>表中の<b> [　　　] </b>に入れる正しい答えを，解答群の中から選べ。 
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>　<br>
+      表　各値の対応</td>
+  </tr>
+</table>
+<center>    
+<div align="left">    
+  <table border="1" bordercolorlight="#000000" cellspacing="0" cellpadding="3" bordercolor="#FFFFFF" bordercolordark="#FFFFFF">    
+    <tbody>    
+      <tr>    
+        <td colSpan="2" vAlign="center">    
+          <p align="center">主プログラムから渡される値</p>    
+        </td>    
+        <td rowSpan="2" vAlign="center">    
+          <p align="center">主プログラムに返す    
+          <p align="center">GR1 の値</p>     
+        </td>     
+        <td rowSpan="2" vAlign="center">     
+          <p align="center">ADDP を     
+          <p align="center">呼び出す回数</p>     
+        </td>     
+      </tr>     
+      <tr>     
+        <td vAlign="top">     
+          <p align="center">m</p>     
+        </td>     
+        <td vAlign="top">     
+          <p align="center">n</p>     
+        </td>     
+      </tr>     
+      <tr>     
+        <td vAlign="center">     
+          <p align="right">123</p>     
+        </td>     
+        <td vAlign="center">     
+          <p align="right">45</p>     
+        </td>     
+        <td vAlign="center">     
+          <p align="center"><b>[　　c　　]</b></p>
+        </td>
+        <td vAlign="center">
+          <p align="center"><b>[　　d　　]</b></p>
+        </td>
+      </tr>
+      <tr>
+        <td vAlign="center">
+          <p align="right">51</p>
+        </td>
+        <td vAlign="center">
+          <p align="right">3579</p>
+        </td>
+        <td vAlign="center">
+          <p align="center"><b>[　　e　　]</b></p>
+        </td>
+        <td vAlign="center">
+          <p align="center"><b>[　　f　　]</b></p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</center>
+<p>〔副プログラム CALC〕     
+<pre>CALC      START                    ;
+          PUSH    0,GR2            ;  レジスタの退避
+          PUSH    0,GR3            ;
+          ST      GR1,M            ;
+          LEA     GR1,0            ;結果の初期化
+          LD      GR3,M            ;
+LOOP2     AND     GR3,MASK2        ;ループ回数→GR3
+          JZE     NDIGIT           ;
+LOOP3     CALL    ADDP             ;
+          CPA     GR0,ZERO         ;
+          JNZ     FIN3             ;あふれ
+          LEA     GR3,-1,GR3       ;
+          JNZ     LOOP3            ;
+NDIGIT    LD      GR3,M            ;
+          SRL     GR3,4            ;M÷10
+          JZE     FIN3             ;
+          ST      GR3,M            ;
+          CPA     GR2,LIMIT        ;
+          JPZ     FIN2             ;あふれ
+          SLL     GR2,4            ;N×10
+          JMP     LOOP2            ;
+FIN2      LEA     GR0,1            ;
+FIN3      POP     GR3              ;  レジスタの復元
+          POP     GR2              ;
+          RET                      ;
+MASK2     DC      #000F            ;
+ZERO      DC      0                ;
+LIMIT     DC      #1000            ;
+M         DS      1                ;
+          END                      ;
+</pre>     
+<p>c，e に関する解答群     
+<table border="0" cellpadding="3" cellspacing="0">     
+  <tr>     
+    <td width="60">ア　0</td>
+    <td width="60">イ　70</td>
+    <td width="60">ウ　78</td>
+    <td width="60">エ　168</td>
+    <td>オ　737</td>
+  </tr>
+  <tr>
+    <td>カ　2529</td>
+    <td>キ　3528</td>
+    <td>ク　3579</td>
+    <td>ケ　5535</td>
+    <td>コ　7158</td>
+  </tr>
+</table>
+<p>d，f に関する解答群     
+<table border="0" cellpadding="3" cellspacing="0">     
+  <tr>     
+    <td width="60">ア　0</td>
+    <td width="60">イ　1</td>
+    <td width="60">ウ　2</td>
+    <td width="60">エ　3</td>
+    <td>オ　6</td>
+  </tr>
+  <tr>
+    <td>カ　9</td>
+    <td>キ　45</td>
+    <td>ク　51</td>
+    <td>ケ　123</td>
+    <td>コ　3579</td>
+  </tr>
+</table>
+<p>　</p>
+<HR WIDTH=100%>
+<a HREF="11f_p_a4.htm#142">設問2の正解例と解説へ</a>
+<hr>
+<p align="center">
+<a HREF="11f_p_e5.htm">■問15へ進む</a>　　　　<a href="index.htm">■メニューへ戻る</a></p>
+<HR WIDTH=100%>
+<p><BR>
+</p>
+</BLOCKQUOTE>
+      <p>　
+</BODY>
+</HTML>

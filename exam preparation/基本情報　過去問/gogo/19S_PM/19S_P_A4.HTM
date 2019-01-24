@@ -1,0 +1,196 @@
+<html>
+
+<head>
+<title>平成19年度 春期　基本情報技術者 午後 解説</title>
+<style type="text/css">
+body{line-height:150%;}
+code{font-size:12pt;}
+</style>
+</head>
+
+<body>
+
+<blockquote>
+<hr>
+<h3 align="center">平成19年度春期試験　正解例と解説(問10～問13)</h3>
+<hr>
+<p><strong><a name="100">問10</a></strong></p>
+<hr>
+<p><strong><a name="101">設問1</a></strong></p>
+<p>〈解答〉　a　エ　　　b　ウ</p>
+<p>〈解説〉</p>
+<p>空欄aについて</p>
+<blockquote>
+<p>
+空欄aの直前で，勝ち数winsと負け数lossesを合計し試合数totalを計算している。空欄aの条件が成り立つ場合，勝率averageに0をセットしている。試合数が0の場合，勝率averageを0とするので，空欄aの条件はエのtotal 
+== 0が適切。</p>
+</blockquote>
+<p>空欄bについて</p>
+<blockquote>
+<p>
+空欄bは試合数totalが0でない場合の処理に該当し，勝率averageを計算すればよい。構造体teamのメンバaverageはdouble型だが，勝ち数winsと試合数totalはint型なので，勝率team[i].wins／totalを計算する際に被除数team[i].winsをdouble型に型変換する必要がある。したがってウのteam[i].average＝(double)team[i].wins／totalが適切。</p>
+</blockquote>
+<hr>
+<p><a href="19S_P_E4.HTM#101">問題へ</a></p>
+<hr>
+<p><strong><a name="102">設問2</a></strong></p>
+<p>〈解答〉　c　ア　　　d　ウ　　　e　ウ</p>
+<p>〈解説〉</p>
+<p>空欄cについて</p>
+<blockquote>
+<p>関数calcAverage( )により勝率を計算し構造体配列teamのメンバaverageに格納する処理と，関数sort( 
+)による整列処理との間の処理が，空欄cを含むforループの処理である。この空欄cの処理は，配列teamの各要素のアドレスを，先頭から順に配列pTeamに格納する処理手順(2)の処理に該当する。配列要素のアドレスを格納するので，アのpTeam[i]＝&amp;team[i]が適切。</p>
+</blockquote>
+<p>空欄dについて</p>
+<blockquote>
+<p>空欄dは，勝率pTeam[i]-&gt;averageが直前のチームの勝率pTeam[i－1]-&gt;averageと異なる場合の順位を求める処理に該当する。要素番号i＝0のチームの勝率pTeam[0]-&gt;averageの順位rankが初期値1となる。要素番号i＞0のチームの勝率については，勝率が同率の場合は同順位とするが，勝率pTeam[i]-&gt;averageが直前のチームの勝率pTeam[i－1]-&gt;averageと異なる場合の順位は，要素番号＋1になる。したがって空欄dはウのrank＝i＋1が適切。</p>
+</blockquote>
+<p>空欄eについて</p>
+<blockquote>
+<p>
+空欄eは，printif文中で勝敗表の出力項目である順位rank，チーム名name，勝ち数wins，負け数losses，勝率averageを参照している処理に該当する。要素番号iに対応する構造体の各メンバはpTeam[i]-&gt;name，pTeam[i]-&gt;wins，pTeam[i]-&gt;losses，pTeam[i]-&gt;averageにより参照できるので，空欄eはウのpTeam[i]が適切。</p>
+</blockquote>
+<hr>
+<p><a href="19S_P_E4.htm#102">問題へ</a></p>
+<hr>
+<p><strong><a name="110">問11</a></strong></p>
+<hr>
+<p><strong><a name="111">設問1</a></strong></p>
+<p>〈解答〉　a　ア　　　b　オ　　　c　エ　　　d　ア</p>
+<p>〈解説〉</p>
+<p>空欄aについて</p>
+<blockquote>
+<p>空欄a直前の2つのIF文の処理で，昨年度の保護者名簿OLD-FILEと新入学児童の保護者名簿ENT-FILEがそれぞれ作業用のW-OLD-RECとW-ENT-RECに読み込まれた後，空欄aの条件が成り立つ場合，PERFORM命令によりCREATE-PROCの手続が実行されている。CREATE-PROCの手続では，OLD-FILEとENT-FILEから本年度の保護者名簿を作成する処理が行われる。したがってOLD-FILEとENT-FILEの両者がともEOFである場合を除き，このCREATE-PROCの手続を行えばよく，空欄aはアのNOT 
+(OLD-EOF AND ENT-EOF)が適切。</p>
+</blockquote>
+<p>空欄bについて</p>
+<blockquote>
+<p>空欄bを含む処理は，OLD-ID＜ENT-IDの場合の処理，つまり新入児童の保護者以外の在校児童の保護者を本年度の保護者名簿に編集する処理に該当する。空欄b直前のPERFORM命令によりNUM-UP-PROCの手続が実行されている。このNUM-UP-PROCでは，在校児童の学年OLD-NUM(OLD-CNT)を1学年繰上げ，6年を修了し卒業した児童OLD-PUPIL(OLD-CNT)についてはSPACEを転送して削除する処理を行っている。W-OLD-RECのそれ以外の項目についてはそのままW-NEW-RECに転送すればよいので，空欄bはオのMOVE 
+W-OLD-REC TO W-NEW-RECが適切。</p>
+</blockquote>
+<p>空欄cについて</p>
+<blockquote>
+<p>空欄cを含む処理は，OLD-ID＝ENT-IDの場合の処理，つまり在校児童の保護者名簿に存在し，新入児童の保護者名簿にも存在する保護者を本年度の保護者名簿に編集する処理に該当する。空欄cを含むPERFORM命令の直前にあるPERFORM命令により手続ENT-ADA-PROCが実行されている。この手続ENT-ADA-PROCで，新入児童の保護者名簿にある複数の新入児童について学年“1”と氏名ENT-NAME(ENT-CNT)を，本年度の保護者名簿の児童の学年NEW-NUM(ENT-CNT)と児童氏名NEW-NAME(ENT-CNT)に先頭から順にセットする処理を行っている。これに続けて，空欄cを含むPERFORMループの繰返処理で，この新入児童の保護者と一致する在校児童の保護者について，在校児童の学年と氏名を転送する必要がある。直前のMOVE命令でOLD-CNTの初期値を1に，PERFORMループの繰返処理の初期値NEW-CNTがENT-CNTにセットされているので，空欄cはエのMOVE 
+OLD-PUPIL(OLD-CNT) TO NEW-PUPIL(NEW-CNT)が適切。</p>
+</blockquote>
+<p>空欄dについて</p>
+<blockquote>
+<p>空欄dは，在校児童の学年OLD-NUM(OLD-CNT)が6学年に達しない児童について学年を繰上げる処理に該当する。したがってアのADD 1 TO 
+OLD-NUM(OLD-CNT)が適切。</p>
+</blockquote>
+<hr>
+<p><a href="19S_P_E4.htm#111">問題へ</a></p>
+<hr>
+<p><strong><a name="112">設問2</a></strong></p>
+<p>〈解答〉　イ</p>
+<p>〈解説〉</p>
+<p>行番号81のIF文でNEW-PUPIL(1)がSPACEでない場合は，本年度の保護者名簿の編集用領域W-NEW-RECをWRITE命令により出力している。したがってNEW-PUPIL(1)がSPACEの場合，本年度は保護する児童がいない保護者になるので，この場合に本年度の保護者名簿に登録されない保護者の氏名と電話番号を表示すればよく，イが適切。</p>
+<hr>
+<p><a href="19S_P_E4.HTM#112">問題へ</a></p>
+<hr>
+<p><strong><a name="120">問12</a></strong></p>
+<hr>
+<p><strong><a name="121">設問1</a></strong></p>
+<p>〈解答〉　a　ア　　　b　ウ　　　c　ウ　　　d　イ</p>
+<p>〈解説〉</p>
+<p>空欄aについて</p>
+<blockquote>
+<p>盤boardは，列挙型Markのオブジェクト配列で，盤を初期化する処理を行っているので，board[i][j]には升に何も書かれていない状態Mark.BLANKをセットすればよく，アが適切。</p>
+</blockquote>
+<p>空欄bについて</p>
+<blockquote>
+<p>
+空欄bの条件が成り立つ場合，IllegalStateException例外を投げている。IllegalStateException例外は，既に勝敗が決まっている場合（引き分けを含む），つまり盤の状態progressが進行中Progress.IN_PROGRESSでない場合に投げられる。したがって空欄bの条件は，ウのprogress 
+!= Progress.IN_PROGRESSが適切。</p>
+</blockquote>
+<p>空欄cについて</p>
+<blockquote>
+<p>空欄cは，盤の斜めの三つの升に書かれている記号が，引数で指定されたmarkと等しいか検査する処理に該当する。メソッドcheck(0, 0, 1, 1, 
+mark)により位置(0, 0)，(1, 1)，(2, 2)の升を検査しているので，空欄cを含むメソッドcheck(0, 2,［　　c　　］, 
+mark)により，もう一つの斜めの並びの位置(0, 2)，(1, 1)，(2, 0)の升を検査すればよい。升の三つの位置は(x, y)，(x＋dx, y＋dy)，(x＋2＊dx, 
+y＋2＊dy)に対応するので，xを0，yを2，x方向の増分dxを1，y方向の増分dyを－1とすればよく，ウが適切。</p>
+</blockquote>
+<p>空欄dについて</p>
+<blockquote>
+<p>marksは列挙型Markのオブジェクト配列で，2つの定数symbolの値Mark.CIRCLE（先手を表わす記号“○”）とMark.CROSS（後手を表わす記号“×”）を配列要素としてもつ。2人のプレーヤは交互に自分の記号を盤に書くので，空欄dで先手と後手を，その要素番号により0→1→0→…の順に交互に切り替える必要がある。したがってイのi 
+% 2が適切。</p>
+</blockquote>
+<hr>
+<p><a href="19S_P_E4.HTM#121">問題へ</a></p>
+<hr>
+<p><strong><a name="122">設問2</a></strong></p>
+<p>〈解答〉　ウ，オ</p>
+<p>〈解説〉</p>
+<p>ア　×　put( )メソッドの処理で変数lastxとlastyに，最後にマークした升の位置しか保持しないので，1つしか消せない<br>
+イ　×　undo( )メソッドのif文の条件で，盤の状態progressが進行中Progress.IN_PROGRESSで，かつ升がMark.BLANKでない場合は呼ばなかった状態に戻るが，この条件を満たさない場合はIllegalStateException例外を投げる。したがって1回目のundo( 
+)メソッドの呼び出しでは升に記号が書かれているので元の状態に戻るが，2回続けて呼ぶと，升に何も書かれてない状態Mark.BLANKで呼び出すことになり，IllegalStateException例外を投げる。<br>
+ウ　○　上記の理由による<br>
+エ　×　2回続けて呼ばなければ，先手，後手とも何度も呼び出せる<br>
+オ　○</p>
+<hr>
+<p><a href="19S_P_E4.HTM#122">問題へ</a></p>
+<hr>
+<p><strong><a name="130">問13</a></strong></p>
+<hr>
+<p><strong><a name="131">設問1</a></strong></p>
+<p>〈解答〉　a　エ　　　b　カ　　　c　イ　　　d　カ</p>
+<p>〈解説〉</p>
+<p>空欄aについて</p>
+<blockquote>
+<p>空欄a直前のLD命令により，GR1には分岐先のラベルがセットされる。<br>
+GR1の値が0のとき，GR1にはアドレスLTBLの分岐先ラベルMINIがセットされる。<br>
+GR1の値が1のとき，GR1にはアドレスLTBL＋1の分岐先ラベルMSERがセットされる。<br>
+GR1の値が2のとき，GR1にはアドレスLTBL＋2の分岐先ラベルMRELがセットされる。<br>
+したがって空欄aにおいて，この分岐先ラベルに従って無条件分岐命令JUMPにより分岐すればよく，エのJUMP 0, GR1が適切。</p>
+</blockquote>
+<p>空欄bについて</p>
+<blockquote>
+<p>
+空欄bを含むプログラムの処理は，要素の割当て処理に該当する。要素の割当て処理では，管理領域のビット列から0のビットに対応する未使用要素を検索し，見つかればその要素を使用中の1に設定するとともに，見つかった要素の先頭アドレスをGR0に設定する。</p>
+<p>ラベルLP1のLD命令により，管理領域から1語取り出してGR7に格納した後，空欄b直前のSLL命令によりGR7のビット列を1ビット論理左シフトしている。</p>
+<p>このSLL命令によりオーバフローした左端ビットがオーバフローフラグOFにセットされるが，</p>
+<ul>
+<li>1であれば使用中なのでLP2に分岐して検索を続ける</li>
+<li>0であれば未使用なので空欄b直後のJUMP命令によりFINDへ分岐する</li>
+</ul>
+<p>処理を空欄bで行えばよい。したがって空欄bはカのオーバフロー分岐命令JOV LP2が適切。</p>
+</blockquote>
+<p>空欄cについて</p>
+<blockquote>
+<p>未使用要素が見つかった場合，FINDに分岐して空欄cを含む処理を行う。空欄b直前のSLL命令による左シフトにより，未使用に対応する0のビットが見つかるまでは，使用中に対応する1のビットが出現するごとに空欄bのオーバフロー分岐JOVによりLP2に分岐しGR3がカウントアップされる。したがってGR7にセットされたビット列で，初めて出現する0よりも左にある1のビットの個数がGR3にセットされる。FINDの最初のLD命令により，左端ビットのみを1とするマスクパターンがGR1に格納され，次のSRL命令によりマスクパターンがGR3ビット論理右シフトされる。これによりマスクパターンの1のビットが，管理領域で見つかった未使用領域のビット位置に対応する位置に移動する。</p>
+<p>
+空欄c直前のLD命令により，対象ビットを含む管理用域の語をGR7に取り出した後，空欄bの直後のST命令により再びGR7を管理領域に退避している。したがって空欄bで，未使用領域に対応するビットを1（使用中）にするため，GR7とマスクパターンGR1との論理和OR演算を行えばよく，空欄cはイのOR 
+GR7, GR1が適切。</p>
+</blockquote>
+<p>空欄dについて</p>
+<blockquote>
+<p>①空欄dの3行前のAND命令により，GR4には返却を行う要素に対応する1語内でのビット位置が設定される。</p>
+<p>②AND命令直後のLD命令により，左端ビットのみを1とするマスクパターンがGR1に設定される。</p>
+<p>③続く空欄d直前のSRL命令により，GR1のマスクパターンをGR4ビット論理右シフトするので，左端にあった1のビットが，返却を行う要素に対応する1語内でのビット位置に移動する。</p>
+<p>
+④空欄dの2行後のLD命令により，返却を行う要素に対応するビットを含む管理領域の語がGR7に設定された後，次のAND命令により，GR7とマスクパターンGR1との論理積をとり，対象ビットを未使用に対応する値0に設定している。</p>
+<p>
+この論理積によって返却対象ビットのみを1から0に反転させるには，マスクパターンGR1には，返却対象ビットに対応したビットのみが0で，それ以外がすべて1であるビット列が設定されている必要がある。したがって空欄d直前の論理右シフトSRLにより 
+GR1に設定されたマスクパターンを，空欄dで＃FFFFとの排他的論理和によりビット反転すればよく，カのXOR GR1, =#FFFFが適切。</p>
+</blockquote>
+<hr>
+<p><a href="19S_P_E4.HTM#131">問題へ</a></p>
+<hr>
+<p><strong><a name="132">設問2</a></strong></p>
+<p>〈解答〉　ウ</p>
+<p>〈解説〉</p>
+<p>
+要素の割当て処理の4行目のLAD命令により，GR3に初期値－1が設定される。その直後のラベルLP2のLAD命令により，GR3の値が1回インクリメントされて0に設定される。</p>
+<p>語#C800を2進数のビット列で表わすと1100 1000 0000 
+0000になる。左端から3ビット目の未使用に対応する0が検索されFINDに分岐するまでに，それより左の2個の1のビットがオーバフローし，空欄bのオーバフロー分岐命令JOVによりLP2に分岐してGR3が2回インクリメントされる。したがって0から2回インクリメントされてGR3の値は2になる。</p>
+<hr>
+<p><a href="19S_P_E4.HTM#132">問題へ</a></p>
+<hr>
+<p><a href="INDEX.HTM">■メニューへ戻る</a></p>
+<hr>
+<p>　</p>
+</blockquote>
+
+</body>
+
+</html>

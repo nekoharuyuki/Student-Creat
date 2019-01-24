@@ -1,0 +1,379 @@
+<html>
+
+<head>
+<title>平成17年度春期試験　正解例と解説（午前問1～問20）</title>
+</head>
+
+<body>
+
+<blockquote>
+<hr>
+<div align="center">
+<h3>平成17年度春期試験　正解例と解説（午前問1～問20）</h3>
+</div>
+<hr>
+<p><strong><a name="01">問1</a></strong></p>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>エ</option></select></p>
+<p>〈解説〉</p>
+<p>10進数を2進数に変換するには，</p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td>①</td>
+<td>10進数を2で割った余りを2進数の桁にセット</td>
+<td>ｊ mod 2 → NISHIN [k]</td>
+</tr>
+<tr>
+<td>②</td>
+<td>次に10進数を2で割った商を求める</td>
+<td>ｊ div 2 →ｊ</td>
+</tr>
+<tr>
+<td>③</td>
+<td>さらに①に戻り繰り返す</td>
+<td></td>
+</tr>
+</table>
+</div>
+<p>空欄aが①の処理，空欄bが②の処理に対応し，エが適切。</p>
+<hr>
+<a href="17S_A_E1.HTM#01">問題へ</a>
+<hr>
+<p><strong><a name="02">問2</a></strong></p>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select></p>
+<p>〈解説〉</p>
+<p>ｘを2進数で表すと1と0が交互に並ぶ2ｎけたの1010…10になるので，</p>
+<p>ｘ＝2<sup>2ｎ－1</sup>＋2<sup>2ｎ－3</sup>＋…＋2<sup>3</sup>＋2<sup>1</sup></p>
+<p>ｘ／2＝2<sup>2ｎ－2</sup>＋2<sup>2ｎ－4</sup>＋…＋2<sup>2</sup>＋2<sup>0</sup></p>
+<p>x＋x／2<br>
+　＝2<sup>2ｎ－1</sup>＋2<sup>2ｎ－2</sup>＋2<sup>2ｎ－3</sup>＋2<sup>2ｎ－4</sup>＋…＋2<sup>3</sup>＋2<sup>2</sup>＋2<sup>1</sup>＋2<sup>0</sup><br>
+　＝(2－1)( 2<sup>2ｎ－1</sup>＋2<sup>2ｎ－2</sup>＋2<sup>2ｎ－3</sup>＋2<sup>2ｎ－4</sup>＋…＋2<sup>3</sup>＋2<sup>2</sup>＋2<sup>1</sup>＋2<sup>0</sup>)<br>
+　＝2<sup>2ｎ</sup>－1</p>
+<p>〈別解〉</p>
+<p>n＝1のときで考えるとxは2進数では10になるので，</p>
+<p>　　x＝2　　　x／2＝1　　　x＋x／2＝3</p>
+<p>n＝1のとき2<sup>2</sup><sup>n</sup>－1＝3<br>
+したがってx＋ｘ／2＝2<sup>2ｎ</sup>－1</p>
+<hr>
+<a href="17S_A_E1.HTM#02">問題へ</a>
+<hr>
+<p><strong><a name="03">問3</a></strong></p>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>ウ</option></select></p>
+<p>〈解説〉</p>
+<p>100＝64＋32＋4＝2<sup>6</sup>＋2<sup>5</sup>＋2<sup>2</sup>なので，100を2進数で表すと01100100。<br>
+－100を2の補数で表すと10011100になる。<br>
+10011100を符号なしの数値と解釈して10進数に変換すると</p>
+<p>2<sup>7</sup>＋2<sup>4</sup>＋2<sup>3</sup>＋2<sup>2<br>
+</sup>　＝128＋16＋8＋4<br>
+　＝156</p>
+<hr>
+<a href="17S_A_E1.HTM#03">問題へ</a>
+<hr>
+<p><strong><a name="04">問4</a></strong></p>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>エ</option></select></p>
+<p>〈解説〉</p>
+<p>絶対値の大きな数値から順番に加算すると，絶対値の小さな数が演算結果に反映されなくなり，これを「情報落ち」という。これを抑制するには絶対値の小さな数値から順番に加算する。</p>
+<hr>
+<a href="17S_A_E1.HTM#04">問題へ</a>
+<hr>
+<p><strong><a name="05">問5</a></strong></p>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select></p>
+<p>〈解説〉</p>
+<p><img border="0" src="IMAGE/image001.gif" width="482" height="333"></p>
+<p>上記のようにニュートン法では，関数ｆ(X)の微分ｆ'(X)を用いて｜X<sub>n＋1</sub>－X<sub>ｎ</sub>｜＝<sub></sub>｜ｆ(X<sub>n</sub>)／ｆ'(X<sub>n</sub>)<sub></sub>｜により，計算を行う。<br>
+したがって微分可能である必要がある。</p>
+<p>また初期値を含めｆ'(X<sub>n</sub>)＝0となるようなX<sub>n</sub>の場合，収束しなくなる。<br>
+これよりアとエは不適切。</p>
+<p>また，１つの解を求めるには１つの初期値があればよいので，ウも不適切。</p>
+<hr>
+<a href="17S_A_E1.HTM#05">問題へ</a>
+<hr>
+<p><strong><a name="06">問6</a></strong></p>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select></p>
+<p>〈解説〉</p>
+<p>コインを4回投げたとき，表が2回でる場合の数は以下のように<sub>4</sub>C<sub>2</sub>＝6，<br>
+すべての表裏の組合せの数は2<sup>4</sup>＝16。<br>
+したがってその確率は6÷16＝3÷8＝0.375。</p>
+<p>（○：表がでる　×：裏がでる）</p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td>1回目</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>×</td>
+<td>×</td>
+<td>×</td>
+</tr>
+<tr>
+<td>2回目</td>
+<td>○</td>
+<td>×</td>
+<td>×</td>
+<td>○</td>
+<td>○</td>
+<td>×</td>
+</tr>
+<tr>
+<td>3回目</td>
+<td>×</td>
+<td>○</td>
+<td>×</td>
+<td>○</td>
+<td>×</td>
+<td>○</td>
+</tr>
+<tr>
+<td>4回目</td>
+<td>×</td>
+<td>×</td>
+<td>○</td>
+<td>×</td>
+<td>○</td>
+<td>○</td>
+</tr>
+</table>
+</div>
+<p>表が2回でる場合は6つのケースがある</p>
+<hr>
+<a href="17S_A_E1.HTM#06">問題へ</a>
+<hr>
+<p><strong><a name="07">問7</a></strong></p>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>エ</option></select></p>
+<p>〈解説〉</p>
+<p>ある日の天気が雨のとき，2日後の天気が晴れになるケースとして図より</p>
+<p>　　①雨→雨→晴れ　　②雨→晴れ→晴れ　　③雨→曇り→晴れ</p>
+<p>の3つのケースがある。<br>
+ある日の天気が雨のとき，2日後の天気が晴れになる確率は，①から③のケースの確率の和になる。</p>
+<p>　　①の場合の確率＝0.2×0.3＝0.06<br>
+　　②の場合の確率＝0.3×0.4＝0.12<br>
+　　③の場合の確率＝0.5×0.3＝0.15</p>
+<p>したがって①＋②＋③＝0.06＋0.12＋0.15＝0.33</p>
+<hr>
+<a href="17S_A_E1.HTM#07">問題へ</a>
+<hr>
+<p><strong><a name="08">問8</a></strong></p>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>ア</option></select></p>
+<p>〈解説〉</p>
+<p>集合S－(T∪R)は以下のグレーの領域を表す。</p>
+<p><img border="0" src="IMAGE/image004.jpg" width="172" height="108"></p>
+<p>アの集合(S－T)－Rが表す領域</p>
+<p><img border="0" src="IMAGE/image005.jpg" width="172" height="108"></p>
+<p>イの集合(S－T)∪(S－R)が表す領域</p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><img border="0" src="IMAGE/image008.jpg" width="172" height="108"></td>
+<td>∪</td>
+<td><img border="0" src="IMAGE/image010.jpg" width="172" height="108"></td>
+<td><img border="0" src="IMAGE/image006.gif" width="35" height="29"></td>
+<td><img border="0" src="IMAGE/image012.jpg" width="172" height="108"></td>
+</tr>
+<tr>
+<td align="center">(S－T)</td>
+<td align="center"></td>
+<td align="center">(S－R)</td>
+<td align="center"></td>
+<td align="center">(S－T)∪(S－R)</td>
+</tr>
+</table>
+</div>
+<p>ウの集合(S－T)∪(T－R)が表す領域</p>
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><img border="0" src="IMAGE/image014.jpg" width="172" height="108"></td>
+<td>∪</td>
+<td><img border="0" src="IMAGE/image016.jpg" width="172" height="108"></td>
+<td><img border="0" src="IMAGE/image006.gif" width="35" height="29"></td>
+<td><img border="0" src="IMAGE/image017.jpg" width="172" height="108"></td>
+</tr>
+<tr>
+<td align="center">(S－T)</td>
+<td align="center"></td>
+<td align="center">(T－R)</td>
+<td align="center"></td>
+<td align="center">(S－T)∪(T－R)</td>
+</tr>
+</table>
+<p>エの集合(S－T)∩(T－R)が表す領域は共通部分がないので空集合φになる</p>
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><img border="0" src="IMAGE/image019.jpg" width="172" height="108"></td>
+<td>∩</td>
+<td><img border="0" src="IMAGE/image020.jpg" width="172" height="108"></td>
+<td><img border="0" src="IMAGE/image006.gif" width="35" height="29"></td>
+<td>
+<p align="center">φ</td>
+</tr>
+<tr>
+<td align="center">(S－T)</td>
+<td align="center"></td>
+<td align="center">(T－R)</td>
+<td align="center"></td>
+<td align="center">(S－T)∩(T－R)</td>
+</tr>
+</table>
+<p>　</p>
+<hr>
+<a href="17S_A_E1.HTM#08">問題へ</a>
+<hr>
+<p><strong><a name="09">問9</a></strong></p>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>ア</option></select></p>
+<p>〈解説〉</p>
+<p>16進表記で0Fのビット列との論理演算を行うので，下位4ビットに対してはF，つまり1111との論理演算を行うことになる。<br>
+1111との論理演算で下位ビットが変化しないのは論理積でアが適切。<br>
+1111との論理和では下位4ビットが1111になる。1111との排他的論理和では下位4ビットの1のビットが0に，0のビットが1に反転する。<br>
+1111との否定論理積では同様に1のビットが0に，0のビットが1に反転する。</p>
+<hr>
+<a href="17S_A_E1.HTM#09">問題へ</a>
+<hr>
+<p><strong><a name="10">問10</a></strong></p>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select></p>
+<p>〈解説〉</p>
+<p>先頭に1ビットの偶数パリティを付加すると文字コードは以下のようになる。</p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><code>30</code></td>
+<td>→</td>
+<td><code><font color="#FF0000">0</font>011 0000</code></td>
+<td>→</td>
+<td><code>30</code></td>
+</tr>
+<tr>
+<td><code>3F</code></td>
+<td>→</td>
+<td><code><font color="#FF0000">0</font>011 1111</code></td>
+<td>→</td>
+<td><code>3F</code></td>
+</tr>
+<tr>
+<td><code>7A</code></td>
+<td>→</td>
+<td><code><font color="#FF0000">1</font>111 1010</code></td>
+<td>→</td>
+<td><code>FA</code></td>
+</tr>
+</table>
+</div>
+<p>（<font color="#FF0000">赤字</font>がパリティビット）</p>
+<hr>
+<a href="17S_A_E1.HTM#10">問題へ</a>
+<hr>
+<p><strong><a name="11">問11</a></strong></p>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>ウ</option></select></p>
+<p>〈解説〉</p>
+<p>空欄ａが表す遷移は，1の個数が奇数個から偶数個への遷移なので，空欄ａで1とする必要がある。</p>
+<p>空欄ｂが表す遷移は，1の個数が奇数個から奇数個への遷移なので，空欄ｂで0とする必要がある。</p>
+<hr>
+<a href="17S_A_E1.HTM#11">問題へ</a>
+<hr>
+<p><strong><a name="12">問12</a></strong></p>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select></p>
+<p>〈解説〉</p>
+<p>2分探索木では，すべての節点において，節点の値の関係が「左の子の値
+＜ 親の値 ＜ 右の子の値」となる。<br>
+したがってイが適切。</p>
+<hr>
+<a href="17S_A_E1.HTM#12">問題へ</a>
+<hr>
+<p><strong><a name="13">問13</a></strong></p>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>ア</option></select></p>
+<p>〈解説〉</p>
+<p>スタックの最上位に192があるので，最後のPUSH命令で192がスタックに格納されたことになる。6番目と7番目の連続するPUSH命令で値b，cがスタックに格納されたとすると，この値b，cは次に続く8番目と9番目のPOP命令で取出される。これより6番目から10番目までの命令によるスタックの値の出入りは以下のようになる。</p>
+<p>　　PUSH(ｂ) → PUSH(ｃ) → POP(ｃ) → POP(ｂ) → PUSH(192)</p>
+<p>したがって6番目のPUSH命令で値bが格納される直前のスタックの最上位にある値は55であり，この55が5番目のPUSH命令でスタックに格納され，その下にある326が4番目のPUSH命令でスタックに格納されたものである。2番目のPUSH命令で値aがスタックに格納されたとすると，この値aは次の3番目のPOP命令で取出される。したがって2番目のPUSH命令により値ａが格納される直前のスタックの最上位にある値は7で，この値7が1番目のPUSH命令によりスタックに格納された値になる。これより1番目から5番目までの命令によるスタックの値の出入りは以下のようになる。</p>
+<p>　　PUSH(7) → PUSH(ａ) → POP(ａ) → PUSH(326) → PUSH(55)</p>
+<hr>
+<a href="17S_A_E1.HTM#13">問題へ</a>
+<hr>
+<p><strong><a name="14">問14</a></strong></p>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>エ</option></select></p>
+<p>〈解説〉</p>
+<p>アは誤りで，説明に該当する整列方法はシェルソート。<br>
+イも誤りで，説明に該当する整列方法はバブルソート。<br>
+ウも誤りで，説明に該当する整列方法はクイックソート。<br>
+エが正しい。</p>
+<hr>
+<a href="17S_A_E1.HTM#14">問題へ</a>
+<hr>
+<p><strong><a name="15">問15</a></strong></p>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select></p>
+<p>〈解説〉</p>
+<p>データの個数がN個から4倍の4N個になったとすると，2分探索の最大探索回数はlog<sub>2</sub>Nから</p>
+<p>　　log<sub>2</sub>4N＝log<sub>2</sub>N＋2</p>
+<p>になるので，2回増えることになる。</p>
+<hr>
+<a href="17S_A_E1.HTM#15">問題へ</a>
+<hr>
+<p><strong><a name="16">問16</a></strong></p>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>ウ</option></select></p>
+<p>〈解説〉</p>
+<p>フラッシュメモリは電気的に書換え可能な半導体メモリ。DRAMのようにリフレッシュ動作による再書込みが不要で電源を切っても内容を保持できる。消去単位が大きく，一括または部分的に消去・書換えが可能。</p>
+<hr>
+<a href="17S_A_E1.HTM#16">問題へ</a>
+<hr>
+<p><strong><a name="17">問17</a></strong></p>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select></p>
+<p>〈解説〉</p>
+<p>図の論理回路の出力とア～エの各論理回路の出力は以下のようになる。</p>
+<p><img border="0" src="IMAGE/image021.gif" width="638" height="331"></p>
+<p><img border="0" src="IMAGE/image022.gif" width="170" height="101"></p>
+<hr>
+<a href="17S_A_E1.HTM#17">問題へ</a>
+<hr>
+<p><strong><a name="18">問18</a></strong></p>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>ウ</option></select></p>
+<p>〈解説〉</p>
+<p>1命令の実行に必要な実行時間<br>
+　＝(10×0.6＋5×0.4)×10<sup>－9</sup>秒<br>
+　＝8×10<sup>－9</sup>秒</p>
+<p>1秒間当たりの命令実行数<br>
+　＝1÷(8×10<sup>－9</sup>)<br>
+　＝(1000÷8)×10<sup>6</sup>回<br>
+　＝125×10<sup>6</sup>回<br>
+　＝125 MIPS</p>
+<hr>
+<a href="17S_A_E1.HTM#18">問題へ</a>
+<hr>
+<p><strong><a name="19">問19</a></strong></p>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>エ</option></select></p>
+<p>〈解説〉</p>
+<div align="left">
+<table border="0" cellpadding="8" cellspacing="0">
+<tr>
+<td>ア</td>
+<td>×</td>
+<td>PSW（プログラム状態語）に格納される</td>
+</tr>
+<tr>
+<td>イ</td>
+<td>×</td>
+<td>OSの監視プログラムが行う</td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>×</td>
+<td>入出力装置からの動作完了通知は外部割込み</td>
+</tr>
+</table>
+</div>
+<p>　</p>
+<hr>
+<a href="17S_A_E1.HTM#19">問題へ</a>
+<hr>
+<p><strong><a name="20">問20</a></strong></p>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>ウ</option></select></p>
+<p>〈解説〉</p>
+<p>キャッシュメモリは，CPUと主記憶間のアクセスにおける速度ギャップを緩衝する緩衝記憶装置です。CPUから主記憶へのアクセス時に，使用頻度の高い命令やデータを，上位階層のより高速なキャッシュメモリにコピーしておき，再度アクセスがあったときに，このキャッシュメモリにアクセスすることで，より高速にアクセスする。</p>
+<hr>
+<a href="17S_A_E1.HTM#20">問題へ</a>
+<hr>
+<p><a href="INDEX.HTM">メニューへ戻る</a></p>
+<hr>
+</blockquote>
+
+</body>
+
+</html>

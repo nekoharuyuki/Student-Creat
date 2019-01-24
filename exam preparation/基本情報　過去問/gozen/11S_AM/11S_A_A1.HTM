@@ -1,0 +1,348 @@
+<HTML>
+<HEAD>
+<TITLE>平成11年度春期試験　正解例と解説(問01～問20)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<BLOCKQUOTE>
+<hr>
+<H3 align="center">平成11年度春期試験　正解例と解説(問01～問20)</H3>
+<HR WIDTH=100%>
+<A NAME="01">　<BR>
+<b>
+問1<br>
+</b></a><select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select>
+<p>＜解説＞正の２進数を算術シフトした結果を問う問題である。<br>
+例えば正の２進数０００００００１を左にシフトした結果は以下のようになる。</p>
+<p>１ビット左シフトすると　００００００１０→２<sup><font size="2">１</font></sup>（２<sup><font size="2">１</font></sup>倍）<br>
+２ビット左シフトすると　０００００１００→２<sup><font size="2">２</font></sup>（２<sup><font size="2">２</font></sup>倍）<br>
+３ビット左シフトすると　００００１０００→２<sup><font size="2">３</font></sup>（２<sup><font size="2">３</font></sup>倍）<br>
+ｎビット左シフトすると　　　　　　　　　　２<sup><font size="2">ｎ</font></sup>（２<sup><font size="2">ｎ</font></sup>倍）</p>
+<p>つまり２<sup><font size="2">ｎ</font></sup>倍するにはｎビット左シフトすればよい。<br>
+したがって３２（＝２<sup><font size="2">５</font></sup>）倍するには５ビット左シフトすればよい。<br>
+</p>
+<HR WIDTH=100%>
+<A HREF="11s_a_e1.htm#01">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="02">　<BR>
+<b>
+問2</b><BR></a>
+<select name="17FA01" size="1"><option selected>解答例</option><option>エ</option></select>
+<p>＜解説＞ｎビットで表現できるビットパターンの数は２<sup><font size="2">ｎ</font></sup>個であり、この２<sup><font size="2">ｎ</font></sup>個のビットパターンを整数に割り当てる。<br>
+２<sup><font size="2">ｎ</font></sup>個の半分（２<sup><font size="2">ｎ</font></sup>÷２＝２<sup><font size="2">ｎ－１</font></sup>）ずつを、それぞれ以下の①、②に割り当てる。</p>
+<p>①負数　－２<sup><font size="2">ｎ－１</font></sup>～－１<br>
+②０及び正数　０、１～２<sup><font size="2">ｎ－１</font></sup>－１
+　（０から始まるので最大数が１だけ小さくなる）</p>
+<p>したがってこの２<sup><font size="2">ｎ</font></sup>個のビットパターンで、－２<sup><font size="2">ｎ－１</font></sup>～２<sup><font size="2">ｎ－１</font></sup>－１の範囲の整数が表現できる。８ビットの場合、－２<sup><font size="2">７</font></sup>～２<sup><font size="2">７</font></sup>－１つまり－128～127の範囲が表現できる。<br>
+<br>
+＜参考＞３ビットの場合２<sup><font size="2">３</font></sup>個のビットパターンがあり、この半分の２<sup><font size="2">２</font></sup>個ずつを以下のように整数に割り当てる。</p>
+<p>　　　　　　１００ －４＝－２<sup><font size="2">２</font></sup><br>
+　　　　　　１０１　　　－３　　　　　　２<sup><font size="2">２</font></sup>個<br>
+　　　　　　１１０　　　－２　　　　<br>
+　　　<u>　　　１１１　　　－１　　　　　　　　</u><br>
+　　　　　　０００　　　　０　　　　<br>
+　　　　　　００１　　　　１　　　　　　２<sup><font size="2">２</font></sup>個<br>
+　　　　　　０１０　　　　２　　　　<br>
+　　　　　　０１１　　　　３＝２<sup><font size="2">２</font></sup>－１<br>
+</p>
+<HR WIDTH=100%>
+<A HREF="11s_a_e1.htm#02">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="03">　<BR>
+<b>
+問3</b></a><br>
+<select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select>
+<p>＜解説＞英大文字（A～Z）26文字と数字（0～9）10文字の合計36文字を一意に表現するには、36種のコードが必要。36種のコードを表すのに必要なビット数を求めればよい。<br>
+　　２<sup><font size="2">ｎ</font></sup>≧36　　ｎ≧6<br>
+したがって最低 6ビットは必要となる。</p>
+<HR WIDTH=100%>
+<A HREF="11s_a_e1.htm#03">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="04">　<BR>
+<b>
+問4</b></a><br>
+<select name="17FA01" size="1"><option selected>解答例</option><option>エ</option></select>
+<p>＜解説＞<br>
+<img src="image/b99s04f2.gif" width="361" height="38"><BR>
+</p>
+<HR WIDTH=100%>
+<A HREF="11s_a_e1.htm#04">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="05">　<BR>
+<b>
+問5</b></a><br>
+<select name="17FA01" size="1"><option selected>解答例</option><option>エ</option></select>
+<p>＜解説＞ド・モルガンの法則により</p>
+<p><span style="text-decoration: overline">（A + B）･C</span> = <span style="text-decoration: overline">A
++ B</span> + <span style="text-decoration: overline">C</span><br>
+　　　　　　　=（ <span style="text-decoration: overline">A</span> ･ <span style="text-decoration: overline">B</span>
+） + <span style="text-decoration: overline">C</span></p>
+<HR WIDTH=100%>
+<A HREF="11s_a_e1.htm#05">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="06">　<BR>
+<b>
+問6<br>
+</b></a><select name="17FA01" size="1"><option selected>解答例</option><option>ア</option></select>
+<p>＜解説＞上位ビットＣは、ＡとＢがともに１のときだけ１となる論理積Ａ・Ｂであること<br>
+　　　　が分かる。<br>
+　　　　下位ビットＳは、ＡとＢの論理値が互いに異なる場合だけ１となる排他的論理和（A･<span style="text-decoration: overline">B</span>）
++ （<span style="text-decoration: overline">A</span>･B）であることが分かる。<br>
+　　　　したがって解答群のアが正解。
+<A NAME="06"><BR></a>
+　</p>
+<p>　</p>
+<HR WIDTH=100%>
+<A HREF="11s_a_e1.htm#06">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="07">　<BR>
+<b>
+問7<br>
+</b></a><select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select>
+<p>＜解説＞各回路素子の入出力の論理式は以下のようになり、最終的な出力Ｘは、（A･<span style="text-decoration: overline">B</span>）
++ （<span style="text-decoration: overline">A</span>･B）、排他的論理和となる。<br>
+<img src="image/B99s07f3.gif" width="325" height="142">
+<A NAME="07"><BR></a>
+</p>
+<p>　</p>
+<HR WIDTH=100%>
+<A HREF="11s_a_e1.htm#07">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="08">　<BR>
+<b>
+問8</b></a>
+<br>
+<select name="17FA01" size="1"><option selected>解答例</option><option>ウ</option></select>&nbsp;
+<p>
+＜解説＞ゼロでない整数をＮとすると&nbsp;<br>
+１０<sup>Ｄ－１</sup>≦Ｎ≦１０<sup>Ｄ</sup>　　　①<br>
+２<sup>Ｂ－１</sup>≦Ｎ≦２<sup>Ｂ</sup>　　　　　②<br>
+&nbsp;①より　Ｄ－１≦log<sub>１０</sub>Ｎ＜Ｄ<br>
+log<sub>１０</sub>Ｎ＜Ｄ≦log<sub>１０</sub>Ｎ＋１
+したがってけた数Ｄが大きい場合Ｄ≒log<sub>１０</sub>Ｎ　　　③<br>
+②より　Ｂ－１≦log<sub>２</sub>Ｎ＜Ｂ<br>
+log<sub>２</sub>Ｎ＜Ｂ≦log<sub>２</sub>Ｎ＋１
+したがってけた数Ｂが大きい場合Ｂ≒log<sub>２</sub>Ｎ　　④</p>
+<p>④の対数の底を10に変換すると<br>
+Ｂ≒log<sub>２</sub>Ｎ＝log<sub>１０</sub>Ｎ／log<sub>１０</sub>２
+したがってlog<sub>１０</sub>Ｎ＝Ｂlog<sub>１０</sub>２<br>
+これを③に代入すると　　Ｄ≒Ｂlog<sub>１０</sub>２<br>
+&nbsp;<br>
+
+</p>
+
+<HR WIDTH=100%>
+<A HREF="11s_a_e1.htm#08">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="09">　<BR>
+<b>
+問9<br>
+</b></a><select name="17FA01" size="1"><option selected>解答例</option><option>エ</option></select>
+<p>＜解説＞アは誤り。例えば有限なけた数の2進数の小数（0.11）<font size="2">２</font>は有限なけた数の10進数の小数（0.75）<font size="2">１０</font>に変換できる。<br>
+イは誤り。例えばけた数がｎ桁の2進数の小数（0.ａ<font size="2">1</font>ａ<font size="2">2</font>・・・ａ<font size="2">ｎ</font>）<font size="2">２</font>は10進数で</p>
+<p><img src="image/b99s09f1.gif" width="208" height="38"></p>
+<p>と表現できるので、必ず有限けたで表現できる。<br>
+ウは誤り。例えば有限なけた数の10進数の小数（0.5）<font size="2">１０</font>は有限なけた数の2進数の小数（0.1）<font size="2">２</font>に変換できる。<br>
+エは正しい。有限なけた数の10進数の小数で、有限なけた数の2進数の小数に変換できるものと、有限なけた数の2進数の小数に変換できないものとがあります。<br>
+例えば10進数の小数（0.5）<font size="2">１０</font>は有限なけた数の2進数の小数（0.1）<font size="2">２</font>に変換できますが、10進数の小数（0.4）<font size="2">１０</font>は、２進数の循環小数（0.01100110・・・）<font size="2">２</font>となり、有限けた数で表現できません。
+<A NAME="09"><BR></a>
+　</p>
+<HR WIDTH=100%>
+<A HREF="11s_a_e1.htm#09">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="10">　<BR>
+<b>
+問10</b><BR></a>
+<select name="17FA01" size="1"><option selected>解答例</option><option>ウ</option></select>
+<p>＜解説＞アは「丸め誤差」で、切り捨て、切り上げ、四捨五入による誤差。<br>
+イは「情報落ち」で、絶対値の大きな数値に絶対値の小さな数値を加算や減算を行った場合、絶対値の小さな数値が無視されることによる誤差。<br>
+ウが「けた落ち」で、大きさがほぼ同じ数値の減算により、有効数字のけた数が激減することによる誤差。<br>
+エは「打切り誤差」。</p>
+<HR WIDTH=100%>
+<A HREF="11s_a_e1.htm#10">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="11">　<BR>
+<b>
+問11</b></a><br>
+<select name="17FA01" size="1"><option selected>解答例</option><option>エ</option></select>
+<p>＜解説＞コンピュータを構成している入力装置、出力装置、制御装置、記憶装置、演算装置を５大装置と呼んでいます。制御装置は、命令を解読し各装置に対して指令制御を行う装置。記憶装置は、入力されたデータやプログラムを記憶し、またその演算結果も記憶する装置です。演算装置は記憶装置からデータを受け取り、演算しその結果を記憶装置に格納します。<br>
+したがって各装置に「制御の流れ」が出ているａが制御装置。入力装置から<br>
+入力されたデータなどを受け取っているｂが記憶装置。ｂの記憶装置とデータ<br>
+をやり取りしているｃが演算装置となる。</p>
+<HR WIDTH=100%>
+<A HREF="11s_a_e1.htm#11">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="12">　<BR>
+<b>
+問12</b></a><br>
+<select name="17FA01" size="1"><option selected>解答例</option><option>ウ</option></select>
+<p>＜解説＞<br>
+　　　　<img src="image/b99s12f2.gif" width="389" height="193"><br>
+<br>
+　　　　　６命令の実行時間＝10×6＋10×5<br>
+　　　　　　　　　　　　　＝110ナノ秒<br>
+<br>
+＜参考＞ｎ命令を実行した場合、ｎ命令の実行時間＝10×6＋10×（ｎ－1）<br>
+したがって１命令当たりの実行時間＝ｎ命令の実行時間÷ｎ＝10＋50÷ｎ<br>
+パイプライン処理における１命令当たりの命令実行時間は、ｎが大きくなるとはぼ１ステップの実行時間となり、高速化される。
+<A NAME="12"><BR></a>
+　<BR>
+</p>
+<HR WIDTH=100%>
+<A HREF="11s_a_e1.htm#12">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="13">　<BR>
+<b>
+問13</b><BR></a>
+<select name="17FA01" size="1"><option selected>解答例</option><option>ウ</option></select>
+<p>＜解説＞プログラムＡ、Ｂが使うＣＰＵまたはＩ／Ｏ処理時間を以下のような図に表してみます。プログラムＡがＣＰＵ処理を終わり、Ｉ／Ｏ処理に制御が移ると、ＣＰＵが空くのでプログラムＢがＣＰＵ処理を行えるようになります。プログラムＡのＩ／Ｏ処理が終わると、再びＣＰＵ処理に制御が移ります。<br>
+　　　　<img src="image/b99s13f2.gif" width="466" height="204"><br>
+</p>
+<HR WIDTH=100%>
+<A HREF="11s_a_e1.htm#13">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="14">　<BR>
+<b>
+問14</b></a><br>
+<select name="17FA01" size="1"><option selected>解答例</option><option>エ</option></select>
+<p>＜解説＞エが正解で、絶対アドレス方式は直接アドレス指定方式ともいいます。<br>
+アは、スタックアドレス指定方式。<br>
+イは、相対アドレス指定方式。<br>
+ウは、基底アドレス指定方式（ベースアドレス指定方式）。<br>
+</p>
+<HR WIDTH=100%>
+<A HREF="11s_a_e1.htm#14">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="15">　<BR>
+<b>
+問15</b><BR></a>
+<select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select>
+<p>＜解説＞アは、基底アドレスレジスタ（ベースアドレスレジスタ）。<br>
+イが正解で、インデックスレジスタ。<br>
+ウは、命令そのものを格納するレジスタで命令レジスタ。<br>
+エは、汎用レジスタ。</p>
+<HR WIDTH=100%>
+<A HREF="11s_a_e1.htm#15">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="16">　<BR>
+<b>
+問16</b></a><br>
+<select name="17FA01" size="1"><option selected>解答例</option><option>エ</option></select>
+<p>＜解説＞命令列のＣＰＵ実行時間<br>
+　　　　＝（6＋6＋2＋6＋4＋8）×10<br>
+　　　　＝320ナノ秒<br>
+<br>
+</p>
+<HR WIDTH=100%>
+<A HREF="11s_a_e1.htm#16">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="17">　<BR>
+<b>
+問17</b></a><br>
+<select name="17FA01" size="1"><option selected>解答例</option><option>エ</option></select>
+<p>＜解説＞実効メモリアクセス時間<br>
+　　　　＝キャッシュメモリのアクセス時間×ヒット率＋主記憶のアクセス時間×（１－ヒット率）
+<p>で計算できる。<br>
+ア、イ、ウ、エの場合、実効メモリアクセス時間は以下のようになる。</p>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>アの場合</td>
+    <td>10×0.6＋70×（１－0.6）＝34ナノ秒</td>
+  </tr>
+  <tr>
+    <td>イの場合</td>
+    <td>10×0.7＋70×（１－0.7）＝28ナノ秒</td>
+  </tr>
+  <tr>
+    <td>ウの場合</td>
+    <td>20×0.7＋50×（１－0.7）＝29ナノ秒</td>
+  </tr>
+  <tr>
+    <td>エの場合</td>
+    <td>20×0.8＋50×（１－0.8）＝26ナノ秒</td>
+  </tr>
+</table>
+<p>したがってエの26ナノ秒が最も短い。</p>
+<HR WIDTH=100%>
+<A HREF="11s_a_e1.htm#17">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="18">　<BR>
+<b>
+問18<br>
+</b></a><select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select>
+<p>＜解説＞主記憶へのアクセスの高速化のために、処理装置と主記憶装置の間に置く、高速の緩衝用記憶装置を「キャッシュメモリ」といいます。<br>
+これに対して、ディスク装置へのアクセスの高速化のために、主記憶装置とディスク装置との間に置く、高速の緩衝用記憶装置を「ディスクキャッシュ」といいます。<br>
+VLIW（Very Long Instruction Word）は、64ビットＣＰＵアーキテクテュアにおける命令実行の高速化技術。命令のスケジューリングをコンパイル時に行い、複数の実効ユニットに対応した並列に実行可能な複数命令を、超長命令語の中に組み込んでしまう技術。<br>
+パイプラインは、１つの命令を複数のステップに分割し、各命令のステップを重ねて、並列実行することにより１命令あたりの実行効率をあげる方式。</p>
+<HR WIDTH=100%>
+<A HREF="11s_a_e1.htm#18">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="19">　<BR>
+<b>
+問19</b></a><br>
+<select name="17FA01" size="1"><option selected>解答例</option><option>エ</option></select>
+<p>＜解説＞仮想記憶で、プログラムやデータがメモリに読み込まれるときに分割される単位に、ページという固定長の単位と、セグメントという関連性のある複数のページからなり、同時実行されないような処理機能をもった可変長の単位がある。<br>
+ページングは、メモリと補助記憶装置間でページをページインまたはページアウトすること。メモリと補助記憶装置間でセグメント単位で入れ替えを行うセグメント方式では，このセグメント単位の入れ替えをスワッピングという。スワッピングはプログラムやセグメント単位で、メモリと補助記憶装置間でメモリからの退避とメモリへのロードを行う。<br>
+スラッシングは、メモリ上の空き領域の不足によりページングが頻発すること。<br>
+ブロッキングは、ディスクの物理的なアクセス回数を減らし、ディスクアクセスを効率化するために、複数レコードをブロックとし、ブロック単位でディスクのデータを読み書きすること。
+<A NAME="19"><BR></a>
+</p>
+<HR WIDTH=100%>
+<A HREF="11s_a_e1.htm#19">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="20">　<BR>
+<b>
+問20</b></a><br>
+<select name="17FA01" size="1"><option selected>解答例</option><option>エ</option></select>
+<p>＜解説＞プログラムの実行を中断し、戻り先のアドレスを保存した後、他のプログラムの実行に移ることを割込みという。割込みの原因となるものには、以下のものがある。</p>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">(1)</td>
+    <td>ハードウェア割込み（外部割込みともいいます）
+      <table border="0" cellpadding="3" cellspacing="0">
+        <tr>
+          <td>①</td>
+          <td>入出力割込み（周辺装置などの入出力動作の終了時）</td>
+        </tr>
+        <tr>
+          <td>②</td>
+          <td>機械チェック割込み（ハードウェアの故障や誤動作のとき）</td>
+        </tr>
+        <tr>
+          <td>③</td>
+          <td>タイマー割込み（プログラムの実行時間が設定時間を超過したとき）</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">(2)</td>
+    <td>ソフトウェア割込み（内部割込みともいいます）
+      <table border="0" cellpadding="3" cellspacing="0">
+        <tr>
+          <td valign="top">①</td>
+          <td>プログラム割込み<br>
+            1)プログラムで演算結果の桁あふれが起きたとき<br>
+            2)ゼロでの割算が発生したとき</td>
+        </tr>
+        <tr>
+          <td valign="top">②</td>
+          <td>スーパバイザコール割込み<br>
+            プログラムがＯＳの機能を呼び出す（CALL）とき</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<HR WIDTH=100%>
+<a HREF="11s_a_e1.htm#20">問題へ</a>
+<HR WIDTH=100%>
+　<BR>
+<A HREF="index.htm">メニューへ戻る</A><BR>
+　<BR>
+<HR WIDTH=100%>
+<ADDRESS>
+<BR>
+</ADDRESS>
+</BLOCKQUOTE>
+</BODY>
+</HTML>

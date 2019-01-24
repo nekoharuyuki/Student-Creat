@@ -1,0 +1,149 @@
+<html>
+<head>
+<title>平成21年度 秋期 基本情報技術者 午後 問題（問1～問2）</title>
+<style type="text/css"><!--
+body{line-height:150%;}
+code{font-size:12pt;}
+h3{text-align:center;}
+div.caution{border:solid 1px #000000; padding:0.5em;}
+--></style>
+</head>
+<body>
+<blockquote>
+<hr>
+<h3>平成21年度　秋期　基本情報技術者<br>
+午後　問題（問1～問2）</h3>
+<hr>
+<div class="caution">　次の<strong>問1</strong>から<strong>問7</strong>までの7問については，この中から5問を選択し，答案用紙の選択欄の（<strong>選</strong>）をマークして解答してください。<br>
+　なお，6問以上選択した場合には，はじめの5問について採点します。</div>
+<hr>
+<p><a name="10"><strong>問1</strong></a>　半加算器と全加算器に関する次の記述を読んで，設問1～3に答えよ。<br/>
+<br/>
+（1）1ビット同士を加算する半加算器の真理値表を，表1に示す。<br/>
+<br/>
+<img src="img/pmq01.png"><br/>
+<br/>
+（2）下位からのけた上がりC<sub>in</sub>を考慮して1ビット同士を加算する全加算器の真理値表を，表2に示す。<br/>
+<br/>
+<img src="img/pmq02.png"><br/>
+<img src="img/pmq03.png"></p>
+<hr>
+<p><strong><a name="11">設問1</a></strong>　半加算器を実現する論理回路を，図1に示す。図1中の［　　 　　］に入れる正しい答えを，解答群の中から選べ。ただし，ANDは論理積，ORは論理和，XORは排他的論理和，NANDは否定論理積，NORは否定論理和を表す。<br/>
+<br/>
+<img src="img/pmq04.png"><br/>
+<br/>
+解答群<br/>
+ア　AND　　　イ　NAND　　　ウ　NOR　　　エ　OR　　　オ　XOR</p>
+<hr>
+<a href="21F_P_A1.HTM#11">設問1の正解例と解説へ</a>
+<hr>
+<p><a name="12"><strong>設問2</strong></a>　全加算器を実現する論理回路について，次の記述中の［　　 　　］に入れる正しい答えを，解答群の中から選べ。<br/>
+<br/>
+　全加算器は，図2に示すように半加算器を2段に接続して実現する。半加算器1はXとYを加算し，半加算器2は半加算器1の結果とC<sub>in</sub>を加算する。このとき，半加算器1のけた上がりをC<sub>1</sub>，半加算器2のけた上がりをC<sub>2</sub>とする。X，Y，C<sub>in</sub>と，C<sub>1</sub>，C<sub>2</sub>との関係は表3のとおりになる。<br/>
+<br/>
+<img src="img/pmq05.png"><br/>
+<br/>
+bに関する解答群<br/>
+ア　AND　　　イ　NAND　　　ウ　NOR　　　エ　OR<br/>
+<br/>
+cに関する解答群<br/>
+<img src="img/pmq06.png"></p>
+<hr>
+<a href="21F_P_A1.HTM#12">設問2の正解例と解説へ</a>
+<hr>
+<p><strong><a name="13">設問3</a></strong>　A，B及びSを2の補数表現による4ビットの符号付き2進整数とし，それぞれのビット表現をA<sub>4</sub>A<sub>3</sub>A<sub>2</sub>A<sub>1</sub>，B<sub>4</sub>B<sub>3</sub>B<sub>2</sub>B<sub>1</sub>及びS<sub>4</sub>S<sub>3</sub>S<sub>2</sub>S<sub>1</sub>で表す（符号ビットはA<sub>4</sub>，B<sub>4</sub>及びS<sub>4</sub>）。<br/>
+　図3は，AとBの加算を行い，結果をSに求める加算器であり，半加算器と全加算器で実現されている。ここで，C<sub>1</sub>～C<sub>4</sub>は半加算器及び全加算器からのけた上がりを表す。<br/>
+　この加算器に，Aとして－1を，Bとして－2（いずれも10進表記）を与えたとき，図3のC<sub>1</sub>～C<sub>4</sub>の値として正しい組合せを，解答群の中から選べ。<br/>
+<br/>
+<img src="img/pmq07.png"></p>
+<hr>
+<a href="21F_P_A1.HTM#13">設問3の正解例と解説へ</a>
+<hr>
+<a href="INDEX.HTM">■メニューへ戻る</a>
+<hr>
+<p><strong><a name="20">問2</a></strong>　倉庫内の保管棚を用いた書類管理に関する次の記述を読んで，設問1～3に答えよ。<br/>
+<br/>
+　A社では，書類の保管管理（以下，書類管理という）を関係データベースを用いて行っている。書類管理の概要と書類管理データベースの概要は，次のとおりである。<br/>
+<br/>
+〔書類管理の概要〕<br/>
+（1）書類は，倉庫に配置された保管棚の中の箱に入れて保管される。書類には，全社を通じて一意となる書類番号が付与されている。<br/>
+（2）倉庫は1棟だけであり，3階建てで，各階は四つの区画に分けられている。各区画には複数の保管棚が配置されている。<br/>
+（3）保管棚には，倉庫内でその保管棚を一意に識別できるように，棚番号が付与されている。保管棚は，倉庫内のどの区画に配置してもよい。また，一つの保管棚には，複数の箱がある。<br/>
+（4）箱には，一つの保管棚の中で一意に識別できるように保管棚の段と列を組み合わせた箱番号が付与されている。例えば，3段目4列の箱番号は3-4となる。一つの箱には，複数の書類を保管できる。<br/>
+（5）書類管理の担当者は，社内の部署から預かった書類を，保管棚のいずれかの箱に入れて保管する。保管の際，全社を通じて一意となる預託番号を付与する。<br/>
+（6）預かった書類は返却依頼を受けて返却する。<br/>
+（7）倉庫，保管棚及び箱の構成を図1に示す。<br/>
+<br/>
+<img src="img/pmq08.png"><br/>
+<br/>
+〔書類管理データベースの概要〕<br/>
+（1）階数表は，倉庫の階番号と階名称を管理する。<br/>
+（2）区画表は，倉庫の各階における区画名称を管理する。<br/>
+（3）棚表は，保管棚の配置された日付，位置（下位番号と区画番号）及び棚名称を管理する。<br/>
+（4）箱表は，箱名称を管理する。<br/>
+（5）書類預託表は，部署から預かった書類の保管状況（預託日と返却日）を管理する。預託日には，書類を預かった日付が設定される。返却日には，書類を預かったときに<code>NULL</code>が設定され，書類を返却したときにその日付が設定される。<br/>
+（6）書類表は，書類の預け元の部署番号と書類名称を管理する。<br/>
+（7）部署表は，部署名称を管理する。<br/>
+（8）A社の書類管理データベースのE-R図を図2に，構造の一部を図3に示す。<br/>
+<br/>
+<img src="img/pmq09.png"></p>
+<hr>
+<p><strong><a name="21">設問1</a></strong>　書類を保管していない保管棚が各階に幾つあるかを検索する。次のSQL文中の［　　 　　］に入れる正しい答えを，解答群の中から選べ。<br/>
+<br/>
+<code>SELECT&nbsp;棚表.階番号,&nbsp;COUNT(棚表.棚番号)&nbsp;FROM&nbsp;棚表</code><br/>
+<code>&nbsp;&nbsp;&nbsp;WHERE&nbsp;棚表.棚番号</code><br/>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;［　　a　　］&nbsp;(SELECT&nbsp;書類預託表.棚番号&nbsp;FROM&nbsp;書類預託表</code><br/>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WHERE&nbsp;書類預託表.返却日&nbsp;IS&nbsp;NULL)</code><br/>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;［　　b　　］&nbsp;棚表.階番号</code><br/>
+<br/>
+解答群<br/>
+ア　<code>EXISTS</code><br/>
+イ　<code>GROUP BY</code><br/>
+ウ　<code>IN</code><br/>
+エ　<code>LIKE</code><br/>
+オ　<code>NOT IN</code><br/>
+カ　<code>ORDER BY</code></p>
+<hr>
+<a href="21F_P_A1.HTM#21">設問1の正解例と解説へ</a>
+<hr>
+<p><strong><a name="22">設問2</a></strong>　預かってから1年を超え，未返却である書籍を検索する。<br/>
+　検索日を2009年10月18日とする場合，次のSQL文中の［　　 　　］に入れる正しい答えを，解答群の中から選べ。<br/>
+<br/>
+<code>SELECT 書類預託表.書類番号, 書類表.書類名称, 書類預託表.預託日,</code><br/>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;棚表.階番号,&nbsp;棚表.区画番号,&nbsp;書類預託表.棚番号,</code><br/>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;書類預託表.箱番号</code><br/>
+<code>&nbsp;&nbsp;&nbsp;FROM&nbsp;棚表,&nbsp;書類預託表,&nbsp;書類表</code><br/>
+<code>&nbsp;&nbsp;&nbsp;WHERE&nbsp;［　　c　　］</code><br/>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AND&nbsp;［　　d　　］</code><br/>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AND&nbsp;書類預託表.返却日&nbsp;IS&nbsp;NULL</code><br/>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AND&nbsp;書類預託表.預託日&nbsp;<=&nbsp;'20081018'</code><br/>
+<br/>
+解答群<br/>
+ア　<code>書類預託表.書類番号 = 書類表.書類番号</code><br/>
+イ　<code>書類預託表.書類番号 <> 書類表.書類番号</code><br/>
+ウ　<code>書類預託表.預託日 <= 書類預託表.返却日</code><br/>
+エ　<code>棚表.棚配置日 = 書類預託表.預託日</code><br/>
+オ　<code>棚表.棚配置日 <= 書類預託表.預託日</code><br/>
+カ　<code>棚表.棚番号 = 書類預託表.棚番号</code><br/>
+キ　<code>棚表.棚番号 <> 書類預託表.棚番号</code></p>
+<hr>
+<a href="21F_P_A1.HTM#22">設問2の正解例と解説へ</a>
+<hr>
+<p><strong><a name="23">設問3</a></strong>　A社では倉庫内の利便性を高めるため，保管棚の配置を変更したり，ある箱に入っている書類を別の箱に移し替えたりしている。A社の書類管理データベースの説明として，正しい答えを解答群の中から選べ。<br/>
+<br/>
+解答群<br/>
+ア　ある箱に入っている書類を，同一の保管棚の別の箱に移す場合，箱表と書類預託表のそれぞれを更新すればよい。<br/>
+イ　ある箱に入っている書類を，別の保管棚の別の箱に移す場合，書類預託表の棚番号だけを更新すればよい。<br/>
+ウ　保管している書類の保管棚とその位置を検索する場合，書類番号だけでは検索できない。<br/>
+エ　保管棚の配置されている区画名称を変更する場合，区画表は更新しなくてよい。<br/>
+オ　保管棚の配置を変更する場合，書類預託表は更新しなくてよい。</p>
+<hr>
+<a href="21F_P_A1.HTM#23">設問3の正解例と解説へ</a>
+<hr>
+<a href="INDEX.HTM">■メニューへ戻る</a>
+<hr>
+<a href="21F_P_E2.HTM#30">■問3へ進む</a>
+<hr>
+</blockquote>
+</body>
+</html>

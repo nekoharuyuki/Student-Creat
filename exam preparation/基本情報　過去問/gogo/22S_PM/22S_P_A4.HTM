@@ -1,0 +1,162 @@
+<html>
+<head>
+<title>平成22年度 春期 基本情報技術者 午後 正解例と解説（問10～問13）</title>
+<style type="text/css"><!--
+body{line-height:150%;}
+code{font-size:12pt;}
+h3{text-align:center;}
+div.caution{border:solid 1px #000000; padding:0.5em;}
+--></style>
+</head>
+<body>
+<blockquote>
+<hr>
+<h3>平成22年度　春期　基本情報技術者<br>
+午後　正解例と解説（問10～問13）</h3>
+<hr>
+<p><strong><a name="100">問10</a></strong></p>
+<hr>
+<p><strong><a name="101">設問1</a></strong></p>
+<p>〈解答〉　a：イ，b：ア</p>
+<p>〈解説〉</p>
+<p>●空欄aについて<br/>
+パラメータの処理コード<code>PRM-CD</code>が<code>1</code>（入室時）のときに<code>PERFORM</code>命令により<code>QUAL-CHECK</code>セクションを実行しているので，<code>QUAL-CHECK</code>の処理が入室時の処理に該当する。またパラメータの処理コード<code>PRM-CD</code>が<code>2</code>（退室時）のときに<code>PERFORM</code>命令により<code>REC-LOG</code>セクションを実行しているので，<code>REC-LOG</code>の処理が退室時の処理に該当する。空欄aは<code>QUAL-CHECK</code>の入室時の処理の一つである。セキュリティルームに入室できるのは，職級が3の課長，職級が4の部長，資格が1であり，かつ職級が1の一般社員及び職級が2の係長である。逆にセキュリティルームに入室できないのは，資格が0であり，かつ職級が1の一般社員及び職級が2の係長である。つまり職級<code>EMP-CLASS</code>が<code>2</code>以下で，かつ資格<code>EMP-QUAL</code>が<code>0</code>である場合，セキュリティルームに入室を許可しないので，結果コード<code>PRM-RTN</code>には<code>0</code>以外の事象に対応したコードを設定する。空欄aの条件の場合に結果コード<code>PRM-RTN</code>に<code>3</code>が転送されている。したがって空欄aはイの<code>EMP-CLASS <= 2 AND EMP-QUAL = 0</code>が適切。</p>
+
+<p>●空欄bについて<br/>
+<code>EVALUATE</code>文の条件が<code>OTHER</code>の場合に空欄bの処理が行われている。<code>CTL-PROC</code>セクションの最初に<code>MOVE</code>命令により結果コード<code>PRM-RTN</code>に初期値として<code>0</code>がセットされている。条件が<code>OTHER</code>の場合，<code>PRM-RTN</code>にコードを転送していないので，<code>PRM-RTN</code>の結果コードは当初に設定された初期値<code>0</code>のままである。入室を許可する場合に，結果コード<code>PRN-RTN</code>に<code>0</code>をセットして返すので，この場合が入室を許可した場合の処理に該当する。入室を許可した場合，入退出ログファイルに<code>REC-LOG</code>を出力し，在室者数<code>CNT</code>をデクリメントすればよい。したがって空欄bはアの<code>ADD 1 TO CNT</code>が適切。</p>
+<hr>
+<a href="22S_P_E4.HTM#101">問題へ</a>
+<hr>
+<p><strong><a name="102">設問2</a></strong></p>
+<p>〈解答〉　イ</p>
+<p>〈解説〉</p>
+<p>従業員番号が従業員ファイルに存在しなかった場合，<code>INVALID KEY</code>となり，結果コード<code>PRM-RTN</code>に<code>2</code>が設定される。</p>
+<hr>
+<a href="22S_P_E4.HTM#102">問題へ</a>
+<hr>
+<p><strong><a name="103">設問3</a></strong></p>
+<p>〈解答〉　　c：オ，d：ウ，e：エ，f：イ
+<p>〈解説〉</p>
+<p>●空欄cについて<br/>
+先ず<code>MAIN-PROC</code>セクションの最初の<code>PERFORM</code>ループの繰返処理で，検索した従業員番号を格納するテーブル<code>EMP-NO(CNT)</code>をゼロクリアしている。最初の<code>READ</code>命令により入退室ログファイル<code>LOG-FILE</code>のレコードを1件読み込んだ後，次の<code>PERFORM</code>ループの繰返処理において<code>SRCH-END</code>が<code>TRUE</code>になるまで入退室ログファイルを繰り返し読んで該当する従業員番号を検索している。
+空欄cの条件が成り立つ場合，<code>PROC-DISP</code>セクションを実行し該当する従業員番号の表示処理を行うが，それ以外は<code>PROC-ENTER</code>または<code>PROC-EXIT</code>のいずれかの処理を行い，入退室ログファイルを繰り返し読んで該当する従業員番号を検索している。検索条件は，指定した日時より前に入室し，かつ指定した日時か，それより後に退室したすべての従業員の従業員番号である。入退室ログファイルのレコードは入退室日時<code>LOG-TIME</code>の昇順に並んでいる。したがって指定した日時より前に入室した従業員を検索するため，入退室ログファイルの<code>LOG-TIME < </code>指定した時刻<code>PRM-TIME</code>の間は，入退室ログファイルを繰り返し読んで該当する従業員番号の検索を繰り返し，入退室ログファイルの<code>LOG-TIME >= </code>指定した時刻<code>PRM-TIME</code>になれば表示処理を行えばよく，空欄cの表示処理を行う条件はオの<code>LOG-TIME >= PRM-TIME</code>が適切。</p>
+
+<p>●空欄dについて<br/>
+<code>PROC-ENTER</code>セクションの処理は，検索条件に該当する従業員の検索処理において入退室ログファイルの入退室コード<code>LOG-CD</code>が<code>1</code>（入室）の場合に実行され，指定した日時より前に入室した従業員の従業員番号をテーブル<code>EMP-NO(CNT)</code>に格納している。したがって直前の<code>PERFORM</code>ループの繰返処理により，<code>EMP-NO(CNT)</code>が<code>ZERO</code>である空きテーブルを検索する必要があり，空欄dは空きテーブルが見つかったときの終了条件になるので，ウの<code>EMP-NO(CNT) = ZERO</code>が適切。</p>
+
+<p>●空欄eについて<br/>
+<code>PROC-EXIT</code>セクションの処理は，検索条件に該当する従業員の検索処理において入退室ログファイルの入退室コード<code>LOG-CD</code>が<code>2</code>（退室）の場合に実行される。指定した日時より前に入室した従業員のうちには，指定した日時より前に入室し退室した従業員も含まれている。指定した日時より前に入室し，かつ指定した日時か，それより後に退室したすべての従業員の従業員番号を検索するのであるから，指定した日時より前に退室した従業員の従業員番号をテーブル<code>EMP-NO(CNT)</code>から消し込む必要がある。空欄eの終了条件を満たし<code>PERFORM</code>ループを終了した場合に<code>EMP-NO(CNT)</code>を<code>ZERO</code>にセットして従業員番号の消し込みを行っているので，入退室コード<code>LOG-CD</code>が<code>2</code>（退室）である従業員番号<code>LOG-EMP</code>に一致する<code>EMP-NO(CNT)</code>を消し込めばよい。したがって空欄eの終了条件はエの<code>LOG-EMP = EMP-NO(CNT)</code>が適切。</p>
+
+<p>●空欄fについて<br/>
+<code>PERFORM</code>ループの繰返処理で，テーブルの従業員番号<code>EMP-NO(CNT)</code>が<code>ZERO</code>でないものだけを表示している。テーブルの要素の個数は99なので，全テーブル要素を検索し，<code>ZERO</code>でないものだけを表示すればよく，空欄fの終了条件はイの<code>CNT > 99</code>が適切。</p>
+<hr>
+<a href="22S_P_E4.HTM#103">問題へ</a>
+<hr>
+<a href="INDEX.HTM">■メニューへ戻る</a>
+<hr>
+<p><strong><a name="110">問11</a></strong></p>
+<hr>
+<p><strong><a name="111">設問1</a></strong></p>
+<p>〈解答〉　a：オ，b：ウ，c：イ，d：ウ，e：イ</p>
+<p>〈解説〉</p>
+<p>●空欄aについて<br/>
+列挙<code>Direction</code>は配列<code>grid</code>において，隣接する8方向の升への<code>row</code>及び<code>col</code>のオフセットを表す定数である。空欄aは<code>N</code>と反対方向の<code>S</code>のオフセットに該当するので，オの<code>1, 0</code>が適切。</p>
+
+<p>●空欄bについて<br/>
+（5）よりメソッド<code>reverse</code>は，引数<code>row</code>，<code>col</code>で与えられた升に引数<code>piece</code>で与えられた色の石を置いた場合，その升から引数<code>dir</code>で与えられた方向に隣接する升の石が反転可能であれば反転する。このメソッドは，升に石を置いたとき挟んだ相手の石が2個以上ある場合，さらに隣接する升に対して<code>reverse</code>を再帰的に呼び出して連続する相手の石の先に<code>piece</code>と同じ色の石があるかどうかを判定し，あった場合は相手の石を反転して復帰する。すべての再帰呼出しから復帰したとき，挟んだ相手の石はすべて反転し，その反転した石の個数<code>count</code>を返す。<br/>
+メソッド<code>reverse</code>の最初の処理で，引数<code>row</code>，<code>col</code>で与えられた升の引数<code>dir</code>で与えられたオフセットを加えた隣接する升に位置<code>nrow</code>，<code>ncol</code>が計算されている。当初は石の面<code>piece</code>の初期値は<code>null</code>に設定されているが，<code>nrow</code>，<code>ncol</code>で指定される隣接する升が盤上に存在する升であれば，<code>nrow</code>，<code>ncol</code>で指定される隣接する升の石の面のインスタンス<code>next = grid[nrow][ncol]</code>を生成する。この隣接する升が盤上に存在しない升であれば，<code>next</code>は初期値<code>null</code>のままなので戻り値<code>-1</code>を返す。<code>next</code>が<code>Player</code>の石の面と同じ色<code>piece</code>である場合，戻り値<code>0</code>を返す。この後，さらに<code>nrow</code>，<code>ncol</code>で指定される隣接する升に対してメソッド<code>reverse</code>を再帰的に呼び出し，連続する相手の石の先に<code>piece</code>と同じ色の石があるかどうかを判定する。したがって空欄bに関する<code>if</code>文で，戻り値<code>count</code>が<code>0</code>以上であれば，<code>nrow</code>，<code>ncol</code>で指定される隣接する升の石の面<code>grid[nrow][ncol]</code>に<code>Player</code>の石の面と同じ色<code>piece</code>をセットして相手の石を反転し，反転するごとに反転した石の個数<code>count</code>を<code>1</code>だけインクリメントすればよく，空欄bはウの<code>grid[nrow][ncol]</code>が適切。</p>
+
+<p>●空欄cについて<br/>
+メソッド<code>place</code>は引数<code>position</code>で指定した升に，引数で指定した<code>Player</code>の石が置けるかを判定するメソッドである。メソッドの<code>for</code>ループの繰返処理で，再帰的にメソッド<code>reverse</code>を呼び出し，盤に<code>Player</code>の石を置き，挟んだ相手の石を反転し，再帰から復帰したときにそのとき反転した石の個数<code>n</code>を<code>count</code>に加算すればよく，空欄cはイの<code>+=</code>が適切。</p>
+
+<p>●空欄dについて<br/>
+クラス<code>Reversi</code>のメソッド<code>main</code>の最初にクラス<code>Board</code>のコンストラクタを呼び出し，インスタンス<code>board</code>を生成し盤を初期状態にしている。その後，クラス<code>Player</code>のコンストラクタを呼び出し，石を置く番のプレーヤのインスタンス<code>player</code>とその対戦相手のプレーヤのインスタンス<code>opponent</code>を生成している。ここで<code>while</code>ループの繰返処理に入り，引数で指定されたプレーヤ<code>Player</code>が石を置ける升があるかをメソッド<code>canPlace</code>により調べ，あれば盤の状態を表示する。<br/>
+メソッド<code>prompt</code>から入力された指定の位置の升に<code>Player</code>の石が置ける場合，メソッド<code>place</code>は挟んだ相手の石を反転して反転した石の個数<code>n</code>を戻り値として返す。この結果，対戦相手<code>opponent</code>の石の数が<code>n</code>減るのに対し，<code>Player</code>の反転した石の個数<code>Player.count</code>は（反転した石の個数<code>n</code>＋<code>Player</code>が置いた石1個）分が増えるので，空欄dはウの<code>n + 1</code>が適切。</p>
+
+<p>●空欄eについて<br/>
+片方の色の石が盤上からなくなったとき，すべての升が石で埋まったとき，又は空いているどの升にも石が置けなくなったとき，ゲームは終了する。ゲームが終了しなかったときは，<code>player</code>と<code>opponent</code>が交代し，ゲームを続行する。空欄e以降の3行は<code>player</code>と<code>opponent</code>を入れ替えている処理である。したがって<code>opponent</code>を変数<code>p</code>に退避した後，入れ替えればよいので，空欄eはイの<code>opponent</code>が適切。</p>
+<hr>
+<a href="22S_P_E4.HTM#111">問題へ</a>
+<hr>
+<p><strong><a name="112">設問2</a></strong></p>
+<p>〈解答〉　f：ウ，g：ア</p>
+<p>〈解説〉</p>
+<p>●空欄fについて<br/>
+メソッド<code>reverse</code>の処理で，隣接する升の石の面<code>next</code>が<code>Player</code>の石の面と同じ色<code>piece</code>である場合，戻り値<code>0</code>を返す。したがって空欄fはウが適切。</p>
+
+<p>●空欄gについて<br/>
+メソッド<code>reverse</code>の処理で，隣接する升が盤上に存在しない升であれば，隣接する升の石の面<code>next</code>は初期値<code>null</code>のままなので戻り値<code>-1</code>を返す。したがって空欄gはアが適切。</p>
+<hr>
+<a href="22S_P_E4.HTM#112">問題へ</a>
+<hr>
+<a href="INDEX.HTM">■メニューへ戻る</a>
+<hr>
+<p><strong><a name="120">問12</a></strong></p>
+<hr>
+<p><strong><a name="121">設問1</a></strong></p>
+<p>〈解答〉　a：ウ，b：エ，c：カ，d：イ，e：ア</p>
+<p>〈解説〉</p>
+<p>●空欄aについて<br/>
+プログラムでは，被加数<code>X</code>と加数<code>Y</code>について，いずれか指数の大きい方にもう一方の指数をそろえてから仮数を加算し，正規化する。行13の論理比較命令<code>CPL</code>において<code>X</code>の指数<code>Ex</code>＝<code>Y</code>の指数<code>Ey</code>である場合，<code>X</code>の指数<code>Ex</code>が<code>GR4</code>にセットされた状態で，行14の<code>JZE</code>命令により行25の<code>MADD</code>に零分岐する。また<code>X</code>の指数<code>Ex</code>＞<code>Y</code>の指数<code>Ey</code>の場合も大きいほうの<code>X</code>の指数<code>Ex</code>が<code>GR4</code>にセットされた状態で行18の<code>JUMP</code>命令により行25の<code>MADD</code>に無条件分岐する。これに対して<code>X</code>の指数<code>Ex</code>＜<code>Y</code>の指数<code>Ey</code>の場合，行15の<code>JMI</code>命令により<code>BIGEY</code>に負分岐し空欄aを実行した後，指数部の差を計算し行25の<code>MADD</code>の処理を行う。したがって空欄aで大きいほうの<code>Y</code>の指数<code>Ey</code>を<code>GR4</code>にセットする必要があり，ウの<code>LD    GR4, GR5</code>が適切。</p>
+
+<p>●空欄bについて<br/>
+行25の<code>X</code>の符号の検査で<code>X</code>＜<code>0</code>の場合は<code>JMI</code>命令により<code>XMINUS</code>に負分岐し，行32で<code>Y</code>の符号の検査を行う。行25の<code>X</code>の符号の検査で<code>X</code>≧<code>0</code>の場合は，行27で<code>Y</code>の符号の検査を行う。空欄b直後の行29～30では<code>X</code>≧<code>0</code>，<code>Y</code>≦<code>0</code>の場合における仮数部の加算処理（<code>Mz</code>←調整済<code>Mx</code>－調整済<code>My</code>）を行っているので，空欄bで<code>X</code>≧<code>0</code>，<code>Y</code>≧<code>0</code>の場合の仮数部の加算処理（<code>Mz</code>←調整済<code>Mx</code>＋調整済<code>My</code>）を<code>ADDMXY</code>に分岐して行う必要がある。したがって空欄bはエの<code>JPL   ADDMXY</code>が適切。</p>
+
+<p>●空欄cについて<br/>
+行25の<code>X</code>の符号の検査で<code>X</code>＜<code>0</code>の場合は<code>JMI</code>命令により<code>XMINUS</code>に負分岐し，行32で<code>Y</code>の符号の検査を行う。この検査で<code>Y</code>＜<code>0</code>の場合は，行33の<code>JMI</code>命令により行37の<code>YMINUS</code>に負分岐し，<code>X</code>＜<code>0</code>，<code>Y</code>＜<code>0</code>の場合における仮数部の加算処理（<code>Mz</code>←調整済<code>Mx</code>＋調整済<code>My</code>）を行う。この場合，<code>X</code>，<code>Y</code>の符号部がいずれも負であるので，行37の<code>OR</code>命令により<code>GR4</code>の符号部を負にセットする。行32で<code>Y</code>の符号の検査で<code>Y</code>≧<code>0</code>の場合は，行34，35で<code>X</code>＜<code>0</code>，<code>Y</code>≧<code>0</code>の場合における仮数部の加算処理（<code>Mz</code>←調整済<code>My</code>－調整済<code>Mx</code>）を行う。この場合，仮数部の加算結果が負となる場合があるので，<code>X</code>≧<code>0</code>，<code>Y</code>≦<code>0</code>の場合における仮数部の加算処理の場合に<code>JUMP</code>命令で<code>SCHECK</code>に分岐したのと同様，空欄cで行42の<code>SCHECK</code>に分岐すればよい。したがって空欄cはカの<code>JUMP  SCHECK</code>が適切。</p>
+
+<p>●空欄dについて<br/>
+行48以降の処理では，加算結果の正規化を行い，結果<code>Z</code>を格納してプログラムを終了している。行48の<code>LD</code>命令のゼロチェックで<code>GR5</code>の仮数部の加算結果が<code>0</code>の場合は，行50の<code>LD</code>命令で指数部<code>GR4</code>に<code>0</code>をセットして，結果<code>Z</code>を格納する終了処理<code>FIN</code>に分岐する。<code>GR5</code>の仮数部の加算結果が<code>0</code>でない場合は，行49の<code>JNZ</code>命令により<code>LOOP</code>に分岐する。行52の<code>LD</code>命令で<code>GR5</code>の最上位ビットが1である場合，正規化が完了しているので，次の<code>JMI</code>命令により結果<code>Z</code>を格納する終了処理<code>FIN</code>に零分岐する。<code>GR5</code>の最上位ビットが0である場合は正規化が完了していないので，空欄dで<code>GR5</code>の仮数部のビット列を1ビット論理左シフトし，行55の<code>SUB</code>命令により指数部<code>GR4</code>を1だけデクリメントして調整する正規化処理を正規化が完了するまで繰り返す必要がある。したがって空欄dはイの<code>SLL   GR5,1</code>が適切。</p>
+
+<p>●空欄eについて<br/>
+<code>ADJST</code>の処理は仮数部の加算処理においてけた上がりがある場合の処理である。けた上がりしたビットを仮数部の最上位ビットとするため，行57の<code>SRL</code>命令により<code>GR5</code>の仮数部の加算結果を1ビット論理右シフトし，行58の<code>OR</code>命令により最上位ビットに1をセットした後，次の空欄eで指数部<code>GR4</code>に1を加算する必要がある。したがって空欄eはアの<code>ADDL  GR4,=1</code>が適切。</p>
+<hr>
+<a href="22S_P_E4.HTM#121">問題へ</a>
+<hr>
+<p><strong><a name="122">設問2</a></strong></p>
+<p>〈解答〉　カ</p>
+<p>〈解説〉</p>
+<p>行27，行32の<code>LD</code>命令により<code>GR2</code>に仮数<code>Y</code>が格納される。プログラムを減算用に変更するには，<code>GR2</code>に格納する加数の符号を反転すればよい。したがって行27及び行32の直後で，<code>GR2</code>と<code>#8000</code>との排他的論理和をとり先頭符号部ビットを反転すればよく，カの<code>XOR   GR2,#8000</code>が適切。</p>
+<hr>
+<a href="22S_P_E4.HTM#122">問題へ</a>
+<hr>
+<a href="INDEX.HTM">■メニューへ戻る</a>
+<hr>
+<p><strong><a name="130">問13</a></strong></p>
+<hr>
+<p><strong><a name="131">設問1</a></strong></p>
+<p>〈解答〉　a：オ，b：ク</p>
+<p>〈解説〉</p>
+<p>●空欄aについて<br/>
+空欄aは，飲料の単価を求める計算式を指定すればよい。照合一致関数により，配列関数の行位置と列位置を求めて，飲料の単価が入力されている範囲においてその行位置と列位置にある単価を取り出せばよい。この場合配列関数の範囲には，ワークシート“メニュー”の飲料の単価が入力されている範囲である。メニュー!B4～E7を指定すればよいが，セルD2に入力した式をセルD3～D27に複写するので絶対参照でメニュー!$B$4～$E$7と指定する必要がある。配列関数の行位置は照合一致関数により指定する。照合一致関数の範囲には，ワークシート“メニュー”の飲料品目が入力されている範囲を絶対参照でメニュー!$A$4～$A$7と指定する必要がある。同様に配列関数の列位置は照合一致関数により指定する。照合一致関数の範囲には，ワークシート“メニュー”のサイズが入力されている範囲を絶対参照でメニュー!$B$3～$E$3と指定する必要がある。したがってオが適切。</p>
+
+<p>●空欄bについて<br/>
+空欄bは，料理の単価を求める計算式を指定すればよい。照合一致関数により，配列関数の行位置と列位置を求めて，料理の単価が入力されている範囲においてその行位置と列位置にある単価を取り出せばよい。この場合配列関数の範囲には，ワークシート“メニュー”の料理の単価が入力されている範囲である。メニュー!H4～J7を指定すればよいが，セルD2に入力した式をセルD3～D27に複写するので絶対参照でメニュー!$H$4～$J$7と指定する必要がある。配列関数の行位置は照合一致関数により指定する。照合一致関数の範囲には，ワークシート“メニュー”の料理品目が入力されている範囲を絶対参照でメニュー!$G$4～$G$7と指定する必要がある。同様に配列関数の列位置は照合一致関数により指定する。照合一致関数の範囲には，ワークシート“メニュー”のオプションが入力されている範囲を絶対参照でメニュー!$H$3～$J$3と指定する必要がある。したがってクが適切。</p>
+<hr>
+<a href="22S_P_E4.HTM#131">問題へ</a>
+<hr>
+<p><strong><a name="132">設問2</a></strong></p>
+<p>〈解答〉　c：ア，d：ウ，e：カ，f：ア，g：ク</p>
+<p>〈解説〉</p>
+<p>●空欄cについて<br/>
+セット割引の飲料の注文数の合計を求めるには，ワークシート“伝票”のセル範囲C2～C27のタイプがセット割引である行について，ワークシート“伝票”のセル範囲E2～E27の対応する数量の合計を求めればよいので，照合合計関数を用いる。照合合計関数の照合値にA1，照合範囲に伝票!C2～C27，対応範囲に伝票!E2～E27を指定すればよく，空欄cはアの照合合計（A1,伝票!C2～C27,伝票!E2～E27）が適切。</p>
+
+<p>●空欄dについて<br/>
+単品の飲料の注文数の合計を求めるには，ワークシート“伝票”のセル範囲A2～A27の種類が飲料である行について，ワークシート“伝票”のセル範囲E2～E27の対応する飲料の注文数の合計を照合合計関数を用いて求め，そこからセット割引の飲料の注文数の合計B1を差引けばよい。照合合計関数の照合値にA2，照合範囲に伝票!A2～A27，対応範囲に伝票!E2～E27を指定すればよく，空欄dはウの照合合計（A2,伝票!A2～A27,伝票!E2～E27）－B1が適切。</p>
+
+<p>●空欄eについて<br/>
+セルC9のセルには注文時の品目ごとの注文数を求める計算式を入力する。この場合，ワークシート“伝票”のセル範囲B2～B27においてセルA9に入力された抹茶ラテに一致する品目で，かつワークシート“伝票”のセル範囲C2～C27においてタイプがセット割引に一致しない品目についてワークシート“伝票”のセル範囲E2～E27の対応する注文数を合計すればよい。これを求めるには複数条件照合合計関数を用いる。複数条件照合合計関数の対応範囲には伝票!E$2～E$27を指定すればよい。セルC9に入力する場合，A9の抹茶ラテに一致するものを検索するので，照合値1にA9，照合条件1に'＝'，照合範囲1に伝票!B$2～B$27を指定すればよい。併せてタイプがセット割引に一致しないものを検索するので，照合値2にB$7，照合条件2に'≠'，照合範囲2に伝票!C$2～C$27を指定すればよい。したがってカが適切。</p>
+
+<p>●空欄fについて<br/>
+残数≧注文数の場合は注文数を割当てるが，残数＜注文数の場合は注文数を割当てられないので残数を割当てる。したがってF9≧C9であればC9，F9＜C9であればF9とすればよく，空欄fはアのIF（F9≧C9,C9,F9）が適切。</p>
+
+<p>●空欄gについて<br/>
+数量割引は，飲料を15個以上かつ料理を10個以上，又は料理と飲料を合わせて30個以上注文した場合に適用され，最適割引時の合計料金から5％の割引を行う。飲料を15個以上かつ料理を10個以上という条件は，論理積（B2≧15,B3≧10）になる。料理と飲料を合わせて30個以上という条件は（B2＋B3）≧30になる。したがって飲料を15個以上かつ料理を10個以上，又は料理と飲料を合わせて30個以上という条件は両者の論理和をとり，論理和（論理積（B2≧15,B3≧10）,（B2＋B3）≧30）になる。この条件が成り立つ場合に，最適時の割引料金B14に対する割引率が0.05，それ以外は0になる。したがって空欄gの数量割引後の合計料金はクの（1－IF（論理和（論理積（B2≧15,B3≧10）,（B2＋B3）≧30）,0.05,0））＊B14が適切。</p>
+<hr>
+<a href="22S_P_E4.HTM#132">問題へ</a>
+<hr>
+<a href="INDEX.HTM">■メニューへ戻る</a>
+<hr>
+</blockquote>
+</body>
+</html>

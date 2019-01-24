@@ -1,0 +1,315 @@
+<HTML>
+<HEAD>
+<TITLE>平成11年度秋期試験　正解例と解説(問01～問20)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<BLOCKQUOTE>
+<hr>
+<H3 align="center">平成11年度秋期試験　正解例と解説(問01～問20)</H3>
+<HR WIDTH=100%>
+<A NAME="01">　<BR>
+<b>
+問1</b></a>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>ア</option></select><br>
+＜解説＞<br>
+アの場合は，２進数では無限小数となる。<br>
+<img src="image/b99a01f1.gif" width="621" height="242"><br>
+<p>イ、ウ、エの場合は，以下のように２進数でも有限小数となる。<br>
+<img src="image/b99a01f2.gif" width="721" height="171"><br>
+<HR WIDTH=100%>
+<A HREF="11f_a_e1.htm#01">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="02">　<BR>
+<b>
+問2</b></a><br>
+<select name="17FA01" size="1"><option selected>解答例</option><option>ウ</option></select>
+<p>＜解説＞16進小数の各桁の数値は2進数の４ビットでそれぞれ以下のように表される。</p>
+<p>F → 1111、E → 1110、D → 1101、C → 1100</p>
+<p>したがって16進小数の 0.FEDC
+は２進小数で以下のように表される。</p>
+<p>0.FEDC　→　0.1111 1110 1101 1100</p>
+<p>2進数の数値を左に１ビットシフトするごとに２倍されるので、左に２ビットシフトすると４倍される。<br>
+0.1111 1110 1101 1100 を左に２ビットシフトすると 11.1111 1011 0111
+0000となる。<br>
+これを４ビットごとに区切り16進数で表すと以下のようになる。<br>
+0011 → 3、1111 → F、1011 → B、0111 → 7、0000 → 0<br>
+11.1111 1011 0111 000 → 3.FB70　　つまりウが正解。
+<A NAME="02"><BR></a>
+　<BR>
+</p>
+<HR WIDTH=100%>
+<A HREF="11f_a_e1.htm#02">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="03">　<BR>
+<b>
+問3</b></a><br>
+<select name="17FA01" size="1"><option selected>解答例</option><option>ウ</option></select>
+<p>＜解説＞１４けたの16進数の最大値は１６<sup><font size="2">14</font></sup>－１であり、これが10進数でｎけたとすると</p>
+<p>１０<sup><font size="2">ｎ－１</font></sup>≦１６<sup><font size="2">１４</font></sup>－１＜１０<sup><font size="2">ｎ</font></sup><br>
+ｎ－１＜１４log<sub><font size="2">10</font></sub>１６≦ｎ<br>
+１４log<sub><font size="2">10</font></sub>１６≦ｎ＜１４log<sub><font size="2">10</font></sub>１６＋１<br>
+５６log<sub><font size="2">10</font></sub>２≦ｎ＜５６log<sub><font size="2">10</font></sub>２＋１<br>
+５６×０.３０１≦ｎ＜５６×０．３０１＋１<br>
+１６.８５６≦ｎ＜１７.８５６　</p>
+<p>したがってｎ＝１７<br>
+10進数で１７けたで表せる。</p>
+<p>
+<A NAME="03"><BR></a>
+</p>
+<p>　<BR>
+<HR WIDTH=100%>
+<A HREF="11f_a_e1.htm#03">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="04">　<BR>
+<b>
+問4</b></a><br>
+<select name="17FA01" size="1"><option selected>解答例</option><option>ウ</option></select>
+<p>＜解説＞10進数の正数5.625を2進数で表し、その2の補数を求めればよい。<br>
+<img src="image/b99a04f2.gif" width="578" height="327"><br>
+　<BR>
+</p>
+<HR WIDTH=100%>
+<A HREF="11f_a_e1.htm#04">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="05">　<BR>
+<b>
+問5</b></a><br>
+<select name="17FA01" size="1"><option selected>解答例</option><option>エ</option></select>
+<p>＜解説＞例えば次のような２進数及び１６進数の浮動小数点表示において、</p>
+<p>０．０００１０１１×２<sup><font size="2">３</font></sup>→０．１０１１×２<sup><font size="2">１<br>
+</font></sup>１１０．１　　　　　　　→０．１１０１×２<sup><font size="2">３</font></sup><br>
+０．００ＡＦＢ×１６<sup><font size="2">７</font></sup>　→０．ＡＦＢ×１６<sup><font size="2">５</font></sup></p>
+<p>のように、仮数部の絶対値の最上位けたを０以外にすることを、正規化という。<br>
+　　　　　　　　<img src="image/b99a05f1.gif" width="301" height="81"></p>
+<p>
+<A NAME="05"><BR></a>
+　</p>
+<HR WIDTH=100%>
+<A HREF="11f_a_e1.htm#05">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="06">　<BR>
+<b>
+問6</b></a><br>
+<select name="17FA01" size="1"><option selected>解答例</option><option>ア</option></select>
+<p>＜解説＞a，b，c，dの場合はオペランドｘとオペランドｙとの加算演算なので、ｘとｙが同符号のa，dの場合に加算による桁あふれの可能性があります。<br>
+　e，f，g，hの場合はオペランドｘとオペランドｙとの減算演算なので、ｘとｙが異符号のf，gの場合に同符号の加算となり、桁あふれの可能性があります。<br>
+　したがってアが正解。</p>
+<p>　</p>
+<HR WIDTH=100%>
+<A HREF="11f_a_e1.htm#06">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="07">　<BR>
+<b>
+問7</b></a><br>
+<select name="17FA01" size="1"><option selected>解答例</option><option>ウ</option></select>
+<p>＜解説＞<br>
+　<img src="image/B99a07f4.gif" width="385" height="294"><br>
+</p>
+<HR WIDTH=100%>
+<A HREF="11f_a_e1.htm#07">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="08">　<BR>
+<b>
+問8</b></a>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>エ</option></select>
+<p>＜解説＞ｘ＝1、ｙ＝1は、ｘ≦ｙを満たすが、(x AND y)＝0を満たさないので、アは同値でない。<br>
+　ｘ＝0、ｙ＝1は、ｘ≦ｙを満たすが、（ <sub><span style="text-decoration: overline">x</span>
+</sub>AND y ） = 0を満たさないので、イは同値でない。<br>
+　ｘ＝0、ｙ＝0は、ｘ≦ｙを満たすが、(x OR y)＝1を満たさないので、ウは同値でない。<br>
+&nbsp;（ <sub><span style="text-decoration: overline">x</span> </sub>OR y ） =
+1を満たさないｘ＝1、ｙ＝0は、ｘ≦ｙを満たさず、それ以外はすべて両者を満たす。したがってエが同値となる。<br>
+</p>
+<HR WIDTH=100%>
+<A HREF="11f_a_e1.htm#08">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="09">　<BR>
+<b>
+問9</b></a><br>
+<select name="17FA01" size="1"><option selected>解答例</option><option>ア</option></select>
+<p>＜解説＞<br>
+①PはA=1,B=0の論理積ANDで、P=0。<br>
+②QはP=0,C=1の論理和ORで、Q=1。<br>
+③RはQの否定NOTで、R=0となる。<br>
+<img src="image/b99a09f6.gif" width="234" height="64"><br>
+<A NAME="09"><BR></a>
+　</p>
+<HR WIDTH=100%>
+<A HREF="11f_a_e1.htm#09">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="10">　<BR>
+<b>
+問10</b></a><br>
+<select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select>
+<p>＜解説＞切り捨て、切り上げによる誤差は「丸め誤差」である。したがってイが正解。<br>
+アは「オーバーフロー（けたあふれ）」で、演算結果がコンピュータで表現できる最大値を超えることにより生じる誤差である。<br>
+　ウは「けた落ち」で、絶対値がほぼ同じ程度の数値の減算の結果、有効数字が減ってしまうことによる誤差である。<br>
+　エは「情報落ち」で、このように絶対値の小さな数値が加減算の結果に反映されなくなることによる誤差である。<br>
+</p>
+<HR WIDTH=100%>
+<A HREF="11f_a_e1.htm#10">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="11">　<BR>
+<b>
+問11</b></a><br>
+<select name="17FA01" size="1"><option selected>解答例</option><option>ウ</option></select>
+<p>＜解説＞この2分探索木では、常に「左の子の要素＜親の要素＜右の子の要素」の関係がある。<br>
+したがって要素12を削除した場合、その位置にくるべき要素は、</p>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>①</td>
+    <td>要素12の左部分木のいずれの要素よりも大きく、</td>
+  </tr>
+  <tr>
+    <td>②</td>
+    <td>要素12の右部分木のいずれの要素よりも小さく、</td>
+  </tr>
+</table>
+<p>なくてはならない。つまり要素12の左部分木の最大の要素11か、または右部分木の最小の要素13であればよい。したがって解答群ウの13が正解。<br>
+<A NAME="11"><BR></a>
+</p>
+<HR WIDTH=100%>
+<A HREF="11f_a_e1.htm#11">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="12">　<BR>
+<b>
+問12</b></a>　<BR>
+<select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select>
+<p>＜解説＞当初のデータ個数をＮ個とすると、これが４Ｎ個になった場合、１回目の探索でデータ個数が半分の２Ｎ個となり、２回目の探索でデータ個数がさらに半分のＮ個になり、当初のデータ個数にまで絞り込まれることになる。<br>
+　したがって最大探索回数は２回増えることになる。</p>
+<p>　</p>
+<HR WIDTH=100%>
+<A HREF="11f_a_e1.htm#12">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="13">　<BR>
+<b>
+問13</b><BR></a>
+<select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select>
+<p>＜解説＞FIFO（First-In First-Out）は先入れ先出しの処理で、これに適したデータ構造はキューである。<br>
+LIFO（Last-In First-Out）は後入れ先出しの処理で、これに適したデータ構造はスタックである。</p>
+<p>　</p>
+<HR WIDTH=100%>
+<A HREF="11f_a_e1.htm#13">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="14">　<BR>
+<b>
+問14<br>
+</b></a><select name="17FA01" size="1"><option selected>解答例</option><option>ウ</option></select>
+<p>＜解説＞この流れ図では、以下いずれかの場合に処理を終了します。</p>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>①</td>
+    <td>Ｘと同じ値が配列中になくｋ＝N＋1となったとき</td>
+  </tr>
+  <tr>
+    <td>②</td>
+    <td>配列の要素Ａ(ｋ)がＸと一致したとき</td>
+  </tr>
+</table>
+<p>したがって①よりアとイは誤り。<br>
+また②よりＸと同じ値が配列の１番目とN番目の2か所にある場合は、Ａ(１)＝Ｘとなり、ｋ＝１にセットされて終了します。<br>
+　したがってエは誤りで、ウが正解。
+<A NAME="14"><BR></a>
+</p>
+<HR WIDTH=100%>
+<A HREF="11f_a_e1.htm#14">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="15">　<BR>
+<b>
+問15</b></a><br>
+<select name="17FA01" size="1"><option selected>解答例</option><option>ア</option></select>
+<p>＜解説＞左の流れ図ではｘ＝Ｍ×（Ｍ－１）・・・２×１が計算されます。<br>
+右の流れ図では<br>
+　　　ｎ＝１のときｘ＝１<br>
+　　　ｎ＝２のときｘ＝１×２<br>
+　　　　　・　　　　　　・<br>
+　　　　　・　　　　　　・<br>
+　　　ｎ＝Ｍのときｘ＝１×２・・・（Ｍ－１）×Ｍとなり、<br>
+ｎ＝Ｍ＋１でループを抜けて終了すれば、ｘの計算結果が一致する。<br>
+したがって終了条件をｎ＞Ｍとすればよい。<BR>
+</p>
+<HR WIDTH=100%>
+<A HREF="11f_a_e1.htm#15">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="16">　<BR>
+<b>
+問16</b></a><br>
+<select name="17FA01" size="1"><option selected>解答例</option><option>エ</option></select>
+<p>＜解説＞ハミング符号方式では、情報ビットのビット列の一部に冗長ビットを付加して埋め込み、情報ビットと付加ビットとの排他的論理和などによる演算規則を設定して、１ビットの誤りを訂正できるようにした検査方式。<br>
+　ハミング符号方式によれば、１ビットの誤りを訂正でき、２ビットの誤りは検出できる。したがって解答群のエが正解。<br>
+</p>
+<HR WIDTH=100%>
+<A HREF="11f_a_e1.htm#16">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="17">　<BR>
+<b>
+問17</b><BR></a>
+<select name="17FA01" size="1"><option selected>解答例</option><option>エ</option></select>
+<p>＜解説＞メモリインタリーブは、主記憶に対するアクセスの高速化のための技術。主記憶を幾つかの並列にアクセス可能なメモリブロックに分割し、隣接するメモリブロック間でアドレスが連続するように割り当て、各メモリブロック内のアドレスが一定間隔あけて繰り返すようにアドレスを割り付けることで、この複数のメモリブロックのアドレスへ同時並列的にアクセスをおこなうこと。アドレスが連続するメモリブロック間で、先行する命令語の命令実行段階に次の命令語の命令取り出し段階を同時並列的に実行する（先回り制御）ができ、連続したメモリへのアクセスが高速化する。（各メモリブロックをメモリバンクという。）したがって解答群のエが正解。<br>
+　アはライトバック。イはディスクキャッシュ。ウはライトスルー。</p>
+<HR WIDTH=100%>
+<A HREF="11f_a_e1.htm#17">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="18">　<BR>
+<b>
+問18</b><BR></a>
+<select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select>
+<p>＜解説＞パイプラインは、１つの命令の実行サイクルを複数のステップ（命令の取出し、解読、アドレス計算・変換、データの取出し、実行）に分割し、各段階の処理を別々の装置が担当することによって、各命令のステップを重ねて、並列実行することにより１命令あたりの実行効率をあげる方式。したがって解答群のイが正解。<br>
+　プロセスは、ＯＳがアプリケーションなどにメモリなどの資源を割り当てる単位。プロセスをＣＰＵ上で同時実行できるサブプロセスに分割した単位がスレッド。<br>
+　マイクロプログラムは、命令サイクルにおける命令取出、命令解読、データ取出、演算、書込みなどの各段階の基本的動作の命令を、より基本的なマイクロ命令をいくつか組み合わして書き表したプログラム。マイクロプログラムをＲＯＭに格納しておき、ＲＯＭから読み出し解読することでソフトウェア的に実行制御をおこなう方式をマイクロプログラム制御という。<br>
+　データフローは、非ノイマン型コンピュータの制御方式の１つで、命令の実行に必要なデータが利用可能になった時点で演算の命令が実行される制御方式。<br>
+<BR>
+</p>
+<HR WIDTH=100%>
+<A HREF="11f_a_e1.htm#18">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="19">　<BR>
+<b>
+問19</b><BR></a>
+<select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select>
+<p>＜解説＞ア、イ、ウ、エの１命令の実行時間はそれぞれ以下のようになる。</p>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>ア</td>
+    <td>7÷200＝0.035μ秒</td>
+  </tr>
+  <tr>
+    <td>イ</td>
+    <td>8÷250＝0.032μ秒</td>
+  </tr>
+  <tr>
+    <td>ウ</td>
+    <td>10÷300≒0.033μ秒</td>
+  </tr>
+  <tr>
+    <td>エ</td>
+    <td>12÷350≒0.034μ秒</td>
+  </tr>
+</table>
+<p>したがって解答群のイが正解。</p>
+<p>　<BR>
+<HR WIDTH=100%>
+<A HREF="11f_a_e1.htm#19">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="20">　<BR>
+<b>
+問20</b></a><br>
+<select name="17FA01" size="1"><option selected>解答例</option><option>ウ</option></select>
+<p>＜解説＞50MIPS（Milion Instruction Per Second）は、１秒間当たり50×106命令を実行できることを示している。<br>
+　したがってプロセッサ使用率70％の場合、3000万命令（3000×104）の処理時間は以下のようになる。</p>
+<p>3000×10<sup>4</sup>÷（50×10<sup>6</sup>×0.7）≒0.857秒</p>
+<p>したがって解答群のウが正解。
+<A NAME="20"><BR></a>
+　</p>
+<HR WIDTH=100%>
+<a HREF="11f_a_e1.htm#20">問題へ</a>
+<hr>
+<p>
+<A HREF="index.htm">メニューへ戻る</A>
+</p>
+<HR WIDTH=100%>
+<ADDRESS>
+<BR>
+</ADDRESS>
+</BLOCKQUOTE>
+</BODY>
+</HTML>

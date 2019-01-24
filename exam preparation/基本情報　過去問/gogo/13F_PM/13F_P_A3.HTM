@@ -1,0 +1,131 @@
+<HTML>
+<HEAD>
+<TITLE>平成13年度秋期試験　</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0">
+<blockquote>
+  <hr>
+  <H3 align="center">平成13年度秋期試験　正解例と解説(問6～問8)</H3>
+<hr>
+<p><b><a name="60">問6</a>　</b></p>
+<hr>  
+<p><b><a name="61">設問</a>　</b>  
+</p>  
+<p>＜解答＞　ａ　ア　　ｂ　ウ　　ｃ　ア　　ｄ　エ  
+</p>  
+<p style="line-height: 120%">＜解説＞　関数parse_ml_stringは，タグ付き文字列mlstrを要素に分解して，開始タグの出現順に配列要素elmtblに格納します。この関数parse_ml_stringの中では，関数parse_ml_dataが使われています。関数parse_ml_dataはmlstrへのポインタと整数型変数levelを引数とし，戻り値としてmlstr＋1を返します。この関数では，開始タグ処理，タグの値処理，下位のタグ構造処理，終了タグ処理が行われています。<br>
+　開始タグ処理では，要素配列elmtblの配列要素elmtbl［elmnum］．tagにタグ名へのポインタをセットする空欄ａの処理と，配列要素elmtbl［elmnum］．depthに入れ子の深さlevelをセットする処理を行ったあと，'＞'が出現するまでポインタmlstrをインクリメントし，*mlstr='＞'となればタグの値処理に進んでいます。したがって空欄ａでmlstrとして，タグ名へのポインタmlstrをelmtbl［elmnum］．tagにセットすればよい。<br>
+　タグの値処理では，要素配列elmtblの配列要素elmtbl［elmnum］．valueにタグの値へのポインタをセットする空欄ｂの処理を行ったあと，'＜'が出現するまでポインタmlstrをインクリメントし，*mlstr='＜'となれば，空欄ｃの処理をして下位のタグ構造処理に進んでいます。elmtbl［elmnum］．valueには，'＞'の次に続くタグの値へのポインタmlstr＋1をセットすればよいので，空欄ｂはmlstr＋1になります。次の開始タグの先頭文字'＜'が出現したとき空欄ｃが行われているので，この空欄ｃで出現した開始タグの個数elmnumを＋1だけカウントアップすればよい。<br>
+　下位のタグ構造処理では，while文中でポインタmlstr＋1とlevel＋1を引数として，再帰的に関数parse_ml_dataを繰返して，タグ付き文字列mlstrを要素に分解して，開始タグの出現順に配列要素elmtblに格納します。空欄ｄは下位のタグ構造処理のwhile文の繰返し条件になっています。終了タグの先頭文字'＜'の次の文字'／'が出現するまで繰り返せばよいので，繰返し条件は*(mlstr＋1)！='／'とすればよい。<br>
+</p>  
+<hr WIDTH="100%">  
+<a HREF="13f_p_e3.htm#61">問題へ</a>  
+<hr WIDTH="100%">  
+<br>  
+<a HREF="index.htm">メニューへ戻る</a><br>  
+<HR WIDTH=100%>  
+<a NAME="70">　<BR> 
+<b> 
+問7</b></a><b>　</b>
+<hr>  
+<a NAME="71">　<BR> 
+<b> 
+設問</b></a><b>1　</b>
+  <p>＜解答＞　イ，　ア　</p>
+  <p>＜解説＞　年間受講ファイルの出席状況A-STATUSに記録されている出席状況を検査し，出席状況に1がセットされている出席の回数をW-ATENDANCEにセットしています。したがって空欄ａはA-STATUSになります。授業回数の80％以上の出席がある場合は，終了判定A-COMPLETIONに"Y"をセットします。空欄ｂはA-COMPLETIONに"Y"をセットする条件になっています。空欄ｂの直前の処理で，W- COMPLETIONに授業回数の8倍の値A-SESSIONS＊8がセットされています。したがって空欄ｂの条件はW- ATENDANCE＊10≧W- COMPLETIONになります。<br>         
+  </p>    
+<HR WIDTH=100%>        
+  <a HREF="13f_p_e3.htm#71">問題へ</a>       
+<HR WIDTH=100%>       
+<p><b><a name="72">設問2</a>　</b>　</p> 
+<p><b></b>＜解答＞　エ，　ウ</p> 
+<p>＜解説＞　索引ファイルを順呼出しによりREAD文で順アクセスすればよい。また年間受講ファイルは受講番号A-IDをキーとする索引ファイルです。</p> 
+  <p>　</p>
+<hr WIDTH="100%"> 
+<a HREF="13f_p_e3.htm#72">問題へ</a> 
+<hr WIDTH="100%"> 
+<p><A HREF="index.htm">メニューへ戻る</A>　</p>  
+<HR WIDTH=100%>  
+<a NAME="80"><BR>  
+<b>  
+問8</b></a>
+<HR WIDTH=100%>  
+  <p>  
+<a NAME="81"><b>  
+設問</b></a>　</p>
+  <p>＜解答＞　a　イ　　b　カ　　c　ウ　　d　エ</p>
+  <p>＜解説＞　空欄aを含むメソッドsizeIs( int size)は，サイズの属性値が引数と等しいかどうかを判定するメソッドで，その比較結果をboolean型で戻り値を返す。sizeはint型の基本型変数なので，比較は==で行う。したがって空欄aはthis.size == sizeに該当する。</p>     
+  <p>　空欄bを含むメソッドcolors(String color)は，色の属性値が引数と等しいかどうかを判定するメソッドで，その比較結果をboolean型で戻り値を返す。colorはString型の文字列型変数なので，比較はequals( )で行う。したがて空欄bはthis.color.equals( color)に該当する。</p>     
+  <p>　空欄cはスーパークラスのコンストラクタの呼出しに該当する。<br>
+  　JeansはスーパークラスPantsを継承して作成されたサブクラスである。クラス定義の冒頭ではコンストラクタを宣言し初期値設定が必要である。解答群にあるsuperについては，</p>
+  <ol>
+    <li>super( ).メソッドの場合は，サブクラス内からスーパークラスを呼出す</li>   
+    <li>super( )単独の場合は，サブクラスからスーパークラスのコンストラクタを呼出す</li>   
+  </ol>
+  <p>という機能がある。ここではスーパークラスのコンストラクタの呼出しに使われている。<br>
+  　コンストラクタJeansの宣言には，4つの引数code, size, color, buttonFrontがあるが，空欄a直後でbuttonFrontについては初期設定があるがそれ以外がない。したがってcode, size, colorについてはスーパークラスのコンストラクタをsuper( code, size, color )に呼出して初期設定する必要がある。したがってウが正解。<br>    
+  　スーパークラスPantsのサブクラスであるJeansにはスーパークラスのメソッドが継承される。メソッドtoString( )は，Pantsでは</p>     
+  <table border="0" bgcolor="#C0C0C0">
+    <tr>
+      <td width="100%">
+      public String toString( ) {<br>    
+       return code, +  “ , “  + size + “ , “ + color;&nbsp;&nbsp;<br>   
+        　　}</td>
+    </tr>
+  </table>
+  <p>により定義され，戻り値で返される情報には，code, size, colorの3つしか含まれていない。<br>  
+  　サブクラスJeansでは，buttonFrontに関する情報として文字列”zipper”か”button”を戻り値として返す機能がメソッド　toStoring( )　に必要である。したがってスーパークラスで宣言されたインスタンスメソッド　toString( )　をオーバーライド（再定義）し，サブクラスのメソッドに無い機能だけを追加する必要がある。したがって空欄dは</p>  
+  <table border="0" bgcolor="#C0C0C0">
+    <tr>
+      <td width="100%">　super.toString( ) + “ , “ + (buttonFront ? “button : “zipper” )</td>  
+    </tr>
+  </table>
+  <p> 
+  とすればよい。</p>  
+<HR WIDTH=100%>   
+  <a HREF="13f_p_e3.htm#81">問題へ</a>  
+<hr WIDTH="100%"> 
+<A HREF="index.htm"><br>  
+メニューへ戻る<br>  
+</A>  
+<HR WIDTH=100%>  
+<a NAME="90"><BR> 
+<b> 
+問9</b></a>　　　（解説は省略します。）
+<HR WIDTH=100%>  
+<a NAME="91"><b>　<BR>  
+設問</b></a><b>1</b>
+  <p>＜解答＞　a　オ　　b　ア</p>
+  <p>　</p>
+<HR WIDTH=100%>  
+<a HREF="13f_p_e3.htm#91">問題へ</a>
+<hr WIDTH="100%">
+<p>
+<a NAME="92"><b>  
+設問</b></a><b>2</b></p>
+<p>
+＜解答＞　ウ</p>
+<HR WIDTH=100%>  
+  <a HREF="13f_p_e3.htm#92">問題へ</a>
+<hr WIDTH="100%">
+  <a NAME="93"><b><br>
+設問</b></a><a NAME="93"><b>3</b></a><b>　</b> 
+  <p>＜解答＞　ウ</p>
+<HR WIDTH=100%>   
+  <a HREF="13f_p_e3.htm#93">問題へ</a>
+<hr WIDTH="100%">
+<p>
+<a HREF="index.htm"> 
+メニューへ戻る</a> 
+</p>
+<HR WIDTH=100%> 
+<p>　</p>
+  <p>　</p>
+  <p>　</p>
+  <p>　</p>
+  <p>　</p>
+  <p>　</p>
+  <p>　</p>
+</blockquote>
+</BODY>
+</HTML>

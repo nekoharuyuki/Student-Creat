@@ -1,0 +1,842 @@
+<HTML>
+<HEAD>
+<TITLE>平成15年度春期試験　問題(午後問10～問13)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0">
+<blockquote>
+  <hr>
+  <H3 align="center">平成15年度春期試験　問題(問10～問13)</H3>
+<hr>
+<P>次の問10から問13までの4問については、この中から1問を選択し、答案用紙の選択欄の             
+選 をマークして解答してください。なお、2問以上選択した場合には、はじめの1問について採点します。<br>            
+<hr>         
+<b><a name="100">問10</a>　</b>次のCプログラムの説明及びプログラムを読んで，設問に答えよ。<br>
+<br>
+〔プログラムの説明〕<br>
+ある圧電センサ（加えた圧力の大きさに応じて電圧を発生する装置）の温度補正を行うための温度補正係数を求めるプログラムを作成する。この圧電センサは，周囲の温度によって出力特性が変化するので，出力値を補正する必要がある。周囲の温度に対する圧電センサの出力値の変化を実験で調べたところ，表の結果が得られた。この表は，0℃での出力値を1.00としたときの比率を表したものである。<br>
+<br>
+表　周囲の温度とセンサ出力値比率<br>
+<img border="0" src="image/P_10-01.gif">
+<br><br>
+圧電センサの出力値を，測定時の周囲の温度に依存しない値に補正するため，この表のデータを基にして温度補正係数Kを求める。圧電センサの出力値にKを乗算することによって温度補正を行う。<br>
+<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">（1）</td>
+            <td>表のデータから温度補正テーブルを作成する。温度補正テーブルは，構造体の配列で実現する。<br>
+<pre>    typedef struct {
+        int     Temp;    /* 温度                     */
+        double  Ratio;   /* センサ出力値の比率（実測値） */
+        double  Step;    /* 1 ℃当たりの増分           */
+    } CURVE;</pre>
+</td>
+          </tr>
+          <tr>
+            <td valign="top">（2）</td>
+            <td>温度補正テーブルを初期化する関数SetupCurveと，温度補正係数Kを求める関数GetKを作成する。</td>
+          </tr>
+          <tr>
+            <td valign="top">（3）</td>
+            <td>GetKは，温度Degreeに対応する温度補正係数Kを求めるため，温度補正テーブルを二分探索法で探索する。温度範囲は，－40℃以上，50℃以下とする。温度補正テーブルに該当する温度値がないときは，温度Degreeに対するセンサ出力値比率を線形補間して求め，この値の逆数をKとして返す。</td>
+          </tr>
+          <tr>
+            <td valign="top">（4）</td>
+            <td>主プログラムは，この二つの関数の動作を検証するため，－40～50℃の温度補正係数Kを，1℃ 刻みで求めて表示するテストプログラムである。表示例は，次のとおりである。</td>
+          </tr>
+        </table>
+<br>
+<img border="0" src="image/P_10-02.gif">
+<br><br>〔プログラム〕<br><pre>
+#include &lt;stdio.h&gt;
+
+typedef struct {
+    int    Temp   ;     /* 温度                       */
+    double Ratio  ;     /* センサ出力値の比率（実測値）   */
+    double Step   ;     /* 1 ℃当たりの増分             */
+} CURVE ;
+void   SetupCurve( CURVE * , int );
+double GetK ( int , CURVE * , int );
+#define   ITEMS  7
+
+main()
+{
+    int    Degree ;
+    double k ;
+    CURVE Curve[ITEMS] = {
+        { -40 , 0.20 , 0.0 },{ -20 , 0.60 , 0.0 },
+        { -10 , 0.80 , 0.0 },{   0 , 1.00 , 0.0 },
+        {  10 , 1.17 , 0.0 },{  30 , 1.50 , 0.0 },
+        {  50 , 1.80 , 0.0 } };
+    SetupCurve( Curve , ITEMS );
+    printf( "  温度　　温度補正係数\n" );
+    for( Degree = -40 ; Degree <= 50 ; Degree++ )  {
+         k = GetK( Degree , Curve , ITEMS );
+         printf( "  %3d     %4.2f \n" , Degree , k );
+    }
+}
+
+void SetupCurve( CURVE *p , int Points )
+{
+  /* 温度補正テーブルを初期化する */
+    int  i ;
+    for( i = 0 ; i < Points - 1 ; i++ , <b>［　　a　　］</b> ){
+        p->Step = ( <b>［　　b　　］</b> ) / ( (p+1)->Temp - p->Temp );
+    }
+}
+
+double GetK( int Temp , CURVE *p , int Points )
+{
+  /* 温度補正係数Kを返却値として返す */
+    int   i,j,n ;
+    i = 0 ; j = Points - 1 ;
+    if ( ( Temp < p->Temp ) || ( Temp > (p+j)->Temp ) )
+        return 0.0; /* 温度範囲外のときは，0.0 を返す */
+  /* 温度補正テーブルの最後の要素の温度と一致した場合 */
+    if ( Temp == ( p+j )->Temp )
+        return 1.0 / ( p+j )->Ratio ;
+  /* 温度補正テーブルを二分探索法で探索する */
+    while( 1 ) {
+        n =  <b>［　　　c　　　］</b>;
+        if ( ( Temp >= ( p+n )->Temp ) &&
+           ( Temp < ( p+n+1 )->Temp ) ) break ;
+        if ( Temp < ( p+n )->Temp )  j = n ;
+        else  <b>［　　　d　　　］</b>;
+    }
+  p += n ;
+  return  1.0 / ( p->Ratio + p->Step * ( <b>［　　e　　］</b> ) );
+}</pre>
+<br>
+<hr> 
+<p><b><a name="101">設問</a>　</b>プログラム中の<b>［　　　　］</b>に入れる正しい答えを，解答群の中から選べ。</p> 
+
+aに関する解答群<br>
+        <table border="0" cellpadding="3" cellspacing="1">
+          <tr>
+            <td width="120">ア　p--</td>
+            <td width="120">イ　p++</td>
+            <td width="120">ウ　p->Temp++</td>
+          </tr>
+          <tr>
+            <td>	エ　p += 3</td>
+            <td>	オ　p += 7</td>
+	</tr>
+	</table>
+<br>
+bに関する解答群<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td width="280">ア　(p-1)->Ratio - p->Ratio</td>
+            <td>	イ　(p-1)->Ratio - (p+1)->Ratio</td>
+          </tr>
+          <tr>
+            <td>	ウ　p->Ratio - (p-1)->Ratio</td>
+            <td>	エ　p->Ratio-( p->Ratio -1 )</td>
+          </tr>
+          <tr>
+            <td>	オ　(p+1)->Ratio - p->Ratio</td>
+          </tr>
+        </table>
+<br>
+cに関する解答群<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td width="280">ア　( i + j ) / 2</td>
+            <td>	イ　( i * j ) / 2</td>
+          </tr>
+          <tr>
+            <td>	ウ　( i % j ) / 2</td>
+            <td>	エ　( i + j ) * 2</td>
+          </tr>
+          <tr>
+            <td>	オ　( i % j ) * 2</td>
+          </tr>
+        </table>
+<br>
+dに関する解答群<br>
+        <table border="0" cellpadding="3" cellspacing="1">
+          <tr>
+            <td width="120">ア　i = 0</td>
+            <td width="120">イ　i = n - 1</td>
+            <td width="120">ウ　i = n + 1</td>
+          </tr>
+          <tr>
+            <td>	エ　j = n</td>
+            <td>	オ　j = n + 1</td>
+	</tr>
+	</table>
+<br>
+eに関する解答群<br>
+        <table border="0" cellpadding="3" cellspacing="1">
+          <tr>
+            <td width="170">ア　Temp - p->Step</td>
+            <td width="170">イ　Temp - p->Temp</td>
+            <td width="170">ウ　Temp + p->Temp</td>
+          </tr>
+          <tr>
+            <td>	エ　p->Temp - n</td>
+            <td>	オ　p->Temp - Temp</td>
+	</tr>
+	</table>
+<br> 
+<HR WIDTH=100%>  
+  <a HREF="15S_P_A4.HTM#101">設問の正解例と解説へ</a>  
+<HR WIDTH=100%>  
+  　<BR>
+<A HREF="INDEX.HTM">メニューへ戻る</A>
+<HR WIDTH=100%>   
+<a NAME="110">　<BR>
+<b>  
+問11</b></a>　次のCOBOLプログラムの説明及びプログラムを読んで，設問に答えよ。<BR>
+<BR>
+過去の株価情報を使い，次に説明する規則に従って株式の売買をシミュレートするプログラムである。ある銘柄の株式の日々の株価を格納したファイルを読み込み，この規則による売買の記録を出力ファイルに書き出し，最後に一連の売買の結果である損益を表示する。<BR>
+<BR>
+〔プログラムの説明〕<BR>
+(1)　株式の売買規則は次のとおりである。<BR>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top"><img border="0" src="image/01_maru.GIF"></td>
+            <td>　25日移動平均線と75日移動平均線を使う。ここで，n日移動平均線とは，時間軸を移動しながら過去n取引日間の株価の平均値を求めた折れ線グラフである。取引日tの株価をP<sub>t</sub>とすると，取引日tにおけるn日移動平均MA<sub>t</sub>(n)は，次の式で求める。<BR>
+<BR>
+<img border="0" src="image/P_11-01.gif"><BR>
+<BR>
+<img border="0" src="image/P_11-02.gif"><BR>
+</td>
+          </tr>
+          <tr>
+            <td valign="top"><img border="0" src="image/02_maru.GIF"></td>
+            <td>　移動平均の算出には，株価の終値（その日の最後に売買された値段）を使う。</td>
+          </tr>
+          <tr>
+            <td valign="top"><img border="0" src="image/03_maru.GIF"></td>
+            <td>　25日移動平均線が75日移動平均線の下から上に交差したら，翌取引日に株式を買う。すなわち，s＜tのとき，いったんMA<sub>s</sub>(25)＜MA<sub>s</sub>(75)になってから，初めてMA<sub>t</sub>(25)＞MA<sub>t</sub>(75)に変わったら，取引日t＋1に株式を買う。</td>
+          </tr>
+          <tr>
+            <td valign="top"><img border="0" src="image/04_maru.GIF"></td>
+            <td>　25日移動平均線が75日移動平均線の上から下に交差したら，翌取引日に株式を売る。すなわち，s＜tのとき，いったんMA<sub>s</sub>(25)＞MA<sub>s</sub>(75)になってから，初めてMA<sub>t</sub>(25)＜MA<sub>t</sub>(75)に変わったら，取引日t＋1に株式を売る。ただし，既に買った株式がなければ，売ることはできない。</td>
+          </tr>
+          <tr>
+            <td valign="top"><img border="0" src="image/05_maru.GIF"></td>
+            <td>　株式の売買は，取引日tの高値（売買された最も高い値段）と安値（売買された最も低い値段）の平均値で売買できるものとする。</td>
+          </tr>
+          <tr>
+            <td valign="top"><img border="0" src="image/06_maru.GIF"></td>
+            <td>　売買に関するその他の費用は，一切発生しないものとする。</td>
+          </tr>
+          <tr>
+            <td valign="top"><img border="0" src="image/07_maru.GIF"></td>
+            <td>　株式の売買は，1回あたり1株とする。</td>
+          </tr>
+        </table>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+<BR>
+            <td valign="top">（2）</td>
+            <td>入力ファイル（INFILE）は，ある銘柄の株式について，75日分以上の取引日の株価データが時系列に格納された順ファイルである。レコード様式は，次のとおりである。</td>
+          </tr>
+          <tr>
+            <td valign="top"></td>
+            <td><img border="0" src="image/P_11-03.gif"></td>
+          </tr>
+        </table>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">（3）</td>
+            <td>出力ファイル（OUTFILE）は，入力ファイルの株価データに，（1）の売買規則を適用したときの売買の記録を格納する順ファイルである。レコード様式は，次のとおりである。</td>
+          </tr>
+          <tr>
+            <td valign="top"></td>
+            <td><img border="0" src="image/P_11-04.gif"></td>
+          </tr>
+        </table>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top"><img border="0" src="image/01_maru.GIF"></td>
+            <td>　出力ファイル（OUTFILE）に出力するレコードには，売買することを決定した日（取引日t）の日付，フラグ及び売買価格を格納する。</td>
+          </tr>
+          <tr>
+            <td valign="top"><img border="0" src="image/02_maru.GIF"></td>
+            <td>　フラグには，“売り”のとき“S”，“買い”のとき“B”を格納する。</td>
+          </tr>
+          <tr>
+            <td valign="top"><img border="0" src="image/03_maru.GIF"></td>
+            <td>　売買価格には，小数点以下1けたで値を格納する。</td>
+          </tr>
+        </table>
+<BR>(4)　一連の売買による損益は，小数点以下1けたの符号付き数値で表示する。<BR>
+<BR>
+<img border="0" src="image/P_11-05.gif">
+<BR>
+<BR>
+〔プログラム〕<br>
+DATA DIVISION.<br>
+FILE SECTION.<br>
+FD　INFILE.<br>
+01　I-MARKET-PRICE-REC.<br>
+　05　I-YYYYMMDD-MARKET　　PIC X(8).<br>
+　05　I-OPENING-PRICE　　　PIC 9(9).<br>
+　05　I-CLOSING-PRICE　　　PIC 9(9).<br>
+　05　I-HIGHEST-PRICE　　　PIC 9(9).<br>
+　05　I-LOWEST-PRICE　　　 PIC 9(9).<br>
+FD　OUTFILE.<br>
+01　O-EXCHANGE-REC.<br>
+　05　O-YYYYMMDD-EXCHANGE　PIC X(8).<br>
+　05　O-ACTION　　　　　　 PIC X.<br>
+　05　O-PRICE　　　　　　　PIC 9(9)V9.<br>
+WORKING-STORAGE SECTION.<br>
+01　SERIES-SIZE　　　 PIC 9(4) VALUE 100.<br>
+01　RANGE-SHORT　　　 PIC 9(4) VALUE 25.<br>
+01　RANGE-LONG　　　　PIC 9(4) VALUE 75.<br>
+01　W-MARKET-PRICE-REC.<br>
+　05　W-YYYYMMDD-MARKET　　PIC X(8).<br>
+　05　W-OPENING-PRICE　　　PIC 9(9).<br>
+　05　W-CLOSING-PRICE　　　PIC 9(9).<br>
+　05　W-HIGHEST-PRICE　　　PIC 9(9).<br>
+　05　W-LOWEST-PRICE　　　 PIC 9(9).<br>
+01　MARKET-PRICE-SERIES.<br>
+　05　TBL-MARKET-PRICE-REC OCCURS 100.<br>
+　　10　TBL-YYYYMMDD-MARKET　　 PIC X(8).<br>
+　　10　TBL-OPENING-PRICE　　　 PIC 9(9).<br>
+　　10　TBL-CLOSING-PRICE　　　 PIC 9(9).<br>
+　　10　TBL-HIGHEST-PRICE　　　 PIC 9(9).<br>
+　　10　TBL-LOWEST-PRICE　　　　PIC 9(9).<br>
+01　SERIES-TOP　　　　PIC 9(4).<br>
+01　TAIL-LONG　　　　 PIC 9(4).<br>
+01　TAIL-SHORT　　　　PIC 9(4).<br>
+01　SUM-SHORT　　　　 PIC 9(12).<br>
+01　SUM-LONG　　　　　PIC 9(12).<br>
+01　MA-SHORT　　　　　PIC 9(9)V9.<br>
+01　MA-LONG　　　　　 PIC 9(9)V9.<br>
+01　MA-COMPARE-CURRENT　 PIC X.<br>
+　88　LONG-LT-SHORT-CUR　　 VALUE "S".<br>
+　88　SHORT-LT-LONG-CUR　　 VALUE "L".<br>
+　88　SHORT-EQ-LONG-CUR　　 VALUE "E".<br>
+01　MA-COMPARE-PREVIOUS　PIC X.<br>
+　88　LONG-LT-SHORT-PRE　　 VALUE "S".<br>
+　88　SHORT-LT-LONG-PRE　　 VALUE "L".<br>
+　88　SHORT-EQ-LONG-PRE　　 VALUE "E".<br>
+01　INFILE-EOF-FLG　　　 PIC X.<br>
+　88　INFILE-EOF　　　　　　VALUE "Y".<br>
+　88　INFILE-NOT-EOF　　　　VALUE "N".<br>
+01　TRADING-PRICE　　 PIC 9(9)V9.<br>
+01　REVENUE　　　　　 PIC S9(9)V9.<br>
+01　REVENUE-ED　　　　PIC +++++++++9.9.<br>
+01　INDX　　　　　　　PIC 9(9).<br>
+01　TRADING-ACTION　　PIC S9.<br>
+　88　FLG-NO-TRADE　　　VALUE　0.<br>
+　88　FLG-SELL　　　　　VALUE　1.<br>
+　88　FLG-BUY　　　　　 VALUE -1.<br>
+01　STOCK-HOLDING　　 PIC X.<br>
+　88　HAS-STOCK　　　　 VALUE "Y".<br>
+　88　HAS-NO-STOCK　　　VALUE "N".<br>
+PROCEDURE DIVISION.<br>
+MAIN-PARAGRAPH.<br>
+　　OPEN INPUT INFILE　OUTPUT OUTFILE.<br>
+　　PERFORM INIT-MOVING-AVERAGE.<br>
+　　IF MA-SHORT = MA-LONG THEN<br>
+　　　 SET SHORT-EQ-LONG-CUR TO TRUE<br>
+　　END-IF.<br>
+　　PERFORM SET-CURRENT-MA-COMPARISON.<br>
+　　MOVE ZERO TO REVENUE.<br>
+　　SET HAS-NO-STOCK TO TRUE.<br>
+　　SET FLG-NO-TRADE TO TRUE.<br>
+　　SET INFILE-NOT-EOF TO TRUE.<br>
+　　PERFORM UNTIL INFILE-EOF<br>
+　　　 IF FLG-BUY OR FLG-SELL THEN<br>
+　　　　　PERFORM TRADE-STOCK-AND-MAKE-RECORD<br>
+　　　 END-IF<br>
+　　　 READ INFILE INTO W-MARKET-PRICE-REC<br>
+　　　　　AT END<br>
+　　　　　　 SET INFILE-EOF TO TRUE<br>
+　　　　　NOT AT END<br>
+　　　　　　 PERFORM CALC-NEXT-MOVING-AVERAGE<br>
+　　　　　　 PERFORM DECIDE-TRADING<br>
+　　　 END-READ<br>
+　　END-PERFORM.<br>
+　　MOVE REVENUE TO REVENUE-ED.<br>
+　　DISPLAY "Total Revenue: " REVENUE-ED.<br>
+　　CLOSE INFILE OUTFILE.<br>
+　　STOP RUN.<br>
+INIT-MOVING-AVERAGE.<br>
+　　PERFORM VARYING SERIES-TOP FROM 1 BY 1<br>
+　　　　　　UNTIL RANGE-LONG < SERIES-TOP<br>
+　　　 READ INFILE INTO TBL-MARKET-PRICE-REC(SERIES-TOP)<br>
+　　END-PERFORM.<br>
+　　COMPUTE TAIL-SHORT = SERIES-TOP - RANGE-SHORT.<br>
+　　COMPUTE TAIL-LONG　= SERIES-TOP - RANGE-LONG.<br>
+　　SUBTRACT 1 FROM SERIES-TOP.<br>
+　　MOVE ZERO TO SUM-SHORT.<br>
+　　PERFORM VARYING INDX［　　　　　　　　a　　　　　　　　］<br>
+　　　 ADD TBL-CLOSING-PRICE(INDX) TO SUM-SHORT<br>
+　　END-PERFORM.<br>
+　　MOVE SUM-SHORT TO SUM-LONG.<br>
+　　PERFORM VARYING INDX［　　　　　　　　b　　　　　　　　］<br>
+　　　 ADD TBL-CLOSING-PRICE(INDX) TO SUM-LONG<br>
+　　END-PERFORM.<br>
+　　COMPUTE MA-SHORT ROUNDED = SUM-SHORT / RANGE-SHORT.<br>
+　　COMPUTE MA-LONG　ROUNDED = SUM-LONG　/ RANGE-LONG.<br>
+SET-CURRENT-MA-COMPARISON.<br>
+　　EVALUATE TRUE<br>
+　　　 WHEN MA-SHORT = MA-LONG<br>
+　　　　　CONTINUE<br>
+　　　 WHEN MA-SHORT < MA-LONG<br>
+　　　　　SET SHORT-LT-LONG-CUR TO TRUE<br>
+　　　 WHEN MA-LONG < MA-SHORT<br>
+　　　　　SET LONG-LT-SHORT-CUR TO TRUE<br>
+　　END-EVALUATE.<br>
+TRADE-STOCK-AND-MAKE-RECORD.<br>
+　　EVALUATE TRUE<br>
+　　　 WHEN FLG-BUY<br>
+　　　　　MOVE "B" TO O-ACTION<br>
+　　　　　SET HAS-STOCK TO TRUE<br>
+　　　 WHEN FLG-SELL AND ［　　c　　］<br>
+　　　　　MOVE "S" TO O-ACTION<br>
+　　　　　SET HAS-NO-STOCK TO TRUE<br>
+　　END-EVALUATE.<br>
+　　IF O-ACTION = "B" OR O-ACTION = "S"<br>
+　　THEN<br>
+　　　 COMPUTE TRADING-PRICE ROUNDED<br>
+　　　　　= (　TBL-HIGHEST-PRICE (SERIES-TOP)<br>
+　　　　　　 + TBL-LOWEST-PRICE (SERIES-TOP) ) / 2<br>
+　　　 COMPUTE REVENUE = REVENUE + TRADING-PRICE *［　　d　　］<br>
+　　　 MOVE TBL-YYYYMMDD-MARKET (SERIES-TOP) TO<br>
+　　　　　　　　　　　　　　　　O-YYYYMMDD-EXCHANGE<br>
+　　　 MOVE TRADING-PRICE TO O-PRICE<br>
+　　　 WRITE O-EXCHANGE-REC<br>
+　　 END-IF.<br>
+CALC-NEXT-MOVING-AVERAGE.<br>
+　　ADD W-CLOSING-PRICE TO SUM-SHORT SUM-LONG.<br>
+　　SUBTRACT TBL-CLOSING-PRICE(TAIL-SHORT) FROM SUM-SHORT.<br>
+　　SUBTRACT TBL-CLOSING-PRICE(TAIL-LONG)　FROM SUM-LONG.<br>
+　　COMPUTE MA-SHORT ROUNDED = SUM-SHORT / RANGE-SHORT.<br>
+　　COMPUTE MA-LONG　ROUNDED = SUM-LONG　/ RANGE-LONG.<br>
+　　ADD 1 TO SERIES-TOP TAIL-SHORT TAIL-LONG.<br>
+　　EVALUATE TRUE<br>
+　　　 WHEN SERIES-SIZE < SERIES-TOP<br>
+　　　　　MOVE 1 TO SERIES-TOP<br>
+　　　 WHEN SERIES-SIZE < TAIL-SHORT<br>
+　　　　　MOVE 1 TO TAIL-SHORT<br>
+　　　 WHEN SERIES-SIZE < TAIL-LONG<br>
+　　　　　MOVE 1 TO TAIL-LONG<br>
+　　END-EVALUATE.<br>
+　　MOVE W-MARKET-PRICE-REC TO TBL-MARKET-PRICE-REC(SERIES-TOP).<br>
+DECIDE-TRADING.<br>
+　　MOVE MA-COMPARE-CURRENT TO MA-COMPARE-PREVIOUS.<br>
+　　PERFORM SET-CURRENT-MA-COMPARISON.<br>
+　　SET FLG-NO-TRADE TO TRUE.<br>
+　　EVALUATE TRUE<br>
+　　　 WHEN［　　e　　］AND LONG-LT-SHORT-CUR<br>
+　　　　　SET FLG-BUY　TO TRUE<br>
+　　　 WHEN LONG-LT-SHORT-PRE AND SHORT-LT-LONG-CUR<br>
+　　　　　SET FLG-SELL TO TRUE<br>
+　　END-EVALUATE.<br>
+<br>  
+<hr>  
+<a NAME="111">　<BR>  
+<b>  
+設問</b></a><b><a NAME="111"></a>　</b>プログラム中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。<br>
+<br>
+<br>
+a，bに関する解答群<br>
+ア　FROM 1 BY 1 UNTIL SERIES-SIZE < INDX<br>
+イ　FROM SERIES-TOP - 1 BY -1 UNTIL INDX < TAIL-SHORT<br>
+ウ　FROM SERIES-TOP BY -1 UNTIL INDX <= TAIL-SHORT<br>
+エ　FROM TAIL-LONG BY 1 UNTIL TAIL-SHORT <= INDX<br>
+オ　FROM TAIL-SHORT BY 1 UNTIL SERIES-TOP < INDX<br>
+<br>
+c～eに関する解答群<br>
+ア　FLG-BUY<br>
+イ　FLG-SELL<br>
+ウ　HAS-STOCK<br>
+エ　LONG-LT-SHORT-CUR<br>
+オ　MA-COMPARE-CURRENT<br>
+カ　SHORT-LT-LONG-PRE<br>
+キ　TRADING-ACTION<br>
+<br> 
+<HR WIDTH=100%> 
+  <a HREF="15S_P_A4.HTM#111">設問の正解例と解説へ</a> 
+
+<HR WIDTH=100%>
+<p><A HREF="INDEX.HTM">メニューへ戻る</A>　</p>
+<HR WIDTH=100%>
+  　<BR>
+<b><a name="120">問12</a>　</b>次のJavaプログラムの説明及びプログラムを読んで，設問1，2に答えよ。<br>
+<br>
+〔プログラムの説明〕<br>
+ある学校の図書館には自習用の席が30あり，次の規則で運用されている。<br>
+運用規則<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">（1）</td>
+            <td>生徒が席を使用するときは受付で申請し，割り当てられた席を使用する。使用終了時には，受付に届ける。</td>
+          </tr>
+          <tr>
+            <td valign="top">（2）</td>
+            <td>空席がないときに使用希望者がある場合は，1時間を超えて最も長く使用している者が使用希望者のために席を空けなければならない。空席がなく，1時間を超えて使用している者がいない場合，使用希望者は席を使用できない。</td>
+          </tr>
+          <tr>
+            <td valign="top">（3）</td>
+            <td>1人で同時に複数の席を使用することはできない。</td>
+          </tr>
+        </table>
+<br>
+この運用規則に従った自習席管理を支援するためのプログラムを，次のように設計した。<br>
+<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">（1）</td>
+            <td><FONT face="Courier New">図に示す双方向リストを実装するためのクラスListElementを定義する。双方向リストは環状にし，要素の挿入・削除処理で終端を特別扱いしないようにする。ListElementは，リストのヘッド（先頭）と要素の両方を表現する。
+　ListElementでは，次のメソッドを実装する。</FONT>
+</td>
+          </tr>
+          <tr>
+            <td valign="top"></td>
+            <td><FONT face="Courier New">nextElement<br>
+　　このListElementインスタンスの次の要素を返す。<br><br>
+previousElement<br>
+　　このListElementインスタンスの前の要素を返す。<br><br>
+insertBefore<br>
+　　このListElementインスタンスを，引数で指定された要素の前に挿入する。<br><br>
+remove<br>
+　　このListElementインスタンスをリストから削除する。</FONT><br>
+</td>
+          </tr>
+        </table>
+        <p><img border="0" src="image/P_12.gif"></p>
+        <p><br>
+　　　　　図　空のときと要素があるときの双方向リストの状態<br>
+<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">（2）</td>
+            <td><FONT face="Courier New">席は，ListElementを拡張したクラスSeatで表す。各席に座席番号が割り振られる。</FONT></td>
+          </tr>
+          <tr>
+            <td valign="top">（3）</td>
+            <td><FONT face="Courier New">クラスSeatManagerで，運用規則を実現するためのメソッドを実装する。</FONT></td>
+          </tr>
+          <tr>
+            <td valign="top">（4）</td>
+            <td><FONT face="Courier New">空席，使用中の席のリストを，それぞれfreeSeats，occupiedSeatsとする。Seatのインスタンスが各リストの要素となる。</FONT></td>
+          </tr>
+          <tr>
+            <td valign="top">（5）</td>
+            <td><FONT face="Courier New">使用中の席は，occupiedSeatsに登録する。リストは使用時間が短いものから長いものへと並ぶように管理する。</FONT></td>
+          </tr>
+          <tr>
+            <td valign="top">（6）</td>
+            <td><FONT face="Courier New">SeatManagerでは，次のpublicメソッドを実装する。<br>
+<br>
+checkin<br>
+　引数で指定された使用希望者が既に席を使用中でないことを確認する。freeSeats（空席リスト）に空きがあればその席を，なければ1時間を超えて使われている席を使用希望者に割り当てる。割り当てられた席をoccupiedSeats（使用中リスト）の最初の要素として登録し，そのSeatインスタンスを返す。使用できる席がなければnullを返す。<br>
+<br>
+Checkout<br>
+　引数で指定された使用者が使っていた席をoccupiedSeatsから削除してfreeSeatsへ戻し，trueを返す。指定された使用者がoccupiedSeatsに見つからないときはfalseを返す。</FONT>
+</td>
+          </tr>
+        </table>
+<br>
+<FONT face="Courier New">最初に，クラスListElement及びクラスSeatを実装して単体テストを行い，正しく動作することを確認した。次に，クラスSeatManagerを実装してテストしたところ，1人で同時に複数の席が使用できるという不具合が見つかった。それ以外は，正常に動作することを確認した。<FONT><br>
+<br>
+〔プログラム1〕<br>
+<FONT face="Courier New">
+<pre>
+Public class ListElement {
+    private ListElement prev, next;
+    public ListElement() {
+        prev = next = this;
+    }
+    public ListElement nextElement() { return next; }
+    public ListElement previousElement() { return prev; }
+    public void insertBefore(ListElement element) {
+        next = element;
+        prev = element.prev;
+        next.prev = prev.next = <B>［　　a　　］</B>;
+    }
+    public void remove() {
+        <B>［　　b　　］</B> = next;
+        <B>［　　c　　］</B>= prev;
+        prev = next = this;
+    }
+}
+</FONT>
+</pre>
+〔プログラム2〕<br>
+<br>
+<FONT face="Courier New">
+<pre>
+public class Seat extends ListElement {
+    private String userID;     // 使用者
+    private long checkinTime;  // 使用開始時刻
+    private int seatNumber;    // 座席番号
+
+    public Seat(int seatNumber) {
+        this.seatNumber = seatNumber;
+    }
+    public int getSeatNumber() {
+        return seatNumber;
+    }
+    public String getUserID() {
+        return userID;
+    }
+    public void setUserID(String userID) {
+        this.userID = userID;
+    }
+    public boolean isUsedBy(String userID){
+        return this.userID.equals(userID);
+    }
+    public long getCheckinTime(){
+        return checkinTime;
+    }
+    public void setCheckinTime(long time) {
+        checkinTime = time;
+    }
+}
+</FONT>
+</pre>
+
+〔プログラム3〕<br>
+<br>
+<FONT face="Courier New">
+<pre>
+public class SeatManager {
+    private static final int NSEATS = 30; // 席数
+    // 最大使用時間〔ミリ秒〕
+    private static final int MAXTIME = 60 * 60 * 1000;
+    // 空席リスト
+    private ListElement freeSeats = new ListElement();
+    // 使用中リスト
+    private ListElement occupiedSeats = new ListElement();
+
+    public SeatManager() {
+        for (int i = l; i <= NSEATS; i++) {
+            Seat seat = new Seat(i);
+            seat.insertBefore(freeSeats);
+        }
+    }
+
+    // 空席リストに空席があればそのSeatインスタンスを空席リストから
+    // 削除し，そのインスタンスを返す。空きがなければnullを返す。
+    private Seat getFreeSeat() {
+        ListElement le = freeSeats.nextElement();
+        if (le != freeSeats) {
+            le.remove();
+            return (Seat) le;
+        }
+        return null;
+    }
+
+    // 使用中リストを調べ，最大使用時間を超えて席を使用している
+    // 使用者がいれば，その旨出力し，checkoutを呼ぶ。
+    private void vacateExpiredSeat(long time) {
+         ListElement le = <B>［　　　d　　　］</B>;
+
+        if (le != occupiedSeats) {
+            Seat seat = (Seat) le;
+            if ((seat.getCheckinTime() + MAXTIME) < time) {
+                System.out.println("Seat#" +
+                                    seat.getSeatNumber() + " " +
+                                    seat.getUserID() +
+                                    " must check out.");
+                checkout(seat.getUserID());
+            }
+        }
+    }
+    // 使用中リストから指定された使用者が使っている席を探し，見つかれば
+    // その席を，見つからなければnullを返す。
+    private Seat findUser(String userID) {
+        ListElement le = <B>［　　　e　　　］</B>;
+        while (le != occupiedSeats) {
+            Seat seat = (Seat) le;
+            if (seat.isUsedBy(userID)) {
+                return seat;
+            }
+            le = le.nextElement();
+        }
+        return null;
+    }
+    public Seat checkin(String userID) {
+        long now = System.currentTimeMillis();
+        Seat seat = getFreeSeat();
+        if (seat == null) {
+            vacateExpiredSeat(now);
+            seat = getFreeSeat();
+        }
+        if (seat != null) {
+            seat.setCheckinTime(now);
+            seat.setUserID(userID);
+            seat.insertBefore(occupiedSeats.nextElement());
+        }
+        return seat;
+    }
+
+    public boolean checkout(String userID) {
+        Seat seat = findUser(userID);
+        if (seat != null) {
+            seat.remove();
+            seat.setUserID(null);
+            seat.insertBefore(freeSeats);
+            return true;
+        }
+        return false;
+    }
+}
+</pre>
+</FONT>
+<br>
+<p><b><a name="121">設問1</a>　</b>プログラム中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p> 
+a～cに関する解答群<br>
+        <table border="0" cellpadding="3" cellspacing="1">
+          <tr>
+            <td width="130">ア　element</td>
+            <td width="130">イ　element.next</td>
+            <td width="130">ウ　element.prev</td>
+          </tr>
+          <tr>
+            <td>	エ　new ListElement()</td>
+            <td>	オ　next</td>
+            <td>	カ　next.prev</td>
+	</tr>
+          <tr>
+            <td>	キ　null</td>
+            <td>	ク　prev</td>
+            <td>	ケ　prev.next</td>
+	</tr>
+          <tr>
+            <td>	コ　this</td>
+	</tr>
+	</table>
+<br>
+d, eに関する解答群<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">ア</td>
+            <td>　freeSeats</td>
+          </tr>
+          <tr>
+            <td valign="top">イ</td>
+            <td>　freeSeats.nextElement()</td>
+          </tr>
+          <tr>
+            <td valign="top">ウ</td>
+            <td>　freeSeats.previousElement()</td>
+          </tr>
+          <tr>
+            <td valign="top">エ</td>
+            <td>　occupiedSeats</td>
+          </tr>
+          <tr>
+            <td valign="top">オ</td>
+            <td>　occupiedSeats.nextElement()</td>
+          </tr>
+          <tr>
+            <td valign="top">カ</td>
+            <td>　occupiedSeats.previousElement()</td>
+          </tr>
+        </table><br>
+<HR WIDTH=100%>  
+  <a HREF="15S_P_A4.HTM#121">設問1の正解例と解説へ</a>  
+<HR WIDTH=100%>  
+<p><b><a name="122">設問2</a>　</b>1人で同時に複数の席を使用できないようにプログラム3を修正したい。修正方法として適切なものを，解答群の中から選べ。ただし，プログラム中の［　　　a　　　］～［　　　e　　　］にはすべて正しい答えが入っているものとする。</p> 
+<br>
+解答群<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">ア</td>
+            <td>　メソッドcheckinで，席の割当て処理をする前にoccupiedSeatsを調べ，もしこの使用希望者が既に他の席を使用中であればエラーとし，席の割当て処理を行わない。</td>
+          </tr>
+          <tr>
+            <td valign="top">イ</td>
+            <td>　メソッドcheckoutで，使用を終了した席がoccupiedSeatsから正しく削除されていないので，occupiedSeatsから使用を終了した席を正しく削除する。</td>
+          </tr>
+          <tr>
+            <td valign="top">ウ</td>
+            <td>　メソッドvacateExpiredSeatで，最大使用時間（MAXTIME）を超えて席を使用している者を強制的にチェックアウトさせるために，メソッドcheckoutを呼び出している。その直後に，その使用者の使っていた席をoccupiedSeatsから削除する処理を追加する。</td>
+          </tr>
+        </table>
+<BR>
+<HR WIDTH=100%>  
+  <a HREF="15S_P_A4.HTM#122">設問2の正解例と解説へ</a>  
+<HR WIDTH=100%>
+<A HREF="INDEX.HTM">メニューへ戻る</A>
+<HR WIDTH=100%>   
+<a NAME="120">　<BR>
+<b> 
+問13</b></a>　次のアセンブラプログラムの説明及びプログラムを読んで，設問1～3に答えよ。<BR>
+<br>
+〔プログラムの説明〕<br>
+副プログラムBMOVEは，次に示すように，語1のビット列Aを語2のBの位置に移動する。x，y，zはそれぞれビット数を表す。<br>
+<br>
+<img border="0" src="image/P_13-01.GIF"><br>
+<br>
+（1）GR1～GR5には，それぞれ次の内容が設定されて，主プログラムから呼ばれる。<br>
+　　　　GR1：語1のアドレス<br>
+　　　　GR2：語2 のアドレス<br>
+　　　　GR3：x<br>
+　　　　GR4：y<br>
+　　　　GR5：z<br>
+（2）x ≧ 0，y ≧ 0，z ≧ 1 とする。<br>
+（3）x ＋ z ≦ 16，y ＋ z ≦ 16 とする。<br>
+（4）語1 と語2 は異なる語である。<br>
+（5）副プログラムから戻るとき，汎用レジスタの内容は元に戻す。<br>
+<br>
+〔プログラム〕<br>
+<img border="0" src="image/P_13-02.GIF"><br>
+<br>  
+<hr>  
+<a NAME="131">　<BR> 
+<b>  
+設問</b></a><b><a NAME="131">1</a>　</b>プログラム中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。<BR>
+<BR>
+解答群<BR>
+ア　SLA　　GR6,0,GR3<BR>
+イ　SLA　　GR6,0,GR4<BR>
+ウ　SLL　　GR6,0,GR3<BR>
+エ　SLL　　GR6,0,GR4<BR>
+オ　SRA　　GR6,-1,GR3<BR>
+カ　SRA　　GR6,-1,GR5<BR>
+キ　SRL　　GR6,-1,GR5<BR>
+ク　SRL　　GR6,0,GR3<BR>
+ケ　SRL　　GR6,0,GR4<BR>
+<BR>
+<HR WIDTH=100%> 
+  <a HREF="15S_P_A4.HTM#131">設問1の正解例へ</a> 
+<HR WIDTH=100%> 
+<a NAME="132"> 
+<BR>
+<b> 
+設問</b></a><b>2　</b>主プログラムから渡された語1，語2，x，y 及びzの内容が次のとき，行番号12の命令（SLL）実行直後のGR6の内容として正しい答えを，解答群の中から選べ。<br>
+<BR>
+<img border="0" src="image/P_13-21.gif"><br>
+<br>  
+<HR WIDTH=100%> 
+  <a HREF="15S_P_A4.HTM#132">設問2の正解例へ</a> 
+
+<HR WIDTH=100%> 
+<a NAME="133"> 
+<BR>
+<b> 
+設問</b></a><b>3　</b>副プログラムのBMOVEを使用して，語1のビット列Aと語2のビット列Bを入れ替えるプログラムBSWAPを作成した。［　　　　　］に入れる正しい答えを，解答群の中から選べ。ここで，GR1～GR5には，BMOVEと同じように各パラメタが設定されて呼ばれる。<br>
+<BR>
+<img border="0" src="image/P_13-31.gif"><br>
+<br>  
+解答群<br>  
+<br>
+<img border="0" src="image/P_13-32.gif"><br>
+<br>  
+<br>
+解答群<br>
+ア　LAD　　GR1, WORD　　　　イ　LAD　　　GR4, WORD<br>
+ウ　LD　　 GR1, WORD　　　　エ　LD　　　 GR3, GR4<br>
+オ　LD　　 GR4, GR3　　　　 カ　LD　　　 GR4, WORD<br>
+キ　POP　　GR4　　　　　　　 ク　PUSH　　 0, GR3<br>
+<br>
+<HR WIDTH=100%>
+  <a HREF="15S_P_A4.HTM#133">設問3の正解例へ</a>
+<HR WIDTH=100%>
+<p><A HREF="INDEX.HTM">メニューへ戻る</A>　</p>
+<HR WIDTH=100%>
+<BR>
+  <br>
+</blockquote>
+</BODY>
+</HTML>

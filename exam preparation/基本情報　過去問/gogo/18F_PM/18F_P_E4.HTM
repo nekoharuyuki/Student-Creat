@@ -1,0 +1,420 @@
+<html>
+
+<head>
+<title>平成18年度 秋期 基本情報技術者試験 午後 問題</title>
+<style type="text/css">
+body{line-height:150%;}
+code{font-size:12pt;}
+</style>
+</head>
+
+<body>
+
+<blockquote>
+<hr>
+<h3 align="center">平成18年度秋期試験　問題(問10～問13)</h3>
+<hr>
+<div align="center">
+<table borderColor="#000000" cellSpacing="0" cellPadding="4" border="1">
+<tr>
+<td>　次の<strong>問10</strong>から<strong>問13</strong>までの4問については、この中から1問を選択し、答案用紙の選択欄の（選）をマークして解答してください。<br>
+　なお、2問以上選択した場合には、はじめの1問について採点します。</td>
+</tr>
+</table>
+</div>
+<hr>
+<p><strong><a name="100">問10</a></strong> 　次のCプログラムの説明及びプログラムを読んで，設問1，2に答えよ。</p>
+<p>〔プログラムの説明〕</p>
+<p>　関数<code>pattern_match_string</code>は，対象文字列を先頭から1文字ずつ順に調べ，パターン文字列が表現している条件を満足しているかどうかを判定するプログラムである。</p>
+<p>
+（1）　条件文字列は，対象文字列の各文字（対象文字）に対する条件を表現した1文字以上の文字列（パターン文字列）を連結したものである。対象文字とパターン文字列の対応関係は，図のとおりである。</p>
+<p><img border="0" src="img/06f-PM-10-1.png" width="452" height="181"></p>
+<p>（2）　関数<code>pattern_match_string</code>の引数は，次のとおりである。</p>
+<blockquote>
+<p><code>target</code>：対象文字列<br>
+<code>cond</code>：条件文字列</p>
+</blockquote>
+<p>（3）　対象文字は，英数字だけである。</p>
+<p>（4）　パターン文字列に含まれる文字は，次のとおりである。</p>
+<blockquote>
+<p>①　英数字<br>
+② 　“<code>$</code>”，“<code>[</code>”，“<code>]</code>’’，“<code>{</code>”，“<code>}</code>”，“<code>@</code>”</p>
+</blockquote>
+<p>（5）　対象文字列及び条件文字列に誤りはない。</p>
+<p>（6）　表の例では，対象文字列はいずれの条件文字列で表現される条件も満足している。</p>
+<p><img border="0" src="img/06f-PM-10-2.png" width="299" height="142"></p>
+<p>〔プログラム〕</p>
+<p><img border="0" src="img/06f-PM-10-3.png" width="783" height="1142"></p>
+<hr>
+<p><strong><a name="101">設問1</a></strong>　パターン文字列に関する次の説明中の【　　　　】に入れる正しい答えを，解答群の中から選べ。</p>
+<p>（1）対象文字が任意の英数字であることを表現するパターン文字列は，【　　a　　】である。</p>
+<p>（2）対象文字が数字であることを表現するパターン文字列は【　　b　　】である。</p>
+<p>（3）対象文字が“X”，“Y”，“Z”のいずれかの文字であることを表現するパターン文字列は，【　　c　　】である。</p>
+<p>（4）対象文字が“X”，“Y”，“Z”のいずれの文字でもないことを表現するパターン文字列は【　　d　　】である。</p>
+<p>a，bに関する解答群</p>
+<table border="0" cellpadding="0" cellspacing="6" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber31" width="100%">
+<tr>
+<td>ア　“<code>@</code>”</td>
+<td>イ　“<code>$A</code>”</td>
+<td>ウ　“<code>$L</code>”</td>
+<td>エ　“<code>$LU</code>”</td>
+</tr>
+<tr>
+<td>オ　“<code>$N</code>”</td>
+<td>カ　“<code>$U</code>”</td>
+<td>キ　“<code>$@</code>”</td>
+<td>　</td>
+</tr>
+</table>
+<p>c，dに関する解答群</p>
+<table border="0" cellpadding="0" cellspacing="6" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber32" width="100%">
+<tr>
+<td>ア　“<code>[XYZ]</code>”</td>
+<td>イ　“<code>{XYZ}</code>”</td>
+<td>ウ　“<code>$XYZ$</code>”</td>
+</tr>
+<tr>
+<td>エ　“<code>$[XYZ$]</code>”</td>
+<td>オ　“<code>${XYZ$}</code>”</td>
+<td>　</td>
+</tr>
+</table>
+<hr>
+<p><a href="18F_P_A4.HTM#101">設問1の正解例と解説へ</a></p>
+<hr>
+<p><strong><a name="102">設問2</a></strong>　関数<code>pattern_match_string</code>の返却値に関する次の説明中の【　　　　】に入れる正しい答えを，解答群の中から選べ。</p>
+<p>（1）　対象文字列のすべての文字が条件文字列で与えた条件を満足している場合，返却値として【　　e　　】を返す。</p>
+<p>（2）　対象文字列の途中の文字に条件文字列で与えた条件を満足しないものがあった場合，そこで判定を終了し，返却値として【　　f　　】を返す。</p>
+<p>（3）　対象文字列と条件文字列のいずれかが途中で終了してしまった場合（'<code>＼0</code>'が見つかった場合），そこで判定を終了し，返却値として－1を返す。</p>
+<p>解答群</p>
+<table border="0" cellpadding="0" cellspacing="6" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber33">
+<tr>
+<td>ア</td>
+<td>0</td>
+</tr>
+<tr>
+<td>イ</td>
+<td>－1</td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>対象文字列の文字数</td>
+</tr>
+<tr>
+<td>エ</td>
+<td>検査した対象文字数</td>
+</tr>
+<tr>
+<td>オ</td>
+<td>検査して条件を満足していた対象文字数</td>
+</tr>
+<tr>
+<td>カ</td>
+<td>検査していない対象文字数＋1</td>
+</tr>
+<tr>
+<td>キ</td>
+<td>検査していない対象文字数</td>
+</tr>
+</table>
+<hr>
+<p><a href="18F_P_A4.HTM#102">設問2の正解例と解説へ</a></p>
+<hr>
+<p><a href="INDEX.HTM">■メニューへ戻る</a></p>
+<hr>
+<p><strong><a name="110">問11</a></strong> 　次のCOBOLプログラムの説明及びプログラムを読んで，設問1～3に答えよ。</p>
+<p>〔プログラムの説明〕</p>
+<p>
+　製品出荷指示ファイルを読み込み，在庫を調べ，部品展開表を使って製造に必要な部品の個数を計算し，部品注文ファイルを作成するプログラムである。製品は幾つかの部品から構成され，製造工程で組み立てられる。図に部品展開表の例を示す。括弧内の数字は，親の製品を1個製造するために必要な子の部品の個数（以下，所要個数という）である。この例では，製品S1を1個製造するために，部品B1を2個，部品B2を2個，部品B3を1個必要とすることを示す。</p>
+<p><img border="0" src="img/06f-PM-11-1.png" width="221" height="164"></p>
+<p>
+　例えば，製品S2の在庫が75個，部品B1の在庫が30個，部品B3の在庫が60個あるとき，製品S2を100個出荷するためには，製品S2の在庫75個では不足であり，25（＝100－75）個を新たに製造する必要がある。そのために必要な25個の部品B1は，在庫から割り当てることができる。また，部品B3は75（＝25×3）個必要であり，在庫の60個では不足なので，15（＝75－60）個を注文する必要がある。</p>
+<p>（1）　在庫数のうち出荷又は製造のために割り当てた個数を，割当て済み数という。<br>
+また，在庫数から割当て済み数を引いた個数を，有効在庫数という。</p>
+<p>（2）　製品出荷指示ファイルは順ファイルで，そのレコード様式は次のとおりである。</p>
+<p><img border="0" src="img/06f-PM-11-2.png" width="565" height="62"></p>
+<p>（3）　在庫ファイルは索引ファイルで，そのレコード様式は次のとおりである。</p>
+<p><img border="0" src="img/06f-PM-11-3.png" width="687" height="86"></p>
+<p>　資材コード（製品コード又は部品コード）をキーとする。製品コードは先頭1けたが“S”，部品コードは先頭1けたが“B”である。</p>
+<p>（4）　部品展開ファイルは索引ファイルで，そのレコード様式は次のとおりである。</p>
+<p><img border="0" src="img/06f-PM-11-4.png" width="528" height="98"></p>
+<p>①　製品コードと部品コードの組合せをキーとする。</p>
+<p>②　所要個数は，製品コードと部品コードの組合せごとに設定される。<br>
+先の部品展開表の例の図に対応する部品展開レコードの例を，表に示す。</p>
+<p><img border="0" src="img/06f-PM-11-5.png" width="367" height="227"></p>
+<p>（5）　部品注文ファイルは順ファイルで，そのレコード様式は次のとおりである。</p>
+<p><img border="0" src="img/06f-PM-11-6.png" width="567" height="60"></p>
+<p>　製品出荷指示ファイルの1レコードごとに必要な部品注文レコードが出力される。</p>
+<p>（6）　すべてのデータに誤りはないものとする。</p>
+<p>　</p>
+<p>〔プログラム〕</p>
+<p><img border="0" src="img/06f-PM-11-7.png" width="682" height="2493"></p>
+<hr>
+<p><strong><a name="111">設問1</a></strong>　プログラム中の【　　　　】に入れる正しい答えを，解答群の中から選べ。</p>
+<p>a，bに関する解答群</p>
+<table border="0" cellpadding="0" cellspacing="6" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber34" width="75%">
+<tr>
+<td>ア　<code>PERFORM CHECK-ZAIKO</code></td>
+<td>イ　<code>PERFORM CHUMON-PROC</code></td>
+</tr>
+<tr>
+<td>ウ　<code>PERFORM MRP-PROC</code></td>
+<td>エ　<code>PERFORM READ-BUHIN-NEXT</code></td>
+</tr>
+<tr>
+<td>オ　<code>PERFORM START-BUHIN</code></td>
+<td>　</td>
+</tr>
+</table>
+<p>cに関する解答群</p>
+<table border="0" cellpadding="0" cellspacing="6" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber35" width="75%">
+<tr>
+<td>ア　<code>KEY &gt; B-BUHIN-KEY</code></td>
+<td>イ　<code>KEY &lt; B-BUHIN-KEY</code></td>
+</tr>
+<tr>
+<td>ウ　<code>KEY = B-BUHIN-KEY</code></td>
+<td>エ　<code>KEY NOT = B-BUHIN-KEY</code></td>
+</tr>
+</table>
+<hr>
+<p><a href="18F_P_A4.HTM#111">設問1の正解例と解説へ</a></p>
+<hr>
+<p><strong><a name="112">設問2</a></strong>　このプログラムの環境部のファイル管理記述段落で，BUHIN-Fの呼出し法の指定として<strong>正しくないもの</strong>を，解答群の中から選べ。</p>
+<p>解答群</p>
+<table border="0" cellpadding="0" cellspacing="6" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber36" width="75%">
+<tr>
+<td>ア　<code>ACCESS MODE IS DYNAMIC</code></td>
+<td>イ　<code>ACCESS MODE IS RANDOM</code></td>
+</tr>
+<tr>
+<td>ウ　<code>ACCESS MODE IS SEQUENTIAL</code></td>
+<td>　</td>
+</tr>
+</table>
+<p><strong><a name="113">設問3</a></strong>　部品注文ファイルを作成し発注してから，部品が入庫され製品が組み立てられるまでには，出荷遅延が発生することが考えられる。また，予定外の出荷指示に対して，すぐに応じられないという問題も考えられる。これをある程度防ぐため，有効在庫数がある一定の個数（余裕在庫数）以下となった場合に部品注文ファイルを作成するように，在庫ファイルのレコード様式及びプログラムを変更する。</p>
+<p>【　　d　　】に入れる正しい答えを，解答群の中から選ぺ。</p>
+<p><img border="0" src="img/06f-PM-11-8.png" width="839" height="139"></p>
+<p>解答群</p>
+<table border="0" cellpadding="0" cellspacing="6" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber37">
+<tr>
+<td>ア</td>
+<td><code>Z-ZAIKO-SU + Z-WARIATE-SU + Z-YOYUU-SU</code></td>
+</tr>
+<tr>
+<td>イ</td>
+<td><code>Z-ZAIKO-SU + Z-WARIATE-SU - Z-YOYUU-SU</code></td>
+</tr>
+<tr>
+<td>ウ</td>
+<td><code>Z-ZAIKO-SU - Z-WARIATE-SU + Z-YOYUU-SU</code></td>
+</tr>
+<tr>
+<td>エ</td>
+<td><code>Z-ZAIKO-SU - Z-WARIATE-SU - Z-YOYUU-SU</code></td>
+</tr>
+</table>
+<hr>
+<p><a href="18F_P_A4.HTM#112">設問2の正解例と解説へ</a></p>
+<hr>
+<p><a href="INDEX.HTM">■メニューへ戻る</a></p>
+<hr>
+<p><strong><a name="120">問12</a></strong> 　次のJavaプログラムの説明及びプログラムを読んで，設問1，2に答えよ。<br>
+　（Javaプログラムで使用するAPIの説明は，<a href="java.htm" target="_blank">この冊子の末尾</a>を参照してください。）<br>
+<br>
+〔プログラムの説明〕</p>
+<p>　図書の貸出しと返却の処理をするプログラムである。図書には書籍と雑誌があり，利用者が借りることのできる図書の冊数には上限がある。</p>
+<p>（1）　抽象クラス<code>Book</code>は，図書に共通の属性と処理を定義する。属性<code>name</code>は図書の名前であり，属性idは図書に一意に付けられた識別子である。</p>
+<p>（2）　クラス<code>RegularBook</code>は書籍を表す。</p>
+<p>（3）　クラス<code>Magazine</code>は雑誌を表す。属性<code>issueNo</code>は，雑誌の創刊号からの号数で，古い号から昇順の値をもつ。各雑誌について，<code>issueNo</code>が最大のものが最新号である。</p>
+<p>（4）　クラス<code>User</code>は図書の利用者を表す。属性<code>name</code>は利用者の名前であり，属性<code>id</code>は利用者に一意に付けられた識別子である。</p>
+<p>（5）　クラス<code>Library</code>は，貸出しと返却の処理をする。属性<code>availables</code>は貸出し可能な図書の集合を表し，属性<code>checkedOut</code>は貸出し中の図書の集合を表す。属性<code>limit</code>は利用者が借りることのできる図書の冊数の上限を与える。メソッド<code>checkoutBook</code>は，貸出し処理を実行する。指定された図書が既に貸し出されている場合と利用者が既に貸出し冊数の上限まで図書を借りている場合，例外を投げる。メソッド<code>returnBook</code>は返却処理を実行する。<br>
+　メソッド<code>main</code>はテスト用のメインプログラムである。実行結果を図に示す。</p>
+<p><img border="0" src="img/06f-PM-12-1.png" width="796" height="238"></p>
+<p><strong>図　実行結果</strong></p>
+<p>〔プログラム〕</p>
+<p><img border="0" src="img/06f-PM-12-2.png" width="803" height="2812"></p>
+<hr>
+<p><strong><a name="121">設問1</a></strong>　プログラム中の【　　　　】に入れる正しい答えを，解答群の中から選べ。</p>
+<p>aに関する解答群</p>
+<table border="0" cellpadding="0" cellspacing="6" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber38">
+<tr>
+<td>ア</td>
+<td><code>new Book()</code></td>
+</tr>
+<tr>
+<td>イ</td>
+<td><code>new Book(name, id)</code></td>
+</tr>
+<tr>
+<td>ウ</td>
+<td><code>super() </code></td>
+</tr>
+<tr>
+<td>エ</td>
+<td><code>super(name, id)</code></td>
+</tr>
+<tr>
+<td>オ</td>
+<td><code>this.name = name; this.id = id</code></td>
+</tr>
+</table>
+<p>bに関する解答群</p>
+<table border="0" cellpadding="0" cellspacing="6" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber39" width="75%">
+<tr>
+<td>ア　<code>return Exception</code></td>
+<td>イ　<code>return new Exception</code></td>
+</tr>
+<tr>
+<td>ウ　<code>System.err.println</code></td>
+<td>エ　<code>System.out.println</code></td>
+</tr>
+<tr>
+<td>オ　<code>throw Exception</code></td>
+<td>カ　<code>throw new Exception</code></td>
+</tr>
+</table>
+<p>cに関する解答群</p>
+<table border="0" cellpadding="0" cellspacing="6" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber40" width="75%">
+<tr>
+<td>ア　<code>checkedOut.add</code></td>
+<td>イ　<code>checkedOut．remove</code></td>
+</tr>
+<tr>
+<td>ウ　<code>entry.add</code></td>
+<td>エ　<code>entry.remove</code></td>
+</tr>
+</table>
+<hr>
+<p><a href="18F_P_A4.HTM#121">設問1の正解例と解説へ</a></p>
+<hr>
+<p><strong><a name="122">設問2</a></strong>　雑誌について，最新号の貸出しを禁止する処理を追加したい。このため，次のようにプログラムを変更する。次の記述中の【　　　　】に入れる正しい答えを，解答群の中から選べ。ただし，各雑誌の各号は1冊ずつしかなく，雑誌の登録は，必ずしも古い号から行われるとは限らない。また，【　　b　　】には設問1の正しい答えが入っているものとする。</p>
+<p><img border="0" src="img/06f-PM-12-3.png" width="855" height="613"></p>
+<p>dに関する解答群</p>
+<table border="0" cellpadding="0" cellspacing="6" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber41" width="100%">
+<tr>
+<td>ア　<code>&lt;</code></td>
+<td>イ　<code>&gt;</code></td>
+<td>ウ　<code>!=</code></td>
+<td>エ　<code>==</code></td>
+</tr>
+</table>
+<p>eに関する解答群</p>
+<table border="0" cellpadding="0" cellspacing="6" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber42">
+<tr>
+<td>ア</td>
+<td><code>latestMagazines.add(magazine)</code></td>
+</tr>
+<tr>
+<td>イ</td>
+<td><code>register((Magazine) book)</code></td>
+</tr>
+<tr>
+<td>ウ</td>
+<td><code>return</code></td>
+</tr>
+<tr>
+<td>エ</td>
+<td><code>returnBook(magazine)</code></td>
+</tr>
+</table>
+<hr>
+<p><a href="18F_P_A4.HTM#122">設問2の正解例と解説へ</a></p>
+<hr>
+<p><a href="INDEX.HTM">■メニューへ戻る</a></p>
+<hr>
+<p><strong><a name="130">問13</a></strong> 　次のアセンブラプログラムの説明及びプログラムを読んで，設問1，2に答えよ。</p>
+<p>〔プログラムの説明〕</p>
+<p>（1）　副プログラム<code>BREP</code>は，16ビットからなるビット列Aの中に，nビットのビット列Bと一致する部分ビット列があれば，それをnビットのビット列Cに置き換えるプログラムである。</p>
+<p><img border="0" src="img/06f-PM-13-1.png" width="715" height="227"></p>
+<blockquote>
+<p>①　<code>GR1</code>～<code>GR4</code>にはそれぞれ次の内容を設定して，主プログラムから渡される。</p>
+<blockquote>
+<p><code>GR1</code>：ビット列Aを格納している語のアドレス<br>
+<code>GR2</code>：ビット列B（左詰めで設定され，残りのビットには0が設定されている。）<br>
+<code>GR3</code>：ビット列C（左詰めで設定され，残りのビットには0が設定されている。）<br>
+<code>GR4</code>：n（1≦n≦16）</p>
+</blockquote>
+<p>②　ビット列Aの中にビット列Bに－致する部分ビット列が複数個あれば，それらのすべてをビット列Cに置き換える。</p>
+<p>③　ビット列Aの左端から検索する。ビット列Bに一致する部分ビット列をビット列Cに置き換えた場合，その部分ビット列の右隣のビットから検索を続ける。</p>
+<p>④　副プログラムから戻るとき，汎用レジスタ<code>GR1</code>～<code>GR7</code>の内容は元に戻す。</p>
+</blockquote>
+<p>（2）　副プログラム<code>ROTSL</code>は，16ビットからなるビット列をmビットだけ左に循環シフトするプログラムである。</p>
+<p><img border="0" src="img/06f-PM-13-2.png" width="623" height="193"></p>
+<blockquote>
+<p>①　<code>GR0</code>と<code>GR1</code>にはそれぞれ次の内容を設定して，主プログラムから渡される。</p>
+<blockquote>
+<p><code>GR0</code>：m（0≦m≦16）<br>
+<code>GR1</code>：ビット列を格納している語のアドレス</p>
+</blockquote>
+<p>②　副プログラムから戻るとき，汎用レジスタ<code>GR1</code>～<code>GR7</code>の内容は元に戻す。</p>
+</blockquote>
+<p>〔プログラム〕</p>
+<p><img border="0" src="img/06f-PM-13-3.png" width="714" height="986"></p>
+<hr>
+<p><strong><a name="131">設問1</a></strong>　プログラム中の に入れる正しい答えを，解答群の中から選べ。</p>
+<p>a，bに関する解答群</p>
+<table border="0" cellpadding="0" cellspacing="6" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber43" width="75%">
+<tr>
+<td>ア　<code>AND&nbsp;&nbsp; GR7,GR3</code></td>
+<td>イ　<code>AND&nbsp;&nbsp; GR7,GR6</code></td>
+</tr>
+<tr>
+<td>ウ　<code>OR&nbsp;&nbsp;&nbsp; GR7,GR3</code></td>
+<td>エ　<code>OR&nbsp;&nbsp;&nbsp; GR7,GR6</code></td>
+</tr>
+</table>
+<p>cに関する解答群</p>
+<table border="0" cellpadding="0" cellspacing="6" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber44" width="75%">
+<tr>
+<td>ア　<code>JMI&nbsp;&nbsp; FIN</code></td>
+<td>イ　<code>JNZ&nbsp;&nbsp; FIN</code></td>
+</tr>
+<tr>
+<td>ウ　<code>JPL&nbsp;&nbsp; FIN</code></td>
+<td>エ　<code>JZE&nbsp;&nbsp; FIN</code></td>
+</tr>
+</table>
+<p>dに関する解答群</p>
+<table border="0" cellpadding="0" cellspacing="6" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber45" width="75%">
+<tr>
+<td>ア　<code>SLL&nbsp;&nbsp; GR6,0,GR3</code></td>
+<td>イ　<code>SLL&nbsp;&nbsp; GR6,0,GR4</code></td>
+</tr>
+<tr>
+<td>ウ　<code>SRL&nbsp;&nbsp; GR6,0,GR3</code></td>
+<td>エ　<code>SRL&nbsp;&nbsp; GR6,0,GR4</code></td>
+</tr>
+</table>
+<hr>
+<p><a href="18F_P_A4.HTM#131">設問1の正解例と解説へ</a></p>
+<hr>
+<p><strong><a name="132">設問2</a></strong>　次の記述中の【　　　　】に入れる正しい答えを，解答群の中から選べ。</p>
+<p>　主プログラムから渡されたビット列A，B，C及びnが次のとおりであったとき，副プログラム<code>BREP</code>は副プログラム<code>ROTSL</code>を【　　　　】回呼び出す。</p>
+<blockquote>
+<p><code>ビット列A：　0001110100111001<br>
+ビット列B：　0111<br>
+ビット列C：　1001<br>
+　　　　n：　4</code></p>
+</blockquote>
+<p>解答群</p>
+<table border="0" cellpadding="0" cellspacing="6" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber46" width="100%">
+<tr>
+<td>ア　2</td>
+<td>イ　6</td>
+<td>ウ　8</td>
+<td>エ　12</td>
+<td>オ　16</td>
+</tr>
+</table>
+<hr>
+<p><a href="18F_P_A4.HTM#132">設問2の正解例と解説へ</a></p>
+<hr>
+<p><a href="INDEX.HTM">■メニューへ戻る</a></p>
+<hr>
+<p>　</p>
+</blockquote>
+
+</body>
+
+</html>

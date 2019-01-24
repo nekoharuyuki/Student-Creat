@@ -1,0 +1,556 @@
+<html>
+
+<head>
+<title>平成18年度秋期試験　解答例と解説（午前問61～問80）</title>
+<style>
+<!--
+p            { line-height: 175% }
+-->
+</style>
+</head>
+
+<body>
+
+<form>
+<blockquote>
+<hr>
+<div align="center">
+<h3>平成18年度秋期試験　解答例と解説（午前問61～問80）</h3>
+</div>
+<hr>
+<p><strong><a name="61">問61</a></strong></p>
+<p><select name="18FA61" size="1">
+<option selected>解答例</option>
+<option>イ</option>
+</select></p>
+<p>〈解説〉</p>
+<p>データの正規化は，データベースのレコードを構成する項目を重複や矛盾がないような項目の組合せで構成する設計手法である。</p>
+<p>正規化すると，レコード相互間で同一の複数項目のグループが重複して出現しなくなり，単純化され，データ項目の重複や矛盾を避けることができる。</p>
+<p>また，これにより項目追加などデータベースの保守作業も容易になる。</p>
+<hr>
+<p><a href="18F_A_E4.HTM#61">問題へ</a> </p>
+<hr>
+<p><strong><a name="62">問62</a></strong></p>
+<p><select name="18FA62" size="1">
+<option selected>解答例</option>
+<option>イ</option>
+</select></p>
+<p>〈解説〉</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber1">
+<tr>
+<td>ア</td>
+<td>×</td>
+<td>商品番号 'NP200' の数量の平均 (3＋1)÷2＝2 が得られる</td>
+</tr>
+<tr>
+<td>イ</td>
+<td>○</td>
+<td>データの件数 4 が得られる</td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>×</td>
+<td>数量の最大値 3 が得られる</td>
+</tr>
+<tr>
+<td>エ</td>
+<td>×</td>
+<td>日付が '2006-10-11' であるデータについて数量の合計 3 が得られる</td>
+</tr>
+</table>
+<hr>
+<p><a href="18F_A_E4.HTM#62">問題へ</a> </p>
+<hr>
+<p><strong><a name="63">問63</a></strong></p>
+<p><select name="18FA63" size="1">
+<option selected>解答例</option>
+<option>エ</option>
+</select></p>
+<p>〈解説〉</p>
+<p>COBOL や Java など既存のプログラム言語により作成したプログラムに SQL 文を埋込み，データベースを操作するものを「埋込み型SQL」という。</p>
+<p>「カーソル」は親言語のプログラムからデータベースを操作する機能。SQL の問合せにより複数行単位で取出されたデータを，FETCH
+文によりプログラムの処理単位である 1 行ずつプログラムに引き渡す。以下の手順でカーソル操作を行う。</p>
+<table border="0" cellpadding="4" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber2">
+<tr>
+<td valign="top">①</td>
+<td>DECLEAR CURSORは親言語のプログラムからデータベースにアクセスするとき導出表に対するカーソルを定義する。</td>
+</tr>
+<tr>
+<td valign="top">②</td>
+<td>OPENはカーソルを先頭行に移動する。</td>
+</tr>
+<tr>
+<td valign="top">③</td>
+<td>FETCHはカーソルのある次の行のSQL命令を取出して親言語に渡す。</td>
+</tr>
+<tr>
+<td valign="top">④</td>
+<td>SQL文による操作。</td>
+</tr>
+<tr>
+<td valign="top">⑤</td>
+<td>CLOSEはカーソルを閉じる。</td>
+</tr>
+</table>
+<p>　</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber3">
+<tr>
+<td>ア</td>
+<td>×</td>
+<td>FETCH 文を実行する前にカーソルを OPEN する</td>
+</tr>
+<tr>
+<td>イ</td>
+<td>×</td>
+<td>PREPARE 文は SQL 文の解釈と翻訳を行い，翻訳された SQL 文の実行はEXECUTE 文が行う</td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>×</td>
+<td>FETCH 文で 1 行ずつ読み出して更新する</td>
+</tr>
+<tr>
+<td>エ</td>
+<td>○</td>
+<td>　</td>
+</tr>
+</table>
+<hr>
+<p><a href="18F_A_E4.HTM#63">問題へ</a> </p>
+<hr>
+<p><strong><a name="64">問64</a></strong></p>
+<p><select name="18FA64" size="1">
+<option selected>解答例</option>
+<option>エ</option>
+</select></p>
+<p>〈解説〉</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber4">
+<tr>
+<td>ア</td>
+<td>×</td>
+<td>多数の相手との通信に，同一の暗号化鍵を用いても安全なのは，公開鍵暗号方式</td>
+</tr>
+<tr>
+<td>イ</td>
+<td>×</td>
+<td>暗号化鍵を秘密裏に配信する必要があるのは共通鍵暗号方式</td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>×</td>
+<td>共通鍵暗号方式のほうが複合処理は単純で高速</td>
+</tr>
+<tr>
+<td>エ</td>
+<td>○</td>
+<td>セッション鍵暗号方式</td>
+</tr>
+</table>
+<hr>
+<p><a href="18F_A_E4.HTM#64">問題へ</a> </p>
+<hr>
+<p><strong><a name="65">問65</a></strong></p>
+<p><select name="18FA65" size="1">
+<option selected>解答例</option>
+<option>ア</option>
+</select></p>
+<p>〈解説〉</p>
+<p>
+ディジタル署名は発信者の秘密かぎで署名と送信データを暗号化して送り，受信者が発信者の公開かぎで復号できるか否かにより，真の発信者からのデータであるかをチェックするしくみで，「なりすましの検出」ができる。</p>
+<p>
+また，送信データと一緒に，送信データのハッシュ値を発信者の秘密かぎで暗号化してディジタル署名として送り，受信者が発信者の公開かぎで復号したハッシュ値と一致するか否かにより「送信データの改変の有無を検出」することができる。</p>
+<hr>
+<p><a href="18F_A_E4.HTM#65">問題へ</a> </p>
+<hr>
+<p><strong><a name="66">問66</a></strong></p>
+<p><select name="18FA66" size="1">
+<option selected>解答例</option>
+<option>エ</option>
+</select></p>
+<p>〈解説〉</p>
+<p>フィッシングは，電子メールにより誘導し，偽装した Web サイトにアクセスさせて，パスワードやクレジットカード番号などを入力させ個人情報をだまし取る手口。</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber5">
+<tr>
+<td>ア</td>
+<td>×</td>
+<td>クロスサイトスクリプティング（Cross Site Scripting）</td>
+</tr>
+<tr>
+<td>イ</td>
+<td>×</td>
+<td>バックドア型ウイルスやボット(bot)ウイルス</td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>×</td>
+<td>スパイウェア</td>
+</tr>
+<tr>
+<td>エ</td>
+<td>○</td>
+<td>　</td>
+</tr>
+</table>
+<hr>
+<p><a href="18F_A_E4.HTM#66">問題へ</a> </p>
+<hr>
+<p><strong><a name="67">問67</a></strong></p>
+<p><select name="18FA67" size="1">
+<option selected>解答例</option>
+<option>イ</option>
+</select></p>
+<p>〈解説〉</p>
+<p>FQDNはFully Qualified Domain Nameの略で完全修飾ドメイン名と呼ばれ，TCP/IPプロトコル上で，ドメイン名・サブドメイン名・ホスト名を省略せずにすべて記述したドメイン名のこと。SSLは通信の暗号化とWebサイトの実在性の認証を行うためのセキュリティプロトコルで，Webサイトにアクセスする際に入力されるURLのドメイン名が，登録されたFQDNと一致するか否かによりWebサイトの実在性を認証する。</p>
+
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber5">
+<tr>
+<td>ア</td>
+<td>×</td>
+<td>SSLはネットワーク層ではなく，トランスポート層に位置する。</td>
+</tr>
+<tr>
+<td>イ</td>
+<td>○</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>×</td>
+<td>個人認証用のディジタル証明書は，PCごとではなく個人ごとに固有のものを作成する必要がある。</td>
+</tr>
+<tr>
+<td>エ</td>
+<td>×</td>
+<td>政府機関だけではなく，申請者は128 ビットの共通鍵長のディジタル証明書を取得申請できる。</td>
+</tr>
+</table>
+<hr>
+<p><a href="18F_A_E4.HTM#67">問題へ</a> </p>
+<hr>
+<p><strong><a name="68">問68</a></strong></p>
+<p><select name="18FA68" size="1">
+<option selected>解答例</option>
+<option>イ</option>
+</select></p>
+<p>〈解説〉</p>
+<p>
+ソフトウェア管理ガイドラインは，ソフトウェアの違法複製等の行為を効果的に防止し，ソフトウェアの使用状況を的確に把握し管理するため，(1)法人等が実施すべき基本的事項，
+(2)ソフトウェア管理責任者が実施すべき事項をまとめたもの。</p>
+<hr>
+<p><a href="18F_A_E4.HTM#68">問題へ</a> </p>
+<hr>
+<p><strong><a name="69">問69</a></strong></p>
+<p><select name="18FA69" size="1">
+<option selected>解答例</option>
+<option>ア</option>
+</select></p>
+<p>〈解説〉</p>
+<p>UML はオブジェクト指向分析・設計の統一設計手法で，
+ユースケース図，クラス図，オブジェクト図，シーケンス図，コラボレーション図，状態図，アクティビティ図などの図からなる。</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber6">
+<tr>
+<td>ア</td>
+<td>○</td>
+<td>　</td>
+</tr>
+<tr>
+<td>イ</td>
+<td>×</td>
+<td>IDL (Interface Definition Language)</td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>×</td>
+<td>SQL</td>
+</tr>
+<tr>
+<td>エ</td>
+<td>×</td>
+<td>XML</td>
+</tr>
+</table>
+<hr>
+<p><a href="18F_A_E4.HTM#69">問題へ</a> </p>
+<hr>
+<p><strong><a name="70">問70</a></strong></p>
+<p><select name="18FA70" size="1">
+<option selected>解答例</option>
+<option>エ</option>
+</select></p>
+<p>〈解説〉</p>
+<p>QR コードは二次元コードの一つで，小さな面積に多くの情報を詰め込むことができ，一部が読み出せなかったときのエラー訂正機能をもつコード。</p>
+<p>数字以外にかなや漢字の表示ができる。</p>
+<p>3 個の検出用シンボルにより，回転角度と読み取り方向を認識し，360 度全方向からの読取りが可能。</p>
+<hr>
+<p><a href="18F_A_E4.HTM#70">問題へ</a> </p>
+<hr>
+<p><strong><a name="71">問71</a></strong></p>
+<p><select name="18FA71" size="1">
+<option selected>解答例</option>
+<option>ウ</option>
+</select></p>
+<p>〈解説〉</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber7">
+<tr>
+<td>ア</td>
+<td>×</td>
+<td>マトリックス組織</td>
+</tr>
+<tr>
+<td>イ</td>
+<td>×</td>
+<td>職能別組織</td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>○</td>
+<td>　</td>
+</tr>
+<tr>
+<td>エ</td>
+<td>×</td>
+<td>事業部制組織</td>
+</tr>
+</table>
+<hr>
+<p><a href="18F_A_E4.HTM#71">問題へ</a> </p>
+<hr>
+<p><strong><a name="72">問72</a></strong></p>
+<p><select name="18FA72" size="1">
+<option selected>解答例</option>
+<option>エ</option>
+</select></p>
+<p>〈解説〉</p>
+<p>ROE （Return On Equity） は自己資本利益率のことで，当期利益÷自己資本，つまり自己資本に対する利益の比率を表す。</p>
+<hr>
+<p><a href="18F_A_E4.HTM#72">問題へ</a> </p>
+<hr>
+<p><strong><a name="73">問73</a></strong></p>
+<p><select name="18FA73" size="1">
+<option selected>解答例</option>
+<option>エ</option>
+</select></p>
+<p>〈解説〉</p>
+<p>後入先出法は，後から仕入れた在庫から，先に払い出す方式。</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber8">
+<tr>
+<td valign="top">①</td>
+<td>10 日の売上により，6 日に仕入れた単価 5 万円の 50 個が払い出されるので，<p>10 日の売上原価<br>
+　　＝5 万円×50<br>
+　　＝250 万円</td>
+</tr>
+<tr>
+<td valign="top">②</td>
+<td>25 日の売上により，17 日に仕入れた単価 4 万円の 50 個と，前月繰越在庫の単価 3 万円の 50 個が払い出されるので，<p>25
+日の売上原価<br>
+　　＝4 万円×50＋3 万円×50<br>
+　　＝350 万円</td>
+</tr>
+</table>
+<p>したがって，9 月の売上原価は 250 万円＋350 万円＝600 万円になる。</p>
+<hr>
+<p><a href="18F_A_E4.HTM#73">問題へ</a> </p>
+<hr>
+<p><strong><a name="74">問74</a></strong></p>
+<p><select name="18FA74" size="1">
+<option selected>解答例</option>
+<option>イ</option>
+</select></p>
+<p>〈解説〉</p>
+<p>①年間売上高の降順に並べ替え，年間売上高累計の合計に対する比率を計算する。</p>
+<table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber9">
+<tr>
+<th align="center">商品番号</th>
+<th align="center">年間売上高</th>
+<th align="center">年間売上高累計</th>
+<th align="center">累計の合計に対する比率</th>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">2,400</td>
+<td align="center">2,400</td>
+<td align="center">62.7％</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="center">600</td>
+<td align="center">3,000</td>
+<td align="center">78.4％</td>
+</tr>
+<tr>
+<td align="center">8</td>
+<td align="center">300</td>
+<td align="center">3,300</td>
+<td align="center">86.3％</td>
+</tr>
+</table>
+<p>②累計の合計に対する比率がほぼ80％を占める，年間売上高の大きな商品グループを A グループといい，在庫金額に対する影響が大きく，重点的に管理する。</p>
+<p>解答群では，A グループの商品として 2 つを取り上げている。</p>
+<p>この場合，A グループの商品は，2 と 5 になる。</p>
+<hr>
+<p><a href="18F_A_E4.HTM#74">問題へ</a> </p>
+<hr>
+<p><strong><a name="75">問75</a></strong></p>
+<p><select name="18FA75" size="1">
+<option selected>解答例</option>
+<option>ウ</option>
+</select></p>
+<p>〈解説〉</p>
+<p>OC 曲線は，不良率 p1 ％の製品ロットが，この抜き取り検査で合格する確率が，L1 ％であることを表している。</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber10">
+<tr>
+<td>ア</td>
+<td>×</td>
+<td>不良率が大きくなるほど合格率は低くなっているので，L1 以下である</td>
+</tr>
+<tr>
+<td>イ</td>
+<td>×</td>
+<td>不良率が p1 ％より小さい製品ロットの合格率は L1 ％より大きいので，不合格となる確率は 1.0－L1 以下である</td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>○</td>
+<td>　</td>
+</tr>
+<tr>
+<td>エ</td>
+<td>×</td>
+<td>不良率が p2 ％より小さい製品ロットの合格率は L2 ％より大きいので，不合格となる確率は 1.0－L2 以下である</td>
+</tr>
+</table>
+<hr>
+<p><a href="18F_A_E4.HTM#75">問題へ</a> </p>
+<hr>
+<p><strong><a name="76">問76</a></strong></p>
+<p><select name="18FA76" size="1">
+<option selected>解答例</option>
+<option>イ</option>
+</select></p>
+<p>〈解説〉</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber11">
+<tr>
+<td>ア</td>
+<td>×</td>
+<td>特性要因図の説明</td>
+</tr>
+<tr>
+<td>イ</td>
+<td>○</td>
+<td>　</td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>×</td>
+<td>ヒストグラムの説明</td>
+</tr>
+<tr>
+<td>エ</td>
+<td>×</td>
+<td>パレート図の説明</td>
+</tr>
+</table>
+<hr>
+<p><a href="18F_A_E4.HTM#76">問題へ</a> </p>
+<hr>
+<p><strong><a name="77">問77</a></strong></p>
+<p><select name="18FA77" size="1">
+<option selected>解答例</option>
+<option>イ</option>
+</select></p>
+<p>〈解説〉</p>
+<p>イは，右下がりに分布しており，負の相関を示している。<br>
+ウは，相関なし。<br>
+エは，右上がりに分布しているので，正の相関。</p>
+<hr>
+<p><a href="18F_A_E4.HTM#77">問題へ</a> </p>
+<hr>
+<p><strong><a name="78">問78</a></strong></p>
+<p><select name="18FA78" size="1">
+<option selected>解答例</option>
+<option>ウ</option>
+</select></p>
+<p>〈解説〉</p>
+<p>商品 M を m 個，商品 N を n 個を作ったときの販売利益を R とする。</p>
+<p>　　R＝600m＋400n</p>
+<p>1 日の菓子 K の最大製造能力は 360 個なので，6m＋3n ≦ 360 を満たす必要がある。<br>
+1 日の菓子 L の最大製造能力は 240 個なので，2m＋4n ≦ 240 を満たす必要がある。</p>
+<p>この条件のもとに，利益Rを最大にするm，nを求め，そのときの最大利益を求めればよい。</p>
+<p><img border="0" src="img/image007.png" width="412" height="315"></p>
+<p>グラフより，2 直線 6m＋3n＝360 と 2m＋4n＝240 の交点を，直線 R＝600m＋400n が通るとき，利益 R は最大になる。</p>
+<p>交点は m＝40，n＝40 で，このとき，利益 R は R＝600×40＋400×40＝40,000 となる。</p>
+<hr>
+<p><a href="18F_A_E4.HTM#78">問題へ</a> </p>
+<hr>
+<p><strong><a name="79">問79</a></strong></p>
+<p><select name="18FA79" size="1">
+<option selected>解答例</option>
+<option>エ</option>
+</select></p>
+<p>〈解説〉</p>
+<p>デビットカードシステムでは，買物代金の支払を銀行のキャッシュカードで行うことができ，利用金額を預金口座から即時に引き落とす。</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber12">
+<tr>
+<td>ア</td>
+<td>×</td>
+<td>信用限度額内の買物を，代金後払いで行うクレジットカード</td>
+</tr>
+<tr>
+<td>イ</td>
+<td>×</td>
+<td>　</td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>×</td>
+<td>代金を前払してもらい，商品購入の都度，カードから減額していくプリペイドカード</td>
+</tr>
+<tr>
+<td>エ</td>
+<td>○</td>
+<td>　</td>
+</tr>
+</table>
+<hr>
+<p><a href="18F_A_E4.HTM#79">問題へ</a> </p>
+<hr>
+<p><strong><a name="80">問80</a></strong></p>
+<p><select name="18FA80" size="1">
+<option selected>解答例</option>
+<option>ア</option>
+</select></p>
+<p>〈解説〉</p>
+<p>サイトライセンス契約は，事務所などの使用場所を指定してユーザのインストール台数をもとにライセンス料を支払う方式。</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber13">
+<tr>
+<td>ア</td>
+<td>○</td>
+<td>　</td>
+</tr>
+<tr>
+<td>イ</td>
+<td>×</td>
+<td>CPU ライセンス契約</td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>×</td>
+<td>サーバライセンス契約</td>
+</tr>
+<tr>
+<td>エ</td>
+<td>×</td>
+<td>ユーザライセンス契約</td>
+</tr>
+</table>
+<hr>
+<p><a href="18F_A_E4.HTM#80">問題へ</a> </p>
+<hr>
+<p><a href="INDEX.HTM">メニューへ戻る</a></p>
+<hr>
+</blockquote>
+</form>
+
+</body>
+
+</html>

@@ -1,0 +1,141 @@
+<html>
+<head>
+<title>平成23年度 春期 基本情報技術者 午後 正解例と解説（問10～問13）　特別試験</title>
+<style type="text/css"><!--
+body{line-height:150%;}
+code{font-size:12pt;}
+h3{text-align:center;}
+div.caution{border:solid 1px #000000; padding:0.5em;}
+--></style>
+</head>
+<body>
+<blockquote>
+<hr>
+<h3>平成23年度　春期　基本情報技術者　特別試験<br/>
+午後　正解例と解説（問10～問13）</h3>
+<hr>
+<p><strong><a name="100">問10</a></strong></p>
+<hr>
+<p><strong><a name="101">設問1</a></strong></p>
+<p>〈解答〉　a：ア，b：オ, c：ア, d：ウ, e：キ, f：ア, g：エ,</p>
+<p>〈解説〉</p>
+<p>●空欄a，b，c，dについて<br/>
+行番号32の<code>EVALUATE</code>文の条件は，商品券ファイルの発行額<code>GFT-SUM</code>に1,000を設定する条件だから，決定表の1番目の条件に対応する。保有株数が999株以下で，保有期間が5年未満の場合，発行額は1,000円になる。つまり保有株数<code>HLD-STOCK</code>が1～999で，保有期間<code>TERM</code>が0～4の場合，発行額は1,000円になる。したがって空欄aは1，空欄bは999，空欄cは0，空欄dは4が適切。</p>
+<p>●空欄eについて<br/>
+行番号34と35の<code>EVALUATE</code>文の条件は，商品券ファイルの発行額<code>GFT-SUM</code>に3,000を設定する条件だから，決定表の左から2番目と3番目の条件にそれぞれ対応する。行番号34は決定表の左から2番目の条件に対応する。保有株数が999株以下で，保有期間が5年以上の場合，発行額は3,000円になる。つまり保有株数<code>HLD-STOCK</code>が1～999で，保有期間<code>TERM</code>が<code>ANY</code>（いずれかの数値）の場合，発行額は3,000円になる。したがって空欄eは<code>ANY</code>が適切。</p>
+<p>●空欄f，gについて<br/>
+行番号35は決定表の左から3番目の条件に対応する。保有株数が1,000～9,999株で，保有期間が5年未満の場合，発行額は3,000円になる。つまり保有株数<code>HLD-STOCK</code>が1,000～9,999で，保有期間<code>TERM</code>が0～4の場合，発行額は3,000円になる。したがって空欄fは1000，空欄gは9999が適切。</p>
+<hr>
+<a href="23S_P_E4.HTM#101">問題へ</a>
+<hr>
+<p><strong><a name="102">設問2</a></strong></p>
+<p>〈解答〉h：オ, i：オ</p>
+<p>〈解説〉</p>
+<p>●空欄hについて<br/>
+空欄hは，手続<code>SUM-PROC</code>の行番号43の直後に追加される処理で，手続<code>SUM-PROC</code>の処理は株主ファイルのレコードを読むごとに行われる処理である。各保有期間に該当する株主比率を求めるには，株主ファイルのレコードを読むごとに，株主数と各保有期間に該当する株主数を集計しておく必要がある。空欄hの直後で，出力レコードの件数，つまり株主数を<code>CNT-ALL</code>に集計しているが，手続<code>SUM-PROC</code>に各保有期間に該当する株主数を集計する処理がない。したがって空欄hで，各保有期間に該当する株主数について集計用テーブル<code>CNT-HLD</code>を用いてテーブル集計を行う必要がある。テーブルの要素番号は1から始まるため，保有期間<code>TERM</code>に1だけ加算した<code>TERM + 1</code>を集計用テーブルの要素番号に指定する必要があり，空欄hはオの<code>ADD 1 TO CNT-HLD(TERM + 1)</code>が適切。</p>
+<p>●空欄iについて<br/>
+空欄iの直後の<code>IF</code>文で，<code>RATIO</code>が0より大きければ，テーブル<code>PRT-EDIT</code>の1番目から<code>RATIO</code>番目までに<code>"*"</code>を転送した後，<code>DISPLAY</code>命令により表示している。そのためには空欄iで，株主比率に対応する<code>"*"</code>の個数を<code>RATIO</code>に算出しておく必要がある。<code>PERFORM</code>命令の繰返処理の中で，00から20までの各保有期間に該当する株主比率に対応する<code>"*"</code>の個数を順に算出して表示している。<code>PERFORM</code>命令の制御変数<code>CNT</code>は0から始まり，<code>CNT</code>を<code>PRT-TERM</code>に転送し保有期間を00から表示している。各保有期間に該当する株主数を保持する集計用テーブル<code>CNT-HLD</code>の要素番号は1から始まる。株主比率に対応する<code>"*"</code>の個数は，2％未満の端数を切り捨て<code>"*"</code>一つを2％として表示するため，空欄iでの<code>RATIO</code>の算出は<code>COMPUTE RATIO = (CNT-HLD(CNT - 1) * 100 / CNT-ALL) / 2</code>とすればよく，空欄iはオが適切。</p>
+<hr>
+<a href="23S_P_E4.HTM#102">問題へ</a>
+<hr>
+<a href="INDEX.HTM">■メニューへ戻る</a>
+<hr>
+<p><strong><a name="110">問11</a></strong></p>
+<hr>
+<p><strong><a name="111">設問1</a></strong></p>
+<p>〈解答〉　a：ウ，b：イ，c：ウ，d：カ，e：ア</p>
+<p>〈解説〉</p>
+<p>●空欄aについて<br/>
+<code>AppendableCharSequence</code>は，追加可能な0個以上の文字からなる文字列を表現するインタフェースである。クラス<code>ArrayAppendableCharSequence</code>は，<code>char</code>型の配列を用いてインタフェース<code>AppendableCharSequence</code>を実装したクラスで，<code>data</code>はこのクラスの<code>char</code>型配列のオブジェクト変数である。メソッド<code>append</code>は，<code>char</code>型配列オブジェクト<code>data</code>の空いている最初の要素に文字を格納する。配列に空き要素がないときは，要素の個数が現在の配列より<code>EXT_SIZE</code>の値だけ大きな配列を生成し，既存の文字データを移し，空いている最初の要素に文字を格納する。メソッド<code>append</code>中の空欄aを含む<code>if</code>文の処理では，配列オブジェクトの要素の個数<code>data.length</code>が現在の配列のサイズ<code>length</code>と同じ場合，つまり空き要素がない場合に，要素の個数が現在の配列より<code>EXT_SIZE</code>の値だけ大きな<code>char</code>型配列オブジェクト<code>temp</code>を生成した後，<code>for</code>ループの処理で，要素の個数を拡張した配列オブジェクトの要素<code>temp[i]</code>に，拡張前の既存の配列オブジェクトの要素<code>data[i]</code>の文字データを1文字ずつ転送する処理を行っている。空欄aは，この<code>for</code>ループの転送処理における制御変数<code>i</code>の終値に該当する。したがって拡張前の既存の配列オブジェクトの要素数<code>length</code>をその終値とすればよく，ウが適切。</p>
+<p>●空欄bについて<br/>
+クラス<code>ListAppendableCharSequence</code>は，連結リスト構造を用いてインタフェース<code>AppendableCharSequence</code>を実装したクラスである。そのメソッド<code>charAt</code>は引数<code>index</code>で指定された位置の文字を返す。クラス<code>Bucket</code>は，クラス<code>AppendableCharSequence</code>の入れ子クラスで，次の要素へのポインタ<code>next</code>をクラスの属性としてもった連結リストの要素である。コンストラクタで生成されるインスタンス<code>bucketList</code>は，この入れ子クラス<code>Bucket</code>型のオブジェクト変数で，<code>Bucket</code>のインスタンス1個につき，要素の個数が<code>EXT_SIZE</code>である<code>char</code>型の配列<code>data</code>を用意し，そこに文字データを保持する。メソッド<code>getBucket(index)</code>は，次の要素へのポインタ<code>next</code>により連結リストのリンクをたどり，引数<code>index</code>で指定された位置の文字を含む<code>Bucket</code>型のインスタンスを戻り値として返すメソッドである。空欄bを含む<code>return</code>命令の直前で，メソッド<code>getBucket</code>により引数<code>index</code>で指定された位置の文字を含む<code>Bucket</code>型のインスタンス<code>bucket</code>を戻り値として返し，次の<code>return</code>命令により，そのインスタンス<code>bucket</code>に保持されている配列<code>data</code>の要素を戻り値として返している。配列<code>data</code>の要素の個数は<code>EXT_SIZE</code>なので，インスタンス<code>bucket</code>には<code>EXT_SIZE</code>ずつ文字が保持され，引数<code>index</code>で指定された位置の文字は，配列要素<code>bucket.data[index % EXT_SIZE]</code>に格納されている。したがって，これを返せばよく，空欄bはイが適切。</p>
+<p>●空欄cについて<br/>
+インタフェース<code>AppendableCharSequence</code>のメソッド<code>append(char c)</code>は，引数で指定された文字<code>c</code>を文字列の末尾に追加する。文字列の長さは<code>length</code>なので，先頭文字のインデックスが0で，文字列の最後の文字のインデックスは<code>length - 1</code>になる。メソッド<code>getBucket</code>は，文字<code>c</code>を文字列の末尾に追加するため，文字列の最後の文字を含む<code>Bucket</code>型のインスタンス<code>bucket</code>を生成している。空欄cは，メソッド<code>getBucket</code>の引数なので，文字列の最後の文字のインデックス<code>length - 1</code>を指定すればよく，ウが適切。
+<code>Bucket</code>型インスタンス<code>bucket</code>には<code>EXT_SIZE</code>ずつ文字が保持されるため，文字列の最後の文字を含むインスタンス<code>bucket</code>に格納する文字数<code>offset</code>は，<code>length</code>を<code>EXT_SIZE</code>で割った剰余として算出できる。直前の命令文で<code>offset</code>を算出しているが，文字列の長さ<code>length</code>が0でなく，かつ<code>offset</code>が0である場合は，インスタンス<code>bucket</code>の配列に空き要素がなくなり，次の文字を追加できないため，新規に<code>Bucket</code>型のインスタンス<code>bucket.next</code>を生成し，連結リストに追加している。</p>
+<p>●空欄dについて<br/>
+メソッド<code>toString</code>は，インスタンスの文字列を<code>String</code>オブジェクトで返す。<code>Bucket</code>型インスタンス<code>bucket</code>には<code>EXT_SIZE</code>ずつ文字が保持されているため，次の要素へのポインタ<code>next</code>により連結リストのリンクをたどり，一つのインスタンス<code>bucket</code>が保持する配列<code>data</code>ごとに，その配列要素<code>bucket.data[0]</code>～<code>bucket[size - 1]</code>を順に，要素数<code>length</code>の配列要素<code>data[j]</code>に格納していく必要がある。空欄dは，一つのインスタンス<code>bucket</code>が保持する配列<code>data</code>の先頭要素<code>bucket.data[0]</code>を格納する位置に該当し，文字列を<code>size</code>個格納するごとに，先頭要素の格納位置を0から<code>size</code>ずつ増やしながらずらしていく必要がある。<code>for</code>ループの制御変数<code>len</code>は<code>length</code>から<code>size</code>ずつデクリメントしていくため，空欄dは<code>length - len</code>とすればよく，カが適切。</p>
+<p>●空欄eについて<br/>
+メソッド<code>mesureTime</code>は，引数<code>n</code>で指定された回数だけ，引数<code>a</code>で指定されたインスタンスのメソッド<code>append</code>を呼び出して，実行時間を測定する。メソッド<code>append</code>はインタフェース<code>AppendableCharSequence</code>のメソッドなので，引数<code>a</code>の型として空欄eは<code>AppendableCharSequence</code>とすればよく，アが適切。</p>
+<hr>
+<a href="23S_P_E4.HTM#111">問題へ</a>
+<hr>
+<p><strong><a name="112">設問2</a></strong></p>
+<p>〈解答〉　f：ア，g：エ</p>
+<p>〈解説〉</p>
+<p>●空欄fについて<br/>
+改善後は，連結リストの最後の要素を常に参照するためのフィールド<code>last</code>が，入れ子クラス<code>Bucket</code>に追加される。したがって，入れ子クラス<code>Bucket</code>のインスタンス<code>bucketList</code>をコンストラクタで生成し，インスタンス<code>bucketlist</code>により<code>last</code>を初期化すればよく，空欄fはアが適切。</p>
+<p>●空欄gについて<br/>
+改善前は，メソッド<code>getBucket(index)</code>が，次の要素へのポインタ<code>next</code>により連結リストのリンクをたどり，引数<code>index</code>で指定された位置の文字を含む<code>Bucket</code>型のインスタンス<code>bucket</code>を戻り値として返し，これにリンクする次要素のインスタンス<code>bucket.next</code>を生成していた。改善後は，連結リストの最後の要素を常に参照するためのフィールド<code>last</code>が，入れ子クラス<code>Bucket</code>に追加される。これを利用することで，インスタンス<code>bucket</code>の配列に空き要素がない場合に，この最後の要素にリンクする次要素のインスタンスを<code>last.next = new Bucket();</code>により生成できる。この<code>last.next</code>を最後の要素として<code>last</code>に格納すればよく，空欄gはエが適切。</p>
+<hr>
+<a href="23S_P_E4.HTM#112">問題へ</a>
+<hr>
+<a href="INDEX.HTM">■メニューへ戻る</a>
+<hr>
+<p><strong><a name="120">問12</a></strong></p>
+<hr>
+<p><strong><a name="121">設問1</a></strong></p>
+<p>〈解答〉　a：カ，b：イ</p>
+<p>〈解説〉</p>
+<p>●空欄aについて<br/>
+行番号6の<code>LD</code>命令により，<code>GR1</code>がポイントする元の図形の1語の内容を<code>GR6</code>に格納し，行番号7の<code>LD</code>命令により，<code>GR5</code>がポイントする結果の領域の1語の内容を<code>GR7</code>に格納している。次の行番号8の<code>SRL</code>命令により<code>GR7</code>の内容を1ビット右論理シフトするとともに，行番号9の<code>SLL</code>命令により<code>GR6</code>の内容を1ビット左論理シフトしている。この左論理シフトの結果，<code>GR6</code>の左端ビットが1であれば，直後の<code>JOV</code>命令により行番号12にオーバフロー分岐し，<code>OR</code>命令により<code>GR7</code>の左端1ビットに1をセットした後，処理した1語を<code>GR5</code>がポイントする結果の領域に格納する。この後，空欄aの直後の命令で16を初期値とする<code>GR4</code>の内容を1だけデクリメントした後，<code>GR4</code>＞0である間は<code>LOOP2</code>に戻り繰り返す。つまり<code>LOOP2</code>に戻りループの処理を繰り返すごとに，<code>GR6</code>の元の図形の1語の内容を1ビット左論理シフトして，左端1ビットに1が出現するごとに，<code>GR7</code>の結果の領域の1語を1ビット右論理シフトした左端ビットに格納していることになる。<code>GR6</code>の元の図形の1語の内容を，時計回りに90度回転した内容を<code>GR7</code>の結果の領域に格納するには，<code>GR6</code>の元の図形の1語の左端1ビットに1が出現するごとに，<code>GR7</code>の左端1ビットにセットした1のビットが，次の語の結果の領域の左端1ビットに格納されるようにする必要がある。したがって，<code>LOOP2</code>に戻る直前の空欄aで，<code>GR5</code>のアドレスを1だけインクリメントしておく必要があり，空欄aはカの<code>LAD    GR5,1,GR5</code>が適切。</p>
+<p><img src="img/h23_pm_a12_1.png"/></p>
+<p>●空欄bについて<br/>
+<code>GR4</code>＝0になれば，空欄bの処理後，<code>GR3</code>をデクリメントして<code>LOOP1</code>に戻りループの処理を繰り返す。<code>LOOP1</code>に戻ると，<code>GR4</code>の内容は16に，<code>GR5</code>のアドレスは<code>GR2</code>にリセットされる。その後行番号6の<code>LD</code>命令により，<code>GR1</code>のポイントする元の図形の1語が<code>GR6</code>に格納される。つまり空欄bは，<code>GR4</code>＝0となり1語分の回転処理が終わった場合の処理に該当する。したがって，空欄bで<code>GR1</code>のアドレスを1だけインクリメントして<code>GR1</code>が元の図形の次に処理する1語をポイントするようにすればよく，空欄bはイの<code>LAD   GR1,1,GR1</code>が適切。</p>
+<hr>
+<a href="23S_P_E4.HTM#121">問題へ</a>
+<hr>
+<p><strong><a name="122">設問2</a></strong></p>
+<p>〈解答〉　ウ</p>
+<p>〈解説〉</p>
+<p>行番号9を右論理シフト命令<code>SRL   GR6,1</code>に変更すると，<code>LOOP2</code>に戻りループの処理を繰り返すごとに，<code>GR6</code>の元の図形の1語の内容を1ビット右論理シフトして，右端1ビットに1が出現するごとに，<code>GR7</code>の結果の領域の1語を1ビット右論理シフトした左端ビットに格納することになる。つまり元の図形の1語を右端から左に向けて横に順に取り出し，結果の領域に対して縦方向に上から下に向けて順に格納することになる。したがって回転前の元の図形の右上が回転後の右上になり，回転前の図形の左上が回転後の右下になるので，実行結果はウのようになる。</p>
+<p><img src="img/h23_pm_a12_2.png"/></p>
+<hr>
+<a href="23S_P_E4.HTM#122">問題へ</a>
+<hr>
+<p><strong><a name="123">設問3</a></strong></p>
+<p>〈解答〉　c：イ,d：ア</p>
+<p>〈解説〉</p>
+<p>●空欄cについて<br/>
+手続<code>SHIFT</code>から<code>COPY</code>直前までの空欄cを含む繰返しループの処理は，回転の対象とならない元の図形の上n語の右（16－n）ビットを結果の領域に複写する処理に該当する。手続<code>SHIFT</code>の<code>LD</code>命令により，<code>GR5</code>がポイントする元の図形の1語を<code>GR0</code>に格納し，空欄cの処理の後，<code>ST</code>命令により<code>GR0</code>の内容を結果の領域に格納している。この処理を元の図形の上n語について繰り返している。回転の対象となる上n語の左端nビットを除いて結果の領域に複写する必要があり，これを空欄cで行う必要がある。そのためには空欄cで，<code>GR0</code>の内容をnビット左論理シフトにより左端nビット部分をオーバフローさせればよく，空欄cはイの<code>SLL   GR0,0,GR3</code>が適切。</p>
+<p>●空欄dについて<br/>
+回転の対象とならない残りの（16－n）個の語の内容を結果の領域に複写するのに，<code>GR7</code>に設定された初期値（16－n）から<code>SUBA</code>命令により1だけデクリメントした後で，<code>GR0</code>の内容を<code>GR6</code>がポイントする結果の領域に複写するので，<code>GR7</code>＜0になれば複写を終わり，LOOP1に分岐すればよく，空欄dはアの<code>JMI   LOOP1</code>が適切。</p>
+<hr>
+<a href="23S_P_E4.HTM#123">問題へ</a>
+<hr>
+<a href="INDEX.HTM">■メニューへ戻る</a>
+<hr>
+<p><strong><a name="130">問13</a></strong></p>
+<hr>
+<p><strong><a name="131">設問1</a></strong></p>
+<p>〈解答〉　a：ア，b：キ, c：ウ, d：ケ, e：ア, </p>
+<p>〈解説〉</p>
+<p>●空欄aについて<br/>
+ワークシート“与信枠”のセルH3に求める基準1の信用度は，セルD3の流動比率が，ワークシート“信用度評価基準”のセルD2～D6の下限値を超えない範囲のレベルに該当する信用度を垂直照合関数により検索すればよい。したがって垂直照合関数の引数の式にはD3を，範囲にはワークシート“信用度評価基準”の検索する下限値の列D2～D6を左端列として信用度の列E2～E6を含む範囲を絶対参照により$D$2～$E$6と指定し，列の位置には2，検索の指定は1とすればよく，空欄aはアが適切。</p>
+<p>●空欄bについて<br/>
+ワークシート“与信枠”のセルI3に求める基準2の信用度は，セルG3の自己資本比率が，ワークシート“信用度評価基準”のセルD7～D11の下限値を超えない範囲のレベルに該当する信用度を垂直照合関数により検索すればよい。したがって垂直照合関数の引数の式にはG3を，範囲にはワークシート“信用度評価基準”の検索する下限値の列D7～D11を左端列として信用度の列E7～E11を含む範囲を絶対参照により$D$7～$E$11と指定し，列の位置には2，検索の指定は1とすればよく，空欄bはキが適切。</p>
+<p>●空欄cについて<br/>
+ワークシート“与信枠”のセルJ3に求める基準1の与信枠の計算値は，流動資産と流動負債との差（B3－C3）に，セルD3の流動比率に対応するワークシート“信用度評価基準”の与信枠係数を掛けたものとして計算できる。セルD3の流動比率に対応するワークシート“信用度評価基準”の与信枠係数は，セルD3の流動比率が，ワークシート“信用度評価基準”のセルD2～D6の下限値を超えない範囲のレベルに該当する与信枠係数を垂直照合関数により検索すればよい。垂直照合関数の引数の式にはD3を，範囲にはワークシート“信用度評価基準”の検索する下限値の列D2～D6を左端列として与信枠係数の列F2～F6を含む範囲を絶対参照により$D$2～$F$6と指定し，列の位置には3，検索の指定は1とすればよく，空欄cはウが適切。</p>
+<p>●空欄dについて<br/>
+ワークシート“与信枠”のセルK3に求める基準2の与信枠の計算値は，セルE3の自己資本に，セルG3の自己資本比率に対応するワークシート“信用度評価基準”の与信枠係数を掛けたものとして計算できる。セルG3の自己資本比率に対応するワークシート“信用度評価基準”の与信枠係数は，セルG3の自己資本比率が，ワークシート“信用度評価基準”のセルD7～D11の下限値を超えない範囲のレベルに該当する与信枠係数を垂直照合関数により検索すればよい。垂直照合関数の引数の式にはG3を，範囲にはワークシート“信用度評価基準”の検索する下限値の列D7～D11を左端列として与信枠係数の列F7～F11を含む範囲を絶対参照により$D$7～$F$11と指定し，列の位置には3，検索の指定は1とすればよく，空欄dはケが適切。</p>
+<p>●空欄eについて<br/>
+セルL3の与信枠には，セルJ3の基準1の与信枠の計算値とセルK3の基準2の与信枠の計算値のうちの小さい方，つまり最小値（J3，K3）が負である場合は0を，負でない場合は最小値（J3，K3）をIF関数により求めればよく，空欄eはアが適切。</p>
+<hr>
+<a href="23S_P_E4.HTM#131">問題へ</a>
+<hr>
+<p><strong><a name="132">設問2</a></strong></p>
+<p>〈解答〉　f：オ,g：ク,h：ケ</p>
+<p>〈解説〉</p>
+<p>●空欄fについて<br/>
+セルM3に，基準1と基準2の信用度の評価結果の組合せから決定される支払サイトを求めるには，表引き関数を用いる必要がある。表引き関数では，範囲，行の位置，列の位置の三つの引数の指定が必要である。範囲は，ワークシート“支払いサイト”のセルB2～F6を絶対参照で$B$2～$F$6と指定すればよい。行の位置は，セルH3の基準1の信用度に対応したセル位置を照合一致関数により検索して求める。照合一致関数では，式，範囲，検索の指定の三つの引数の指定が必要である。式にはセルH3を，範囲には絶対参照でワークシート“支払いサイト”の$A$2～$A$6を，完全一致する値を検索するので検索の指定には0を指定する。列の位置は，セルI3の基準2の信用度に対応したセル位置を照合一致関数により検索して求める。照合一致関数の引数の指定は，式にはセルI3を，範囲には絶対参照でワークシート“支払いサイト”の$B$1～$F$1を，完全一致する値を検索するので検索の指定には0を指定する。したがって空欄fはオが適切。</p>
+<p>●空欄gについて<br/>
+支払いサイトとは，請求月から支払期限までの月数である。たとえばセルM3の支払いサイトが1の場合は，セルN3の前月売上のみがセルQ3の前月売掛残になる。セルM3の支払いサイトが2であった場合は，セルN3の前月売上とセルO3の2か月前売上の二つが前月売掛残となる。したがってセルQ3の前月売掛残は，条件付合計関数により，セルN2～P2の値がセルM3の支払いサイトの月数以下であるものについて，セルN3～P3の売上を合計すれば求めることができる。条件付合計関数では，検索の範囲，検索条件，合計の範囲の三つの引数の指定が必要である。検索の範囲は，行番号2を絶対参照で参照する必要があるため，N$2～P$2と指定する。検索条件は，セルN2～P2の値がセルM3の支払いサイトの月数以下であるため，'≦M3'と指定する。合計の範囲はN3～P3を指定する。したがって空欄gはクが適切。</p>
+<p>●空欄hについて<br/>
+セルS3の判定結果には，セルQ3の前月売掛残とセルR3の当月注文額の合計が，セルL3の与信枠を超える場合又は与信枠が0の場合は受注不可として'×'を，それ以外は受注可として'〇'を表示するため，IF関数の条件には，この二つの条件を論理和関数で指定する必要がある。したがってIF関数の条件は，論理和（（Q3＋P3）＞L3,L3＝0）となり，空欄hのIF関数は，ケが適切。</p>
+<hr>
+<a href="23S_P_E4.HTM#132">問題へ</a>
+<hr>
+<a href="INDEX.HTM">■メニューへ戻る</a>
+<hr>
+</blockquote>
+</body>
+</html>

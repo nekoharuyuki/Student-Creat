@@ -1,0 +1,424 @@
+<html>
+
+<head>
+<title>平成18年度秋期試験　解答例と解説（午前問1～問20）</title>
+<style>
+<!--
+p            { line-height: 175% }
+-->
+</style>
+</head>
+
+<body>
+
+<form>
+<blockquote>
+<hr>
+<div align="center">
+<h3>平成18年度秋期試験　解答例と解説（午前問1～問20）</h3>
+</div>
+<hr>
+<p><strong><a name="01">問1</a></strong></p>
+<p><select name="18FA01" size="1">
+<option selected>解答例</option>
+<option>エ</option>
+</select></p>
+<p>〈解説〉</p>
+<p>符号なしの 1 バイト（8 ビット）の 2 進数で 0 と 1 のビット数が等しい，つまり 4 個ずつである最大数は 1111 0000 になる。これを
+10 進数で表すと 2<sup>7</sup>＋2<sup>6</sup>＋2<sup>5</sup>＋2<sup>4</sup>＝128＋64＋32＋16＝240
+になる。</p>
+<hr>
+<p><a href="18F_A_E1.HTM#01">問題へ</a> </p>
+<hr>
+<p><strong><a name="02">問2</a></strong></p>
+<p><select name="18FA02" size="1">
+<option selected>解答例</option>
+<option>ウ</option>
+</select></p>
+<p>〈解説〉</p>
+<p>1 ビット左シフトするごとに 2 倍になるので，ｘ を 2 ビット左シフトしたものに ｘ を加えると，x×2×2＋x＝5x，つまり 5 倍になる。</p>
+<hr>
+<p><a href="18F_A_E1.HTM#02">問題へ</a> </p>
+<hr>
+<p><strong><a name="03">問3</a></strong></p>
+<p><select name="18FA03" size="1">
+<option selected>解答例</option>
+<option>ア</option>
+</select></p>
+<p>〈解説〉</p>
+<p>8 ビットの符号なし 2 進数 ｘ を ｘ<sub>7</sub>ｘ<sub>6</sub>ｘ<sub>5</sub>ｘ<sub>4</sub>ｘ<sub>3</sub>ｘ<sub>2</sub>ｘ<sub>1</sub>ｘ<sub>0
+</sub>とすると，</p>
+<p>ｘ<sub>7</sub>×2<sup>7</sup>＋ｘ<sub>6</sub>×2<sup>6</sup>＋ｘ<sub>5</sub>×2<sup>5</sup>＋ｘ<sub>4</sub>×2<sup>4</sup>＋ｘ<sub>3</sub>×2<sup>3</sup>＋ｘ<sub>2</sub>×2<sup>2</sup>＋ｘ<sub>1</sub>×2<sup>1</sup>＋ｘ<sub>0<br>
+</sub>　＝(ｘ<sub>7</sub>×2<sup>3</sup>＋ｘ<sub>6</sub>×2<sup>2</sup>＋ｘ<sub>5</sub>×2<sup>1</sup>＋ｘ<sub>4</sub>)×2<sup>4</sup>＋ｘ<sub>3</sub>×2<sup>3</sup>＋ｘ<sub>2</sub>×2<sup>2</sup>＋ｘ<sub>1</sub>×2<sup>1</sup>＋ｘ<sub>0</sub></p>
+<p>となるので，下位 4 ビットが 16 倍数か 0 であるか否かを判定できる。</p>
+<p>2進数 ｘ の下位 4 ビットの最大値は</p>
+<p>2<sup>3</sup>＋2<sup>2</sup>＋2<sup>1</sup>＋1<br>
+　＝8＋4＋2＋1<br>
+　＝15</p>
+<p>なので，16 の倍数であるためには下位 4 ビットが 0 である必要がある。</p>
+<p>したがって，ｘ と 2 進数 00001111 との論理積が 0 であれば 16 の倍数であることになる。</p>
+<hr>
+<p><a href="18F_A_E1.HTM#03">問題へ</a> </p>
+<hr>
+<p><strong><a name="04">問4</a></strong></p>
+<p><select name="18FA04" size="1">
+<option selected>解答例</option>
+<option>イ</option>
+</select></p>
+<p>〈解説〉</p>
+<p>24 ビット浮動小数点形式で正の最大値であるためには</p>
+<table border="0" cellpadding="0" cellspacing="4" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber1">
+<tr>
+<td>① 仮数部の符号が正</td>
+<td>0 ビット目は 0 となる</td>
+</tr>
+<tr>
+<td>② 指数部が正の最大値</td>
+<td>111 1111（10 進数では 127）</td>
+</tr>
+<tr>
+<td>③ 仮数部の絶対値が最大</td>
+<td>1111 1111 1111 1111</td>
+</tr>
+</table>
+<p>でなくてはならない。</p>
+<p>したがって，最大値は 0111 1111 1111 1111 1111 1111，16 進数表示で (7FFFFF)<sub>16</sub>となる。</p>
+<hr>
+<p><a href="18F_A_E1.HTM#04">問題へ</a> </p>
+<hr>
+<p><strong><a name="05">問5</a></strong></p>
+<p><select name="18FA05" size="1">
+<option selected>解答例</option>
+<option>イ</option>
+</select></p>
+<p>〈解説〉</p>
+<p>2 の補数で表した符号付き固定小数点方式の数値の正の最大数は，0111 1111 1111 1111 つまり　7FFF
+である。これと絶対値が等しい負数は，ビット反転 1000 0000 0000 0000 に 1 を加えると求まり，1000 0000 0000 0001 つまり
+8001 である。負で絶対値が最大の数は，この 8001 より 1 だけ小さい数 8000 である。</p>
+<hr>
+<p><a href="18F_A_E1.HTM#05">問題へ</a> </p>
+<hr>
+<p><strong><a name="06">問6</a></strong></p>
+<p><select name="18FA06" size="1">
+<option selected>解答例</option>
+<option>イ</option>
+</select></p>
+<p>〈解説〉</p>
+<p>絶対値がほぼ等しく，同符号である数値の減算では，有効数字が大きく減少し，これをけた落ちという。</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber2">
+<tr>
+<td>ア</td>
+<td>×</td>
+<td>有効数字が同じか 1 けた増える</td>
+</tr>
+<tr>
+<td>イ</td>
+<td>○</td>
+<td>　</td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>×</td>
+<td>有効数字は絶対値の大きな数値と同じになる（情報落ち）</td>
+</tr>
+<tr>
+<td>エ</td>
+<td>×</td>
+<td>有効数字は絶対値の大きな数値と同じになる（情報落ち）</td>
+</tr>
+</table>
+<hr>
+<p><a href="18F_A_E1.HTM#06">問題へ</a> </p>
+<hr>
+<p><strong><a name="07">問7</a></strong></p>
+<p><select name="18FA07" size="1">
+<option selected>解答例</option>
+<option>ウ</option>
+</select></p>
+<p>〈解説〉</p>
+<p>男子が少なくとも 1 人含まれる選び方の数<br>
+　＝全体の 8 人から 3 人を選ぶ場合の数－男子が 1 人も選ばれない場合の数<br>
+　＝全体の 8 人から 3 人を選ぶ場合の数－女子 5 人から 3 人を選ぶ場合の数<br>
+　＝<sub>8</sub>C<sub>3</sub>－<sub>5</sub>C<sub>3</sub><br>
+　＝(8×7×6)÷(3×2×1)－(5×4×3)÷(3×2×1)<br>
+　＝56－10<br>
+　＝46</p>
+<hr>
+<p><a href="18F_A_E1.HTM#07">問題へ</a> </p>
+<hr>
+<p><strong><a name="08">問8</a></strong></p>
+<p><select name="18FA08" size="1">
+<option selected>解答例</option>
+<option>ウ</option>
+</select></p>
+<p>〈解説〉</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber3" bgcolor="#C0C0C0">
+<tr>
+<td>
+<pre>手順 1             手順 2              手順 3
+A      00101000    A       00101000    C       00001111
+   －         1    B   XOR 00100111    A   AND 00101000
+   ━━━━━━        ━━━━━━    ━━━━━━━━
+B      00100111    B       00001111            00001000</pre>
+</td>
+</tr>
+</table>
+<p>したがって，A と C の論理積を求めると最も右にある 1 を残し，他がすべて 0 となる。</p>
+<hr>
+<p><a href="18F_A_E1.HTM#08">問題へ</a> </p>
+<hr>
+<p><strong><a name="09">問9</a></strong></p>
+<p><select name="18FA09" size="1">
+<option selected>解答例</option>
+<option>ウ</option>
+</select></p>
+<p>〈解説〉</p>
+<p>関数 F の真理値が 1 である行について論理式の論理和をとると，関数 F
+の論理値と等価になる。この論理式を変形し，論理式の表す領域をベン図で表して比較すると，選択肢のウと同じ領域を表す。</p>
+<p><img border="0" src="img/image001.gif" width="604" height="218"><br>
+　</p>
+<p><img border="0" src="img/image002.gif" width="604" height="572"></p>
+<hr>
+<p><a href="18F_A_E1.HTM#09">問題へ</a> </p>
+<hr>
+<p><strong><a name="10">問10</a></strong></p>
+<p><select name="18FA10" size="1">
+<option selected>解答例</option>
+<option>ウ</option>
+</select></p>
+<p>〈解説〉</p>
+<table border="0" cellpadding="0" cellspacing="8" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber4">
+<tr>
+<td>長さ100の文字列中にある長さ100の連続した部分文字列の個数</td>
+<td>1個</td>
+</tr>
+<tr>
+<td>長さ100の文字列中にある長さ99の連続した部分文字列の個数</td>
+<td>2個</td>
+</tr>
+<tr>
+<td align="center">：</td>
+<td align="center">：</td>
+</tr>
+<tr>
+<td>長さ100の文字列中にある長さ10の連続した部分文字列の個数</td>
+<td>N個</td>
+</tr>
+</table>
+<p>とすると，</p>
+<p>　　部分文字列の長さ＋部分文字列の個数＝101</p>
+<p>の関係があるので，</p>
+<p>　　長さ N の部分文字列の個数 N＝101－10＝91 個。</p>
+<p>したがって全部で(1＋2＋3＋…＋91)個ある。</p>
+<hr>
+<p><a href="18F_A_E1.HTM#10">問題へ</a> </p>
+<hr>
+<p><strong><a name="11">問11</a></strong></p>
+<p><select name="18FA11" size="1">
+<option selected>解答例</option>
+<option>ウ</option>
+</select></p>
+<p>〈解説〉</p>
+<p><img border="0" src="img/image003.png" width="281" height="113"></p>
+<pre>　　　　　　<font color="#FF0000">0　　　 1　　　 0　　　 1　　　 1</font>
+ア　×　ａ　→　ａ　→　ｂ　→　ａ　→　ｂ　→　ｃ　受理されない
+　　　　　　<font color="#FF0000">0　　　 1　　　 1　　　 1　　　 1</font>
+イ　×　ａ　→　ａ　→　ｂ　→　ｃ　→　ｅ　→　ｄ　受理されない
+　　　　　　<font color="#FF0000">1　　　 0　　　 1　　　 1　　　 1</font>
+ウ　○　ａ　→　ｂ　→　ａ　→　ｂ　→　ｃ　→　ｅ　受理される
+　　　　　　<font color="#FF0000">1　　　 1　　　 1　　　 1　　　 0</font>
+エ　×　ａ　→　ｂ　→　ｃ　→　ｅ　→　ｄ　→　ｄ　受理されない</pre>
+<hr>
+<p><a href="18F_A_E1.HTM#11">問題へ</a> </p>
+<hr>
+<p><strong><a name="12">問12</a></strong></p>
+<p><select name="18FA12" size="1">
+<option selected>解答例</option>
+<option>ウ</option>
+</select></p>
+<p>〈解説〉</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber5">
+<tr>
+<td>ア</td>
+<td>×</td>
+<td>節から上に戻るときに後で演算子を書くので後置記法に該当する</td>
+</tr>
+<tr>
+<td>イ</td>
+<td>×</td>
+<td>節に下りたときに先に演算子を書くので前置記法に該当する</td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>○</td>
+<td>節から上に戻るときに後から演算子を書くので後置記法に該当する</td>
+</tr>
+<tr>
+<td>エ</td>
+<td>×</td>
+<td>左の枝から右の枝に移るときに間の節にある演算子を書くので中置記法に該当する</td>
+</tr>
+</table>
+<hr>
+<p><a href="18F_A_E1.HTM#12">問題へ</a> </p>
+<hr>
+<p><strong><a name="13">問13</a></strong></p>
+<p><select name="18FA13" size="1">
+<option selected>解答例</option>
+<option>ウ</option>
+</select></p>
+<p>〈解説〉</p>
+<p>リスト［東京，品川，名古屋，新大阪］を［東京，新横浜，名古屋，新大阪］に変えるには，品川を新横浜に置き換えればよい。列2はポインタを表す。したがって</p>
+<blockquote>
+<p>①“品川”のポインタ A(2，2)＝3 を“新横浜”のポインタ A(5，2) にセットし，行 3 の“名古屋”をポイントする</p>
+<p>②次に“東京”のポインタ A(1，2) に 5 をセットし，行5の“新横浜”をポイントする</p>
+</blockquote>
+<p>ようにポインタを書き換えればよい。</p>
+<p>“東京”のポインタ A(1，2) により“品川“の行 2 をポイントしているので，“品川”のポインタ A(2，2)＝3 を A(A(1，2)，2)＝3
+と表せる。</p>
+<p>これより，第 1 の操作 A(A(1，2)，2)→A(5，2)，第 2 の操作 5→A(1，2) が適切。</p>
+<hr>
+<p><a href="18F_A_E1.HTM#13">問題へ</a> </p>
+<hr>
+<p><strong><a name="14">問14</a></strong></p>
+<p><select name="18FA14" size="1">
+<option selected>解答例</option>
+<option>ア</option>
+</select></p>
+<p>〈解説〉</p>
+<p>2 分探索の場合，1 回の探索を行うごとに探索するデータ範囲の個数が 1／2 になるので，目的のデータが ｋ 回の探索で見つかったとすると 2<sup>k</sup>≦n。</p>
+<p>両辺の対数をとり k≦log<sub>2</sub>n。</p>
+<hr>
+<p><a href="18F_A_E1.HTM#14">問題へ</a> </p>
+<hr>
+<p><strong><a name="15">問15</a></strong></p>
+<p><select name="18FA15" size="1">
+<option selected>解答例</option>
+<option>エ</option>
+</select></p>
+<p>〈解説〉</p>
+<p>k＝16 のとき　A[16 mod 10]＝A[6]＝0　なので　16→A[6]</p>
+<p>k＝43 のとき　A[43 mod 10]＝A[3]＝0　なので　43→A[3]</p>
+<p>k＝73 のとき　A[73 mod 10]＝A[3]＝43　となるので，規則（2）により<br>
+　A[(73＋1) mod 10]＝A[4]＝0　なので　74→A[4]</p>
+<p>k＝24 のとき　A[24 mod 10]＝A[4]＝74　となるので，規則（2）により<br>
+　A[(24＋1) mod 10]＝A[5]＝0　なので　24→A[5]</p>
+<p>k＝85 のとき　A[85 mod 10]＝A[5]＝24　となるので，規則（2）により<br>
+　A[(85＋1) mod 10]＝A[6]＝16　となる。したがって規則（3）により<br>
+　A[(85＋4) mod 10]＝A[9]＝0　なので　85→A[9]</p>
+<hr>
+<p><a href="18F_A_E1.HTM#15">問題へ</a> </p>
+<hr>
+<p><strong><a name="16">問16</a></strong></p>
+<p><select name="18FA16" size="1">
+<option selected>解答例</option>
+<option>ウ</option>
+</select></p>
+<p>〈解説〉</p>
+<p>フラッシュメモリは電気的に書換え可能な半導体メモリ。<br>
+DRAM のようにリフレッシュ動作による再書込みが不要で，電源を切っても内容を保持できる。<br>
+消去単位が大きく，一括または部分的に消去・書換えが可能。</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber6">
+<tr>
+<td>ア</td>
+<td>×</td>
+<td>EPROM</td>
+</tr>
+<tr>
+<td>イ</td>
+<td>×</td>
+<td>SRAM</td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>○</td>
+<td>　</td>
+</tr>
+<tr>
+<td>エ</td>
+<td>×</td>
+<td>DRAM</td>
+</tr>
+</table>
+<hr>
+<p><a href="18F_A_E1.HTM#16">問題へ</a> </p>
+<hr>
+<p><strong><a name="17">問17</a></strong></p>
+<p><select name="18FA17" size="1">
+<option selected>解答例</option>
+<option>ア</option>
+</select></p>
+<p>〈解説〉</p>
+<p>各論理素子の出力を記入すると以下のようになる。</p>
+<p><img border="0" src="img/image005.png" width="388" height="115"></p>
+<p>（P，Q，R）＝（0，1，0）</p>
+<hr>
+<p><a href="18F_A_E1.HTM#17">問題へ</a> </p>
+<hr>
+<p><strong><a name="18">問18</a></strong></p>
+<p><select name="18FA18" size="1">
+<option selected>解答例</option>
+<option>ウ</option>
+</select></p>
+<p>〈解説〉</p>
+<p>
+パイプラインは，一つの命令の実行サイクルを複数のステージに分割し，各段階の処理を別々の装置が担当することによって，各命令のステージを重ねて，並列実行することにより
+１ 命令あたりの実行効率を上げる方式。</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber7">
+<tr>
+<td>ア</td>
+<td>×</td>
+<td>逐次制御方式</td>
+</tr>
+<tr>
+<td>イ</td>
+<td>×</td>
+<td>クロック待ちのあるパイプライン方式</td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>○</td>
+<td>　</td>
+</tr>
+<tr>
+<td>エ</td>
+<td>×</td>
+<td>スーパースカラ方式</td>
+</tr>
+</table>
+<hr>
+<p><a href="18F_A_E1.HTM#18">問題へ</a> </p>
+<hr>
+<p><strong><a name="19">問19</a></strong></p>
+<p><select name="18FA19" size="1">
+<option selected>解答例</option>
+<option>ア</option>
+</select></p>
+<p>〈解説〉</p>
+<p>CPU の命令実行，制御信号やデータの転送はクロック周波数に同期して行われ，1 命令が数クロックで実行される。したがって，クロック周波数が高くなると 1
+クロックの時間が短くなり，1 命令あたりの実行速度が向上し処理速度も向上する。磁気ディスクの回転数，LAN の通信速度，割込み頻度とは無関係である。</p>
+<hr>
+<p><a href="18F_A_E1.HTM#19">問題へ</a> </p>
+<hr>
+<p><strong><a name="20">問20</a></strong></p>
+<p><select name="18FA20" size="1">
+<option selected>解答例</option>
+<option>イ</option>
+</select></p>
+<p>〈解説〉</p>
+<p>両者の処理時間が等しいので，実効アクセス時間が等しくなると考えられる。<br>
+したがって，キャッシュメモリのヒット率を h とすると，</p>
+<p>40ｈ＋400(１－h)＝20h＋580(1－h)<br>
+200h＝180</p>
+<p>したがって h＝0.90</p>
+<hr>
+<p><a href="18F_A_E1.HTM#20">問題へ</a> </p>
+<hr>
+<p><a href="INDEX.HTM">メニューへ戻る</a></p>
+<hr>
+</blockquote>
+</form>
+
+</body>
+
+</html>

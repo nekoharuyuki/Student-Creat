@@ -1,0 +1,143 @@
+<html>
+<head>
+<title>平成22年度 秋期 基本情報技術者 午後 問題（問1～問2）</title>
+<style type="text/css"><!--
+body{line-height:150%;}
+code{font-size:12pt;}
+h3{text-align:center;}
+div.caution{border:solid 1px #000000; padding:0.5em;}
+--></style>
+</head>
+<body>
+<blockquote>
+<hr>
+<h3>平成22年度　秋期　基本情報技術者<br/>
+午後　問題（問1～問2）</h3>
+<hr>
+<div class="caution">　次の<strong>問1</strong>から<strong>問7</strong>までの7問については，この中から5問を選択し，選択した問題については，答案用紙の選択欄の<img src="img/22f_pm_q00_01.png">をマークして解答してください。<br/>
+　なお，6問以上選択した場合には，はじめの5問について採点します。</div>
+<hr>
+<p><a name="10"><strong>問1</strong></a>　温度モニタに関する次の記述を読んで，設問1～3に答えよ。<br/>
+<p>　図1に温度モニタのシステム構成図の一部を示す。<br/>
+　温度の検出範囲は0～99℃とし，対応するA/D変換器の出力値は，0～99の16ビット符号なし2進数とする。このシステムは，タイマ割込み発生時に起動される割込みプログラムの中で温度検出器の出力値をA/D変換器を介して取り込み，2個の7セグメントLEDからなる表示器に表示する。1個の7セグメントLEDには10進数の数字1けたを表示する。検出された温度0～99℃に対して，表示器では“00”～“99”として表示する。<br/>
+　LEDの各セグメントは，対応する出力ポートのビットの値が1のとき点灯し，0のとき消灯する。7セグメントLEDに，“0”～“9”の数字を表示するために，対応する8ビットのデータを数字の字形に合わせて設定する。これらを形状データという。<br/>
+　割込みプログラムが起動するA/D変換の開始から，表示処理の完了までの時間は，タイマ割込み間隔に比べて十分短い。</p>
+<p><img src="img/22f_pm_q01_01.png"><br/>
+<strong><font size="2">注</strong>　“82”を表示した例である。ここで，出力ポートのビット0とビット8には常に0が設定され，小数点を表示するセグメントは消灯しているものとする。</font><br/>
+<strong>図1　温度モニタのシステム構成図の一部</strong></p>
+<p>　割込みプログラムの中で，各機器に対するデータの読込み及び書込みは各機器に割り当てられたI/Oポート番号を指定して行う。7セグメントLEDが接続されている出力ポートにはI/Oポート番号1が，A/D変換器にはI/Oポート番号2と3がそれぞれ割り当てられている。表1に出力ポートとA/D変換器の動作概要を示す。</p>
+<p><strong>表1　出力ポートとA/D変換器の動作概要</strong><br/>
+<img src="img/22f_pm_q01_02.png"><br/>
+<strong><font size="2">注</strong>　読込みデータ及び書込みデータはすべて16ビット</font></p>
+<hr>
+<p><strong><a name="11">設問1</a></strong>　下位けたの7セグメントLEDに図2のように“5”を表示したい。出力ポートのビット7～0に設定すべき形状データとして正しい答えを，解答群の中から選べ。ここで，形状データはビット7を最上位ビットとする16進数で表記する。</p>
+<p><img src="img/22f_pm_q01_03.png"><br/>
+<strong>図2　“5”の表示</strong></p>
+<p>解答群<br/>
+ア　66　　　イ　B6　　　ウ　BE　　　エ　DA　　　オ　F2</p>
+<hr>
+<a href="22F_P_A1.HTM#11">設問1の正解例と解説へ</a>
+<hr>
+<p><a name="12"><strong>設問2</strong></a>　タイマ割込み発生時に起動される割込みプログラムについて，その処理の流れを図3に示す。図3の処理中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+　なお，処理中で使用している擬似命令の意味は表2のとおりとする。<br/>
+<p><strong>表2　擬似命令</strong><br/>
+<img src="img/22f_pm_q01_04.png"><br/>
+<strong><font size="2">注</strong>　GRはCPUのレジスタ</font></p>
+<p><img src="img/22f_pm_q01_05.png"><br/>
+<strong>図3　割込みプログラムの処理の流れ</strong></p>
+<p>解答群<br/>
+ア　INPUT 1<br/>
+イ　INPUT 2<br/>
+ウ　OUTPUT 1<br/>
+エ　OUTPUT 2<br/>
+オ　OUTPUT 3</p>
+<hr>
+<a href="22F_P_A1.HTM#12">設問2の正解例と解説へ</a>
+<hr>
+<p><strong><a name="13">設問3</a></strong>　割込みプログラムの中で呼び出す手続DISPLAYの仕様と実行例は次のとおりである。実行例に関する記述中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p>〔手続DISPLAYの仕様〕<br/>
+　DISPLAYはGRに設定されたデータが示す値を表示器に表示する。7セグメントLEDに“0”～“9”の数字を表示するために，それぞれ8ビットからなる10個の形状データを表としてプログラム中に保持している。<br/>
+　GRに設定されたデータは，検出した温度に対応する0～99の16ビット符号なし2進数であり，このまま出力ポートに設定しても意図した表示にはならない。GRの内容を図4のとおり2けたのBCD（2進化10進数）に変換し，表を引き，各けたに対応した形状データを図5のとおりにGRに設定して出力ポートに書き込む。</p>
+<p><img src="img/22f_pm_q01_06.png"><br/>
+<strong>図4　BCD変換後のGRの内容</strong></p>
+<p><img src="img/22f_pm_q01_07.png"><br/>
+<strong>図5　出力ポートに書き込むGRの内容</strong></p>
+<p>〔手続DISPLAYの実行例〕<br/>
+　図5のGRの内容が16進数表記でFEFCであったとき，BCD値を格納していた図4のGRの内容は16進数表記で［　　c　　］であり，割込みプログラムから手続DISPLAYに渡されたGRの内容は16進数表記で［　　d　　］である。</p>
+<p>cに関する解答群<br/>
+ア　0008　　　イ　0309　　　ウ　0800　　　エ　0903　　　オ　0907</p>
+<p>dに関する解答群<br/>
+ア　0008　　　イ　0027　　　ウ　0050　　　エ　005D　　　オ　0061</p>
+<hr>
+<a href="22F_P_A1.HTM#13">設問3の正解例と解説へ</a>
+<hr>
+<a href="INDEX.HTM">■メニューへ戻る</a>
+<hr>
+<p><strong><a name="20">問2</a></strong>　コールセンターの対応記録管理に関する次の記述を読んで，設問1～4に答えよ。</p>
+<p>　F社では，新しいソフトウェア製品の発売と同時に，そのソフトウェア製品に関する質問を受けるコールセンターを開設することにした。コールセンターでの対応内容は，すべてデータベースに記録する。</p>
+<p>〔コールセンターの業務〕<br/>
+（1）製品を購入した利用者には，一意な利用者IDが発行されている。質問を受ける際は，この利用者IDを通知してもらう。<br/>
+（2）対応内容をデータベースに記録する際，その質問の原因を特定する種別を設定する。種別とは，“マニュアル不備”，“使用法誤解”などの情報である。それぞれの種別に対して一意に種別IDを割り当てる。<br/>
+（3）データベースを検索し，過去に同じ種別IDをもつ類似の質問があった場合は，その受付番号を類似受付番号として記録しておく。</p>
+<p>　図1は，これらの業務を基に，データベースを構成するデータ項目を抽出したものである。下線付きの項目は主キーを表す。</p>
+<p><img src="img/22f_pm_q02_01.png"><br/>
+<strong>図1　データベースを構成するデータ項目</strong></p>
+<hr>
+<p><strong><a name="21">設問1</a></strong>　図1に示したデータ項目を正規化して図2に示す表を設計し，運用を始めた。実施した正規化に関する説明文の［　　　　　］に入れる正しい答えを，解答群の中から選べ。<br/>
+<p><img src="img/22f_pm_q02_02.png"><br/>
+<strong>図2　正規化検討後の表</strong></p>
+<p>　図1に示した状態は非正規形と呼ばれ，1事実1か所の関係が成立していないので，重複更新，事前登録，関係喪失などの問題がある。このため，第1正規化から順に第3正規化までを行うことにした。<br/>
+　まず，第1正規化の作業では，［　　a　　］。次に，第2正規化の作業では，［　　b　　］。そして，第3正規化の作業では，［　　c　　］。</p>
+<p>解答群<br/>
+ア　受付番号と類似受付番号の組合せを主キーとし，繰返し要素を排除した<br/>
+イ　既に当該正規形に準じていたので，適用は不要だった<br/>
+ウ　データ参照時の処理性能を考慮し，質問と回答を一つの表で管理するようにした<br/>
+エ　利用者表，サポート員表及び種別表を作成し，主キー以外の項目における関数従属性を排除した<br/>
+オ　類似表を作成し，主キーの一部における関数従属性を排除した</p>
+<hr>
+<a href="22F_P_A1.HTM#21">設問1の正解例と解説へ</a>
+<hr>
+<p><strong><a name="22">設問2</a></strong>　ある利用者から“オプションの指定方法”に関する質問を受けた。過去に類似の質問があったかどうかを確認するため，“オプション”というキーワードを含む質問をすべて抽出する。次のSQL文の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p><code>SELECT </code>対応表<code>.</code>受付番号<code>, </code>利用者表<code>.</code>利用者名<code>, </code>対応表<code>.</code>質問<br/>
+　<code>   FROM </code>対応表<code>, </code>利用者表<br/>
+　<code>   WHERE </code>対応表<code>.</code>利用者<code>ID = </code>利用者表<code>.</code>利用者<code>ID</code><br/>
+　　　　<code>         AND </code>［　　　　　］</p>
+<p>解答群<br/>
+ア　質問<code> ANY ('%</code>オプション<code>%')</code>　　　イ　質問<code> ANY ('_</code>オプション<code>_')</code><br/>
+ウ　質問<code> IN ('%</code>オプション<code>%')</code>　　　エ　質問<code> IN ('_</code>オプション<code>_')</code><br/>
+オ　質問<code> LIKE '%</code>オプション<code>%'</code>　　　カ　質問<code> LIKE '_</code>オプション<code>_'</code></p>
+<hr>
+<a href="22F_P_A1.HTM#22">設問2の正解例と解説へ</a>
+<hr>
+<p><strong><a name="23">設問3</a></strong>　製品のバージョンアップに当たり，コールセンターの対応記録を参考にして機能改善を検討することにした。種別が“使用法誤解”であった質問を抽出し，類似件数の多い順に表示する。次のSQL文の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p><code>SELECT </code>類似受付番号<code>, COUNT(*) FROM </code>対応表<code>, </code>種別表<code>, </code>類似表<br/>
+　<code>   WHERE </code>［　　　　　］<br/>
+　<code>   ORDER BY COUNT(*) DESC</code></p>
+<p>解答群<br/>
+ア　対応表<code>.</code>種別<code>ID = (SELECT </code>種別<code>ID FROM </code>種別表<code> WHERE </code>種別<code> = '</code>使用法誤解<code>')</code><br/>
+　　<code>GROUP BY </code>類似表<code>.</code>類似受付番号<br/>
+イ　対応表<code>.</code>種別<code>ID = (SELECT </code>種別<code>ID FROM </code>種別表<code> WHERE </code>種別<code> = '</code>使用法誤解<code>')</code><br/>
+　　<code>AND </code>対応表<code>.</code>受付番号<code> = </code>類似表<code>.</code>受付番号<code> GROUP BY </code>類似表<code>.</code>受付番号<br/>
+ウ　対応表<code>.</code>種別<code>ID = </code>種別表<code>.</code>種別<code>ID AND </code>対応表<code>.</code>受付番号<code> = </code>類似表<code>.</code>受付番号<br/>
+　　<code>AND </code>種別表<code>.</code>種別<code> = '</code>使用法誤解<code>' GROUP BY </code>類似表<code>.</code>受付番号<br/>
+エ　対応表<code>.</code>種別<code>ID = </code>種別表<code>.</code>種別<code>ID AND </code>対応表<code>.</code>受付番号<code> = </code>類似表<code>.</code>受付番号<br/>
+　　<code>AND </code>種別表<code>.</code>種別<code> = '</code>使用法誤解<code>' GROUP BY </code>類似表<code>.</code>類似受付番号</p>
+<hr>
+<a href="22F_P_A1.HTM#23">設問3の正解例と解説へ</a>
+<hr>
+<p><strong><a name="24">設問4</a></strong>　新たに提供する製品に関する質問を記録するために，現在の表に製品型番の列を追加して製品を識別できるようにする。表の拡張と同時に，これまで蓄積した情報の製品型番の列にはすべて“A001”を設定する。正しいSQL文を，解答群の中から選べ。</p>
+<p>解答群<br/>
+ア　<code>ALTER TABLE </code>対応表<code> ADD </code>製品型番<code> CHAR(4) DEFAULT 'A001' NOT NULL</code><br/>
+イ　<code>ALTER TABLE </code>対応表<code> MODIFY </code>製品型番<code> CHAR(4) DEFAULT 'A001' NOT NULL</code><br/>
+ウ　<code>CREATE TABLE </code>対応表<code> (</code>製品型番<code> CHAR(4) DEFAULT 'A001')</code><br/>
+エ　<code>INSERT INTO </code>対応表<code> </code>製品型番<code> VALUES 'A001'</code></p>
+<hr>
+<a href="22F_P_A1.HTM#24">設問4の正解例と解説へ</a>
+<hr>
+<a href="INDEX.HTM">■メニューへ戻る</a>
+<hr>
+<a href="22F_P_E2.HTM#30">■問3へ進む</a>
+<hr>
+</blockquote>
+</body>
+</html>

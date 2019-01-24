@@ -1,0 +1,378 @@
+<HTML>
+<HEAD>
+<TITLE>平成11年度春期試験　問題(問1～2)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0">
+<BLOCKQUOTE>
+<hr>
+<H3 align="center">平成年11度春期試験　問題(午後問1～問2)</H3>
+<basefont size="3">
+<hr>
+<br>
+<b>次の問1、問2は必須問題です。全問解答してください。</b><br>
+<HR WIDTH=100%>
+<A NAME="10">
+<b>
+問1</b></a><b>　</b>次の<font size="3">流れ図の説明及び流</font>れ図を読んで、設問に答えよ。
+<p>〔流れ図の説明〕<br>
+10進数の文字列を、n進数（2≦n≦16）の文字列に変換する。</p>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">(1)</td>
+    <td>10進数の文字列は配列Aに、文字長は変数ALに格納されている。各文字は最上位のけたから順に、A[1]、A[2]、…、A[AL]に格納されている。</td>
+  </tr>
+  <tr>
+    <td valign="top">(2)</td>
+    <td>nの値は、変数 BASEに格納されている。</td>   
+  </tr>   
+  <tr>   
+    <td valign="top">(3)</td>   
+    <td>変換したn進数の文字列は配列Bに、文字長は変数BLに格納する。各文字は最上位のけたから順に、B[1]、B[2]、…、B[BL]に格納する。</td>   
+  </tr>   
+  <tr>   
+    <td valign="top">(4)</td>   
+    <td>利用する三つの関数の仕様は、次のとおりである。   
+      <table border="0" cellpadding="3" cellspacing="0">   
+        <tr>   
+          <td valign="top">①</td>   
+          <td>TOINT(CH)：10進数の1文字CHを、整数に変換する。<br>   
+            例えば、TOINT(“9”)＝9である。</td>   
+        </tr>   
+        <tr>   
+          <td valign="top">②</td>   
+          <td>TOCHR(IN)：0～ 15の整数INを、16進数の1文字に変換する。<br>   
+            例えば、TOCHR(11)＝“B”である。</td>   
+        </tr>   
+        <tr>   
+          <td valign="top">③</td>   
+          <td>MOD(IN、BS)：整数 INを整数BSで割ったときの余りを求める。<br>   
+            例えば、MOD(13、5)＝3である。</td>   
+        </tr>   
+      </table>   
+    </td>   
+  </tr>   
+  <tr>   
+    <td valign="top">(5)</td>   
+    <td>変換の手順は、次のとおりである。   
+      <table border="0" cellpadding="3" cellspacing="0">   
+        <tr>   
+          <td valign="top">①</td>   
+          <td>配列Aの内容が、符号付き又は符号なしの10進数の文字列の場合は、整数に変換する。それ以外の場合は、変数BLの値を0にして終了する。</td>   
+        </tr>   
+        <tr>   
+          <td valign="top">②</td>   
+          <td>整数をn進数の文字列に変換し、いったん最下位のけたから順にB[1]、B[2]、…、B[BL]に格納する。</td>   
+        </tr>   
+        <tr>   
+          <td valign="top">③</td>   
+          <td>配列Bの内容を逆順に並べ替える。</td>   
+        </tr>   
+      </table>   
+    </td>   
+  </tr>   
+</table>   
+<p>〔流れ図〕<br>   
+<img border="0" src="image/A99s01f1.gif" width="530" height="671"><br>  
+<A NAME="10">  
+<HR WIDTH=100%>  
+</a><a NAME="11"> 
+<b> 
+設問</b></a><b>　</b> 
+<p>設問　流れ図中の<img border="0" src="image/box.gif" width="58" height="17">に入れる正しい答えを、解答群の中から選べ。ただし、除算した結果の小数点以下は切捨てとする。 
+<p>a、bに関する解答群<br> 
+　　ア　DEC×10＋INT　→　DEC<br>
+　　イ　DEC×BASE　→　DEC<br>
+　　ウ　DEC×BASE＋INT　→　DEC<br>
+　　エ　DEC÷10＋INT　→　DEC<br>
+　　オ　DEC÷BASE　→　DEC<br>
+　　カ　DEC÷BASE＋INT　→　DEC
+<p>ｃに関する解答群
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td width="120">ア　LI＝UI</td>
+    <td width="120">イ　LI≠UI</td>
+    <td width="120">ウ　LI≦UI</td>
+  </tr>
+  <tr>
+    <td>エ　LI≧UI</td>
+    <td>オ　LI＞BL</td>
+    <td>カ　UI＝0</td>
+  </tr>
+</table>
+<p>　</p>
+<A NAME="11">
+<HR WIDTH=100%>
+</a>
+<A HREF="11s_p_a1.htm#11">設問の正解例と解説へ</A>
+<HR WIDTH=100%>
+<a NAME="20">　<br>
+<b>問2</b></a><b>　</b>次の流れ図の説明及び流れ図を読んで、設問    
+1、2に答えよ。   
+<p>〔流れ図の説明〕<br>   
+　N行 N列の配列Aの各要素に数値が入っている。これらの数値の配置に規則性があるかどうかを判定する。<br>   
+　
+<table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolor="#FFFFFF" bordercolordark="#FFFFFF">
+  <tr>
+    <td width="20" align="center">　</td>
+    <td width="20" align="center">1</td>
+    <td width="20" align="center">2</td>
+    <td width="20" align="center">･･･</td>
+    <td width="20" align="center">N</td>
+  </tr>
+  <tr>
+    <td width="20" align="center">1</td>
+    <td width="20" align="center">5</td>
+    <td width="20" align="center">8</td>
+    <td width="20" align="center">･･･</td>
+    <td width="20" align="center">3</td>
+  </tr>
+  <tr>
+    <td width="20" align="center">2</td>
+    <td width="20" align="center">12</td>
+    <td width="20" align="center">37</td>
+    <td width="20" align="center">･･･</td>
+    <td width="20" align="center">2</td>
+  </tr>
+  <tr>
+    <td width="20" align="center">：</td>
+    <td width="20" align="center">：</td>
+    <td width="20" align="center">：</td>
+    <td width="20" align="center">：</td>
+    <td width="20" align="center">：</td>
+  </tr>
+  <tr>
+    <td width="20" align="center">N</td>
+    <td width="20" align="center">6</td>
+    <td width="20" align="center">1</td>
+    <td width="20" align="center">･･･</td>
+    <td width="20" align="center">7</td>
+  </tr>
+</table>
+<p>図　配列Aの例<br>
+　<br>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>(1)</td>
+    <td>第x行、第y列の要素は、A(x、y)で参照する。ここで、1≦x≦N、1≦y≦Nとする。</td>
+  </tr>
+  <tr>
+    <td>(2)</td>
+    <td>各要素の数値の配置が、ある規則に従っていれば“Yes”を、そうでなければ“No”を出力する。</td>
+  </tr>
+</table>
+<p>　<br>
+〔流れ図〕<br>
+<img border="0" src="image/A99s02f2.gif" width="392" height="358">
+<p>　</p>
+<hr>
+<p>
+<b><a name="21">設問1</a></b>　“Yes”が出力される配列の場合、流れ図中のαは何回実行されるか。正しい答えを、解答群の中から選べ。<br>
+</p>
+<p>解答群
+<table border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td>ア　　</td>
+    <td>
+      <div align="right">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr>
+            <td>1</td>
+          </tr>
+          <tr>
+            <td><span style="text-decoration: overline">2</span></td>
+          </tr>
+        </table>
+      </div>
+    </td>
+    <td>N(N+1)</td>
+    <td>　　　イ　　</td>
+    <td>
+      <div align="right">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr>
+            <td>1</td>
+          </tr>
+          <tr>
+            <td><span style="text-decoration: overline">2</span></td>
+          </tr>
+        </table>
+      </div>
+    </td>
+    <td>N(N-1)</td>
+    <td>　　　ウ　　</td>
+    <td>
+      <table border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td><span style="text-decoration: overline">2</span></td>
+        </tr>
+      </table>
+    </td>
+    <td>N<sup>2</sup></td>
+  </tr>
+  <tr>
+    <td>エ　　</td>
+    <td>2N</td>
+    <td></td>
+    <td>　　　オ</td>
+    <td>N<sup>2</sup></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+<p>　</p>
+<HR WIDTH=100%>
+<a HREF="11s_p_a1.htm#21">設問1の正解例と解説へ</a>
+<HR WIDTH=100%>
+<p>
+<b><a name="22">設問2</a>　</b>次の記述中の[　　　]に入れる正しい答えを、解答群の中から選べ。<br>
+　
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">(1)</td>
+    <td>N＝4の場合、流れ図を実行すると“Yes”と出力される配列は[　a　]である。</td>
+  </tr>
+  <tr>
+    <td valign="top">(2)</td>
+    <td>流れ図中のαの条件を次のように変更した。
+      <p>A(x、N－y＋1)：A(y、N－x＋1)</p>
+      <p>N＝4の場合、流れ図を実行すると“Yes”と出力される配列は[　b　]である。</td>
+  </tr>
+</table>
+<p>解答群<br>
+</p>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">ア</td>
+    <td>
+      <table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolor="#FFFFFF" bordercolordark="#FFFFFF">
+        <tr>
+          <td>1</td>
+          <td>2</td>
+          <td>2</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>53</td>
+          <td>53</td>
+          <td>4</td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td>72</td>
+          <td>72</td>
+          <td>12</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>3</td>
+          <td>3</td>
+          <td>8</td>
+        </tr>
+      </table>
+    </td>
+    <td valign="top">イ</td>
+    <td>
+      <table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolor="#FFFFFF" bordercolordark="#FFFFFF">
+        <tr>
+          <td>1</td>
+          <td>2</td>
+          <td>12</td>
+          <td>8</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>53</td>
+          <td>72</td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td>72</td>
+          <td>4</td>
+          <td>91</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>3</td>
+          <td>91</td>
+          <td>6</td>
+        </tr>
+      </table>
+    </td>
+    <td valign="top">ウ</td>
+    <td>
+      <table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolor="#FFFFFF" bordercolordark="#FFFFFF">
+        <tr>
+          <td>1&nbsp;</td>
+          <td>2</td>
+          <td>12</td>
+          <td>8</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>53</td>
+          <td>72</td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>53</td>
+          <td>72</td>
+          <td>3&nbsp;</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>2</td>
+          <td>12</td>
+          <td>8</td>
+        </tr>
+      </table>
+    </td>
+    <td valign="top">エ</td>
+    <td>
+      <table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolor="#FFFFFF" bordercolordark="#FFFFFF">
+        <tr>
+          <td>8</td>
+          <td>12</td>
+          <td>2</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>72</td>
+          <td>53</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>91</td>
+          <td>4</td>
+          <td>72</td>
+          <td>12</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>91</td>
+          <td>3</td>
+          <td>8</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<p>　</p>
+<hr>
+<p><a HREF="11s_p_a1.htm#22">設問2の正解例と解説へ</a></p>
+<hr>
+<p align="center"><a HREF="11s_p_e2.htm">■問3へ進む</a>　　　　<a href="index.htm">■メニューへ戻る</a>
+</p>
+<HR WIDTH=100%>
+</BLOCKQUOTE>
+<p>　
+</BODY>
+</HTML>

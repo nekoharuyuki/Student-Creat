@@ -1,0 +1,435 @@
+<html>
+
+<head>
+<title>平成17年度秋期試験　問題（午前問61～問80）</title>
+<style>
+<!--
+pre          { font-size: 12pt }
+p            { line-height: 175% }
+-->
+</style>
+</head>
+
+<body>
+
+<blockquote>
+<hr>
+<div align="center">
+<h3>平成17年度秋期試験　問題（午前問61～問80）</h3>
+</div>
+<hr>
+<p>次の問1から問80まですべて必須問題です。全問について解答してください。<br>
+解答は，ア～エの中から一つ選んでください。</p>
+<hr>
+<p><strong><a name="61">問61</a></strong>　“商品”表のデータが次の状態のとき，〔ビュー定義〕で示すビュー“収益商品”表に現れる行数が減少する更新処理はどれか。</p>
+<p><img border="0" src="IMAGE/H17f-61.gif" width="511" height="158"></p>
+<p>〔ビュー定義〕</p>
+<pre>　CREATE VIEW 収益商品
+　&nbsp;&nbsp;&nbsp;AS SELECT * FROM 商品
+　&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WHERE 売値 - 仕入値 &gt;= 40000</pre>
+<p>
+　ア　型式がR2003の売値を130,000に更新する。</p>
+<p>
+　イ　型式がR2003の仕入値を90,000に更新する。</p>
+<p>
+　ウ　型式がS2003の仕入値を150,000に更新する。</p>
+<p>
+　エ　型式がT2003の売値を130,000に更新する。</p>
+<hr>
+<a href="17F_A_A4.HTM#61">問61の正解例と解説へ</a>
+<hr>
+<p><strong><a name="62">問62</a></strong>　“学生”表と“学部”表に対し次のSQL文を実行した結果として，正しいものはどれか。</p>
+<pre>　SELECT 氏名 FROM 学生,学部
+　    WHERE 所属 = 学部名 AND 学部.住所 = '新宿'
+</pre>
+<p><img border="0" src="IMAGE/H17f-62.gif" width="598" height="344"></p>
+<hr>
+<a href="17F_A_A4.HTM#62">問62の正解例と解説へ</a>
+<hr>
+<p><strong><a name="63">問63</a></strong>
+分散データベースシステムにおいて，一連のトランザクション処理を行う複数サイトに更新可能かどうかを問い合わせ，すべてのサイトが更新可能であることを確認した後，データベースの更新処理を行う方式はどれか。</p>
+<table border="0" cellspacing="12pt" id="AutoNumber2" cellpadding="0">
+  <tr>
+    <td width="50%">ア　2相コミット</td>
+    <td width="50%">イ　排他制御</td>
+  </tr>
+  <tr>
+    <td width="50%">ウ　ロールバック</td>
+    <td width="50%">エ　ロールフォワード</td>
+  </tr>
+</table>
+<hr>
+<a href="17F_A_A4.HTM#63">問63の正解例と解説へ</a>
+<hr>
+<p><strong><a name="64">問64</a></strong>　電子メールを暗号化することによる効果はどれか。</p>
+<table border="0" cellspacing="12pt" id="AutoNumber3" cellpadding="0">
+  <tr>
+    <td valign="top">ア</td>
+    <td>暗号化かぎの紛失を防止できる。</td>
+  </tr>
+  <tr>
+    <td valign="top">イ</td>
+    <td>電子メールの内容の漏えいを防止できる。</td>
+  </tr>
+  <tr>
+    <td valign="top">ウ</td>
+    <td>メールサーバの送信記録を改ざんから保護できる。</td>
+  </tr>
+  <tr>
+    <td valign="top">エ</td>
+    <td>メールサービスの妨害攻撃を防止できる。</td>
+  </tr>
+</table>
+<hr>
+<a href="17F_A_A4.HTM#64">問64の正解例と解説へ</a>
+<hr>
+<p><strong><a name="65">問65</a></strong>　コンピュータウイルスを発見したときの適切な対処はどれか。</p>
+<table border="0" cellspacing="12pt" id="AutoNumber3" cellpadding="0">
+  <tr>
+    <td valign="top">ア</td>
+    <td>ウイルス感染時の動作特性からウイルス名を特定するために，動作の再現性を確認する。</td>
+  </tr>
+  <tr>
+    <td valign="top">イ</td>
+    <td>短時間のうちに広範囲に感染するワームが発見されても，オンライン業務システムとして稼働中の場合は，そのままの状態でウイルス対策を進める。</td>
+  </tr>
+  <tr>
+    <td valign="top">ウ</td>
+    <td>ネットワークを経由してほかのコンピュータに感染する可能性があるので，まず感染したコンピュータをネットワークから切り離す。</td>
+  </tr>
+  <tr>
+    <td valign="top">エ</td>
+    <td>メモリ上にウイルスプログラムが展開されている可能性があるので，まずコンピュータの電源を切る。</td>
+  </tr>
+</table>
+<hr>
+<a href="17F_A_A4.HTM#65">問65の正解例と解説へ</a>
+<hr>
+<p><strong><a name="66">問66</a></strong>　利用者IDとパスワードの適切な運用管理方法はどれか。</p>
+<table border="0" cellspacing="12pt" id="AutoNumber3" cellpadding="0">
+  <tr>
+    <td valign="top">ア</td>
+    <td>管理作業を簡素化するために，現在使用されていない利用者IDとパスワードを再利用する。</td>
+  </tr>
+  <tr>
+    <td valign="top">イ</td>
+    <td>トラブル処理を迅速化するために，利用者IDとパスワードの一覧表を作成し，管理者が保管する。</td>
+  </tr>
+  <tr>
+    <td valign="top">ウ</td>
+    <td>パスワードを他人に悪用されるのを防止するために，利用者が自分のパスワードをいつでも自由に変更できるようにする。</td>
+  </tr>
+  <tr>
+    <td valign="top">エ</td>
+    <td>利便性を向上させるために，利用者登録申請書が届く前に，人事異動速報を見て新任者の利用者IDと仮のパスワードを登録する。</td>
+  </tr>
+</table>
+<hr>
+<a href="17F_A_A4.HTM#66">問66の正解例と解説へ</a>
+<hr>
+<p><strong><a name="67">問67</a></strong>
+ネットワーク障害の原因を調べるために使用するLANアナライザの運用上の注意点はどれか。</p>
+<table border="0" cellspacing="12pt" id="AutoNumber3" cellpadding="0">
+  <tr>
+    <td valign="top">ア</td>
+    <td>LANアナライザにはネットワークを通過するパケットを表示できるものがあるので，盗聴などに悪用されないように注意する必要がある。</td>
+  </tr>
+  <tr>
+    <td valign="top">イ</td>
+    <td>障害発生に備えて，ネットワーク利用者にLANアナライザの保管場所と使用方法を周知しておく必要がある。</td>
+  </tr>
+  <tr>
+    <td valign="top">ウ</td>
+    <td>測定中は，本来通信すべきあて先のパケットを破棄してしまうので，測定対象外のコンピュータ利用を制限しておく必要がある。</td>
+  </tr>
+  <tr>
+    <td valign="top">エ</td>
+    <td>測定に当たって，LANケーブルを一時的に切断する必要があるので，利用者に対して測定日を事前に知らせておく必要がある。</td>
+  </tr>
+</table>
+<hr>
+<a href="17F_A_A4.HTM#67">問67の正解例と解説へ</a>
+<hr>
+<p><strong><a name="68">問68</a></strong>
+経済産業省“ソフトウェア管理ガイドライン”におけるソフトウェア管理責任者が実施すべき要求事項はどれか。</p>
+<table border="0" cellspacing="12pt" id="AutoNumber3" cellpadding="0">
+  <tr>
+    <td valign="top">ア</td>
+    <td>ソフトウェア使用許諾契約に規定された使用条件を，すべてのソフトウェアユーザに周知徹底すること</td>
+  </tr>
+  <tr>
+    <td valign="top">イ</td>
+    <td>ソフトウェアのインストールを一括して行うこと</td>
+  </tr>
+  <tr>
+    <td valign="top">ウ</td>
+    <td>ソフトウェアの不正使用を防止する観点から，ソフトウェアの使用等の責任者を任命し，ソフトウェアの管理体制を整備すること</td>
+  </tr>
+  <tr>
+    <td valign="top">エ</td>
+    <td>法人が保有するコンピュータに，個々の担当者が必要とするソフトウェアをインストールすることを，資産管理上及び安全上の観点から禁止すること</td>
+  </tr>
+</table>
+<hr>
+<a href="17F_A_A4.HTM#68">問68の正解例と解説へ</a>
+<hr>
+<p><strong><a name="69">問69</a></strong>　JIS Q 9001（ISO
+9001）に基づく品質マネジメントシステムの運用に関する記述のうち，適切なものはどれか。</p>
+<table border="0" cellspacing="12pt" id="AutoNumber3" cellpadding="0">
+  <tr>
+    <td valign="top">ア</td>
+    <td>組織内では幾つかの活動があり，その内容が異なっても，品質目標は統一して定めることが品質確保に効果的である。</td>
+  </tr>
+  <tr>
+    <td valign="top">イ</td>
+    <td>品質マニュアルが現実に守られないケースが多く発生した場合でも，一定期間継続してそのマニュアルを使用する。</td>
+  </tr>
+  <tr>
+    <td valign="top">ウ</td>
+    <td>品質マネジメントシステムは国際規格に準じて構築されるので，プロセスの実施状況から手順を見直すことなく運用できる。</td>
+  </tr>
+  <tr>
+    <td valign="top">エ</td>
+    <td>よく吟味されて作成された品質マネジメントシステムでも，運用段階で不都合があった場合は，正規の手続を経て変更する。</td>
+  </tr>
+</table>
+<hr>
+<a href="17F_A_A4.HTM#69">問69の正解例と解説へ</a>
+<hr>
+<p><strong><a name="70">問70</a></strong>　“共通フレーム98（SLCP-JCF98）”に関する記述として，適切なものはどれか。</p>
+<table border="0" cellspacing="12pt" id="AutoNumber3" cellpadding="0">
+  <tr>
+    <td valign="top">ア</td>
+    <td>IEEE版ソフトウェアライフサイクルプロセス（SLCP）の規格である。</td>
+  </tr>
+  <tr>
+    <td valign="top">イ</td>
+    <td>ISO 9001における品質マネジメントシステムの国際規格である。</td>
+  </tr>
+  <tr>
+    <td valign="top">ウ</td>
+    <td>ISO/IECによって，ISO 12207として制定されたSLCPの国際規格である。</td>
+  </tr>
+  <tr>
+    <td valign="top">エ</td>
+    <td>日本国内のユーザ，ベンダ，学識経験者が共同で策定した，国内版SLCPの共通フレームである。</td>
+  </tr>
+</table>
+<hr>
+<a href="17F_A_A4.HTM#70">問70の正解例と解説へ</a>
+<hr>
+<p><strong><a name="71">問71</a></strong>　企業経営で用いられるベンチマーキングを説明したものはどれか。</p>
+<table border="0" cellspacing="12pt" id="AutoNumber3" cellpadding="0">
+  <tr>
+    <td valign="top">ア</td>
+    <td>業務のプロセスを再設計し，情報技術を十分に活用して，企業の体質や構造を抜本的に変革することである。</td>
+  </tr>
+  <tr>
+    <td valign="top">イ</td>
+    <td>
+    経営目標設定の際のベストプラクティスを求めるために，最強の競合相手又は先進企業と比較して，製品，サービス及び実践方法を定性的・定量的に把握することである。</td>
+  </tr>
+  <tr>
+    <td valign="top">ウ</td>
+    <td>
+    品質向上のために，あらゆる部門が一体となって品質管理を推進し，自社製品の品質向上度を検討し，他社競合製品の品質と比較することである。</td>
+  </tr>
+  <tr>
+    <td valign="top">エ</td>
+    <td>利益をもたらすことのできる，他社より優越した自社独自のスキルや技術を選び出すことである。</td>
+  </tr>
+</table>
+<hr>
+<a href="17F_A_A4.HTM#71">問71の正解例と解説へ</a>
+<hr>
+<p><strong><a name="72">問72</a></strong>　財務指標に関する記述のうち，適切なものはどれか。</p>
+<table border="0" cellspacing="12pt" id="AutoNumber3" cellpadding="0">
+  <tr>
+    <td valign="top">ア</td>
+    <td>固定比率は，固定負債に対する固定資産の割合であり，その値が小さいほど安全性が高い。</td>
+  </tr>
+  <tr>
+    <td valign="top">イ</td>
+    <td>自己資本比率は，固定資産に対する自己資本の割合であり，その値が大きいほど堅実性が高い。</td>
+  </tr>
+  <tr>
+    <td valign="top">ウ</td>
+    <td>総資本利益率は，総資本に対する利益の割合であり，その値が大きいほど収益性が高い。</td>
+  </tr>
+  <tr>
+    <td valign="top">エ</td>
+    <td>流動比率は，流動負債に対する流動資産の割合であり，その値が小さいほど安全性が高い。</td>
+  </tr>
+</table>
+<hr>
+<a href="17F_A_A4.HTM#72">問72の正解例と解説へ</a>
+<hr>
+<p><strong><a name="73">問73</a></strong>　材料の払出単価の計算方法のうち，総平均法を説明したものはどれか。</p>
+<table border="0" cellspacing="12pt" id="AutoNumber3" cellpadding="0">
+  <tr>
+    <td valign="top">ア</td>
+    <td>期初在庫の評価額と購入した材料の総額との合計額をその総数量で割り，払出単価を算出する。</td>
+  </tr>
+  <tr>
+    <td valign="top">イ</td>
+    <td>
+    購入した都度，購入価額を記録し，最も新しく購入した材料の購入価額と最も古く購入した材料の購入価額との平均をとり，払出単価を算出する。</td>
+  </tr>
+  <tr>
+    <td valign="top">ウ</td>
+    <td>購入した都度，そのときの在庫金額と購入価額との合計額を，在庫数量と購入数量との合計数量で割り，払出単価を算出する。</td>
+  </tr>
+  <tr>
+    <td valign="top">エ</td>
+    <td>
+    前年度の期初在庫の評価額と期末在庫の評価額との合計額を，期初在庫数量と期末在庫数量との合計数量で割り，払出単価を算出する。</td>
+  </tr>
+</table>
+<hr>
+<a href="17F_A_A4.HTM#73">問73の正解例と解説へ</a>
+<hr>
+<p><strong><a name="74">問74</a></strong>　ABC分析手法の適用例はどれか。</p>
+<table border="0" cellspacing="12pt" id="AutoNumber3" cellpadding="0">
+  <tr>
+    <td valign="top">ア</td>
+    <td>地域を格子状の複数の区画に分け，様々なデータ（人口，購買力など）に基づいて，より細かに地域分析をする。</td>
+  </tr>
+  <tr>
+    <td valign="top">イ</td>
+    <td>何回も同じパネル（回答者）に反復調査する。そのデータで地域の傾向や購入層の変化を把握する。</td>
+  </tr>
+  <tr>
+    <td valign="top">ウ</td>
+    <td>
+    販売金額，粗利益金額などが高い商品から順番に並べ，その累計比率によって商品を幾つかの階層に分け，高い階層に属する商品の販売量の拡大を図る。</td>
+  </tr>
+  <tr>
+    <td valign="top">エ</td>
+    <td>複数の調査データを要因ごとに区分し，集計することによって，関連販売力の分析や同一商品の購入状況などを分析する。</td>
+  </tr>
+</table>
+<hr>
+<a href="17F_A_A4.HTM#74">問74の正解例と解説へ</a>
+<hr>
+<p><strong><a name="75">問75</a></strong>　レーダチャートを説明したものはどれか。</p>
+<table border="0" cellspacing="12pt" id="AutoNumber3" cellpadding="0">
+  <tr>
+    <td valign="top">ア</td>
+    <td>原因と結果の関連を魚の骨のような形状として体系的にまとめ，結果に対してどのような原因が関連しているかを明確にする。</td>
+  </tr>
+  <tr>
+    <td valign="top">イ</td>
+    <td>作業別に実施期間の予定と実績を棒状に図示し，作業の進捗状況を表す。</td>
+  </tr>
+  <tr>
+    <td valign="top">ウ</td>
+    <td>複数の項目に対応する放射状の各軸上に，基準値に対する度合いをプロットし，各点を結んで全体のバランスを比較する。</td>
+  </tr>
+  <tr>
+    <td valign="top">エ</td>
+    <td>棒グラフと折れ線グラフを組み合わせて全体に占める各項目の累計比率を図示し，管理上の重要項目を示す。</td>
+  </tr>
+</table>
+<hr>
+<a href="17F_A_A4.HTM#75">問75の正解例と解説へ</a>
+<hr>
+<p><strong><a name="76">問76</a></strong>　QCにおける管理図を説明したものはどれか。</p>
+<table border="0" cellspacing="12pt" id="AutoNumber3" cellpadding="0">
+  <tr>
+    <td valign="top">ア</td>
+    <td>作業の前後関係を整理して矢印で表現したネットワーク図を作成し，工程上のボトルネックを発見して日程計画に役立てる。</td>
+  </tr>
+  <tr>
+    <td valign="top">イ</td>
+    <td>
+    中央線と上下一対の限界線を引いて，製品などの特性値をプロットし，品質不良や製造工程の異常を検出して不良原因の除去や再発防止に役立てる。</td>
+  </tr>
+  <tr>
+    <td valign="top">ウ</td>
+    <td>不良品などの件数や損失金額を原因別に分類し，数値の大きい順に並べてその累積値によって改善効果の高い項目を把握する。</td>
+  </tr>
+  <tr>
+    <td valign="top">エ</td>
+    <td>問題に対し，その原因と考えられる要素との関連を魚の骨のような図に整理し，本質的な原因を追求して解決に役立てる。</td>
+  </tr>
+</table>
+<hr>
+<a href="17F_A_A4.HTM#76">問76の正解例と解説へ</a>
+<hr>
+<p><strong><a name="77">問77</a></strong>
+図は，製品の製造上のある要因の値xと品質特性の値yとの関係をプロットしたものである。この図に関する記述のうち，適切なものはどれか。</p>
+<p><img border="0" src="IMAGE/H17f-77.gif" width="205" height="155"></p>
+<table border="0" cellspacing="12pt" id="AutoNumber3" cellpadding="0">
+  <tr>
+    <td valign="top">ア</td>
+    <td>xからyを推定するためには，二次回帰係数の計算が必要である。</td>
+  </tr>
+  <tr>
+    <td valign="top">イ</td>
+    <td>xからyを推定するための回帰式は，yからxを推定する回帰式と同じである。</td>
+  </tr>
+  <tr>
+    <td valign="top">ウ</td>
+    <td>xとyの相関係数は正である。</td>
+  </tr>
+  <tr>
+    <td valign="top">エ</td>
+    <td>xとyの相関係数は負である。</td>
+  </tr>
+</table>
+<hr>
+<a href="17F_A_A4.HTM#77">問77の正解例と解説へ</a>
+<hr>
+<p><strong><a name="78">問78</a></strong>　発注方式に関する記述のうち，適切なものはどれか。</p>
+<table border="0" cellspacing="12pt" id="AutoNumber3" cellpadding="0">
+  <tr>
+    <td valign="top">ア</td>
+    <td>単価が高く，調達期間が長い商品は，定期発注方式より定量発注方式の方が適している。</td>
+  </tr>
+  <tr>
+    <td valign="top">イ</td>
+    <td>定期発注方式は，多くの商品を同時に発注でき，在庫量の減少を図ることもできる。</td>
+  </tr>
+  <tr>
+    <td valign="top">ウ</td>
+    <td>定量発注方式では，毎回需要予測を行って発注量を決める。</td>
+  </tr>
+  <tr>
+    <td valign="top">エ</td>
+    <td>二棚法を用いて発注を行うと，発注事務作業が容易にでき，需要の変化に的確に対応できる。</td>
+  </tr>
+</table>
+<hr>
+<a href="17F_A_A4.HTM#78">問78の正解例と解説へ</a>
+<hr>
+<p><strong><a name="79">問79</a></strong>
+ある工場では表に示す3製品を製造している。実現可能な最大利益は何円か。ここで，各製品の月間需要量には上限があり，組立て工程に使える工場の時間は月間200時間までとする。</p>
+<p><img border="0" src="IMAGE/H17f-79.gif" width="446" height="160"></p>
+<table border="0" cellspacing="12pt" id="AutoNumber2" cellpadding="0">
+  <tr>
+    <td width="50%">ア　2,625,000</td>
+    <td width="50%">イ　3,000,000</td>
+  </tr>
+  <tr>
+    <td width="50%">ウ　3,150,000</td>
+    <td width="50%">エ　3,300,000</td>
+  </tr>
+</table>
+<hr>
+<a href="17F_A_A4.HTM#79">問79の正解例と解説へ</a>
+<hr>
+<p><strong><a name="80">問80</a></strong>　日本において，産業財産権（工業所有権）と総称される四つの権利はどれか。</p>
+<p>　ア　意匠権，実用新案権，商標権，特許権<br>
+　イ　意匠権，実用新案権，著作権，特許権<br>
+　ウ　意匠権　商標権，著作権，特許権<br>
+　エ　実用新案権，商標権，著作権，特許権</p>
+<hr>
+<a href="17F_A_A4.HTM#80">問80の正解例と解説へ</a>
+<hr>
+<p><a href="INDEX.HTM">メニューへ戻る</a></p>
+<hr>
+</blockquote>
+
+</body>
+
+</html>

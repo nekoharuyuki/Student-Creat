@@ -1,0 +1,757 @@
+<HTML>
+<HEAD>
+<TITLE>平成16年度秋期試験　問題(午後問10～問13)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0">
+<blockquote>
+  <hr>
+  <H3 align="center">平成16年度秋期試験　問題(問10～問13)</H3>
+<hr>
+<P>次の問10から問13までの4問については、この中から1問を選択し、答案用紙の選択欄の〔選〕をマークして解答してください。なお、2問以上選択した場合には、はじめの1問について採点します。<br>            
+<hr>         
+<b><a name="100">問10</a>　</b>次のCプログラムの説明及びプログラムを読んで，設問に答えよ。<br>
+<br>
+〔プログラムの説明〕<br>
+画面上に表示されるマーカを操作することによって，線画を描く関数executeである。<br>
+<br>
+ <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">（1）</td>
+            <td>水平方向に800画素，垂直方向に600画素からなるビットマップ画面がある。画面の座標系を図1に示す。画面上には，位置と進行方向の情報をもつマーカ（図1中の <font size="-2">●</font>）が表示されている。マーカの進行方向は，上，下，左，右の4通りのいずれかである。マーカが移動すると，その軌跡が描画される。<br>
+<br>
+<img border="0" src="image/PM10_01.gif" width="450" height="320"><br>
+</td>
+          </tr>
+          <tr>
+            <td valign="top">（2）</td>
+            <td>マーカはMARKER型の構造体markで表現する。プログラムの実行開始時には，マーカの位置は（400，300），進行方向は上に設定される。<br>
+<br><b>
+typedef struct {<br>
+　　int x;    /* マーカのx座標　　　　　　　　　　　　　　　　　*/<br>
+　　int y;    /* マーカのy座標　　　　　　　　　　　　　　　　　*/<br>
+　　int dir;   /* マーカの進行方向 0:右  1:上  2:左  3:下　　 */<br>
+} MARKER;<br>
+MARKER mark  = {400,    /*  マーカの初期のx座標　　　　　*/<br>
+　　　　　　　　300,    /*  マーカの初期のy座標　　　　　　　　*/<br>
+　　　　　　　　　　1     /*  マーカの初期の進行方向（上）　　　*/<br>
+　　　　　　　　};</td><br></b>
+          </tr>
+          <tr>
+            <td valign="top">（3）</td>
+            <td>マーカを操作するための命令が定義されている。命令は，命令コードと値から構成され，構造体INSTで表現する。<br>
+<br><b>
+typedef struct {<br>
+　　char code; /* 命令コード */<br>
+　　int  val;  /* 値         */<br>
+} INST;<br></b>
+命令は,構造体INSTの配列であるinstsの先頭から実行する順番に格納しておく。</td>
+          </tr>
+          <tr>
+            <td valign="top">（4）</td>
+            <td>命令コードとその説明を次に示す。<br>
+<br>
+<img border="0" src="image/PM10_02.gif" width="550" height="260"><br>
+</td>
+          </tr>
+          <tr>
+            <td valign="top">（5）</td>
+            <td>例えば，図2のように構造体配列instsに命令を格納して，関数executeを実行した場合の出力は図3のとおりである。ただし，図3中の座標値は説明のために添えたものであり，実際は出力されない。<br>
+<br>
+<img border="0" src="image/PM10_03.gif" width="620" height="260"><br>
+<br>
+　　　<img border="0" src="image/PM10_04.gif" width="180" height="210"><br>
+          </tr>
+          <tr>
+            <td valign="top">（6）</td>
+            <td>線分を描くために次の関数が用意されている。<br>
+    <b>void drawLine ( int x1, int y1, int x2, int y2 );</b><br>
+    機能 ： 座標(x1, y1)と座標(x2, y2)を結ぶ線分のうち，画面領域に含まれる部分を描画する。</td>
+          </tr>
+          <tr>
+            <td valign="top">（7）</td>
+            <td>マーカに関する次の関数が用意されている。<br>
+        <b>void eraseMarker ( MARKER mark );</b><br>
+            機能 ： マーカが画面領域内にあるとき，マーカの表示を消去する。<br>
+        <b>void paintMarker ( MARKER mark );</b><br>
+            機能 ： マーカが画面領域内にあるとき，マーカを描画する。</td>
+          </tr>
+          <tr>
+            <td valign="top">（8）</td>
+            <td>マーカが画面領域外に移動し画面上に表示されなくても，その位置座標及び進行方向の情報は保持される。</td>
+          </tr>
+        </table>
+<br>
+〔プログラム〕<pre>
+<font size="+1">
+#define INSTSIZE 100  /* 命令数の上限      */
+#define STACKSIZE 50  /* {}の入れ子の上限 */
+
+typedef struct {
+    int x;    /* マーカの x 座標                        */
+    int y;    /* マーカの y 座標                        */
+    int dir;  /* マーカの進行方向0:右 1:上 2:左 3:下  */
+} MARKER;
+
+typedef struct {
+    char code; /* 命令コード */
+    int val;   /* 値         */
+} INST;
+
+typedef struct {
+    int opno; /* 繰返しの開始が定義されている配列instsの要素番号 */
+    int rest; /* 繰返しの残り回数                                  */
+} STACK;
+
+void drawLine( int, int, int, int );
+vozd eraseMarker( MARKER );
+void paintMarker( MARKER );
+
+INST insts[INSTSIZE];  /* 命令を格納するための構造体配列   */
+MARKER mark = {400,    /* マーカの初期の x 座標             */
+                  300,    /* マーカの初期の y 座標             */
+                    1     /* マーカの初期の進行方向(上)         */
+                 };
+
+void execute( ){
+
+    STACK stack[STACKSIZE];
+    int opno = 0; /* 実行する命令の配列instsの要素番号 */
+    int spt = -1; /* スタックポインタ                    */
+    int dx, dy;
+
+    paintMarker( mark );
+
+    while( insts[opno].code != '＼0' ){
+      switch( insts[opno].code ){
+        case '{':
+               stack[［　　　　a　　　　］.opno = opno;
+               stack[spt].rest = insts[opno].val;
+               break;
+        case 't':
+               mark.dir［　　　　b　　　　］;
+               break;
+        case 'f':
+               eraseMarker( mark );
+               dx = (mark.dir % 2 == 0 ) ?［　　　　c　　　　］;
+               dy = (mark.dir % 2 == 0 ) ?［　　　　d　　　　］;
+               drawLine( mark.x, mark.y,
+                           mark.x + dx, mark.y + dy );
+               mark.x += dx;
+               mark.y += dy;
+               paintMarker( mark );
+               break;
+        case '}':
+               if ( stack[spt].rest［　　　　e　　　　］){
+                    opno = stack[spt].opno;
+                    stack[spt].rest--;
+               } else {
+                    ［　　　f　　　］;
+               }
+               break;
+      }
+     ［　　　g　　　］;
+    }
+}
+</font>
+</pre>
+<hr> 
+<p><b><a name="101">設問</a>　</b>プログラム中の［　　　　］に入れる正しい答えを，解答群の中から選べ。<BR>
+<BR>
+aに関する解答群<BR>
+ア　++spt　　　イ　--spt　　　ウ　spt　　　エ　spt++　　　オ　spt--<BR>
+<BR>
+bに関する解答群<BR>
+ア　( mark.dir + insts [opno].val ) % 2<BR>
+イ　( mark.dir + insts [opno].val ) % 3<BR>
+ウ　( mark.dir + insts [opno].val ) % 4<BR>
+エ　mark.dir + insts [opno].val<BR>
+オ　mark.dir + insts [opno].val % 2<BR>
+カ　mark.dir + insts [opno].val % 3<BR>
+キ　mark.dir + insts [opno].val % 4<BR>
+<BR>
+c，dに関する解答群<BR>
+ア　( 1 - mark.dir ) * insts [opno].val : 0<BR>
+イ　( 2 - mark.dir ) * insts [opno].val : 0<BR>
+ウ　( mark.dir - 1 ) * insts [opno].val : 0<BR>
+エ　( mark.dir - 2 ) * insts [opno].val : 0<BR>
+オ　0 : ( 1 - mark.dir ) * insts [opno].val<BR>
+カ　0 : ( 2 - mark.dir ) * insts [opno].val<BR>
+キ　0 : ( mark.dir - 1 ) * insts [opno].val<BR>
+ク　0 : ( mark.dir - 2 ) * insts [opno].val<BR>
+ケ　0 : mark.dir * insts [opno].val<BR>
+コ　mark.dir * insts [opno].val : 0<BR>
+<BR>
+eに関する解答群<BR>
+ア　< 0　　　イ　< 1　　　ウ　== 0　　　エ　> 0　　　オ　> 1<BR>
+<BR>
+f，gに関する解答群<BR>
+ア　mark.dir++　　　イ　mark.dir--　　　ウ　opno++<BR>
+エ　opno--　　　　　オ　spt++　　　　　　カ　spt--
+
+<br> 
+<HR WIDTH=100%>  
+  <a HREF="16F_P_A4.HTM#101">設問の正解例と解説へ</a>  
+<HR WIDTH=100%>  
+<A HREF="INDEX.HTM">メニューへ戻る</A>
+<HR WIDTH=100%>   
+<a NAME="110">　<BR>
+<b>  
+問11</b></a>　次のCOBOLプログラムの説明及びプログラムを読んで，設問に答えよ。<BR>
+<BR>
+〔プログラムの説明〕<BR>
+五つのチャンネルでテレビを視聴できる地域がある。プログラムは，この地域の調査対象世帯がある1日に視聴した番組を記録した視聴データファイルと，同じ日の番組データを記録した番組データファイルを読み込んで，番組ごとに平均視聴率を求めて印字する。プログラムでは，時間を1分の単位に丸めて扱う。例えば，時刻10時00分は，10時00分00秒から10時00分59秒までの時間を丸めたものとして扱う。<BR>
+ <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">（1）</td>
+            <td>視聴データファイル（VIEW-FILE）は，次のレコード様式の順ファイルである。<BR>
+<BR>
+　　　<img border="0" src="image/PM11_01.gif" width="320" height="70"><br>
+<BR>
+①　視聴データファイルには，標本となる調査対象600世帯の1日視聴データが格納されている。<BR>
+②　1世帯が所有するテレビの台数は1台とする。<BR>
+③　チャンネル番号は，01～05の五つの値をとる。<BR>
+④　一つのレコードは，ある世帯が，“チャンネル番号”のチャンネルを“検出開始時刻”から，“検出終了時刻”まで，視聴したと検出したことを表す。<BR>
+⑤　視聴データは，調査対象の世帯が視聴しているチャンネルを，毎分00秒に検出して取得する。<BR>
+例えば，ある世帯で10時00分30秒から10時05分30秒までテレビを視聴し，その間に次のようにチャンネルを変えたとする。<BR>
+<BR>
+　　　<img border="0" src="image/PM11_02.gif" width="620" height="110"><br>
+<BR>
+毎分00秒にチャンネルを検出するので，視聴データファイルには次のように分の単位に丸めて記録される。チャンネル03の視聴は記録されない。<BR>
+　　　0110011002<BR>
+　　　0210031004<BR>
+　　　0110051005<BR>
+<BR>
+⑥　検出開始時刻及び検出終了時刻の値の範囲は，00時00分～23時59分である。2日にわたるデータはない。<BR>
+⑦　検出開始時刻≦検出終了時刻の関係が成り立つ。</td>
+          </tr>
+          <tr>
+            <td valign="top">（2）</td>
+            <td>番組データファイル（PROGRAM-FILE）は，次のレコード様式の順ファイルである。<BR>
+<BR>
+　　　<img border="0" src="image/PM11_03.gif" width="620" height="90"><br>
+<BR>
+①　番組データファイルには，視聴データファイルと同じ日の，5チャンネル分の番組データが格納されている。<BR>
+②　番組開始時刻及び番組終了時刻の値の範囲は，00時00分～23時59分である。2日にわたるデータはない。<BR>
+③　番組開始時刻≦番組終了時刻の関係が成り立つ。<BR>
+④　一つのレコードは，ある番組の放送時間が，“番組開始時刻”から“番組終了時刻”までであることを表す。</td>
+          </tr>
+          <tr>
+            <td valign="top">（3）</td>
+            <td>プログラムでの処理は，次のとおりである。<BR>
+①　視聴カウント表（VIEW-COUNT-TABLE）は，5（チャンネル）×1,440（分）の2次元の表である。チャンネルごとに，分単位に視聴した世帯数を表の各要素に集計する。<BR>
+②　番組の平均視聴率は次の式で求める。<BR>
+<BR>
+　　　<img border="0" src="image/PM11_04.gif" width="420" height="50"><br>
+<BR>
+③　番組データファイルから読み込んだ番組順に，チャンネル，番組開始時刻，番組終了時刻，平均視聴率（小数第1位までのパーセント表示），番組名を，次の様式で印字する。<BR>
+<BR>
+　　　<img border="0" src="image/PM11_05.gif" width="440" height="110"><br>
+          </tr>
+        </table>
+<pre><font size="+1">
+〔プログラム〕
+DATA DIVISION.
+FILE SECTION.
+FD  VIEW-FILE.
+01  VIEW-REC.
+  05  VIEW-CHANNEL              PIC 99.
+  05  VIEW-START-HHMM.
+    10  VIEW-START-HH           PIC 99.
+    10  VIEW-START-MM           PIC 99.
+  05  VIEW-END-HHMM.
+    10  VIEW-END-HH             PIC 99.
+    10  VIEW-END-MM             PIC 99.
+FD  PROGRAM-FILE.
+01  PROGRAM-REC.
+  05  PROG-CHANNEL              PIC 99.
+  05  PROG-START-HHMM.
+    10  PROG-START-HH           PIC 99.
+    10  PROG-START-MM           PIC 99.
+  05  PROG-END-HHMM.
+    10  PROG-END-HH             PIC 99.
+    10  PROG-END-MM             PIC 99.
+  05  PROGRAM-TITLE             PIC X(50).
+FD  OUT-FILE.
+01  OUT-REC                     PIC X(100).
+WORKING-STORAGE SECTION.
+01  SAMPLE-SIZE                 PIC 9(4)  VALUE 600.
+01  M                           PIC 9(4).
+01  END-OF-FILE                 PIC X.
+01  START-MMMM                  PIC 9(4).
+01  END-MMMM                    PIC 9(4).
+01  SUMMATION                   PIC 9(9) BINARY.
+01  PROG-RATING                 PIC ZZ9.9.
+01  VIEW-COUNT-TABLE.
+  05  CHANNEL           OCCURS 5.
+    10  COUNT-OF-MINUTE OCCURS 1440  PIC 9(4) BINARY.
+01  O-DATA.
+  05  FILLER                    PIC X(3) VALUE SPACE.
+  05  O-PROG-CHANNEL            PIC 99.
+  05  FILLER                    PIC X(3) VALUE SPACE.
+  05  O-PROG-START-HHMM.
+    10  O-PROG-START-HH         PIC 99.
+    10  O-PROG-START-MM         PIC 99.
+  05  FILLER                    PIC X(3) VALUE " - ".
+  05  O-PROG-END-HHMM.
+    10  O-PROG-END-HH           PIC 99.
+    10  O-PROG-END-MM           PIC 99.
+  05  FILLER                    PIC X(2) VALUE SPACE.
+  05  O-PROG-RATING             PIC ZZ9.9.
+  05  FILLER                    PIC X(6) VALUE SPACE.
+  05  O-PROGRAM-TITLE           PIC X(50).
+01  TITLE-LINE                  PIC X(100)
+            VALUE "channel from - to  rating(%) program-title".
+PROCEDURE DIVISION.
+MAIN-PARAGRAPH.
+    PERFORM EXPAND-VIEW-COUNT.
+    PERFORM CALCULATE-RATING-AND-PRINT.
+    STOP RUN.
+EXPAND-VIEW-COUNT.
+   ［　　　　　　　　a　　　　　　　　］
+    OPEN INPUT VIEW-FILE.
+    MOVE "N" TO END-OF-FILE.
+    PERFORM UNTIL END-OF-FILE = "Y"
+       READ VIEW-FILE AT END
+         MOVE "Y" TO END-OF-FILE
+       NOT AT END
+          PERFORM SET-VIEW-COUNT
+       END-READ
+    END-PERFORM.
+    CLOSE VIEW-FILE.
+CALCULATE-RATING-AND-PRINT.
+    OPEN INPUT PROGRAM-FILE OUTPUT OUT-FILE.
+    WRITE OUT-REC FROM TITLE-LINE AFTER ADVANCING 1.
+   ［　　　　　　　　b　　　　　　　　］
+    PERFORM UNTIL END-OF-FILE = "Y"
+       READ PROGRAM-FILE AT END
+         MOVE "Y" TO END-OF-FILE
+       NOT AT END
+         PERFORM CALCULATE-RATING
+         MOVE PROG-CHANNEL     TO O-PROG-CHANNEL
+         MOVE PROG-START-HHMM  TO O-PROG-START-HHMM
+         MOVE PROG-END-HHMM    TO O-PROG-END-HHMM
+         MOVE PROG-RATING      TO O-PROG-RATING
+         MOVE PROGRAM-TITLE    TO O-PROGRAM-TITLE
+         WRITE OUT-REC FROM O-DATA AFTER ADVANCING 1
+       END-READ
+    END-PERFORM.
+    CLOSE PROGRAM-FILE OUT-FILE.
+SET-VIEW-COUNT.
+    COMPUTE START-MMMM = VIEW-START-HH * 60 + VIEW-START-MM + 1.
+    COMPUTE END-MMMM   = VIEW-END-HH    * 60 + VIEW-END-MM + 1.
+    PERFORM VARYING M FROM START-MMMM BY 1 UNTIL M > END-MMMM
+      ［　　　　　　c　　　　　　］
+    END-PERFORM.
+CALCULATE-RATING.
+    COMPUTE START-MMMM = PROG-START-HH * 60 + PROG-START-MM + 1.
+    COMPUTE END-MMMM   = PROG-END-HH   * 60 + PROG-END-MM + 1.
+   ［　　　　　　d　　　　　　］
+    PERFORM VARYING M FROM START-MMMM BY 1 UNTIL M > END-MMMM
+     ［　　　　　　e　　　　　　］
+    END-PERFORM.
+    COMPUTE PROG-RATING ROUNDED
+     =［　　　　　　f　　　　　　］
+</pre></font>
+<hr>  
+<a NAME="111">
+<b>  <br>
+設問</b></a><b><a NAME="111"></a>　</b>プログラム中の［　　　　］に入れる正しい答えを，解答群の中から選べ。<br> 
+<br> 
+a，b，dに関する解答群<br> 
+ア　COMPUTE SUMMATION = END-MMMM - START-MMMM<br> 
+イ　INITIALIZE VIEW-COUNT-TABLE<br> 
+ウ　MOVE "N" TO END-OF-FILE<br> 
+エ　MOVE "Y" TO END-OF-FILE<br> 
+オ　MOVE SAMPLE-SIZE TO SUMMATION<br> 
+カ　MOVE ZERO TO SUMMATION<br> 
+キ　MOVE ZERO TO VIEW-COUNT-TABLE<br> 
+<br> 
+c，eに関する解答群<br> 
+ア　ADD 1 TO COUNT-OF-MINUTE(VIEW-CHANNEL M)<br> 
+イ　ADD 1 TO COUNT-OF-MINUTE(VIEW-CHANNEL M + 1)<br> 
+ウ　ADD 1 TO SUMMATION<br> 
+エ　ADD COUNT-OF-MINUTE(PROG-CHANNEL M) TO SUMMATION<br> 
+オ　COMPUTE SUMMATION = COUNT-OF-MINUTE(PROG-CHANNEL M + 1)<br> 
+カ　COMPUTE SUMMATION = COUNT-OF-MINUTE(VIEW-CHANNEL M) + 1<br> 
+キ　MOVE 1 TO COUNT-OF-MINUTE(VIEW-CHANNEL M)<br> 
+<br> 
+fに関する解答群<br> 
+ア　100 * SUMMATION / ((END-MMMM - START-MMMM) * (SAMPLE-SIZE + 1))<br> 
+イ　100 * SUMMATION / ((END-MMMM - START-MMMM + 1) * SAMPLE-SIZE)<br> 
+ウ　100 * SUMMATION / (END-MMMM - START-MMMM) / SAMPLE-SIZE<br> 
+エ　100 * SUMMATION / (END-MMMM - START-MMMM + 1) / (SAMPLE-SIZE + 1)<br> 
+<br> 
+<HR WIDTH=100%> 
+  <a HREF="16F_P_A4.HTM#111">設問の正解例と解説へ</a> 
+
+<HR WIDTH=100%>
+<A HREF="INDEX.HTM">メニューへ戻る</A>
+<HR WIDTH=100%>
+  　<BR>
+<b><a name="120">問12</a>　</b>次のJavaプログラムの説明及びプログラムを読んで，設問1，2に答えよ。<br>
+<br>
+〔プログラムの説明〕<br>
+プログラムは，A社のコールセンタのシミュレータである。A社はこのシミュレータを，利用者がコールセンタに電話をかけてからオペレータとつながるまでの待ち時間の推定に利用する。コールセンタへの一つの電話呼出しに対しては，1人のオペレータだけが応答することができる。<br>
+このシミュレータでは，空きオペレータがいる限りは利用者を待たせることはないとする。例えば，オペレータが2人いるとき，コールセンタに利用者からの電話が60秒間隔で6回かかってきて，それぞれの通話時間が，130秒，100秒，150秒，90秒，110秒，140秒だったとすると，利用者の待ち時間は3番目が10秒，5番目が30秒になり，その他は0秒である（図1参照）。<br>
+なお，このシミュレータでは，実世界の1秒を0.1秒でシミュレートする。<br>
+<br>
+　　　<img border="0" src="image/PM12_01.gif" width="70%" height="45%"><br>
+<br>
+プログラムは次のクラスから構成される。<br>
+<br>
+ <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">（1）</td>
+            <td><FONT face="Courier New"><b>CallCenter</b></FONT face="Courier New"><br>
+コールセンタを表すクラスである。コンストラクタの引数にオペレータ数，通話時間の配列，呼び出しを発生させる間隔を指定して，シミュレーションを実行する。次のメソッドと内部クラスをもつ。<br>
+<br>
+<FONT face="Courier New"><b>public static void main ( String[ ] args)</b></FONT face="Courier New"><br>
+　シミュレータをテスト用に起動するメソッドである。<br>
+<br>
+<FONT face="Courier New"><b>Call answer( )</b></FONT face="Courier New"><br>
+　オペレータが，利用者からの呼び出しに応答するために呼ぶメソッドである。オペレータに割り当てる呼出し（Callオブジェクト）を返す。このメソッドは，オペレータに割り当てるべき呼出しが発生するまで，オペレータのスレッドを待たせる。ただし，このクラスが生成するすべての呼出しの割当てが完了し，割り当てるべき呼出しがなくなったときは，nullを返す。<br>
+<br>
+<FONT face="Courier New"><b>Operator</b></FONT face="Courier New"><br>
+　オペレータをシミュレートするスレッドクラスである。各オペレータの処理は個別のスレッドで実行される。コールセンタにかかってきた電話に応答し，通話する。CallCenterが生成するすべて呼出しの割当てが完了するまで，処理を繰り返す。</td>
+          </tr>
+          <tr>
+            <td valign="top">（2）</td>
+            <td><b><FONT face="Courier New">Call</b></FONT face="Courier New"><br>
+利用者からの呼出しを表すクラスである。コンストラクタの引数には通話時間を指定する。次のメソッドをもつ。<br>
+<b><FONT face="Courier New">public void talk( )</b></FONT face="Courier New"><br>
+オペレータが利用者との通話中の状態をシミュレートするメソッドである。このメソッドは，オペレータに割り当てられた利用者の待ち時間を秒単位（1秒未満は四捨五入）で表示した後，通話時間として指定された時間だけ，オペレータのスレッドを停止させる。</td>
+          </tr>
+        </table>
+<br>
+プログラムが図1の例をシミュレートした場合の実行結果を，図2に示す。<br>
+なお，図中の(s)は（秒）を表す。<br>
+<br>
+　　　<img border="0" src="image/PM12_02.gif" width="30%" height="20%"><br>
+<br>
+プログラム中のjava.util.Vectorは可変長配列を表すクラスであり，次のメソッドをもつ。<br>
+ <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">　</td>
+            <td><b><FONT face="Courier New">public boolean add (Object obj)</b></FONT face="Courier New"><br>
+            　配列の最後尾に要素objを追加する。<br>
+        <b><FONT face="Courier New">public Object remove (int index)</b></FONT face="Courier New"><br>
+            　indexで指定された位置の要素を配列から削除し，削除した要素を返す。先頭の要素の位置は0である。indexより後方の要素は前方に詰められる。<br>
+        <b><FONT face="Courier New">public boolean isEmpty( )</b></FONT face="Courier New"><br>
+            　要素がなければtrueを，あればfalseを返す。</td>
+          </tr>
+        </table>
+<br>
+<pre><font size="+1">
+〔プログラム1〕
+import java.util.Vector;
+
+public class CallCenter {
+  private final Vector waitingList = new Vector();
+  private boolean running; // 呼出し生成中はtrue
+
+  public static void main(String[] args) {
+    int op= 2; // オペレータ数
+    // 通話時間(秒)
+    long[] duration = {130, 100, 150, 90, 110, 140};
+    long interval = 60; // 呼出しを発生させる間隔(秒)
+    new CallCenter(op, duration, interval);
+  }
+  public CallCenter(int op, long[] duration, long interval) {
+    running  = true;
+    // オペレータのスレッドを生成し，開始する｡
+    for (int i =  0; i < op; i++) new Operator().start();
+    long nextCallTime = System.currentTimeMillis();
+    for (int i = 0; i < duration.length; i++){
+         // 呼出しを一つ生成し，リストに追加する｡
+         synchronized (waitingList) {
+           waitingList.add(new Call(duration[i]));
+           waitingList.notify();
+         }
+         // 次の呼出しを生成するまで待つ｡
+         nextCallTime += interval * 100;    // 10倍の速さで動作
+         long sleeping =［　　　　　a　　　　　］;
+         try {
+            if (sleeping > 0) Thread.sleep(sleeping);
+         } catch (InterruptedException ie) {}
+    }
+    // すべてのオペレータのスレッドを終了させる｡
+    running = false;
+   ［　　　　　b　　　　　］{
+      waitingList.notifyAll();
+    }
+  }
+
+  Call answer() {
+    synchronized (waitingList) {
+      while (waitingList.isEmpty()［　　　　　c　　　　　］) {
+            try {
+              ［　　　　　d　　　　　］;
+            } catch (InterruptedException ie) {}
+      }
+      if (waitngList.isEmpty()) return null;
+      return (Call)waitingList.remove(0);
+    }
+  }
+  class Operator extends Thread {
+    public void run(){
+      Call call;
+     ［　　　　　e　　　　　］call.talk();
+      }
+    }
+  }
+
+
+〔プログラム2〕
+public class Call {
+  private final long start, duration;
+  public Call(long duration){
+    this.duration = duration;
+    start = System.currentTimeMillis();
+  }
+  public void talk(){
+    long elapsed = System.currentTimeMillis() - start;
+    // 経過時間を四捨五入して表示する｡
+    System.out.println(［　　　　f　　　　］+ "(s)");
+    try {
+      Thread.sleep(duration * 100);    // 10倍の速さで動作
+    } catch (InterruptedException ie){}
+  }
+}</font>
+</pre>
+<hr>
+<a NAME="121">
+<br>
+<p><b><a name="121">設問1</a>　</b>プログラム中の［　　　　］に入れる正しい答えを，解答群の中から選べ。<BR>
+<BR>
+aに関する解答群<BR>
+ア　nextCallTime<BR>
+イ　nextCallTime - duration[i] * 100<BR>
+ウ　nextCallTime - System.currentTimeMillis( )<BR>
+エ　System.currentTimeMillis( ) - nextCallTime<BR>
+<BR>
+bに関する解答群<BR>
+ア　for ( int i = 0; i < op; i++)<BR>
+イ　if (waitingList ! = null)<BR>
+ウ　synchronized (this)<BR>
+エ　synchronized (waitingList)<BR>
+<BR>
+cに関する解答群<BR>
+ア　&& !running　　　イ　&& running　　　ウ　== !running　　　エ　|| running<BR>
+<BR>
+dに関する解答群<BR>
+ア　notify( )　　　イ　wait( )　　　ウ　waitingList.notify( )　　　エ　waitingList.wait( )<BR>
+<BR>
+eに関する解答群<BR>
+ア　if ((call = answer( )) ! = null)<BR>
+イ　if (answer ( ) ! = null)<BR>
+ウ　while ((call = answer( )) ! = null)<BR>
+エ　while (answer( ) ! = null)<BR>
+<BR>
+fに関する解答群<BR>
+ア　(elapsed + 50) / 100　　　イ　(elapsed + 500) / 100<BR>
+ウ　(elapsed - 50) / 100　　　エ　(elapsed - 500) / 100<BR>
+<BR>
+<HR WIDTH=100%>  
+  <a HREF="16F_P_A4.HTM#121">設問の正解例と解説へ</a>  
+<HR WIDTH=100%>
+<A HREF="INDEX.HTM">メニューへ戻る</A>
+<HR WIDTH=100%>   
+<a NAME="122">
+<br>
+<p><b><a name="122">設問2</a>　</b>CallCenterのインスタンスを，次に示すようにして生成したとき，インスタンスが生成されてからシミュレータの時間で80秒後（実時間で8秒後）に通話中の状態にあるオペレータの人数を，解答群の中から選べ。<BR>
+<BR>
+　　　　<b><FONT face="Courier New">new CallCenter (3, new long[ ] {70, 90, 100, 110}, 30);</b></FONT face="Courier New"><BR>
+<BR>
+解答群<BR>
+ア　0　　　イ　1　　　ウ　2　　　エ　3<BR>
+<BR>
+<HR WIDTH=100%>  
+  <a HREF="16F_P_A4.HTM#122">設問の正解例と解説へ</a>  
+<HR WIDTH=100%>
+<A HREF="INDEX.HTM">メニューへ戻る</A>
+<HR WIDTH=100%>   
+<a NAME="130">　<BR>
+<b> 
+問13</b></a>　次のアセンブラプログラムの説明及びプログラムを読んで，設問1～4に答えよ。<br>
+<br>
+〔プログラムの説明〕<br>
+副プログラムTIMEは，時刻1と時刻2の差を求める。ここで，時刻は図1に示す形式の文字列とする。<br>
+<br>
+　　　<img border="0" src="image/PM13_01.gif" width="250" height="60"><br>
+<br>
+hhは時，mmは分，ssは秒を表す。00≦hh≦24，00≦mm≦59，00≦ss≦59とする。<br>
+<br>
+ <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">（1）</td>
+            <td>GR1～GR3には，それぞれ次の内容が設定されて，主プログラムから呼ばれる。<br>
+     　　GR1 : 時刻1の先頭アドレス<br>
+     　　GR2 : 時刻2の先頭アドレス<br>
+     　　GR3 : 結果（時刻2－時刻1）を格納する領域の先頭アドレス</td>
+          </tr>
+          <tr>
+            <td valign="top">（2）</td>
+            <td>時刻1と時刻2は同一日付の時刻とし，000000≦時刻1＜時刻2≦240000である。</td>
+          </tr>
+          <tr>
+            <td valign="top">（3）</td>
+            <td>副プログラムTIMEから戻るとき，汎用レジスタの内容は元に戻す。</td>
+          </tr>
+        </table>
+<br>
+<font size="+1"><pre>
+〔プログラム〕
+（行番号）
+   1  TIME    START
+   2           RPUSH
+   3           LD     GR4,=5       ; ループカウンタ
+   4           LD     GR7,=0       ; 下位けたへのけた下がりの調整値
+   5           ADDL   GR1,GR4     ; GR1 ←時刻1の最終けたのアドレス
+   6           ADDL   GR2,GR4     ; GR2 ←時刻2の最終けたのアドレス
+   7           ADDL   GR3,GR4
+   8  LOOP     LD     GR5,0, GR1 ; GR5 ←時刻1の1けた
+   9           LD     GR6,0, GR2 ; GR6 ←時刻2の対応けた
+  10           SUBA   GR6,GR7     ; 下位けたへのけた下がりの調整
+  11           CPA    GR6,GR5
+  12          ［　　　　a　　　　］
+  13           LD     GR7,=0
+  14           JUMP   CALC
+  15  ADJUST   ADDA   GR6, ADD,GR4 ; 上位けたの1に相当する値を加算
+  16          ［　　　　b　　　　］
+  17  CALC     SUBA   GR6,GR5
+  18           OR     GR6,='0'      ; 文字コードに変換
+  19           ST     GR6,0, GR3
+  20           SUBA   GR4,=1
+  21           JMI    FINISH
+  22           LAD    GR1,-1,GR1
+  23           LAD    GR2,-1,GR2
+  24           LAD    GR3,-1,GR3
+  25           JUMP   LOOP
+  26  FINISH  RPOP
+  27           RET
+  28  ADD     DC   0,10,6,10,6,10
+  29           END
+</font></pre>
+<hr>  
+<a NAME="131">　<BR> 
+<b>  
+設問</b></a><b><a NAME="131">1</a>　</b>プログラム中の［　　　　］に入れる正しい答えを，解答群の中から選べ。<BR>
+<BR>
+解答群<BR>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td width="300">ア　ADDA    GR7, =1</td>
+            <td>	イ　JMI     ADJUST</td>
+          </tr>
+          <tr>
+            <td>	ウ　JNZ     ADJUST</td>
+            <td>	エ　JPL     ADJUST</td>
+          </tr>
+          <tr>
+            <td>	オ　JZE     ADJUST</td>
+            <td>	カ　LD      GR7, =-1</td>
+          </tr>
+          <tr>
+            <td>	キ　LD      GR7, =1</td>
+            <td>	ク　SUBA    GR7, =1</td>
+          </tr>
+        </table>
+<BR>
+<BR>
+<HR WIDTH=100%> 
+  <a HREF="16F_P_A4.HTM#131">設問1の正解例へ</a> 
+<HR WIDTH=100%> 
+<a NAME="132"> 
+<BR>
+<b> 
+設問</b></a><b>2　</b>時刻1と時刻2が次のとおりであるとき，行番号15のADDA命令は何回実行されるか。正しい答えを，解答群の中から選べ。<br>  
+　　　時刻1:  143726<br>
+　　　時刻2:  170125<br>
+<br>  
+解答群<br>  
+ア　1　　　イ　2　　　ウ　3　　　エ　4　　　オ　5　　　カ　6<br>  
+<br>  
+<HR WIDTH=100%> 
+  <a HREF="16F_P_A4.HTM#132">設問2の正解例へ</a> 
+<HR WIDTH=100%> 
+<a NAME="133"> 
+<BR>
+<b> 
+設問</b></a><b>3　</b>次に示す形式の8文字からなる時刻を処理できるように，副プログラムTIMEの行番号3と行番号28を変更した。［　　　　］に入れる正しい答えを，解答群の中から選べ。<br>  
+<br>  
+　　　<img border="0" src="image/PM13_3_1.gif" width="330" height="35"><br>
+<br>  
+ここで，ddは百分の一秒を表す。00≦dd≦99とする。1日の終わりは24000000である。<br>  
+<br>
+<pre><font size="+1">
+〔プログラムの変更〕
+(行番号)
+               &brvbar;
+　3　　　　　　LD     GR4, =7          ;ループカウンタ
+               &brvbar;
+　28　ADD　　　DC     0, 10, 6, 10, 6, 10, ［　　　　］
+               &brvbar;
+</font></pre><br>  
+解答群<br> 
+ア　6, 6　　　　　イ　6, 10　　　ウ　10, 6　　　エ　10, 10　　　オ　10, 100<br>
+カ　100, 10　　　キ　100, 100<br>  
+<br>  
+<HR WIDTH=100%> 
+  <a HREF="16F_P_A4.HTM#132">設問3の正解例へ</a> 
+<HR WIDTH=100%> 
+<a NAME="134"> 
+<BR>
+<b> 
+設問</b></a><b>4　</b>副プログラムTIME（設問3による変更の前）を使用して，駅伝競走のある区間の最高タイム（最小の所要時間）とそのチーム番号を出力する副プログラムEKIDENを作成した。プログラム中の［　　　　］に入れる正しい答えを，解答群の中から選べ。<br>  
+
+ <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">（1）</td>
+            <td>チーム数は9で，チーム番号は1～9である。</td>
+          </tr>
+          <tr>
+            <td valign="top">（2）</td>
+            <td>図2に示すとおりに設定された領域の先頭アドレスがGR1に格納されて，主プログラムから呼ばれる。図2のスタート時刻とゴール時刻は，図1に示す形式とする。<BR>
+<BR>
+　　　<img border="0" src="image/PM13_4_1.gif" width="530" height="225"><br><br>
+</td>
+          </tr>
+          <tr>
+            <td valign="top">（3）</td>
+            <td>出力形式は次のとおりとする。<BR>
+     n△hhmmss<BR>
+     nはチーム番号を表す文字，△は間隔文字とする。</td>
+          </tr>
+          <tr>
+            <td valign="top">（4）</td>
+            <td>同タイムのチームが複数ある場合は，同タイムのチームのうち最小のチーム番号を出力する。</td>
+          </tr>
+          <tr>
+            <td valign="top">（5）</td>
+            <td>全チームとも，スタートした日のうちにゴールするものとする。</td>
+          </tr>
+          <tr>
+            <td valign="top">（6）</td>
+            <td>副プログラムEKIDENから戻るとき，GR1～GR7の内容は元に戻す。</td>
+          </tr>
+        </table>
+
+<br>
+　　　<img border="0" src="image/PM13_4_2.gif" width="450" height="145"><br><br>
+　　　<img border="0" src="image/PM13_4_3.gif" width="530" height="585"><br><br>
+<br>
+解答群<br>
+ア　JMI     LOOP1　　　イ　JMI     REP　　　　　ウ　JPL     LOOP1<br>
+エ　JPL      REP　　　　 オ　JZE     LOOP1　　　カ　JZE     REP<br>
+<br>  
+<br>  
+<HR WIDTH=100%> 
+  <a HREF="16F_P_A4.HTM#132">設問4の正解例へ</a> 
+<HR WIDTH=100%> 
+<p><A HREF="INDEX.HTM">メニューへ戻る</A>　</p>
+<HR WIDTH=100%>
+<BR>
+  <br>
+</blockquote>
+</BODY>
+</HTML>

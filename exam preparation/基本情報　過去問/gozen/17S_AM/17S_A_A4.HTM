@@ -1,0 +1,600 @@
+<html>
+
+<head>
+<title>平成17年度春期試験　正解例と解説（午前問61～問80）</title>
+</head>
+
+<body>
+
+<blockquote>
+<hr>
+<div align="center">
+<h3>平成17年度春期試験　正解例と解説（午前問61～問80）</h3>
+</div>
+<hr>
+<p><strong><a name="61">問61</a></strong></p>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select></p>
+<p>〈解説〉</p>
+<p>COBOLやJavaなど既存のプログラム言語により作成したプログラムにSQL文を埋込み，データベースを操作するものを「埋込み型SQL」という。「カーソル」は親言語のプログラムからデータベースを操作する機能。</p>
+<p>①<code>DECLEAR CURSOR</code>は親言語のプログラムからデータベースにアクセスするとき導出表に対するカーソルを定義する。<br>
+②<code>OPEN</code>はカーソルを先頭行に移動する。<br>
+③<code>FETCH</code>はカーソルのある次の行のSQL命令を取出して親言語に渡す。<br>
+④<code>CLOSE</code>はカーソルを閉じる。</p>
+<hr>
+<a href="17S_A_E4.HTM#61">問題へ</a>
+<hr>
+<p><strong><a name="62">問62</a></strong></p>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>ア</option></select></p>
+<p>〈解説〉</p>
+<p>ウォームスタート方式は，チェックポイントに戻り，ジャーナルの更新情報のログを用いてデータベースを復旧し，チェックポイントから実行を再開する方式。これに対しコールドスタート方式は，更新情報のログによる回復を断念し，バックアップをロードして再開する方式。</p>
+<p>したがってアが適切で，ウは不適切。<br>
+また正常終了したトランザクションの情報をデータベースに反映する操作はロールフォワードで，イは不適切。<br>
+終了していないトランザクションを更新前の状態に戻す操作は，ロールバックで，エは不適切。</p>
+<hr>
+<a href="17S_A_E4.HTM#62">問題へ</a>
+<hr>
+<p><strong><a name="63">問63</a></strong></p>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select></p>
+<p>〈解説〉</p>
+<p>テクニカルエンジニア試験（データベース）における役割と業務に，「データベース管理者として，基幹データベースの構築と維持を行う」とあり，データベース管理者は，データベースの設計・構築・運用・保守・運用管理・障害回復などの職務を行う。</p>
+<hr>
+<a href="17S_A_E4.HTM#63">問題へ</a>
+<hr>
+<p><strong><a name="64">問64</a></strong></p>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select></p>
+<p>〈解説〉</p>
+<p>ディジタル署名は，送信者の秘密かぎで暗号化した署名を，受信者が送信者の公開かぎにより復号できるか否かにより，その署名が正当な送信者のものであるか否かをチェックできる仕組み。</p>
+<hr>
+<a href="17S_A_E4.HTM#64">問題へ</a>
+<hr>
+<p><strong><a name="65">問65</a></strong></p>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>ア</option></select></p>
+<p>〈解説〉</p>
+<p>通信相手の正当性を保証するために，第三者である認証局（CA）が通信相手の公開かぎの電子証明書を作成し，発行する。証明書には</p>
+<p>　　①認証局の名称<br>
+　　②シリアル番号<br>
+　　③有効期限<br>
+　　④所有者名<br>
+　　⑤所有者の公開かぎに関する情報</p>
+<p>が記され，これにより“公開かぎ”の所有者本人であることが確認できる。</p>
+<hr>
+<a href="17S_A_E4.HTM#65">問題へ</a>
+<hr>
+<p><strong><a name="66">問66</a></strong></p>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select></p>
+<p>〈解説〉</p>
+<p>ウイルスのシグネチャコードは，特定のウイルスに固有なコードで，既知ウイルスのシグネチャコードを分類し，これらのコード列を記録したファイルがウイルス定義ファイル。このウイルス定義ファイルに記録されたシグネチャコードに一致するコード列があるか否かをチェックすることにより，ウイルス感染をチェックする。</p>
+<hr>
+<a href="17S_A_E4.HTM#66">問題へ</a>
+<hr>
+<p><strong><a name="67">問67</a></strong></p>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select></p>
+<p>〈解説〉</p>
+<p>8進数の0，3，7は3ビットの2進数では000，011，111になる。この各ビットに作成，読取り，更新のアクセス権が設定されているので，試行結果を整理すると以下の表のようになる。</p>
+<div align="left">
+<table border="1" cellpadding="4" cellspacing="0">
+<tr>
+<th rowspan="2" align="center" bgcolor="#CCCCCC">8進数の設定値</th>
+<th colspan="3" align="center" bgcolor="#CCCCCC">2進数で表した設定値のビット列</th>
+<th colspan="3" align="center" bgcolor="#CCCCCC">設定されるアクセス権</th>
+</tr>
+<tr>
+<th align="center" bgcolor="#CCCCCC">ビット1</th>
+<th align="center" bgcolor="#CCCCCC">ビット2</th>
+<th align="center" bgcolor="#CCCCCC">ビット3</th>
+<th align="center" bgcolor="#CCCCCC">作成</th>
+<th align="center" bgcolor="#CCCCCC">読取</th>
+<th align="center" bgcolor="#CCCCCC">更新</th>
+</tr>
+<tr>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">不可</td>
+<td align="center">不可</td>
+<td align="center">不可</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">不可</td>
+<td align="center">可能</td>
+<td align="center">可能</td>
+</tr>
+<tr>
+<td align="center">7</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">可能</td>
+<td align="center">可能</td>
+<td align="center">可能</td>
+</tr>
+</table>
+</div>
+<p>上の表よりビット1が作成，ビット2が読取，ビット3が更新に対応する。したがって，ビット列が100に設定されると作成のみ可能となる。つまり2進数の100は8進数では4になるので，4に設定すると作成だけが可能になる。</p>
+<hr>
+<a href="17S_A_E4.HTM#67">問題へ</a>
+<hr>
+<p><strong><a name="68">問68</a></strong></p>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>エ</option></select></p>
+<p>〈解説〉</p>
+<p>VPNはパケットを暗号化し，インターネットを仮想的な専用線として利用する技術。VPNでは，トンネリング，認証，暗号化によりセキュリティを実現している。<br>
+トンネリングは，通常のパケットにVPN通信用のヘッダを付加し，カプセル化してIPプロトコル上を通過させる技術。<br>
+さらにパケットの盗聴や改ざんを防止するため，パケットを暗号化して送る。<br>
+データは秘密かぎ暗号方式で暗号化し，暗号化に用いる秘密かぎは公開かぎ暗号方式で暗号化して送る。</p>
+<p>したがってア，イ，ウは不適切。</p>
+<hr>
+<a href="17S_A_E4.HTM#68">問題へ</a>
+<hr>
+<p><strong><a name="69">問69</a></strong></p>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>ア</option></select></p>
+<p>〈解説〉</p>
+<p>あらゆるリスクに対処するのは，費用対効果の点から効率的ではなく，リスクの大きさに従って優先順位をつけて対処すべきであり，アが適切。</p>
+<p>すべての対策が完了しなくても，繰返しリスク分析を実施すべきで，イは不適切。<br>
+過去の類似プロジェクトから作成されたデータも利用すべきで，ウは不適切。<br>
+費用対効果を検討するため，損失額だけでなく対策費用も考慮すべきであり，エは不適切。</p>
+<hr>
+<a href="17S_A_E4.HTM#69">問題へ</a>
+<hr>
+<p><strong><a name="70">問70</a></strong></p>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>ア</option></select></p>
+<p>〈解説〉</p>
+<p>SLCP（ソフトウェアライフサイクルプロセス）は，ソフトウェア開発の契約から企画・開発・検収・運用・保守に至るまでの開発作業全般について，共通の枠組みや用語を定めて作業範囲・作業内容を明確にし，購入者と供給者の取引を明確にすることを目的としている。</p>
+<p>ソフトウェアの委託開発における品質保証を実現するための規定を定めたISO9000-3の規定によると，ソフトウェアの取引において「購入者側の責任」として「受入基準及び手続の明確化」を行う必要がある。</p>
+<hr>
+<a href="17S_A_E4.HTM#70">問題へ</a>
+<hr>
+<p><strong><a name="71">問71</a></strong></p>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>ア</option></select></p>
+<p>〈解説〉</p>
+<p>CRM（Customer Relationship Management）で，受付業務などで顧客に対する円滑な対応を支援し，顧客との関係や繋がりを構築し支援する顧客情報管理システム。</p>
+<hr>
+<a href="17S_A_E4.HTM#71">問題へ</a>
+<hr>
+<p><strong><a name="72">問72</a></strong></p>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select></p>
+<p>〈解説〉</p>
+<p>アは誤り。変動費直線の傾きの小さいA社のほうが利益は大きくなる。したがってイは適切。<br>
+ウは誤り。変動費直線の傾きがA社のほうが小さいので，A社のほうが利益は大きくなり，利益が同じ場合は，そのときの売上高はA社のほうが低い。同じ理由で損益は異なり，エは誤り。</p>
+<hr>
+<a href="17S_A_E4.HTM#72">問題へ</a>
+<hr>
+<p><strong><a name="73">問73</a></strong></p>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>ウ</option></select></p>
+<p>〈解説〉</p>
+<p>標準原価計算は，工業簿記における原価計算。製品1個当たりの標準となる原価を算定し，これを基準に計算した標準原価と実際原価と比較して，その原価差異を分析することで原価管理を行う手法。</p>
+<hr>
+<a href="17S_A_E4.HTM#73">問題へ</a>
+<hr>
+<p><strong><a name="74">問74</a></strong></p>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>エ</option></select></p>
+<p>〈解説〉</p>
+<p>目的・目標を達成するための手段・方策と目的との関係を系統的に連鎖図として図解し，最適手段・方策を追求していく方法は系統図。</p>
+<p>アは過程決定計画図（PDPC）。<br>
+イは連関図法。<br>
+ウはKJ法（親和図法）。</p>
+<hr>
+<a href="17S_A_E4.HTM#74">問題へ</a>
+<hr>
+<p><strong><a name="75">問75</a></strong></p>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>ア</option></select></p>
+<p>〈解説〉</p>
+<p>特性要因図は，特性（結果）とそれに影響していると思われる要因（原因）との因果関係を魚の骨のような図に体系的に整理したもので，原因の洗い出しや結果と原因との因果関係の整理などに用いる。イは管理図。ウはヒストグラム。エはパレート図。</p>
+<hr>
+<a href="17S_A_E4.HTM#75">問題へ</a>
+<hr>
+<p><strong><a name="76">問76</a></strong></p>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>ウ</option></select></p>
+<p>〈解説〉</p>
+<p>売上予測には，トレンド分析や移動平均法などの時系列分析の手法を用いる。</p>
+<hr>
+<a href="17S_A_E4.HTM#76">問題へ</a>
+<hr>
+<p><strong><a name="77">問77</a></strong></p>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select></p>
+<p>※第7部03の演習問題（平成11年秋　問72）とは解答群が異なっており，解答はイとなることに注意。</p>
+<p>〈解説〉</p>
+<p>各製品は同じ機械を同時には使えないので，ア，イ，ウ，エの各場合について，以下のようなタイムチャートを描き考えます。<br>
+例えばアの場合A→C→Bの順なので，</p>
+<table border="1" cellpadding="4" cellspacing="0">
+<tr>
+<th align="center" bgcolor="#CCCCCC">　</th>
+<th align="center" bgcolor="#CCCCCC">1</th>
+<th align="center" bgcolor="#CCCCCC">2</th>
+<th align="center" bgcolor="#CCCCCC">3</th>
+<th align="center" bgcolor="#CCCCCC">4</th>
+<th align="center" bgcolor="#CCCCCC">5</th>
+<th align="center" bgcolor="#CCCCCC">6</th>
+<th align="center" bgcolor="#CCCCCC">7</th>
+<th align="center" bgcolor="#CCCCCC">8</th>
+<th align="center" bgcolor="#CCCCCC">9</th>
+<th align="center" bgcolor="#CCCCCC">10</th>
+<th align="center" bgcolor="#CCCCCC">11</th>
+<th align="center" bgcolor="#CCCCCC">12</th>
+<th align="center" bgcolor="#CCCCCC">13</th>
+<th align="center" bgcolor="#CCCCCC">14</th>
+<th align="center" bgcolor="#CCCCCC">15</th>
+<th align="center" bgcolor="#CCCCCC">16</th>
+<th align="center" bgcolor="#CCCCCC">17</th>
+<th align="center" bgcolor="#CCCCCC">18</th>
+<th align="center" bgcolor="#CCCCCC">19</th>
+<th align="center" bgcolor="#CCCCCC">20</th>
+<th align="center" bgcolor="#CCCCCC">21</th>
+<th align="center" bgcolor="#CCCCCC">22</th>
+</tr>
+<tr>
+<th align="center" bgcolor="#CCCCCC">M1</th>
+<td align="center" bgcolor="#66CCFF">A</td>
+<td align="center" bgcolor="#66CCFF">A</td>
+<td align="center" bgcolor="#66CCFF">A</td>
+<td align="center" bgcolor="#66CCFF">A</td>
+<td align="center" bgcolor="#66CCFF">A</td>
+<td align="center" bgcolor="#66CCFF">A</td>
+<td align="center" bgcolor="#66CCFF">A</td>
+<td align="center" bgcolor="#66CCFF">C</td>
+<td align="center" bgcolor="#66CCFF">C</td>
+<td align="center" bgcolor="#66CCFF">C</td>
+<td align="center" bgcolor="#66CCFF">C</td>
+<td align="center" bgcolor="#66CCFF">B</td>
+<td align="center" bgcolor="#66CCFF">B</td>
+<td align="center" bgcolor="#66CCFF">B</td>
+<td align="center" bgcolor="#66CCFF">B</td>
+<td align="center" bgcolor="#66CCFF">B</td>
+<td align="center">　</td>
+<td align="center">　</td>
+<td align="center">　</td>
+<td align="center">　</td>
+<td align="center">　</td>
+<td align="center">　</td>
+</tr>
+<tr>
+<th align="center" bgcolor="#CCCCCC">M2</th>
+<td align="center">　</td>
+<td align="center">　</td>
+<td align="center">　</td>
+<td align="center">　</td>
+<td align="center">　</td>
+<td align="center">　</td>
+<td align="center">　</td>
+<td align="center" bgcolor="#66CCFF">A</td>
+<td align="center" bgcolor="#66CCFF">A</td>
+<td align="center" bgcolor="#66CCFF">A</td>
+<td align="center">　</td>
+<td align="center" bgcolor="#66CCFF">C</td>
+<td align="center" bgcolor="#66CCFF">C</td>
+<td align="center">　</td>
+<td align="center">　</td>
+<td align="center">　</td>
+<td align="center" bgcolor="#66CCFF">B</td>
+<td align="center" bgcolor="#66CCFF">B</td>
+<td align="center" bgcolor="#66CCFF">B</td>
+<td align="center" bgcolor="#66CCFF">B</td>
+<td align="center" bgcolor="#66CCFF">B</td>
+<td align="center" bgcolor="#66CCFF">B</td>
+</tr>
+</table>
+<p><br>
+のようになる。イ，ウ，エについても同様の図を描き比較する。</p>
+<p>イの場合B→A→Cの順なので，</p>
+<table border="1" cellpadding="4" cellspacing="0">
+<tr>
+<th align="center" bgcolor="#CCCCCC">&nbsp;&nbsp;</th>
+<th align="center" bgcolor="#CCCCCC">1</th>
+<th align="center" bgcolor="#CCCCCC">2</th>
+<th align="center" bgcolor="#CCCCCC">3</th>
+<th align="center" bgcolor="#CCCCCC">4</th>
+<th align="center" bgcolor="#CCCCCC">5</th>
+<th align="center" bgcolor="#CCCCCC">6</th>
+<th align="center" bgcolor="#CCCCCC">7</th>
+<th align="center" bgcolor="#CCCCCC">8</th>
+<th align="center" bgcolor="#CCCCCC">9</th>
+<th align="center" bgcolor="#CCCCCC">10</th>
+<th align="center" bgcolor="#CCCCCC">11</th>
+<th align="center" bgcolor="#CCCCCC">12</th>
+<th align="center" bgcolor="#CCCCCC">13</th>
+<th align="center" bgcolor="#CCCCCC">14</th>
+<th align="center" bgcolor="#CCCCCC">15</th>
+<th align="center" bgcolor="#CCCCCC">16</th>
+<th align="center" bgcolor="#CCCCCC">17</th>
+<th align="center" bgcolor="#CCCCCC">18</th>
+<th align="center" bgcolor="#CCCCCC">19</th>
+<th align="center" bgcolor="#CCCCCC">20</th>
+<th align="center" bgcolor="#CCCCCC">21</th>
+<th align="center" bgcolor="#CCCCCC">22</th>
+</tr>
+<tr>
+<th align="center" bgcolor="#CCCCCC">M1</th>
+<td align="center" bgcolor="#66CCFF">B</td>
+<td align="center" bgcolor="#66CCFF">B</td>
+<td align="center" bgcolor="#66CCFF">B</td>
+<td align="center" bgcolor="#66CCFF">B</td>
+<td align="center" bgcolor="#66CCFF">B</td>
+<td align="center" bgcolor="#66CCFF">A</td>
+<td align="center" bgcolor="#66CCFF">A</td>
+<td align="center" bgcolor="#66CCFF">A</td>
+<td align="center" bgcolor="#66CCFF">A</td>
+<td align="center" bgcolor="#66CCFF">A</td>
+<td align="center" bgcolor="#66CCFF">A</td>
+<td align="center" bgcolor="#66CCFF">A</td>
+<td align="center" bgcolor="#66CCFF">C</td>
+<td align="center" bgcolor="#66CCFF">C</td>
+<td align="center" bgcolor="#66CCFF">C</td>
+<td align="center" bgcolor="#66CCFF">C</td>
+<td align="center">　</td>
+<td align="center">　</td>
+<td align="center">　</td>
+<td align="center">　</td>
+<td align="center">　</td>
+<td align="center">　</td>
+</tr>
+<tr>
+<th align="center" bgcolor="#CCCCCC">M2</th>
+<td align="center">　</td>
+<td align="center">　</td>
+<td align="center">　</td>
+<td align="center">　</td>
+<td align="center">　</td>
+<td align="center" bgcolor="#66CCFF">B</td>
+<td align="center" bgcolor="#66CCFF">B</td>
+<td align="center" bgcolor="#66CCFF">B</td>
+<td align="center" bgcolor="#66CCFF">B</td>
+<td align="center" bgcolor="#66CCFF">B</td>
+<td align="center" bgcolor="#66CCFF">B</td>
+<td align="center">　</td>
+<td align="center" bgcolor="#66CCFF">A</td>
+<td align="center" bgcolor="#66CCFF">A</td>
+<td align="center" bgcolor="#66CCFF">A</td>
+<td align="center">　</td>
+<td align="center" bgcolor="#66CCFF">C</td>
+<td align="center" bgcolor="#66CCFF">C</td>
+<td align="center">　</td>
+<td align="center">　</td>
+<td align="center">　</td>
+<td align="center">　</td>
+</tr>
+</table>
+<p>ウの場合B→C→Aの順なので，</p>
+<table border="1" cellpadding="4" cellspacing="0">
+<tr>
+<th align="center" bgcolor="#CCCCCC">&nbsp;&nbsp;</th>
+<th align="center" bgcolor="#CCCCCC">1</th>
+<th align="center" bgcolor="#CCCCCC">2</th>
+<th align="center" bgcolor="#CCCCCC">3</th>
+<th align="center" bgcolor="#CCCCCC">4</th>
+<th align="center" bgcolor="#CCCCCC">5</th>
+<th align="center" bgcolor="#CCCCCC">6</th>
+<th align="center" bgcolor="#CCCCCC">7</th>
+<th align="center" bgcolor="#CCCCCC">8</th>
+<th align="center" bgcolor="#CCCCCC">9</th>
+<th align="center" bgcolor="#CCCCCC">10</th>
+<th align="center" bgcolor="#CCCCCC">11</th>
+<th align="center" bgcolor="#CCCCCC">12</th>
+<th align="center" bgcolor="#CCCCCC">13</th>
+<th align="center" bgcolor="#CCCCCC">14</th>
+<th align="center" bgcolor="#CCCCCC">15</th>
+<th align="center" bgcolor="#CCCCCC">16</th>
+<th align="center" bgcolor="#CCCCCC">17</th>
+<th align="center" bgcolor="#CCCCCC">18</th>
+<th align="center" bgcolor="#CCCCCC">19</th>
+<th align="center" bgcolor="#CCCCCC">20</th>
+<th align="center" bgcolor="#CCCCCC">21</th>
+<th align="center" bgcolor="#CCCCCC">22</th>
+</tr>
+<tr>
+<th align="center" bgcolor="#CCCCCC">M1</th>
+<td align="center" bgcolor="#66CCFF">B</td>
+<td align="center" bgcolor="#66CCFF">B</td>
+<td align="center" bgcolor="#66CCFF">B</td>
+<td align="center" bgcolor="#66CCFF">B</td>
+<td align="center" bgcolor="#66CCFF">B</td>
+<td align="center" bgcolor="#66CCFF">C</td>
+<td align="center" bgcolor="#66CCFF">C</td>
+<td align="center" bgcolor="#66CCFF">C</td>
+<td align="center" bgcolor="#66CCFF">C</td>
+<td align="center" bgcolor="#66CCFF">A</td>
+<td align="center" bgcolor="#66CCFF">A</td>
+<td align="center" bgcolor="#66CCFF">A</td>
+<td align="center" bgcolor="#66CCFF">A</td>
+<td align="center" bgcolor="#66CCFF">A</td>
+<td align="center" bgcolor="#66CCFF">A</td>
+<td align="center" bgcolor="#66CCFF">A</td>
+<td align="center">　</td>
+<td align="center">　</td>
+<td align="center">　</td>
+<td align="center">　</td>
+<td align="center">　</td>
+<td align="center">　</td>
+</tr>
+<tr>
+<th align="center" bgcolor="#CCCCCC">M2</th>
+<td align="center">　</td>
+<td align="center">　</td>
+<td align="center">　</td>
+<td align="center">　</td>
+<td align="center">　</td>
+<td align="center" bgcolor="#66CCFF">B</td>
+<td align="center" bgcolor="#66CCFF">B</td>
+<td align="center" bgcolor="#66CCFF">B</td>
+<td align="center" bgcolor="#66CCFF">B</td>
+<td align="center" bgcolor="#66CCFF">B</td>
+<td align="center" bgcolor="#66CCFF">B</td>
+<td align="center" bgcolor="#66CCFF">C</td>
+<td align="center" bgcolor="#66CCFF">C</td>
+<td align="center">　</td>
+<td align="center">　</td>
+<td align="center">　</td>
+<td align="center" bgcolor="#66CCFF">A</td>
+<td align="center" bgcolor="#66CCFF">A</td>
+<td align="center" bgcolor="#66CCFF">A</td>
+<td align="center">　</td>
+<td align="center">　</td>
+<td align="center">　</td>
+</tr>
+</table>
+<p>エの場合C→B→Aの順なので，</p>
+<table border="1" cellpadding="4" cellspacing="0">
+<tr>
+<th align="center" bgcolor="#CCCCCC">&nbsp;&nbsp;</th>
+<th align="center" bgcolor="#CCCCCC">1</th>
+<th align="center" bgcolor="#CCCCCC">2</th>
+<th align="center" bgcolor="#CCCCCC">3</th>
+<th align="center" bgcolor="#CCCCCC">4</th>
+<th align="center" bgcolor="#CCCCCC">5</th>
+<th align="center" bgcolor="#CCCCCC">6</th>
+<th align="center" bgcolor="#CCCCCC">7</th>
+<th align="center" bgcolor="#CCCCCC">8</th>
+<th align="center" bgcolor="#CCCCCC">9</th>
+<th align="center" bgcolor="#CCCCCC">10</th>
+<th align="center" bgcolor="#CCCCCC">11</th>
+<th align="center" bgcolor="#CCCCCC">12</th>
+<th align="center" bgcolor="#CCCCCC">13</th>
+<th align="center" bgcolor="#CCCCCC">14</th>
+<th align="center" bgcolor="#CCCCCC">15</th>
+<th align="center" bgcolor="#CCCCCC">16</th>
+<th align="center" bgcolor="#CCCCCC">17</th>
+<th align="center" bgcolor="#CCCCCC">18</th>
+<th align="center" bgcolor="#CCCCCC">19</th>
+<th align="center" bgcolor="#CCCCCC">20</th>
+<th align="center" bgcolor="#CCCCCC">21</th>
+<th align="center" bgcolor="#CCCCCC">22</th>
+</tr>
+<tr>
+<th align="center" bgcolor="#CCCCCC">M1</th>
+<td align="center" bgcolor="#66CCFF">C</td>
+<td align="center" bgcolor="#66CCFF">C</td>
+<td align="center" bgcolor="#66CCFF">C</td>
+<td align="center" bgcolor="#66CCFF">C</td>
+<td align="center" bgcolor="#66CCFF">B</td>
+<td align="center" bgcolor="#66CCFF">B</td>
+<td align="center" bgcolor="#66CCFF">B</td>
+<td align="center" bgcolor="#66CCFF">B</td>
+<td align="center" bgcolor="#66CCFF">B</td>
+<td align="center" bgcolor="#66CCFF">A</td>
+<td align="center" bgcolor="#66CCFF">A</td>
+<td align="center" bgcolor="#66CCFF">A</td>
+<td align="center" bgcolor="#66CCFF">A</td>
+<td align="center" bgcolor="#66CCFF">A</td>
+<td align="center" bgcolor="#66CCFF">A</td>
+<td align="center" bgcolor="#66CCFF">A</td>
+<td align="center">　</td>
+<td align="center">　</td>
+<td align="center">　</td>
+<td align="center">　</td>
+<td align="center">　</td>
+<td align="center">　</td>
+</tr>
+<tr>
+<th align="center" bgcolor="#CCCCCC">M2</th>
+<td align="center">　</td>
+<td align="center">　</td>
+<td align="center">　</td>
+<td align="center">　</td>
+<td align="center" bgcolor="#66CCFF">C</td>
+<td align="center" bgcolor="#66CCFF">C</td>
+<td align="center">　</td>
+<td align="center">　</td>
+<td align="center">　</td>
+<td align="center" bgcolor="#66CCFF">B</td>
+<td align="center" bgcolor="#66CCFF">B</td>
+<td align="center" bgcolor="#66CCFF">B</td>
+<td align="center" bgcolor="#66CCFF">B</td>
+<td align="center" bgcolor="#66CCFF">B</td>
+<td align="center" bgcolor="#66CCFF">B</td>
+<td align="center">　</td>
+<td align="center" bgcolor="#66CCFF">A</td>
+<td align="center" bgcolor="#66CCFF">A</td>
+<td align="center" bgcolor="#66CCFF">A</td>
+<td align="center">　</td>
+<td align="center">　</td>
+<td align="center">　</td>
+</tr>
+</table>
+<p>したがって，イの場合が最も短くなる。</p>
+<hr>
+<a href="17S_A_E4.HTM#77">問題へ</a>
+<hr>
+<p><strong><a name="78">問78</a></strong></p>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>ウ</option></select></p>
+<p>〈解説〉</p>
+<p>商品Mをm個，商品Nをn個を作ったときの販売利益をRとすると</p>
+<p>　　R＝600m＋400n</p>
+<p>1日の菓子Kの最大製造能力は360個なので，6m＋3n≦360を満たす必要がある。<br>
+1日の菓子Lの最大製造能力は240個なので，2m＋4n≦240を満たす必要がある。</p>
+<p>この条件のもとに利益Rを最大にするm，nを求めて，そのときの最大利益を求めればよい。</p>
+<p>グラフより2直線6m＋3n＝360と2m＋4n＝240の交点を，直線R＝600m＋400nが通るとき，利益Rは最大になる。<br>
+交点はm＝40，n＝40のときで，利益RはR＝600×40＋400×40＝40,000となる。</p>
+<p><img border="0" src="IMAGE/image027.png" width="412" height="315"></p>
+<hr>
+<a href="17S_A_E4.HTM#78">問題へ</a>
+<hr>
+<p><strong><a name="79">問79</a></strong></p>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>エ</option></select></p>
+<p>〈解説〉</p>
+<p>ECはインターネットを介した商品取引のこと（電子商取引）で，BtoB（企業間商取引），BtoC（企業顧客間商取引）などがある。</p>
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td valign="top">ア</td>
+<td valign="top">×</td>
+<td valign="top">SFA（Sales Force Automation）の説明。</td>
+</tr>
+<tr>
+<td valign="top">イ</td>
+<td valign="top">×</td>
+<td valign="top">ERP（Enterprise Resource Planning）の説明。</td>
+</tr>
+<tr>
+<td valign="top">ウ</td>
+<td valign="top">×</td>
+<td valign="top">RSS（Retail Support System）の説明。</td>
+</tr>
+<tr>
+<td valign="top">エ</td>
+<td valign="top">○</td>
+<td valign="top"></td>
+</tr>
+</table>
+<hr>
+<a href="17S_A_E4.HTM#79">問題へ</a>
+<hr>
+<p><strong><a name="80">問80</a></strong></p>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>ウ</option></select></p>
+<p>〈解説〉</p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td valign="top">ア</td>
+<td valign="top">×</td>
+<td valign="top">送信可能化権は，サーバへのアップロードなどによりインターネットなどで「著作物を自動的に公衆に送信し得る状態に置く権利」のことで，著作者や著作隣接権者がこの権利をもつ。著作権者の許諾なくファイルを置くだけで権利侵害になる。</td>
+</tr>
+<tr>
+<td valign="top">イ</td>
+<td valign="top">×</td>
+<td valign="top">絵画などのアナログ情報(著作物)には著作権が発生しており，スキャナなどによりディジタル情報に変換する行為も複製に該当し，著作権者に許諾が必要。</td>
+</tr>
+<tr>
+<td valign="top">ウ</td>
+<td valign="top">○</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">エ</td>
+<td valign="top">×</td>
+<td valign="top">参照の有無に関わらず，無断で著作物を掲載することは著作権の侵害になる。</td>
+</tr>
+</table>
+</div>
+<p>　</p>
+<hr>
+<a href="17S_A_E4.HTM#80">問題へ</a>
+<hr>
+<p><a href="INDEX.HTM">メニューへ戻る</a></p>
+<hr>
+</blockquote>
+
+</body>
+
+</html>

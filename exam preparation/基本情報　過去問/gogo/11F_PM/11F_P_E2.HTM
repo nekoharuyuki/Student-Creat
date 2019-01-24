@@ -1,0 +1,986 @@
+<HTML>
+<HEAD>
+<TITLE>平成11年度秋期試験　問題(問3～問6)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0">
+<blockquote>
+  <hr>
+<H3 align="center">平成11年度秋期試験　問題(午後問3～問6)</H3>
+<hr>
+<P>
+次の問３から問６までの4問については、この中から2問を選択し、答案用紙の選択欄の選をマークして解答してください。<br>
+なお、3問以上選択した場合には、はじめの2問について採点します。<br>
+<HR WIDTH=100%>
+<A NAME="30">　<BR>
+<b>
+問3</b></a><b>　</b>次のプログラムの説明、擬似言語の記述形式の説明及びプログラムを読んで、<br>
+設問 1、2 に答えよ。<br>      
+〔プログラムの説明〕<br>      
+  　二つの商品ファイルを併合して一つの商品ファイルにするプログラムである。図1に<br>
+示すfileAと図2に示すfileBを併合して、図3に示すfileCを作成する。<br>
+  　ただし、fileAとfileBに同一の商品コードをもつレコードは存在しないものとする。<br>
+<br>
+<br>
+〔擬似言語の記述形式の説明〕
+<table border="0" cellpadding="0" cellspacing="5">
+  <tr>
+    <td>
+      <table border="1" bordercolorlight="#000000" cellspacing="0" cellpadding="3" bordercolor="#FFFFFF" bordercolordark="#FFFFFF">
+        <tbody>
+          <tr>
+            <td vAlign="center">
+              <p>　</p>
+            </td>
+            <td vAlign="center">
+              <p align="center">商品コード</p>
+            </td>
+            <td vAlign="center">
+              <p align="center">商品名</p>
+            </td>
+          </tr>
+          <tr>
+            <td vAlign="center">
+              <p align="center">レコード 1</p>     
+            </td>     
+            <td vAlign="center">     
+              <p align="center">100</p>     
+            </td>     
+            <td vAlign="center">     
+              <p align="center">ハブラシ</p>     
+            </td>     
+          </tr>     
+          <tr>     
+            <td vAlign="center">     
+              <p align="center">レコード 2</p>     
+            </td>     
+            <td vAlign="center">     
+              <p align="center">200</p>     
+            </td>     
+            <td vAlign="center">     
+              <p align="center">リンス</p>     
+            </td>     
+          </tr>     
+        </tbody>     
+      </table>     
+      　　　　　　図１　fileA
+      <p>　</td>
+    <td valign="top">
+      <table border="1" bordercolorlight="#000000" cellspacing="0" cellpadding="3" bordercolor="#FFFFFF" bordercolordark="#FFFFFF">
+        <tbody>
+          <tr>
+            <td vAlign="center">
+              <p>　</p>
+            </td>
+            <td vAlign="center">
+              <p align="center">商品コード</p>
+            </td>
+            <td vAlign="center">
+              <p align="center">商品名</p>
+            </td>
+          </tr>
+          <tr>
+            <td vAlign="center">
+              <p align="center">レコード 1</p>     
+            </td>     
+            <td vAlign="center">     
+              <p align="center">150</p>     
+            </td>     
+            <td vAlign="center">     
+              <p align="center">タオル</p>     
+            </td>     
+          </tr>     
+          <tr>     
+            <td vAlign="center">     
+              <p align="center">レコード 2</p>     
+            </td>     
+            <td vAlign="center">     
+              <p align="center">250</p>     
+            </td>     
+            <td vAlign="center">     
+              <p align="center">カップ</p>     
+            </td>     
+          </tr>     
+          <tr>     
+            <td vAlign="center">     
+              <p align="center">レコード 3</p>     
+            </td>     
+            <td vAlign="center">     
+              <p align="center">350</p>     
+            </td>     
+            <td vAlign="center">     
+              <p align="center">ペン</p>     
+            </td>     
+          </tr>     
+        </tbody>     
+      </table>     
+      　　　　　　図２　fileB</td>
+  </tr>
+  <tr>
+    <td colspan="2" align="left"><center>
+      <div align="left">
+        <table border="1" bordercolorlight="#000000" cellspacing="0" cellpadding="3" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+          <tbody>
+            <tr>
+              <td vAlign="center">
+                <p>　</p>
+              </td>
+              <td vAlign="center">
+                <p align="center">商品コード</p>
+              </td>
+              <td vAlign="center">
+                <p align="center">商品名</p>
+              </td>
+            </tr>
+            <tr>
+              <td vAlign="center">
+                <p align="center">レコード 1</p>     
+              </td>     
+              <td vAlign="center">     
+                <p align="center">100</p>     
+              </td>     
+              <td vAlign="center">     
+                <p align="center">ハブラシ</p>     
+              </td>     
+            </tr>     
+            <tr>     
+              <td vAlign="center">     
+                <p align="center">レコード 2</p>     
+              </td>     
+              <td vAlign="center">     
+                <p align="center">150</p>     
+              </td>     
+              <td vAlign="center">     
+                <p align="center">タオル</p>     
+              </td>     
+            </tr>     
+            <tr>     
+              <td vAlign="center">     
+                <p align="center">レコード 3</p>     
+              </td>     
+              <td vAlign="center">     
+                <p align="center">200</p>     
+              </td>     
+              <td vAlign="center">     
+                <p align="center">リンス</p>     
+              </td>     
+            </tr>     
+            <tr>     
+              <td vAlign="center">     
+                <p align="center">レコード 4</p>     
+              </td>     
+              <td vAlign="center">     
+                <p align="center">250</p>     
+              </td>     
+              <td vAlign="center">     
+                <p align="center">カップ</p>     
+              </td>     
+            </tr>     
+            <tr>     
+              <td vAlign="center">     
+                <p align="center">レコード 5</p>     
+              </td>     
+              <td vAlign="center">     
+                <p align="center">350</p>     
+              </td>     
+              <td vAlign="center">     
+                <p align="center">ペン</p>     
+              </td>     
+            </tr>     
+          </tbody>     
+        </table>     
+      </div>     
+      </center>     
+      <p align="left">図３　fileC</td>
+  </tr>
+</table>
+<p><img border="0" src="image/A99a03f2.gif" width="520" height="463"></p>
+<p><img border="0" src="image/A99a03f3.gif" width="504" height="595"></p>
+<p>　</p>
+<A NAME="30">
+<HR>
+</a><A NAME="31">　<BR>
+<b>
+設問1</b></a><b>　</b>プログラム中のα⇒で示すYesの部分は何回実行されるか。正しい答えを、解答群の中から選べ。<br>
+<br>
+<br>
+解答群
+<p>ア　1　　　　イ　2　　　　ウ　3　　　　エ　4　　　　オ　5</p>
+<p>　</p>
+<A NAME="31">
+<HR WIDTH=100%>
+</a>
+<A HREF="11f_p_a2.htm#31">設問1の正解例と解説へ</A>
+<HR WIDTH=100%>
+  　
+<table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#FFFFFF" bordercolor="#FFFFFF" bordercolordark="#FFFFFF">
+  <tr>
+    <td>
+<A NAME="32">
+<b>
+設問2</b></a>　次の記述中の</td>
+    <td bordercolor="#000000">　　&nbsp; 　　</td>
+    <td>に入れる正しい答えを、解答群の中から選べ。</td>
+  </tr>
+</table>
+<p>(1)　プログラム中のβ⇒で示す条件式を、誤って次のように書いた。<br>
+<br>
+　　　rcdAの商品コード &gt; rcdBの商品コード</p>     
+<table border="1" cellpadding="0" cellspacing="0" bordercolorlight="#FFFFFF" bordercolor="#FFFFFF" bordercolordark="#FFFFFF">     
+  <tr>     
+    <td>　　　fileCの内容は</td>
+    <td bordercolor="#000000">　　ａ　&nbsp; 　</td>
+    <td>となる。</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td><br>
+      (2)　元のプログラムで、図1のファイルの代わりに、図4のファイルをfileAとして入力した。</td>
+  </tr>
+</table>
+<table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#FFFFFF" bordercolor="#FFFFFF" bordercolordark="#FFFFFF">
+  <tr>
+    <td>　　fileCの内容は</td>
+    <td bordercolor="#000000">　　ｂ　&nbsp; 　</td>
+    <td>となる。</td>
+  </tr>
+</table>
+<center>
+<p>　</p>
+<div align="left">
+  <table border="1" bordercolorlight="#000000" cellspacing="0" cellpadding="3" bordercolor="#FFFFFF" bordercolordark="#FFFFFF">
+    <tbody>
+      <tr>
+        <td vAlign="center">
+          <p align="center">商品コード</p>
+        </td>
+        <td vAlign="center">
+          <p align="center">商品名</p>
+        </td>
+      </tr>
+      <tr>
+        <td vAlign="center">
+          <p align="center">200</p>
+        </td>
+        <td vAlign="center">
+          <p align="center">リンス</p>
+        </td>
+      </tr>
+      <tr>
+        <td vAlign="center">
+          <p align="center">100</p>
+        </td>
+        <td vAlign="center">
+          <p align="center">ハブラシ</p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</center>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>図４　fileA</td>
+  </tr>
+</table>
+<p>解答群</p>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>ア
+      <table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolor="#FFFFFF" bordercolordark="#FFFFFF">
+        <tr>
+          <td>
+            <p align="center">商品コード</td>
+          <td>商品名</td>
+        </tr>
+        <tr>
+          <td vAlign="center">
+            <p align="center">100</p>
+          </td>
+          <td vAlign="center">
+            <p align="center">ハブラシ</p>
+          </td>
+        </tr>
+        <tr>
+          <td vAlign="center">
+            <p align="center">150</p>
+          </td>
+          <td vAlign="center">
+            <p align="center">タオル</p>
+          </td>
+        </tr>
+        <tr>
+          <td vAlign="center">
+            <p align="center">200</p>
+          </td>
+          <td vAlign="center">
+            <p align="center">リンス</p>
+          </td>
+        </tr>
+        <tr>
+          <td vAlign="center">
+            <p align="center">250</p>
+          </td>
+          <td vAlign="center">
+            <p align="center">カップ</p>
+          </td>
+        </tr>
+        <tr>
+          <td vAlign="center">
+            <p align="center">350</p>
+          </td>
+          <td vAlign="center">
+            <p align="center">ペン</p>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td>イ
+      <table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolor="#FFFFFF" bordercolordark="#FFFFFF">
+        <tr>
+          <td>
+            <p align="center">商品コード</td>
+          <td>商品名</td>
+        </tr>
+        <tr>
+          <td>100</td>
+          <td>ハブラシ</td>
+        </tr>
+        <tr>
+          <td>150</td>
+          <td>タオル</td>
+        </tr>
+        <tr>
+          <td>200</td>
+          <td>リンス</td>
+        </tr>
+        <tr>
+          <td>350</td>
+          <td>ペン</td>
+        </tr>
+        <tr>
+          <td>250</td>
+          <td>カップ</td>
+        </tr>
+      </table>
+    </td>
+    <td>ウ
+      <table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolor="#FFFFFF" bordercolordark="#FFFFFF">
+        <tr>
+          <td align="center">
+            <p align="center">商品コード</td>
+          <td align="center">商品名</td>
+        </tr>
+        <tr>
+          <td align="center">100</td>
+          <td vAlign="center" align="center">
+            <p align="center">ハブラシ</p>
+          </td>
+        </tr>
+        <tr>
+          <td vAlign="center" align="center">
+            <p align="center">200</p>
+          </td>
+          <td vAlign="center" align="center">
+            <p align="center">リンス</p>
+          </td>
+        </tr>
+        <tr>
+          <td vAlign="center" align="center">
+            <p align="center">150</p>
+          </td>
+          <td vAlign="center" align="center">
+            <p align="center">タオル</p>
+          </td>
+        </tr>
+        <tr>
+          <td vAlign="center" align="center">
+            <p align="center">350</p>
+          </td>
+          <td vAlign="center" align="center">
+            <p align="center">ペン</p>
+          </td>
+        </tr>
+        <tr>
+          <td vAlign="center" align="center">
+            <p align="center">250</p>
+          </td>
+          <td vAlign="center" align="center">
+            <p align="center">カップ</p>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>エ
+      <table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolor="#FFFFFF" bordercolordark="#FFFFFF">
+        <tr>
+          <td vAlign="center">
+            <p align="center">商品コード</td>
+          <td vAlign="center">
+            <p align="center">商品名</p>
+          </td>
+        </tr>
+        <tr>
+          <td vAlign="center">
+            <p align="center">150</p>
+          </td>
+          <td vAlign="center">
+            <p align="center">タオル</p>
+          </td>
+        </tr>
+        <tr>
+          <td vAlign="center">
+            <p align="center">100</p>
+          </td>
+          <td vAlign="center">
+            <p align="center">ハブラシ</p>
+          </td>
+        </tr>
+        <tr>
+          <td vAlign="center">
+            <p align="center">200</p>
+          </td>
+          <td vAlign="center">
+            <p align="center">リンス</p>
+          </td>
+        </tr>
+        <tr>
+          <td vAlign="center">
+            <p align="center">350</p>
+          </td>
+          <td vAlign="center">
+            <p align="center">ペン</p>
+          </td>
+        </tr>
+        <tr>
+          <td vAlign="center">
+            <p align="center">250</p>
+          </td>
+          <td vAlign="center">
+            <p align="center">カップ</p>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td>オ
+      <table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolor="#FFFFFF" bordercolordark="#FFFFFF">
+        <tr>
+          <td vAlign="center">
+            <p align="center">商品コード</td>
+          <td vAlign="center">
+            <p align="center">商品名</p>
+          </td>
+        </tr>
+        <tr>
+          <td vAlign="center">
+            <p align="center">150</p>
+          </td>
+          <td vAlign="center">
+            <p align="center">タオル</p>
+          </td>
+        </tr>
+        <tr>
+          <td vAlign="center">
+            <p align="center">200</p>
+          </td>
+          <td vAlign="center">
+            <p align="center">リンス</p>
+          </td>
+        </tr>
+        <tr>
+          <td vAlign="center">
+            <p align="center">100</p>
+          </td>
+          <td vAlign="center">
+            <p align="center">ハブラシ</p>
+          </td>
+        </tr>
+        <tr>
+          <td vAlign="center">
+            <p align="center">250</p>
+          </td>
+          <td vAlign="center">
+            <p align="center">カップ</p>
+          </td>
+        </tr>
+        <tr>
+          <td vAlign="center">
+            <p align="center">350</p>
+          </td>
+          <td vAlign="center">
+            <p align="center">ペン</p>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td>カ
+      <table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolor="#FFFFFF" bordercolordark="#FFFFFF">
+        <tr>
+          <td vAlign="center">
+            <p align="center">商品コード</td>
+          <td vAlign="center">
+            <p align="center">商品名</p>
+          </td>
+        </tr>
+        <tr>
+          <td vAlign="center">
+            <p align="center">150</p>
+          </td>
+          <td vAlign="center">
+            <p align="center">タオル</p>
+          </td>
+        </tr>
+        <tr>
+          <td vAlign="center">
+            <p align="center">250</p>
+          </td>
+          <td vAlign="center">
+            <p align="center">カップ</p>
+          </td>
+        </tr>
+        <tr>
+          <td vAlign="center">
+            <p align="center">350</p>
+          </td>
+          <td vAlign="center">
+            <p align="center">ペン</p>
+          </td>
+        </tr>
+        <tr>
+          <td vAlign="center">
+            <p align="center">100</p>
+          </td>
+          <td vAlign="center">
+            <p align="center">ハブラシ</p>
+          </td>
+        </tr>
+        <tr>
+          <td vAlign="center">
+            <p align="center">200</p>
+          </td>
+          <td vAlign="center">
+            <p align="center">リンス</p>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>キ
+      <table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolor="#FFFFFF" bordercolordark="#FFFFFF">
+        <tr>
+          <td vAlign="center">
+            <p align="center">商品コード</td>
+          <td vAlign="center">
+            <p align="center">商品名</p>
+          </td>
+        </tr>
+        <tr>
+          <td vAlign="center">
+            <p align="center">200</p>
+          </td>
+          <td vAlign="center">
+            <p align="center">リンス</p>
+          </td>
+        </tr>
+        <tr>
+          <td vAlign="center">
+            <p align="center">150</p>
+          </td>
+          <td vAlign="center">
+            <p align="center">タオル</p>
+          </td>
+        </tr>
+        <tr>
+          <td vAlign="center">
+            <p align="center">250</p>
+          </td>
+          <td vAlign="center">
+            <p align="center">カップ</p>
+          </td>
+        </tr>
+        <tr>
+          <td vAlign="center">
+            <p align="center">350</p>
+          </td>
+          <td vAlign="center">
+            <p align="center">ペン</p>
+          </td>
+        </tr>
+        <tr>
+          <td vAlign="center">
+            <p align="center">100</p>
+          </td>
+          <td vAlign="center">
+            <p align="center">ハブラシ</p>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td>ク
+      <table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolor="#FFFFFF" bordercolordark="#FFFFFF">
+        <tr>
+          <td vAlign="center">
+            <p align="center">商品コード</td>
+          <td vAlign="center">
+            <p align="center">商品名</p>
+          </td>
+        </tr>
+        <tr>
+          <td vAlign="center">
+            <p align="center">350</p>
+          </td>
+          <td vAlign="center">
+            <p align="center">ペン</p>
+          </td>
+        </tr>
+        <tr>
+          <td vAlign="center">
+            <p align="center">250</p>
+          </td>
+          <td vAlign="center">
+            <p align="center">カップ</p>
+          </td>
+        </tr>
+        <tr>
+          <td vAlign="center">
+            <p align="center">200</p>
+          </td>
+          <td vAlign="center">
+            <p align="center">リンス</p>
+          </td>
+        </tr>
+        <tr>
+          <td vAlign="center">
+            <p align="center">150</p>
+          </td>
+          <td vAlign="center">
+            <p align="center">タオル</p>
+          </td>
+        </tr>
+        <tr>
+          <td vAlign="center">
+            <p align="center">100</p>
+          </td>
+          <td vAlign="center">
+            <p align="center">ハブラシ</p>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td></td>
+  </tr>
+</table>
+<p>　</p>
+<HR WIDTH=100%>
+<A HREF="11f_p_a2.htm#32">設問2の正解例と解説へ</A>
+<HR WIDTH=100%>
+<p><A HREF="index.htm">メニューへ戻る</A>　</p>
+<HR WIDTH=100%>
+<A NAME="40">　<BR>
+<b>
+問4</b></a>　データベースのコミットメント制御に関する次の記述を読んで、設問に答えよ。<br>
+<br>
+  　集中型のデータベースでは、コミットメント制御によって一つのトランザクションの処理をすべて行うか、全く行わないかのどちらかにして、整合性を保っている。すなわち、一部だけを実行して、残りを実行しないということはない（図1）。ここで、図中のm、nはデータを表し、m’、n’などはそれぞれ更新後の値を、（　）は更新確定前の状態を表す。
+<p><img border="0" src="image/A99a04f1.gif" width="577" height="197"><br>
+図１　集中型データベースの更新<br>
+<br>
+　分散型データベースでは、主サイト（要求元）からの一つのトランザクション処理が<br>
+複数のサイトのデータベースを更新する。この場合、次のような問題が生じる。主サイト<br>
+からのコミット要求（図2の②）に基づき、サイトA及びサイトBそれぞれのデータベース<br>
+に対してコミット処理が行われるが、サイトAでは正常終了し、サイトBでは異常終了した<br>
+場合、更新処理の整合性がなくなる。</p>
+<p><img border="0" src="image/A99a04f2.gif" width="500" height="266"><br>
+図２　分散型データベースの更新１<br>
+<br>
+　そこで、各サイトのトランザクション処理をすぐに確定するのではなく、コミットも<br>
+ロールバックもできるといった中間状態を設定し、その後確定処理に入るといった2段階<br>
+の仕組みを考える（図3）。これを2相コミットメント制御という。</p>
+<p><img border="0" src="image/A99a04f3.gif" width="506" height="558"><br>
+図３　分散型データベースの更新２</p>
+<A NAME="40">
+<HR WIDTH=100%>
+</a>
+<b>　</b>
+<table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#FFFFFF" bordercolor="#FFFFFF" bordercolordark="#FFFFFF">
+  <tr>
+    <td><A NAME="41"><b>
+設問</b></a><b> </b>図2、図3中の</td> 
+    <td bordercolor="#000000">　&nbsp;&nbsp;&nbsp;&nbsp; 　</td>
+    <td>に入れる正しい答えを、解答群の中から選べ。</td>
+  </tr>
+</table>
+<p style="line-height: 150%">aに関する解答群<br>
+　ア　n　　　　イ　（n）　　　　ウ　n’　　　　エ　（n’）　　　　オ　n’’<br>
+<br>
+b、c に関する解答群<br>     
+　ア　200　　　　イ　300　　　　ウ　400　　　　エ　500　　　　オ　600<br>
+　カ　700　　　　キ　800　　　　ク　900</p>
+<p></p>
+<HR WIDTH=100%>
+  <A HREF="11f_p_a2.htm#41">設問の正解例と解説へ</A>
+<HR WIDTH=100%>
+  　<BR>
+<b><a name="50">問5</a>　</b>プログラムの並列処理に関する次の記述を読んで、設問に答えよ。<br>
+<br>
+  　1行が800ドットで600行からなる画像データを処理するプログラムがある。このプログラムでは、画像の1行を単位として処理を行い、ある行の処理結果は他の行の処理に影響を及ぼさない。この互いに独立した600行分の処理を複数のコンピュータに分担させ、並列に実行することで、全体の処理時間を短縮することができる。システムXは単独のコンピュータで、200MFLOPSの演算性能をもつプロセッサと、メモリ、ディスク装置を備えている。システムYは、システムXと同じ演算性能のコンピュータ（No.1～No.4）を4台並列に接続したものである。図1に示すとおり、その1台ずつが独立したプロセッサ及びメモリをもつが、ディスクは共有している。
+<p align="left"><img border="0" src="image/A99a05f1.gif" width="546" height="301"></p>
+<p align="center">
+図１　システムの構成</p>
+<p>　</p>
+<hr>
+<p><b>　</b>
+</p>
+<table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#FFFFFF" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+  <tr>
+    <td><b><a name="51">設問</a>　</b>次の記述中の</td>
+    <td bordercolor="#000000" width="60">　</td>
+    <td>に入れる正しい答えを、解答群の中から選べ。</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td><br>
+      　プログラムは、①画像データ読込み部、②1行についての計算部、③結果出力部の三つの部分からなる（図2）。①は40ミリ秒、③は120ミリ秒の実行時間を必要とする。②は、40万回の浮動小数点計算に相当する実行時間を必要とし、この計算部を600行について実行することによって、画像全体を処理する。</td>
+  </tr>
+</table>
+<table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#FFFFFF" bordercolor="#FFFFFF" bordercolordark="#FFFFFF">
+  <tr>
+    <td>　プログラムをシステムXで実行すると、</td>
+    <td bordercolor="#000000">　　ａ　&nbsp;&nbsp;</td>
+    <td>ミリ秒の実行時間を必要とする。</td>
+  </tr>
+</table>
+<p><img border="0" src="image/A99a05f2.gif" width="269" height="273"><br>
+図２　処理の手順<br>
+　
+</p>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>　次に、同じプログラムをシステムYで実行する。プログラムにおいて、①及び③は並<br>
+      列化できず、No.1のコンピュータが代表して行う。600回実行する②は各々が独立した処<br>
+      理なので並列化でき、4台のコンピュータに処理を均等に分散できる。No.1のコンピュー<br>
+      タが他の3台のコンピュータとデータをやり取りするのに必要な時間（通信時間）は、デ<br>
+      ータをすべてのコンピュータへ配るのに150ミリ秒、結果をすべて集めるのにも150ミリ<br>
+      秒かかる。</td>
+  </tr>
+</table>
+<table border="1" cellpadding="3" cellspacing="0" width="600" bordercolorlight="#FFFFFF" bordercolor="#FFFFFF" bordercolordark="#FFFFFF">
+  <tr>
+    <td width="343">プログラムをシステムYで実行したとき、実行時間は</td>
+    <td bordercolor="#000000">　　 ｂ　　</td>
+    <td width="165">ミリ秒を必要とする。</td>
+  </tr>
+</table>
+<p>　②の処理に含まれる演算処理が少ない場合には、通信時間がかかるので、並列処理の方<br>
+が単独処理よりも実行時間が長くなることもある。プログラムをシステムYで実行する<br>
+場合に、②の処理が浮動小数点計算に換算しておよそ<img border="0" src="image/box2.gif" width="75" height="24">万回より 少なくなると、<br>     
+システムXで実行した場合よりも長い実行時間が必要となる。<br>     
+<br>     
+a、bに関する解答群<br>     
+　ア　300　　　　　イ　340　　　　ウ　460　　　　エ　610　　　　オ　760<br>
+　カ　1,200　　　　キ　1,320　　　ク　1,360<br>
+<br>
+cに関する解答群<br>
+　ア　5　　　　イ　10　　　ウ　13　　　エ　30　　　オ　6,000　　　カ　8,000
+</p>
+<A NAME="44">
+<HR WIDTH=100%>
+</a><a HREF="11f_p_a2.htm#51">設問の正解例と解説へ</a>
+<hr>
+<p>
+<A HREF="index.htm">メニューへ戻る</A></p>
+<HR WIDTH=100%>
+<p><b><a name="60">問6</a>　</b>在庫管理に関する次の記述を読んで、設問1、2に答えよ。<br>
+<br>
+　Y君の勤める工場では、これまで担当者の経験と勘に頼っていた在庫管理を改善することになり、Y君は原材料の発注方式について意見を述べることになった。<br>
+</p>
+<hr>
+<p><b><a name="61">設問1</a>　</b>Y君の勤める工場で使用されている原材料は100品目ある。Y君は、その中から<br>
+　重点品目を選んで在庫管理の見直しを提案しようと考えた。いろいろな文献から、年間<br>
+　消費金額（原材料単価×消費量）の大きい原材料は重点管理品目としてきめ細かく管理<br>
+　し、年間消費金額の小さい原材料は費用をかけないで管理するのがよいことが分かった。<br>
+　そこで、品目ごとの年間消費金額を調べて、次のような表にまとめた。<br>
+<br>
+</p>
+<table border="1" bordercolorlight="#000000" cellspacing="0" cellpadding="3" bordercolor="#FFFFFF" bordercolordark="#FFFFFF">
+  <tbody>
+    <tr>
+      <td vAlign="top" width="11%">
+        <p align="center">番号</p>
+      </td>
+      <td vAlign="top" width="25%">
+        <p align="center">品目コード</p>
+      </td>
+      <td vAlign="top" width="17%">
+        <p align="center">原材料単価</p>
+      </td>
+      <td vAlign="top" width="19%">
+        <p align="center">消費量</p>
+      </td>
+      <td vAlign="top" width="27%">
+        <p align="center">年間消費金額</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p align="right">1</p>
+      </td>
+      <td>
+        <p align="center">AA01</p>
+      </td>
+      <td>
+        <p align="right">30</p>
+      </td>
+      <td>
+        <p align="right">56,380</p>
+      </td>
+      <td>
+        <p align="right">1,691,400</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p align="right">2</p>
+      </td>
+      <td>
+        <p align="center">AA07</p>
+      </td>
+      <td>
+        <p align="right">200</p>
+      </td>
+      <td>
+        <p align="right">1,500</p>
+      </td>
+      <td>
+        <p align="right">300,000</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p align="right">3</p>
+      </td>
+      <td>
+        <p align="center">AC01</p>
+      </td>
+      <td>
+        <p align="right">1,500</p>
+      </td>
+      <td>
+        <p align="right">23,400</p>
+      </td>
+      <td>
+        <p align="right">35,100,000</p>
+      </td>
+    </tr>
+    <tr>
+      <td align="center">:</td>
+      <td align="center">:</td>
+      <td align="center">:</td>
+      <td align="center">:</td>
+      <td align="center">:</td>
+    </tr>
+    <tr>
+      <td>
+        <p align="right">100</p>
+      </td>
+      <td>
+        <p align="center">ZQ80</p>
+      </td>
+      <td>
+        <p align="right">10</p>
+      </td>
+      <td>
+        <p align="right">2,875</p>
+      </td>
+      <td>
+        <p align="right">28,750</p>
+      </td>
+    </tr>
+    <tr>
+      <td colSpan="4">
+        <p>年間消費金額合計</p>
+      </td>
+      <td>
+        <p align="right">231,730,960</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>続いて、表から年間消費金額が年間消費金額合計に占める割合の高い品目を 重点管理品目として選び出すために、次の手順で分析をした。</p>    
+<table border="0" cellpadding="3" cellspacing="0">   
+  <tr>   
+    <td valign="top">①</td>   
+    <td>年間消費金額の大きい順に全品目を 並べ替える。</td>    
+  </tr>    
+  <tr>    
+    <td valign="top">②</td>   
+    <td>最上位から各順位までの年間消費金額累計を求める。</td>   
+  </tr>   
+  <tr>   
+    <td valign="top">③</td>   
+    <td>横軸を品目の順位、縦軸を年間消費金額とする棒グラフを作成する。</td>   
+  </tr>   
+  <tr>   
+    <td valign="top">④</td>   
+    <td>このグラフに、各順位までの年間消費金額累計を折れ線で記入する。</td>   
+  </tr>   
+</table>   
+<p>この手順で得られた図又はグラフの名称として正しい答えを、解答群の中から選べ。<br>   
+<br>   
+解答群&nbsp;</p>   
+<table border="0" cellpadding="3" cellspacing="0">   
+  <tr>   
+    <td width="200">ア　アローダイアグラム　</td>
+    <td width="200">イ　ガントチャート</td>
+    <td>ウ　管理図</td>
+  </tr>
+  <tr>
+    <td>エ　パレート図</td>
+    <td>オ　ポートフォリオ図</td>
+    <td></td>
+  </tr>
+</table>
+<p>　</p>
+<A NAME="44">
+<HR WIDTH=100%>
+</a><a HREF="11f_p_a2.htm#61">設問1の正解例と解説へ</a>
+<HR WIDTH=100%>
+<br>
+  　<b><a name="62">設問2</a>　</b>在庫管理の代表的な方法に“定期発注方式”と“定量発注方式”がある。設問1　で選び出した重点管理品目にどちらの方式が適しているかを検討するために、Y君はそれぞれの特徴をまとめた。<br>
+  次の記述中の<b>[　　　　]</b>に入れる正しい答えを、解答群の中から選べ。<p>　発注方式を決めるためには、原材料の単価、一定期間の消費量、消費量の変動の大きさとその予測のしやすさ、発注から入庫が完了するまでの調達期間、1回の発注にかかる輸送費や事務経費などの発注費用、在庫量に応じた保管費用など多くの条件を考慮する必要がある。<br>
+<br>
+  　“定期発注方式”では、原材料の調達期間に応じて一定期間の長さを決め、その一定期間ごとに次の期間の消費量を予測し、それに基づいて　<b>[　　a　　]</b>を決めるので、きめ細かく在庫を管理することができる。消費量の変動が大きいときも在庫切れの危険が少ない。この方式は、市場の製品に対する需要の変動が大きく、生産計画がしばしば変更されるような場合で、しかも単価が高い原材料の管理に有効である。<br>
+<br>
+  　“定量発注方式”では、在庫量が<b>[　　 ｂ　　]</b>まで減少したときに、調達期間を考慮して前もって決めておいた量だけを発注するので，定期発注方式に比べると管理が容易である。しかし、消費量の変動が大きいときには在庫切れを起こす危険がある。製品の需要及び原材料の調達期間が安定し、その時点での在庫量を正確に把握できる原材料の管理に適している。<br>
+  　</p>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>解答群</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td width="170">ア　安全在庫</td>
+    <td width="170">イ　安全在庫の50 ％</td>   
+    <td>ウ　発注時期</td>  
+  </tr>  
+  <tr>  
+    <td>エ　発注点</td>  
+    <td>オ　発注量</td>  
+    <td>カ　平均在庫量</td>  
+  </tr>  
+</table>  
+<p>　　　　　　　　　　　　　　</p>  
+<A NAME="44">  
+<HR WIDTH=100%>  
+</a><a HREF="11f_p_a2.htm#62">設問2の正解例と解説へ</a>  
+<HR WIDTH=100%>  
+  <p align="center"><a HREF="11f_p_e3.htm">■問7へ進む</a>　　　　<a href="index.htm">■メニューへ戻る</a></p>
+<HR WIDTH=100%>
+  <p align="left">　</p>
+</blockquote>
+</BODY>
+</HTML>

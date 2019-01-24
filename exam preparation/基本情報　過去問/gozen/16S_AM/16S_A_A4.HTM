@@ -1,0 +1,216 @@
+<HTML>
+<HEAD>
+<TITLE>平成16年度春期試験　正解例と解説(問61～問80)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<BLOCKQUOTE>
+<hr>
+<H3 align="center">平成16年度春期試験　正解例と解説(午前問61～問80)</H3>
+<HR WIDTH=100%>
+<A NAME="61">　<BR>
+<b>
+問61</b></a>
+<br><br><select name="17FA01" size="1"><option selected>解答例</option><option>エ</option></select><br>
+<br>＜解説＞リモートログインにより遠隔操作を行う仮想端末機能はTELNETにある。FTPはファイル転送機能。HTTPはHTMLファイルを転送する機能。SMTPはメールの送信機能。
+<br>
+<HR WIDTH=100%>
+<A HREF="16S_A_E4.HTM#61">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="62">　<BR>
+<b>
+問62</b></a>
+<br><br><select name="17FA01" size="1"><option selected>解答例</option><option>エ</option></select><br>
+<br>＜解説＞セッション層は、アプリケーション間の通信におけるデータの送受信の同期制御や送信権制御などを行う。<br>
+トランスポート層は、誤り制御、回線の多重化などにより全二重の伝送路を提供し、パケットの順序制御などを行う。<br>
+ネットワーク層は、パケットの作成や分解、IPアドレスの付加などを行うとともにパケットの経路選択機能や中継機能を行う。<br>
+データリンク層は、論理的な回線のコネクションの確立と切断を行う。フレームの伝送における伝送制御手順を提供する。<br>
+<A NAME="62"><BR></a>
+<HR WIDTH=100%>
+<A HREF="16S_A_E4.HTM#62">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="63">　<BR>
+<b>
+問63</b></a>
+<br><br><select name="17FA01" size="1"><option selected>解答例</option><option>ア</option></select><br>
+<br>＜解説＞CRC方式（Cyclic Redundancy Check）は巡回冗長検査方式とも呼ばれ，送信側で送信データを多項式で表し、これをあらかじめ決められた生成多項式で割った余りを、検査用のビット列として送信データに付加して送る方式。受信側では同じ生成多項式による演算を行い余りが検査用のビット列と一致するか否かで誤り検査を行う方式。連続的なビット誤り(バースト誤り)の検出に使う。<br>
+ハミング符号方式では、情報ビットのビット列の一部に冗長ビットを付加して埋め込み、情報ビットと付加ビットとの排他的論理和などによる演算規則を設定して、１ビットの誤りを訂正できるようにした検査方式。<br>
+パリティチェック方式は、データのビット列に１ビットのパリティビットと呼ばれる誤り検出用のビットを付加する検査方式。伝送する各符号ごとに付加されたパリティビットを垂直パリティ、伝送する各符号内の同じビット位置にあるビット列に対しブロックごとに付加されたパリティビットを水平パリティという。<br>
+<A NAME="63"><BR></a>
+<HR WIDTH=100%>
+<A HREF="16S_A_E4.HTM#63">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="64">　<BR>
+<b>
+問64</b></a>
+<br><br><select name="17FA01" size="1"><option selected>解答例</option><option>エ</option></select><br>
+<br>＜解説＞転送時間＝転送するデータ容量÷(回線速度×回線の伝送効率)<br>
+　　　　　　　　　　　　＝10<sup>6</sup>バイト×8ビット／バイト÷(64×10<sup>3</sup>ビット／秒×0.8)<br>
+　　　　　　　　　　　　＝1000÷6.4≒157秒<br>
+<A NAME="64"><BR></a>
+<HR WIDTH=100%>
+<A HREF="16S_A_E4.HTM#64">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="65">　<BR>
+<b>
+問65</b></a>
+<br><br><select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select><br>
+<br>＜解説＞LANにおける伝送媒体上でデータフレームの衝突を検知する方式はCSMA/CD方式。CSMA/CA方式は無線LANにおける衝突回避方式により制御する方式。トークンパッシングバス，トークンパッシングリングはいずれもトークンと呼ばれる制御信号により送信権を制御する方式。<br>
+<A NAME="65"><BR></a>
+<HR WIDTH=100%>
+<A HREF="16S_A_E4.HTM#65">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="66">　<BR>
+<b>
+問66</b></a>
+<br><br><select name="17FA01" size="1"><option selected>解答例</option><option>ア</option></select><br>
+<br>＜解説＞ゲートウェイは，トランスポート層以上のプロトコルやアーキテクチュアが異なるLAN相互間でプロトコル変換を行いLAN相互を接続する装置です。ルータはネットワーク層，ブリッジはデータリンク層，リピータは物理層での接続装置です。<br>
+ゲートウェイはトランスポート層以上が異なるLAN相互間におけるプロトコル変換を行います。ルータはLAN同士やLANとWANを接続して，異なるプロトコルのLAN間でネットワーク層の中継処理をします。IPアドレスによりルーティンを行う機能があります。リピータは物理層で信号を増幅します。またブリッジはデータリンク層レベルでセグメント間を接続し，MACアドレスをもとにブリッジを越えて他のセグメントに通過させるフレームと通過させないフレームをフィルタリングする機能があります。<br>
+<A NAME="66"><BR></a>
+<HR WIDTH=100%>
+<A HREF="16S_A_E4.HTM#66">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="67">　<BR>
+<b>
+問67</b></a>
+<br><br><select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select><br>
+<br>＜解説＞関係データベースは，行と列からなる表の構造にデータ構造を定義したデータベース。複数の表に共通する列項目の値により表相互間を関連付けて，データの選択・射影・結合などの操作を行うので，イが適切。<br>
+<A NAME="67"><BR></a>
+<HR WIDTH=100%>
+<A HREF="16S_A_E4.HTM#67">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="68">　<BR>
+<b>
+問68</b></a>
+<br><br><select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select><br>
+<br>＜解説＞特定の列だけを取出す操作は射影。選択は条件に該当する行だけを取出す操作。結合は複数の表をキーをもとに結合する操作。<br>
+<A NAME="68"><BR></a>
+<HR WIDTH=100%>
+<A HREF="16S_A_E4.HTM#68">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="69">　<BR>
+<b>
+問69</b></a>
+<br><br><select name="17FA01" size="1"><option selected>解答例</option><option>エ</option></select><br>
+<br>＜解説＞デッドロックは，2つ以上のプロセスやトランザクションが共有資源などを互いにロックをかけてしまい，他方がロックを解除するのを相互に永久に待ち続ける状態を指し，ア，イは不適切であり，エが適切。ウは排他制御であり，不適切。<br>
+<A NAME="69"><BR></a>
+<HR WIDTH=100%>
+<A HREF="16S_A_E4.HTM#69">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="70">　<BR>
+<b>
+問70</b></a>
+<br><br><select name="17FA01" size="1"><option selected>解答例</option><option>ウ</option></select><br>
+<br>＜解説＞DBMS(Database Management System)は，データベースを効率的に定義したり，操作するだけでなく，また円滑に運用できるように，データの保全機能や機密保護機能や障害回復機能などを提供するソフトウェアの集合。スキーマはデータベースの構造と内容を定義したもの。<br>
+<br>
+<HR WIDTH=100%>
+<A HREF="16S_A_E4.HTM#70">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="71">　<BR>
+<b>
+問71</b></a>
+<br><br><select name="17FA01" size="1"><option selected>解答例</option><option>エ</option></select><br>
+<br>＜解説＞ディジタル署名は，送信者の秘密かぎで暗号化した署名を，受信者が送信者の公開かぎにより復号できるか否かにより，その署名が正当な送信者のものであるか否かをチェックできる仕組みであり，エが適切。
+<br>
+<HR WIDTH=100%>
+<A HREF="16S_A_E4.HTM#71">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="72">　<BR>
+<b>
+問72</b></a>
+<br><br><select name="17FA01" size="1"><option selected>解答例</option><option>エ</option></select><br>
+<br>＜解説＞プログラムの実行によりデータファイルが開かれて，内容の改ざんや破壊を防止するために，データファイルの対するユーザのアクセス権限を設定し，データファイルの更新や削除が出来ないようにすればよいので，エが適切。<br>
+<A NAME="72"><BR></a>
+<HR WIDTH=100%>
+<A HREF="16S_A_E4.HTM#72">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="73">　<BR>
+<b>
+問73</b></a>
+<br><br><select name="17FA01" size="1"><option selected>解答例</option><option>エ</option></select><br>
+<br>＜解説＞Unicodeは，全世界の文字を2バイトコードで統一的に表したコードです。<br>
+アはASCIIコード。イはJISコード。ウはEUCコード。<br>
+<A NAME="73"><BR></a>
+<HR WIDTH=100%>
+<A HREF="16S_A_E4.HTM#73">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="74">　<BR>
+<b>
+問74</b></a>
+<br><br><select name="17FA01" size="1"><option selected>解答例</option><option>ア</option></select><br>
+<br>＜解説＞SCM（Supply Chain Management）は，資材調達から生産，流通，販売までのモノの供給の連鎖を最適計画し効率化するための情報システムで，アが適切。
+エはCRM（Customer Relationsip Management）で，受付業務などで顧客に対する円滑な対応を支援し，顧客との関係や繋がりを構築し支援する顧客情報管理システム。<br>
+<A NAME="74"><BR></a>
+<HR WIDTH=100%>
+<A HREF="16S_A_E4.HTM#74">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="75">　<BR>
+<b>
+問75</b></a>
+<br><br><select name="17FA01" size="1"><option selected>解答例</option><option>エ</option></select><br>
+<br>＜解説＞払出し個数は60個なので，先入先出法で評価する場合，まず繰越在庫10が払出され，次に4/4購入の40個が払出される。最後に残りの10個は4/7購入のうち10個が払出される。したがって4/7購入の単価140円の商品が20個と4/10購入の単価110円の商品10個が在庫として残るので，<br>
+在庫評価額は140×20＋110×10＝3,900円となる。<br>
+<A NAME="75"><BR></a>
+<HR WIDTH=100%>
+<A HREF="16S_A_E4.HTM#75">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="76">　<BR>
+<b>
+問76</b></a>
+<br><br><select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select><br>
+<br>＜解説＞ワークサンプリング法は，観測回数や観測時刻を設定し，統計的手法に基づいて実地観測により作業内容ごとに計測したポイント数の比率から各業務の作業時間を見積もる手法で，これにより作業時間を適正化し，作業の流れを効率化するための手法。
+<br>
+<A NAME="76"><BR></a>
+<HR WIDTH=100%>
+<A HREF="16S_A_E4.HTM#76">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="77">　<BR>
+<b>
+問77</b></a>
+<br><br><select name="17FA01" size="1"><option selected>解答例</option><option>ウ</option></select><br>
+<br>＜解説＞1000ステップ当たりのバグ発生率はほぼ正規分布となるが，ウのヒストグラムの場合，管理上限の限界付近に発生件数が集中し，管理上限を超えたところで0件に激減しており，正規分布とは言い難い。
+<br>
+<A NAME="77"><BR></a>
+<HR WIDTH=100%>
+<A HREF="16S_A_E4.HTM#77">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="78">　<BR>
+<b>
+問78</b></a>
+<br><br><select name="17FA01" size="1"><option selected>解答例</option><option>エ</option></select><br>
+<br>＜解説＞線形計画法は，ある制約条件下のもとに目的関数を最大とするような最適な解を求める手法。例えばある原料を使用して製品を生産するとき，その原料の量の制約条件下のもとに利益を最大にする製品の生産個数を求める場合などが該当する。
+回帰分析法は，２つの変量のデータの分布に関して変量間にどのような関係があるかを分析すること。この変量間の関数関係を表す式を回帰方程式という。すなはち従属変量を独立変量で表す。この関係により独立変量の値から従属変量の値を推測，予測ができる。
+因子分析法は，データから相関の低い主成分と呼ばれる複数の因子を抽出し，それらの因子に関連付けてデータを分析する手法。<br>
+<A NAME="78"><BR></a>
+<HR WIDTH=100%>
+<A HREF="16S_A_E4.HTM#78">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="79">　<BR>
+<b>
+問79</b></a>
+<br><br><select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select><br>
+<br>＜解説＞取引基本規約は，EDIにより行う取引業務や双方の取引契約などの基本的な取り決めを定めたもの。業務運用規約は，システムの運用時間，障害対策などを定めたもの。情報表現規約は，データフォーマットを定めたもの。情報伝達規約は，通信回線を介した通信手順などの接続方法を定めたもので，イは適切だが，ア，ウ，エは不適切。<br>
+<br>
+<HR WIDTH=100%>
+<A HREF="16S_A_E4.HTM#79">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="80">　<BR>
+<b>
+問80</b></a>
+<br><br><select name="17FA01" size="1"><option selected>解答例</option><option>ア</option></select><br>
+<br>＜解説＞「<b>第二十条（同一性保持権）</b>著作者は、その著作物及びその題号の同一性を保持する権利を有し、その意に反してこれらの変更、切除その他の改変を受けないものとする。」とあるが、「特定の電子計算機においては利用し得ないプログラムの著作物を当該電子計算機において利用し得るようにするため、又はプログラムの著作物を電子計算機においてより効果的に利用し得るようにするために必要な改変」についてはこの適用を受けない。<br>
+バックアップを目的とした複製は通常は許可されており著作権違反ではなく，イは不適切。<br>
+複製物を取得する時点で侵害の事実を知って取得した場合は著作権法違反となるが，取得する時点で知らなければ著作権法違反とならないので，ウは不適切。アルゴリズムは著作権法により保護されないので，エは不適切。<br>
+<A NAME="80"><BR></a>
+<HR WIDTH=100%>
+<a HREF="16S_A_E4.HTM#80">問題へ</a>
+<HR WIDTH=100%>
+　<BR>
+<A HREF="index.htm">メニューへ戻る</A><BR>
+　<BR>
+<HR WIDTH=100%>
+<ADDRESS>
+<BR>
+</ADDRESS>
+</BLOCKQUOTE>
+</BODY>
+</HTML>

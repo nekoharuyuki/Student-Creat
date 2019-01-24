@@ -1,0 +1,772 @@
+<HTML>
+<HEAD>
+<TITLE>平成14年度春期試験　問題(午後問10～問13)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0">
+<blockquote>
+  <hr>
+  <H3 align="center">平成14年度春期試験　問題(問10～問13)</H3>
+<hr>
+<P>次の問10から問13までの4問については、この中から1問を選択し、答案用紙の選択欄の             
+選 をマークして解答してください。なお、2問以上選択した場合には、はじめの1問について採点します。<br>            
+<hr>         
+<b><a name="100">問10</a>　</b>次のCプログラムの説明及びプログラムを読んで，設問に答えよ。<br>
+<br>
+[プログラムの説明]<br>
+マクロ機能をもつあるプログラム言語で書かれたプログラムが，元ファイルsource_fileに格納されている。このsource_file中のマクロ名を展開し，展開ファイルdest_fileを生成する。<br>
+<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">（1）</td>
+            <td>元ファイルには，マクロ定義とマクロ名を使用するプログラムのコードが格納されている。</td>
+          </tr>
+          <tr>
+            <td valign="top">（2）</td>
+            <td>展開ファイルには，マクロ名を展開したプログラムのコードを出力する。ただし，元ファイルのマクロ定義は，出力しない。</td>
+          </tr>
+            <td valign="top">（3）</td>
+            <td>マクロ定義は，次の形式とする。<br>
+<b>        $STRDEF マクロ名 展開コード</b><br>$STRDEFは，必ず1けた目から始まり，$STRDEFとマクロ名の間，及びマクロ名と展開コードの間は，一つの空白文字で区切られる。</td>
+          </tr>
+            <td valign="top">（4）</td>
+            <td>一つのマクロ名に対するマクロ定義は，1回だけ行うことができる。</td>
+          </tr>
+          <tr>
+            <td valign="top">（5）</td>
+            <td>元ファイル中で，マクロ定義以降のコードに対して，区切り文字で区切られたマクロ名の部分を展開コードに置換する。ただし，マクロ定義の行は，置換の対象とはしない。</td>
+          </tr>
+          <tr>
+            <td valign="top">（6）</td>
+            <td>区切り文字は，次の<img border="0" src="image/01_maru.GIF">～<img border="0" src="image/03_maru.GIF">であり，文字型の配列delmcharに格納されている。<br>
+　<img border="0" src="image/01_maru.GIF">　空白文字<br>
+　<img border="0" src="image/02_maru.GIF">　図形文字　!"#%&'()*+,-./:;<=>?[\]^_{|}~<br>
+　<img border="0" src="image/03_maru.GIF">　改行文字<br>
+        char delmchar[ ] = "!\"#%&'()*+,-./:;<=>?[\\]^_{|}~\n";<br>
+        注　delmcharの先頭に要素には，空白文字が格納されている。</td>
+          </tr>
+            <td valign="top">（7）</td>
+            <td>マクロ名及び展開コードは，区切り文字を含まない。</td>
+          </tr>
+            <td valign="top">（8）</td>
+            <td>元ファイル中に現れるマクロ定義の個数は，20までとする。</td>
+          </tr>
+          <tr>
+            <td valign="top">（9）</td>
+            <td>マクロ名及び展開コードは，31文字までとする。</td>
+          </tr>
+          <tr>
+            <td valign="top">（10）</td>
+            <td>展開の前も後も，各行は改行文字で終わり，文字数は255文字までとする。</td>
+          </tr>
+            <td valign="top">（11）</td>
+            <td>プログラム中で使用している関数strchrの仕様は，次のとおりである。<br><br>
+        <code>chr *strchr(const char *s, int c)</code><br><br>
+        機能：sで指定される文字列の中のc（char型に変換する。）の最初の出現を捜す。文字列の終端を示すナル文字は，文字列の一部とみなす。<br><br>
+        返却値：捜し出した文字へのポインタを返す。文字列の中に，その文字が現れない場合，空ポインタ（NULL）を返す。</td>
+          </tr>
+            <td valign="top">（12）</td>
+            <td>このプログラムの実行例は，次のとおりである。</td>
+          </tr>
+                  </table>
+<img border="0" src="image/P_10-01.gif"><br>
+<br>
+図　実行例<br>
+<br>
+  <pre>　</pre>
+  <p>〔プログラム〕
+  <pre>#include <stdio.h>
+#include <string.h>
+
+#define MCRDEF  20
+#define STRING  32
+#define LINLNG  256
+
+int divide_line();
+char linbuf[LINGLNG], token[LINGLNG][LINGLNG], delm[LINGLNG];
+char label[] = "$STRDEF"
+char delmchar[] = "!\"#$%&'()*+,-./:;<=>?[\\]^_{|}~\n";
+
+main() {
+    FILE *sfp, *dfp;
+    int  marcnt = 0, tokcnt, flg, idx1, idx2;
+    char orig[MCRDEF][STRLNG], expand[MCRDEF][STRLNG];
+
+    sfp = fopen("source_file", "r");
+    dfp = fopen("dest_file", "w");
+    while(fgets(linbuf, LINLNG, sfp) != NULL) {
+        tokcnt = divide_line();
+        if(strcmp(token[0], label) == 0) {
+            strcpy(orig[mrcnt], token[1]);
+            strcpy(expand[mcrcnt], token[2]);
+           <b> [     a     ]</b>;
+        } else {
+            for(idx1 = 0; idx <<b> [     b     ]</b>; idx1++) {
+                flg = 0;
+                for(idx2 = 0; idx2 < mcrcnt; idx2++)
+                    if(strcmp(token[idx1], orig[idx2]) == 0) {
+                        flg = 1;
+                        break;
+                    }
+                if(<b>[     c     ]</b>)
+                    fprintf(dfp, "%s%c", token[idx1], delm[idx1]);
+                else
+                    fprintf(dfp, "%s%c", expand[idx2], delm[idx1]);
+            }
+        }
+    }
+    fclose(sfp);
+    fclose(dfp);
+}
+int divide_line() {
+    int tokcnt = 0, lidx = 0, tidx;
+
+    do {
+        for(tidx = 0; strchr(delmchar, linbuf[lidx]) == NULL;
+            lidx++, tidx++)
+            token[tokcnt][tidx] = linbuf[lidx];
+        token[tokcnt][tidx] = <b>[     d     ]</b>;
+        delm[tokcnt] = <b>[     e     ]</b>;
+        <b>[     f     ]</b>;
+        tokcnt++;
+    } while(linbuf[lidx - 1] != '\n');
+    return tokcnt;
+}
+</pre>
+<pre>
+</pre>  
+<hr> 
+<p><b><a name="101">設問</a>　</b>プログラム中の<b>[      ]</b>に入れる正しい答えを，解答群から選べ。　</p> 
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>aに関する解答群</td>
+  </tr>
+</table>
+        <table border="0" cellpadding="3" cellspacing="1">
+          <tr>
+            <td width="150">ア　idx1 = 0</td>
+            <td width="150">イ　idx1++</td>
+            <td width="150">ウ　idx2 = 0</td>
+          </tr>
+          <tr>
+            <td>	エ　idx2++</td>
+            <td>	オ　mcrcnt = 0</td>
+            <td>	カ　mcrcnt++</td>
+	</tr>
+          <tr>
+            <td>	キ　tokcnt = 0</td>
+            <td>	ク　tokcnt++</td>
+	</tr>
+	</table>
+  　<BR>
+  <tr>
+    <td>bに関する解答群</td>
+  </tr>
+</table>
+        <table border="0" cellpadding="3" cellspacing="1">
+          <tr>
+            <td width="150">ア　idx2</td>
+            <td width="150">イ　idx2++</td>
+            <td width="150">ウ　mcrcnt</td>
+          </tr>
+          <tr>
+            <td>	エ　mcrcnt++</td>
+            <td>	オ　tokcnt</td>
+            <td>	カ　tokcnt++</td>
+	</tr>
+	</table>
+  　<BR>
+  <tr>
+    <td>cに関する解答群</td>
+  </tr>
+</table>
+        <table border="0" cellpadding="3" cellspacing="1">
+          <tr>
+            <td width="150">ア　flg = 0</td>
+            <td width="150">イ　flg == 0</td>
+            <td width="150">ウ　flg = 1</td>
+          </tr>
+          <tr>
+            <td>	エ　flg == 1</td>
+            <td>	オ　idx2 = 0</td>
+            <td>	カ　idx2 > 0</td>
+	</tr>
+          <tr>
+            <td>	キ　idx2 < mcrcnt</td>
+            <td>	ク　idx2 = mcrcnt</td>
+	</tr>
+	</table>
+  　<BR>
+  <tr>
+    <td>d，eに関する解答群</td>
+  </tr>
+</table>
+        <table border="0" cellpadding="3" cellspacing="1">
+          <tr>
+            <td width="150">ア　'\0'</td>
+            <td width="150">イ　'\n'</td>
+            <td width="150">ウ　delm[lidx]</td>
+          </tr>
+          <tr>
+            <td>	エ　delm[tidx]</td>
+            <td>	オ　linbuf[lidx]</td>
+            <td>	カ　linbuf[tidx]</td>
+	</tr>
+          <tr>
+            <td>	キ　token[lidx]</td>
+            <td>	ク　token[tidx]</td>
+	</tr>
+	</table>
+  　<BR>
+  <tr>
+    <td>fに関する解答群</td>
+  </tr>
+</table>
+        <table border="0" cellpadding="3" cellspacing="1">
+          <tr>
+            <td width="150">ア　lidx = 0</td>
+            <td width="150">イ　lidx++</td>
+            <td width="150">ウ　tidx = 0</td>
+          </tr>
+          <tr>
+            <td>	エ　tidx++</td>
+            <td>	オ　tokcnt=0</td>
+            <td>	カ　tokcnt++</td>
+	</tr>
+	</table>
+  　<BR>
+<HR WIDTH=100%>  
+  <a HREF="14S_P_A4.HTM#101">設問の正解例と解説へ</a>  
+<HR WIDTH=100%>  
+  　<BR>
+<A HREF="INDEX.HTM">メニューへ戻る</A>
+<HR WIDTH=100%>   
+<a NAME="110">　<BR>  
+<b>  
+問11</b></a>　次のCOBOLプログラムの説明及びプログラムを読んで，設問に答えよ。
+<p>〔プログラムの説明〕<br>
+文字列データが入っているファイルを読み，段落ごとに分解･結合してファイルに出力するプログラムである。文字列データは，固定長のレコードに分割されて，順ファイルに格納してある。このファイルを1レコードずつ読み込み，1段落を1レコードとして再構成し，ファイルに出力する。ここで，文字列データの各1文字は，入出力レコードの1けたに格納される。</p>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">（1）</td>
+            <td>文字列データの構成は，次のとおりである。<br>
+<img border="0" src="image/01_maru.GIF">　文字列データは一つ以上の段落の集まりである。<br>
+<img border="0" src="image/02_maru.GIF">　段落は，英字，数字，空白，コンマ，ピリオド，及びセミコロンで構成される。<br>
+<img border="0" src="image/03_maru.GIF">　セミコロンは，各段落の終端の文字として必ず出現し，それ以外の位置には出現しない。<br>
+<img border="0" src="image/04_maru.GIF">　1段落の長さは可変であり，セミコロンを除いて，0文字以上1,000文字以下である。<br>
+<br>
+<img border="0" src="image/P_11-01.gif"><br>
+<br>図1　文字列データの例（△は空白を示す）<br>
+</td>
+          </tr>
+          <tr>
+            <td valign="top">（2）</td>
+            <td>入力ファイルの様式は，次のとおりである。<br>
+<img border="0" src="image/01_maru.GIF">　1レコード100けたの固定長順ファイルである。<br>
+<img border="0" src="image/02_maru.GIF">　文字列データの長さが100の倍数でないとき，最後の段落のセミコロンの後ろには，100けたになるように空白が埋められている。
+</td>
+          </tr>
+          <tr>
+            <td valign="top">（3）</td>
+            <td>出力ファイルの様式は，次のとおりである。<br>
+<img border="0" src="image/01_maru.GIF">　1レコード1,000けたの固定長順ファイルである。<br>
+<img border="0" src="image/02_maru.GIF">　1レコードに1段落が格納されている。<br>
+<img border="0" src="image/03_maru.GIF">　段落の終端文字であるセミコロンは出力しない。<br>
+<img border="0" src="image/04_maru.GIF">　段落が1レコードに満たないたきは，後ろに空白を埋める
+</td>
+          </tr>
+          <tr>
+            <td valign="top">（4）</td>
+            <td>図1の文字列データに対応する入力ファイル及び出力ファイルを図2，図3に示す。<br>
+<br>
+<img border="0" src="image/P_11-02.gif"><br>
+<br>図2　入力ファイルの例（△は空白を示す）<br>
+<br>
+<img border="0" src="image/P_11-03.gif">
+<br>図3　出力ファイルの例（△は空白を示す）<br><br>
+</td>
+          </tr>
+          <tr>
+            <td valign="top">（5）</td>
+            <td>プログラム中で使われているINSPECT文の形式と動作は次のとおりである。<br>
+<br>
+〔形式〕<br>
+　INSPECT 一意名1 TALLYING 一意名2<br>
+　　FOR CHARACTERS BEFORE 一意名3<br>
+<br>
+〔一意名の制約〕<br>
+　一意名1: 用途が明示的又は暗黙的にDISPLAYであるデータ項目<br>
+　一意名2: 数字項目<br>
+　一意名3: 用途が明示的又は暗黙的にDISPLAYで，長さが1文字のデータ項目<br>
+<br>
+〔動作〕<br>
+一意名1の内容を最左端文字位置から検査し，一意名3の内容に最初に一致する直前までの文字数を一意名2に加える。一意名3の内容が一意名1の中に出現しない場合，一意名1の最左端文字位置から最右端文字位置までの文字数を一意名2に加える。<br>
+</td>
+          </tr>
+        </table>
+
+<pre>〔プログラム〕
+
+DATA DIVISION.<br>
+FILE SECTION.<br>
+FD　 TEXT-FILE.<br>
+01　 TEXT-CHUNK　 PIC X(100).<br>
+FD　 RECD-PER-PARA-FILE.<br>
+01　 RECD-PER-PARA-RECD　 PIC X(1000).<br>
+WORKING-STRAGE SECTION.<br>
+01　 PARA-DELIMITER-CODE　PIC X(1) VALUE ";".<br>
+01　 TEXT-LOC　　PIC 9(9).<br>
+01　 RECD-LOC　　PIC 9(9).<br>
+01　 TEXT-LEN　　PIC 9(9).<br>
+01　 TEXT-FILE-EOF-FLG　PIC X(1).<br>
+　88　 TEXT-FILE-EOF　　　VALUE "Y".<br>
+　88　 TEXT-FILE-NOT-EOF　VALUE "N".<br>
+PROCEDURE DIVISION.<br>
+MAIN-PARAGRAPH.<br>
+　　 OPEN INPUT　　TEXT-FILE<br>
+　　　　　OUTPUT　 RECD-PER-PARA-FILE.<br>
+　　 SET TEXT-FILE-NOT-EOF TO TRUE.<br>
+　　 MOVE 1 TO RECD-LOC.<br>
+　　 MOVE SPACE TO RECD-PER-PARA-RECD.<br>
+　　 PERFORM UNTIL TEXT-FILE-EOF<br>
+　　　　READ TEXT-FILE<br>
+　　　　　 AT END<br>
+　　　　　　　SET TEXT-FILE-EOF TO TRUE<br>
+　　　　　 NOT AT END<br>
+　　　　　　　PERFORM DECMPOSE-WRITE<br>
+　　　　END-READ<br>
+　　 END-PERFORM.<br>
+　　 CLOSE TEXT-FILE RECD-PER-PARA-FILE.<br>
+　　 STOP RUN.<br>
+DECOMPOSE-WRITE.<br>
+　　 [　　a　　].<br>
+　　 PERFORM UNTIL TEXT-LOC > 100<br>
+　　　　[　　b　　]<br>
+　　　　INSPECT TEXT-CHUNK(TEXT-LOC:) TALLYING TEXT-LEN<br>
+　　　　　　　FOR CHARACTERS BEFORE PARA-DELIMITER-CODE<br>
+　　　　IF TEXT-LEN > 0 THEN<br>
+　　　　　 MOVE TEXT-CHUNK ([　　c　　])<br>
+　　　　　　　　TO RECD-PER-PARA-RECD ([　　d　　])<br>
+　　　　END-IF<br>
+　　　　IF TEXT-LOC + TEXT-LEN [　　e　　] 100 THEN<br>
+　　　　　 WRITE RECD-PER-PARA-RECD<br>
+　　　　　 MOVE 1 TO RECD-LOC<br>
+　　　　　 MOVE SPACE TO RECD-PER-PARA-RECD<br>
+　　　　ELSE<br>
+　　　　　 COMPUTE RECD-LOC = RECD-LOC + TEXT-LEN<br>
+　　　　END-IF<br>
+　　　　COMPUTE TEXT-LOC = [　　f　　]<br>
+　　 END-PERFORM.<br>
+</pre>
+<hr>  
+<a NAME="111">　<BR>  
+<b>  
+設問</b></a><b><a NAME="111">1</a>　</b>プログラム中の[　　　]に入れる正しい答えを，解答群の中から選べ。
+<br>
+a，bに関する解答群<br>
+ア　MOVE 0 TO RECD-LOC　　　イ　MOVE 0 TO TEXT-LEN<br>
+ウ　MOVE 0 TO TEXT-LOC　　　エ　MOVE 1 TO RECD-LOC<br>
+オ　MOVE 1 TO TEXT-LEN　　　カ　MOVE 1 TO TEXT-LOC<br>
+<br>
+c，dに関する解答群<br>
+ア　RECD-LOC : TEXT-LEN　　　イ　RECD-LOC : TEXT-LOC<br>
+ウ　TEXT-LEN : RECD-LOC　　　エ　TEXT-LEN : TEXT-LOC<br>
+オ　TEXT-LOC : RECD-LOC　　　カ　TEXT-LOC : TEXT-LOC<br>
+<br>
+eに関する解答群<br>
+ア　<　　　イ　<=　　　　ウ　=<br>
+エ　>　　　オ　>=<br>
+<br>
+fに関する解答群<br>
+ア　RECD-LOC　　　　　　　　　　 イ　RECD-LOC + TEXT-LEN<br>
+ウ　RECD-LOC + TEXT-LEN + 1　　　エ　TEXT-LOC + TEXT-LEN<br>
+オ　TEXT-LOC + TEXT-LEN + 1<br>
+<p>　</p> 
+<HR WIDTH=100%> 
+  <a HREF="14S_P_A4.HTM#111">設問の正解例と解説へ</a> 
+<HR WIDTH=100%>
+<A HREF="INDEX.HTM">メニューへ戻る</A>
+<HR WIDTH=100%>
+<br><b><a name="120">問12</a>　</b>次のJavaプログラムの説明及びプログラムを読んで，設問1～3に答えよ。<br>
+<br>
+〔プログラムの説明〕<br>
+　飛行機の利用者の種別（一般利用者，ゴールド利用者）と利用区間からマイレージを求めて積算マイレージを計算するプログラムである。利用者の各種別のマイレージの計算方法は，次のとおりである。<br>
+・一般利用者：	マイレージ＝基準距離<br>
+・ゴールド利用者：マイレージ＝基準距離×1.25<br>
+利用区間とその基準距離を，次表に示す。<br>
+<br>
+<B>表　利用区間と基準距離</B>
+        <p><img border="0" src="image/P_12-0-1.gif"></p>
+        <p><br>
+<br>
+計算したマイレージを，それまでの積算マイレージに加える。利用者は積算マイレージを無料往復チケットに交換することができる。<br>
+<br>
+プログラムは，次の五つのクラスと一つのインタフェースで構成されている。<br>
+<br>
+<B>MileageTest</B><br>
+　メソッドmainをもつテスト用のクラスであり，次の処理を行う。<br>
+（1）一般利用者とゴールド利用者のインスタンスを生成し，利用者名，積算マイレージの情報を初期化する。<br>
+（2）新しい積算マイレージを計算し，実行結果を出力する。<br>
+<br>
+　コンストラクタMileageTestの引数は，利用者名，出発地，到着地，無料往復チケット指定である。無料往復チケット指定には，無料往復チケットに交換する場合は交換に必要なマイレージを指定し，無料往復チケットに交換しない場合は0を指定する。<br>
+<br>
+<B>Passenger</B><br>
+　利用者を表す抽象クラスである。抽象メソッドaddMileageは，積算マイレージを計算する。メソッドawardTravelは，無料往復チケットの交換が可能か否かの判定を行い，可能であれば積算マイレージから無料往復チケット交換に必要なマイレージを減算し，不可能であれば例外処理によってメッセージを出力する。メソッドgetMileageは，積算マイレージを返す。メソッドgetNameは，利用者名を返す。<br>
+<br>
+<B>NormalPassenger</B><br>
+　一般利用者を表すクラスであり，積算マイレージを計算するメソッドaddMileageを実装する。<br><br>
+
+<B>GoldPassenger</B><br>
+　ゴールド利用者を表すクラスであり，積算マイレージを計算するメソッドaddMileageを実装する。<br>
+<br>
+<B>NotEnoughMileageException</B><br>
+　無料往復チケットに交換できない場合の処理を行うクラスである。<br>
+<br>
+<B>MileageServices</B><br>
+プログラムで使用する定数を宣言しているインタフェースである。<br>
+<br>
+
+  <pre>　</pre>
+  <p>〔プログラム〕
+<pre>（行番号）
+1	public class MileageTest implements MileageServices {
+2	  public static void main(String args[]) {
+3	    NormalPassenger taro = new NormalPassenger("Taro", 0);
+4	    GoldPassenger mark = new GoldPassenger("Mark", 100000);
+5	    NormalPassenger june = new NormalPassenger("June", 0);
+6	    GoldPassenger jiro = new GoldPassenger("Jiro", 50000);
+7	    new MileageTest(taro, NARITA, PARIS,
+8	                       DOMESTIC_ROUND_TRIP);
+9	    new MileageTest(mark, LOSANGELES, PARIS,
+10	                       ASIA_PACIFIC_ROUND_TRIP);
+11	    new MileageTest(june, PARIS, KANSAI, US_ROUND_TRIP);
+12	    new MileageTest(jiro, KANSAI, NARITA, 0);
+13	    new MileageTest(taro, PARIS, NARITA, DOMESTIC_ROUND_TRIP);
+14	  }
+15	  public MileageTest(Passenger passenger, int from, int to, 
+16	                        int awardTrip) {
+17	    passenger.addMileage(from, to);
+18	    System.out.println("\n" + passenger.getName() +
+19	                           "'s mileage: " + passenger.getMileage());
+20	    if (  != 0)
+21	      try {
+22	        passenger.awardTravel(awardTrip);
+23	        System.out.println("You get an award trip.\n" +
+24	                               "Your mileage is now " +
+25	                               passenger.getMileage() + ".");
+26	      } catch (NotEnoughMileageException e) {
+27	        System.out.println(e);
+28	      }
+29	  }
+30	}
+31
+32	interface MileageServices {
+33	  final static int NARITA = 0;
+34	  final static int KANSAI = 1;
+35	  final static int LOSANGELES =2;
+36	  final static int PARIS = 3;
+37	  final static int[][] MILEAGE = {{   0,  300, 5400, 6200},
+38	                                  { 300,    0, 5700, 6100},
+39	                                  {5400, 5700,    0, 4000},
+40	                                  {6200, 6100, 4000,    0}
+41	                                 };
+42	  final static int DOMESTIC_ROUND_TRIP = 15000;
+43	  final static int ASIA_PACIFIC_ROUND_TRIP = 20000;
+44	  final static int US_ROUND_TRIP = 40000;
+45
+46	  final static double NORMAL = 1.00;
+47	  final static double GOLD = 1.25;
+48	}
+49
+50	class Passenger implements MileageServices {
+51	  int totalMileage;
+52	  String name;
+53
+54	  (String name, int totalMileage) {
+55	    this.name = name;
+56	    this.totalMileage = totalMileage;
+57	  }
+58	  public abstract void addMileage(int from, int to);
+59	  public void awardTravel(int award) throws
+60	                                    NotEnoughMileageException{
+61	    if (award > )
+62	      throw new NotEnoughMileageException(name);
+63	    else
+64	      totalMileage -= award;
+65	  }
+66	  public int getMileage() {
+67	    return totalMileage;
+68	  }
+69	  public String getName() {
+70	    return name;
+71	  }
+72	}
+73
+74	class NormalPassenger extends Passenger {
+75	  NormalPassenger(String name, int totalMileage) {
+76	    super(name, totalMileage);
+77	  }
+78	  public void addMileage(int from, int to) {
+79	    totalMileage += (int)(MILEAGE[from][to] * NORMAL);
+80	  }
+81	}
+82
+83	class GoldPassenger extends Passenger {
+84	  GoldPassenger(String name, int totalMileage) {
+85	    super(name, totalMileage);
+86	  }
+87	  public void addMileage(int from, int to) {
+88	    totalMileage += (int)(MILEAGE[from][to] * GOLD);
+89	  }
+90	}
+91
+92	class NotEnoughMileageException extends Exception {
+93	  String name;
+94	  public NotEnoughMileageException(String name) {
+95	    this.name = name;
+96	  }
+97	  public String toString() {
+98	    return "Sorry, your mileage isn't enough for " +
+99	            "your award trip, " + name + ".";
+100	  }
+101	}
+</pre><br>
+プログラムの実行結果を図に示す。<br>
+<br>
+        <p><img border="0" src="image/P_12-0-2.gif"></p>
+        <p><br>
+
+<p><b><a name="121">設問1</a>　</b>プログラム中の[      ]に入れる正しい答えを，解答群から選べ。　</p> 
+
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td width="200">ア　abstract</td>
+            <td width="200">イ　awardTrip</td>
+          </tr>
+          <tr>
+            <td>	ウ　GoldPassenger</td>
+            <td>	エ　NormalPassenger</td>
+          </tr>
+          <tr>
+            <td>	オ　Passenger</td>
+            <td>	カ　private</td>
+          </tr>
+          <tr>
+            <td>	キ　public</td>
+            <td>	ク　totalMileage</td>
+          </tr>
+        </table>
+
+<HR WIDTH=100%>  
+  <a HREF="14S_P_A4.HTM#121">設問1の正解例と解説へ</a>  
+<HR WIDTH=100%>  
+  　<BR>
+<p><b><a name="122">設問2</a>　</b>プログラムの行番号5を次のとおりに変更した場合，行番号11を実行した後の，利用者Juneの積算マイレージの値として正しい答えを，解答群の中から選べ。</p> 
+<BR>
+<B>NormalPassenger june = new NormalPassenger("June", 50000)</B><BR>
+<BR>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td width="200">ア　3900</td>
+            <td>	イ　10000</td>
+          </tr>
+          <tr>
+            <td>	ウ　16100</td>
+            <td>	エ　96100</td>
+          </tr>
+        </table>
+
+<HR WIDTH=100%>  
+  <a HREF="14S_P_A4.HTM#122">設問2の正解例と解説へ</a>  
+<HR WIDTH=100%> 
+  　<BR>
+<p><b><a name="123">設問3</a>　</b>プログラムの行番号37～41を次のとおりに変更したとき，同じ結果を得るために，行番号78の直後及び行番号87の直後に挿入する内容として正しい答えを，解答群の中から選べ。</p> 
+<pre><P>
+final static int[][] MILEAGE ={{   0},
+                               { 300,    0},
+                               {5400, 5700,    0},
+                               {6200, 6100, 4000, 0}
+                              };</P></pre>
+<br>
+        <table border="0" cellpadding="5" cellspacing="1">
+          <tr>
+            <td valign="top">ア</td>
+            <td width="250"><pre>　if (from == 0) {
+      int tmp = from;
+      from = to;
+      to = tmp;
+   }</pre>
+</td>
+            <td valign="top">イ</td>
+            <td><pre>　if (from != to) {
+      int tmp = from;
+      from = to;
+      to = tmp;
+   }
+</pre></td>
+          </tr>
+          <tr>
+            <td valign="top">ウ</td>
+            <td><pre>　if (from > to) {
+      int tmp = from;
+      from = to;
+      to = tmp;
+   }
+</pre></td>
+            <td valign="top">エ</td>
+            <td><pre>　if (from < to) {
+      int tmp = from;
+      from = to;
+      to = tmp;
+   }
+</pre></td>
+	</tr>
+	</table>
+
+<HR WIDTH=100%>  
+  <a HREF="14S_P_A4.HTM#123">設問3の正解例と解説へ</a>  
+<HR WIDTH=100%> 
+ 
+<A HREF="INDEX.HTM">メニューへ戻る</A>
+<HR WIDTH=100%>   
+<a NAME="120">　<BR>  
+<b>  
+問13</b></a>　次のアセンブラプログラムの説明及びプログラムを読んで，設問1～3に答えよ。
+<p>〔プログラムの説明〕<br>
+副プログラムEXPANDは，図1の形式でGR0に与えられるパターン（ビット列）を指定された語（GR1が指す語）の開始ビット位置（GR2）以降の領域に展開し，展開したピット列の長さをGR0に設定するプログラムである。指定された語の開始ビット位置までのデータは変更せず，最後の語の残りビットには0を入れる。<br>
+<br>
+<img border="0" src="image/P_13-1.GIF"><br>
+<BR>
+図1　データ形式と展開<br>
+<br>
+5ビットのパターン10110をビット位置4を開始ビット位置として8回繰り返し，40ビットのビット列に展開した例を，図2に示す。<br>
+<br>
+<img border="0" src="image/P_13-2.GIF"><br>
+<BR>
+
+図2　展開の例<br>
+<br>
+（1）主プログラムは，汎用レジスタに次のデータを設定して，EXPANDを呼ぶ。<br>
+　　GR0：展開するデータ<br>
+　　GR1：展開する領域の先頭アドレス<br>
+　　GR2：開始ビット位置（0～15）<br>
+（2）EXPANDから戻るとき，汎用レジスタGR1～GR7の内容は元に戻す。<br>
+<br>
+<pre>〔プログラム〕
+（行番号）<br>
+　 1  EXPAND   START<br>
+　 2           RPUSH<br>
+　 3           ST     GR1,ADR       ; アドレスを格納する<br>
+　 4           ST     GR2,BP        ; 開始ビット位置を格納する<br>
+　 5           LD     GR3,GR0<br>
+　 6           SLL    GR3,8         ; パターン抽出<br>
+　 7           LD     GR4,GR0<br>
+　 8           AND    GR4,=#0700<br>
+　 9           SRL    GR4,8<br>
+　10           LAD    GR4,1,GR4     ; パターンの長さ<br>
+　11           LD     GR5,GR0<br>
+　12           AND    GR5,=#F800<br>
+　13           SRL    GR5,11<br>
+　14           LAD    GR5,1,GR5     ; 繰返し数<br>
+　15  LOOP     LD     GR7,=#FFFF<br>
+　16           SRL    GR7,0,GR2<br>
+　17           XOR    GR7,=#FFFF<br>
+　18           AND    GR7,0,GR1      ; パターンを格納する領域をクリアする<br>
+　19           LD     GR6,GR3<br>
+　20           SRL    GR6,0,GR2<br>
+　21           [        a        ]   ; パターンを設定する<br>
+　22           ST     GR6,0,GR1      ; パターンを格納する<br>
+　23           ADDL   GR2,GR4<br>
+　24           CPA    GR2,=16        ; 位置+長さ < 16 ?<br>
+　25           JMI    CRPT<br>
+　26           LAD    GR1,1,GR1      ; 次の領域アドレスを設定する<br>
+　27           [        b        ]   ; 次の開始位置を設定する<br>
+　28           JZE    CRPT<br>
+　29           LD     GR7,GR4        ; パターンが残っているとき<br>
+　30           SUBA   GR7,GR2        ;    パターンの残りを<br>
+　31           LD     GR0,GR3        ;       次の語に<br>
+　32           SLL    GR0,0,GR7      ;          格納する<br>
+　33           ST     GR0,0,GR1      ;<br>
+　34  CRPT     LAD    GR5,-1,GR5     ; 繰り返し数を更新する<br>
+　35           LD     GR5,GR5<br>
+　36           JNZ    LOOP<br>
+　37           SUBL   GR1,ADR        ;<br>
+　38           SLL    GR1,4          ; 展開したビット列の<br>
+　39           ADDA   GR1,GR2        ;    長さを計算する<br>
+　40           SUBA   GR1,BP         ;<br>
+　41           LD     GR0,GR1        ;<br>
+　42           RPOP<br>
+　43           RET<br>
+　44  ADR      DS     1              ; アドレスを格納する領域<br>
+　45  BP       DS     1              ; 開始ビット位置を格納する領域<br>
+　46           END<br>
+</pre>
+<hr>  
+<a NAME="131">　<BR>  
+<b>  
+設問</b></a><b><a NAME="131">1</a>　</b>プログラム中の[　　　]に入れる正しい答えを，解答群の中から選べ。<br>
+<br>
+解答群<br>
+<br>
+ア　ADDA　GR2,=15　　　イ　ADDA　GR2,=16　　　ウ　AND   GR6,GR2<br>
+エ　AND　 GR6,GR7　　　オ　OR　　GR6,GR2　　　カ　OR    GR6,GR7<br>
+キ　SUBA　GR2,=15　　　ク　SUBA　GR2,=16<br>
+<br>
+<HR WIDTH=100%>
+  <a HREF="14S_P_A4.HTM#131">設問1の正解例へ</a>
+<HR WIDTH=100%>
+<a NAME="131">　<BR>  
+<b>  
+設問</b></a><b><a NAME="132">2</a>　</b>次の記述中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。<br>
+<br>
+GR0に#0EFEを格納してEXPANDを呼んだとき，行番号14を実行したあとのGR3の内容は［　　c　　］，GR5の内容は［　　d　　］である。<br>
+<br>
+解答群<br>
+ア　1　　　　イ　2　　　　ウ　3<br>
+エ　#00FE　　オ　#FE00　　カ　#FF00<br>
+
+<HR WIDTH=100%>
+  <a HREF="14S_P_A4.HTM#132">設問2の正解例へ</a>
+<HR WIDTH=100%>
+設問</b></a><b><a NAME="133">3</a>　</b>ラベルPTBL以降の5語に格納されている五つの展開するデータを，EXPANDを使用してUPTBLの先頭から展開する主プログラムを作成した。<br>
+次のプログラムの中の［　　　　］に入れる正しい答えを，解答群の中から選べ。<br>
+<br>
+<br>
+（行番号）<br>
+　 1　MAIN　　 START<br>
+　 2　　　　　 LAD　　GR1,UPTBL　　　; 展開する利用域アドレスを設定する<br>
+　 3　　　　　 LAD　　GR2,0　　　　　; 開始位置を設定する<br>
+　 4　　　　　 LAD　　GR3,0　　　　　; 展開するデータのカウンタを0にする<br>
+　 5　MLOOP　　LD　　 GR0,PTBL,GR3　 ; 展開データを準備する<br>
+　 6　　　　　 CALL　 EXPAND<br>
+　 7　　　　　 ADDA　 GR2,GR0<br>
+　 8　　　　　 LD　　 GR4,GR2<br>
+　 9　　　　　 SRL　　GR4,4<br>
+　10　　　　　 ADDL　 GR1,GR4　　　　 ; 次の展開する領域アドレスを設定する<br>
+　11　　　　　 [　　　　e　　　　]　　; 次の開始位置を設定する<br>
+　12　　　　　 LAD　　GR3,1,GR3　　　 ; カウンタを進める<br>
+　13　　　　　 [　　　　f　　　　]　　; 終了か?<br>
+　14　　　　　 JMI　　MLOOP<br>
+　15　　　　　 RET<br>
+　16　PTBL　　 DC　　 #FFFF,#0700,#FFFF,#0700,#FFFF<br>
+　17　UPTBL　　DS　　 80<br>
+　18　　　　　 END<br>
+
+　<br>
+　<br>
+　解答群<br>
+　ア　ADDL    GR2,=#000F　　　 イ　ADDL    GR3,=#000F<br>
+　ウ　AND     GR2,=#000F　　　　エ　AND     GR3,=#000F<br>
+　オ　CPA     GR2,=4　　　　　　カ　CPA     GR2,=5<br>
+　キ　CPA     GR3,=4　　　　　　ク　CPA     GR3,=5<br>
+<br>
+<HR WIDTH=100%>
+  <a HREF="14S_P_A4.HTM#132">設問3の正解例へ</a>
+<HR WIDTH=100%>
+
+<p><A HREF="INDEX.HTM">メニューへ戻る</A>　</p>
+<HR WIDTH=100%>
+<BR>
+  <p>　</p>
+</blockquote>
+</BODY>
+</HTML>

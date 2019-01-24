@@ -1,0 +1,298 @@
+<HTML>
+<HEAD>
+<TITLE>平成11年度秋期試験</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0">
+<blockquote>
+<hr>
+<H3 align="center">平成11年度秋期試験　正解例と解説(問11～問14)</H3>
+<HR WIDTH=100%>  
+<a NAME="110">　<BR> 
+<b> 
+問11</b></a>　<br>
+　
+<hr>
+<a NAME="111">　<BR>
+<b>
+設問</b></a><b>1　</b>
+<p>＜解答＞a　ク　　　　b　オ</p>
+<p>＜解説＞<br>
+アルゴリズムは、以下の2つの部分に分けられる。</p>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">①</td>
+    <td>入力文字列の空白で区切られた単語の文字を2次元配列word[idx][cnt]に格納する処理<br>
+      →　(1)～(4)</td>
+  </tr>
+  <tr>
+    <td valign="top">②</td>
+    <td>2次元配列word[idx][cnt]の単語を、行末で単語の途中で切れないよう出力する処理<br>
+      →　(5)～(8)<br>
+      　</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">(1)</td>
+    <td>変数i、idx、cntを0に初期設定。</td>
+  </tr>
+  <tr>
+    <td valign="top">(2)</td>
+    <td>12行目のwhile文のループの繰返しの条件により、入力文字配列の要素str[i]が文字列の終了を示すNULL文字（"＼0")でない間はループを繰返す。　（したがって変数ｉは、配列strの要素番号になっている）
+      <table border="0" cellpadding="3" cellspacing="0">
+        <tr>
+          <td valign="top">①</td>
+          <td>次のif文の条件str[i]==" "は、入力文字列の配列要素str[i]が空白文字であるかという判定条件である。つまりstr[i]が単語間を区切る空白文字であった場合には、      
+            <table border="0" cellpadding="3" cellspacing="0">     
+              <tr>     
+                <td>1)</td>     
+                <td>１つの単語の文字列の最後word[idx][cnt]にNULL文字"＼0"をセット</td>     
+              </tr>     
+              <tr>     
+                <td>2)</td>     
+                <td>その単語の長さleng[idx]にcntをセット</td>     
+              </tr>     
+              <tr>     
+                <td>3)</td>     
+                <td>語数カウンタidxを＋1だけカウントアップ</td>     
+              </tr>     
+              <tr>     
+                <td>4)</td>     
+                <td>単語内の文字数カウンタcntを0にリセット</td>     
+              </tr>     
+            </table>     
+            <p>str[i]が空白文字でない場合には</p>     
+            <table border="0" cellpadding="3" cellspacing="0">     
+              <tr>     
+                <td>1)</td>     
+                <td>入力文字配列の要素str[i]を単語を格納する２次元配列word[idx][cnt]にセットする</td>     
+              </tr>     
+              <tr>     
+                <td>2)</td>     
+                <td>単語内の文字数カウンタcntを＋1だけカウントアップ</td>     
+              </tr>     
+            </table>     
+          </td>     
+        </tr>     
+        <tr>     
+          <td valign="top">②</td>     
+          <td>入力文字配列の要素str[i]を次の文字に進めるカウンタiを＋1だけカウントアップ</td>     
+        </tr>     
+      </table>     
+    </td>     
+  </tr>     
+  <tr>     
+    <td valign="top">(3)</td>     
+    <td>12～24行目のwhileループをstr[i]＝"＼0"で終了したとき25行目の処理に入る。この処理は入力文字列strの最後の単語の最後尾word[idx][cnt]にNULL文字"＼0"をセットする処理である。</td>     
+  </tr>     
+  <tr>     
+    <td valign="top">(4)</td>     
+    <td>これに続き単語の長さleng[idx]に単語内の文字数カウンタcntの値をセットし、28行目以降の出力処理に入る。     
+      <p><img border="0" src="image/A11a11f1.gif" width="557" height="179"></td>     
+  </tr>     
+  <tr>     
+    <td valign="top">(5)</td>     
+    <td>変数ｉ、posを0に初期設定する</td>     
+  </tr>     
+  <tr>     
+    <td valign="top">(6)</td>     
+    <td>29行目のwhile文のループの繰返しの条件により、変数ｉが単語数idx以下である間はループを繰返す。     
+      <table border="0" cellpadding="3" cellspacing="0">     
+        <tr>     
+          <td valign="top">①</td>     
+          <td>　if文の条件（pos＋leng[i]）> maxは、文字位置posに単語の文字長leng[i]を加算した値が1行の最大文字長maxを超えた場合という条件に相当する。１行の最大文字長を超えた場合のみ以下の3つの処理を行う。      
+            <table border="0" cellpadding="3" cellspacing="0">     
+              <tr>     
+                <td>1)</td>     
+                <td>出力文字配列buffの最後尾buff[pos－1]にNULL文字"＼0"をセット</td>     
+              </tr>     
+              <tr>     
+                <td>2)</td>     
+                <td>出力文字配列buffの文字列を出力し、改行する。</td>     
+              </tr>     
+              <tr>     
+                <td>3)</td>     
+                <td>文字位置posを0にリセットする。</td>     
+              </tr>     
+            </table>     
+            <img border="0" src="image/A11a11f2.gif" width="557" height="206">    
+          </td>    
+        </tr>    
+        <tr>    
+          <td valign="top">②</td>    
+          <td>strcpy命令により、出力文字配列buffに要素buff[pos]のアドレス位置を開始位置として、単語word[i]の文字列をコピーする。</td>    
+        </tr>    
+        <tr>    
+          <td valign="top">③</td>    
+          <td>単語word[i]の文字長leng[i]だけposをカウントアップする。</td>    
+        </tr>    
+        <tr>    
+          <td valign="top">④</td>    
+          <td>配列要素buff[pos]に単語間を区切る空白文字をセットする。</td>    
+        </tr>    
+        <tr>    
+          <td valign="top">⑤</td>    
+          <td>空白文字1文字分だけ文字位置posをカウントアップする。</td>    
+        </tr>    
+        <tr>    
+          <td valign="top">⑥</td>    
+          <td>変数ｉをカウントアップし、次の単語に進める。</td>    
+        </tr>    
+        <tr>    
+          <td valign="top" colspan="2"><img border="0" src="image/A11a11f3.gif" width="557" height="190"></td>    
+        </tr>    
+      </table>    
+    </td>    
+  </tr>    
+  <tr>    
+    <td valign="top">    
+(7)</td>    
+    <td>変数ｉが単語数idxを超えたとき、whileループを終了し、41行目の処理に入る。ここで出力文字配列buffの最後尾buff[pos－1]にNULL文字"＼0"をセット。</td>    
+  </tr>    
+  <tr>    
+    <td valign="top">    
+(8)</td>    
+    <td>最後に出力文字配列buffの文字列を出力して改行している。</td>    
+  </tr>    
+</table>    
+<p><br>    
+（空欄aについて）<br>    
+　21行目は13行目のif文の条件str[i]＝" "が成り立たない場合、つまり入力文字配列の文字str[i]が単語間を区切る空白文字でない場合とNULL文字"＼0"でない場合に実行される。各単語の文字数の合計は4＋5＋3＋4＋3＋3＝22であるから、22回実行されることになる。したがって解答群のクが正解<br>      
+<br>      
+（空欄bについて）<br>      
+　アルゴリズムについて(6)の③と⑤（36行目と38行目に相当）から、文字位置posは、0を初期値として１つの単語word[i]が出力文字配列buffに出力されるごとに、（leng[i]＋1）文字分カウントアップされる。<br>
+　出力文字配列の要素buff[pos]のアドレス位置が単語word[i]の格納開始位置となっている。したがってposは0を初期値として単語word[i]の格納開始位置を表している。表を作成し変数ｉに対する変数posの変化をトレースしてみると以下のようになる。<br>
+①最初pos＝0で開始。<br>
+②ｉ＝3のときpos＝19となり１行の最大文字数18を超える。<br>
+　　ここでpos＝0にリセットされる。<br>
+③再び繰り返し、ｉ＝5のときpos＝13となり終了する。<br>
+<br>
+<br>
+　</p>
+<HR WIDTH=100%>
+<a HREF="11f_p_e4.htm#111">問題へ</a>
+<HR WIDTH=100%>
+<p><b><a name="112">設問</a>2</b></p> 
+<p>＜解答＞　　c　ア　　　　d　エ　　　　e　カ　（c, dは順不同）</p>  
+<p>＜解説＞<br> 
+（空欄c、dについて）<br> 
+　αの処理を12行目の直前に挿入した場合、αの最初の2行の処理により入力文字の先頭に空白文字があった場合whileループの条件str[i]＝" "を満たし、単語の文字配列word[idx][cnt]にこの空白文字str[i]＝" "がそのままセットされる。したがってこの直後の空欄c、dの処理として</p>       
+<table border="0" cellpadding="3" cellspacing="0">     
+  <tr>     
+    <td>①</td>     
+    <td>入力文字配列strの次の文字に進めるためｉを＋1カウントアップする</td>     
+  </tr>     
+  <tr>     
+    <td>②</td>     
+    <td>　単語内の文字数カウンタcntを＋1カウントアップする処理が必要になる。</td>
+  </tr>
+</table>
+<p>つまり空欄c、dは解答群のエ、アが正解。<br>
+<br>
+（空欄ｅについて）<br>
+　単語間の空白文字が何文字あっても1文字にするためには、βの処理において入力文字配列の要素str[i]に単語間の区切りを表す空白文字が出現した場合、それに続く次の要素str[i＋1]も空白文字" "であり続ける間は、処理をスキップし続ければよい。したがって空欄ｅは解答群のカが正解。</p>       
+<p>　</p>      
+<HR WIDTH=100%>       
+<a HREF="#112">問題へ</a>      
+<hr>      
+<p><A HREF="index.htm">メニューへ戻る</A>　</p>     
+<HR WIDTH=100%>     
+<a NAME="120">　<BR>  
+<b>  
+問12</b></a>　
+<HR WIDTH=100%> 
+<a NAME="121"><b>　<BR> 
+設問</b></a><b>1　</b>
+<p>＜解答＞　イ</p>
+<p>＜解説＞<br>
+設問１について<br>
+Sの値が10、20、30のような“10の倍数のとき”KOMOKUにSの値が転送されるように、IF文を変更すればよい。</p>
+<p>解答群のアの場合<br>
+S＜10のときK＝0となり、“10より小さいとき”だけしかSの値が転送されないため、誤り。</p>
+<p>解答群のイの場合<br>
+Sが10の倍数のときつまりS＝10＊ｎの場合、K＝ｎとなり、常にS＝10＊ｎとなるのでこれが正解。</p>
+<p>解答群のウの場合<br>
+S＜10のときK＝0となり、K＝S／Kでゼロ割りが発生するので誤り。</p>
+<p>解答群のエの場合<br>
+S＜10のときK＝0となり、KOMOKUに0がセットされ、縦軸に目盛り0が並んで印字されるので誤り。<br>
+<br>
+</p>
+<HR WIDTH=100%>
+<a HREF="11f_p_e4.htm#121">問題へ</a>
+<HR WIDTH=100%>
+<a NAME="122"><b>　<BR>
+設問</b></a><b>2　</b>
+<p>＜解答＞　　ａ　イ　　　　ｂ　エ　　　　ｃ　ウ</p>
+<p>＜解説＞<br>
+表ａのように修正した場合<br>
+　WRITE文により文字もグラフも上から下に印刷される。最初のPERFORM文の変数Sは、１を初期値として30まで＋１ずつ増えていく。したがってIF文の条件S＜＝NINZU(T)が成り立つ間は、"＊＊＊"がKAZU(T)に転送され、上から下に向かってグラフが印刷されていく。つまり変数Sの値がNINZU(T)を超えた時点で"＊＊＊"が転送されなくなり、横軸に近いグラフの下の方が空白になります。したがってａの場合、解答群のイが印字される。<br>
+<br>
+表ｂのように修正した場合<br>
+　最初のPERFORM文の変数Sが１を初期値として30まで＋１ずつ増える間に変数Kは29から0まで－１ずつ小さくなるので、IF文の条件K＜＝NINZU(T)　が成り立つまでは、KAZU(T)に"＊＊＊"が転送されない。つまり最初Kが大きな値の間は"＊＊＊"が転送されず、印字されない。したがってグラフの上の方が空白となる。<br>
+　またK＝0でNINZU(T)＝0のときにも、"＊＊＊"がKAZU(T)に転送されて、印字されるので、解答群のエが印字される。<br>
+<br>
+表ｃのように修正した場合<br>
+　最初のPERFORM文の変数Sが30を初期値として１まで－１ずつ小さくなるので、IF文の条件S＜＝NINZU(T)が成り立つまでは、KAZU(T)に"＊＊＊"が転送されない。つまり最初Sが大きな値の間は"＊＊＊"が転送されず、印字されない。したがってグラフの上の方が空白となる。ｃの場合、解答群のウが印字される。解答群のアは、FとSの選択科目の人数が逆になっているので誤りである。</p>
+<p>　</p>
+<HR WIDTH=100%>
+<a HREF="11f_p_e4.htm#122">問題へ</a>
+<HR WIDTH=100%>
+<p>
+<A HREF="index.htm">メニューへ戻る</A></p>
+<HR WIDTH=100%>
+<p>
+<a NAME="130">
+<b>問13</b></a><b>　　　</b>（解説は省略します。）</p>
+<HR WIDTH=100%> 
+<a NAME="131">　<BR> 
+<b> 
+設問</b></a><b>1</b>　 
+<p>＜解答＞　オ</p>
+<p>　</p>
+<HR WIDTH=100%>
+<a HREF="11f_p_e4.htm#131">問題へ</a>
+<HR WIDTH=100%>
+<br>
+<b><a name="132">設問</a>2　</b> 
+<p>＜解答＞　ウ<br>
+</p>
+<HR WIDTH=100%> 
+<a HREF="11f_p_e4.htm#132">問題へ</a>
+<hr>
+<b><a name="133">設問</a>3　</b> 
+<p>＜解答＞　イ<br>
+<br>
+</p>
+<HR WIDTH=100%> 
+<a HREF="11f_p_e4.htm#133">問題へ</a>
+<hr>
+<p>
+<A HREF="index.htm">メニューへ戻る</A></p>
+<hr>
+<p>
+<b><a name="140">問14</a>　　　</b>（解説は省略します。）
+</p>
+<hr> 
+<p><b><a name="141">設問</a>1　</b></p> 
+<p>＜解答＞　ａ　イ　　　　　ｂ　ウ<br>
+<br>
+　</p>
+<HR WIDTH=100%> 
+<a HREF="11f_p_e4.htm#141">問題へ</a> 
+<HR WIDTH=100%> 
+<p><b><a name="142">設問</a>2　</b></p> 
+<p>＜解答＞　ｃ　ケ　　　　　ｄ　オ　　　　　ｅ　ク　　　　　ｆ　イ<br>
+<br>
+　</p>
+<HR WIDTH=100%> 
+<a HREF="11f_p_e4.htm#142">問題</a><a HREF="11f_p_e4.htm#142">へ</a> 
+<hr> 
+<p> 
+<A HREF="index.htm">メニューへ戻る</A></p> 
+<HR WIDTH=100%> 
+<p><BR> 
+</p> 
+  <p>　</p>
+</blockquote>
+</BODY> 
+</HTML> 

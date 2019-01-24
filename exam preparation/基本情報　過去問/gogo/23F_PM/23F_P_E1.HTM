@@ -1,0 +1,190 @@
+<html>
+<head>
+<title>平成23年度 秋期 基本情報技術者 午後 問題（問1～問2）</title>
+<style type="text/css"><!--
+body{line-height:150%;}
+code{font-size:12pt;}
+h3{text-align:center;}
+div.caution{border:solid 1px #000000; padding:0.5em;}
+--></style>
+</head>
+<body>
+<blockquote>
+<hr>
+<h3>平成23年度　秋期　基本情報技術者<br/>
+午後　問題（問1～問2）</h3>
+<hr>
+<div class="caution">　次の<strong>問1</strong>から<strong>問7</strong>までの7問については，この中から5問を選択し，選択した問題については，答案用紙の選択欄の（<strong>選</strong>）をマークして解答してください。<br/>
+　なお，6問以上選択した場合には，はじめの5問について採点します。</div>
+<hr>
+<p><a name="10"><strong>問1</strong>　A/D変換に関する次の記述を読んで，設問1～3に答えよ。</p>
+<p>　A/Dの変換とは，アナログ信号をディジタル信号に変換することであり，標本化，量子化，符号化の3段階で処理する。直流の電圧を例にnビットのA/D変換を説明する。<br/>
+（1）　標本化<br/>
+　標本化では，時間的に連続したアナログ信号である電圧を一定の時間間隔で測定する。図1では，時間軸をt0，t1，…と等間隔dで区切り，各時刻での電圧をv(t0)，v(t1)，…と表す。</p>
+<p><img src="img/23f_pm_q01_01.png"><br/>
+<strong>図1　標本化の例</strong></p>
+<p>（2）　量子化<br/>
+　量子化では，（1）で標本化して得られた電圧v(t0)，v(t1)，…を刻み幅qの整数倍の値で近似する。<br/>
+　量子化を行う場合，まず測定する電圧の最大輻FSRを決める。次に，nビットで量子化するために，FSRを(2<sup>n</sup>－1)等分して刻み幅qを求める。このとき，刻み幅qはq＝FSR／(2<sup>n</sup>－1)となる。<br/>
+　量子化において，近似値として用いられる電圧の値を，小さい方から順にv0＝0，v1＝q，…，vmax＝(2<sup>n</sup>－1)qとしたとき，時刻tmにおいて標本化で測定されたアナログ信号の電圧v(tm)について，次の条件を満たすようなN（Nは0以上の整数）を見つけ，電圧N×qを電圧v(tm)の測定値とする。これをnビット量子化という。<br/>
+　　N×q－q／2≦v(tm)＜N×q＋q／2<br/>
+　すなわち，図2右のように電圧軸を刻み幅qでv0，v1，…，vmaxの電圧に分割しておき，v(t0)，v(t1)，…のそれぞれについて，v0～vmaxのうちで最も近い電圧を測定値とする。例えば，v(t3)の測定値はv2となる。</p>
+<p><img src="img/23f_pm_q01_02.png"><br/>
+<strong>注記</strong>　“○”はv(tm)をqの整数倍で近似した値<br/>
+<strong>図2　量子化の例</strong></p>
+<p>（3）　符号化<br/>
+　符号化では，（2）の量子化で用いた電圧v0，v1，…，vmaxに2進符号を対応付ける。この符号によって，各測定値を表す。</p>
+<hr>
+<p><strong><a name="11">設問1</a></strong>　図2左の電圧v(t0)，v(t1)，…，v(t10)だけの符号化を考える。図2右の電圧v0，v1，…，v7を2進符号000，001，…，111に順に対応付けた場合を表1に示す。</p>
+
+<p>表1　電圧と符号の対応<br/>
+<img src="img/23f_pm_q01_03.png"></p>
+
+<p>　図2左のv(t0)，v(t1)，…，v(t10)の各測定値を，表1に基づいて符号化すると表2のようになる。表2中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+
+<p>表2　各時刻における測定値の符号化<br/>
+<img src="img/23f_pm_q01_04.png"><br/>
+<strong>注記</strong>　綱掛けの部分は表示していない。</p>
+
+<p>ア　011　　　イ　100　　　ウ　101　　　エ　110　　　オ　111</p>
+<hr>
+<a href="23F_P_A1.HTM#11">設問1の正解例と解説へ</a>
+<hr>
+<p><a name="12"><strong>設問2</strong></a>　次の記述中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+
+<p>　アナログ信号の電圧の範囲が0～9Vであるとき，FSRを9Vとし，4ビットで量子化した場合，qは［　　c　　］Vである。アナログ信号の電圧7.49…Vの測定値は［　　d　　］Vとなり，表1の場合と同様に2進符号0000，0001，…，1111に順に対応付けて符号化すると［　　e　　］となる。</p>
+
+<p>c，dに関する解答群<br/>
+ア　0.5625<br/>
+イ　0.6<br/>
+ウ　1.2<br/>
+エ　2.25<br/>
+オ　5.5<br/>
+カ　7.0<br/>
+キ　7.2<br/>
+ケ　7.8<br/>
+コ　8.0</p>
+
+<p>eに関する解答群<br/>
+ア　1010　　　イ　1011　　　ウ　1100　　　エ　1101　　　オ　1110</p>
+<hr>
+<a href="23F_P_A1.HTM#12">設問2の正解例と解説へ</a>
+<hr>
+<p><a name="13"><strong>設問3</strong></a>　次の記述中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+
+<p>　FSRが1,022ミリVであるアナログ信号の電圧を，50ミリ秒間隔で5秒間標本化した。このとき，A/D変換後の総データ量を1,000ビット以内に納めることができる刻み幅qの最小値は［　　f　　］ミリVである。</p>
+
+<p>解答群<br/>
+ア　0.1<br/>
+イ　0.5<br/>
+ウ　1.0<br/>
+エ　1.5<br/>
+オ　2.0<br/>
+カ　2.5<br/>
+キ　3.0</p>
+<hr>
+<a href="23F_P_A1.HTM#13">設問3の正解例と解説へ</a>
+<hr>
+<a href="INDEX.HTM">■メニューへ戻る</a>
+<hr>
+<p><strong><a name="20">問2</a></strong>　従業員データベースの設計と運用に関する次の記述を読んで，設問1～4に答えよ。</p>
+<p>　C社は，2011年4月1日の組織編成の変更に伴い，従業員データベースの再構築を行った。組織編成の変更前は図1に示すとおり，部だけで編成されていたが，事業の拡大及び従業員数の増加に合わせて，図2に示すとおり，部と課からなる組織編成となった。</p>
+
+<p><img src="img/23f_pm_q02_01.png"><br/>
+<strong>図1　変更前の組織編成</strong></p>
+
+<p><img src="img/23f_pm_q02_02.png"><br/>
+<strong>図2　変更後の組織編成</strong></p>
+
+<p><strong><a name="21">設問1</a></strong>　組織編成の変更を反映するために，図3に示す表中の部に関する情報の変更について，A案とB案を考えて比較検討した。図4に示すA案では，部名と課名の組合せに対して一意の部署コードを割り当てた。図5に示すB案では，部名と課名のそれぞれにコードを割り当て，従業員表の部コードを課コードに変更した。次の記述中の［　　　　　］に入れる適切な答えを，解答群の中から選べ。</p>
+
+<p><img src="img/23f_pm_q02_03.png"><br/>
+<strong>図3　変更前の従業員データベースの表構成</strong></p>
+
+<p><img src="img/23f_pm_q02_04.png"><br/>
+<strong>図4　A案の表構成とデータの格納例</strong></p>
+
+<p><img src="img/23f_pm_q02_05.png"><br/>
+<strong>図5　B案の表構成とデータの格納例</strong></p>
+
+<p>　最初は，部名と課名の組合せに対して一意の部署コードを割り当てた，A案によって管理しようとした。しかし，これでは，［　　a　　］を変更する必要が生じた場合に複数行を修正する必要があるので，正規化における［　　b　　］の観点から好ましくない。また，例えば［　　c　　］を表示する際にLIKE述語を使用したデータ依存の検索が必要になるなど，柔軟性が低いことが分かった。このため，B案の構成でデータベースを再構築した。</p>
+
+<p>aに関する解答群<br/>
+ア　課名　　　イ　氏名　　　ウ　表名　　　エ　部名</p>
+
+<p>bに関する解答群<br/>
+ア　関係喪失　　　イ　検索性能　　　ウ　事前登録　　　エ　重複更新</p>
+
+<p>cに関する解答群<br/>
+ア　ある課に属する従業員の氏名の一覧<br/>
+イ　ある部に属する従業員の氏名の一覧<br/>
+ウ　従業員の氏名の一覧<br/>
+エ　部署名の一覧</p>
+<hr>
+<a href="23F_P_A1.HTM#21">設問1の正解例と解説へ</a>
+<hr>
+<p><strong><a name="22">設問2</a></strong>　B案の構成でデータベースを再構築した後に，課ごとの平均年齢を算出し，表示する。次のSQL文の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p><code>SELECT </code>課表<code>.</code>課コ一ド<code>, </code>課表<code>.</code>課名<code>，AVG(</code>従業員表<code>.</code>年齢<code>)</code><br/>
+<code>&nbsp;&nbsp;&nbsp;FROM  </code>課表<code>, </code>従業員表<br/>
+<code>&nbsp;&nbsp;&nbsp;WHERE </code>［　　　　　　　　　　］</p>
+
+<p>解答群<br/>
+ア　課表<code>.</code>課コード<code> = </code>従業員表<code>.</code>課コード<br/>
+    <code>&nbsp;&nbsp;&nbsp;&nbsp;GROUP BY </code>課表<code>.</code>課コード<code>, </code>課表<code>.</code>課名<br/>
+
+イ　課表<code>.</code>課コード<code> = </code>従業員表<code>.</code>課コード<br/>
+    <code>&nbsp;&nbsp;&nbsp;&nbsp;GROUP BY </code>課表<code>.</code>部コード<code>, </code>課表<code>.</code>課名<br/>
+
+ウ　従業員表<code>.</code>年齢<code> = ANY (SELECT COUNT(</code>従業員表<code>.</code>年齢<code>) FROM </code>従業員表<code>)</code><br/>
+
+エ　従業員表<code>.</code>年齢<code> = ANY</code><br/>
+    <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(SELECT COUNT(</code>従業員表<code>.</code>年齢<code>) FROM </code>従業員表<code> GROUP BY </code>課表<code>.</code>課コード)</p>
+<hr>
+<a href="23F_P_A1.HTM#22">設問2の正解例と解説へ</a>
+<hr>
+<p><strong><a name="23">設問3</a></strong>　従業員表は，受発注情報を管理する表などから，従業員番号を外部キーとして参照される。このため，従来は特に利用を制限せずに社内公開していたが，個人情報保護の観点から，必要最小限の情報だけを公開するビューを作成することにした。ビューで公開する項目は，従業員番号，氏名，課コード，内線とする。次のSQL文の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+
+<p><code>CREATE VIEW </code>従業員公開表<code> AS </code>［　　　　　　　　　　］</p>
+
+<p>ア　<code>ALTER TABLE </code>従業員表<br/>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ADD (</code>従業員番号<code>, </code>氏名<code>, </code>課コード<code>, </code>内線)<br/>
+
+イ　<code>ALTER TABLE </code>従業員表<br/>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DROP </code>入社年月日<code>, </code>住所<code>, </code>自宅電話<code>, </code>年齢<br/>
+
+ウ　<code>SELECT * FROM </code>従業員表<code> WHERE </code>従業員番号<code> IS NOT NULL</code><br/>
+
+エ　<code>SELECT </code>従業員番号<code>, </code>氏名<code>, </code>課コード<code>, </code>内線<code> FROM </code>従業員表</p>
+<hr>
+<a href="23F_P_A1.HTM#23">設問3の正解例と解説へ</a>
+<hr>
+<p><strong><a name="24">設問4</a></strong>　設問3で作成したビューと図6に示す受注表を使用して，営業部海外課に在籍する従業員が，2011年7月1日から2011年9月30日の期間中に受注した案件の受注総額を算出する。営業部海外課の課コードは“S101”で，2011年7月1日以降の従業員の異動はない。次のSQL文の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+
+<p><img src="img/23f_pm_q02_06.png"><br/>
+<strong>図6　受注表の構成</strong></p>
+<p><code>SELECT SUM(</code>受注表<code>.</code>受注額<code>)</code><br/>
+   <code>&nbsp;&nbsp;&nbsp;FROM </code>受注表<code>, </code>従業員公開表<br/>
+   <code>&nbsp;&nbsp;&nbsp;WHERE </code>従業員公開表<code>.</code>課コード<code> = 'S101' AND</code><br/>
+         ［　　　　　　　　　　］</p>
+<p>解答群<br/>
+ア　受注表<code>.</code>従業員番号<code> = </code>従業員公開表<code>.</code>従業員番号<code> AND</code><br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;受注表<code>.</code>受注日<code> BETWEEN '20110701' AND '20110930'</code><br/>
+
+イ　受注表<code>.</code>受注日<code> BETWEEN '20110701' AND '20110930'</code><br/>
+
+ウ　受注表<code>.</code>受注日<code> IN (SELECT COUNT(*) FROM </code>受注表<br/>
+                  <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WHERE </code>受注表<code>.</code>受注日<code> BETWEEN '20110701' AND '20110930')</code><br/>
+
+エ　受注表<code>.</code>受注日<code> IN (SELECT SUM(</code>受注表<code>.</code>受注額<code>) FROM </code>受注表<br/>
+                  <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WHERE </code>受注表<code>.</code>受注日<code> BETWEEN '20110701' AND '20110930')</code></p>
+<hr>
+<a href="23F_P_A1.HTM#24">設問4の正解例と解説へ</a>
+<hr>
+<hr>
+<a href="INDEX.HTM">■メニューへ戻る</a>
+<hr>
+<a href="23F_P_E2.HTM#30">■問3へ進む</a>
+<hr>
+</blockquote>
+</body>
+</html>

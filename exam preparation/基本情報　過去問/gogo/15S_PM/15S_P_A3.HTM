@@ -1,0 +1,100 @@
+<HTML>
+<HEAD>
+<TITLE>平成15年度春期試験　</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0">
+<blockquote>
+  <hr>
+  <H3 align="center">平成15年度春期試験　正解例と解説(問6～問8)</H3>
+<hr>
+<p><b><a name="60">問6</a>　</b></p>
+<hr> 
+<p><b><a name="61">設問1</a>　</b> 
+</p> 
+<br>＜解答＞　a　ク　　　b　オ　　　c　エ<br>
+<br>＜解説＞表より，生成される状態値s[i＋1][j]が1となるのは，基となる状態値が<br>
+　　　　　　<img border="0" src="image/01_maru.GIF">　s[i][j－1]＝1であって，s[i][j]＝0<br>
+　　　　　　<img border="0" src="image/02_maru.GIF">　s[i][j－1]＝0であって，s[i][j]＝1<br>
+のいずれかの場合で，それ以外は生成される状態値s[i＋1][j]は0となる。したがって空欄aは生成される状態値s[i＋1][j]であり，空欄b，cは基となる状態値s[i][j－1]，s[i][j]のいずれかに該当する。<br>
+また生成される状態値s[i][j]＝1の場合に，i行j列の位置に＊が印字される。したがって空欄bは，s[i][j]。<br>
+<br>
+<hr WIDTH="100%">
+  <a HREF="15S_P_E3.HTM#61">問題へ</a>
+<hr> 
+<p><b><a name="62">設問2</a>　</b> 
+</p> 
+<br>＜解答＞　ア<br>
+<br>＜解説＞アの場合は，基となる状態値s[i][j－1]，s[i][j]のいずれかが1であるとき，生成される状態値s[i＋1][j]が1となり，それ以外は1となる。つまり基となる状態値s[i][j－1]，s[i][j]の両方がともに0のときしか，生成される状態値s[i＋1][j]が0にはならない。したがって基となる状態値s[i][j－1]，s[i][j]の両方がともに1の場合も，生成される状態値s[i＋1][j]が1となるので，設問1の場合における三角形の内部の0の部分がなくなり，図のように三角形が＊で埋め尽くされる。<br>
+イの場合は，基となる状態値s[i][j－1]，s[i][j]の両方がともに1のときしか，生成される状態値s[i＋1][j]が1にならないので，この初期値の場合，生成される状態値はs[0][1]だけが1で，以外はすべて0となる。したがって行0列1にしか＊が印字されない。<br>
+ウの場合は，基となる状態値s[i][j－1]，s[i][j]のいずれかが0であるとき，生成される状態値s[i＋1][j]が0となり，それ以外は1となる。つまり基となる状態値s[i][j－1]，s[i][j]の両方がともに1のときしか，生成される状態値s[i＋1][j]が1にならないので，イの場合と同じである。<br>
+エの場合は，設問1の場合と条件が同じになる。<br>
+<br>
+<hr WIDTH="100%">
+  <a HREF="15S_P_E3.HTM#62">問題へ</a>
+<hr WIDTH="100%">
+<br>
+<a HREF="INDEX.HTM">メニューへ戻る</a><br>
+<HR WIDTH=100%>
+<a NAME="70">　<BR>
+<b>
+問7</b></a><b>　</b>
+<hr> 
+<a NAME="71">　<BR>
+<b>
+設問</b></a><b></b>
+<br>＜解答＞　a　イ　　　b　キ　　　c　イ　　　d　ウ　　　e　カ<br>
+<br>＜解説＞入力手続SELECT-RTNでは，修理状況ファイルREPAIR-FILEを読み込んで，故障内容コードFAULT-REPをSORT-FILEに書き出し，修理状況ファイルのレコード件数を作業エリアCOUNT-Tにカウントして合計レコード件数を求めている。さらにSORT-FILEを故障内容コードの昇順にソートしている。出力手続TOTAL-RTNでは，SORT-FILEを読み込んで，コントロールブレーク処理により故障内容コード別に件数を集計し，その比率を計算して印字している。<br>
+出力手続TOTAL-RTNでSORT-FILEの最初の1件目のレコードを読み込んだときAT ENDでなければ，INIT-RTNの処理を行っている。INIT-RTNはコントロールブレークにおける前処理で，空欄eの直前で故障内容コード別に件数を集計するための作業エリアCOUNT-WRKを1に初期設定している。したがって空欄eでは，SORT-FILEから読み込んだ故障内容コードをキーの保存エリアFAULT-WRKに設定する処理が必要になる。<br>
+空欄aの条件が成り立つ場合に，作業エリアCOUNT-WRKを1だけカウントアップしているが，これは故障内容コード別に件数を集計している処理に該当する。したがって空欄aは保存エリアFAULT-WRKの故障内容コードとSORT-RECの故障内容コードが一致するかという条件FAULT-WRK＝SORT-RECになる。<br>
+キーの保存エリアFAULT-WRKの故障内容コードと一致しなくなれば，PRINT-RTNの処理で件数と計算した比率を印字し，その後空欄bでINIT-RTNの処理を行い，キーの保存とCOUNT-WRKの初期設定を行なう必要がある。これより空欄bは，PERFORM  INIT-RTNとなる。空欄cは比率を計算する処理で，COMPUTE　PER-PRN＝100＊COUNT-WRK／COUNT-Tとなる。また空欄dはDATA-PRNの内容を印字する処理で，WRITE　PRINT-REC　FROM　DATA-PRN　AFTER　1に該当する。<br>
+<br>
+<HR WIDTH=100%>  
+  <a HREF="15S_P_E3.HTM#71">問題へ</a>  
+<HR WIDTH=100%>  
+<p><a HREF="INDEX.HTM">メニューへ戻る</a>　</p> 
+<HR WIDTH=100%> 
+<a NAME="80">　<BR> 
+<b> 
+問8</b></a><br>  
+<A NAME="80">  
+<HR WIDTH=100%>  
+</a><a NAME="81"><b>　<BR>  
+設問</b></a><b><a NAME="81"></a>　</b>
+<br>＜解答＞　a　イ　　　b　イ　　　c　ウ　　　d　エ　　　e　オ<br>
+<br>＜解説＞三角形のクラスTriangleは，図形の抽象クラスFigureのサブクラスで，スーパークラスFigureを継承してサブクラスTriangleを定義すればよい。したがってextendsの直後の空欄aには継承するスーパークラスFigureを指定する。同様に長方形のクラスRectangleは，図形の抽象クラスFigureのサブクラスで，スーパークラスFigureを継承してサブクラスRectangleを定義すればよい。したがってextendsの直後の空欄bには継承するスーパークラスFigureを指定する。returnの直後の空欄cは，長方形の面積を戻り値として指定すればよいので，height＊widthとする。正方形のクラスSquareは，長方形のサブクラスRectangleにおいてheightをwidthとした場合に相当し，Rectangleを継承してサブクラスSquareを定義すればよい。したがってextendsの直後の空欄dには継承するスーパークラスRectangleを指定する。<br>
+空欄eはコンストラクタの定義に関する処理である。スーパークラスRectangleのコンストラクタは，サブクラスSquareに継承されない。したがってスーパークラスRectangleから継承された変数heightとwidthについて，super( )によりスーパークラスRectangleのコンストラクタを呼出す必要がある。スーパークラスRectangleのコンストラクタで引数の数と型の一致するものをそのまま呼出す場合はsuper(heigh, width)とするが，サブクラスSquareはRectangleにおいてheight＝widthとした場合に相当するので，空欄eでsuper(width, width)としスーパークラスRectangleのコンストラクタを呼出せばよい。<br>
+<br>
+<hr WIDTH="100%">
+</a><a HREF="15S_P_E3.HTM#81">問題へ</a>
+<hr WIDTH="100%">
+  <a HREF="INDEX.HTM"><br>
+メニューへ戻る<br> 
+  </a> 
+<HR WIDTH=100%> 
+
+問9</b></a>　　　（解説は省略します。）<br>  
+<A NAME="90">  
+<HR WIDTH=100%>  
+</a><a NAME="91"><b>　<BR>  
+設問</b></a><b><a NAME="81">1</a>　</b>
+  <p>＜解答＞　a　ク　　b　エ</p>
+<A NAME="91">  
+<HR WIDTH=100%>  
+</a><a HREF="15S_P_E3.HTM#91">問題へ</a> 
+<HR WIDTH=100%> 
+<b><a name="92">設問2</a>　</b></p>
+<p>＜解答＞　c　オ　　d　エ<br>
+　</p>
+<a NAME="92">
+<hr WIDTH="100%">
+</a><a HREF="15S_P_E3.HTM#92">問題へ</a>
+<hr WIDTH="100%">
+  <a HREF="INDEX.HTM"><br>
+メニューへ戻る<br> 
+  </a> 
+<HR WIDTH=100%> 
+
+<p>　</p>
+</blockquote>
+</BODY>
+</HTML>

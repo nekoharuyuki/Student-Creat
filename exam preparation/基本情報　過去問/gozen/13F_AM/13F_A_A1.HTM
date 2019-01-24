@@ -1,0 +1,299 @@
+<HTML>
+<HEAD>
+<TITLE>平成13年度秋期試験　正解例と解説(午前問01～問20)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<BLOCKQUOTE>
+<hr>
+<H3 align="center">平成13年度秋期試験　正解例と解説(問01～問20)</H3>
+<HR WIDTH=100%>
+<A NAME="01">　<BR>
+<b>
+問1</b></a>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>ア</option></select></p>
+<table border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td>＜解説＞</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>①</td>
+    <td>３進数として表現すると１の位が０となるので、３の倍数であり，これより解答群の１２か２７に絞られる。</td>
+  </tr>
+  <tr>
+    <td>②</td>
+    <td>５進数として表現すると１の位が２の２けたの数となることより以下により、アの１２であることがわかる。</td>
+  </tr>
+</table>
+<p><img border="0" src="image/B13a01f1.gif" width="314" height="91"><br>
+</p>
+<HR WIDTH=100%>
+<A HREF="13f_a_e1.htm#01">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="02">　<BR>
+<b>
+問2</b></a>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select></p>
+<p>＜解説＞9＝2<sup>3</sup>＋1と表せるので，2進数ｍの9倍＝ｍ×（2<sup>3</sup>＋1）＝ｍ×2<sup>3</sup>＋ｍ。<br>
+　左に1ビットシフトするごとに2倍になるので，左に3ビットシフトするとｍ×2<sup>3</sup>になります。これにｍを加えると9倍になります。
+<A NAME="02"><BR></a>
+　<BR>
+</p>
+<HR WIDTH=100%>
+<A HREF="13f_a_e1.htm#02">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="03">　<BR>
+<b>
+問3</b></a>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>ウ</option></select></p>
+<p>＜解説＞16進数で579Ａは，2進数では0101 0111 1001 1010です。<br>
+左シフトする前の2進数の値はX010 1011 1100 1101になります。これを左シフトすると桁あふれを起こしたのであるからXは1です。これを16進数に変換するとABCDになります。
+<A NAME="03"><BR></a>
+<BR>
+</p>
+<HR WIDTH=100%>
+<A HREF="13f_a_e1.htm#03">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="04">　<BR>
+<b>
+問4</b></a>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>エ</option></select></p>
+<p>＜解説＞32ビットで表現できるビットパターンの個数は2<sup>32</sup>個，24ビットで表現できるビットパターンの個数は2<sup>24</sup>個です。したがって2<sup>32</sup>÷2<sup>24</sup>＝2<sup>8</sup>＝256倍です。<br>
+　</p>
+<HR WIDTH=100%>
+<A HREF="13f_a_e1.htm#04">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="05">　<BR>
+<b>
+問5</b></a>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>ウ</option></select></p>
+<p>＜解説＞2の補数で表された負数10101110の絶対値は，2の補数を求めることで得られます。<br>
+2の補数を求めるには</p>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>①</td>
+    <td>各ビットの0と1を反転する</td>
+    <td align="right">　　01010001</td>
+    <td align="right"></td>
+  </tr>
+  <tr>
+    <td>②</td>
+    <td>これに1を加算する</td>
+    <td align="right"><u>＋　　　　　1</u></td>
+    <td align="right"></td>
+  </tr>
+  <tr>
+    <td>③</td>
+    <td>その結果が2の補数です</td>
+    <td>
+      <p align="right">01010010</td>
+    <td>　←　これが絶対値になります</td>
+  </tr>
+</table>
+<p>　</p>
+<HR WIDTH=100%>
+<A HREF="13f_a_e1.htm#05">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="06">　<BR>
+<b>
+問6</b></a>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select></p>
+<p>＜解説＞問5では，2の補数で表された負数10101110の2の補数を求めると，その絶対値01010010が得られました。負数10101110と絶対値01010010を加算すると100000000になりますが，8ビットの演算では桁あふれを起こして00000000になります。つまり2の補数は，元の数と絶対値の等しい負数のことであり，減算を行う代わりに2の補数の加算として処理できることを意味しています。<br>
+　</p>
+<HR WIDTH=100%>
+<A HREF="13f_a_e1.htm#06">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="07">　<BR>
+<b>
+問7</b></a>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select></p>
+<p>＜解説＞アはオーバーフロー（桁あふれ），イは丸め誤差，ウは桁落ち，エは情報落ちです。<br>
+　　</p>
+<HR WIDTH=100%>
+<A HREF="13f_a_e1.htm#07">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="08">　<BR>
+<b>
+問8</b></a>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>ウ</option></select></p>
+<p>＜解説＞<br>
+　　2枚ともハートのカードである確率<br>
+＝（1枚目がハートのカードである確率）×（2枚目もハートのカードである確率）<br>
+＝（13÷52）×（12÷51）<br>
+＝1／17
+<A NAME="08"><BR></a>
+</p>
+<HR WIDTH=100%>
+<A HREF="13f_a_e1.htm#08">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="09">　<BR>
+<b>
+問9</b></a>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>ウ</option></select></p>
+<p>＜解説＞図2では，ワープロソフトとデータベースソフトの両方とも使える人は，表計算ソフトかプレゼンテーションソフトのいずれか1つ以上使えます。したがって解答群のウのケースを図2では表現できません。<br>
+　</p>
+<HR WIDTH=100%>
+<A HREF="13f_a_e1.htm#09">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="10">　<BR>
+<b>
+問10</b></a>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select></p>
+<p>＜解説＞論理積が0となればいずれか一方は0で，論理積が1となれば双方とも1です。また論理和が0となれば双方とも0で，論理和が1となればいずれか一方は1です。</p>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">①</td>
+    <td>最下位ビットの論理積が0，論理和が1であるので，最下位ビットについては一方が0で他方が1になります。したがって最下位ビットの加算結果は1で，桁上がりもありません。</td>
+  </tr>
+  <tr>
+    <td valign="top">②</td>
+    <td>右から2つ目のビットの論理積が1，論理和も1であるので，このビットについては双方とも1になります。したがって加算結果は0で桁上がり1が発生します。</td>
+  </tr>
+  <tr>
+    <td valign="top">③</td>
+    <td>右から3つ目のビットの論理積が0，論理和も0であるので，このビットについては双方とも0になります。したがって加算結果は下位からの桁上がり1があるので1になります。</td>
+  </tr>
+  <tr>
+    <td valign="top">④</td>
+    <td>最上位ビットの論理積が0，論理和が1であるので，最上位ビットについては一方が0で他方が1になります。したがって最上位ビットの加算結果は1になります。<br>
+      これより二つの数の和は1101になります。<BR>
+      　<br>
+      　</td>
+  </tr>
+</table>
+<HR WIDTH=100%>
+<A HREF="13f_a_e1.htm#10">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="11">　<BR>
+<b>
+問11</b></a>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select></p>
+<p>＜解説＞<br>
+アの場合は、ａｂａｂの順だから、Ｑ０→Ｑ１→Ｑ１→Ｑ０→Ｑ２の順に処理し、終了状態となり受理される。<br>
+イの場合は、ａｃａｃの順だから、Ｑ０→Ｑ１→Ｑ２→Ｑ２→Ｑ１の順に処理し、最後が終了状態Ｑ２とならず、受理されない。<br>
+ウの場合は、ａｃｃｃの順だから、Ｑ０→Ｑ１→Ｑ２→Ｑ１→Ｑ２の順に処理し、終了状態となり受理される。<br>
+エの場合は、ｂｃｂｃの順だから、Ｑ０→Ｑ２→Ｑ１→Ｑ１→Ｑ２の順に処理し、終了状態となり受理される。<br>
+</p>
+<HR WIDTH=100%>
+<A HREF="13f_a_e1.htm#11">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="12">　<BR>
+<b>
+問12</b></a>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>ウ</option></select></p>
+<p>＜解説＞この2分探索木では、常に「左の子の要素＜親の要素＜右の子の要素」の関係がある。したがって要素12を削除した場合、その位置にくるべき要素は、</p>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>①</td>
+    <td>要素12の左部分木のいずれの要素よりも大きく</td>
+  </tr>
+  <tr>
+    <td>②</td>
+    <td>要素12の右部分木のいずれの要素よりも小さく</td>
+  </tr>
+</table>
+<p>なくてはならない。つまり要素12の左部分木の最大の要素11か、または右部分木の最小の要素13であればよい。したがって解答群ウの13が正解。
+<A NAME="12"><BR></a>
+　<BR>
+</p>
+<HR WIDTH=100%>
+<A HREF="13f_a_e1.htm#12">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="13">　<BR>
+<b>
+問13</b></a>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select></p>
+<p>＜解説＞スタックは後入先出，キューは先入先出のデータ構造で，以下の図のように格納されて，結果的に最後のpop( )命令でｘにｂがセットされます。　<img border="0" src="image/B13a13f1.gif" width="687" height="139"><br>
+　</p>
+<HR WIDTH=100%>
+<A HREF="13f_a_e1.htm#13">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="14">　<BR>
+<b>
+問14</b></a>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>ア</option></select></p>
+<p>＜解説＞配列Xには長さｍの文字列が格納され，配列Yには長さｎの文字列が格納されています。<br>
+先ず配列Xのｍ個の文字を1個ずつ配列Zに格納し，次に配列Yの文字を1個ずつ配列Z(ｍ+1)以降に格納して行けばよいので，空欄ａはＸ(k)→Ｚ(k)，空欄ｂはＹ(k)→Ｚ(ｍ+k)になります。<br>
+<A NAME="14"><BR></a>
+</p>
+<HR WIDTH=100%>
+<A HREF="13f_a_e1.htm#14">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="15">　<BR>
+<b>
+問15</b></a>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>エ</option></select></p>
+<p>＜解説＞ア，イ，ウは不適切。ある間隔で要素を取り出した部分列を整列し，更に間隔をつめた部分列を取り出して整列するのは，シェルソート。隣り合う要素を比較して，大小の順が逆であれば，それらの要素を入れ替えるという操作を繰り返して行うのは，バブルソートです。中間的な基準値を決めて，それよりも大きな値を集めた区分と小さな値を集めた区分に要素を振り分けて，次にそれぞれの区分の中で同様な処理を繰り返すのは，クイックソートです。
+<A NAME="15"><BR></a>
+　<BR>
+</p>
+<HR WIDTH=100%>
+<A HREF="13f_a_e1.htm#15">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="16">　<BR>
+<b>
+問16</b></a>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>エ</option></select></p>
+<p style="line-height: 120%">＜解説＞XOR回路は，2つの入力値が同じ場合は0，異なる場合は1を出力する回路です。例えばXOR回路の入力がすべて1である場合，2つのXOR回路からの出力はともに0となります。したがってアの場合は最後のAND回路から出力は0，ウの場合は最後のXOR回路からの出力は0になり，1の入力数が偶数なのですが出力が1にはなりません。イの場合は中間のOR回路からの出力が0となるので，NOT回路からの出力は1になります。またエの場合も中間のXOR回路からの出力が0となるので，NOT回路からの出力は1になります。ところが最初のXOR回路への入力が0と1で異なるとXOR回路の出力は1となり，イの場合は中間のOR回路からの出力が1となるので，NOT回路からの出力は0になってしまいます。それに対してエの場合は中間のXOR回路からの出力が0となるので，NOT回路からの出力は1になります。イの場合は，1の入力数が偶数個なのですが，1にはならないケースがあります。エの場合は，1の入力数が奇数のときは最初の2つのXOR回路からの出力が必ず一方が0，他方が1になり，中間のXOR回路からの出力が1になるので，NOT回路からの出力は0になります。また1の入力数が偶数個のときは最初の2つのXOR回路からの出力が両方とも0になり，中間のXOR回路からの出力も0となるので，NOT回路からの出力は1になります。<br>
+<A NAME="16"><BR></a>
+</p>
+<HR WIDTH=100%>
+<A HREF="13f_a_e1.htm#16">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="17">　<BR>
+<b>
+問17</b></a>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>エ</option></select></p>
+<p>＜解説＞パイプラインは、１つの命令の実行サイクルを複数のステージ（命令の取出し、解読、アドレス計算・変換、データの取出し、実行）に分割し、各段階の処理を別々の装置が担当することによって、各命令のステージを重ねて、並列実行することにより１命令あたりの実行効率をあげる方式。インタリーブは，メモリへのアクセスを高速化するために、主記憶を同時に並行して読み書き可能な複数の領域（バンクといいます）に分けてメモリアクセスする方式。<br>
+ディスクアレイは複数のハードディスクを連結して大容量化し，同時に複数ディスクにアクセスする高速なディスクシステムで，エラー訂正用パリティにより信頼性を高めている（RAIDともいう）。<br>
+キャッシュメモリは、ＣＰＵと主記憶間のアクセスにおける速度ギャップを緩衝する緩衝記憶装置。
+<A NAME="17"><BR></a>
+</p>
+<HR WIDTH=100%>
+<A HREF="13f_a_e1.htm#17">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="18">　<BR>
+<b>
+問18</b></a>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>ウ</option></select></p>
+<p>＜解説＞プログラムレジスタはプログラムカウンタとも呼ばれ，次に実行される命令のアドレスが格納されるレジスタです。分岐命令が実行されるとき，このレジスタの内容は分岐先の命令アドレスにより更新されます。
+<A NAME="18"><BR></a>
+</p>
+<HR WIDTH=100%>
+<A HREF="13f_a_e1.htm#18">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="19">　<BR>
+<b>
+問19</b></a>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>ウ</option></select></p>
+<p>＜解説＞主記憶へのアクセスを伴う演算命令の実行は，①命令の取出し②命令の解読③有効アドレス計算（オペランドアドレス生成ともいいます）④オペランド読出し⑤命令実行の順に行われます。
+<A NAME="19"><BR></a>
+　<BR>
+</p>
+<HR WIDTH=100%>
+<A HREF="13f_a_e1.htm#19">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="20">　<BR>
+<b>
+問20</b></a>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>ウ</option></select></p>
+<p>＜解説＞1時間当たり36,000件のデータを処理するには，1秒当たり36,000×10<sup>6</sup>÷（60×60）命令の実行する必要があります。したがってCPUの利用率が80％のとき</p>
+<p>プロセッサ性能×0.8≧36,000×10<sup>6</sup>÷（60×60）命令／秒<br>
+プロセッサ性能≧12.5×10<sup>6</sup>命令／秒</p>
+<p>これをMIPS（百万命令／秒）に変換すると，12.5MIPSのプロセッサ性能が必要です。
+<A NAME="20"><BR></a>
+　</p>
+<HR WIDTH=100%>
+<a HREF="13f_a_e1.htm#20">問題へ</a>
+<HR WIDTH=100%>
+　<BR>
+<A HREF="index.htm">メニューへ戻る</A><BR>
+　<BR>
+<HR WIDTH=100%>
+<ADDRESS>
+<BR>
+</ADDRESS>
+</BLOCKQUOTE>
+</BODY>
+</HTML>

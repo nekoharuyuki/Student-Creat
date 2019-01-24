@@ -1,0 +1,212 @@
+<html>
+
+<head>
+<title>平成20年度 春期 基本情報技術者試験 午後 問題</title>
+<style type="text/css">
+body{line-height:150%;}
+code{font-size:12pt;}
+</style>
+</head>
+
+<body>
+
+<blockquote>
+	<hr>
+	<h3 align="center">平成20年度春期試験　問題(問6～問9)</h3>
+	<div align="center">
+		<table borderColor="#000000" cellSpacing="0" cellPadding="4" border="1">
+			<tr>
+				<td>　次の<strong>問6</strong>から<strong>問9</strong>までの4問については、この中から1問を選択し、答案用紙の選択欄の（選）をマークして解答してください。<br>
+				　なお、2問以上選択した場合には、はじめの1問について採点します。</td>
+			</tr>
+		</table>
+	</div>
+	<hr>
+	<p><strong><a name="60">問6</a></strong>　次のCプログラムの説明及びプログラムを読んで，設問に答えよ。</p>
+	<p>〔プログラムの説明〕</p>
+	<p>　　関数<code>markup_reference</code>は，文書から参考資料名を抜き出して，参照番号に置き換えるとともに，文書の末尾に参考資料名の一覧を追加して，出力するプログラムである。</p>
+	<p>（1）元の文書中では，参考資料名は文字“<code>\</code>”で囲まれている。文字“<code>\</code>”がこれ以外の用途で使用されることはない。</p>
+	<p>（2）参照番号は，元の文書中の異なる参考資料名に対して，出現順に1から順に割り当てる番号である。</p>
+	<p>（3）プログラムの実行例は，図のとおりである。図中の，処理後の文書の例に示すように，参考資料名の一覧は，“<code>References</code>”以降に，参照番号と参考資料名を対にして出力する。</p>
+	<p><img border="0" src="img/20spmq19.png" width="580" height="328"></p>
+	<p>（4）参考資料名は255文字以下であり，途中で改行されることはない。個数は50以下である。</p>
+	<p>（5）元の文書に含まれる文字は，次のとおりである。<br>
+	①　英数字<br>
+	②　図形文字（<code>! &quot; # % &amp; ' ( ) * + , - . / : ; &lt; = &gt; ? [ \ ] ^ _ { | } ~</code>）<br>
+	③　空白文字<br>
+	④　改行文字</p>
+	<p>（6）関数<code>markup_reference</code>の引数は，次のとおりである。ただし，ファイルの名称に誤りはないものとする。</p>
+	<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber1">
+		<tr>
+			<td><code>in_filename</code></td>
+			<td>元の文書が格納されているファイルの名称</td>
+		</tr>
+		<tr>
+			<td><code>out_filename</code></td>
+			<td>処理後の文書を格納するファイルの名称</td>
+		</tr>
+	</table>
+	<p><img border="0" src="img/20spmq20.png" width="569" height="765"></p>
+	<hr>
+	<p><strong><a name="61">設問</a></strong>　プログラム中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+	<p>aに関する解答群<br>
+	ア　<code>ch == '\0'</code><br>
+	イ　<code>ch != '\0'</code><br>
+	ウ　<code>ch == MARK</code><br>
+	エ　<code>ch != MARK</code><br>
+	オ　<code>ref_num == 0</code><br>
+	カ　<code>ref_num != 0</code></p>
+	<p>bに関する解答群<br>
+	ア　<code>ch<br>
+	</code>イ　<code>ref_name[i]</code><br>
+	ウ　<code>ref_name[i + 1]</code><br>
+	エ　<code>ref_name[i - 1]</code><br>
+	オ　<code>*ref_name</code></p>
+	<p>cに関する解答群<br>
+	ア　<code>i == 0<br>
+	</code>イ　<code>i != 0</code><br>
+	ウ　<code>i &lt; ref_num</code><br>
+	エ　<code>i &gt;= ref_num</code><br>
+	オ　<code>ref_num == 0</code></p>
+	<p>dに関する解答群<br>
+	ア　<code>i + 1</code><br>
+	イ　<code>ref_num + 1</code><br>
+	ウ　<code>&amp;i + 1<br>
+	</code>エ　<code>&amp;ref_num + 1</code></p>
+	<hr>
+	<p><a href="20S_P_A3.HTM#61">設問の正解例と解説へ</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a></p>
+	<hr>
+	<p><strong><a name="70">問7</a></strong> 
+	　次のCOBOLプログラムの説明及びプログラムを読んで，設問1，2に答えよ。</p>
+	<p>〔プログラムの説明〕</p>
+	<p>
+	　ある会社の工場では，1年に1回，従業員とその家族向けに工場を開放して様々なイベントを開催している。このプログラムは，イベントに参加した従業員が提出した“楽しかったイベント”のアンケート結果を集計する。</p>
+	<p>（1）アンケート結果ファイルは，図1に示すレコード様式の順ファイルである。</p>
+	<p><img border="0" src="img/20spmq21.png" width="596" height="138"></p>
+	<p>①　アンケート結果ファイルには，楽しかったイベントに1が，それ以外には0が格納されている。<br>
+	②　楽しかったイベントは二つまで選択できる。三つ以上のイベントが選択されていた場合は，無効として集計対象から除外する。<br>
+	③　アンケート結果ファイルのレコード数は9,999以下とする。</p>
+	<p>（2）集計結果は，図2に示すとおり画面上に表示する。</p>
+	<p><img border="0" src="img/20spmq22.png" width="179" height="132"></p>
+	<p><img border="0" src="img/20spmq23.png" width="617" height="870"></p>
+	<p>　</p>
+	<hr>
+	<p><strong><a name="71">設問1</a></strong>　プログラム中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+	<p>解答群<br>
+	ア　<code>COMPUTE CHOICE-CNT = CHOICE-CNT + EVENT(WK-CNT)<br>
+	</code>イ　<code>COMPUTE CHOICE-CNT = CHOICE-CNT + EVENT-TOTAL(WK-CNT)<br>
+	</code>ウ　<code>COMPUTE EVENT-TOTAL(WK-CNT)</code> <code>= EVENT-TOTAL(WK-CNT) 
+	+ CHOICE-CNT<br>
+	</code>エ　<code>COMPUTE EVENT-TOTAL(WK-CNT)</code> <code>= EVENT-TOTAL(WK-CNT) 
+	+ EVENT(WK-CNT)</code><br>
+	オ　<code>MOVE EVENT(WK-CNT) TO CHOICE-CNT</code><br>
+	カ　<code>MOVE EVENT(WK-CNT) TO EVENT-TOTAL(WK-CNT)</code></p>
+	<hr>
+	<p><code><a href="20S_P_A3.HTM#71">設問1の正解例と解説へ</a></code></p>
+	<hr>
+	<p><strong><a name="72">設問2</a></strong>　参考データとして，三つ以上のイベントを選択した無効なアンケート結果の総数を，集計結果の次に表示するようにプログラムを変更する。表中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+	<p><img border="0" src="img/20spmq24.png" width="533" height="221"></p>
+	<p>cに関する解答群<br>
+	ア　<code>ADD 1 TO INV-CNT<br>
+	</code>イ　<code>MOVE CHOICE-CNT TO INV-CNT<br>
+	</code>ウ　<code>MOVE EVENT-TOTAL(WK-CNT) TO INV-CNT</code><br>
+	エ　<code>MOVE WK-CNT TO INV-CNT</code></p>
+	<p><code>dに関する解答群<br>
+	ア　行番号32と33の間<br>
+	イ　行番号36と37の間<br>
+	ウ　行番号41と42の間<br>
+	エ　行番号45の次</code></p>
+	<hr>
+	<p><a href="20S_P_A3.HTM#72">設問2の正解例と解説へ</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a></p>
+	<hr>
+	<p><strong><a name="80">問8</a></strong> 　次のJavaプログラムの説明及びプログラムを読んで，設問に答えよ。</p>
+	<p>〔プログラムの説明〕<br>
+	　電気ポットの状態遷移を模したプログラムである。この電気ポットは，電源に接続すると休止状態になり，沸騰ボタンが押されると加熱を開始する。沸点に到達すると加熱を終了し，休止状態に戻る。ただし，電気ポットに水がない場合は，沸騰ボタンが押されても加熱を開始せず，警告を表示する。電気ポットの状態遷移図を図1に示す。</p>
+	<p><img border="0" src="img/20spmq25.png" width="345" height="225"></p>
+	<p>（1）抽象クラス<code>State</code>は，電気ポットの状態を定義する。</p>
+	<p>（2）クラス<code>Idle</code>及びクラス<code>Heating</code>は，それぞれ，休止状態と加熱中状態を示す<code>State</code>のサブクラスである。</p>
+	<p>（3）クラス<code>ElectricPot</code>は電気ポットを表す。フィールド<code>currentState</code>は，電気ポットの状態を示す。フィールド<code>content</code>は，水量を示す。メソッド<code>heat</code>は，沸騰ボタンが押されたときに呼ばれ，電気ポットに水があれば加熱を開始する（電気ポットの状態を加熱中に遷移）。水がない場合は例外を投げる。メソッド<code>boiled</code>は，水が沸点に到達したときに呼ばれ，加熱を終了する（電気ポットの状態を休止に遷移）。メソッド<code>isEmpty</code>は，水がない場合<code>true</code>，それ以外の場合<code>false</code>を返す。メソッド<code>main</code>はテスト用のメインプログラムである。実行結果を図2に示す。 
+	</p>
+	<p><img border="0" src="img/20spmq26.png" width="268" height="107"></p>
+	<p><img border="0" src="img/20spmq27.png" width="494" height="438"></p>
+	<p><img border="0" src="img/20spmq28.png" width="553" height="636"></p>
+	<hr>
+	<p><strong><a name="81">設問</a></strong>　プログラム中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+	<p>aに関する解答群<br>
+	ア　<code>isEmpty()<br>
+	</code>イ　<code>!isEmpty()</code><br>
+	ウ　<code>pot.isEmpty()</code><br>
+	エ　<code>!pot.isEmpty()<br>
+	</code>オ　<code>pot == null<br>
+	</code>カ　<code>pot != null</code></p>
+	<p>bに関する解答群<br>
+	ア　<code>return &quot;No Water!&quot;</code><br>
+	イ　<code>System.out.println(&quot;No Water!&quot;)<br>
+	</code>ウ　<code>throw &quot;No Water!&quot;</code><br>
+	エ　<code>throw new Exception(&quot;No Water!&quot;)</code></p>
+	<p>cに関する解答群<br>
+	ア　<code>extends Exception<br>
+	</code>イ　<code>extends Object</code><br>
+	ウ　<code>extends State</code><br>
+	エ　<code>implements Exception</code><br>
+	オ　<code>implements Object<br>
+	</code>カ　<code>implements State</code></p>
+	<p>dに関する解答群<br>
+	ア　<code>currentState<br>
+	</code>イ　<code>State</code><br>
+	ウ　<code>super<br>
+	</code>エ　<code>this</code></p>
+	<hr>
+	<p><a href="20S_P_A3.HTM#81">設問の正解例と解説へ</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a></p>
+	<hr>
+	<p><strong><a name="90">問9</a></strong> 　次のアセンブラプログラムの説明及びプログラムを読んで，設問に答えよ。</p>
+	<p>〔プログラムの説明〕</p>
+	<p>　　文字列中の単語を切り出して，単語管理テーブルを作成する副プログラム<code>TOKEN</code>である。</p>
+	<p>
+	（1）文字列は英字，数字，空白文字（間隔文字）の0文字以上の並びで，最後にピリオドが置かれる。単語は，1文字以上の空白文字で区切られた英数字の並びとする。</p>
+	<p>
+	（2）単語管理テーブルには，文字列中に現れる単語ごとに，3語からなる要素を作成し，単語の先頭アドレス，長さ，属性の順に格納する。属性は，単語が数字だけからなるときは0，英字が含まれるときは1とする。単語の切出しが終了したとき，単語管理テーブルの終了を示すマークとして－1を格納する。</p>
+	<p>（3）主プログラムは，文字列の先頭アドレスを<code>GR1</code>に，単語管理テーブルの先頭アドレスを<code>GR2</code>に設定して，<code>TOKEN</code>を呼ぶ。</p>
+	<p>（4）副プログラム<code>TOKEN</code>から戻るとき，汎用レジスタ<code>GR1</code>～<code>GR7</code>の内容は元に戻す。副プログラム<code>TOKEN</code>の実行例を図に示す。</p>
+	<p><img border="0" src="img/20spmq29.png" width="493" height="233"></p>
+	<p><img border="0" src="img/20spmq30.png" width="589" height="843"></p>
+	<hr>
+	<p><strong><a name="91">設問</a></strong>　プログラム中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+	<p>aに関する解答群<br>
+	ア　<code>JNZ ACHK</code><br>
+	イ　<code>JNZ ALNUM</code><br>
+	ウ　<code>JNZ LP<br>
+	</code>エ　<code>JZE ACHK</code><br>
+	オ　<code>JZE ALNUM</code><br>
+	カ　<code>JZE LP</code></p>
+	<p>bに関する解答群<br>
+	ア　<code>JMI ALNUM</code><br>
+	イ　<code>JMI LP<br>
+	</code>ウ　<code>LD GR3,=0<br>
+	</code>エ　<code>LD GR3,=1<br>
+	</code>オ　<code>LD GR3,0</code><br>
+	カ　<code>LD GR3,1</code> </p>
+	<p>cに関する解答群<br>
+	ア　<code>LAD GR1,1,GR1</code><br>
+	イ　<code>LAD GR1,3,GR1<br>
+	</code>ウ　<code>LAD GR2,1,GR2</code><br>
+	エ　<code>LAD GR2,3,GR2</code><br>
+	オ　<code>LD GR1,GR6</code><br>
+	カ　<code>LD GR2,GR6</code> </p>
+	<hr>
+	<p><a href="20S_P_A3.HTM#90">設問の正解例と解説へ</a></p>
+	<hr>
+	<p><a href="20S_P_E4.htm#100">問10へ進む</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a></p>
+</blockquote>
+
+</body>
+
+</html>

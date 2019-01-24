@@ -1,0 +1,272 @@
+<html>
+
+<head>
+<title>平成21年度 春期 基本情報技術者試験 午後 問題</title>
+<style type="text/css">
+body{line-height:150%;}
+code{font-size:12pt;}
+</style>
+</head>
+
+</head>
+
+<body>
+
+<blockquote>
+	<hr>
+	<h3 align="center">平成21年度 春期試験　問題(問10～問13)</h3>
+	<hr>
+	<p><strong><a name="100">問10</a></strong>　次のCOBOLプログラムの説明及びプログラムを読んで，設問1，2に答えよ。</p>
+	<p>〔プログラムの説明〕<br>
+	　売上ファイルを読み込み，販売店コード別に売上集計を行い，売上分析表を印刷する副プログラムである。<br>
+	（1）売上ファイル<code>SALES-F</code>は順ファイルである。<br>
+	（2）売上ファイルのレコード様式を図1に示す。</p>
+	<p><img border="0" src="img/21S_P_76.gif" width="452" height="62"><br>
+	<strong>図1　売上ファイルSALES-Fのレコード様式</strong></p>
+	<p>①　売上金額はゼロより大きいものとする。<br>
+	②　すべてのレコードの売上金額を合計しても10けたを超えないものとする。<br>
+	③　売上ファイルのデータに誤りはないものとする。<br>
+	（3）販売店コードで集計して印刷した売上分析表の例を図2に示す。</p>
+	<p><img border="0" src="img/21S_P_77.gif" width="659" height="211"><br>
+	<strong>図2　売上分析表の例</strong></p>
+	<p>①　売上分析表の見出しは印刷済とする。<br>
+	②　売上分析表は，集計された売上金額の多い順に整列し，印刷する。<br>
+	③　累積比率は，当該販売店から上位順位店すべての売上金額の累積を売上金額の総合計で割った比率（％）の小数第2位を切り捨てたものである。<br>
+	④　文字“<code>*</code>”の並びは，この累積比率の整数部分の値mをm個の“<code>*</code>”で示したものである。</p>
+	<p>〔プログラム〕<br>
+	（行番号）<br>
+	<img border="0" src="img/21S_P_78.gif" width="470" height="964"><br>
+	&nbsp;<img border="0" src="img/21S_P_79.gif" width="496" height="890"><br>
+	<img border="0" src="img/21S_P_80.gif" width="580" height="120"><br>
+	<img border="0" src="img/21S_P_81.gif" width="412" height="156"></p>
+	<hr>
+	<p><strong><a name="101">設問1</a></strong>　プログラム中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+	<p>a，bに関する解答群<br>
+	ア　<code>ASCENDING KEY SORT-CD</code><br>
+	イ　<code>ASCENDING KEY SORT-SALES</code><br>
+	ウ　<code>DESCENDING KEY SORT-SALES</code><br>
+	エ　<code>DESCENDING KEY TEMP-CD</code></p>
+	<p>c～eに関する解答群<br>
+	ア　<code>ADD TEMP-SALES TO GROSS-SUM</code><br>
+	イ　<code>ADD TEMP-SALES TO INTERIM-SUM</code><br>
+	ウ　<code>ADD TEMP-SALES TO SORT-SALES</code><br>
+	エ　<code>MOVE TEMP-SALES TO GROSS-SUM</code><br>
+	オ　<code>MOVE TEMP-SALES TO INTERIM-SUM</code><br>
+	カ　<code>MOVE TEMP-SALES TO SORT-SALES</code></p>
+	<hr>
+	<p><a href="21S_P_A4.HTM#101">設問の正解例と解説へ</a></p>
+	<hr>
+	<p><strong><a name="102">設問2</a></strong>　この副プログラムを，商品コード，顧客コードでの集計にも使えるように変更する。パラメタの値が，1のときは販売店コード，2のときは商品コード，3のときは顧客コードによる集計となるようにする。表中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+	<p><strong>表　プログラムの変更内容</strong><br>
+	<img border="0" src="img/21S_P_82.gif" width="582" height="215"></p>
+	<p>fに関する解答群<br>
+	ア　<code>S-CD PIC X(10)</code><br>
+	イ　<code>S-CD PIC X(10) OCCURS 3</code><br>
+	ウ　<code>S-CD PIC X(10) OCCURS 3 INDEXED BY SUM-CD</code><br>
+	エ　<code>S-CD PIC X(20)</code><br>
+	オ　<code>S-CD PIC X(30)</code></p>
+	<p>gに関する解答群<br>
+	ア　行番号50と51の間<br>
+	イ　行番号51と52の間<br>
+	ウ　行番号66と67の間<br>
+	エ　行番号78と79の間</p>
+	<hr>
+	<p><a href="21S_P_A4.HTM#102">設問の正解例と解説へ</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a></p>
+	<hr>
+	<p><strong><a name="110">問11</a></strong> 　次のJavaプログラムの説明及びプログラムを読んで，設問に答えよ。<br>
+	（Javaプログラムで使用するAPIの説明は，この冊子の末尾を参照してください。）</p>
+	<p>〔プログラムの説明〕<br>
+	　ギャップバッファを利用した簡易テキストエディタである。<br>
+	　ギャップバッファとは，編集対象となる文字列の編集箇所に空き領域を作り，そこに文字を挿入する機構をもつバッファのことである。一般に，テキストの編集時には，文字の挿入，削除などの変更は局所的に集中することが多く，編集箇所にあらかじめ空き領域を作っておくと効率よく変更を行うことができるという利点がある。ギャップバッファ内の空き領域をギャップといい，ギャップバッファ内の文字列をテキストという。ここで，ギャップは，ギャップバッファ内に一つしか存在しない。ただし，文字の挿入によって，ギャップがない状態になる場合がある。<br>
+	　テキストの表示イメージとギャップバッファを図1に示す（網掛けの部分がギャップである）。</p>
+	<p><img border="0" src="img/21S_P_83.jpg" width="586" height="163"><br>
+	<strong>図1　テキストの表示イメージとギャップバッファ</strong></p>
+	<p>　クラス<code>GapBuffer</code>はギャップバッファの機能を実現する。このクラスの使用者は，テキストを仮想的に連続する文字列として扱うことができ，ギャップの位置やサイズを意識せずに文字の挿入や削除の処理を行う。このとき，図1①のように各文字はオフセット値（<code>offset</code>）で指定し，テキストの最初の文字はオフセット値0，テキストの最後の文字はオフセット値“テキストの文字数－1”で指定する。<br>
+	　図1②は，配列<code>buffer</code>内におけるテキストの物理的な表現の例である。フィールド<code>gapOffset</code>と<code>gapSize</code>は，それぞれギャップの先頭位置とギャップのサイズを表す。<br>
+	　図1②の状態から“プログラム”と“説明”の間に“の”を挿入する手順を図2に示す。</p>
+	<p><img border="0" src="img/21S_P_84.jpg" width="426" height="187"><br>
+	<strong>図2　挿入する手順</strong></p>
+	<p>
+	　まず，“プロ”の直後に“グラム”を移動することで，ギャップを“プログラム”と“説明”の間に移動する（図2②）。ギャップの先頭に“の”を格納する（図2③）。この操作によって，ギャップのサイズは1文字分小さくなり，ギャップの先頭位置は1文字分後ろへずれる。<br>
+	　次に，図2③の状態から“プログラムの”の“グ”を削除する手順を図3に示す。</p>
+	<p><img border="0" src="img/21S_P_85.jpg" width="424" height="185"><br>
+	<strong>図3　削除する手順</strong></p>
+	<p>
+	　まず，“ラムの”を“説明”の直前に移動することで，ギャップを“プログ”と“ラムの説明”の間に移動する（図3②）。ギャップの先頭位置を1文字分前にずらし，ギャップのサイズを1文字分増やす（図3③）。<br>
+	　クラス<code>GapBuffer</code>は，次のコンストラクタ及びメソッドをもつ。<br>
+	（1）コンストラクタは引数<code>initialText</code>で指定された文字列をテキストの初期値としてギャップバッファを生成する。ギャップは，テキストの前に作られる。<br>
+	（2）メソッド<code>insert</code>は，メソッド<code>confirmGap</code>を呼んで引数<code>offset</code>の位置にギャップを移動した上で，引数<code>offset</code>で指定された位置に，引数<code>ch</code>で指定された文字を挿入する。<br>
+	（3）メソッド<code>delete</code>は，引数<code>offset</code>で指定された位置にある文字を削除する。テキストがない場合は，何もしない。<br>
+	（4）メソッド<code>charAt</code>は，引数<code>offset</code>で指定された位置の文字を返す。<br>
+	（5）メソッド<code>length</code>は，テキストの文字数を返す。<br>
+	（6）メソッド<code>confirmGap</code>は，配列<code>buffer</code>において引数<code>newGapOffset</code>で与えられた位置に1文字以上のギャップがあるようにする。必要であればギャップを指定された位置に移動し，ギャップがない場合は，新たにギャップを作る。<br>
+	　なお，このクラスの各メソッドが呼び出されるとき，引数は正しいものとする。<br>
+	　クラス<code>Editor</code>は，<code>GapBuffer</code>を利用して，簡易テキストエディタを実現する。メソッド<code>main</code>に与えられた最初の引数をテキストの初期値とする。カーソルは，文字の間にあり，カーソルの位置はオフセット値で表し，フィールド<code>cursor</code>に保持される。例えば，図4のようにカーソルが“プロ”と“グラム”の間にあるとき，<code>cursor</code>の値は2である。カーソルがテキストの末尾にあるとき，<code>cursor</code>の値はテキストの文字数と同じであり，テキストがないとき，<code>cursor</code>の値は0である。</p>
+	<p><img border="0" src="img/21S_P_86.gif" width="349" height="64"><br>
+	<strong>図4　カーソルの位置（<code>cursor</code>の値は2）</strong></p>
+	<p>　文字の入力は，外部で与えられるクラス<code>CharReader</code>で行う。メソッド<code>get</code>は，ターミナルから1文字ずつ読み込む。<code>CharReader</code>には，次の制御文字が定義されている。制御文字以外の文字が入力されたときは，カーソルの位置に文字を挿入し，カーソルを1文字分進める。<br>
+	①　<code>CharReader.MOVE_FORWARD</code><br>
+	　　カーソルを1文字分進める。カーソルがテキストの末尾にあるときは，無視する。<br>
+	②　<code>CharReader.MOVE_BACKWARD</code><br>
+	　　カーソルを1文字分戻す。カーソルがテキストの先頭にあるときは，無視する。<br>
+	③　<code>CharReader.DELETE</code><br>
+	　　カーソルの直後の1文字を削除する。カーソルがテキストの末尾にあるときは，無視する。<br>
+	④　<code>CharReader.EOF</code><br>
+	　　エディタを終了する。<br>
+	　ギャップバッファの内容の表示は，外部で与えられるクラス<code>Display</code>で行う。メソッド<code>output</code>は，<code>GapBuffer</code>のメソッド<code>charAt</code>を呼び出してギャップバッファのテキストを取得する。</p>
+	<p>〔プログラム1〕<br>
+	<img border="0" src="img/21S_P_87.gif" width="597" height="876"><br>
+	<img border="0" src="img/21S_P_88.gif" width="552" height="138"></p>
+	<p>〔プログラム2〕<br>
+	<img border="0" src="img/21S_P_89.gif" width="515" height="816"><br>
+	<img border="0" src="img/21S_P_90.gif" width="175" height="66"></p>
+	<hr>
+	<p><strong><a name="111">設問</a></strong>　プログラム中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+	<p>aに関する解答群<br>
+	ア　<code>gapSize--</code>　　　イ　<code>gapSize++</code><br>
+	ウ　<code>gapSize - 1</code>　　　エ　<code>gapSize + 1</code></p>
+	<p>bに関する解答群<br>
+	ア　<code>buffer.length</code>　　　イ　<code>gapOffset</code><br>
+	ウ　<code>gapSize</code>　　　エ　<code>length()</code></p>
+	<p>cに関する解答群<br>
+	ア　<code>buffer.length</code><br>
+	イ　<code>buffer.length - gapOffset</code><br>
+	ウ　<code>buffer.length - gapSize</code><br>
+	エ　<code>buffer.length - INITIAL_GAP_SIZE</code></p>
+	<p>dに関する解答群<br>
+	ア　<code>CharReader</code>　　　イ　<code>Display</code>　　　ウ　<code>Editor</code><br>
+	エ　<code>GapBuffer</code>　　　オ　<code>Object</code>　　　　カ　<code>StringBuffer</code></p>
+	<p>e，fに関する解答群<br>
+	ア　<code>--cursor</code>　　　イ　<code>++cursor</code>　　　ウ　<code>cursor</code><br>
+	エ　<code>cursor--</code>　　　オ　<code>cursor++</code></p>
+	<hr>
+	<p><a href="21S_P_A4.HTM#111">設問の正解例と解説へ</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a></p>
+	<hr>
+	<p><strong><a name="120">問12</a></strong> 
+	　次のアセンブラプログラムの説明及びプログラムを読んで，設問1，2に答えよ。</p>
+	<p>〔プログラムの説明〕<br>
+	　32ビットの乗算を行う副プログラム<code>MULS</code>である。<br>
+	（1）<code>MULS</code>は，32ビットの被乗数と16ビットの乗数を受け取り，32ビットの積を返す。数値はすべて符号なし整数とし，積のオーバフローは考慮しない。<br>
+	　被乗数と積は，それぞれ連続する2語に上位16ビット，下位16ビットの順に格納される。それぞれの上位語のアドレスは，<code>GR1</code>と<code>GR3</code>に設定して渡される。<br>
+	　乗数は<code>GR2</code>に直接設定して渡される。<br>
+	（2）副プログラム<code>MULS</code>から戻るとき，汎用レジスタ<code>GR1</code>～<code>GR7</code>の内容は元に戻す。</p>
+	<p>〔プログラム1〕<br>
+	<img border="0" src="img/21S_P_91.gif" width="570" height="545"></p>
+	<hr>
+	<p><strong><a name="121">設問1</a></strong>　プログラム1中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+	<p>aに関する解答群<br>
+	ア　<code>JMI ADD32</code>　　　イ　<code>JMI LP</code><br>
+	ウ　<code>JOV ADD32</code>　　　エ　<code>JOV LP</code><br>
+	オ　<code>JPL ADD32</code>　　　カ　<code>JPL LP</code></p>
+	<p>bに関する解答群<br>
+	ア　<code>JMI ADJ1</code>　　　イ　<code>JMI ADJ2</code><br>
+	ウ　<code>JOV ADJ1</code>　　　エ　<code>JOV ADJ2</code><br>
+	オ　<code>JPL ADJ1</code>　　　カ　<code>JPL ADJ2</code></p>
+	<p>cに関する解答群<br>
+	ア　<code>JNZ LP</code> イ　<code>JPL LP</code><br>
+	ウ　<code>JZE LP</code> エ　<code>SLL GR5,1</code><br>
+	オ　<code>SRA GR5,1</code> カ　<code>SRL GR5,1</code></p>
+	<hr>
+	<p><a href="21S_P_A4.HTM#121">設問の正解例と解説へ</a></p>
+	<hr>
+	<p><strong><a name="122">設問2</a></strong>　<code>MULS</code>を利用して，32ビット同士の乗算を行う副プログラム<code>MUL</code>を作成した。プログラム2中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+	<p>（1）<code>MUL</code>は，被乗数と乗数を受け取り，積を返す。数値はすべて32ビットの符号なし整数とし，積のオーバフローは考慮しない。<br>
+	　被乗数，乗数，積は，それぞれ連続する2語に上位16ビット，下位16ビットの順に格納される。それぞれの上位語のアドレスは，<code>GR1</code>，<code>GR2</code>，<code>GR3</code>に設定して渡される。<br>
+	（2）副プログラム<code>MUL</code>から戻るとき，汎用レジスタ<code>GR1</code>～<code>GR7</code>の内容は元に戻す。</p>
+	<p>〔プログラム2〕<br>
+	<img border="0" src="img/21S_P_92.gif" width="555" height="379"></p>
+	<p>dに関する解答群<br>
+	ア　<code>LD&nbsp;&nbsp;&nbsp; GR1,0,GR1</code>　　　イ　<code>LD&nbsp;&nbsp;&nbsp; 
+	GR1,0,GR2</code><br>
+	ウ　<code>LD&nbsp;&nbsp;&nbsp; GR1,1,GR1</code>　　　エ　<code>LD&nbsp;&nbsp;&nbsp; 
+	GR2,0,GR1</code><br>
+	オ　<code>LD&nbsp;&nbsp;&nbsp; GR2,0,GR2</code>　　　カ　<code>LD&nbsp;&nbsp;&nbsp; 
+	GR2,1,GR1</code></p>
+	<p>eに関する解答群<br>
+	ア　<code>LD&nbsp;&nbsp;&nbsp; GR6,0,GR1</code>　　　イ　<code>LD&nbsp;&nbsp;&nbsp; 
+	GR6,0,GR2</code><br>
+	ウ　<code>LD&nbsp;&nbsp;&nbsp; GR6,0,GR3</code>　　　エ　<code>LD&nbsp;&nbsp;&nbsp; 
+	GR6,1,GR1</code><br>
+	オ　<code>LD&nbsp;&nbsp;&nbsp; GR6,1,GR2</code>　　　カ　<code>LD&nbsp;&nbsp;&nbsp; 
+	GR6,1,GR3</code></p>
+	<hr>
+	<p><a href="21S_P_A4.HTM#122">設問の正解例と解説へ</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a></p>
+	<hr>
+	<p><strong><a name="130">問13</a></strong> 　次の表計算及びワークシートの説明を読んで，設問に答えよ。</p>
+	<p>〔表計算の説明〕<br>
+	　E社は，3種類の商品M1～M3を自社で生産し，3か所の販売拠点P1～P3で販売している。販売する商品は，前月までに生産したものである。<br>
+	（1）E社では，各販売拠点で2月に立てた4～9月の半年分の商品ごとの月別販売計画を基に，次の①及び②に従って3～8月の半年分の月別生産計画を作成している。<br>
+	①　過去の経験から，販売計画量以上に売れる月があるので，各月の在庫量は，翌月の販売計画量に20％の余裕を加えた数量とする。<br>
+	②　商品ごとに1か月間に生産できる最大の数量（以下，最大月産量という）が決まっているので，前月にすべてを生産できない場合がある。その場合，不足分は前々月までに生産するように計画する。<br>
+	（2）各販売拠点で2月に立てた4～9月の半年分の商品ごとの月別販売計画は，表計算ソフトのワークシート“販売計画”に1行ずつ入力する。そのワークシートの例を図1に示す。</p>
+	<p><img border="0" src="img/21S_P_93.gif" width="596" height="279"><br>
+	<strong>図1　月別販売計画を記録したワークシート“販売計画”の例</strong></p>
+	<p>（3）図1のワークシート“販売計画”を基に，商品M2について3～8月の半年分の月別生産計画を作成したワークシート“生産計画”の例を図2に示す。</p>
+	<p><img border="0" src="img/21S_P_94.gif" width="658" height="207"><br>
+	注　網掛けの部分には，データは入らない。<br>
+	<strong>図2　商品M2の月別生産計画作成後のワークシート“生産計画”の例</strong></p>
+	<p>（4）一つの商品についての月別生産計画の作成は，次の手順で行う。<br>
+	①　4～9月の期間について，E社全体での月ごとの販売計画量を求める。<br>
+	②　3～8月の期間について，月ごとに新たに必要となる商品の数量（以下，必要生産量という）を，最大月産量を考慮せずに求める。<br>
+	③　3～8月の各月における必要生産量を確保するために，最大月産量を考慮して，月ごとに生産する商品の数量（以下，計画生産量という）を求める。<br>
+	（5）各月の必要生産量の求め方は，次のとおりである。<br>
+	　必要生産量は，当月の必要在庫量から繰越在庫量を差し引いた数量である。ただし，繰越在庫量が必要在庫量以上ある場合は，商品の生産は必要ないので0となる。<br>
+	①　必要在庫量は最低限もつ必要がある在庫の量で，翌月の販売計画量の120％とする。<br>
+	②　繰越在庫量とは，前月の繰越在庫量と必要生産量の合計から，当月の販売計画量を差し引いた数量である。<br>
+	　なお，3月の繰越在庫量は0である。<br>
+	（6）各月の計画生産量の求め方は，次のとおりである。<br>
+	　計画生産量は，当月の必要生産量と翌月の繰上生産量の合計である。ただし，この数量が最大月産量を超える場合は，計画生産量は最大月産量とする。<br>
+	　繰上生産量とは，当月の必要生産量と翌月の繰上生産量の合計から，当月の計画生産量を差し引いた数量である。<br>
+	（7）ワークシート“生産計画”で用いる関数を表に示す。</p>
+	<p><strong>表　ワークシート“生産計画”で用いる関数</strong><br>
+	<img border="0" src="img/21S_P_95.gif" width="648" height="140"></p>
+	<p>〔ワークシート：生産計画〕<br>
+	　ワークシート“生産計画”の作成方法は，次のとおりである。<br>
+	（1）セルA2に，商品名としてM1～M3のいずれかを入力する。<br>
+	（2）セルB2に，セルA2の商品の最大月産量を入力する。<br>
+	（3）セルE2～J2に，4～9月の販売計画量を計算するための式を入力する。これを実行するために，セルE2に次の式を入力し，セルF2～J2に複写する。複数のワークシート間でデータを参照する場合には“ワークシート名!セル”又は“ワークシート名!セル範囲”という形式で指定する。<br>
+	　　照合合計($A2,販売計画!［　　a　　］,販売計画!［　　b　　］)<br>
+	（4）セルD3～I3に，3～8月の必要在庫量（小数点以下切上げ）を計算するための式を入力する。これを実行するために，セルD3に次の式を入力し，セルE3～I3に複写する。<br>
+	　　［　　　　c　　　　］<br>
+	（5）セルD4に，3月の繰越在庫量として0を入力する。セルE4～I4に，4～8月の繰越在庫量を計算するための式を入力する。これを実行するために，セルE4に次の式を入力し，セルF4～I4に複写する。<br>
+	　　［　　　　d　　　　］<br>
+	（6）セルD5～I5に，3～8月の必要生産量を計算するための式を入力する。これを実行するために，セルD5に次の式を入力し，セルE5～I5に複写する。<br>
+	　　IF(［　　e　　］,0,D3－D4)<br>
+	（7）セルJ6に，9月の繰上生産量として0を入力する。セルD6～I6に，3～8月の繰上生産量を計算するための式を入力する。これを実行するために，セルI6に次の式を入力し，セルD6～H6に複写する。<br>
+	　　［　　　　f　　　　］<br>
+	（8）セルD7～I7に，3～8月の計画生産量を計算するための式を入力する。これを実行するために，セルI7に次の式を入力し，セルD7～H7に複写する。<br>
+	　　IF(［　　g　　］,I5＋J6,$B2)</p>
+	<hr>
+	<p><strong><a name="131">設問</a></strong>　ワークシート“生産計画”の説明中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+	<p>a，bに関する解答群<br>
+	ア　B2～B10　　　イ　C2～C10　　　ウ　H2～H10<br>
+	エ　$B2～$B10　　　オ　$C2～$C10　　　カ　$H2～$H10</p>
+	<p>cに関する解答群<br>
+	ア　切上げ(E2)＊0.2　　　イ　切上げ(E2)＊1.2<br>
+	ウ　切上げ(E2＊0.2)　　　エ　切上げ(E2＊1.2)</p>
+	<p>dに関する解答群<br>
+	ア　D3＋D4－D5　　　イ　D3＋D4－E2　　　ウ　D3＋D5－D4<br>
+	エ　D3＋D5－E2　　　オ　D4＋D5－D3　　　カ　D4＋D5－E2</p>
+	<p>fに関する解答群<br>
+	ア　I5＋J6　　　イ　I5＋J6－I7　　　ウ　I7＋J6　　　エ　I7＋J6－I5</p>
+	<p>gに関する解答群<br>
+	ア　I5＋J6≦$B2　　　イ　I5＋J6＞$B2<br>
+	ウ　I5≦$B2　　　エ　I5＞$B2<br>
+	オ　J6≦$B2　　　カ　J6＞＄B2</p>
+	<hr>
+	<p><a href="21S_P_A4.HTM#131">設問の正解例と解説へ</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a></p>
+	<hr>
+	<p>　</p>
+</blockquote>
+
+</body>
+
+</html>

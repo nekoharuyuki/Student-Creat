@@ -1,0 +1,430 @@
+<html>
+
+<head>
+<title>平成18年度春期試験　問題(問6～問9)</title>
+</head>
+
+<body bgcolor="#FFFFFF" topmargin="0" leftmargin="0">
+
+<blockquote>
+<hr>
+<h3 align="center">平成18年度春期試験　問題(問6～問9)</h3>
+<div align="center">
+<table border="1" cellpadding="4" cellspacing="0" bordercolor="#000000">
+<tr>
+<td>　次の<strong>問6</strong>から<strong>問9</strong>までの4問については、この中から1問を選択し、答案用紙の選択欄の<img align="top" border="0" src="IMAGE/select.gif" width="29" height="18">（選）をマークして解答してください。<br>
+　なお、2問以上選択した場合には、はじめの1問について採点します。</td>
+</tr>
+</table>
+</div>
+<hr>
+<p><b><a name="60">問6</a>　</b>次のCプログラムの説明及びプログラムを読んで，設問1，2に答えよ。</p>
+<p>〔プログラムの説明〕<br>
+　Helge von Kochが考案したコッホ曲線と呼ばれるフラクタル図形を描画する関数KochCurveである。フラクタル図形は，図形の一部を拡大すると，再び，同様の図形が現れる自己相似性をもち，コッホ曲線はその代表的な図形である。</p>
+<div>
+<table>
+<tr>
+<td valign="top">（1）</td>
+<td>図1の①～③にコッホ曲線の生成手順を示す。</td>
+</tr>
+</table>
+</div>
+<p align="center"><img border="0" src="IMAGE/pm06s024.gif" width="416" height="313"></p>
+<p align="center"><b>図1　コッホ曲線の生成手順</b></p>
+
+<div>
+<table>
+<tr>
+<td valign="top">　①</td>
+<td>始点の座標を（x1，y1），終点を（x2，y2）とする2点を結ぶ線分を引く。</td>
+</tr>
+<tr>
+<td valign="top">　②</td>
+<td>線分を3等分し，中央の線分を一辺とする正三角形を始点から終点に向かって左側に作り，その頂点座標を求める。始点（x1，y1）から，正三角形の3頂点（x3，y3），（x4，y4），（x5，y5），そして終点（x2，y2）を順番に結んだ四つの線分を引く。</td>
+</tr>
+<tr>
+<td valign="top">　③</td>
+<td>得られた四つの線分それぞれを①の線分とみなし，②の操作を行う。</td>
+</tr>
+</table>
+</div>
+<p>　この操作を繰り返して得られるのがコッホ曲線である。</p>
+<div align="left">
+<table border="0" cellpadding="8" cellspacing="0">
+<tr>
+<td valign="top">（2）</td>
+<td>関数DrawLineは，引数で指定された2点を結ぶ線分を描画する関数であり，既に用意されている。関数の仕様は，次のとおりである。<br>
+<pre>
+　呼出し形式：
+　　void DrawLine( int x1, int y1, int x2, int y2 );
+　引数：　x1及びy1　線分の始点座標（x1，y1）
+　　　　　x2及びy2　線分の終点座標（x2，y2）
+　返却値：　なし
+</pre></td>
+</tr>
+<tr>
+<td valign="top">（3）</td>
+<td>関数KochCurveは，引数で指定された2点（始点及び終点）の座標を基点にしてコッホ曲線を描画する関数であり，仕様は次のとおりである。<br>
+<pre>
+　呼出し形式：
+　　void KochCurve( int x1, int y1, int x2, int y2 int dim);
+　引数：　x1及びy1　コッホ曲線の始点座標（x1，y1）
+　　　　　x2及びy2　コッホ曲線の終点座標（x2，y2）
+　　　　　dim　（1）の説明での繰返し回数
+　　　　　　　　0のとき図1の①が描画される。
+　返却値：　なし
+</pre></td>
+</tr>
+<tr>
+<td valign="top">（4）</td>
+<td>このプログラムを実行すると，図1の②に示すような図形が描画される。また，行番号25を次のとおりに変更して実行すると，③に示すような図形が描画される。<br>
+<pre>
+　　25　　　　KochCurve（0, 180, 180, 180, 2）;
+</pre>
+　なお，座標軸は，原点（0，0）から，右向きをx軸の正方向，下向きをy軸の正方向とする。</td>
+</tr>
+</table>
+</div>
+<p>〔プログラム〕</p>
+<p align="center"><img border="0" src="IMAGE/pm06s026.gif" width="592" height="504"></p>
+<hr>
+<p><a name="61"><b>設問1</b></a>　プログラム中の［　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p>aに関する解答群<br>
+　ア　dim <= 0　　　イ　dim <= 1　　　ウ　dim == 1<br>
+　エ　dim != 0　　　オ　dim != 1</p>
+<br>
+<p>bに関する解答群<br>
+　ア　dim--　　　　イ　dim - 1　　　　ウ　dim<br>
+　エ　dim + 1　　　オ　dim++</p>
+<hr>
+<a href="18S_P_A3.HTM#61">設問1の正解例と解説へ</a>
+<hr>
+<p><a name="62"><b>設問2</b></a>　図2の図形を描画するためには，関数mainの行番号25をどのように変更すればよいか。正しい答えを，解答群の中から選べ。</p>
+<p align="center"><img border="0" src="IMAGE/pm06s027.gif" width="236" height="166"></p>
+<p align="center"><b>図2　描画したい図形</b></p>
+<p>解答群</p>
+<div>
+<table>
+<tr>
+<td valign="top">ア</td>
+<td>KochCurve ( 0,　　　0,　　　0,　　　180,　　2 );<br>
+    KochCurve ( 0,　　　180,　　180,　　180,　　2 );<br>
+    KochCurve ( 180,　　180,　　180,　　0,　　　2 );<br>
+    KochCurve ( 180,　　0,　　　0,　　　0,　　　2 );</td>
+</tr>
+<tr>
+<td valign="top">イ</td>
+<td>KochCurve ( 0,　　　0,　　　180,　　0,　　　2 );<br>
+    KochCurve ( 180,　　0,　　　180,　　180,　　2 );<br>
+    KochCurve ( 180,　　180,　　0,　　　180,　　2 );<br>
+    KochCurve ( 0,　　　0,　　　0,　　　180,　　2 );</td>
+</tr>
+<tr>
+<td valign="top">ウ</td>
+<td>KochCurve ( 0,　　　0,　　　180,　　0,　　　2 );<br>
+    KochCurve ( 180,　　0,　　　180,　　180,　　2 );<br>
+    KochCurve ( 180,　　180,　　0,　　　180,　　2 );<br>
+    KochCurve ( 0,　　　180,　　0,　　　0,　　　2 );</td>
+</tr>
+<tr>
+<td valign="top">エ</td>
+<td>KochCurve ( 0,　　　0,　　　180,　　0,　　　2 );<br>
+    KochCurve ( 180,　　0,　　　180,　　180,　　2 );<br>
+    KochCurve ( 0,　　　0,　　　0,　　　180,　　2 );<br>
+    KochCurve ( 0,　　　180,　　180,　　180,　　2 );</td>
+</tr>
+<tr>
+<td valign="top">オ</td>
+<td>KochCurve ( 180,　　0,　　　180,　　180,　　2 );<br>
+    KochCurve ( 180,　　180,　　0,　　　180,　　2 );<br>
+    KochCurve ( 0,　　　180,　　0,　　　0,　　　2 );<br>
+    KochCurve ( 0,　　　0,　　　180,　　0,　　　2 );</td>
+</tr>
+</table>
+</div>
+<hr>
+<a href="18S_P_A3.HTM#62">設問2の正解例と解説へ</a>
+<hr>
+<a href="index.htm">■メニューへ戻る</a>
+<hr>
+<p><a name="70"><b>問7</b></a><b>　</b>次のCOBOLプログラムの説明及びプログラムを読んで，設問に答えよ。</p>
+<p>〔プログラムの説明〕</p>
+<p>　　駐輪場の使用状況を調べ，空き区画の番号を表示するプログラムである。駐輪場の各区画には自転車を1台駐輪することができ，それぞれの区画には区画番号が付けられている。区画は200台分あり，区画番号は1～200の連番となっている。</p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td valign="top">（1）</td>
+<td valign="top">使用状況ファイルのレコード様式は，次のとおりである。</td>
+</tr>
+<tr>
+<td></td>
+<td>
+<p align="left"><img border="0" src="IMAGE/pm06s028a.gif" width="190" height="53"></p>
+</td>
+</tr>
+<tr>
+<td valign="top">　①</td>
+<td valign="top">区画番号の昇順に記録されている。</td>
+</tr>
+<tr>
+<td valign="top">　②</td>
+<td valign="top">使用状況ファイルには，現在使用されている区画のレコードだけが記録されていて，同じ区画のレコードが重複して記録されることはない。</td>
+</tr>
+
+<tr>
+<td valign="top">（2）</td>
+<td valign="top">空き区画の情報を次のように表示する。</td>
+</tr>
+<tr>
+<td></td>
+<td>
+<p align="center"><img border="0" src="IMAGE/pm06s028b.gif" width="120" height="105"></p>
+</td>
+</tr>
+<tr>
+<td>　①</td>
+<td>空き区画が連続していないときは，空き区画番号を表示する。</td>
+</tr>
+<tr>
+<td>　②</td>
+<td>空き区画が連続する場合は，次の形式で表示する。<br>
+　　　　連続の始めの区画番号 - 連続の終わりの区画番号</td>
+</tr>
+<tr>
+<td>　③</td>
+<td>見出しは常に表示する。</td>
+</tr>
+<tr>
+<td>　④</td>
+<td>空き区画が一つもない場合は，次のメッセージを表示する。<br>
+　　　　AKI　:　0</td>
+</tr>
+</table>
+</div>
+
+<p>〔プログラム〕</p>
+<p align="center"><img border="0" src="IMAGE/pm06s029.gif" width="400" height="804"></p>
+<hr>
+<p><a name="71"><b>設問</b></a>　プログラム中の［　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p>a，cに関する解答群<br>
+　ア　0　　　イ　1　　　ウ　2</p>
+<p>b，d，eに関する解答群<br>
+　ア　COMPUTE M-HAJIME = BANGO - 1<br>
+　イ　COMPUTE M-HAJIME = W-BANGO + 1<br>
+　ウ　COMPUTE M-OWARI = BANGO - 1<br>
+　エ　COMPUTE M-OWARI = W-BANGO + 1<br>
+　オ　MOVE SPACE TO DISPLAY-SW<br>
+　カ　MOVE SPACE TO MEISAI<br>
+　キ　MOVE W-BANGO TO M-HAJIME<br>
+　ク　MOVE W-BANGO TO M-OWARI<br>
+　ケ　MOVE "ON" TO DISPLAY-SW</p>
+<hr>
+<a href="18S_P_A3.HTM#71">設問の正解例と解説へ</a>
+<hr>
+<a href="index.htm">■メニューへ戻る</a>
+<hr>
+
+
+<p><a name="80"><b>問8</b></a>　次のJavaプログラムの説明及びプログラムを読んで，設問に答えよ。</p>
+<p>〔プログラムの説明〕</p>
+<p>　PCのセキュリティに関する更新プログラム（以下，パッチという）の適用状況を管理するプログラムである。</p>
+<p>　クラスPCCheckerは，PCに適用が要求されるパッチと各PCに適用済みのパッチを管理し，その適用状況の一覧を出力する。PCのパッチ情報として次のものが登録される。</p>
+<div>
+<table>
+<tr>
+<td>　①</td>
+<td>PCの識別子</td>
+</tr>
+<tr>
+<td>　②</td>
+<td>PCの種別（デスクトップPC又はノートPC）</td>
+</tr>
+<tr>
+<td>　③</td>
+<td>適用済みのパッチの識別子（複数の場合は複数個）</td>
+</tr>
+<tr>
+<td>　④</td>
+<td>ノートPCの場合，暗号化ツールがインストールされているか否か</td>
+</tr>
+</table>
+</div>
+
+<p>　PCに問題がない（secure）と判断する基準は，次のとおりである。</p>
+<div>
+<table>
+<tr>
+<td>　　デスクトップPC：</td>
+<td>適用が要求されるパッチがすべて適用されている。</td>
+</tr>
+<tr>
+<td>　　ノートPC：</td>
+<td>適用が要求されるパッチがすべて適用されている。</td>
+</tr>
+<tr>
+<td></td>
+<td>さらに，暗号化ツールがインストールされている。</td>
+</tr>
+</table>
+</div>
+<br>
+<div>
+<table>
+<tr>
+<td valign="top">（1）</td>
+<td>クラスPCCheckerは，PCのパッチ情報を管理するために，クラスDesktopPCとクラスNotebookPCのインスタンスを用いる。</td>
+</tr>
+<tr>
+<td valign="top">（2）</td>
+<td>クラスPCは，デスクトップPCとノートPCに共通の処理を実現する。メソッドinstallPatchは，指定されたパッチを適用済みにする。メソッドinstalledは，指定されたパッチが適用済みのときtrue，未適用のときfalseを返す。メソッドrequiresEncryptionToolは，暗号化ツールのインストールが必要なときtrue，不必要なときfalseを返す。</td>
+</tr>
+<tr>
+<td>（3）</td>
+<td>クラスDesktopPCは，デスクトップPCを表し，デスクトップPC独自の処理を実現する。</td>
+</tr>
+<tr>
+<td>（4）</td>
+<td>クラスNotebookPCは，ノートPCを表し，ノートPC独自の処理を実現する。</td>
+</tr>
+<tr>
+<td>（5）</td>
+<td>クラスPCCheckerのメソッドmainは，このプログラムの使用例である。その実行結果を，次に示す。</td>
+</tr>
+</table>
+</div>
+<p align="center"><img border="0" src="IMAGE/pm06s032.gif" width="550" height="70"></p>
+<div>
+<table>
+<tr>
+<td valign="top">（6）</td>
+<td>クラスjava.uti1.ArrayListは，オブジェクトをリストで管理する手段を提供する。次のメソッドを利用している。<br>
+public boolean add（Object obj）<br>
+　オブジェクトobjをリストに追加し，trueを返す。<br>
+public boolean contains（Object obj）<br>
+　オブジェクトobjがリストに含まれる場合にtrue，含まれない場合にfalseを返す。<br>
+public boolean isEmpty（）<br>
+　リストが空の場合にtrue，空でない場合にfalseを返す。<br>
+</td>
+</tr>
+</table>
+</div>
+<p>〔プログラム1〕</p>
+<p align="center"><img border="0" src="IMAGE/pm06s032a.gif" width="435" height="251"></p>
+<p>〔プログラム2〕</p>
+<p align="center"><img border="0" src="IMAGE/pm06s032b.gif" width="437" height="107"></p>
+<p>〔プログラム3〕</p>
+<p align="center"><img border="0" src="IMAGE/pm06s033a.gif" width="501" height="165"></p>
+<p>〔プログラム4〕</p>
+<p align="center"><img border="0" src="IMAGE/pm06s033b.gif" width="536" height="563"></p>
+<hr>
+<p><b><a name="81">設問</a></b>　プログラム中の［　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p>aに関する解答群<br>
+　ア　installedPatches.isEmpty( )<br>
+　イ　!installedPatches.isEmpty( )<br>
+　ウ　installedPatches.contains(patch)<br>
+　エ　!installedPatches.contains(patch)<br>
+　オ　patch == null<br>
+　カ　patch != null</p>
+<p>bに関する解答群<br>
+　ア　extends Object　　　　　イ　extends PC<br>
+　ウ　extends PCChecker　　　 エ　implements Object<br>
+　オ　implements PC　　　　　 カ　implements PCChecker</p>
+<p>cに関する解答群<br>
+　ア　PC()　　　 イ　PC(id)　　　ウ　super()<br>
+　エ　super(id)　オ　this.id = id</p>
+<p>dに関する解答群<br>
+　ア　curPatches[j] != null<br>
+　イ　notApplied.isEmpty( )<br>
+　ウ　pc[i] !=nu11<br>
+　エ　pc[i].installed(curPatches[j])<br>
+　オ　!pc[i].installed(curPatches[j])</p>
+<hr>
+<a href="18S_P_A3.HTM#81">設問の正解例と解説へ</a>
+<hr>
+<a href="index.htm">■メニューへ戻る</a>
+<hr>
+<p><a name="90"><b>問9</b></a>　次のアセンブラプログラムの説明及びプログラムを読んで，設問1，2に答えよ。</p>
+<p>〔プログラムの説明〕</p>
+<div>
+<table>
+<tr>
+<td valign="top">（1）</td>
+<td>副プログラムOBLONGは，各座標値が整数である2点A（ｘ1，y1），B（x2，y2）を対角の頂点とし，各辺がx軸又はy軸に平行な長方形の面積を求めるプログラムである。</td>
+</tr>
+</table>
+</div>
+<p align="center"><img border="0" src="IMAGE/pm06s035a.gif" width="295" height="156"></p>
+<div>
+<table>
+<tr>
+<td>　①</td>
+<td>次のパラメタの先頭アドレスがGR1に格納されて，主プログラムから渡される。</td>
+</tr>
+</table>
+</div>
+<p align="center"><img border="0" src="IMAGE/pm06s035b.gif" width="154" height="116"></p>
+<div>
+<table>
+<tr>
+<td>　②</td>
+<td>x1≠x2，y1≠y2とする。</td>
+</tr>
+<tr>
+<td>　③</td>
+<td>求めた面積はGR0に格納して，主プログラムに返す。</td>
+</tr>
+<tr>
+<td>　④</td>
+<td>副プログラムOBLONGから戻るとき，汎用レジスタGR1～GR7の内容は元に戻す。</td>
+</tr>
+<tr>
+<td valign="top">（2）</td>
+<td>副プログラムABSは，OBLONGから渡されたGR2の内容をその絶対値に置き換えるプログラムである。<br>
+副プログラムABSの実行によって，汎用レジスタGR1，GR3～GR7の内容は変わらない。</td>
+</tr>
+<tr>
+<td valign="top">（3）</td>
+<td>プログラム中の演算で，あふれは起きないものとする。</td>
+</tr>
+</table>
+</div>
+<p>〔プログラム〕</p>
+<p align="left">（行番号）</p>
+<p align="left"><img border="0" src="IMAGE/pm06s036.gif" width="320" height="440"></p>
+<hr>
+<p><a name="91"><b>設問1</b></a>　プログラム中の［　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p>a，bに関する解答群<br>
+　ア　JMI  ADD　　　 イ　JMI  LOOP　　　　ウ　JMI  SHIFT<br>
+　エ　JOV ADD　　　 オ　JOV LOOP　　　　カ　JOV  SHIFT<br>
+　キ　JUMP ADD　　　ク　JUMP LOOP　　　 ケ　JUMP SHIFT</p>
+<p>cに関する解答群<br>
+　ア　ADDA  GR0,GR2　　イ　ADDA  GR2,GR0<br>
+　ウ　SUBA  GR0,GR2　　エ　SUBA  GR2,GR0</p>
+
+<hr>
+<a href="18S_P_A3.HTM#91">設問1の正解例へ</a>
+<hr>
+<p><a name="92"><b>設問2</b></a>　2点AとBに次の座標を与えたとき，行番号15のADDA命令は何回実行されるか。正しい答えを，解答群の中から選べ。</p>
+<div>
+<table>
+<tr>
+<td>Aの座標：</td>
+<td>（3，6）</td>
+</tr>
+<tr>
+<td>Bの座標：</td>
+<td>（－5，17）</td>
+</tr>
+</table>
+</div>
+<p>解答群<br>
+ア　1　　　　　イ　2　　　　　ウ　3　　　　　エ　4　　　　　オ　5</p>
+<hr>
+<a href="18S_P_A3.HTM#92">設問2の正解例へ</a>
+<hr>
+<a href="18S_P_E4.HTM">■問10へ進む</a>
+<hr>
+<a href="INDEX.HTM">■メニューへ戻る</a>
+</blockquote>
+</body>
+</html>

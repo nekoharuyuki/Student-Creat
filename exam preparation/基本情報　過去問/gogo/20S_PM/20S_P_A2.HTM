@@ -1,0 +1,183 @@
+<html>
+
+<head>
+<title>平成20年度 春期　基本情報技術者 午後 解説</title>
+<style type="text/css">
+body{line-height:150%;}
+code{font-size:12pt;}
+</style>
+</head>
+
+<body>
+
+<blockquote>
+	<hr>
+	<h3 align="center">平成20年度春期試験　正解例と解説(問3～問5)</h3>
+	<hr>
+	<p><a name="30"><strong>問3</strong></a></p>
+	<hr>
+	<p><strong><a name="31">設問1</a></strong></p>
+	<p>〈解答〉　a　エ　　　b　イ</p>
+	<p>〈解説〉</p>
+	<p>空欄aについて</p>
+	<blockquote>
+		<p>
+		方式Aでは，日曜日のフルバックアップの時点以降に更新された業務データをすべてバックアップするので，フルバックアップの時点以降の更新データがその曜日まで日ごとに累積されていく。したがって土曜日の場合に最も更新データが累積されて最も多くなり，部分バックアップのデータは以下の①と②の合計になる。<br>
+		①　共通ファイル全体の0.6 Gバイト<br>
+		②　月曜日～土曜日までの曜日ファイル群の更新データ0.6×6＝3.6 Gバイト<br>
+		①＋②＝0.6＋3.6＝4.2 Gバイト<br>
+		したがって方式Aでは土曜日の場合に部分バックアップの時間が最大となり，バックアップ時間は<br>
+		4.2 Gバイト×1,000 Mバイト／Gバイト÷2 Mバイト／秒÷60秒＝35分<br>
+		になる。</p>
+	</blockquote>
+	<p>空欄bについて</p>
+	<blockquote>
+		<p>方式Bでは，前日のバックアップの時点以降に更新された業務データだけをバックアップするので，毎日，共通ファイル0.6 
+		Mバイトとその曜日の曜日ファイル群の更新データ0.6 Mバイトの合計1.2 Mバイトだけをバックアップすればよい。したがってバックアップ時間は<br>
+		1.2 Gバイト×1000 Mバイト／Gバイト÷2 Mバイト／秒÷60秒＝10分<br>
+		になる。</p>
+	</blockquote>
+	<hr>
+	<p><a href="20S_P_E2.HTM#31">問題へ</a></p>
+	<hr>
+	<p><strong><a name="32">設問2</a></strong></p>
+	<p>〈解答〉　c　イ　　　d　エ　　　e　エ</p>
+	<p>〈解説〉</p>
+	<p>空欄cについて</p>
+	<blockquote>
+		<p>
+		方式Aでは，日曜日のフルバックアップの時点以降に更新された業務データをすべてバックアップするので，データ復旧には日曜日のフルバックアップと障害発生直前の部分バックアップの2本あればよい。</p>
+	</blockquote>
+	<p>空欄dについて</p>
+	<blockquote>
+		<p>
+		方式Bでは，前日のバックアップの時点以降に更新された業務データだけをバックアップするので，日曜日のフルバックアップに加えて月曜日～土曜日までの部分バックアップを用いて復旧する場合に最大本数1＋6＝7本が必要になる。</p>
+	</blockquote>
+	<p>空欄eについて</p>
+	<blockquote>
+		<p>
+		方式Aでは，日曜日のフルバックアップに加えて，土曜日の部分バックアップの磁気テープからリストアする場合に最も復旧時間がかかり，以下の①～③の合計時間になる。<br>
+		①フルバックアップからの復旧時間<br>
+		　18 Gバイト×1,000 Mバイト／Gバイト÷2 Mバイト／秒÷60秒＝150分<br>
+		②磁気テープの交換時間　3分<br>
+		③土曜日の部分バックアップからの復旧時間<br>
+		　4.2 Gバイト×1,000 Mバイト／Gバイト÷2 Mバイト／秒÷60秒＝35分<br>
+		①＋②＋③＝150＋3＋35＝188分</p>
+	</blockquote>
+	<hr>
+	<p><a href="20S_P_E2.HTM#32">問題へ</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a></p>
+	<hr>
+	<p><a name="40"><strong>問4</strong></a></p>
+	<hr>
+	<p><a name="41"><strong>設問1</strong></a></p>
+	<p>〈解答〉　a　エ　　　b　オ　　　c　イ　　　d　ア</p>
+	<p>〈解説〉</p>
+	<p>空欄aについて</p>
+	<blockquote>
+		<p><code>List[Listsize </code>－<code> 1].next</code>には，次の要素<code>List[Listsize]</code>の添字<code>Listsize</code>をセットすればよいので，空欄aはエの<code>Listsize</code>が適切。</p>
+	</blockquote>
+	<p>空欄bについて</p>
+	<blockquote>
+		<p>比較する要素の値<code>List[Current].value</code>が探索する文字列<code>Svalue</code>と一致しなかった場合，αの処理でその要素の添字<code>Current</code>が<code>Temp</code>に退避された後，次の要素の添字<code>List[Current].Next</code>が変数<code>Current</code>にセットされてループ先頭に戻り，次の要素の値との比較を繰り返す。つまり比較した要素<code>List[current]</code>の直前の要素が<code>List[Temp]</code>になっていることが分かる。したがって一致する要素が見つかった場合，リストの先頭要素でなければ（<code>Current
+		</code>≠<code> First</code>）見つかった要素の次の要素の添字<code>List[Current].Next</code>を，直前の要素<code>List[Temp]</code>の次の要素の添字<code>List[Temp].Next</code>にセットすればよい。したがって空欄bはオの<code>List[Temp].Next</code>が適切。 
+		</p>
+	</blockquote>
+	<p>空欄cについて</p>
+	<blockquote>
+		<p>一致する要素が見つかった場合，見つかった要素がリストの先頭になるように並べ替える。したがってこの並べ替えにより，先頭要素<code>List[First]</code>が見つかった要素<code>List[Current]</code>の次の要素になるので，<code>List[current].Next</code>が添字<code>First</code>をポイントするようにセットすればよく，空欄cはイの<code>First</code>が適切。</p>
+	</blockquote>
+	<p>空欄dについて</p>
+	<blockquote>
+		<p>並べ替え後，見つかった要素<code>List[Current]</code>がリストの先頭要素になるので，リストの先頭要素へのポインタ<code>First</code>を見つかった要素の添字<code>Current</code>に更新すればよい。したがって空欄dはアの<code>Current</code>が適切。 
+		</p>
+	</blockquote>
+	<hr>
+	<p><a href="20S_P_E2.HTM#41">問題へ</a></p>
+	<hr>
+	<p><a name="42"><strong>設問2</strong></a></p>
+	<p>〈解答〉　オ</p>
+	<p>〈解説〉</p>
+	<p>探索中の比較で一致しない要素の値が順に<code>List[Temp].Value</code>に退避されていき，一致する要素が見つかれば，見つかった要素が並べ替えにより先頭要素になる。</p>
+	<p>　①　文字列<code>cgi</code>はリストの先頭要素の<code>usb</code>と一致しないので，<code>usb</code>が<code>List[temp].Value</code>に退避される。<br>
+	　②　次の要素<code>cgi</code>との比較で一致するので，<code>cgi</code>→<code>usb</code>→<code>cpu</code>→<code>dos</code>→<code>fat</code>の順に並び替わる。<br>
+	　③　文字列<code>cpu</code>はリストの先頭要素<code>cgi</code>と一致しないので，<code>cgi</code>が<code>List[temp].Value</code>に退避される。<br>
+	　④　次の要素<code>usb</code>とも一致しないので，<code>usb</code>が<code>List[temp].Value</code>に退避される。<br>
+	　⑤　次の要素<code>cpu</code>との比較で一致するので，<code>cpu</code>→<code>cgi</code>→<code>usb</code>→<code>dos</code>→<code>fat</code>の順に並び替わる。<br>
+	　⑥　文字列<code>dos</code>はリストの先頭要素の<code>cpu</code>と一致しないので，<code>cpu</code>が<code>List[temp].Value</code>に退避される。<br>
+	　⑦　次の要素<code>cgi</code>とも一致しないので，<code>cgi</code>が<code>List[temp].Value</code>に退避される。<br>
+	　⑧　次の要素<code>usb</code>とも一致しないので，<code>usb</code>が<code>List[temp].Value</code>に退避される。<br>
+	　⑨　次の要素<code>dos</code>との比較で一致するので，<code>dos</code>→<code>cpu</code>→<code>cgi</code>→<code>usb</code>→<code>fat</code>の替に並び代わる。</p>
+	<p>したがって<code>List[temp].Value</code>には<code>usb</code>，<code>cgi</code>，<code>usb</code>，<code>cpu</code>，<code>cgi</code>，<code>usb</code>の順に格納され，オが適切。</p>
+	<hr>
+	<p><a href="20S_P_E2.HTM#42">問題へ</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a></p>
+	<hr>
+	<p><a name="50"><strong>問5</strong></a></p>
+	<hr>
+	<p><a name="51"><strong>設問1</strong></a></p>
+	<p>〈解答〉　ウ</p>
+	<p>〈解説〉</p>
+	<blockquote>
+		<p>
+		〔販売構成一覧作成プログラムの概要〕（4）に「利用者は，販売データの集計期間を指定する。……集計種別として商品カテゴリ又はメーカのどちらかを指定する。」という記述がある。集計期間の指定については，集計開始日付と集計終了日付が集計期間のレコードの抽出処理で必要である。また集計種別の指定が集計項目の選択処理で必要である。したがってウの集計開始日付，集計終了日付，集計種別が適切。</p>
+	</blockquote>
+	<hr>
+	<p><a href="20S_P_E2.HTM#51">問題へ</a></p>
+	<hr>
+	<p><a name="52"><strong>設問2</strong></a></p>
+	<p>〈解答〉　a　ウ　　　b　ア</p>
+	<p>〈解説〉</p>
+	<p>空欄aについて</p>
+	<blockquote>
+		<p>
+		中間ファイルBは，図4より集計項目，販売数，販売金額の項目からなるファイルである。図5ではこの中間ファイルBを整列2により空欄aの昇順に並べ替えた後，集計処理を行い中間ファイルCに出力している。〔販売構成一覧作成プログラムの概要〕（5）④に「中間ファイルBのレコードを並べ替えて，集計項目ごとに販売数と販売金額を合計し，中間ファイルCに出力する。」という記述がある。したがってこの集計処理を行うには，直前の整列2で集計項目の昇順に中間ファイルBを並べ替えておく必要があり，空欄aはウの集計項目が適切。</p>
+	</blockquote>
+	<p>空欄bについて</p>
+	<blockquote>
+		<p>
+		中間ファイルCを整列3により空欄bの降順に並べ替えた後，順位の付与を行っている。〔販売構成一覧作成プログラムの概要〕（5）⑤に「集計項目ごとに合計した販売金額の高い順に順位を付ける。」という記述がある。したがってこの順位の付与を行うには，整列3で合計した販売金額の降順に並べ替えておく必要があり，空欄bはアの合計した販売金額が適切。</p>
+	</blockquote>
+	<hr>
+	<p><a href="20S_P_E2.HTM#52">問題へ</a></p>
+	<hr>
+	<p><a name="53"><strong>設問3</strong></a></p>
+	<p>〈解答〉　c　エ　　　d　ウ</p>
+	<p>〈解説〉</p>
+	<p>空欄c，dについて</p>
+	<blockquote>
+		<p>
+		集計種別が店舗の場合，テーブル集計などにより，集計項目を店舗コードとして店舗コードごとに販売数と販売金額を合計し，中間ファイルBの様式に変換して出力すればよい。したがって空欄cはエの中間ファイルBの様式への変換，空欄dの条件はウの集計種別＝“店舗”が適切。</p>
+	</blockquote>
+	<hr>
+	<p><a href="20S_P_E2.HTM#53">問題へ</a></p>
+	<hr>
+	<p><a name="54"><strong>設問4</strong></a></p>
+	<p>〈解答〉　e　ウ　　　f　ア　　　g　ア</p>
+	<p>〈解説〉</p>
+	<p>空欄eについて</p>
+	<blockquote>
+		<p>要求①に対しては，順位の付与の処理で，順位の値が10以下のレコードだけを中間ファイルEに出力すればよく，空欄eはウの順位の付与が適切。</p>
+	</blockquote>
+	<p>空欄fについて</p>
+	<blockquote>
+		<p>
+		要求②に対しては，販売構成一覧の作成直前の構成比率の算出処理に，構成比率の値が5％以上のレコードを出力する機能を追加すればよく，空欄fはアの構成比率の算出が適切。</p>
+	</blockquote>
+	<p>空欄gについて</p>
+	<blockquote>
+		<p>
+		中間ファイルEには，合計した販売金額の降順に順位が付与されたレコードが出力されているので，要求③に対しては，中間ファイルEを第1キーを順位の昇順，第2キーを販売数の降順として並べ替える整列4の処理を，構成比率の算出の直前に新規に追加すればよい。したがって空欄gはアの構成比率の算出が適切。</p>
+	</blockquote>
+	<hr>
+	<p><a href="20S_P_E2.HTM#54">問題へ</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a> </p>
+	<hr>
+</blockquote>
+
+</body>
+
+</html>

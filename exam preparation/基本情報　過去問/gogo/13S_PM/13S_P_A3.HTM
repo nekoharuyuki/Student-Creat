@@ -1,0 +1,158 @@
+<HTML>
+<HEAD>
+<TITLE>平成13年度春期試験　</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0">
+<blockquote>
+  <hr>
+  <H3 align="center">平成13年度春期試験　正解例と解説(問6～問8)</H3>
+<hr>
+<p><b><a name="60">問6</a>　</b></p>
+<hr> 
+<p><b><a name="61">設問</a>　</b> 
+</p> 
+<p>＜解答＞　ａ　ウ　　ｂ　イ　　ｃ　エ 
+</p> 
+<p>＜解説＞　空欄a<br>
+　色を数える長方形領域の先頭画素から順にチェックしていき，未チェックの画素が出現すれば，Counted[py][px]=FALSEとなるので，このとき色を数えるカウンタcolorsをカウントアップする処理を行った後，Counted[py][px]=TRUEにセットしてカウント済みにします。空欄ａはcolors++に該当します。<br>
+設問ｂ<br>
+h=pyのときはその行の一致した画素以降についてチェックしますが，h≠pyのときは色を数える長方形領域のその次の行の先頭画素からチェックします。 
+</p> 
+  <table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#FFFFFF" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+    <tr>
+      <td>　</td>
+      <td colspan="5">
+        <p align="right">(px，py)<br>
+        ↓</td>
+      <td colspan="5">w = px + 1<br>
+        ↓</td>
+      <td>　</td>
+      <td>　</td>
+      <td>　</td>
+    </tr>
+    <tr>
+      <td>h = py</td>     
+      <td bordercolor="#000000" width="10">　</td>
+      <td bordercolor="#000000" width="10">　</td>
+      <td bordercolor="#000000" width="10">　</td>
+      <td bordercolor="#000000" width="10">　</td>
+      <td bordercolor="#000000" width="10">　</td>
+      <td bordercolor="#000000" width="10" bgcolor="#0000FF">　</td>
+      <td bordercolor="#000000" width="10" bgcolor="#0000FF">　</td>
+      <td bordercolor="#000000" width="10" bgcolor="#0000FF">　</td>
+      <td bordercolor="#000000" width="10" bgcolor="#0000FF">　</td>
+      <td bordercolor="#000000" width="10" bgcolor="#0000FF">　</td>
+      <td bordercolor="#000000" width="10" bgcolor="#0000FF">　</td>
+      <td bordercolor="#000000" width="10" bgcolor="#0000FF">　</td>
+      <td bordercolor="#000000" width="10" bgcolor="#0000FF">　</td>
+    </tr>
+    <tr>
+      <td>　</td>
+      <td>　</td>
+      <td>　</td>
+      <td>　</td>
+      <td>　</td>
+      <td>　</td>
+      <td>　</td>
+      <td>　</td>
+      <td>　</td>
+      <td>　</td>
+      <td>　</td>
+      <td>　</td>
+      <td>　</td>
+      <td>　</td>
+    </tr>
+    <tr>
+      <td>h = py + 1&nbsp;</td>     
+      <td bordercolor="#000000" bgcolor="#0000FF">　</td>
+      <td bordercolor="#000000" bgcolor="#0000FF">　</td>
+      <td bordercolor="#000000" bgcolor="#0000FF">　</td>
+      <td bordercolor="#000000" bgcolor="#0000FF">　</td>
+      <td bordercolor="#000000" bgcolor="#0000FF">　</td>
+      <td bordercolor="#000000" bgcolor="#0000FF">　</td>
+      <td bordercolor="#000000" bgcolor="#0000FF">　</td>
+      <td bordercolor="#000000" bgcolor="#0000FF">　</td>
+      <td bordercolor="#000000" bgcolor="#0000FF">　</td>
+      <td bordercolor="#000000" bgcolor="#0000FF">　</td>
+      <td bordercolor="#000000" bgcolor="#0000FF">　</td>
+      <td bordercolor="#000000" bgcolor="#0000FF">　</td>
+      <td bordercolor="#000000" bgcolor="#0000FF">　</td>
+    </tr>
+    <tr>
+      <td>　</td>
+      <td colspan="5">↑<br>
+        w = sx</td>     
+      <td>　</td>
+      <td>　</td>
+      <td>　</td>
+      <td>　</td>
+      <td>　</td>
+      <td>　</td>
+      <td>　</td>
+      <td>　</td>
+    </tr>
+  </table>
+
+<p>
+空欄c<br>
+　それ以降について未カウント済みの画素について，同色の画素が出現した場合はCounted[ｈ][ｗ]=TRUEにセットし，カウント済みにします。<br>
+&nbsp; 
+</p> 
+<hr WIDTH="100%">
+  <a HREF="13s_p_e3.htm#61">問題へ</a>
+<hr WIDTH="100%">
+<br>
+<a HREF="index.htm">メニューへ戻る</a><br>
+<HR WIDTH=100%>
+<a NAME="70">　<BR>
+<b>
+問7</b></a><b>　</b>
+<hr> 
+<a NAME="71">　<BR>
+<b>
+設問</b></a><b>1　</b>
+  <p>＜解答＞　ア</p>
+  <p>＜解説＞　行番号34のPERFORM文は，該当する材料について発注ファイルの発注先コードを検索する処理に該当します。その終了条件が空欄になっています。従って，削除指示ファイルの発注先コードS-HATCHUが，発注先ファイルの発注先コードH-HATCHU(CNT)と一致したとき終了すればよいので，S-HATCHU＝H-HATCHU(CNT)となります。<br>
+  <br>
+  　</p>
+<HR WIDTH=100%>  
+  <a HREF="13s_p_e3.htm#71">問題へ</a>  
+<HR WIDTH=100%>  
+  <p><b><a name="72">設問2</a>　</b></p>
+  <p>＜解答＞　ａ　イ　　ｂ　エ　　ｃ　ケ</p>
+  <p>＜解説＞　W-TABLEのW1けた目からW3けた目を，H-TABLEのW2けた目からW3けた転送しています。したがって以下の図より<br>
+  　W1＝CNT＊4＋1，W2＝(CNT－1)＊4＋1，W3＝(H-KENSU－CNT)＊4となります。</p>
+  <p><img border="0" src="image/a7.gif" width="400" height="162"></p>
+<hr WIDTH="100%">
+  <a HREF="13s_p_e3.htm#72">問題へ</a>
+<hr WIDTH="100%">
+<p><a HREF="index.htm">メニューへ戻る</a>　</p> 
+<HR WIDTH=100%> 
+<a NAME="80">　<BR> 
+<b> 
+問8</b></a>　　　（解説は省略します。）<br>  
+<A NAME="40">  
+<HR WIDTH=100%>  
+</a><a NAME="81"><b>　<BR>  
+設問</b></a><b><a NAME="81">1</a>　</b>
+  <p>＜解答＞　a　イ　　b　ウ　　c　ウ</p>
+<p>　</p> 
+<A NAME="41">  
+<HR WIDTH=100%>  
+</a><a HREF="13s_p_e3.htm#81">問題へ</a> 
+<HR WIDTH=100%> 
+<p><b><a name="82">設問2</a>　</b></p>
+<p>＜解答＞　ア<br>
+　</p>
+<a NAME="44">
+<hr WIDTH="100%">
+</a><a HREF="13s_p_e3.htm#82">問題へ</a>
+<hr WIDTH="100%">
+  <a HREF="index.htm"><br>
+メニューへ戻る<br> 
+  </a> 
+<HR WIDTH=100%> 
+<p>　</p>
+</blockquote>
+</BODY>
+</HTML>

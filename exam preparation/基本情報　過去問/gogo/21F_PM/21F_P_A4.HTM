@@ -1,0 +1,171 @@
+<html>
+<head>
+<title>平成21年度 秋期 基本情報技術者 午後 正解例と解説（問10～問13）</title>
+<style type="text/css"><!--
+body{line-height:150%;}
+code{font-size:12pt;}
+h3{text-align:center;}
+div.caution{border:solid 1px #000000; padding:0.5em;}
+--></style>
+</head>
+<body>
+<blockquote>
+<hr>
+<h3>平成21年度　秋期　基本情報技術者<br>
+午後　正解例と解説（問10～問13）</h3>
+<hr>
+<p><strong><a name="100">問10</a></strong></p>
+<hr>
+<p><strong><a name="101">設問1</a></strong></p>
+<p>〈解答〉　a：キ，b：ア，c：ウ，d：エ</p>
+<p>〈解説〉</p>
+<p>●空欄aについて</p>
+<p>空欄aに関する<code>READ</code>命令で売上伝票ファイル<code>SALES-FILE</code>の先頭レコードを1件読み，<code>AT END</code>でなければ，空欄aの処理と次の売上金額<code>SALES-AMOUNT</code>を作業エリアの集計用テーブル<code>MAST-AMOUNT(SALES-BR)</code>に転送している。したがって空欄aでは売上年月<code>SALES-YYYYMM</code>を作業エリアの<code>MAST-YYYYMM</code>に転送すればよく，キの<code>MOVE SALES-YYYYMM TO MAST-YYYYMM</code>が適切。</p>
+<p>●空欄bについて</p>
+<p>空欄bに関する<code>PERFORM</code>ループの直前の<code>PERFORM</code>ループでは，売上伝票ファイル<code>SALES-FILE</code>を順に読み，作業エリア<code>W-MAST</code>の集計用テーブル<code>MAST-AMOUNT(SALES-BR)</code>を用いて，売上金額<code>SALES-AMOUNT</code>を支店コードごとにテーブル集計している。したがって，空欄bを含む次の<code>PERFORM</code>ループで，集計用テーブル<code>MAST-AMOUNT(1)</code>～<code>MAST-AMOUNT(5)</code>に集計された支店ごとの売上金額を<code>MAST-TOTAL</code>に加算し，売上合計金額を計算すればよく，空欄bはアの<code>ADD MAST-AMOUNT(CNT) TO MAST-TOTAL</code>が適切。</p>
+<p>●空欄cについて</p>
+<p>空欄bに関する<code>PERFORM</code>ループに続く<code>WRITE</code>命令で，作業エリア<code>W-MAST</code>の内容を売上マスタファイル<code>MAST-FILE</code>に出力している。<code>NOT INVALID</code>であれば，空欄cに関する<code>PRT-PROC</code>手続きを実行している。<code>PRT-PROC</code>の処理では，<code>IN-PROC</code>を入力手続きとして，<code>OUT-PROC</code>を出力手続きとして<code>SORT-FILE</code>により整列をしている。したがって空欄cで整列キーの指定が必要であり，この場合売上金額の降順に整列するので，ウの<code>DESCENDING KEY SORT-AMOUNT</code>が適切。</p>
+<p>●空欄dについて</p>
+<p>入力手続き<code>IN-PROC</code>の処理では，集計用テーブル<code>MAST-AMOUNT(CNT)</code>の集計金額を<code>SORT-FILE</code>のレコード<code>SORT-REC</code>に書き出している。したがって，エの<code>MOVE MAST-AMOUNT(CNT) TO SORT-AMOUNT</code>が適切。次の出力手続き<code>OUT-PROC</code>では，<code>SORT-FILE</code>からディスプレイに出力する処理を行っている。</p>
+<hr>
+<a href="21F_P_E4.HTM#101">問題へ</a>
+<hr>
+<p><strong><a name="102">設問2</a></strong></p>
+<p>〈解答〉　e：ウ，f：ウ，g：オ</p>
+<p>〈解説〉</p>
+<p>●空欄eについて</p>
+<p>空欄eの後の<code>READ</code>命令で，売上マスタファイルより前年度の当該月の各支店の売上金額を読み込み，作業エリア<code>W-MAST</code>の集計用テーブル<code>MAST-AMOUNT</code>に転送している。これにより<code>MAST-TOTAL</code>に格納されている本年度の売上金額合計が上書きされてしまうので，その直前の空欄eで作業エリア<code>THIS-TOTAL</code>に退避しておく必要がある。したがって空欄eはウの<code>MOVE MAST-TOTAL TO THIS-TOTAL</code>が適切。</p>
+<p>●空欄fについて</p>
+<p>空欄fの直後で，<code>SORT-FILE</code>から各支店ごとの売上金額を読込み，各支店ごとの売上金額と対前年同月比を表示しているので，空欄fで対前年同月比<code>RATIO</code>の計算が必要である。したがって空欄fはウの<code>COMPUTE RATIO = SORT-AMOUNT * 100 / MAST-AMOUNT(SORT-BR)</code>が適切。</p>
+<p>●空欄gについて</p>
+<p>売上合計金額<code>THIS-TOTAL</code>を<code>AMOUNT</code>に転送した後，次の<code>IF</code>文の処理で売上合計金額とその対前年同月比を表示しているので，空欄gで売上合計金額に関する対前年同月比の計算が必要である。したがって空欄gはオの<code>COMPUTE RATIO = THIS-TOTAL * 100 / MAST-TOTAL</code>が適切。</p>
+<hr>
+<a href="21F_P_E4.HTM#102">問題へ</a>
+<hr>
+<a href="INDEX.HTM">■メニューへ戻る</a>
+<hr>
+<p><strong><a name="110">問11</a></strong></p>
+<hr>
+<p><strong><a name="111">設問1</a></strong></p>
+<p>〈解答〉　a：イ，b：ア，c：エ，d：エ，e：ウ，f：エ</p>
+<p>〈解説〉</p>
+<p>●空欄aについて</p>
+<p>クラス<code>CallingPlan</code>は通話料金を計算するクラスである。そのメソッド<code>calculateCharge(int minutes)</code>は，引数<code>minutes</code>で指定された通話時間に対する料金を返す。戻り値として返される<code>basicCharge + callingCharge</code>は，基本料金<code>basicCharge</code>と無料通話分を超えた通話料金<code>callingCharge</code>との合計である。<br/>
+空欄aにおいて無料通話分を超えた通話料金を計算し<code>callingCharge</code>にセットしている。無料通話分を超えた通話料金は，1分当たりの通話料×通話時間（分単位に切上げ）－無料通話分により計算できる。1分当たりの通話料は<code>callingRate</code>に，無料通話分は<code>included</code>に格納されるので，空欄aはイの<code>callingRate * minutes - included</code>が適切。</p>
+<p>●空欄bについて</p>
+<p>1分当たりの通話料×通話時間（分単位に切上げ）が無料通話分を超えない場合（つまり<code>callingCharge < 0</code>になる場合）は，無料通話分を超えた通話料金は発生しないので，<code>callinCharge = 0</code>にセットする必要がある。つまり空欄bの条件が成立つ場合に<code>callingCharge = 0</code>にセットしているので，空欄bの条件はアの<code>callingCharge < 0</code>が適切。</p>
+<p>●空欄cについて</p>
+<p>クラス<code>Measured</code>は従量制のパケット料金（割引サービスなしの場合）を表すクラス，クラス<code>Tiered</code>はパケット料金の割引サービスを表すクラスで，インタフェース<code>PacketPlan</code>はパケット料金を計算するためのインタフェースである。したがってクラス<code>Measured</code>とクラス<code>Tiered</code>にインタフェース<code>PacketPlan</code>の実装が必要であり，空欄cはエの<code>implements PacketPlan</code>が適切。</p>
+<p>●空欄dについて</p>
+<p>空欄dに関する処理を含むメソッド<code>calculateCharge(int packets)</code>は，パケット料金の割引サービスS1を表すクラス<code>Tiered</code>のメソッドである。メソッド<code>calculateCharge(int packets)</code>は，その割引サービスのパケット料金の計算を行い，計算したパケット料金を戻り値として<code>charge</code>にセットして返す。<br/>
+空欄dの処理を含む<code>if</code>文の直前で，<code>basicCharge</code>を<code>int</code>型変数<code>charge</code>にセットし，<code>packets > allowance</code>でない場合は，<code>charge</code>にセットされた<code>basicCharge</code>がそのままパケット料金として返される。表2のパケット料金の割引サービスS1の説明によると，サービス料金1,000円を支払うと，10,000パケットまでは無料であり，これに該当する処理であることが分かる。つまり，<code>basicCharge</code>がサービス料金の1,000円で，<code>allowance</code>が10,000円であることが分かる。プログラム6のクラス<code>CellPhonePlanner</code>において，<sub>new Tiered("S1", 1000, 10000, 8)</sub>によってクラス<code>Tiered</code>のコンストラクタ<code>Tierd(String name, int basicCharge, int allowance, int packetRate)</code>を呼び出してオブジェクトを生成しているが，これにより<code>basicCharge</code>に1000，<code>allowance</code>に10000，<code>packetRate</code>には8がセットされる。<br/>
+<code>packets > allowance</code>である場合は，10,000パケットを超えた場合であり，空欄dの処理で10,000パケットを超えた分のパケット料金を<code>charge</code>に加算している。表2のパケット料金の割引サービスS1の説明によると，10,000パケットを超えた分は，100パケット当たり8円で計算する。なお，パケット料金を計算するときは，パケット数は100パケット単位に切り上げる。<code>packetRate</code>には8，<code>allowance</code>には10,000がセットされているので，10,000パケットを超えた分のパケット料金は，<code>packetRate * ((packets - allowance + 99) / 100)</code>により計算できる。したがって空欄dはエの<code>packets - allowance + 99</code>が適切。</p>
+<p>●空欄eについて</p>
+<p>クラス<code>CellPhonePlanner</code>は利用状況に対して最も安価な料金プランを提示するクラスである。そのクラスのメソッド<code>getRecommendedPlan(int minutes, int packets)</code>は，引数で指定された利用状況<code>minutes</code>，<code>pakets</code>に対して，最も安価な利用プランを返す。クラス<code>CellPhonePlanner</code>において，クラス<code>CallingPlan</code>のコンストラクタを呼び出して生成した通話料金プランA，Bのオブジェクトを，<code>CallingPlan</code>型オブジェクト配列<code>callingPlans</code>に格納している。さらにクラス<code>Measured</code>のコンストラクタとクラス<code>Tiered</code>のコンストラクタをそれぞれ呼び出して生成した従量制のパケット料金プランと，割引サービスS1のパケット料金プランのオブジェクトを<code>PacketPlan</code>型オブジェクト配列<code>packetPlans</code>に格納している。さらにクラス<code>CellPhonePlan</code>のコンストラクタを呼び出して生成した以下の四つの料金プランのオブジェクトを，<code>CellPhonePlan</code>型のオブジェクト配列<code>cellPhonePlans</code>に格納している。四つの料金プランとは<br/>
+　①　通話料金プランA，従量制のパケット料金プラン<br/>
+　②　通話料金プランA，割引サービスS1のパケット料金プラン<br/>
+　③　通話料金プランB，従量制のパケット料金プラン<br/>
+　④　通話料金プランB，割引サービスS1のパケット料金プラン<br/>
+である。<br/>
+メソッド<code>getRecommendedPlan(int minutes, int packets)</code>の空欄fを含む<code>for</code>ループの繰返し処理で，オブジェクト配列<code>cellPhonePlans</code>に格納された上記①～④の四つの料金プランのオブジェクトを，ループ変数<code>cellPhonePlan</code>に順に格納し，最も安価な料金プランを検索している。空欄fの処理でセットした料金<code>charge</code>が直後の<code>if</code>文の判定で<code>charge <= minCharge</code>であれば，<code>cellPhonePlan</code>の料金プランとその料金<code>charge</code>をそれぞれ<code>recommended</code>と<code>minCharge</code>に退避して繰り返す。つまり，この繰返し処理でより安価な料金となる料金プランとその料金がそれぞれ<code>recommended</code>と<code>minCharge</code>に退避される。そのためには，<code>minCharge</code>の初期値としてシステムの最大整数<code>Integer.MAX_VALUE</code>をセットしておく必要があり，空欄eはウが適切。</p>
+<p>●空欄fについて</p>
+<p>クラス<code>CellPhonePlan</code>のメソッド<code>caluculateCharge(int minutes, int packets)</code>は，引数で指定された利用状況<code>minutes</code>，<code>pakets</code>に対する通話料金プランとパケット料金プランの料金の合計を戻り値として返す。したがって空欄fにおいてループ変数<code>cellPhonePlan</code>に格納された各料金プランのオブジェクトについてメソッド<code>caluculateCharge</code>により利用状況<code>minutes</code>，<code>pakets</code>に対する通話料金プランとパケット料金プランの料金の合計を計算し，<code>charge</code>にセットすればよく，空欄fはエの<code>cellPhonePlan.caluculateCharge(minutes, packets)</code>が適切。</p>
+<hr>
+<a href="21F_P_E4.HTM#111">問題へ</a>
+<hr>
+<p><strong><a name="112">設問2</a></strong></p>
+<p>〈解答〉　g：イ，h：カ，i：オ</p>
+<p>〈解説〉</p>
+<p>●空欄gについて</p>
+<p>クラス<code>TieredBounded</code>は，S1の内容を変更したパケット割引サービスS2を表すクラスで，クラス<code>Tiered</code>を継承したサブクラスとしてクラス<code>Tiered</code>を定義すればよい。したがって空欄gは，イの<code>extends Tiered</code>が適切。</p>
+<p>●空欄hについて</p>
+<p>クラス<code>TieredBounded</code>のコンストラクタの定義では，スーパークラス<code>Tiered</code>のコンストラクタをsuper(<code>name, basicCharge, allowance, packetRate)</code>により呼び出して定義している。空欄hはパケット割引サービスS2の料金を<code>charge</code>にセットしている処理である。したがってスーパークラス<code>Tiered</code>のコンストラクタを<code>super</code>により呼び出してオブジェクト生成し，そのメソッド<code>calculateCharge</code>によりパケット割引サービスS2のパケット料金を計算すればよく，カの<code>super.calculateCharge(packets)</code>が適切。</p>
+<p>●空欄iについて</p>
+<p>直後の<code>if</code>文の判定で<code>charge</code>にセットされた料金が空欄iの料金以下である場合は，この料金をそのまま戻り値として返すが，<code>charge</code>にセットされた料金が空欄iの料金よりも大きい場合は，<code>charge</code>に<code>maxCharge</code>をセットして戻り値として返す。表4のパケット割引サービスS2の説明によれば，10,000パケットを超えて50,000パケットまでは，100パケット当たり10円で，50,000パケット（合計5,000円）を超えた場合は，一律5,000円である。したがって<code>maxCharge</code>には5,000がセットされており，空欄iはオの<code>maxCharge</code>が適切。</p>
+<hr>
+<a href="21F_P_E4.HTM#112">問題へ</a>
+<hr>
+<a href="INDEX.HTM">■メニューへ戻る</a>
+<hr>
+<p><strong><a name="120">問12</a></strong></p>
+<hr>
+<p><strong><a name="121">設問1</a></strong></p>
+<p>〈解答〉　a：ウ，b：エ，c：イ，d：ウ</p>
+<p>〈解説〉</p>
+<p>●空欄a，bについて</p>
+<p>pの値は55，qの値が12なので，ビット列Aの56ビット目から12ビットを置き換える。pの値55は，<code>GR2</code>にセットされてプログラムに渡される。行3～4の<code>LD</code>命令，<code>SRL</code>命令により，<code>GR4</code>に55÷16＝3がセットされるので，ビット列Aの第4語が置換対象語となる。<code>GR2</code>の下位4ビットは55÷16の剰余55－16×3＝7なので，行6の<code>AND</code>命令により<code>GR2</code>に第4語の置換しない部分のビット数7がセットされる。行7の<code>LD</code>命令で<code>GR4</code>に16がセットされているので，行8の<code>SUBA</code>命令により<code>GR4</code>には16－7＝9，つまり第4語の置換する部分のビット数がセットされる。したがって空欄aはウの7，空欄bはエの9が適切。<p>
+<p>●空欄cについて</p>
+<p>行14の<code>SRL</code>命令以降<code>GR0</code>に対して操作する命令はないので，行17の<code>SLL</code>の実行直後における<code>GR0</code>の内容は，行14の<code>SRL</code>命令の実行結果になる。<code>GR0</code>にはビット列Bが左詰めでセットされて主プログラムから渡される。行14の<code>SRL</code>命令では<code>GR0</code>のビット列Bを，<code>GR2</code>だけ論理右シフトしている。<code>GR2</code>には第4語の置換しない部分のビット数7がセットされているので，<code>GR0</code>のビット列Bが第4語の置換しない部分のビット数7だけ右シフトされる。つまり第4語の置換対象位置に対応する位置に右シフトされる。したがって空欄cはイの<code>0000000101100011</code>が適切。<p>
+<p><img src="img/pma06.png"></p>
+
+<p>●空欄dについて</p>
+<p>行9の<code>LD</code>命令により<code>GR5</code>には，<code>GR0</code>のビット列Bが格納される。行9の<code>LD</code>命令以降は行16の<code>SLL</code>命令まで<code>GR5</code>に対して操作する命令はないので，行17の<code>SLL</code>の実行直後における<code>GR5</code>の内容は，行16の<code>SLL</code>命令の実行結果になる。行16の<code>SLL</code>命令では<code>GR5</code>のビット列Bを，<code>GR4</code>だけ論理左シフトしている。<code>GR4</code>には第4語の置換する部分のビット数9がセットされているので，<code>GR5</code>のビット列Bが第4語の置換する部分のビット数9だけ左シフトされる。つまり第4語に入れる9ビットの部分を論理左シフトにより桁あふれさせることにより，次の第5語に格納する7ビットの部分だけを残して<code>GR5</code>に左詰めでセットしている。したがって空欄dはウの<code>1010000000000000</code>が適切。<p>
+<p><img src="img/pma07.png"></p>
+<hr>
+<a href="21F_P_E4.HTM#121">問題へ</a>
+<hr>
+<p><strong><a name="122">設問2</a></strong></p>
+<p>〈解答〉　e：イ，f：キ（順不同）</p>
+<p>〈解説〉</p>
+<p>●空欄e，fについて</p>
+<p>空欄e，fの命令は<code>GR6</code>と<code>GR2</code>に関する命令である。行10で先ず<code>GR6</code>には<code>#8000</code>，つまり<code>1000 0000 0000 0000</code>がセットされる。<code>GR3</code>にはビット列Bのビット数qがセットされ主プログラムから渡されるので，行11の算術減算<code>SUBA</code>命令によりq－1がセットされる。次の行12の<code>SRA</code>命令により，<code>GR6</code>の<code>1000 0000 0000 0000</code>はq－1ビット算術右シフトされ，<code>GR6</code>には先頭qビットが1でそれ以外が0のマスクビット列が作成される。この<code>GR6</code>のマスクビット列は行13の<code>LD</code>命令により<code>GR7</code>に退避した後，行15の<code>SRL</code>命令により，<code>GR6</code>のマスクビット列を<code>GR2</code>ビット論理右シフトしている。<code>GR2</code>の下位4ビットはp÷16の剰余55－16×（<code>i</code>－1）なので，行6の<code>AND</code>命令により<code>GR2</code>には下位4ビットの剰余，つまり第<code>i</code>語の置換しない部分のビット数がセットされている。したがって行15の<code>SRL</code>命令により，<code>GR6</code>のマスクビット列を第i語の置換対象位置に対応する位置に<code>GR2</code>ビット（p－16×（<code>i</code>－1）ビット）だけ論理右シフトしていることになる。<br/>
+<code>GR1</code>にはビット列Aの先頭アドレスがセットされて主プログラムに渡される。行4の<code>SRL</code>命令により<code>GR4</code>にはp／16がセットされるので，行5の算術加算<code>ADDA</code>命令により<code>GR1</code>にはビット列Aの先頭アドレス＋p／16，つまり置換対象語（第<code>i</code>語）の先頭アドレスがセットされる。これにより空欄e直前で，行18の<code>LD</code>命令により<code>GR2</code>には置換対象語（第<code>i</code>語）が格納される。<br/>
+行19と20の空欄e，fの命令は<code>GR6</code>の置換対象位置に対応したマスクビット列と，<code>GR2</code>の置換対象語（第<code>i</code>語）との演算で，この2命令により第<code>i</code>語のうちビット列Bを入れる部分を0にしている。<br/>
+したがって次のようにビット演算を行えばよい。<br/>
+　①行19で，<code>GR2</code>の置換対象語（第<code>i</code>語）と<code>GR6</code>の置換対象位置に対応したマスクビット列との論理積により，<code>GR6</code>に置換対象語（第<code>i</code>語）のビット列Bを入れる部分以外を0にしたマスクビット列を作成する。<br/>
+　②行20でこの<code>GR6</code>のマスクビット列と<code>GR2</code>との排他的論理和<code>XOR</code>により，置換対象語（第<code>i</code>語）のビット列Bを入れる部分を0にビット反転すればよい。<br/>
+これより空欄eはイの<code>AND</code>，空欄fはキの<code>XOR</code>が適切。</p>
+<p><img src="img/pma08.png"></p>
+<hr>
+<a href="21F_P_E4.HTM#122">問題へ</a>
+<hr>
+<a href="INDEX.HTM">■メニューへ戻る</a>
+<hr>
+<p><strong><a name="130">問13</a></strong></p>
+<hr>
+<p><strong><a name="131">設問1</a></strong></p>
+<p>〈解答〉　a：オ，b：イ，c：イ</p>
+<p>〈解説〉</p>
+<p>●空欄aについて</p>
+<p>空欄aの条件の場合にペナルティに3が設定されるので，空欄aは正当な理由なく出社予定日に欠勤した場合の条件である。空欄aに関するIF関数は，勤怠理由がF4＝1でない場合，つまり正当な理由がない場合に実行されるので，空欄aの条件では，出社予定日に欠勤する条件を指定すればよい。<br/>
+出社予定日である場合はB列のセルが1に，欠勤した場合はC列のセルが’空白に設定される。したがって空欄aはオの論理積（B4＝1，C4＝''）が適切。</p>
+<p>●空欄bについて</p>
+<p>空欄bの条件の場合にペナルティに1が設定されるので，空欄bは正当な理由なく出社予定日に遅刻または早退した場合の条件である。空欄bに関するIF関数は，勤怠理由がF4＝1でない場合，つまり正当な理由がない場合に実行されるので，空欄bの条件では，出社予定日に遅刻または早退する条件を指定すればよい。<br/>
+出社時刻が10時より遅れた場合に遅刻となり，退社時刻が17時前である場合に早退となる。なお出社時刻と退社時刻は出社した日のみ設定されるので，出社予定日であるB列のセルが1であるという条件も必要である。したがって空欄bはイの論理積（B4＝1，論理和（C4＞（10／24），D4＜（17／24）））が適切。</p>
+<p>●空欄cについて</p>
+<p>12時から13時までは昼休みであり，勤務時間には含まれない。したがって勤務時間は13時以降の勤務時間と12以前の勤務時間の合計として計算できる。<br/>
+・13時以降の勤務時間については，<br/>
+　①　退社時刻が13時以降で，出社時刻も13時以降である場合　退社時刻－出社時刻<br/>
+　②　退社時刻が13時以降で，出社時刻が13時以前である場合　退社時刻－13<br/>
+　③　退社時刻が13時以前で，出社時刻も13時以前の場合　　　0<br/>
+　つまり最大（退社時刻，13／24）－最大（出社時刻，13／24）により計算できる。<br/>
+・12時以前の勤務時間については，<br/>
+　①　退社時刻も12時以前で，出社時刻が12時以前である場合　退社時刻－出社時刻<br/>
+　②　退社時刻が12時以降で，出社時刻が12時以前である場合　12－出社時刻<br/>
+　③　退社時刻が12時以降で，出社時刻も12時以降である場合　0<br/>
+　つまり最小（退社時刻，12／24）－最小（出社時刻，12／24）により計算できる。<br/>
+　したがってイの<br/>
+　　最小（D4，12／24）－最小（C4，12／24）＋最大（D4，13／24）－最大（C4，13／24）<br/>
+　が適切。</p>
+<hr>
+<a href="21F_P_E4.HTM#131">問題へ</a>
+<hr>
+<p><strong><a name="132">設問2</a></strong></p>
+<p>〈解答〉　d：ウ，e：イ，f：キ，g：イ，h：キ（g，hは順不同）</p>
+<p>〈解説〉</p>
+<p>●空欄dについて</p>
+<p>セルAB3に入力する評価値については，評価値を入力する最初の行なので前日までの割当回数の指定は不要になる。空欄dについては100＊100倍，つまり10,000倍しているので，評価値の定義における先々月ペナルティ順位に該当することが分かる。先々月ペナルティ順位はセルB38を参照すればよいのであるが，セルAB4に入力する評価値の式の先々月ペナルティ順位でも空欄dと同じ式を共通して指定している。セルAB3の評価値の式は，セルAC3～AP3まで列方向に水平にしか複写しないが，セルAB4に入力する評価値の式については，セルAB4～AP33まで行方向にも複写する。したがって行番号を固定して複写する必要があり，行番号を絶対参照とする必要がある。したがって空欄dはウのB$38が適切。</p>
+<p>●空欄eについて</p>
+<p>空欄eについては，評価値の定義における末尾の経験順位に該当することが分かる。したがって空欄eはイのB$36が適切。</p>
+<p>●空欄fについて</p>
+<p>出勤割当表の行4以下については，前日までの割当回数が発生する。空欄fを100倍しているので，評価値の前日までの割当回数に該当することが分かる。したがって空欄fはキの合計（B$3～B3）が適切。</p>
+<p>●空欄g，hについて</p>
+<p>空欄g，hに関するIF関数の条件は論理積になっているので，空欄g，hがともに成り立つ場合，セルB3に1が設定される。出勤割当表では，その日に出勤可能な人が5人より多い場合は，評価値の小さい人から優先的に5人を割当てる。つまり空欄g，hの条件として，その日に出勤可能であり，評価値の順位が5以下であるという条件にする必要がある。したがって空欄gはイの勤務可能調査!B3，空欄hはキの順位（AB3，$AB3～$AP3，0）≦5が適切。</p>
+<hr>
+<a href="21F_P_E4.HTM#132">問題へ</a>
+<hr>
+<a href="INDEX.HTM">■メニューへ戻る</a>
+<hr>
+</blockquote>
+</body>
+</html>

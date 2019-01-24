@@ -1,0 +1,166 @@
+<HTML>
+<HEAD>
+<TITLE>平成15年度春期試験　</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0">
+<blockquote>
+  <hr>
+  <H3 align="center">平成15年度春期試験　正解例と解説(問10～問13)</H3>
+<hr>
+<BR>
+<b><a name="100">問10</a></b>
+<hr> 
+<p><b><a name="101">設問</a>　</b></p> 
+<br>＜解答＞　a　イ　　　b　オ　　　c　ア　　　d　ウ　　　e　イ<br>
+<br>＜解説＞［プログラムのアルゴリズム］<br>
+<img border="0" src="image/PA10-1.GIF"><br>
+<br>
+このプログラムでは，以下の2つの関数(1)SetCurve（ ），(2)GetK（ ）が使われている。<br>
+(1)関数SetCurve（ ）は，構造体配列Curve［i］の要素Stepの初期値として温度区間ごとに，温度1℃当たりのセンサ出力値比率の差分を次式により計算し設定する関数である。<br>
+　　その温度区間におけるセンサ出力値の差分÷その温度区間の温度の差分<br>
+→　温度区間ごとのセンサ出力値比率の差分<br>
+関数SetCurve（ ）は，構造体配列Curveへのポインタp（配列の先頭アドレス）と配列の要素数Pointsを引数としている。<br>
+<br>
+(2)関数GetK（ ）は，温度Tempに対し，該当する温度区間を二分探索法で探索し，その温度区間における温度補正係数を計算し戻り値として返す関数である。<br>
+また関数GetK（ ）は，温度Temp，構造体配列Curve［ ］へのポインタp及び配列の要素数Pointsを引数としている。<br>
+<br>
+なお（Temp ≧ (p＋n)－>Temp）&&（Temp ＜ (p＋n＋1)－>Temp）のとき<br>
+　温度Tempに対する該当温度区間のセンサ出力値比率を線形補間して計算し，その逆数である温度補正係数Kを以下により計算する。<br>
+
+<img border="0" src="image/PA10-2.GIF">
+<br>
+空欄a，bは構造体配列Curve［i］の温度区間ごとに温度1℃当たりのセンサ出力値比率の差分を計算している繰返し処理に関する部分である。次の温度区間に移り繰返し計算するため，空欄aでは構造体配列Curveへのポインタpを＋1だけカウントアップする必要があり，空欄aはp++となる。空欄bを含む計算式では各温度区間ごとに温度1℃当たりのセンサ出力値比率の差分を計算しているので，空欄bは(p＋1)－>Ratio－p－>Ratioとなる。<br>
+<br>
+空欄c，dは，温度Tempに対する該当温度区間を二分探索法により検索する処理に関する部分である。区間i，jの中間の値（i＋j）／2により区間を二分して検索するため，空欄cではnに（i＋j）／2を設定し検索を開始している。空欄dは，Temp ≧ (p＋n)－>Tempの場合の処理で，この場合は区間(n＋1)～(Points－1)で検索すればよいので，空欄dにおいてi＝n＋1とすればよい。<br>
+<img border="0" src="image/PA10-3.GIF">
+<br>
+空欄eは温度Tempに対する該当温度区間のセンサ出力値比率を線形補間して計算し，その逆数である温度補正係数Kを戻り値として返している部分である。空欄eは（Temp－その温度区間の先頭温度）に該当する部分であり，Temp－p－>Tempとすればよい。<br>
+<br>
+<HR WIDTH=100%>    
+  <a HREF="15S_P_E4.HTM#101">問題へ</a>   
+<HR WIDTH=100%>   
+  　<BR>
+<A HREF="INDEX.HTM">メニューへ戻る</A>
+<HR WIDTH=100%>
+<BR>
+<b><a name="110">問11</a></b>
+<hr> 
+<p><b><a name="111">設問</a>　</b></p> 
+＜解答＞a　オ　　　　b　エ　　　c　ウ　　　d　キ　　　e　カ<br>
+<br>＜解説＞<br>
+空欄aについて<br>
+ファイルOPEN直後の第1回目のINIT-MOVING-AVERAGEの処理冒頭で，INFILEの株価データが先頭から75日分がTABLE-MARKET-PRICE-RECテーブルに読込まれ，SERIES-TOP＝76にセットされる。これに続く処理で<br>
+<br>
+　　TAIL-SHORT ＝ SERIES-TOP － RANGE-SHORTによりTAIL-SHORT＝76－25＝51に<br>
+　　TAIL-LONG ＝ SERIES-TOP － RANGE-LONGによりTAIL-LONG＝76－75＝1に<br>
+<br>
+それぞれセットされる。さらに次のSUBTRACT命令でSERIES-TOPから1だけ差引かれて，SERIES-TOPの値は75にセットされる。これにMOVE命令でSUM-SHORTの初期値が0にセットされた後，空欄aを含むPERFORM文の繰返処理に入る。このPERFORM文の処理では，TABLE-MARKET-PRICE-RECテーブルに読込まれた株価データの終値をSUM-SHORTに集計しており，空欄aはその繰返処理の初期値，増分，終了条件になっている。この後の空欄bを含むPERFORM命令直後のCOMPUTE命令で，SUM-SHORTをRANGE-SHORTで割算した結果をMA-SHORTに格納している。RANGE-SHORTには25がセットされており，MA-SHORTには25日移動平均が格納されることになる。したがってSUM-SHORTには過去25日間の終値の合計が集計される。取引日SERIES-TOPから過去25日間の合計をSUM-SHORTに集計しなくてはならないので，取引日SERIES-TOPの25日前のTAIL-SHORTからSERIES-TOPまでの株価データの終値を集計する必要がある。これより空欄aはFROM  TAIL-SHORT  BY  1  UNTIL  SERIES-TOP ＜ INDX	。<br>
+
+<img border="0" src="image/PA11.GIF">
+<br>
+
+空欄bについて<br>
+空欄bを含むPERFORM文の処理では，TABLE-MARKET-PRICE-RECテーブルに読込まれた株価データの終値をSUM-LONGに集計しており，空欄bはその繰返処理の初期値，増分，終了条件になっている。このPERFORM命令直後のCOMPUTE命令で，SUM-LONGをRANGE-LONGで割算した結果をMA-LONGに格納している。RANGE-LONGには75がセットされており，MA-LONGには75日移動平均が格納されることになる。したがってSUM-LONGには過去75日間の終値の合計がされている必要がある。取引日SERIES-TOPから過去75日間の合計をSUM-LONGに集計しなくてはならないので，取引日SERIES-TOPの75日前のTAIL-SHORTからSERIES-TOPまでの株価データの終値を集計する必要がある。ところが空欄bの直前のMOVE命令によりSUM-LONGの初期値をSUM-SHORTにセットしているので，取引日SERIES-TOPの75日前のTAIL-LONGからTAIL-SHORT前日までの合計をSUM-LONGに加算すればよい。したがって空欄bはFROM  TAIL-LONG  BY  1  UNTIL  TAIL-SHORT ＜＝ INDX。<br>
+<br>
+空欄eについて<br>
+INIT-MOVING-AVERAGEの処理の次のPERFORM命令でSET-CURRENT-MA-COMPARISONの処理が行われている。この処理では25日移動平均と75日移動平均とを比較し大小関係の判定を行い<br>
+　　25日移動平均MA-SHORT＜75日移動平均MA-LONGとなればSHORT-LT-LONG-CURがTRUE<br>
+　　25日移動平均MA-LONG＜75日移動平均MA-SHORTとなればLONG-LT-SHORT-CURがTRUE<br>
+となる。<br>
+さらにこの後のPERFORM命令でINFILEの次の76日目の株価データ1件分をW-MARKET-PRICE-RECに読込み，AT ENDでなければCALC-NEXT-MOVING-AVERAGEの処理で次の25日移動平均と75日移動平均を計算し，さらにDECIDE-TRADINGの処理を行っている。このDECIDE-TRADINGの処理では，まず直前の25日移動平均と75日移動平均の大小関係の判定結果を作業領域MA-COMPARE-PREVIOUSに保存した後，PERFORM文のSET-CURRENT-MA-COMPARISONの処理により，次の25日移動平均と75日移動平均の大小関係の判定を行なっている。<br>
+この結果SHORT-LT-LONG-PREおよびLONG-LT-SHORT-CURがともにTRUEであれば，直前の移動平均でいったん25日移動平均＜75日移動平均となった後，次の移動平均で75日移動平均＜25日移動平均となったことになるので，買いフラグFLG-BUYをTRUEにセットすればよいので，空欄eはSHORT-LT-LONG-PREとなる。<br>
+<br>
+空欄cについて<br>
+空欄eを含むEVALUATE文による判定で，SHORT-LT-LONG-PREとLONG-LT-SHORT-CURがともにTRUEであれば，買いフラグFLG-BUYがTRUEに，LONG-LT-SHORT-PREとSHORT-LT-LONG-CURがともにTRUEであれば売りフラグFLG-SELLがTRUEにセットされる。空欄cを含む条件は，株式を売る場合の条件である。株式を売る場合は，既に買った株式がなければ売ることができない。買いフラグFLG-BUYがTRUEとなり株式を買うと，空欄c直前でHAS-STOCKがTRUEにセットされる。したがって空欄cの条件をHAS-STOCKとすればよい。<br>
+<br>
+空欄dについて<br>
+空欄dを含むCOMPUTE命令では，一連の売買による損益をREVENUEに集計している。空欄dの直前のCOMPUTE命令では，取引日における高値と安値の平均値を計算し，TRADING-PRICEに格納している。FLG-SELLがTRUEになればTRADING-ACTIONに1が，FLG-BUYがTRUEになればTRADING-ACTIONが－1にセットされるので，空欄dの計算式でTRADING-PRICE＊TRADING-ACTIONをREVENUEに加算すればよい。したがって空欄dはTRADING-ACTIONとなる。<br>
+<br>
+
+<HR WIDTH=100%>    
+  <a HREF="15S_P_E4.HTM#111">問題へ</a>   
+<HR WIDTH=100%>   
+  　<BR>
+<A HREF="INDEX.HTM">メニューへ戻る</A>
+<HR WIDTH=100%>
+<BR>
+<b><a name="120">問12</a></b>
+<hr> 
+<p><b><a name="121">設問1</a>　</b></p> 
+＜解答＞　　a　コ　　　　b　ケ　　　c　カ　　　d　カ　　　e　オ<br>
+<br>＜解説＞空欄aについて<br>
+クラスListElementのメソッドinsertBefor(ListElement element)は，引数で指定した要素elementの前に，ListElementのインスタンスを挿入するメソッドである。<br>
+挿入要素の次ポインタnextにelementを，挿入要素の前ポインタprevにelement.prevをセットし，挿入要素の次要素nextの前ポインタprevおよび挿入要素の前要素prevの次ポインタnextに挿入要素自身thisをセットすればよい。したがって空欄aはthisになる。（下図参照）<br>
+<img border="0" src="image/PA12-11.GIF">
+<br>
+空欄b，cについて<br>
+クラスListElementのメソッドremove( )はListElementのインスタンスを削除するメソッドである。<br>
+削除の場合は，削除要素の前要素prevの次ポインタnextに，削除要素の次ポインタnextをセットし，削除要素の次要素nextの前ポインタprevに，削除要素の前ポインタをセットすればよい。さらに削除要素の前ポインタprevおよび次ポインタnextには，削除要素自身thisを指定すればよい。したがって空欄bはprev.next，空欄cはnext.prevとなる。<br>
+<img border="0" src="image/PA12-12.GIF">
+<br>
+プログラム3のクラスSeatManagerでは，new演算子によりクラスListElementのコンストラクタを呼出し，空席リストのインスタンスオブジェクトfreeSeatsと使用中リストのインスタンスオブジェクトoccupiedSeats（要素数が1つの空リスト）を生成している。そしてSeatManager( )メソッド中のseat.insertBefor(freeSeats)により，30席を空席リストに挿入している。この場合，下図のように空席リストのインスタンスオブジェクトfreeSeatsの直前に挿入されて行く。また使用者が使っていた席を使用中リストから削除して空席リストへ戻す場合も，checkout( )メソッド中のseat.insertBefor(freeSeats)により，下図のように空席リストのインスタンスオブジェクトfreeSeatsの直前に挿入されて行く。<br>
+<img border="0" src="image/PA12-13.GIF">
+<br>
+これに対して使用中リストにインスタンスオブジェクトを登録する場合は，下図のようにcheckin( )メソッド中のseat.insertBefor( occupiedSeats.nextElement( ) )により常に使用中リストの先頭に挿入される。これにより使用時間が短いものから長いものへと並ぶようになる。<br>
+<img border="0" src="image/PA12-14.GIF">
+<br>
+空欄dについて<br>
+空欄dを含むメソッドvacateExpiredSeat( )では，使用中リストを調べ最大使用時間を超えて席を使用している者があれば，メソッドcheckout( )を呼出し強制的にチェックアウトをさせる処理をしている。使用中リストの要素は使用時間が短いものから長いものへと並んでいるので，occupiedSeatsの直前要素が最も使用時間の長い要素になっている。したがってこのoccupiedSeatsの直前要素の使用時間が最大使用時間を超えているかをチェックすればよいことになる。これより空欄dでoccupiedSeats.previosElement( )としてoccupiedSeatsの直前要素を取り出しインスタンス変数leに格納し，次のif文の処理で最大使用時間を超えているかをチェックすればよい。<br>
+<br>
+空欄eについて<br>
+空欄eを含むメソッドfindUser( String userID )では，使用中リストから指定されたuserIDの使用者が使っている席を探索している。空欄eを含む処理は，使用者リストから最初に要素を1つ取り出し，インスタンス変数leに格納する処理である。これに続くwhileループでuserIDの一致する要素を探索しているが，使用中リストの次の要素を取り出すとき，nextElement( )メソッドにより取り出しているので，空欄eで最初に要素を取り出すときに，occupiedSeats.nextElement( )として次要素を取り出す必要がある。whileループの繰返し条件がle != occupiedSeatsであるので，一致するものがなければ，使用中リストから取り出された要素leが使用中リストを一巡しoccupiedSeatsになればループを抜けてnullが戻り値として返される。<br>
+<br>
+<HR WIDTH=100%>    
+  <a HREF="15S_P_E4.HTM#121">問題へ</a>   
+<hr> 
+<p><b><a name="122">設問2</a>　</b></p> 
+＜解答＞　　ア<br>
+<br>＜解説＞checkin( )メソッドでは，使用希望者が使用中リストに存在し，既に他の席を使用中であっても，冒頭のgetFreeSeat( )メソッドにより空席リストに空席があれば空席を割当ててしまう。したがってgetFreeSeat( )メソッドの処理の前にoccupiedSeatsを調べ，この使用希望者が既に他の席を使用中であればエラーとし，席の割当てを行なわないようにする必要がある。<br>
+<br>
+<HR WIDTH=100%>    
+  <a HREF="15S_P_E4.HTM#122">問題へ</a>   
+<HR WIDTH=100%>   
+  　<BR>
+<A HREF="INDEX.HTM">メニューへ戻る</A>
+<HR WIDTH=100%>
+
+<a NAME="130">　<BR>  
+<b>  
+問13</b></a>　　　（解説は省略します。）
+<hr> 
+<a NAME="131">　<BR> 
+<b> 
+設問</b></a><b><a NAME="131">1</a>　</b>
+  <p>＜解答＞　a　カ　　b　ク　　c　ケ<br>
+
+<HR WIDTH=100%> 
+  <a HREF="15S_P_E4.HTM#131">問題へ</a> 
+<HR WIDTH=100%> 
+  <b>　</b> 
+<a NAME="132"> 
+<b> 
+<br>
+設問</b></a><b>2</b>
+  <p>＜解答＞　エ</p>
+
+<HR WIDTH=100%>
+  <a HREF="15S_P_E4.HTM#132">問題へ</a>
+<HR WIDTH=100%>
+<a NAME="133"> 
+<b> 
+<br>
+設問</b></a><b>3</b>
+  <p>＜解答＞　d　ア　　e　オ</p>
+
+<HR WIDTH=100%>
+  <a HREF="15S_P_E4.HTM#133">問題へ</a>
+<HR WIDTH=100%>
+
+<p><a HREF="INDEX.HTM">メニューへ戻る</a>　</p>
+<HR WIDTH=100%>
+  　<BR>
+<BR>
+  <p>　</p>
+</blockquote>
+</BODY>
+</HTML>

@@ -1,0 +1,304 @@
+<html>
+
+<head>
+<title>平成18年度秋期試験　問題(問3～問5)</title>
+</head>
+
+<body>
+<blockquote>
+<hr>
+<h3 align="center">平成18年度秋期試験　問題(問3～問5)</h3>
+<hr>
+
+<p><a name=" 30"><strong>問3</strong></a>次のプログラムの説明及びプログラムを読んで，設問に答えよ。</p>
+<p>〔プログラムの説明〕</p>
+<p>　次のn元連立1次方程式の解，すなわちxi（i＝1，2，…，n）の値を求める副プログラムGaussである。</p>
+<p><img border="0" src="img/math1.png" width="381" height="164"></p>
+<p>（1）<code>Gauss</code>は，前進消去と後退代入の二つの段階からなる。</p>
+<p>①　前進消去</p>
+<p>　次の計算をk＝1，2，…，n－1の順に行う。kは前進消去の計算回数であり，変数の右肩に括弧付きの添字で示す。ここで，a<sub>ij</sub><sup>（0）</sup>＝a<sub>ij</sub>,
+b<sub>i</sub><sup>（0）</sup>＝b<sub>i</sub>とする。a<sub>kk</sub><sup>（k－1）</sup>をピボット（<code>Pivot</code>）と呼び，計算の途中で0にならないものとする</p>
+<p>a<sub>ij</sub><sup>（k）</sup>＝a<sub>ij</sub><sup>（k－1）</sup>－a<sub>kj</sub><sup>（k－1）</sup>×（a<sub>ik</sub><sup>（k－1）</sup>／a<sub>kk</sub><sup>（k－1）</sup>）　（i＝k＋1,
+…, n ; j＝k＋1, …, n）<br>
+b<sub>i</sub><sup>（k）</sup>＝b<sub>i</sub><sup>（k－1）</sup>－b<sub>k</sub><sup>（k－1）</sup>×（a<sub>ik</sub><sup>（k－1）</sup>／a<sub>kk</sub><sup>（k－1）</sup>）　　（i＝k＋1,
+…, n）</p>
+<p>　この計算の結果，n元連立1次方程式は次の形になる。</p>
+<p><img border="0" src="img/math2.png" width="469" height="168"></p>
+<p>②　後退代入</p>
+<p>①の結果から，n元連立1次方程式の解xiをi＝n，n－1，…，1の順に求める。</p>
+<p><img border="0" src="img/math3.png" width="728" height="126"></p>
+<p>（2）　次の連立方程式を例として，前進消去と後退代入の計算を示す。</p>
+<p><img border="0" src="img/math4.png" width="242" height="124"></p>
+<p>①　前進消去の計算をk＝1，2の順に行う。</p>
+<p>k＝1のとき，a<sub>22</sub><sup>（1）</sup>は次のとおりに計算される。</p>
+<p>a<sub>22</sub><sup>（1）</sup>＝a<sub>22</sub><sup>（0）</sup>－a<sub>12</sub><sup>（0）</sup>×（a<sub>21</sub><sup>（0）</sup>／a<sub>11</sub><sup>（0）</sup>）<br>
+　　　　 ＝2－1×（3／2）＝0.5</p>
+<p>同様にa<sub>23</sub><sup>（1）</sup>，b<sub>2</sub><sup>（1）</sup>，a<sub>32</sub><sup>（1）</sup>，a<sub>33</sub><sup>（1）</sup>，b<sub>3</sub><sup>（1）</sup>を計算すると，連立方程式は次のとおりになる。</p>
+<p><img border="0" src="img/math5.png" width="243" height="129"></p>
+<p>k＝2のとき，a<sub>33</sub><sup>（2）</sup>，b<sub>3</sub><sup>（2）</sup>を計算すると，連立方程式は次のとおりになる。</p>
+<p><img border="0" src="img/math6.png" width="272" height="128"></p>
+<p>②　後退代入によって，x<sub>3</sub>，x<sub>2</sub>，x<sub>1</sub>の値を得る。</p>
+<p><img border="0" src="img/math7.png" width="445" height="124"></p>
+<p>（3）　<code>Gauss</code>の引数の仕様を表に示す。</p>
+<p>なお，各配列の添字は1から始まる。</p>
+<p><img border="0" src="img/06f-PM-03-1.png" width="731" height="234"></p>
+<p>〔プログラム〕</p>
+<p><img border="0" src="img/06f-PM-03-2.png" width="645" height="590"></p>
+
+<p><a name="31"><strong>設問</strong></a><b>　</b>プログラム中の【　　　　】に入れる正しい答えを，解答群の中から選べ。</p>
+<p>aの解答群</p>
+<table border="0" cellpadding="0" cellspacing="6" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber7" width="75%">
+<tr>
+<td>ア　<code>Pivot　←　a[1,1]</code></td>
+<td>イ　<code>Pivot ←　a[1,k]</code></td>
+</tr>
+<tr>
+<td>ウ　<code>Pivot　←　a[k,k]</code></td>
+<td>エ　<code>Pivot ←　a[n,n]</code></td>
+</tr>
+</table>
+<p>b，cの解答群</p>
+<table border="0" cellpadding="0" cellspacing="6" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber8" width="75%">
+<tr>
+<td>ア　<code>i：1，i　≦　n，1</code></td>
+<td>イ　<code>i：n－1，i　≧ 1，－1</code></td>
+</tr>
+<tr>
+<td>ウ　<code>j：1，j　≦　i，1</code></td>
+<td>エ　<code>j：1，j　≦　n－1，1</code></td>
+</tr>
+<tr>
+<td>オ　<code>j：i＋1，j　≦　n，1</code></td>
+<td>　</td>
+</tr>
+</table>
+<p>　</p>
+<hr>
+<hr>
+<a href="18F_P_A2.HTM#31">設問の正解例と解説へ</a>
+<hr>
+<hr>
+<a href="index.htm">■メニューへ戻る</a>
+<hr>
+<p><a name=" 40"><strong>問4</strong></a>　次のプログラムの説明及びプログラムを読んで，設問1，2に答えよ。</p>
+<p>〔プログラム1の説明〕</p>
+<p>　副プログラム<code>TabSpc1</code>は，タブ文字を展開するプログラムである。</p>
+<p>（1）　<code>TabSpc1</code>は，文字型配列<code>Src</code>を先頭から調べ，<code>Src</code>中のすべてのタブ文字をそれぞれ一つ以上の間隔文字（スペース）に置換して，文字型配列<code>Dst</code>に格納する。タブ文字以外の文字は，そのまま<code>Dst</code>に格納する。</p>
+<p>（2）　文字型配列の各要素には，文字を1文字ずつ順に格納し，最後の文字の次の要素にはシステム定数である<code>EOS</code>を格納する。</p>
+<p>&nbsp;なお，配列の添字は1から始まり，添字の値を文字位置と呼ぶ。</p>
+<p>（3）　<code>Src</code>中にタブ文字が出現した場合，次の文字が最も近い右のタブ位置に格納されるように，タブ文字を一つ以上の間隔文字に置換して，<code>Dst</code>に格納する。</p>
+<p>ここで，タブ位置とは，引数で渡されるタブ間隔（≧2）を用いた次の式で計算される文字位置である。</p>
+<blockquote>
+<p><code>タブ位置＝タブ間隔×n＋1（n＝1，2，…）</code></p>
+</blockquote>
+<p>（4）　タブ間隔が4のときの実行例を図1に示す。</p>
+<p>“<code>j</code>”を<code>Dst</code>のタブ位置である文字位置13（＝4×3＋1）に格納したのでは，タブ文字が間隔文字に置き換わらないので，最も近い右のタブ位置である文字位置17（＝4×4＋1）に格納する。</p>
+<p><img border="0" src="img/06f-PM-04-1.png" width="726" height="198"></p>
+<p>（5）　<code>Dst</code>は十分に大きいものとする。</p>
+<p>（6）　副プログラム<code>TabSpc1</code>の引数の仕様を表1に示す。</p>
+<p><img border="0" src="img/06f-PM-04-2.png" width="646" height="190"></p>
+<p>〔プログラム1〕</p>
+<p><img border="0" src="img/06f-PM-04-3.png" width="769" height="511"></p>
+<p><a name="41"><strong>設問1</strong></a><b>　</b>プログラム1中の【　　　　】に入れる正しい答えを，解答群の中から選べ。</p>
+<p>aに関する解答群</p>
+<table border="0" cellpadding="0" cellspacing="6" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber9" width="75%">
+<tr>
+<td>ア　<code>Didx ＋ 1</code></td>
+<td>イ　<code>Didx － 1</code></td>
+</tr>
+<tr>
+<td>ウ　<code>Didx ＋ TabGap ＋ 1</code></td>
+<td>エ　<code>Didx ＋ TabGap － 1</code></td>
+</tr>
+</table>
+<p>b，cに関する解答群</p>
+<table border="0" cellpadding="0" cellspacing="6" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber10" width="75%">
+<tr>
+<td>ア　<code>Didx ← Didx ＋ 1</code></td>
+<td>イ　<code>Dst[Didx] ← Src[Sidx]</code></td>
+</tr>
+<tr>
+<td>ウ　<code>Dst[Didx ＋ 1] ← Src[Sidx]</code></td>
+<td>エ　<code>Dst[Didx] ← Src[Sidx ＋ 1]</code></td>
+</tr>
+</table>
+<hr>
+<a href="18F_P_A2.HTM#41">設問1の正解例と解説へ</a>
+<hr>
+<p><a name="42"><strong>設問2</strong></a><b>　</b>プログラム1を改造して，タブ位置を任意の文字位置に指定できるようなプログラム2を作成した。ただし，タブ位置は2以上の値で，隣り合うタブ位置の間隔も2以上とする。タブ位置は引数で渡される整数型配列<code>TabSet</code>に昇順に格納され，最後のタブ位置が格納された次の配列要素には－1が格納されている。</p>
+<p>　なお，最後のタブ位置以降にタブ文字が出現した場合は，一つの間隔文字に置換する。</p>
+<p>　図1と同じ動作をさせる場合の<code>TabSet</code>の内容を図2に，プログラム2に示す副プログラム<code>TabSpc2</code>の引数の仕様を表2に示す。</p>
+<p>
+　プログラム2中の【　　　　】に入れる正しい答えを，解答群の中から選べ。ただし，【　　b　　】，【　　c　　】には設問1の正しい答えが入っているものとする。</p>
+<p><img border="0" src="img/06f-PM-04-4.png" width="587" height="270"></p>
+<p><img border="0" src="img/06f-PM-04-5.png" width="685" height="193"></p>
+<p>〔プログラム2〕</p>
+<p><img border="0" src="img/06f-PM-04-6.png" width="657" height="727"></p>
+<p>d，eに関する解答群</p>
+<table border="0" cellpadding="0" cellspacing="6" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber11">
+<tr>
+<td>ア</td>
+<td><code>TabPos　← TabSet[Tidx]</code></td>
+</tr>
+<tr>
+<td>イ</td>
+<td><code>TabPos　← TabSet[Tidx] ＋ Didx</code></td>
+</tr>
+<tr>
+<td>ウ</td>
+<td><code>TabPos　← TabSet[Tidx] － Didx</code></td>
+</tr>
+<tr>
+<td>エ</td>
+<td><code>Tidx　←　Didx ＋ 1</code></td>
+</tr>
+<tr>
+<td>オ</td>
+<td><code>Tidx　←　TabPos ＋ 1</code></td>
+</tr>
+<tr>
+<td>カ</td>
+<td><code>Tidx　←　Tidx ＋ 1</code></td>
+</tr>
+</table>
+<p>　</p>
+<hr>
+<hr>
+<a href="18F_P_A2.HTM#42">設問2の正解例と解説へ</a>
+<hr>
+<hr>
+<a href="index.htm">■メニューへ戻る</a>
+<hr>
+<p><a name=" 50"><strong>問5</strong></a>プログラム設計に関する次の記述を読んで，設問1～3に答えよ。</p>
+<p>　B社は，バター，チーズ，ヨーグルトなど，牛乳を主な原料とする乳製品を製造している。</p>
+<p>
+　牛乳は，J牧場，K牧場及びL牧場から仕入れ，個別のタンクに保存されている。製造計画で，ロット番号と呼ばれるコードで識別される製造単位ごとに，単一の牧場の牛乳を使うか，又は標準の混合割合で混合して使うかを決める。ロット番号は，同一製品の同一製造日の製造単位ごとに付けられるコードである。</p>
+<p>　B社では，製造計画で決められた，製造日ごとの各牧場の牛乳の必要量を集計するプログラムを作成することになった。</p>
+<p>〔必要量ファイルの説明〕</p>
+<p>　製造計画で決められた，製造日，製品コード，ロット番号ごとに，原料牛乳の“必要量”（正の整数値）と，単一か混合かを表す“牧場区分”が格納されている。</p>
+<p>　牧場区分は，J牧場，K牧場及びL牧場を表す“J”，“K”，“L”，又は混合を表す“M”のどれかである。</p>
+<p>　必要量ファイルの様式を図1に示す。レコードは，“製造日”，“製品コード”，“ロット番号”を，この順で整列キーとして，昇順に整列されている。</p>
+<p><img border="0" src="img/06f-PM-05-1.png" width="545" height="74"></p>
+<p>〔標準混合割合ファイルの説明〕</p>
+<p>
+　“製品コード”をキーとする索引ファイルである。製品ごとに各牧場の牛乳の標準混合割合が，合計で100％となるように，百分率（0～100の整数値）で格納されている。</p>
+<p>　標準混合割合ファイルの様式を図2に示す。</p>
+<p><img border="0" src="img/06f-PM-05-2.png" width="486" height="70"></p>
+<p>〔集計ファイルの説明〕</p>
+<p>　製造日ごとの各牧場の牛乳の必要量を集計して，総必要量として格納する。</p>
+<p>　集計ファイルの様式を図3に示す。</p>
+<p><img border="0" src="img/06f-PM-05-3.png" width="547" height="74"></p>
+<p>〔プログラムの説明〕</p>
+<p>　必要量ファイルを読み，レコードごとに，次の処理①～③のどれかを行う。</p>
+<p>
+①　牧場区分が“M”のときは，“混合”であり，標準混合割合ファイルと必要量ファイルの情報から，J牧場，K牧場及びL牧場のそれぞれの必要量を計算する。この計算は，小数点以下切捨てとし，切捨て誤差は，L牧場の牛乳の必要量で補正する。</p>
+<p>②　牧場区分が“J”，“K”及び“L”のときは，“単一”であり，必要量の全量を，“J”のときはJ牧場，“K”のときはK牧場，“L”のときはL牧場の牛乳とする。</p>
+<p>③　牧場区分が“J”，“K”，“L”及び“M”以外のときは，エラーであり，このレコードの内容をエラーファイルに出力する。</p>
+<p>　</p>
+<p>　エラーとなったものを除き，製造日ごとにJ牧場，K牧場及びL牧場の牛乳の必要量をそれぞれ集計し，集計ファイルに出力する。</p>
+<p>　入出力関連図を図4に，モジュール構造図を図5に示す。</p>
+<p><img border="0" src="img/06f-PM-05-4.png" width="325" height="306"></p>
+<p><img border="0" src="img/06f-PM-05-5.png" width="547" height="464"></p>
+<p><a name="51"><strong>設問1</strong></a><b>　</b>図6は，主処理と必要量計算の流れ図である。図中の【　　　　】に入れる正しい答えを，解答群の中から選べ。</p>
+<p><img border="0" src="img/06f-PM-05-6.png" width="798" height="549"></p>
+<p>aに関する解答群</p>
+<table border="0" cellpadding="0" cellspacing="6" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber12" width="75%">
+<tr>
+<td>ア　製造日が変わる</td>
+<td>イ　製品コードが変わる</td>
+</tr>
+<tr>
+<td>ウ　牧場区分が変わる</td>
+<td>エ　ロット番号が変わる</td>
+</tr>
+</table>
+<p>b，ｃに関する解答群</p>
+<table border="0" cellpadding="0" cellspacing="6" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber13">
+<tr>
+<td>ア</td>
+<td>（牧場区分≠“J”）or（牧場区分≠“K”）or（牧場区分≠“L”）</td>
+</tr>
+<tr>
+<td>イ</td>
+<td>（牧場区分≠“M”）or（（牧場区分≠“J”）and（牧場区分≠“K”）and（牧場区分≠“L”））</td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>（牧場区分≠“M”）or（牧場区分≠“J”）or（牧場区分≠“K”）or（牧場区分≠“L”）</td>
+</tr>
+<tr>
+<td>エ</td>
+<td>（牧場区分＝“J”）or（牧場区分＝“K”）or（牧場区分＝“L”）</td>
+</tr>
+<tr>
+<td>オ</td>
+<td>（牧場区分＝“M”）or（（牧場区分≠“J”）and（牧場区分≠“K”）and（牧場区分≠“L”））</td>
+</tr>
+<tr>
+<td>カ</td>
+<td>牧場区分≠“M”</td>
+</tr>
+<tr>
+<td>キ</td>
+<td>牧場区分＝“M”</td>
+</tr>
+</table>
+<hr>
+<a href="18F_P_A2.HTM#51">設問1の正解例と解説へ</a>
+<hr>
+<p><a name="51"><strong>設問2</strong></a><b>　</b>図7は，混合の流れ図である。図中の【　　　　】に入れる正しい答えを，解答群の中から選べ。</p>
+<p><img border="0" src="img/06f-PM-05-7.png" width="342" height="342"></p>
+<p>注　“牛乳の必要量”は，必要量ファイルから入力した値である。<br>
+　　“J牧場の割合”及び“K牧場の割合”は，標準混合割合ファイルの値である。<br>
+　　wj，wk及びwlには，それぞれ，J牧場，K牧場及びL牧場の牛乳の必要量を格納する。<br>
+　　除算の計算結果は，小数点以下を切り捨てる。</p>
+<p><strong>図7　混合の流れ図</strong></p>
+<p>解答群</p>
+<table border="0" cellpadding="0" cellspacing="6" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber14">
+<tr>
+<td>ア</td>
+<td>牛乳の必要量－wj</td>
+</tr>
+<tr>
+<td>イ</td>
+<td>牛乳の必要量－wj－wk</td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>牛乳の必要量－wk</td>
+</tr>
+<tr>
+<td>エ</td>
+<td>牛乳の必要量×（100－J牧場の割合－K牧場の割合）÷100</td>
+</tr>
+<tr>
+<td>オ</td>
+<td>牛乳の必要量×L牧場の割合÷100</td>
+</tr>
+</table>
+<hr>
+<a href="18F_P_A2.HTM#52">設問2の正解例と解説へ</a>
+<hr>
+<p><a name="53"><strong>設問3</strong></a><b>　</b>図5中の初期化を除く第3階層及び第4階層の最下位のモジュールのうち，“牧場区分”によって処理を分ける必要があるものを，解答群の中から選べ。</p>
+<p>　ここで，初期化モジュールは，作業用記憶の初期化だけを行うものとする。</p>
+<p>解答群</p>
+<table border="0" cellpadding="0" cellspacing="6" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber15" width="100%">
+<tr>
+<td>ア　エラー</td>
+<td>イ　混合</td>
+<td>ウ　集計</td>
+<td>エ　単一</td>
+</tr>
+</table>
+<p>　</p>
+<hr>
+<a href="18F_P_A2.HTM#53">設問3の正解例と解説へ</a>
+<hr>
+<hr>
+<a href="18F_P_E3.HTM">■問6へ進む</a>
+<hr>
+<a href="index.htm">■メニューへ戻る</a>
+<hr>
+</blockquote>
+</body>
+</html>

@@ -1,0 +1,483 @@
+<HTML>
+<HEAD>
+<TITLE>平成16年度秋期試験　問題(午後問6～問9)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0">
+<blockquote>
+  <hr>
+  <H3 align="center">平成16年度秋期試験　問題(問6～問9)</H3>
+<hr>
+<P>次の問6から問9までの4問については、この中から1問を選択し、答案用紙の選択欄の〔選〕をマークして解答してください。<br>         
+　なお、2問以上選択した場合には、はじめの1問について採点します。
+<hr>
+<p><b><a name="60">問6</a>　</b>次のCプログラムの説明及びプログラムを読んで，設問に答えよ。<br>
+<br>
+〔プログラムの説明〕<br>
+CGIなどへのリクエストの際に文字列パラメタをURLに含める場合には，その文字列パラメタを決められた規則に従って変換し送出する必要がある。このプログラムは，それに用いる変換プログラムURLEncodeである。<br>
+<br>
+ <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">（1）</td>
+            <td>変換対象の文字列パラメタは，JIS X 0201（7ビット及び8ビットの情報交換用符号化文字集合）の文字で構成される。また，文字列パラメタの途中にナル文字（文字符号0x00）は含まれないものとする。</td>
+          </tr>
+          <tr>
+            <td valign="top">（2）</td>
+            <td>変換規則は次のとおりである。<br>
+①　英数文字（0x30～0x39，0x41～0x5A，0x61～0x7A）及び“＠”（0x40），“*”（0x2A），“-”（0x2D），“.”（0x2E），“_”（0x5F）は変換しない（これらの文字を以降，無変換文字と呼ぶ）。<br>
+②　①に含まれない文字は，“%”の後に文字符号の2けたの16進表記を続けた3文字に変換する。例えば，文字符号0x5Eの文字は“%5E”と変換する。</td>
+          </tr>
+          <tr>
+            <td valign="top">（3）</td>
+            <td>関数URLEncodeの仕様は次のとおりである。<br>
+        形式：  void URLEncode ( unsigned char *input,<br>
+　　　　　　　　　　　　　　　　unsigned char *output )<br>
+        引数：  input  変換前の文字列が格納されている文字型配列へのポインタ<br>
+              　　　　output  変換後の文字列を格納する文字型配列へのポインタ</td>
+          </tr>
+          <tr>
+            <td valign="top">（4）</td>
+            <td>outputが指す配列は，変換後の文字列を格納するのに十分な領域が確保されているものとする。</td>
+          </tr>
+          <tr>
+            <td valign="top">（5）</td>
+            <td>例えば，“Hi!”という文字列パラメタを変換した結果は図のとおりとなる。<br>
+<br>
+<img border="0" src="image/PM06_01.gif" width="550" height="160"><br><br>
+          </tr>
+          <tr>
+            <td valign="top">（6）</td>
+            <td>次の関数があらかじめ用意されている。<br>
+        形式：　int replaceChar( unsigned char c )<br>
+        引数：　c<br>
+        返却値：文字cが無変換文字の場合は0を，それ以外の場合は1を返す。</td>
+          </tr>
+        </table>
+<br>
+〔プログラム〕<font size="+1"><pre>
+  int replaceChar ( unsigned char) ;
+  void URLEncode ( unsigned char *input, unsigned char *output ) {
+      const unsigned char chars[] = "0123456789ABCDEF";
+      while ( *input ! = '＼0' ) {
+          if ( replaceChar (［　　a　　］) ) {
+            *output++  = '%';
+            *output++  = chars [［　　b　　］];
+            *output++  = chars [［　　c　　］];
+          } else {
+             *output++ = *input;
+         }
+        ［　　d　　］;
+      }
+      *output = '＼0';
+  }
+</font>
+</pre>     
+<p></p>      
+<hr>
+<p><b><a name="61">設問</a>　</b>プログラム中の［　　　　］に入れる正しい答えを，解答群の中から選べ。<br>
+</p>
+a，dに関する解答群<br>
+<br>
+ア　&input　　　 イ　(&input)++　　　ウ　(*input)++<br>
+エ　**input　　　オ　**input++　　　カ　*input<br>
+キ　input　　　　ク　input++<br>
+<br>
+b，cに関する解答群<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td width="300">ア　*input << 4</td>
+            <td>	イ　*input >> 4</td>
+          </tr>
+          <tr>
+            <td>	ウ　*input & 0x0F</td>
+            <td>	エ　*input & 0xF0</td>
+          </tr>
+          <tr>
+            <td>	オ　*input ^ 0x0F</td>
+            <td>	カ　*input ^ 0xF0</td>
+          </tr>
+          <tr>
+            <td>	キ　*input | 0x0F</td>
+            <td>	ク　*input | 0xF0</td>
+          </tr>
+       </table><br>
+<hr WIDTH="100%">
+  <a HREF="16F_P_A3.HTM#61">設問の正解例と解説へ</a>
+<hr WIDTH="100%">
+<a HREF="index.htm">メニューへ戻る</a><br>
+<HR WIDTH=100%>
+<a NAME="70">　<BR>
+<b>
+問7</b></a><b>　</b>次のCOBOLプログラムの説明及びプログラムを読んで，設問に答えよ。<br>
+<br>
+〔プログラムの説明〕<br>
+研修申込状況を登録した申込ファイルから，研修番号別に申込者の人数を集計して印字する。<br>
+<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">（1）</td>
+            <td>申込ファイルのレコード様式は，次のとおりである。<br>
+<br>
+<img border="0" src="image/PM07_01.gif" width="550" height="80"><br>
+<br>
+①　研修を申し込むと申込者1人について一つの申込番号が発行され，1件のレコードが申込ファイルに登録される。<br>
+②　同一人が，同じ研修に二度以上申し込むことはない。<br>
+③　研修番号は，内容区分と開催区分から構成されている。<br>
+④　内容区分は，A～Hのいずれか1文字である。開催区分は，01～20のいずれかである。<br>
+⑤　申込ファイルの内容には，間違いがないものとする。<br>
+</td>
+          <tr>
+            <td valign="top">（2）</td>
+            <td>集計表の印字様式は，次のとおりである。<br>
+<br>
+<img border="0" src="image/PM07_02.gif" width="240" height="160"><br>
+<br>
+①　各研修とも申込者数は，1,000未満とする。<br>
+②　見出しは，最初に1回だけ印字する。<br>
+③　申込者数が0の研修は，印字しない。</td>
+          </tr>
+        </table>
+
+〔プログラム〕<font size="+1"><pre>
+DATA DIVISION.
+FILE SECTION.
+FD  MOSHIKOMI-FILE.
+01  MOSHIKOMI-REC.
+    02               PIC X(05).
+    02 KENSHU-M.
+       03 KEN-N-M    PIC  X(01).
+       03 KEN-K-M    PIC  9(02).
+   02                PIC  X(42).
+FD  SHUKEI-PRINT.
+01  SHUKEI-REC.
+    02 KENSHU-S.
+       03 KEN-N-S    PIC  X(01).
+       03 KEN-K-S    PIC  9(02).
+   02                PIC  X(15).
+   02  SU-S          PIC  ZZ9.
+WORKING-STORAGE SECTION.
+01 FILE-END          PIC  X(01) VALUE "N".
+01 LOOP1             PIC  9(01).
+01 LOOP2             PIC  9(02).
+01 KEN-NO            PIC  9(01).
+01 KEN-W1.
+   02  KEN-W2        PIC  X(08) VALUE "ABCDEFGH".
+   02  REDEFINES KEN-W2.
+       03 KEN-W3     PIC  X(01) OCCURS 8 INDEXED BY KEN.
+01  SU-WKl                       VALUE ZERO.
+    02  OCCURS 8.
+       03 SU-WK      PIC  9(03) OCCURS 20.
+01 MIDASHI           PIC  X(21) VALUE "ｹﾝｼｭｳﾊﾞﾝｺﾞｳ ﾓｳｼｺﾐｼｬｽｳ".
+PROCEDURE DIVISION.
+MAIN-RTN.
+   OPEN INPUT MOSHIKOMI-FILE OUTPUT SHUKEI-PRINT.
+   PERFORM KASAN-RTN UNTIL FILE-END = "Y".
+   PERFORM PRINT-RTN.
+   CLOSE MOSHIKOMI-FILE SHUKEI-PRINT.
+   STOP RUN.
+KASAN-RTN.
+   READ MOSHIKOMI-FILE
+      AT END
+        MOVE "Y" TO FILE-END
+      NOT AT END
+      ［　　　　　　　a　　　　　　　］
+        SEARCH ［　　　　　　　b　　　　　　　］
+           WHEN KEN-N-M = KEN-W3 (KEN)
+              SET KEN-NO TO KEN
+         END-SEARCH
+         ADD 1 TO SU-WK (KEN-NO KEN-K-M)
+   END-READ.
+
+PRINT-RTN.
+   WRITE SHUKEI-REC FROM MIDASHI AFTER PAGE.
+   PERFORM VARYING LOOP1 FROM 1 BY 1 UNTIL LOOP1 > 8
+      PERFORM VARYING LOOP2 FROM 1 BY 1 UNTIL LOOP2 > 20
+        MOVE SPACE TO SHUKEI-REC
+        IF［　　　　　　　　C　　　　　　　　］NOT = 0 THEN
+          MOVE KEN-W3 (LOOP1) TO KEN-N-S
+          MOVE LOOP2 TO KEN-K-S
+          MOVE［　　　　　　　　C　　　　　　　　］TO SU-S
+          WRITE SHUKEI-REC AFTER 1
+        END-IF
+      END-PERFORM
+    END-PERFORM.</font></pre>
+<hr> 
+<a NAME="71">　<BR>
+<b>
+設問</b></a><b>　</b>プログラム中の［　　　　］に入れる正しい答えを，解答群の中から選べ。<br>
+<br>
+aに関する解答群<BR>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td width="300">ア　MOVE 1 TO KEN</td>
+            <td>	イ　MOVE 1 TO KEN-NO</td>
+          </tr>
+          <tr>
+            <td>	ウ　MOVE KEN TO KEN-NO</td>
+            <td>	エ　MOVE KEN-NO TO KEN</td>
+          </tr>
+          <tr>
+            <td>	オ　SET KEN TO 1</td>
+            <td>	カ　SET KEN TO KEN-N-S</td>
+          </tr>
+          <tr>
+            <td>	キ　SET KEN TO KEN-NO</td>
+            <td>	ク　SET KET-NO TO 1</td>
+          </tr>
+          <tr>
+            <td>	ケ　SET KEN-NO TO KEN</td>
+          </tr>
+        </table>
+<BR>
+bに関する解答群<BR>
+ア　KEN　　　　　イ　KEN-NO　　　ウ　KEN-W1<BR>
+エ　KEN-W2　　 オ　KEN-W3　　　カ　SU-WK<BR>
+<BR>
+cに関する解答群<BR>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td width="300">ア　SU-WK (KEN-K-M KEN-NO)</td>
+            <td>	イ　SU-WK (KEN-K-S KEN-NO)</td>
+          </tr>
+          <tr>
+            <td>	ウ　SU-WK (KEN-NO KEN-K-M)</td>
+            <td>	エ　SU-WK (KEN-NO KEN-K-S)</td>
+          </tr>
+          <tr>
+            <td>	オ　SU-WK (LOOP1 LOOP2)</td>
+            <td>	カ　SU-WK (LOOP2 LOOP1)</td>
+          </tr>
+        </table>
+<BR>
+<HR WIDTH=100%>  
+  <a HREF="16F_P_A3.HTM#71">設問の正解例と解説へ</a>  
+<hr WIDTH="100%">    
+<A HREF="index.htm">メニューへ戻る</A>
+<HR WIDTH=100%>     
+<a NAME="80">　<BR>
+<b> 
+問8</b></a>　次のJavaプログラムの説明及びプログラムを読んで，設問に答えよ。<BR>
+<BR>
+〔プログラムの説明〕<BR>
+任意のオブジェクトを格納し，取り出すプログラムである。格納されたオブジェクトを取り出す方法として，先入れ先出し法（First-In-First-Out）及び後入れ先出し法（Last-In-First-Out）がある。<br>
+<br>
+ <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">（1）</td>
+            <td>抽象クラスStoreは，メソッドput，get，sizeを定義する。<br>
+<b>public void put(Object value)</b><br>
+引数で指定したvalueをStoreインスタンスに先着順に格納する。格納できるオブジェクトの個数の上限は50である。それを超えて格納しようとしたときはDataStoreExceptionを投げる。<br>
+<b>public abstract Object get( )</b><br>
+格納されているオブジェクトを一つ取り出して返す。どのオブジェクトを取り出すかは，このメソッドを実装するサブクラスによって決まる。オブジェクトがないときはDataStoreExceptionを投げる。<br>
+<b>public int size( )</b><br>
+格納されているオブジェクトの個数を返す。オブジェクトが格納されていないときは0を返す。
+</td>
+          </tr>
+          <tr>
+            <td valign="top">（2）</td>
+            <td>クラスFifoStoreは，抽象クラスStoreのサブクラスで，メソッドgetは格納されているオブジェクトのうち最初に格納されたものを取り出して返す。すなわち，先入れ先出しとなる。</td>
+          </tr>
+          <tr>
+            <td valign="top">（3）</td>
+            <td>クラスLifoStoreは，抽象クラスStoreのサブクラスで，メソッドgetは格納されているオブジェクトのうち最後に格納されたものを取り出して返す。すなわち，後入れ先出しとなる。</td>
+          </tr>
+          <tr>
+            <td valign="top">（4）</td>
+            <td>　クラスStoreTestは二つのサブクラスをテストするプログラムである。プログラム起動時に指定された引数をFifoStore及びLifoStoreに格納し，取り出す操作をする。実行例を図に示す。ただし，図中の%はシステムのコマンドプロンプトを表し，コマンドの引数はStringの配列としてメソッドmainに渡されるものとする。<br>
+<br>
+<img border="0" src="image/PM08_01.gif" width="260" height="100"><br>
+</td>
+          </tr>
+        </table>
+<br>
+<FONT face="Courier New"><pre>
+<font size="+1">
+〔プログラム1〕
+
+public abstract class Store {
+  Object[] data = new Object [50];
+  int index = 0;
+
+  public void put(Object value) {
+    if (［　　　　　a　　　　　］)
+       throw new DataStoreException("overflow");
+    data[index++] = value;
+  }
+  public abstract Object get( );
+  public int size(){
+    return ［　　　　　　b　　　　　　］;
+   }
+}
+
+
+〔プログラム2〕
+public class FifoStore extends Store {
+  public Object get() {
+    if (index == 0)
+      throw new DataStoreException("not exist") ;
+    Object value = data[0];
+    for (［　　　　　c　　　　　］)
+      data[i] = data[i + 1];
+    data[--index] = null;
+    return value;
+  }
+}
+
+〔プログラム3〕
+public class LifoStore extends Store {
+  public Object get() {
+    if (index == 0)
+      throw new DataStoreException("not exist");
+    Object value = data[--index];
+    data[index] = null;
+    return value;
+  }
+}
+
+
+〔プログラム4〕
+public class StoreTest {
+  public static void main(String[] args) {
+    FifoStore fifo = new FifoStore();
+    LifoStore lifo = new LifoStore();
+    for (int i = 0; i < args.length; i++) {
+      fifo.put(args[i]);
+      lifo.put(args[i]);
+    }
+    printData(fifo);
+    printData(lifo);
+  }
+  private static void printData(［　　　　d　　　　］store) {
+    int size = store.size();
+    for (int i= 0; i< size; i++)
+      System.out.print(i + ": " + store.get() + " ");
+    System.out.println( ) ;
+  }
+}
+
+
+〔プログラム5〕
+public class DataStoreException extends RuntimeException {
+  public DataStoreException(String message) {
+    super(message) ;
+  }
+}
+</pre></font>
+<HR WIDTH=100%>         
+<a NAME="81"><BR>
+<b>         
+設問</b></a>プログラム中の［　　　　］に入れる正しい答えを，解答群の中から選べ。<br>
+<br>
+aに関する解答群<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td width="300">ア　index < data.length</td>
+            <td>	イ　index <= data.length</td>
+          </tr>
+          <tr>
+            <td>	ウ　index > data.length</td>
+            <td>	エ　index >= data.length</td>
+          </tr>
+          <tr>
+            <td>	オ　index + 1>= data.length</td>
+          </tr>
+        </table>
+<br>
+bに関する解答群<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td width="300">ア　data.length</td>
+            <td>	イ　data.length -1</td>
+          </tr>
+          <tr>
+            <td>	ウ　data.length - index</td>
+            <td>	エ　index</td>
+          </tr>
+          <tr>
+            <td>	オ　index + 1</td>
+          </tr>
+        </table>
+<br>
+cに関する解答群<br>
+ア　int i = 0; i < index; i++<br>
+イ　int i = 0; i < index - 1; i++<br>
+ウ　int i = 0; i < index - 2; i++<br>
+エ　int i = 1; i < index ; i++<br>
+オ　int i = 1; i < index - 1; i++<br>
+<br>
+dに関する解答群<br>
+ア　FifoStore　　　イ　LifoStore　　　ウ　Object<br>
+エ　Store　　　　　オ　StoreTest<br>
+<br>
+<HR WIDTH=100%>
+  <a HREF="16F_P_A3.HTM#81">設問の正解例へ</a>
+<HR WIDTH=100%>
+<a HREF="index.htm">メニューへ戻る</a><br>
+<HR WIDTH=100%>
+<p>          
+<a NAME="90">          
+<b>問9</b></a><b>　</b>次のアセンブラプログラムの説明及びプログラムを読んで，設問に答えよ。<br>
+<br>
+〔プログラムの説明〕<br>
+文字列中の二つ以上連続する間隔文字（以下，空白という）を一つに詰める副プログラムSPCSUPである。<br>
+ <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">（1）</td>
+            <td>主プログラムは，先頭に文字列長，その後に文字列が格納された領域の先頭アドレスをGR1に設定して，副プログラムSPCSUPを呼ぶ。<br>
+<br>
+<img border="0" src="image/PM09_01.gif" width="360" height="80"><br>
+</td>
+          </tr>
+          <tr>
+            <td valign="top">（2）</td>
+            <td>副プログラムSPCSUPは，文字列中の空白を詰めた後，文字列長を再設定する。</td>
+          </tr>
+          <tr>
+            <td valign="top">（3）</td>
+            <td>副プログラムSPCSUPから戻るとき，汎用レジスタの内容は元に戻す。<br>
+<br>
+<img border="0" src="image/PM09_02.gif" width="580" height="130"><br>
+</td>
+          </tr>
+        </table>
+<br>
+<img border="0" src="image/PM09_03.gif" width="50%" height="50%"><br>
+<br>
+<img border="0" src="image/PM09_04.gif" width="38%" height="30%"><br>
+<br>
+<HR WIDTH=100%>         
+<a NAME="91"><BR>
+<b>         
+設問</b></a>プログラム中の［　　　　］に入れる正しい答えを，解答群の中から選べ。<br>
+<br>
+aに関する解答群<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td width="300">ア　ADDL   GR3, 0, GR1</td>
+            <td>	イ　ADDL   GR4, 0, GR1</td>
+          </tr>
+          <tr>
+            <td>	ウ　LAD    GR1, 1, GR1</td>
+            <td>	エ　LAD    GR3, 1, GR3</td>
+          </tr>
+          <tr>
+            <td>	オ　LAD    GR4, 1, GR4</td>
+          </tr>
+        </table>
+<br>
+bに関する解答群<br>
+ア　JNZ    CHMOVE　　　イ　JNZ    CONT　　　ウ　JNZ    RESET<br>
+エ　JZE    CHMOVE　　　オ　JZE    CONT　　　カ　JZE    RESET<br>
+<br>
+cに関する解答群<br>
+ア　LAD    GR2, 1 GR2　　　イ　LAD    GR3, 1, GR3<br>
+ウ　LD    GR6, 1　　　　　　エ　LD    GR6, =1<br>
+
+<HR WIDTH=100%>
+  <a HREF="16F_P_A3.HTM#91">設問の正解例へ</a>
+<HR WIDTH=100%>
+<p align="center"><a href="16F_P_E4.HTM">■問10へ進む</a>
+<a HREF="INDEX.HTM">■メニューへ戻る</a><br>    
+<br>   
+</blockquote>   
+</BODY>   
+</HTML>   

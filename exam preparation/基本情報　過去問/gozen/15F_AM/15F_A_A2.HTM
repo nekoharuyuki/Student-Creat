@@ -1,0 +1,247 @@
+<HTML>
+<HEAD>
+<TITLE>平成15年度秋期試験　正解例と解説(午前問21～問40)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<BLOCKQUOTE>
+<hr>
+<H3 align="center">平成15年度秋期試験　正解例と解説(問21～問40)</H3>
+<HR WIDTH=100%>
+<A NAME="21">　<BR>
+<b>
+問21</b><br>
+<br><select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select><br>
+<br>＜解説＞外部割込みはハードウェア割込みとも呼ばれ，入出力動作の終了時における入出力割込み，ハードウェアの故障や誤動作の場合における機械チェック割込みやタイマー割込みがある。これに対し内部割込みはプログラム割込みとも呼ばれ，ゼロ割や桁あふれなどによるプログラムの演算例外，ページフォルト，命令コード異常などがある。<br>
+<br>
+<HR WIDTH=100%>
+<A HREF="15F_A_E2.HTM#21">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="22">　<BR>
+<b>
+問22</b><br>
+<br><select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select><br>
+<br>＜解説＞両者の処理時間が等しいので，実効アクセス時間が等しくなると考えられる。したがってキャッシュメモリのヒット率をｈとすると，<br>
+　　　　40ｈ＋400(1－ｈ)＝20ｈ＋580(1－ｈ)<br>
+　　　　200ｈ＝180　　　　　　　　　　　　　　　したがってｈ＝0.90<br>
+<br>
+<A NAME="22"><BR></a>
+<HR WIDTH=100%>
+<A HREF="15F_A_E2.HTM#22">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="23">　<BR>
+<b>
+問23</b><br>
+<br><select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select><br>
+<br>＜解説＞ライトスルーは，キャッシュメモリと主記憶の両方に同時にデータを書込む方式。これに対しライトバックは，通常キャッシュメモリにのみデータを書込み，主記憶のデータの変更はキャッシュメモリから当該データが追い出されるときに行う方式。<br>
+<br>
+<HR WIDTH=100%>
+<A HREF="15F_A_E2.HTM#23">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="24">　<BR>
+<b>
+問24</b><br>
+<br><select name="17FA01" size="1"><option selected>解答例</option><option>エ</option></select><br>
+<br>＜解説＞複数レコードをまとめたブロック単位で入出力することにより，ディスクに対する入出力の回数が少なくなるので，データの読込み時間を短縮できる。<br>
+1つの順編成ファイルからレコードの格納順に連続的して読込むほうが高速で，アの場合のように別ファイルにデータを分割した各順編成ファイルを順番にアクセスしても読込み時間は改善されない。イの場合もキーによるインデックス検索のための時間が増えるので，改善されない。ウの場合も，順編成ファイルのレコードを格納順に連続してアクセスするより，シーク動作による磁気ヘッドの移動時間が増えるので，改善されない。<br>
+<br>
+<A NAME="24"><BR></a>
+</p>
+<HR WIDTH=100%>
+<A HREF="15F_A_E2.HTM#24">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="25">　<BR>
+<b>
+問25</b><br>
+<br><select name="17FA01" size="1"><option selected>解答例</option><option>ウ</option></select><br>
+<br>＜解説＞CD-RやCD-RWなどの書込み方式には，「ディスクアットワンス」「トラックアットワンス」「パケットライティング」がある。これらは基本的には「セッション」を単位として書込む。<br>
+「セッション」は「リードイン」で始まり「リードアウト」で終わる単位で，その先頭に管理情報としてVOTC，パステーブル，ディレクトリなどの情報をもつ。<br>
+「ディスクアットワンス」は，1つのセッションを単位として一気に書込む方式で，1つのディスクに1つのセッションしかない「シングルセッション」方式。<br>
+「マルチセッション」は複数セッションからなる方式。<br>
+「トラックアットワンス」は，リードインで始まりリードアウトで終わるセッションを空き領域に追記していくマルチセッション方式の1つ。<br>
+これに対して「パケットライティング」では，セッションを閉じるまでは，パケット単位に分けて追記ができる。「リードイン」を書込むための「リザーブ」と呼ばれる予約領域をセッションの先頭に確保した後，パケット単位でデータを追加し，追記の必要がなくなればリザーブ領域に「リードイン」の管理情報を書込み，「リードアウト」を最後に付加する。<br>
+<A NAME="25"></a>
+　</p>
+<HR WIDTH=100%>
+<A HREF="15F_A_E2.HTM#25">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="26">　<BR>
+<b>
+問26</b><br>
+<br><select name="17FA01" size="1"><option selected>解答例</option><option>ア</option></select><br>
+<br>＜解説＞複数ディスクにデータを細分化し分割して書込むことをストライピングという。データディスクとは別のパリティ用のディスクに障害ディスクを特定するためのエラーチェック用のパリティ情報を格納している。<br>
+ミラーリングは2台のディスクに同じデータを同時に書込み，信頼性を向上させる方式。ディスクキャッシュは補助記憶装置へのアクセスを高速化するために主記憶装置と補助記憶装置との間に設置された緩衝記憶装置。ディスクに対する入出力を効率化するために複数レコードをまとめたブロック単位で入出力する方式。<br>
+<br>
+<HR WIDTH=100%>
+<A HREF="15F_A_E2.HTM#26">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="27">　<BR>
+<b>
+問27</b><br>
+<br><select name="17FA01" size="1"><option selected>解答例</option><option>エ</option></select><br>
+<br>＜解説＞有機ELは，特定の有機化合物に電流を流すと発光することを利用したディスプレイ。LCD(液晶ディスプレイ)では，ガラス基盤の背後から光を当てるバックライトが必要であるのに対し，有機ELではR，G，Bの三色の素子そのものが発光するのでバックライトが不要である。<br>
+薄型，表示が高速・鮮明，広視覚で消費電力が小さいが，寿命が短い。<br>
+<br>
+<HR WIDTH=100%>
+<A HREF="15F_A_E2.HTM#27">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="28">　<BR>
+<b>
+問28</b><br>
+<br><select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select><br>
+<br>＜解説＞必要なVRAM容量＝1画面のピクセル数×1ピクセルに割当てるビット数÷8<br>
+　　　　　　　　　　　　 ＝(1,024×768)×24÷8<br>
+　　　　　　　　　　　　 ≒2.36×10<sup>6</sup>＝2.36Mバイト<br>
+<A NAME="28"></a>
+</p>
+<HR WIDTH=100%>
+<A HREF="15F_A_E2.HTM#28">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="29">　<BR>
+<b>
+問29</b><br>
+<br><select name="17FA01" size="1"><option selected>解答例</option><option>エ</option></select><br>
+<br>＜解説＞プログラム内蔵方式は，プログラムとデータをあらかじめコンピュータの記憶装置に読込んでおき，CPUが読込んでおいたプログラムの命令を順に取り出して実行する方式。フォンノイマンにより提唱された方式。<br>
+<br>
+<HR WIDTH=100%>
+<A HREF="15F_A_E2.HTM#29">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="30">　<BR>
+<b>
+問30</b><br>
+<br><select name="17FA01" size="1"><option selected>解答例</option><option>ウ</option></select><br>
+<br>＜解説＞I/O処理は競合しないので，以下のようなタイムチャートになる。<br>
+        <p><img border="0" src="image/AM_A30.GIF"></p>
+これよりCPUの遊休時間は4ミリ秒となる。<br>
+<A NAME="30"></a>
+</p>
+<HR WIDTH=100%>
+<A HREF="15F_A_E2.HTM#30">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="31">　<BR>
+<b>
+問31</b><br>
+<br><select name="17FA01" size="1"><option selected>解答例</option><option>ウ</option></select><br>
+<br>＜解説＞ターンアラウンドタイムは，ジョブの入力を開始してからCPUで処理された結果がすべて出力されるまでの時間なので，<br>
+ターンアラウンドタイム＝入出力時間＋CPU時間＋処理待ち時間<br>
+したがって処理待ち時間＝ターンアラウンドタイム－CPU時間－入出力時間<br>
+<br>
+<HR WIDTH=100%>
+<A HREF="15F_A_E2.HTM#31">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="32">　<BR>
+<b>
+問32</b><br>
+<br><select name="17FA01" size="1"><option selected>解答例</option><option>ア</option></select><br>
+<br>＜解説＞タスク管理では，プログラムの処理をCPUでの処理単位であるタスクに分解し，タスクにCPUの使用時間などの資源割当てを行う。スプール制御はジョブ管理，入出力実行はデータ管理，ファイル保護はセキュリティ管理で行う。<br>
+<br>
+<HR WIDTH=100%>
+<A HREF="15F_A_E2.HTM#32">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="33">　<BR>
+<b>
+問33</b><br>
+<br><select name="17FA01" size="1"><option selected>解答例</option><option>エ</option></select><br>
+<br>＜解説＞主記憶装置と低速の入出力装置とのデータ転送における速度ギャップがあり，並列動作における処理の遅れを緩衝するため，高速の補助記憶装置上のスプールファイルに出力した後，プリンタに出力します。この方式をスプーリングといいます。これにより主記憶と低速の入出力装置間のデータが円滑化しスループット(単位時間あたりにシステムが処理できる仕事量)が高まり，処理効率が向上します。<br>
+<br>
+<HR WIDTH=100%>
+<A HREF="15F_A_E2.HTM#33">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="34">　<BR>
+<b>
+問34</b><br>
+<br><select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select><br>
+<br>＜解説＞API(Aplication Programing Interface)は，様々なアプリケーションソフトで共通に使われるような汎用的な機能をそれぞれ部品プログラムにして集めたものです。これらはOSに用意された機能で，アプリケーションソフトからこれらの機能を呼出して利用できます。またアプリケーションを開発する場合も，これらのAPIの呼出しを組合わせて作成します。<br>
+<br>
+<HR WIDTH=100%>
+<A HREF="15F_A_E2.HTM#34">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="35">　<BR>
+<b>
+問35</b><br>
+<br><select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select><br>
+<br>＜解説＞カレントディレクトリB1の親ディレクトリA1内にある他のディレクトリB2のファイルC2を相対パスで指定するには，親ディレクトリ経由でディレクトリパスを指定します。したがって../B2/C2となります。この場合..が親ディレクトリA1を表しています。<br>
+<br>
+<HR WIDTH=100%>
+<A HREF="15F_A_E2.HTM#35">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="36">　<BR>
+<b>
+問36</b><br>
+<br><select name="17FA01" size="1"><option selected>解答例</option><option>ウ</option></select><br>
+<br>＜解説＞関係データベースを扱う3層構造のクライアントサーバシステムは，プレゼンテーション，ファンクション，データベースの3階層からなります。<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">(1)</td>
+            <td>　プレゼンテーションはクライアントで，ユーザからのデータの入力と形式チェック，及び計算結果の表示を行う。</td>
+          </tr>
+          <tr>
+            <td valign="top">(2)</td>
+            <td>　ファンクションは中間層のアプリケーションサーバで，入力データに基づき計算処理や加工処理を行う。</td>
+          </tr>
+          <tr>
+            <td valign="top">(3)</td>
+            <td>　データベースはデータベースサーバであり，データベースにアクセスしてSQLの解釈と実行を行う。</td>
+          </tr>
+        </table>
+<A NAME="36"></a>
+</p>
+<HR WIDTH=100%>
+<A HREF="15F_A_E2.HTM#36">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="37">　<BR>
+<b>
+問37</b><br>
+<br><select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select><br>
+<br>＜解説＞複数のプロセッサを搭載して並列実行するマルチプロセッサ方式の1つ。密結合マルチプロセッサは，複数のプロセッサが主記憶を共有し，共有メモリ上の1つのOSにより全体を制御する共有メモリ型のマルチプロセッサ方式。<br>
+<A NAME="37"></a>
+</p>
+<HR WIDTH=100%>
+<A HREF="15F_A_E2.HTM#37">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="38">　<BR>
+<b>
+問38</b><br>
+<br><select name="17FA01" size="1"><option selected>解答例</option><option>エ</option></select><br>
+<br>＜解説＞単位時間内に処理できるトランザクションやジョブの件数は，単位時間内にシステムが処理できる処理能力（スループット）を表し，システムの性能評価の指標となり，エは適切。<br>
+アは誤り。MIPS値はCＰＵの性能評価の指標。<br>
+イは誤り。応答時間やターンアラウンドタイムは性能評価指標ではあるが，システム運用管理者ではなく，利用者の視点での性能評価指標。<br>
+ウは誤り。例えばCＰＵ使用率が高くなれば，逆に応答時間は低下する。<br>
+<A NAME="38"></a>
+　</p>
+<HR WIDTH=100%>
+<A HREF="15F_A_E2.HTM#38">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="39">　<BR>
+<b>
+問39</b><br>
+<br><select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select><br>
+<br>＜解説＞この並列システムがn台のサブシステムから構成されているとすると<br>
+並列システムの稼働率＝1－(すべてのサブシステムが稼動しない確率)<br>
+　　　　　　　　　　＝1－(1－0.7)<sup>n</sup>＝1－0.3n<br>
+この並列システムの稼働率を99％以上にするには　1－0.3<sup>n</sup>≧0.99<br>
+これより0.01≧0.3<sup>n</sup>　　0.3<sup>2</sup>＝0.09　　0.3<sup>3</sup>＝0.027　　0.3<sup>4</sup>＝0.0081<br>
+したがってn＝4台以上必要となる。<br>
+<br>
+<HR WIDTH=100%>
+<A HREF="15F_A_E2.HTM#39">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="40">　<BR>
+<b>
+問40</b><br>
+<br><select name="17FA01" size="1"><option selected>解答例</option><option>ア</option></select><br>
+<br>＜解説＞バーチュアルリアリティは仮想現実とも呼ばれ，CGなどの技術を用いてコンピュータ内で3次元の現実感のある仮想的な空間を表現する技術。<br>
+イはプログレッシブJPEG画像の表示。ウはシミュレーション。エはAI(人工知能)。<br>
+<br>
+<HR WIDTH=100%>
+<a HREF="15F_A_E2.HTM#40">問題へ</a>
+<HR WIDTH=100%>
+　<BR>
+<A HREF="INDEX.HTM">メニューへ戻る</A><BR>
+　<BR>
+<HR WIDTH=100%>
+<ADDRESS>
+<BR>
+</ADDRESS>
+</BLOCKQUOTE>
+</BODY>
+</HTML>

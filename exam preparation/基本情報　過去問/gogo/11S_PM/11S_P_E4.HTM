@@ -1,0 +1,843 @@
+<HTML>
+<HEAD>
+<TITLE>平成11年度春期試験　問題</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0">
+<BLOCKQUOTE>
+<hr>
+<H3 align="center">平成11年度春期試験　問題(問11～問14)</H3>
+<hr>
+<P>次の問11から問14までの4問については、この中から1問を選択し、答案用紙の選択欄の      
+選 をマークして解答してください。なお、2問以上選択した場合には、はじめの1問について採点します。<br>     
+<HR WIDTH=100%>     
+<a NAME="110">　<BR>   
+<b>   
+問11</b></a>　次のＣプログラムの説明及びプログラムを読んで、設問に答えよ。<br>
+<br>
+〔プログラムの説明〕<br>
+乗車駅から降車駅までの運賃を計算し、結果を返却値として返すプログラムである。
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">(1)</td>
+    <td>乗車駅、降車駅の名前は、引数 from、toに入れてプログラムに渡す。</td>    
+  </tr>    
+  <tr>    
+    <td valign="top">(2)</td>    
+    <td>運賃の計算には、運賃距離を用いる。運賃距離は、駅間ごとに決まっている重みを用いて、実距離×重みで計算する。</td>    
+  </tr>    
+  <tr>    
+    <td valign="top">(3)</td>    
+    <td>乗車駅から降車駅までの運賃距離は、関数ceilを用いて、小数点以下を切り上げる。</td>    
+  </tr>    
+  <tr>    
+    <td valign="top">(4)</td>    
+    <td>距離運賃表（構造体FAREの配列）及び重み表は、それぞれグローバル変数dist_fare、weightに格納されている。</td>    
+  </tr>    
+  <tr>    
+    <td valign="top">(5)</td>    
+    <td>構造体FAREの構造は、次のとおりである。    
+      <pre>typedef struct {
+   int      dist;      /*運賃距離を適用する上限（km)*/
+   int      cost;      /*1km 単位の運賃*/
+ } FARE;</pre>    
+      <p>costは、最初の要素を除いて、直前の要素のdistの値を超える距離に対して適用される。</p>   
+    </td>   
+  </tr>   
+  <tr>   
+    <td valign="top">(6)</td>   
+    <td>駅間の実距離及び重みは、駅名表（構造体 STATIONの配列）として引数lineに入れてプログラムに渡す。</td>    
+  </tr>    
+  <tr>    
+    <td valign="top">(7)</td>    
+    <td>構造体STATIONの構造は、次のとおりである。    
+      <p>typedef struct {<br>    
+      &nbsp;&nbsp;&nbsp; char&nbsp;&nbsp;&nbsp;&nbsp;     
+      *name;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /*駅名*/<br>    
+      &nbsp;&nbsp;&nbsp; int&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+      dist;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /*隣駅との実距離(km)*/<br>    
+      &nbsp;&nbsp;&nbsp; int&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+      rank;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /*重み表の添え字の値*/<br>    
+      &nbsp;} STATION;</p>    
+      <p>distには、最後の要素を除いて、直後の要素（駅）との距離が格納される。最後の要素には、0が格納される。</td>    
+  </tr>    
+  <tr>    
+    <td valign="top">(8)</td>    
+    <td>fromとtoは一致しない。また、駅名表の並びで、fromはtoより前にある。</td>    
+  </tr>    
+  <tr>    
+    <td valign="top">(9)</td>    
+    <td>運賃距離は、100kmを超えることはない。</td>    
+  </tr>    
+</table>    
+<p>〔プログラム〕<br>    
+（行番号）<br>    
+01 #include <MATH.H>    
+<br>    
+02 #include <STRING.H>    
+<br>    
+03 #define MAX_DIST 100<br>    
+　<br>
+04 typedef struct { char *name; int dist; int rank; } STATION;<br>    
+05 typedef struct { int dist; int cost; } FARE;<br>    
+　<br>
+06 static FARE dist_fare[] = {{0, 100}, {5, 50}, {20, 40},<br>    
+07&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+{40, 30}, {70, 20}, {MAX_DIST, 10}};<br>    
+08 static double weight[] = {1.0, 1.1, 1.2, 1.5, 2.0};<br>    
+　<br>
+09 int CalculateFare(char *from, char *to, STATION line[])<br>    
+10 {<br>    
+11&nbsp;&nbsp;&nbsp;&nbsp; int dif, distx, farex, i;<br>    
+12&nbsp;&nbsp;&nbsp;&nbsp; double distf;<br>    
+　<br>
+13&nbsp;&nbsp;&nbsp;&nbsp; i = 0;&nbsp;<br>    
+14&nbsp;&nbsp;&nbsp;&nbsp; while(strcmp(from, line[i].name) != 0)<br>    
+15&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; i++;<br>    
+16&nbsp;&nbsp;&nbsp;&nbsp; distf = line[i].dist * weight[line[i].rank];<br>    
+17&nbsp;&nbsp;&nbsp;&nbsp; i++;<br>    
+18&nbsp;&nbsp;&nbsp;&nbsp; while(strcmp(to, line[i].name) != 0){<br>    
+19&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; distf += line[i].dist *     
+weight[line[i].rank];<br>    
+20&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; i++;<br>    
+21&nbsp;&nbsp;&nbsp;&nbsp; }<br>    
+22&nbsp;&nbsp;&nbsp;&nbsp; distx = ceil(distf);<br>    
+　<br>
+23&nbsp;&nbsp;&nbsp;&nbsp; farex = dist_fare[0].cost;<br>    
+24&nbsp;&nbsp;&nbsp;&nbsp; for(i = 1; distx &gt; dist_fare[i - 1].dist; i++) {<br>    
+25&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(distx &lt;=     
+dist_fare[i].dist)<br>    
+26&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dif =     
+distx;<br>    
+27&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else<br>    
+28&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dif =     
+dist_fare[i].dist;<br>    
+29&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; farex += (dif - dist_fare[i -     
+1].dist) * dist_fare[i].cost;<br>    
+30&nbsp;&nbsp;&nbsp;&nbsp; }<br>    
+　<br>
+31&nbsp;&nbsp;&nbsp;&nbsp; return farex;<br>    
+32 }    
+<p>　</p>
+<hr>
+<a NAME="111">　<BR>
+<b>
+設問</b></a><b>　</b>
+<p>次の記述中の[　　　　]に入れる正しい答えを、解答群の中から選べ。<br>
+&nbsp;static STATION linea[　] = {{&quot;a&quot;, 5, 0}, {&quot;b&quot;, 6, 2},     
+{&quot;c&quot;, 11, 1},<br>    
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+{&quot;d&quot;, 8, 4}, {&quot;e&quot;, 7, 3}, {&quot;f&quot;,&nbsp; 0, 0}};<br>    
+&nbsp;main() {<br>    
+&nbsp;&nbsp;&nbsp;&nbsp; int fare;<br>    
+&nbsp;&nbsp;&nbsp;&nbsp; fare = CalculateFare(&quot;a&quot;, &quot;f&quot;,     
+linea);<br>    
+&nbsp;}    
+<p>このプログラムを実行した場合、19行目は<b>[　　a　　]</b>回実行される。そして、     
+22行目で求められたdistxの値は<b>[　　b　　]</b>になり、25行目は<b>[　　c　　]</b>回実行される。その結果、運賃fareは<b>[　　d　　]</b>になる。<br>    
+</p>    
+<p>a，cに関する解答群    
+<table border="0" cellpadding="3" cellspacing="0">   
+  <tr>   
+    <td width="60">ア　0</td>
+    <td width="60">イ　1</td>
+    <td width="60">ウ　2</td>
+    <td>エ　3</td>
+  </tr>
+  <tr>
+    <td>オ　4</td>
+    <td>カ　5</td>
+    <td>キ　6</td>
+    <td></td>
+  </tr>
+</table>
+<p>bに関する解答群<br>
+ア　25　　　　イ　29　　　　ウ　37　　　　エ　48　　　　オ　51<br>
+<p>dに関する解答群<br>
+ア　1,120　　　イ　1,630　　　ウ　1,770　　　エ　2,140　　　オ　2,650<br>
+</p>
+<p>　</p>
+<HR WIDTH=100%>
+<a HREF="11s_p_a4.htm#111">設問の正解例と解説へ</a>
+<HR WIDTH=100%>
+<p><A HREF="index.htm">メニューへ戻る</A></p>
+<HR WIDTH=100%>
+<a NAME="120">　<BR>
+<b>
+問12</b></a>　次のCOBOLプログラムの説明及びプログラムを読んで、設問     
+1、2に答えよ。    
+<p>〔プログラムの説明〕<br>    
+ある国の累積輸出記録ファイルを読み込んで、輸出年月から３年以上経過したレコードを削除して、新累積輸出記録ファイルを作成するプログラムである。    
+<p>(1)　累積輸出記録ファイル、新累積輸出記録ファイルのレコード様式は、次のとおりである。
+<table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolor="#FFFFFF" bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100" align="center">輸出年月<br>
+      4けた</td>
+    <td width="100" align="center">製品コード<br>
+      5けた</td>
+    <td width="100" align="center">数量<br>
+      6けた</td>
+  </tr>
+</table>
+<p>輸出年月は、西暦の下２けたの年と２けたの月からなる。<br>
+例：1999年 4月ならば“9904”となる。    
+<p>(2)　このプログラムを実行した時点で、輸出年月から３年以上経過したレコードを削除する。<br>
+　　例：プログラム実行年月が99年4月のとき、輸出年月が96年4月以前のレコードを削除する。</p>
+<p>〔プログラム〕
+<p>（行番号）<br>
+01&nbsp;&nbsp;&nbsp;&nbsp;     
+DATA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+DIVISION.<br>    
+02&nbsp;&nbsp;&nbsp;&nbsp;     
+FILE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+SECTION.<br>    
+03&nbsp;&nbsp;&nbsp;&nbsp; FD&nbsp; YUSYUTU-FILE.<br>    
+04&nbsp;&nbsp;&nbsp;&nbsp; 01&nbsp; YUSYUTU-REC.<br>    
+05&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 03&nbsp; Y-HIZUKE.<br>    
+06&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+05&nbsp; Y-NEN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PIC 9(2).<br>    
+07&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+05&nbsp; Y-TUKI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PIC 9(2).<br>    
+08&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 03&nbsp;     
+Y-SEIHIN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PIC X(5).<br>    
+09&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 03&nbsp;     
+Y-SURYO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PIC 9(6).<br>    
+10&nbsp;&nbsp;&nbsp;&nbsp; FD&nbsp; N-YUSYUTU-FILE.<br>    
+11&nbsp;&nbsp;&nbsp;&nbsp; 01&nbsp;     
+N-YUSYUTU-REC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PIC X(15).<br>    
+12&nbsp;&nbsp;&nbsp;&nbsp; WORKING-STORAGE&nbsp;&nbsp; SECTION.<br>    
+13&nbsp;&nbsp;&nbsp;&nbsp; 01&nbsp;     
+EOF-FLAG&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PIC     
+X(1)&nbsp;&nbsp; VALUE SPACE.<br>    
+14&nbsp;&nbsp;&nbsp;&nbsp; 01&nbsp; SYORI-BI.<br>    
+15&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 03&nbsp; MUKO-HIZUKE.<br>    
+16&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+05&nbsp; M-NEN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PIC 9(2).<br>    
+17&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+05&nbsp; M-TUKI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PIC 9(2).<br>    
+18&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+03&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+PIC 9(2).<br>    
+　<br>
+19&nbsp;&nbsp;&nbsp;&nbsp;     
+PROCEDURE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DIVISION.&nbsp;<br>    
+20&nbsp;&nbsp;&nbsp;&nbsp; KAISI.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>    
+21&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ACCEPT SYORI-BI FROM DATE.<br>    
+22&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; COMPUTE M-NEN = M-NEN - 3.<br>    
+23&nbsp;&nbsp;&nbsp;&nbsp; MAIN-SYORI.<br>    
+24&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; OPEN INPUT YUSYUTU-FILE.<br>    
+25&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; OPEN OUTPUT N-YUSYUTU-FILE.<br>    
+26&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; READ YUSYUTU-FILE AT END<br>    
+27&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MOVE     
+&quot;E&quot; TO EOF-FLAG<br>    
+28&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; END-READ.&nbsp;<br>    
+29&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PERFORM UNTIL EOF-FLAG =     
+&quot;E&quot;<br>    
+30&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IF Y-HIZUKE     
+&gt; MUKO-HIZUKE<br>    
+31&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+WRITE N-YUSYUTU-REC FROM YUSYUTU-REC<br>    
+32&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; END-IF<br>    
+33&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; READ     
+YUSYUTU-FILE AT END<br>    
+34&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+MOVE &quot;E&quot; TO EOF-FLAG<br>    
+35&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+END-READ&nbsp;<br>    
+36&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; END-PERFORM.&nbsp;<br>    
+37&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CLOSE YUSYUTU-FILE     
+N-YUSYUTU-FILE.<br>    
+38&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; STOP RUN.</p>    
+<HR WIDTH=100%>    
+<a NAME="121"><b>　<BR>    
+設問</b></a><b>1　</b>次の記述中の<b>[　　　　]</b>に入れる正しい答えを、解答群の中から選べ。   
+<p>　このプログラムは、年が西暦の下２けたで表現されているので、西暦2000年以降では正しく動作しない。つまり、年を西暦の下２けたで表現すると1999年は“99”、2000年は“00”となり、日付の大小の逆転や期間計算の誤処理などが発生する。この“2000年問題”の対処方法として、“４けた拡張法”と“ウィンドウ法”がある。</p>
+<p>“４けた拡張法”とは、プログラムとファイルの中の年をすべて４けたに変更する方法である。正攻法と言えるが、既存のファイルをすべて作り直す必要があるので、関連するすべてのプログラムと同期をとって一括移行しなければならない。</p>
+<p>“ウィンドウ法”とは、ファイル中の年は２けたのままにしておき、プログラム中の比較処理などを４けたの年に変換して行う方法である。変換は、境界年と呼ばれる値を設定して、境界年未満の値には2000を、境界年以上の値には1900を加えて４けたの年とする。例えば、境界年を60とすれば、00～59は2000～2059に、60～99は1960～1999<br>
+に変換する。この方法では、処理する範囲が100年を超えるデータは処理できない。<br>
+しかし、既存のファイルを変更しないので、プログラム単位に順次移行が可能である。<br>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">(1)</td>
+    <td>このプログラムを“４けた拡張法”で修正するには、次の変更が必要である。
+      <table border="0" cellpadding="3" cellspacing="0">
+        <tr>
+          <td valign="top">①</td>
+          <td>累積輸出記録ファイルの輸出年月の年を２けたから４けたに変更する。6行目と11行目をそれぞれ次のとおりに変える。
+            <p>06&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+            05&nbsp; Y-NEN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PIC 9(4).<br>    
+            11&nbsp;&nbsp;&nbsp;&nbsp; 01&nbsp;     
+            N-YUSYUTU-REC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PIC     
+            X([　　a　　]).</td>
+        </tr>
+        <tr>
+          <td valign="top">②</td>
+          <td>16行目の年を格納する作業領域の長さを、４けたに変える。
+            <p>16&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+            05&nbsp; M-NEN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PIC 9(4).</td>    
+        </tr>    
+        <tr>    
+          <td valign="top">③</td>    
+          <td>21行目のACCEPT文では２けたの年しか取得できない。この行を４けたの年、２けた　の月、2けたの日を取得できる関数“CURRENT-DATE”を使用するように変更する。
+            <p>21&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MOVE FUNCTION     
+            CURRENT-DATE TO SYORI-BI.</td>    
+        </tr>    
+      </table>    
+    </td>    
+  </tr>    
+  <tr>    
+    <td valign="top">(2)</td>    
+    <td>このプログラムを“ウィンドウ法”で修正するには、次の変更が必要である。    
+      <table border="0" cellpadding="3" cellspacing="0">    
+        <tr>    
+          <td valign="top">①</td>    
+          <td>境界年を 60として格納した領域を 18行目と     
+            19行目の間に追加する。    
+            <p>01&nbsp; KYOKAI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PIC     
+            9(2)&nbsp;&nbsp; VALUE 60.</td>    
+        </tr>    
+        <tr>    
+          <td valign="top">②</td>    
+          <td>２けたの年を含む Y-HIZUKEと     
+            MUKO-HIZUKEを４けたの年に変換したY-HIZUKE-Y2K　とMUKO-HIZUKE-Y2Kを     
+            ① に続けて追加する。    
+            <p>01&nbsp; Y-HIZUKE-Y2K.<br>    
+            &nbsp;&nbsp;&nbsp; 03&nbsp; Y-NEN-Y2K&nbsp;&nbsp; PIC 9(4).&nbsp;<br>    
+            &nbsp;&nbsp;&nbsp; 03&nbsp; Y-TUKI-Y2K&nbsp; PIC 9(2).&nbsp;<br>    
+            01&nbsp; MUKO-HIZUKE-Y2K.&nbsp;<br>    
+            &nbsp;&nbsp;&nbsp; 03&nbsp; M-NEN-Y2K&nbsp;&nbsp; PIC 9(4).&nbsp;<br>    
+            &nbsp;&nbsp;&nbsp; 03&nbsp; M-TUKI-Y2K&nbsp; PIC 9(2).</td>    
+        </tr>    
+        <tr>    
+          <td valign="top">③</td>    
+          <td>年の変換処理で使用する変換前後の年を入れる領域を     
+            ② に続けて追加する。    
+            <p>01&nbsp; W-NEN2-Y2K&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PIC 9(2).<br>    
+            01&nbsp; W-NEN4-Y2K&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PIC 9(4).</td>    
+        </tr>    
+        <tr>    
+          <td valign="top">④</td>    
+          <td>22行目の処理を４けたの年で行うように変更する。    
+            <p>MOVE M-NEN TO W-NEN2-Y2K.<br>    
+            PERFORM CONVERT-DATE-RTN.<br>    
+            MOVE W-NEN4-Y2K TO M-NEN-Y2K.<br>    
+            MOVE M-TUKI TO M-TUKI-Y2K.<br>    
+            COMPUTE M-NEN-Y2K = M-NEN-Y2K - 3.</td>    
+        </tr>    
+        <tr>    
+          <td valign="top">⑤</td>    
+          <td>次の処理を[　　b　　]行目の直後に追加する。
+            <p>MOVE Y-NEN TO W-NEN2-Y2K<br>    
+            PERFORM CONVERT-DATE-RTN<br>    
+            MOVE W-NEN4-Y2K TO Y-NEN-Y2K<br>    
+            MOVE Y-TUKI TO Y-TUKI-Y2K</td>    
+        </tr>    
+        <tr>    
+          <td valign="top">⑥</td>    
+          <td>30行目の処理を４けたの年で行うように変更する。    
+            <p>IF　[　　　c　　　　]</td>
+        </tr>
+        <tr>
+          <td valign="top">⑦</td>
+          <td>38行目の後に年の変換処理を追加する。
+            <p>CONVERT-DATE-RTN.<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IF     
+            [　　　d　　　]<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; COMPUTE     
+            W-NEN4-Y2K = 2000 + W-NEN2-Y2K<br>    
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ELSE<br>    
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; COMPUTE     
+            W-NEN4-Y2K = 1900 + W-NEN2-Y2K<br>    
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; END-IF.</td>    
+        </tr>    
+      </table>    
+    </td>    
+  </tr>    
+</table>    
+<p>aに関する解答群    
+<table border="0" cellpadding="3" cellspacing="0">    
+  <tr>    
+    <td width="100">ア　4</td>
+    <td width="100">イ　5</td>
+    <td width="100">ウ　8</td>
+  </tr>
+  <tr>
+    <td>エ　10</td>
+    <td>オ　15</td>
+    <td>カ　17</td>
+  </tr>
+</table>
+<p>bに関する解答群
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td width="100">ア　20</td>
+    <td width="100">イ　23</td>
+    <td width="100">ウ　25</td>
+  </tr>
+  <tr>
+    <td>エ　28</td>
+    <td>オ　29</td>
+    <td>カ　35</td>
+  </tr>
+</table>
+<p style="line-height: 120%">c、dに関する解答群<br>
+ア　KYOKAI &lt; W-NEN2-Y2K<br>    
+イ　KYOKAI &lt; W-NEN4-Y2K<br>    
+ウ　MUKO-HIZUKE &gt; Y-HIZUKE<br>    
+エ　MUKO-HIZUKE-Y2K &gt; Y-HIZUKE-Y2K<br>    
+オ　M-NEN-Y2K &gt; Y-NEN-Y2K<br>    
+カ　Y-HIZUKE &gt; MUKO-HIZUKE<br>    
+キ　Y-HIZUKE-Y2K &gt; MUKO-HIZUKE-Y2K<br>    
+ク　Y-NEN-Y2K &gt; M-NEN-Y2K<br>    
+ケ　W-NEN2-Y2K &lt; KYOKAI<br>    
+コ　W-NEN4-Y2K &lt; KYOKAI<br>    
+　</p>
+<HR WIDTH=100%>
+<a HREF="11s_p_a4.htm#121">設問1の正解例と解説へ</a>
+<HR WIDTH=100%>
+<a NAME="122"><b>　<BR>
+設問</b></a><b>2　</b>次の記述中の[　　　　]に入れる正しい答えを、解答群の中から選べ。
+<p>　このプログラムを設問１で説明した“ウィンドウ法”で修正した。次に示す     
+20レコードからなる累積輸出記録ファイルを指定して、プログラムを西暦2000年4月18日に実行したとすると、年の変換処理（CONVERT-DATE-RTN）は[　　e　　]回呼び出され、演算命令（COMPUTE     
+W-NEN4-Y2K = 2000 + W-NEN2-Y2K）は[　　f　　]回実行される。
+<p>累積輸出記録ファイル
+<table border="0" cellpadding="6" cellspacing="0">
+  <tr>
+    <td>9703A1234001345<br>
+      9706B1234002600<br>
+      9803A1234002832<br>
+      9806B1234002243<br>
+      9903A1234003800<br>
+      9912B1234002532<br>
+      0003A1234004832</td>
+    <td>9703B1234002567<br>
+      9712A1234002543<br>
+      9803B1234002345<br>
+      9812A1234003667<br>
+      9903B1234002321<br>
+      0002A1234004345<br>
+      0003B1234002340</td>
+    <td valign="top">9706A1234001823<br>
+      9712B1234002578<br>
+      9806A1234003223<br>
+      9812B1234001823<br>
+      9912A1234004278<br>
+      0002B1234002223</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>　<br>
+      　<br>
+      解答群</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td width="60">
+ア　4</td>
+    <td width="60">イ　5</td>
+    <td width="60">ウ　6</td>
+    <td width="60">エ　7</td>
+    <td>オ　16</td>
+  </tr>
+  <tr>
+    <td>
+カ　17</td>
+    <td> キ　18</td>
+    <td> ク　19</td>
+    <td> ケ　20</td>
+    <td> 
+コ　21</td>
+  </tr>
+</table>
+<p>　</p>
+<HR WIDTH=100%>
+<a HREF="11s_p_a4.htm#122">設問2の正解例と解説へ</a>
+<HR WIDTH=100%>
+<p>
+<A HREF="index.htm">メニューへ戻る</A></p>
+<HR WIDTH=100%>
+<p>
+<a NAME="130">
+<b>問13</b></a><b>　</b></p>
+次のFortranプログラムの説明及びプログラムを読んで、設問に答えよ。<br>
+<p>〔プログラムの説明〕<br>
+英字（“a”～“z”）からなる長さ m（1≦ m≦ 100）の文字列を入力して、その文字列を圧縮した結果として生成される文字列を出力するプログラムである。    
+<table border="0" cellpadding="3" cellspacing="0">    
+  <tr>    
+    <td valign="top">(1)</td>    
+    <td>文字列を配列 caに入力し、入力した文字列の後に、空白文字“     
+      ”を圧縮処理のために付加する。</td>    
+  </tr>    
+  <tr>    
+    <td valign="top">(2)</td>    
+    <td>入力した文字列を調べ、同じ英字が連続して出現した場合、連続している英字を３文字からなる変換記号列（制御記号、反復回数、反復文字）に置き換える。</td>    
+  </tr>    
+  <tr>    
+    <td valign="top">(3)</td>    
+    <td>制御記号は、入力した文字列中で、最も出現回数の少ない文字とする（ここで、文字列中に１度も出現しなかった英字は出現回数を０とする）。プログラムでは、組込み関数     
+      minlocを利用して制御記号を選んでいる。minlocは、引数で指定した配列の要素の中で最小値の要素の添字の値を１次元配列に返す。最小値の要素が複数個あるときには、添字が返される要素は添字の値が最小となっている要素である。</td>    
+  </tr>    
+  <tr>    
+    <td valign="top">(4)</td>    
+    <td>反復回数は、1→“a”、2→“b”、…、26→“z”として表わし、27以上の場合は     
+      26以内となるように変換記号列を繰り返す。    
+      <p>例：30個の連続した“a”を圧縮した結果は、制御記号が“q”のとき、“qzaqda”　となる。</td>
+  </tr>
+  <tr>
+    <td valign="top">(5)</td>
+    <td>変換記号列は３文字を必要とするので、連続する同じ英字の文字数が３以下の場合には変換記号列に置き換えない。ただし、その英字が制御記号として選択されているときは、復号（圧縮前のデータに戻すこと）ができなくなるのを防ぐため、変換記号列に必ず置き換える。
+      <p>例：制御記号が“v”のとき、入力文字列中の“vv”は、“vbv”となる。</td>
+  </tr>
+  <tr>
+    <td valign="top">(6)</td>
+    <td>プログラムでは、文字列を処理するために、組込み関数     
+      iacharと acharを利用している。iachar(c)は、ASCII大小順序における文字     
+      cの番号を返す。 achar(i)は、ASCII大小順序における順序位置     
+      iの文字を返す。    
+      <p>例：achar(iachar('a')+1) = 'b'</td>    
+  </tr>    
+  <tr>    
+    <td valign="top">(7)</td>    
+    <td>入力データ及び出力結果の例を図 1、2に示す。    
+      <p>31<br>    
+      aaaaaabbccccddddddeeffffggggggg<br>    
+      　　図１　入力データ例<br>
+      <br>
+      control mark = h　　data size = 　19<br>
+      hfabbhdchfdeehdfhgg<br>
+      　　図２　出力結果例</td>
+  </tr>
+</table>
+<p>〔プログラム〕
+<p>（行番号）<br>
+01&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; character,dimension(101) :: ca<br>    
+02&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; character,dimension(106) :: cb<br>    
+03&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; integer,dimension(26) :: ic<br>    
+04&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; integer,dimension(1) :: icloc<br>    
+05&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; character cntsign<br>    
+06&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; integer :: i,j,m,k,k1,k2<br>    
+07&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; read(*,*) m<br>    
+08&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; read(*,'(100a1)')(ca(k),k=1,m)<br>    
+09&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ca(m+1) = '&nbsp; '<br>    
+10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ic = 0<br>    
+11&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; do i=1,m<br>    
+12&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; k = iachar(ca(i))-iachar('a')+1<br>    
+13&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ic(k) = ic(k)+1<br>    
+14&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end do<br>    
+15&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; icloc = minloc(ic)<br>    
+16&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cntsign = achar(icloc(1)+iachar('a')-1)<br>    
+17&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; k1 = 1<br>    
+18&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; k2 = 1<br>    
+19&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; do i=1,m<br>    
+20&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(ca(i)==ca(i+1)) then<br>    
+21&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; k1 = k1+1<br>    
+22&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else<br>    
+23&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(k1&gt;3 .or.     
+ca(i)==cntsign) then<br>    
+24&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; do     
+j=1,(k1+25)/26<br>    
+25&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+cb(k2) = cntsign<br>    
+26&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+if(k1&gt;=26) then<br>    
+27&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+cb(k2+1) = 'z'<br>    
+28&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+k1 = k1-26<br>    
+29&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+else<br>    
+30&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+cb(k2+1) = achar(iachar('a')+k1-1)&nbsp;<br>    
+31&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+end if<br>    
+32&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+cb(k2+2) = ca(i)<br>    
+33&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+k2 = k2+3<br>    
+34&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end do<br>    
+35&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else<br>    
+36&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+cb(k2:k2+k1-1) = ca(i)&nbsp;<br>    
+37&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; k2 = k2+k1<br>    
+38&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end if<br>    
+39&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; k1 = 1<br>    
+40&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end if<br>    
+41&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end do<br>    
+42&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; write(*,100) cntsign,k2-1<br>    
+43&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; write(*,200) (cb(i),i=1,k2-1)<br>    
+44&nbsp; 100 format('&nbsp;&nbsp;&nbsp; control mark = ',a1,'&nbsp;&nbsp;&nbsp;     
+data size =',i5)<br>    
+45&nbsp; 200 format('&nbsp;&nbsp;&nbsp; ',106a1)&nbsp;<br>    
+46&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end<br>    
+</p>    
+<HR WIDTH=100%>    
+<a NAME="131">　<BR>    
+<b>    
+設問</b></a>&nbsp;　プログラムと実行結果を分析した記述中の[　　　　]に入れる正しい答えを、解答群の中から選べ。<br>
+　
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">(1)</td>
+    <td>次に示すデータを入力した場合、このプログラムの 30行目の実行回数は<b>[　　a　　]</b>回である。<br>
+      23<br>
+      abbbbcccddaaaaeeeeeehhh</td>
+  </tr>
+  <tr>
+    <td valign="top">(2)</td>
+    <td>(1)に示すデータを入力した場合、このプログラムの 19行目から     
+      41行目の<br>    
+      　DO構文の実行が終了したときの k2の値は<b>[　　b　　]</b>となる。</td>
+  </tr>
+  <tr>
+    <td valign="top">(3)</td>
+    <td>このプログラムの 6行目を、    
+      <p>integer :: i,m,k,k1,k2</p>    
+      <p>に変更し、24行目から 34行目までを次のとおりに変更すれば、IF構文を使わずにすむ。    
+      <p>do while (k1&gt;0)<br>    
+      cb(k2) = cntsign<br>    
+      cb(k2+1) = achar(iachar('a') + <b> [　　c　　]</b> )<br>    
+      cb(k2+2) = ca(i)<br>    
+      k1 = k1-26<br>    
+      k2 = k2+3<br>    
+      end do</td>    
+  </tr>    
+  <tr>    
+    <td valign="top">(4)</td>    
+    <td>このプログラムの 19行目を、誤って次のようにしたとき、(1)に示す入力データに対する     
+      43行目の WRITE文の出力結果は<b>[　　d　　]</b>となる。
+      <p>do i=1,m-1<br> 
+      　</td>   
+  </tr>   
+</table>   
+<pre><font size="3">aに関する解答群
+ア　1　　　　イ　2　　　　ウ　3　　　　エ　4
+オ　5　　　　カ　6　　　　キ　7</font></pre>   
+<pre><font size="3">bに関する解答群
+ア　17　　　　イ　18　　　　ウ　19
+エ　20　　　　オ　21　　　　カ　23</font></pre>   
+<pre><font size="3">cに関する解答群
+ア　min(k1,26)－1　　　　イ　min(k1,26)　　　　ウ　min(k1,26)＋1
+エ　max(k1,26)－1　　　　オ　max(k1,26)　　　　カ　max(k1,26)＋1</font></pre>   
+<pre><font size="3">dに関する解答群
+ア　afdbcccddfdaffe　　　　　　イ　afdbcccddfdaffeh
+ウ　afdbcccddfdaffehh　　　　　エ　afdbcccddfdaffehhh
+オ　afdbfccddfdaffe　　　　　　カ　afdbfccddfdaffeh
+キ　afdbfccddfdaffehh</font></pre>   
+<p>　</p>
+<HR WIDTH=100%>
+<a HREF="11s_p_a4.htm#131">設問の正解例と解説へ</a>
+<HR WIDTH=100%>
+　<BR>
+<b><a name="140">問14</a>　</b>次のアセンブラプログラムの説明及びプログラムを読んで、設問     
+1、2に答えよ。    
+<p>〔プログラムの説明〕<br>    
+副プログラム REVRSは、16ビットからなるビット列の並びの順序を逆にする。</p>    
+<table border="0" cellpadding="3" cellspacing="0">    
+  <tr>    
+    <td valign="top">(1)</td>    
+    <td>ビット列は、主プログラムから、GR0に格納されて渡される。</td>    
+  </tr>    
+  <tr>    
+    <td valign="top">(2)</td>    
+    <td>並びの順序を逆にしたビット列は、GR0に格納して、主プログラムに戻す。<br>    
+      <img border="0" src="image/a99s14f1.gif" width="263" height="78"><br>   
+      図１　副プログラムREVRSの実行例</td> 
+  </tr> 
+  <tr> 
+    <td valign="top">(3)</td> 
+    <td>この副プログラムから戻るとき、汎用レジスタ GR1、GR2の内容を元に戻す。</td>    
+  </tr>    
+</table>    
+<table border="0" cellpadding="3" cellspacing="0" width="477">    
+  <tr>    
+    <td width="469"><font size="2"><br>    
+      〔プログラム〕<br>    
+      （行番号）<br>    
+      01&nbsp; REVRS     
+      START&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+      ;<br>    
+      02&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PUSH&nbsp;&nbsp;&nbsp;     
+      0,GR1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;　レジスタの退避<br> 
+      03&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PUSH&nbsp;&nbsp;&nbsp;     
+      0,GR2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;<br>    
+      04&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+      ST&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GR0,WORK&nbsp;&nbsp;&nbsp;&nbsp;     
+      ;　元のビット列 → GR1<br>    
+      05&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+      LD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GR1,WORK&nbsp;&nbsp;&nbsp;&nbsp; ;<br>    
+      06&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; LEA&nbsp;&nbsp;&nbsp;&nbsp;     
+      GR2,16&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;ループカウンタ<br>    
+      07&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; LEA&nbsp;&nbsp;&nbsp;&nbsp;     
+      GR0,0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+      ;結果のビット列の初期化<br>    
+      08&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; LEA&nbsp;&nbsp;&nbsp;&nbsp;     
+      GR1,0,GR1&nbsp;&nbsp;&nbsp; ;<br>    
+      09&nbsp; LOOP&nbsp; JZE&nbsp;&nbsp;&nbsp;&nbsp;     
+      FIN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+      ;残りのビットはすべて0<br>    
+      10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; JPZ&nbsp;&nbsp;&nbsp;&nbsp;     
+      OFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+      ;左端のビットは0<br>    
+      11&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+      OR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GR0,MASK&nbsp;&nbsp;&nbsp;&nbsp;     
+      ;結果のビット列の左端のビットを1に<br>    
+      12&nbsp; OFF&nbsp;&nbsp; LEA&nbsp;&nbsp;&nbsp;&nbsp;     
+      GR2,-1,GR2&nbsp;&nbsp; ;ループカウンタから1減ずる<br>    
+      13&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; JZE&nbsp;&nbsp;&nbsp;&nbsp;     
+      FIN1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+      ;全ビット処理済み<br>    
+      14&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SRL&nbsp;&nbsp;&nbsp;&nbsp;     
+      GR0,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+      ;結果のビット列を1ビット右にシフト<br>    
+      15&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SLL&nbsp;&nbsp;&nbsp;&nbsp;     
+      GR1,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+      ;元のビット列を1ビット左にシフト<br>    
+      16&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; JMP&nbsp;&nbsp;&nbsp;&nbsp;     
+      LOOP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;<br>    
+      17&nbsp; FIN&nbsp;&nbsp; SRL&nbsp;&nbsp;&nbsp;&nbsp;     
+      GR0,-1,GR2&nbsp;&nbsp;     
+      ;結果のビット列を未処理ビット数だけシフト<br>    
+      18&nbsp; FIN1&nbsp; POP&nbsp;&nbsp;&nbsp;&nbsp;     
+      GR2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+      ;　レジスタの復元<br> 
+      19&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; POP&nbsp;&nbsp;&nbsp;&nbsp;     
+      GR1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;<br>    
+      20&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+      RET&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+      ;<br>    
+      21&nbsp; MASK&nbsp; DC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+      #8000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;<br>    
+      22&nbsp; WORK&nbsp; DS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+      1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;<br>    
+      23&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+      END&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+      ;</font><br>    
+    </td>    
+  </tr>    
+</table>    
+<hr>    
+<p><b><a name="141">設問</a>1　</b>主プログラムから、ビット列     
+1101 0111 0100 0000が渡されたとき、説明文中の[　　　　]に入れる正しい答えを、解答群の中から選べ。</p> 
+<table border="0" cellpadding="3" cellspacing="0"> 
+  <tr> 
+    <td>(1)</td> 
+    <td>16行目の JMP命令を、3回目に実行する時点での GR0の内容は<b>[　　a　　]</b>である。</td>    
+  </tr>    
+  <tr>    
+    <td>(2)</td>    
+    <td>17行目の SRL命令を実行する時点での GR2の内容は<b>[　　b　　]</b>である。</td>    
+  </tr>    
+</table>    
+<table border="0" cellpadding="3" cellspacing="0">    
+  <tr>    
+    <td><font size="3">　<br> 
+      aに関する解答群</font></td> 
+  </tr> 
+</table> 
+<table border="0" cellpadding="3" cellspacing="0"> 
+  <tr> 
+    <td width="200"><font size="3">ア　0000 0000 0000 0110</font></td>    
+    <td width="200"><font size="3">イ　0011 0000 0000 0000</font></td>    
+  </tr>    
+  <tr>    
+    <td><font size="3">ウ　0110 0000 0000 0000</font></td>    
+    <td><font size="3">エ　1100 0000 0000 0000</font></td>    
+  </tr>    
+</table>    
+<p><font size="3">bに関する解答群<br>    
+ア　3　　　　イ　4　　　　ウ　6　　　　エ　7</font><br> 
+</p> 
+<HR WIDTH=100%> 
+<a HREF="11s_p_a4.htm#141">設問の正解例と解説へ</a> 
+<HR WIDTH=100%> 
+<p><b><a name="142">設問</a>2　</b>連続する N語（N≧1）を 16×Nビットからなるビット列とみなす。この16×Nビットの並びの順序を逆にして、元の     
+N語に格納する副プログラム REVRSNを、副プログラム REVRSを使用して作成した。</p>    
+<p>(1)連続する N語の先頭アドレスは、GR1に格納されて、主プログラムから渡される。    
+<p>(2)語数 Nは、GR0に格納されて、主プログラムから渡される。    
+<p><img border="0" src="image/a99s14f2.gif" width="242" height="102"><br>   
+図２　副プログラムREVRSNの実行</p> 
+<p>副プログラム REVRSN中の<b>[　　　　]</b>に入れる正しい答えを、解答群の中から選べ。<p>REVRSN&nbsp;     
+START&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+;<br>    
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PUSH&nbsp;&nbsp;&nbsp;&nbsp; 0,GR1　&nbsp;　　&nbsp;&nbsp;    
+;<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PUSH&nbsp;&nbsp;&nbsp;&nbsp;     
+0,GR2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;<br>    
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+ST&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GR0,WORK1&nbsp;&nbsp;&nbsp;&nbsp; ;<br>    
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; LEA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+GR2,-1,GR1&nbsp;&nbsp;&nbsp; ;　最終語のアドレス → GR2<br>    
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ADD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+GR2,WORK1&nbsp;&nbsp;&nbsp;&nbsp; ;<br>    
+LOOP&nbsp;&nbsp;&nbsp; LD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+GR0,0,GR1&nbsp;&nbsp;&nbsp;&nbsp; ;<br>    
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CALL&nbsp;&nbsp;&nbsp;&nbsp;     
+REVRS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;<br>    
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+ST&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GR0,WORK1&nbsp;&nbsp;&nbsp;&nbsp; ;<br>    
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+LD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GR0,0,GR2&nbsp;&nbsp;&nbsp;&nbsp; ;<br>    
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CALL&nbsp;&nbsp;&nbsp;&nbsp;     
+REVRS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;<br>    
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+ST&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GR0,0,GR1&nbsp;&nbsp;&nbsp;&nbsp; ;<br>    
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b> [　　　　　c　　　　　]</b>　;<br> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+ST&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GR0,0,GR2&nbsp;&nbsp;&nbsp;&nbsp; ;<br>    
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; LEA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+GR1,1,GR1&nbsp;&nbsp;&nbsp;&nbsp; ;<br>    
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; LEA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+GR2,-1,GR2&nbsp;&nbsp;&nbsp; ;<br>    
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+ST&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GR1,WORK1&nbsp;&nbsp;&nbsp;&nbsp; ;<br>    
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CPA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+GR2,WORK1&nbsp;&nbsp;&nbsp;&nbsp; ;<br>    
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b> [　　　　　d　　　　　]</b>　;<br> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; POP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+GR2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;<br>    
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; POP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+GR1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;<br>    
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+RET&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+;<br>    
+WORK1&nbsp;&nbsp; DS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;<br>    
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+END&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+;</p>    
+<table border="0" cellpadding="3" cellspacing="0">    
+  <tr>    
+    <td>解答群</td>    
+  </tr>    
+</table>    
+<table border="0" cellpadding="3" cellspacing="0">    
+  <tr>    
+    <td width="150">ア　JNZ LOOP　</td>  
+    <td width="150">イ　JPZ LOOP</td>    
+    <td width="150">ウ　JZE LOOP</td>    
+  </tr>    
+  <tr>    
+    <td>エ　LD GR0,0,GR1</td>    
+    <td>オ　LD GR0,0,GR2</td>    
+    <td>カ　LD GR0,WORK1</td>    
+  </tr>    
+  <tr>    
+    <td>キ　LEA GR0,0,GR1</td>    
+    <td>ク　LEA GR0,0,GR2&nbsp;</td>    
+    <td>ケ　LEA GR0,WORK1</td>    
+  </tr>    
+</table>    
+<p>　</p>  
+<HR WIDTH=100%>  
+<a HREF="11s_p_a4.htm#142">設問2の正解例と解説へ</a>  
+<hr>  
+<p align="center">  
+<a HREF="11s_p_e5.htm">■問15へ進む</a>　　　　　　　<a href="index.htm">■メニューへ戻る</a></p>  
+<HR WIDTH=100%>  
+<p><BR>  
+</p>  
+</BLOCKQUOTE>  
+      <p>　  
+</BODY>  
+</HTML>  

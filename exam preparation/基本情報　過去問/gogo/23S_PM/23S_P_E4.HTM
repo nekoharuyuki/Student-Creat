@@ -1,0 +1,438 @@
+<html>
+<head>
+<title>平成23年度 春期 基本情報技術者 午後 問題（問10～問13）　特別試験</title>
+<style type="text/css"><!--
+body{line-height:150%;}
+code{font-size:12pt;}
+h3{text-align:center;}
+div.caution{border:solid 1px #000000; padding:0.5em;}
+--></style>
+</head>
+<body>
+<blockquote>
+<hr>
+<h3>平成23年度　春期　基本情報技術者　特別試験<br/>
+午後　問題（問10～問13）</h3>
+<hr>
+<p><strong><a name="100">問10</a></strong>　次のCOBOLプログラムの説明及びプログラムを読んで，設問1，2に答えよ。</p>
+
+<p>〔プログラムの説明〕<br/>
+　小売業のC社では，自社株主へ株主優待として，自社店舗で利用できる商品券を発行することにした。株主の保有株数と保有期間によって，発行額を決定する。この会社では，毎年3月31日の株取引終了時点で自社株を保有している株主を対象とした株主一覧を作成しており，商品券は，2011年3月31日に作成した株主一覧に登録されている個人株主に対して発行する。<br/>
+　このプログラムは，株主ファイルを読み込み，発行する商品券の発行額を商品券ファイルに出力する。</p>
+
+<p>（1）　株主ファイルは，2011年3月31日に作成した株主一覧に登録されている個人株主を対象に作成した，図1に示すレコード様式の順ファイルである。</p>
+
+<p><img src="img/23s_pm_q10_01.png"><br/>
+<strong>図1　株主ファイルのレコード様式</strong></p>
+
+<p>①　株主番号には，株主に対して一意に割り当てた番号が設定されている。<br/>
+②　保有株数には，保有する株数が設定されている。保有株数の最大は999,999とする。<br/>
+③　登録年には，最初に株主一覧に登録された年が設定されている。ただし，株をすべて売却した後に再取得した株主の場合は，再取得後，株主一覧に登録された年が設定される。<br/>
+（2）　保有期間は，登録年から2011年までの年数で決定する。例えば，登録年が2006年の場合は5年である。<br/>
+（3）　この会社が株式公開したのは1990年4月1日であり，最初に株主一覧へ登録されるのは1991年3月31日である。したがって，最長保有期間は20年である。<br/>
+（4）　商品券ファイルは，図2に示すレコード様式の順ファイルである。</p>
+
+<p><img src="img/23s_pm_q10_02.png"><br/>
+<strong>図2　商品券ファイルのレコード様式</strong></p>
+
+<p>　発行額には，各株主に対する商品券の発行額を設定する。発行額は，表1に示す決定表によって決まる。</p>
+
+<p><strong>表1　決定表</strong><br/>
+<img src="img/23s_pm_q10_03.png"></p>
+
+<p>〔プログラム〕<br/>
+<img src="img/23s_pm_q10_04.png"><br/>
+<img src="img/23s_pm_q10_05.png"></p>
+<hr>
+<p><strong><a name="101">設問1</a></strong>　プログラム中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+
+<p>a，bに関する解答群<br/>
+ア　<code>1</code><br/>
+イ　<code>9</code><br/>
+ウ　<code>10</code><br/>
+エ　<code>99</code><br/>
+オ　<code>999</code><br/>
+カ　<code>1000</code><br/>
+キ　<code>ANY</code><br/>
+ク　<code>OTHER</code></p>
+
+<p>c～eに関する解答群<br/>
+ア　<code>0</code><br/>
+イ　<code>1</code><br/>
+ウ　<code>4</code><br/>
+エ　<code>5</code><br/>
+オ　<code>9</code><br/>
+カ　<code>10</code><br/>
+キ　<code>ANY</code><br/>
+ク　<code>OTHER</code></p>
+
+<p>f，gに関する解答群<br/>
+ア　<code>1000</code><br/>
+イ　<code>3000</code><br/>
+ウ　<code>5000</code><br/>
+エ　<code>9999</code><br/>
+オ　<code>10000</code><br/>
+カ　<code>20000</code><br/>
+キ　<code>ANY</code><br/>
+ク　<code>OTHER</code></p>
+<hr>
+<a href="23S_P_A4.HTM#101">設問1の正解例と解説へ</a>
+<hr>
+<p><strong><a name="102">設問2</a></strong>　保有期間の傾向を確認するため，商品券の発行額の算出と同時に，図3に示す棒グラフを表示するようプログラムを変更したい。表2中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+
+<p>〔グラフの説明〕<br/>
+（1）　行の先頭に表示してある数字は，保有期間を表す。<br/>
+（2）　“＊”は，当該保有期間に該当する株主比率を表す。<br/>
+（3）　株主比率は，2％未満の端数を切り捨て，“＊”一つを2％として表示する。<br/>
+（4）　目盛りの数字の単位は10％である。</p>
+
+<p><img src="img/23s_pm_q10_06.png"><br/>
+<strong>図3　保有期間別の株主比率の表示例</strong></p>
+
+<p><strong>表2　プログラムの変更</strong><br/>
+<img src="img/23s_pm_q10_07.png"><br/>
+<img src="img/23s_pm_q10_08.png"></p>
+
+<p>hに関する解答群<br/>
+ア　<code>ADD 1 TO CNT-HLD(CNT)</code><br/>
+イ　<code>ADD 1 TO CNT-HLD(CNT + 1)</code><br/>
+ウ　<code>ADD 1 TO CNT-HLD(CNT - 1)</code><br/>
+エ　<code>ADD 1 TO CNT-HLD(TERM)</code><br/>
+オ　<code>ADD 1 TO CNT-HLD(TERM + 1)</code><br/>
+カ　<code>ADD 1 TO CNT-HLD(TERM - 1)</code></p>
+
+<p>iに関する解答群<br/>
+ア　<code>COMPUTE RATIO = (CNT-ALL * 100 / CNT-HLD(CNT)) / 2</code><br/>
+イ　<code>COMPUTE RATIO = (CNT-ALL * 100 / CNT-HLD(CNT + 1)) / 2</code><br/>
+ウ　<code>COMPUTE RATIO = (CNT-ALL * 100 / CNT-HLD(CNT - 1)) / 2</code><br/>
+エ　<code>COMPUTE RATIO = (CNT-HLD(CNT)* 100 / CNT-ALL) / 2</code><br/>
+オ　<code>COMPUTE RATIO = (CNT-HLD(CNT + 1)* 100 / CNT-ALL) / 2</code><br/>
+カ　<code>COMPUTE RATIO = (CNT-HLD(CNT - 1)* 100 / CNT-ALL) / 2</code></p>
+<hr>
+<a href="23S_P_A4.HTM#102">設問2の正解例と解説へ</a>
+<hr>
+<a href="INDEX.HTM">■メニューへ戻る</a>
+<hr>
+<p><strong><a name="110">問11</a></strong></p>
+
+<p>〔プログラムの説明〕<br/>
+　クラス<code>ArrayAppendableCharSequence</code>及び<code>ListAppendableCharSequence</code>は，追加可能な0個以上の文字からなる文字列（文字の並び）を表現するインタフェース<code>AppendableCharSequence</code>を異なるデータ構造で実装したプログラムである。<br/>
+　インタフェース<code>AppendableCharSequence</code>は，パッケージ<code>java.lang</code>のインタフェース<code>CharSequence</code>及び<code>Appendable</code>で定義されている次のメソッドからなる。<br/>
+（1）　メソッド<code>charAt</code>は，引数<code>index</code>で指定された位置の文字を返す。文字の位置はインデックス値で表され，文字列の長さが1以上のとき，最初の文字の位置は0，最後の文字の位置は文字列の長さ－1で表される。引数で指定されたインデックス値が負又は文字列の長さ以上の場合は，<code>IndexOutOfBoundsException</code>を投げる。<br/>
+（2）　メソッド<code>length</code>は，文字列の長さを返す。<br/>
+（3）　メソッド<code>append</code>は，引数で指定された文字を文字列の末尾に追加する。戻り値として，この<code>AppendableCharSequence</code>のインスタンス自身を返す。<br/>
+（4）　メソッド<code>toString</code>は，このインスタンスの文字列を<code>String</code>オブジェクトで返す。<br/>
+　クラス<code>ArrayAppendableCharSequence</code>は，<code>char</code>型の配列を用いてインタフェース<code>AppendableCharSequence</code>を実装したものである。メソッド<code>append</code>は，配列の空いている最初の要素に文字を格納する。配列に空き要素がないときは，要素の個数が現在の配列よりも<code>EXT_SIZE</code>の値だけ大きな配列を生成し，既存の文字データを移し，空いている最初の要素に文字を格納する。<br/>
+　クラス<code>ListAppendableCharSequence</code>は，連結リスト構造を用いてインタフェース<code>AppendableCharSequence</code>を実装したものである。入れ子クラス<code>ListAppendableCharSequbnce.Bucket</code>（以下，<code>Bucket</code>という）は，連結リストの要素である。<code>Bucket</code>のインスタンス1個につき，要素の個数が<code>EXT_SIZE</code>である<code>char</code>型の配列を用意し，そこに文字データを保持する。<code>Bucket</code>の配列に空き要素がなくなり，次の文字を追加できないときは，新規に<code>Bucket</code>のインスタンスを生成し，連結リストに追加する。<br/>
+　クラス<code>Test</code>は，上記二つのクラスそれぞれの実装が異なるメソッド<code>append</code>の実行時間を測定するプログラムである。メソッド<code>measureTime</code>は，引数<code>n</code>で指定された回数だけ，引数<code>a</code>で指定されたインスタンスのメソッド<code>append</code>を呼び出し，実行時間をミリ秒単位で測定する。</p>
+
+<p>〔プログラム1〕<br/>
+<img src="img/23s_pm_q11_01.png"></p>
+
+<p>〔プログラム2〕<br/>
+<img src="img/23s_pm_q11_02.png"><br/>
+<img src="img/23s_pm_q11_03.png"></p>
+
+<p>〔プログラム3〕<br/>
+<img src="img/23s_pm_q11_04.png"><br/>
+<img src="img/23s_pm_q11_05.png"></p>
+
+<p>〔プログラム4〕<br/>
+<img src="img/23s_pm_q11_06.png"></p>
+<hr>
+<p><strong><a name="111">設問1</a></strong>　プログラム中の［　　 　　］に入れる正しい答えを，解答群の中から選べ。</p>
+
+<p>aに関する解答群<br/>
+ア　<code>data.length + length</code><br/>
+イ　<code>data.length + temp.length</code><br/>
+ウ　<code>length</code><br/>
+エ　<code>length + EXT_SIZE</code><br/>
+オ　<code>temp.length</code></p>
+
+<p>bに関する解答群<br/>
+ア　<code>index</code><br/>
+イ　<code>index % EXT_SIZE</code><br/>
+ウ　<code>index / EXT_SIZE</code><br/>
+エ　<code>length</code><br/>
+オ　<code>length % EXT_SIZE</code><br/>
+カ　<code>length / EXT_SIZE</code></p>
+
+<p>cに関する解答群<br/>
+ア　<code>length</code><br/>
+イ　<code>length + 1</code><br/>
+ウ　<code>length - 1</code><br/>
+エ　<code>offset</code><br/>
+オ　<code>offset + 1</code><br/>
+カ　<code>offset - 1</code></p>
+
+<p>dに関する解答群<br/>
+ア　<code>len</code><br/>
+イ　<code>len % EXT_SIZE</code><br/>
+ウ　<code>len - length</code><br/>
+エ　<code>length</code><br/>
+オ　<code>length % EXT_SIZE</code><br/>
+カ　<code>length - len</code></p>
+
+<p>eに関する解答群<br/>
+ア　<code>AppendableCharSequence</code><br/>
+イ　<code>ArrayAppendableCharSequence</code><br/>
+ウ　<code>ListAppendableCharSequence</code><br/>
+エ　<code>ListAppendableCharSequence.Bucket</code><br/>
+オ　<code>Object</code><br/>
+カ　<code>String</code></p>
+
+<hr>
+<a href="23S_P_A4.HTM#111">設問1の正解例と解説へ</a>
+<hr>
+<p><strong><a name="112">設問2</a></strong>　クラス<code>Test</code>を用いて各クラスのメソッド<code>append</code>の実行時間（ミリ秒）を測定したところ，表1の結果になった。</p>
+
+<p><strong>表1　各クラスのメソッドappendの実行時間</strong><br/>
+<img src="img/23s_pm_q11_07.png"></p>
+
+<p>　文字の追加回数が多くなるにつれて<code>ListAppendableCharSequence</code>の方が遅くなるのは，連結リストをたどる回数が増えるためであると推測される。そこで，<code>ListAppendableCharSequence.append</code>の性能を改善するために，次の修正を行った。［　　　　　］に入れる正しい答えを，解答群の中から選べ。<br/>
+　なお，ほかの変更はないものとする。</p>
+
+<p>（1）　連結リストの最後の要素を常に参照するためのフィールド<code>last</code>を追加する。<br/>
+&nbsp;&nbsp;&nbsp;<code>private Bucket last;</code><br/>
+（2）　コンストラクタでフィールド<code>last</code>を初期化する。<br/>
+&nbsp;&nbsp;&nbsp;<code>public ListAppendableCharSequence() {</code><br/>
+&nbsp;&nbsp;&nbsp;<code>   bucketList = new Bucket();</code><br/>
+&nbsp;&nbsp;&nbsp;<code>   last = </code>［　　f　　］<code>;</code><br/>
+&nbsp;&nbsp;&nbsp;<code>}</code><br/>
+（3）メソッドappendでフィールドlastを利用する。<br/>
+&nbsp;&nbsp;&nbsp;<code>public AppendableCharSequence append(char c) {</code><br/>
+&nbsp;&nbsp;&nbsp;<code>   int offset = length % EXT_SIZE;</code><br/>
+&nbsp;&nbsp;&nbsp;<code>   if (offset == 0 && length != 0) {</code><br/>
+&nbsp;&nbsp;&nbsp;<code>      last.next = new Bucket();</code><br/>
+&nbsp;&nbsp;&nbsp;<code>      last = </code>［　　g　　］<code>;</code><br/>
+&nbsp;&nbsp;&nbsp;<code>   }</code><br/>
+&nbsp;&nbsp;&nbsp;<code>   last.data[offset] = c;</code><br/>
+&nbsp;&nbsp;&nbsp;<code>   length++;</code><br/>
+&nbsp;&nbsp;&nbsp;<code>   return this;</code><br/>
+&nbsp;&nbsp;&nbsp;<code>}</code></p>
+
+<p>解答群<br/>
+ア　<code>bucketList</code><br/>
+イ　<code>bucketList.next</code><br/>
+ウ　<code>last</code><br/>
+エ　<code>last.next</code><br/>
+オ　<code>new Bucket()</code><br/>
+カ　<code>null</code></p>
+<hr>
+<a href="23S_P_A4.HTM#112">設問2の正解例と解説へ</a>
+<hr>
+<a href="INDEX.HTM">■メニューへ戻る</a>
+<hr>
+<p><strong><a name="120">問12</a></strong>　次のアセンブラプログラムの説明及びプログラムを読んで，設問1～3に答えよ。</p>
+
+<p>〔プログラム1の説明〕<br/>
+　連続する16語に格納した16×16ドットの白黒の図形を，時計回りに90度回転する副プログラム<code>ROTATE</code>である。図形の回転の実行例を図1に示す。このとき，1ドットを1ビットで表し，白は0，黒は1が格納されている。<br/>
+（1）　図形を表す16語の先頭アドレスは<code>GR1</code>に設定されて，主プログラムから渡される。<br/>
+（2）　回転した結果の図形を格納する領域の先頭アドレスは<code>GR2</code>に設定されて，主プログラムから渡される。<br/>
+（3）　元の図形と回転した図形は，異なる領域に格納される。<br/>
+（4）　副プログラムから戻るとき，汎用レジスタ<code>GR1</code>～<code>GR7</code>の内容は元に戻す。</p>
+
+<p><img src="img/23s_pm_q12_01.png"><br/>
+<strong>図1　図形の回転の実行例</strong></p>
+
+<p>〔プログラム1〕<br/>
+<img src="img/23s_pm_q12_02.png"></p>
+
+<hr>
+<p><strong><a name="121">設問1</a></strong>　プログラム1中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+
+<p>解答群<br/>
+ア　<code>LAD  GR1,-1,GR1</code><br/>
+イ　<code>LAD  GR1,1,GR1</code><br/>
+ウ　<code>LAD  GR2,-1,GR2</code><br/>
+エ　<code>LAD  GR2,1,GR2</code><br/>
+オ　<code>LAD  GR5,-1,GR5</code><br/>
+カ　<code>LAD  GR5,1,GR5</code></p>
+<hr>
+<a href="23S_P_A4.HTM#121">設問1の正解例と解説へ</a>
+<hr>
+<p><strong><a name="122">設問2</a></strong>　行番号9を次のとおりに変更し，図1の回転前を元の図形として実行した。実行結果の図形として正しい答えを，解答群の中から選べ。</p>
+
+<p>解答群<br/>
+ア　<img src="img/23s_pm_q12_03.png"><br/>
+イ　<img src="img/23s_pm_q12_04.png"><br/>
+ウ　<img src="img/23s_pm_q12_05.png"><br/>
+エ　<img src="img/23s_pm_q12_06.png"></p>
+<hr>
+<a href="23S_P_A4.HTM#122">設問2の正解例と解説へ</a>
+<hr>
+<p><strong><a name="123">設問3</a></strong>　プログラム1中の行番号3，4をプログラム2に置き換えて，16×16ドットの図形のうち左上のn×nドットの部分だけを時計回りに90度回転するプログラムとした。左上の8×8ドットの部分だけを回転した実行例を図2に示す。<br/>
+　値n（1≦n≦16）は<code>GR3</code>に設定されて主プログラムから渡される。<br/>
+　置換え後のプログラムは，まず，回転の対象とならないドット（元の図形の上n語の右（16－n）ビットと下（16－n）語の全ビット）を結果の領域の適切な場所に複写する。その後，左上のn×nドットの部分を回転して結果の領域に格納する。<br/>
+　プログラム2中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+　　<code>SRL  GR6,1</code><br/>
+<p><img src="img/23s_pm_q12_07.png"><br/>
+<strong>図2　左上の8×8ドットの部分だけを回転した実行例</strong></p>
+
+<p>〔プログラム2〕<br/>
+<img src="img/23s_pm_q12_08.png"></p>
+
+<p>cに関する解答群<br/>
+ア　<code>SLL  GR0,-1,GR3</code><br/>
+イ　<code>SLL  GR0,0,GR3</code><br/>
+ウ　<code>SRL  GR0,-1,GR3</code><br/>
+エ　<code>SRL  GR0,0,GR3</code></p>
+
+<p>dに関する解答群<br/>
+ア　<code>JMI  LOOP1</code><br/>
+イ　<code>JNZ  LOOP1</code><br/>
+ウ　<code>JPL  LOOP1</code><br/>
+エ　<code>JZE  LOOP1</code></p>
+<hr>
+<a href="23S_P_A4.HTM#123">設問3の正解例と解説へ</a>
+<hr>
+<a href="INDEX.HTM">■メニューへ戻る</a>
+<hr>
+<p><strong><a name="130">問13</a></strong>　次の表計算及びワークシートの説明を読んで，設問1，2に答えよ。</p>
+
+<p>〔表計算の説明〕<br/>
+　企業が行う取引には，商品を販売してから一定期間後に販売代金を取引先から回収する方法がある。回収していない状態の代金のことを売掛金という。取引先の信用度を様々な角度から評価して，取引先に対する売掛金の限度額である与信枠を設定し，売掛金を確実に回収できるように管理することを与信管理という。K社では，21の取引先ごとに月1回の注文を受けると，即日納品をして，月末に請求を行っている。K社では，与信管理を次の手順で行っている。<br/>
+　①取引先の流動資産，流動負債，自己資本などの情報を収集する。<br/>
+　②流動比率及び自己資本比率を表1に示すレベルに当てはめ，取引先の信用度を評価するとともに，それぞれのレベルに対応する与信枠の計算式を用いて，基準1及び基準2の計算値を求める。<br/>
+　③基準1と基準2の計算値のうち，小さい方を与信枠とする。ただし，小さい方の値が負の場合，0とする。</p>
+
+<p><strong>表1　取引先の信用度の評価と与信枠の計算式</strong><br/>
+<img src="img/23s_pm_q13_01.png"></p>
+
+<p>　④　②の二つの基準に基づく信用度の組合せから，表2に示すとおり，上限を3か月とした支払いサイトを決めている。ここで，支払いサイトとは請求月から支払期限までの月数である。表2中の“－”は，取引停止であること示している。<br/>
+　⑤　前月の売掛金の残額に当月の注文額を加えた額が与信枠を超える場合，及び取引停止の場合には，当月の注文を受けない。</p>
+
+<p><strong>表2　信用度に基づく支払いサイト</strong><br/>
+<img src="img/23s_pm_q13_02.png"></p>
+<hr>
+<p><strong><a name="131">設問1</a></strong>　取引先の信用度評価と与信枠の計算に関する次の記述中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+
+<p>〔ワークシート：信用度評価基準〕<br/>
+　二つの基準のそれぞれのレベルに応じた信用度及び与信枠を求める計算式で利用する係数（以下，与信枠係数という）を整録した図1のワークシート“信用度評価基準”を作成した。</p>
+
+<p><img src="img/23s_pm_q13_03.png"><br/>
+<strong>図1　ワークシート“信用度評価基準”</strong></p>
+
+<p>（1）　流動比率のレベルごとの下限値をセルD2～D6に，自己資本比率のレベルごとの下限値をセルD7～D11に入力する。<br/>
+（2）　流動比率及び自己資本比率のレベルに応じた信用度をセルE2～E6及びセルE7～E11に入力する。<br/>
+（3）　流動比率及び自己資本比率のレベルに応じた与信枠係数をセルF2～F6及びセルF7～F11に入力する。<br/>
+
+<p>〔ワークシート：与信枠〕<br/>
+　取引先の信用度及び与信枠を求めるために，図2のワークシート“与信枠”を作成した。ここで，複数のワークシート間でデータを参照するには“ワークシート名！セル”又は“ワークシート名！範囲”という形式で指定する。</p>
+
+<p><img src="img/23s_pm_q13_04.png"><br/>
+<strong>図2　ワークシート“与信枠”</strong></p>
+
+<p>（1）　セルA3～G23に，取引先ごとの名称及び財務データ（流動資産，流動負債，流動比率，自己資本，総資本，自己資本比率）を入力する。<br/>
+（2）　基準1の信用度の評価結果を求めるために次の計算式をセルH3に入力し，セルH4～H23に複写する。<br/>
+　垂直照合（［　　a　　］）<br/>
+　基準2の信用度の評価結果を求めるために次の計算式をセルI3に入力し，セルI4～I23に複写する。<br/>
+　垂直照合（［　　b　　］）<br/>
+（3）　基準1での計算値を求めるために次の計算式をセルJ3に入力し，セルJ4～J23に複写する。<br/>
+　［　　c　　］＊1000<br/>
+　基準2での計算値を求めるために次の計算式をセルK3に入力し，セルK4～K23に複写する。<br/>
+　［　　d　　］＊1000<br/>
+（4）　二つの基準によって求めた計算値のうち，小さい方を与信枠とするために次の計算式をセルL3に入力し，セルL4～L23に複写する（小さい方の値が負の値である場合，0とする）。<br/>
+　［　　e　　］<br/>
+（5）　ワークシート“与信枠”で用いる関数を表3に示す。</p>
+
+<p><strong>表3　ワークシート“与信枠”で用いる関数</strong><br/>
+<img src="img/23s_pm_q13_05.png"></p>
+
+<p>a，bに関する解答群<br/>
+ア　D3,信用度評価基準!$D$2～$E$6,2,1<br/>
+イ　D3,信用度評価基準!$D$2～$F$6,3,1<br/>
+ウ　D3,信用度評価基準!$D$7～$E$11,2,1<br/>
+エ　D3,信用度評価基準!$D$7～$F$11,3,1<br/>
+オ　G3,信用度評価基準!$D$2～$E$6,2,1<br/>
+カ　G3,信用度評価基準!$D$2～$F$6,3,1<br/>
+キ　G3,信用度評価基準!$D$7～$E$11,2,1<br/>
+ク　G3,信用度評価基準!$D$7～$F$11,3,1</p>
+
+<p>c，dに関する解答群<br/>
+ア　（B3-C3）＊垂直照合（D3,信用度評価基準!$D$2～$E$6,2,1）<br/>
+イ　（B3-C3）＊垂直照合（D3,信用度評価基準!$D$2～$F$6,3,0）<br/>
+ウ　（B3-C3）＊垂直照合（D3,信用度評価基準!$D$2～$F$6,3,1）<br/>
+エ　（B3-C3）＊垂直照合（D3,信用度評価基準!$D$7～$F$11,3,0）<br/>
+オ　（B3-C3）＊垂直照合（G3,信用度評価基準!$D$2～$F$6,3,0）<br/>
+カ　E3＊垂直照合（D3,信用度評価基準!$D$7～$F$11,3,1）<br/>
+キ　E3＊垂直照合（G3,信用度評価基準!$D$2～$F$6,3,0）<br/>
+ク　E3＊垂直照合（G3,信用度評価基準!$D$2～$F$6,3,1）<br/>
+ケ　E3＊垂直照合（G3,信用度評価基準!$D$7～$F$11,3,1）<br/>
+コ　F3＊垂直照合（G3,信用度評価基準!$D$7～$F$11,3,0）</p>
+
+<p>eに関する解答群<br/>
+ア　IF（最小（J3～K3）＜0，0，最小（J3～K3））<br/>
+イ　IF（最大（J3～K3）＜0，0，最大（J3～K3））<br/>
+ウ　最小（J3～K3）<br/>
+エ　最大（J3～K3）</p>
+<hr>
+<a href="23S_P_A4.HTM#131">設問1の正解例と解説へ</a>
+<hr>
+<p><strong><a name="132">設問2</a></strong>　取引先の与信管理に関する次の記述中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+
+<p>〔ワークシート：支払いサイト〕<br/>
+　表2の信用度に基づく支払いサイトに対応した図3のワークシート“支払いサイト”を作成した。セルB2～F6に決められた支払いサイトの月数を入力する。ここで，取引停止“－”に対しては数値0を入力する。</p>
+
+<p><img src="img/23s_pm_q13_06.png"><br/>
+<strong>図3　ワークシート“支払いサイト”</strong></p>
+
+<p>〔ワークシート：与信管理〕<br/>
+　取引先の信用度評価結果に基づく支払いサイトの決定及び与信枠に基づく当月受注の可否の判定を行うため，図2のワークシート“与信枠”にM列以降を追加して，図4のワークシート“与信管理”を作成した。</p>
+
+<p><img src="img/23s_pm_q13_07.png"><br/>
+<strong>図4　ワークシート“与信管理”</strong></p>
+
+<p>（1）　信用度の評価結果の組合せから決定される支払いサイトを求めるために次の計算式をセルM3に入力し，セルM4～M23に複写する。<br/>
+　［　　f　　］<br/>
+（2）　セルN3～P23に，取引先ごとの前月～3か月前の売上を入力する。セルN2～P2に，売上月に対する当月からさかのぼった月数を入力する。<br/>
+（3）　前月までの売上金額に対して支払いサイトに応じて回収した結果の売掛金の残額（以下，前月売掛残という）を求めるために，次の計算式をセルQ3に入力し，セルQ4～Q23に複写する。ここで，各取引先に対する売掛金回収は，前倒し及び延滞はなく，支払いサイトどおりに行われているものとする。<br/>
+　［　　g　　］<br/>
+（4）　当月注文額をセルR3～R23に入力する。<br/>
+（5）　前月売掛残と当月注文額の合計と与信枠を比較し，受注可否の判定を行う。前月売掛残と当月注文額の合計が，与信枠を超える場合又は与信枠が0の場合，受注不可とする。受注可の場合は“○”，受注不可の場合は“×”を表示する次の計算式をセルS3に入力し，セルS4～S23に複写する。<br/>
+　［　　h　　］<br/>
+（6）　表3の関数に加えて，ワークシート“与信管理”に用いる可能性のある関数を，表4に示す。</p>
+
+<p><strong>表4　ワークシート“与信管理”で用いる可能性のある関数</strong><br/>
+<img src="img/23s_pm_q13_08.png"></p>
+
+<p>fに関する解答群<br/>
+ア　照合一致（支払いサイト!$B$2～$F$6,垂直照合（H3,支払いサイト!$A$2～$A$6,3,0）,水平照合（I3,支払いサイト!$B$1～$F$1,3,0））<br/>
+イ　照合一致（支払いサイト!$B$2～$F$6,水平照合（H3,支払いサイト!$A$2～$A$6,3,0）,垂直照合（I3,支払いサイト!$B$1～$F$1,3,0））<br/>
+ウ　表引き（支払いサイト!$B$2～$F$6,垂直照合（H3,支払いサイト!$A$2～$A$6,3,0）,水平照合（I3,支払いサイト!$B$1～$F$1,3,0））<br/>
+エ　表引き（支払いサイト!$B$2～$F$6,水平照合（H3,支払いサイト!$A$2～$A$6,3,0）,垂直照合（I3,支払いサイト!$B$1～$F$1,3,0））<br/>
+オ　表引き（支払いサイト!$B$2～$F$6,照合～致（H3,支払いサイト!$A$2～$A$6,0）,照合一致（I3,支払いサイ.ト!$B$1～$F$1,0））<br/>
+カ　表引き（支払いサイト!$B$2～$F$6,照合一致（H3,支払いサイト!$A$2～$A$6,1）,照合一致（I3,支払いサイト!$B$1～$F$1,1））<br/>
+キ　表引き（支払いサイト!$B$2～$F$6,照合一致（I3,支払いサイト!$B$1～$F$1,0）,照合一致（H3,支払いサイト!$A$2～$A$6,0））<br/>
+ク　表引き（支払いサイト!$B$2～$F$6,照合一致（I3,支払いサイト!$B$1～$F$1,1）,照合一致（H3,支払いサイト!$A$2～$A$6,1））</p>
+
+<p>gに関する解答群<br/>
+ア　N3<br/>
+イ　合計（N3～P3）<br/>
+ウ　合計（N3～P3）＋R3<br/>
+エ　条件付合計（N$2～P$2,'＝M3',N3～P3）<br/>
+オ　条件付合計（N$2～P$2,'＝M3',N3～P3）＋R3<br/>
+カ　条件付合計（N$2～P$2,'＜M3',N3～P3）<br/>
+キ　条件付合計（N$2～P$2,'＜M3',N3～P3）＋R3<br/>
+ク　条件付合計（N$2～P$2,'≦M3',N3～P3）<br/>
+ケ　条件付合計（N$2～P$2,'≦M3',N3～P3）＋R3</p>
+
+<p>hに関する解答群<br/>
+ア　IF（Q3＞L3,'×','○'）<br/>
+イ　IF（Q3≧L3,'×','○'）<br/>
+ウ　IF（（Q3＋R3）＞L3,'×','○'）<br/>
+エ　IF（（Q3＋R3）≧L3,'×','○'）<br/>
+オ　IF（論理積（（Q3＋R3）＞L3,L3＝0）,'×','○'）<br/>
+カ　IF（論理積（（Q3＋R3）≧L3,L3＝0）,'×','○'）<br/>
+キ　IF（論理和（Q3＞L3,L3＝0）,'×','○'）<br/>
+ク　IF（論理和（Q3≧L3,L3＝0）,'×','○'）<br/>
+ケ　IF（論理和（（Q3＋R3）＞L3,L3＝0）,'×','○'）<br/>
+コ　IF（論理和（（Q3＋R3）≧L3,B3＝0）,'×','○'）</p>
+<hr>
+<a href="23S_P_A4.HTM#132">設問2の正解例と解説へ</a>
+<hr>
+<a href="INDEX.HTM">■メニューへ戻る</a>
+<hr>
+</blockquote>
+</body>
+</html>

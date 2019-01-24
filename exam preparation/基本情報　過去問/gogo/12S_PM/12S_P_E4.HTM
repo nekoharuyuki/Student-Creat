@@ -1,0 +1,1199 @@
+<HTML>
+<HEAD>
+<TITLE>平成12年度春期試験　問題</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0">
+
+
+
+<blockquote>
+
+
+
+<hr>
+<H3 align="center">平成12年度春期試験　問題(問11～問14)</H3>
+<hr>
+<P>次の問11から問14までの4問については、この中から1問を選択し、答案用紙の選択欄の             
+選 をマークして解答してください。なお、2問以上選択した場合には、はじめの1問について採点します。<br>            
+<HR WIDTH=100%>            
+<a NAME="110">　<BR>          
+<b>          
+問11</b></a>　次の C プログラムの説明及びプログラムを読んで、設問 1～3 に答えよ。<br>          
+〔プログラムの説明〕<br>          
+関数 decmult は、文字列で与えられた二つの 10 進数を乗算する。          
+<table border="0" cellpadding="3" cellspacing="0">         
+  <tr>         
+    <td valign="top">(1)</td>         
+    <td>関数 decmult の引数は、被乗数を表す文字型の配列 decA[ ]、乗数を表す文字型の配列 decB[ ]、及び乗算結果を格納する文字型の配列 decC[ ] である。</td>          
+  </tr>          
+  <tr>          
+    <td valign="top">(2)</td>         
+    <td>decA[0] と decB[0] には、符号を示す“+”又は“-”の文字が格納されることがある。</td>          
+  </tr>          
+  <tr>          
+    <td valign="top">(3)</td>         
+    <td>関数 decmult は、筆算と同様なアルゴリズムで計算する。</td>          
+  </tr>          
+</table>          
+<p><img border="0" src="image/A00s11f1.gif" width="493" height="160"></p>        
+<pre>〔プログラム〕</pre>         
+<pre>01 #include &lt;string.h&gt;
+02 #define  STRMAX  128
+03 
+04 void decmult(char decA[], char decB[], char decC[])
+05 {
+06     char decT[STRMAX], sign='+';
+07     int ai, bi, ci=0, ti=0, al=0, bl=0, am, bm, tm;
+08     int carry=0, shift=0, wk;
+09
+10     memset(decT, '\0', STRMAX);  /* decT[]を '\0'で初期化する */
+11     am = strlen(decA);
+12     bm = strlen(decB);
+13
+14     /*** 符号の検査 ***/
+15     if (decA[0] == '+' || decA[0] == '-')       al = 1;
+16     if (decB[0] == '+' || decB[0] == '-')       bl = 1;
+17     if ((decA[0] == '-' &amp;&amp; decB[0] != '-') ||
+18         (decA[0] != '-' &amp;&amp; decB[0] == '-'))     sign = '-';
+19
+20     /*** 乗算 ***/
+21     for (bi = bm - 1; bi &gt;= bl; bi--) {
+22         for (ai = am - 1; ai &gt;= al; ai--, ti++) {
+23             wk = (decA[ai] - '0') * (decB[bi] - '0') + carry;
+24             carry = wk / 10;
+25             wk %= 10;
+26             if (decT[ti] != '\0') {  /* 前の演算結果があるか？ */
+27                 wk += (decT[ti] - '0');
+28                 if (wk &gt; 9) {
+29                     carry++;
+30                     wk %= 10;
+31                 }
+32             }
+33             decT[ti] = wk + '0';
+34         }
+35         if (carry &gt; 0) {
+36             decT[ti] = carry + '0';
+37             carry = 0;
+38         }
+39         shift++;
+40         ti = shift;
+41     }
+42
+43     /*** decC[] に格納 ***/
+44     if (sign == '-') {
+45         decC[0] = sign;
+46         ci++;
+47     }
+48     tm = strlen(decT);
+49     for (ti = tm - 1; ti &gt; 0; ti--)
+50         if (decT[ti] != '0')
+51             break;
+52     for ( ; ti &gt;= 0; ti--, ci++)
+53         decC[ci] = decT[ti];
+54     decC[ci] = '\0';
+55 }
+</pre>  
+<p>　</p> 
+<hr> 
+<a NAME="111">　<BR> 
+<b> 
+設問</b></a><b><a NAME="111">1</a>　</b>次の ① と ② の計算を行ったとき、結果の組合せとして正しい答えを、解答群の中から選べ。 ここで、“△”は空白文字を示す。<b>　</b>         
+         
+         
+         
+  <div align="left">         
+    <table border="1" cellPadding="3" bordercolorlight="#000000" cellspacing="0" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">         
+      <tbody>         
+        <tr align="middle">         
+          <td width="60" align="center">　</td>         
+          <td width="60" align="center">①</td>        
+          <td width="60" align="center">②</td>        
+        </tr>        
+        <tr align="middle">        
+          <td>decA</td>        
+          <td align="right">-123</td>        
+          <td align="right">+123</td>        
+        </tr>        
+        <tr align="middle">        
+          <td>decB</td>        
+          <td align="right">-4</td>        
+          <td align="right">-04</td>        
+        </tr>        
+      </tbody>        
+    </table>        
+  </div>        
+        
+<p>解答群        
+  <table border="1" bordercolorlight="#000000" cellspacing="0" cellpadding="3" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">        
+    <tbody>        
+      <tr align="middle">        
+        <td width="60" align="center">　</td>        
+        <td width="80" align="center">①</td>        
+        <td width="80" align="center">②</td>        
+      </tr>        
+      <tr align="middle">        
+        <td align="center">ア</td>        
+        <td align="center">△492</td>        
+        <td align="center">-0492</td>        
+      </tr>        
+      <tr align="middle">        
+        <td align="center">イ</td>        
+        <td align="center">△492</td>        
+        <td align="center">-492</td>        
+      </tr>        
+      <tr align="middle">        
+        <td align="center">ウ</td>        
+        <td align="center">492</td>        
+        <td align="center">-0492</td>        
+      </tr>        
+      <tr align="middle">        
+        <td align="center">エ</td>        
+        <td align="center">492</td>        
+        <td align="center">-492</td>        
+      </tr>        
+      <tr align="middle">        
+        <td align="center">オ</td>        
+        <td align="center">+492</td>        
+        <td align="center">-0492</td>        
+      </tr>        
+      <tr align="middle">        
+        <td align="center">カ</td>        
+        <td align="center">+492</td>        
+        <td align="center">-492</td>        
+      </tr>        
+    </tbody>        
+  </table>        
+        
+<p>　</p>
+<A NAME="31">
+<HR WIDTH=100%>
+</a><a HREF="12s_p_a4.htm#111">設問の正解例と解説へ</a>
+<HR WIDTH=100%>
+<p>
+<a NAME="112">
+<b>
+設問</b></a><b>2　</b>次の記述中の<b>[　　　　]</b>に入れる正しい答えを、解答群の中から選べ。</p>
+<p>被乗数が“234”、乗数が“56”で計算を行った場合、29 行目は<b>[　　　]</b>回実行される。<br>        
+<br>        
+解答群<br>        
+ア　0　　　イ　1　　　ウ　2　　　エ　3　　  オ　4　　　カ　5</p>
+<p>　</p>
+<HR WIDTH=100%>
+<a HREF="12s_p_a4.htm#112">設問の正解例と解説へ</a>
+<HR WIDTH=100%>
+<p>
+<a NAME="113">
+<b>
+設問</b></a><b>3　</b>小数の乗算ができるように，プログラムを修正する。修正内容を示す次の表中の         
+<b>[　　　　] </b>に入れる正しい答えを，解答群の中から選べ。</p>        
+<p><img border="0" src="image/A00s11f2.gif" width="223" height="160">       
+<p align="left">表　修正内容<center>
+<div align="left">
+  <table border="1" bordercolorlight="#000000" cellspacing="0" cellpadding="3" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+    <tbody>
+      <tr>
+        <td>位置　　</td>
+        <td>処理</td>
+        <td>文　　</td>
+      </tr>
+      <tr>
+        <td>　9 行目の直前　</td>
+        <td>追加</td>
+        <td>　int ap, bp, tp;　</td>
+      </tr>
+      <tr>
+        <td>11 行目 と 12 行目</td>        
+        <td>置換</td>        
+        <td vAlign="top">        
+          <pre>　am = ap = strlen(decA);
+　bm = bp = strlen(decB);
+</pre>        
+        </td>        
+      </tr>        
+      <tr>        
+        <td>        
+          <p align="right">22 行目の直前</td>        
+        <td>追加</td>        
+        <td vAlign="top">        
+          <dir>        
+            <pre>    if (decB[bi] == '.') {
+        bp = bi + 1;
+        <b>[　　a　　]</b>;
+    }</pre>        
+          </dir>        
+        </td>        
+      </tr>        
+      <tr>        
+        <td>        
+          <p align="right">23 行目の直前</td>        
+        <td>追加</td>        
+        <td vAlign="top">        
+          <dir>        
+            <pre>     if (decA[ai] == '.') {
+         ap = ai + 1;
+         <b>[　　b　　]</b>;
+      }</pre>        
+          </dir>        
+        </td>        
+      </tr>        
+      <tr>        
+        <td>        
+          <p align="right">49 ～ 54行目</td>        
+        <td>置換</td>        
+        <td vAlign="top">        
+          <dir>        
+            <pre>tp = <b>[　　c　　]</b>; 
+for (ti = tm - 1; <b>[　　d　　]</b>; ti--)
+    if (decT[ti] != '0')
+        break;
+for ( ; ti &gt;= 0; ti--, ci++) {
+    if (ti == tp)
+        decC[ci++] = '.';
+    decC[ci] = decT[ti];
+}   
+decC[ci] = '\0';</pre>        
+          </dir>        
+        </td>        
+      </tr>        
+    </tbody>        
+  </table>        
+</div>        
+</center>        
+<p>　
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>a，b に関する解答群</td>        
+  </tr>        
+</table>        
+<table border="0" cellpadding="3" cellspacing="0">        
+  <tr>        
+    <td width="80">ア　ai++</td>
+    <td width="80">イ　ai--</td>
+    <td width="80">ウ　am++</td>
+    <td>エ　am--</td>
+  </tr>
+  <tr>
+    <td>オ　bi++</td>
+    <td>カ　bi--</td>
+    <td>キ　bm++</td>
+    <td>ク　bm--</td>
+  </tr>
+</table>
+<p>c に関する解答群        
+<table border="0" cellpadding="3" cellspacing="0">        
+  <tr>        
+    <td>ア　(am - ap) + (bm - bp)</td>        
+    <td>イ　(am - ap) + (bm - bp) + 1</td>        
+  </tr>        
+  <tr>        
+    <td>ウ　(am - ap) + (bm - bp) - 1</td>        
+    <td>エ　ap + bp</td>        
+  </tr>        
+  <tr>        
+    <td>オ　ap + bp + 1</td>        
+    <td>カ　ap + bp - 1</td>        
+  </tr>        
+</table>        
+<p>d に関する解答群        
+<table border="0" cellpadding="3" cellspacing="0">        
+  <tr>        
+    <td width="100">ア　ti &gt; 0</td>        
+    <td width="100">イ　ti &gt; tp</td>        
+    <td>ウ　ti &gt; tp + 1</td>        
+  </tr>        
+  <tr>        
+    <td>エ　ti &gt;= 0</td>        
+    <td>オ　ti &gt;= tp</td>        
+    <td>カ　ti &gt;= tp - 1</td>        
+  </tr>        
+</table>        
+<p>　</p>
+<HR WIDTH=100%>
+<a HREF="12s_p_a4.htm#113">設問の正解例と解説へ</a>
+<HR WIDTH=100%>
+<p><A HREF="index.htm">メニューへ戻る</A>　</p>
+<HR WIDTH=100%>
+<a NAME="120">　<BR>
+<b>
+問12</b></a>　次の COBOL プログラムの説明及びプログラムを読んで、設問 1、2 に答えよ。         
+<p>〔プログラムの説明〕<br>         
+ある会社の 1 か月分の売上記録から，販売数量表を作成する。</p>         
+<table border="0" cellpadding="3" cellspacing="0">        
+  <tr>        
+    <td valign="top">(1)</td>        
+    <td>売上記録ファイル KIROKU-F のレコード様式は、次のとおりである。         
+      <table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">        
+        <tr>        
+          <td>      月日        
+            <p>   4 けた</td>         
+          <td>曜日コード         
+            <p>    1 けた</td>         
+          <td>店コード         
+            <p>1 けた</td>         
+          <td>分類コード         
+            <p>1 けた</td>         
+          <td>数量         
+            <p>  4 けた</td>         
+          <td>その他         
+            <p>20 けた</td>         
+        </tr>         
+      </table>         
+      <table border="0" cellpadding="3" cellspacing="0">        
+        <tr>        
+          <td valign="top">①</td>        
+          <td>営業日は月曜から土曜で、曜日コードには次に示す 1～6 のいずれかが記録されている。<br>         
+            　　　月曜：1、火曜：2、水曜：3、木曜：4、金曜：5、土曜：6</td>
+        </tr>
+        <tr>
+          <td valign="top">②</td>
+          <td>  店舗は三つで、店コードには、店番として 1～3 のいずれかが記録されている。</td>         
+        </tr>         
+        <tr>         
+          <td valign="top">③</td>        
+          <td>取扱商品は、次の五つに分類されており、分類コードには、次に示す 1～5 のいずれかが記録されている。<br>         
+            　　　カコウショクヒン：1、ソウザイ：2、セイカ：3、セイニク：4、センギョ：5&nbsp;</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">(2)</td>
+    <td>　商品分類ごとの販売数量の曜日別合計（最大 6 けた）を求め、次のような一覧表を出力する。         
+      <table border="0" cellpadding="3" cellspacing="0">        
+        <tr>        
+          <td>ゼンテン</td>        
+        </tr>        
+      </table>        
+      <table border="0" cellpadding="3" cellspacing="0">        
+        <tr>        
+          <td>&nbsp;　&nbsp;&nbsp; 　<br>
+            　コウショクヒン&nbsp;<br>
+            　ソウザイ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+            　セイカ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+            　セイニク&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+            　センギョ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+          <td>MON<br>
+   ZZZ,ZZ9<br>
+         ZZZ,ZZ9<br>
+           ZZZ,ZZ9<br>
+         ZZZ,ZZ9<br>
+         ZZZ,ZZ9</td>
+          <td>     TUE<br>
+   ZZZ,ZZ9<br>
+   ZZZ,ZZ9<br>
+   ZZZ,ZZ9<br>
+   ZZZ,ZZ9<br>
+   ZZZ,ZZ9</td>
+          <td>       WED<br>
+   ZZZ,ZZ9<br>
+   ZZZ,ZZ9<br>
+   ZZZ,ZZ9<br>
+   ZZZ,ZZ9<br>
+   ZZZ,ZZ9</td>
+          <td>THU<br>
+   ZZZ,ZZ9<br>
+   ZZZ,ZZ9<br>
+   ZZZ,ZZ9<br>
+   ZZZ,ZZ9<br>
+   ZZZ,ZZ9</td>
+          <td>      FRI<br>
+   ZZZ,ZZ9<br>
+   ZZZ,ZZ9<br>
+   ZZZ,ZZ9<br>
+   ZZZ,ZZ9<br>
+   ZZZ,ZZ9</td>
+          <td>       SAT<br>
+   ZZZ,ZZ9<br>
+   ZZZ,ZZ9<br>
+   ZZZ,ZZ9<br>
+   ZZZ,ZZ9<br>
+   ZZZ,ZZ9</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<pre>〔プログラム〕</pre>
+<pre>01 DATA DIVISION.
+02 FILE SECTION.
+03 FD  KIROKU-F.
+04 01  KIROKU-R.
+05     03            PIC X(4). 
+06     03  K-YOBI    PIC 9(1).
+07     03  K-MISE    PIC 9(1).
+08     03  K-BUNRUI  PIC 9(1).
+09     03  K-SURYO   PIC 9(4).
+10     03            PIC X(20).
+11 WORKING-STORAGE SECTION.
+12 01  HYO VALUE ZERO.
+13     03  H-BUNRUI  OCCURS 5 INDEXED BY H1.
+14         05  H-YOBI  OCCURS 6 INDEXED BY H2 PIC 9(6). 
+15 01  END-SW    PIC X(3) VALUE SPACE.
+16 01  MIDASHI1  PIC X(5).
+17 01  MIDASHI2.
+18     03        PIC X(15) VALUE SPACE.
+19     03        PIC X(53) VALUE
+20      &quot;MON       TUE       WED       THU       FRI       SAT&quot;.
+21 01  BUNRUIHYO VALUE 
+22     &quot;　カコウショクヒンソウザイ   セイカ   セイニク   センギョ&quot;.
+23     03  M-BUNRUI OCCURS 5 INDEXED BY B1 PIC X(8).
+24 01  MEISAI VALUE SPACE.
+25     03  M-YOSO OCCURS 6 INDEXED BY M1.
+26         05           PIC X(3).
+27         05  M-SURYO  PIC ZZZ,ZZ9.
+28 PROCEDURE DIVISION.
+29 HAJIME.
+30     OPEN INPUT KIROKU-F.
+31     READ KIROKU-F AT END MOVE &quot;END&quot; TO END-SW.
+32     PERFORM  UNTIL END-SW = &quot;END&quot;
+33        SET H1 TO K-BUNRUI
+34        SET H2 TO K-YOBI 
+35        COMPUTE H-YOBI(H1 H2) =  H-YOBI(H1 H2) + K-SURYO
+36        READ KIROKU-F AT END MOVE &quot;END&quot; TO END-SW END-READ
+37     END-PERFORM.
+38     MOVE &quot;ゼンテン&quot; TO MIDASHI1.
+39     DISPLAY  MIDASHI1.
+40     DISPLAY  MIDASHI2.
+41     SET M1 B1 TO 1.
+42     PERFORM  SHUTSURYOKU VARYING H1 FROM 1 BY 1 UNTIL H1 &gt; 5
+43                          AFTER   H2 FROM 1 BY 1 UNTIL H2 &gt; 6.
+44     CLOSE  KIROKU-F.
+45     STOP RUN.
+46 SHUTSURYOKU.
+47     MOVE H-YOBI(H1 H2) TO M-SURYO(M1).
+48     SET M1 UP BY 1.
+49     IF H2 = 6  
+50        DISPLAY M-BUNRUI(B1), MEISAI
+51        MOVE SPACE TO MEISAI 
+52        SET M1 TO 1
+53        SET B1 UP BY 1
+54     END-IF.</pre>
+　
+<A NAME="40">
+<HR WIDTH=100%>
+</a><a NAME="121"><b>　<BR>
+設問</b></a><b>1　</b>指標は表ごとに異なるものを設定して利用するが、添字を用いると複数の表を共通の変数で参照できる。プログラム中に複数の表がある場合、同じ位置を参照するものに関して指標の代わりに添字を使うとプログラムが簡単になる。プログラム中の指標 H1、H2、B1及び M1を添字に置き換えることを考えた。 このとき共通の添字に置き換えることができる指標の組合せを、解答群の中から選べ。<br>         
+<br>         
+解答群&nbsp;        
+<table border="0" cellpadding="3" cellspacing="0">        
+  <tr>        
+    <td width="180">ア　H1 と B1</td>         
+    <td>イ　H1 と M1</td>         
+  </tr>         
+  <tr>         
+    <td>ウ　H2 と B1</td>         
+    <td>エ　H2 と M1</td>         
+  </tr>         
+  <tr>         
+    <td>オ　H1 と B1，H2 と M1</td>         
+    <td>カ　H1 と M1，H2 と B1&nbsp;</td>        
+  </tr>        
+</table>        
+<p>　</p>
+<HR WIDTH=100%>
+<a HREF="12s_p_a4.htm#121">設問1の正解例と解説へ</a>
+<A NAME="40">
+<HR WIDTH=100%>
+</a><a NAME="122"><b>　<BR>
+設問</b></a><b>2　</b>いつどこで何が売れたのかを見るために、曜日を指定して、店舗別販売数量の合計を次の様式で出力するようにプログラムを修正する。
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>　<br>
+      ヨウビ  9&nbsp;</td>        
+  </tr>        
+</table>        
+<table border="0" cellpadding="3" cellspacing="0">        
+  <tr>        
+    <td><br>        
+      カコウショクヒン<br>        
+      ソウザイ<br>        
+  セイカ<br>        
+  セイニク<br>        
+  センギョ</td>        
+    <td>                1ゴウテン<br>        
+      ZZZ,ZZ9<br>        
+           ZZZ,ZZ9<br>        
+             ZZZ,ZZ9<br>        
+           ZZZ,ZZ9<br>        
+           ZZZ,ZZ9</td>        
+    <td>  2ゴウテン<br>        
+      ZZZ,ZZ9<br>        
+    ZZZ,ZZ9<br>        
+    ZZZ,ZZ9<br>        
+    ZZZ,ZZ9<br>        
+    ZZZ,ZZ9</td>        
+    <td>  3ゴウテン<br>        
+      ZZZ,ZZ9&nbsp;<br>        
+      ZZZ,ZZ9&nbsp;<br>        
+      ZZZ,ZZ9&nbsp;<br>        
+      ZZZ,ZZ9&nbsp;<br>        
+      ZZZ,ZZ9</td>        
+  </tr>        
+</table>        
+<p align="left">修正内容を示す次の表中の<b>[　　　　]</b>に入れる正しい答えを、解答群の中から選べ。<br>        
+　<br>
+                表　機能追加のための修正内容
+<table border="1" cellPadding="3" bordercolorlight="#000000" cellspacing="0" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+  <tbody>
+    <tr align="middle">
+      <td vAlign="top">処理</td>
+      <td vAlign="center">文</td>
+    </tr>
+    <tr>
+      <td vAlign="center">
+        <p align="center">12 行目の後に追加</p>        
+      </td>        
+      <td vAlign="center">        
+        <pre>     02 H-MISE OCCURS 3 INDEXED BY H0.</pre>        
+      </td>        
+    </tr>        
+    <tr>        
+      <td vAlign="center">        
+        <p align="center">15 行目の後に追加</p>        
+      </td>        
+      <td vAlign="center">        
+        <p>　<b>[　　a　　]</b></p>
+      </td>
+    </tr>
+    <tr>
+      <td vAlign="center">
+        <p align="center">18～20 行目を置換</p>        
+      </td>        
+      <td vAlign="center">        
+        <pre>     03 PIC X(12) VALUE SPACE.
+     03 PIC X(26) VALUE 
+       &quot;1ゴウテン  2ゴウテン  3ゴウテン&quot;.</pre>        
+      </td>        
+    </tr>        
+    <tr>        
+      <td vAlign="center">        
+        <p align="center">35 行目を置換</p>        
+      </td>        
+      <td vAlign="center">        
+        <pre>     SET H0 TO K-MISE
+     COMPUTE  <b>[　　b　　]</b> = <b>[　　d　　]</b> + K-SURYO</pre>        
+      </td>        
+    </tr>        
+    <tr>        
+      <td vAlign="center">        
+        <p align="center">38～43 行目を置換</p>        
+      </td>        
+      <td vAlign="center">        
+        <pre>    MOVE &quot;ヨウビ&quot; TO MIDASHI1 
+    PERFORM UNTIL SHIJI-X = &quot;Q&quot;
+       DISPLAY   &quot;NYURYOKU YOBI &quot;
+       ACCEPT SHIJI-X
+       EVALUATE SHIJI-X 
+          WHEN &quot;1&quot; THRU &quot;6&quot;
+              DISPLAY   MIDASHI1, SHIJI-X
+              DISPLAY   MIDASHI2
+              SET H2 TO SHIJI-9
+              SET M1 B1 TO 1
+             <b> [　　ｃ　　]</b>  
+          WHEN &quot;Q&quot; CONTINUE
+          WHEN OTHER DISPLAY &quot;TEISEI YOBI&quot;
+       END-EVALUATE
+    END-PERFORM.</pre>        
+      </td>        
+    </tr>        
+    <tr>        
+      <td vAlign="center">        
+        <p align="center">47 行目を置換</p>        
+      </td>        
+      <td vAlign="center">        
+        <pre>     MOVE <b>[　　d　　]</b> TO M-SURYO(M1).</pre>        
+      </td>        
+    </tr>        
+    <tr>        
+      <td vAlign="center">        
+        <p align="center">49 行目を置換</p>        
+      </td>        
+      <td vAlign="center">        
+        <pre>     IF H0 = 3</pre>        
+      </td>        
+    </tr>        
+  </tbody>        
+</table>        
+<table border="0" cellpadding="3" cellspacing="0">        
+  <tr>        
+    <td>　<br>
+      　<br>
+      a に関する解答群</td>         
+  </tr>         
+</table>         
+<table border="0" cellpadding="3" cellspacing="0">        
+  <tr>        
+    <td valign="top">ア</td>        
+    <td>01 SHIJI.<br>         
+      02 SHIJI-X PIC X VALUE ZERO.&nbsp;<br>        
+      　　02 SHIJI-9 PIC 9 VALUE 0.</td>         
+  </tr>         
+  <tr>         
+    <td valign="top">イ</td>        
+    <td>01 SHIJI-X PIC X VALUE ZERO.<br>         
+      01 SHIJI-9 PIC 9 VALUE 0.　</td>
+  </tr>
+  <tr>
+    <td valign="top">ウ</td>
+    <td>01 SHIJI-X PIC X VALUE ZERO.<br>         
+      01 SHIJI-9 REDEFINES SHIJI-X PIC 9.　</td>
+  </tr>
+  <tr>
+    <td valign="top">  エ</td>
+    <td>01 SHIJI-9.<br>         
+      　　02 SHIJI-X PIC X VALUE ZERO.　</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>　<br>
+      b に関する解答群</td>         
+  </tr>         
+</table>         
+<table border="0" cellpadding="3" cellspacing="0">        
+  <tr>        
+    <td width="200">ア　H-YOBI(H0 H1 H2)</td>         
+    <td>イ　H-YOBI(H0 H2 H1)</td>         
+  </tr>         
+  <tr>         
+    <td>  ウ　H-YOBI(H1 H0 H2)</td>         
+    <td>エ　H-YOBI(H1 H2 H0)</td>         
+  </tr>         
+</table>         
+<table border="0" cellpadding="3" cellspacing="0">        
+  <tr>        
+    <td>　<br>
+      c に関する解答群</td>         
+  </tr>         
+</table>         
+<table border="0" cellpadding="3" cellspacing="0">        
+  <tr>        
+    <td valign="top">ア</td>        
+    <td>PERFORM  SHUTSURYOKU<br>         
+      　　 VARYING H0 FROM 1 BY 1 UNTIL H0 > 3<br>         
+      　　  AFTER   H1 FROM 1 BY 1 UNTIL H1 > 5</td>         
+  </tr>         
+  <tr>         
+    <td valign="top">イ</td>        
+    <td>PERFORM  SHUTSURYOKU<br>         
+      　　　VARYING H0 FROM 1 BY 1 UNTIL H0 > 3<br>         
+      　　　AFTER   H2 FROM 1 BY 1 UNTIL H2 > 6</td>         
+  </tr>         
+  <tr>         
+    <td valign="top">ウ</td>        
+    <td>PERFORM  SHUTSURYOKU<br>         
+      　　　VARYING H1 FROM 1 BY 1 UNTIL H1 > 5<br>         
+      　　　AFTER   H0 FROM 1 BY 1 UNTIL H0 > 3</td>         
+  </tr>         
+  <tr>         
+    <td valign="top">エ</td>        
+    <td>PERFORM  SHUTSURYOKU<br>         
+      　　　VARYING H1 FROM 1 BY 1 UNTIL H1 > 5<br>         
+      　　　AFTER   H2 FROM 1 BY 1 UNTIL H2 > 6</td>         
+  </tr>         
+  <tr>         
+    <td valign="top">オ</td>        
+    <td>PERFORM  SHUTSURYOKU<br>         
+      　　　VARYING H2 FROM 1 BY 1 UNTIL H2 > 6<br>         
+      　　　AFTER   H0 FROM 1 BY 1 UNTIL H0 > 3</td>         
+  </tr>         
+  <tr>         
+    <td valign="top">カ</td>        
+    <td>PERFORM  SHUTSURYOKU<br>         
+      　　　VARYING H2 FROM 1 BY 1 UNTIL H2 > 6<br>         
+      　　　AFTER   H1 FROM 1 BY 1 UNTIL H1 > 5</td>         
+  </tr>         
+</table>         
+<p>　 
+<A NAME="41"> 
+<HR WIDTH=100%> 
+</a><a HREF="12s_p_a4.htm#122">設問2の正解例と解説へ</a> 
+<HR WIDTH=100%> 
+<p> 
+<A HREF="index.htm">メニューへ戻る</A></p> 
+<HR WIDTH=100%> 
+<p> 
+<a NAME="130"> 
+<b>問13</b></a><b>　</b></p>
+<p>次の Fortran         
+プログラムの説明及びプログラムを読んで，設問 1，2         
+に答えよ。        
+<p>〔プログラムの説明〕        
+<p>区間［a，b］における関数 f (x) の定積分 T         
+を，ロンバーグ積分法によって数値的に求めるプログラムである。        
+<table border="0" cellspacing="0" cellpadding="3">        
+  <tbody>        
+    <tr>        
+      <td vAlign="top">(1)</td>        
+      <td>　整数値 n が与えられたとき，区間［a，b］を k (＝2<sup>n</sup>)         
+        等分して分点を x0 (＝a)，x<sub>1</sub>，<br>        
+        x<sub>2</sub>，…，x<sub>k－1</sub>，x<sub>k</sub>(＝b)         
+        とする。各分点に対する関数値 f (x)         
+        を基に，積分値を台形の面積によって近似する。例えば，区間［x<sub>0</sub>，x<sub>1</sub>］に対しては，        
+        <table border="0" cellpadding="0" cellspacing="0">        
+          <tr>        
+            <td rowspan="3" align="center">&nbsp;s(x<sub>0</sub>，x<sub>1</sub>)         
+              =&nbsp;</td>        
+            <td align="center">h</td>        
+            <td rowspan="3" align="center">｛f (x<sub>0</sub>) ＋ f (x<sub>1</sub>)｝，&nbsp;&nbsp;&nbsp;         
+              h =&nbsp;&nbsp;</td>        
+            <td align="center">b-a</td>        
+          </tr>        
+          <tr>        
+            <td align="center">――</td>        
+            <td align="center">―――</td>        
+          </tr>        
+          <tr>        
+            <td align="center">2</td>        
+            <td align="center">k</td>        
+          </tr>        
+        </table>        
+        <p>と近似する。これを区間［a，b］にわたり，すべて足し合わせた        
+        <p>T<sub>n,0</sub> ＝ s(x<sub>0</sub>，x<sub>1</sub>) ＋ s(x<sub>1</sub>，x<sub>2</sub>)         
+        ＋ … ＋ s(x<sub>k－2</sub>，x<sub>k－1</sub>) ＋ s(x<sub>k－1</sub>，x<sub>k</sub>)</p>        
+        <p>が，区間を 2<sup>n</sup> 等分したときの積分値の第 0         
+        近似である。 n ＝ 0，1，2，…         
+        として繰り返し計算して収束解を求める。</p>        
+      </td>        
+    </tr>        
+    <tr>        
+      <td vAlign="top">(2)</td>        
+      <td>　更に次の漸化式（リチャードソン補外）を用いることで，計算をより速く収束させる。
+        <p>T<sub>n,m</sub> ＝ (4<sup>m</sup> T<sub>n＋1, m－1</sub> － T<sub>n,         
+        m－1</sub>) ／ (4<sup>m</sup> － 1), (1≦m≦n)</p>        
+        <p>例えば，n ＝ 0，1，2 の 3         
+        通りについて，台形近似の積分値 T<sub>0,0</sub>，T<sub>1,0</sub>，T<sub>2,0</sub>を得た場合，漸化式に従い         
+        T<sub>0,0</sub> と T<sub>1,0</sub> から T<sub>0,1</sub> が， T<sub>1,0</sub>         
+        と T<sub>2,0</sub> から T<sub>1,1</sub>         
+        が得られる。更に，得られた T<sub>0,1</sub> と T<sub>1,1</sub>を用いて，         
+        T<sub>0,2</sub>を得ることができる (図１参照)。</p>        
+      </td>        
+    </tr>        
+    <tr>        
+      <td vAlign="top">(3)</td>        
+      <td>　プログラムには，n の最大値 NMAX と近似精度 EPS         
+        とが与えられている。収束条件として，|T<sub>0,n－1</sub>         
+        － T<sub>0,n</sub>| が EPS         
+        よりも小さくなったときに，そのときの T<sub>0,n</sub>を積分の近似値として表示し終了する。n         
+        が NMAX         
+        を超えたときには，警告メッセージを表示して終了する。</td>        
+    </tr>        
+    <tr>        
+      <td vAlign="top">(4)</td>        
+      <td>　関数 f (x)         
+        は，外部副プログラムとして与えられる。</td>        
+    </tr>        
+  </tbody>        
+</table>        
+<p align="left"><img border="0" src="image/13a.gif" width="233" height="150"><br>       
+図１　ロンバーグ積分  
+<pre>〔プログラム〕
+（行番号）
+01        program Romberg
+02        integer, parameter :: NMAX=4, DOUBLE=kind(1.0d0)
+03        real (kind=DOUBLE), parameter :: EPS=1.0d-10
+04        real (kind=DOUBLE) :: a,b,h,f,fab,p,x,sum,del
+05        real (kind=DOUBLE), dimension(0:NMAX,0:NMAX) :: t
+06        integer :: i,k,n,m
+07 !
+08        a=0.0
+09        b=1.0
+10        del=1.0
+11        h=b-a
+12        fab=(f(a)+f(b))/2
+13        t(0,0)=h*fab
+14        write(*,'(i5,f20.15)') 0,t(0,0)
+15 !
+16        n=0
+17        k=1
+18        do while (del &gt;= EPS)
+19          n=n+1
+20          k=k*2
+21          h=h*0.5
+22          if(n &gt; NMAX) then
+23            write(*,*) ' no convergence'
+24            stop
+25          endif
+26          x=a+h
+27          sum=fab
+28          do i=1,k-1
+29            sum=sum+f(x)
+30            x=x+h
+31          enddo
+32          t(n,0)=sum*h
+33          do m=1,n
+34            p=4.0**m
+35            t(n-m,m)=(p*t(n-m+1,m-1)-t(n-m,m-1))/(p-1.0)
+36          enddo
+37          write(*,'(i5,f20.15)') n,t(0,n)
+38          del=abs(t(0,n)-t(0,n-1))
+39        enddo
+40        write(*,100) t(0,n),del
+41   100  format(' integral:',f20.15,' error:',f20.15)
+42        end program Romberg
+43 !
+44        function f(x)
+45        real (kind=kind(1.0d0)) :: f
+46        real (kind=kind(1.0d0)), intent(in) :: x
+47        f=1.0d0/(1.0d0+x*x)
+48        end function f</pre>  
+<HR WIDTH=100%>  
+<a NAME="131">　<BR>
+<b>
+設問</b></a><b>1</b>&nbsp;　プログラム 35 行目において，n＝2，m＝1         
+のときに計算される近似式として正しい答えを，解答群の中から選べ。        
+<p>解答群        
+<table border="0" cellpadding="3" cellspacing="0">        
+  <tr>        
+    <td>ア</td>        
+    <td>T0,1 ＝ (4 T1,0 － T0,0) ／ 3</td>        
+  </tr>        
+  <tr>        
+    <td>イ</td>        
+    <td>T1,1 ＝ (4 T2,0 － T1,0) ／ 3</td>        
+  </tr>        
+  <tr>        
+    <td>ウ</td>        
+    <td>T0,1 ＝ (16 T1,0 － T0,0) ／ 15</td>        
+  </tr>        
+  <tr>        
+    <td>エ</td>        
+    <td>T1,1 ＝ (16 T2,0 － T1,0) ／ 15</td>        
+  </tr>        
+</table>        
+<p>　</p>
+<A NAME="43">
+<HR WIDTH=100%>
+</a><a HREF="12s_p_a4.htm#131">設問の正解例と解説へ</a>
+<HR WIDTH=100%>
+<a NAME="132">　<BR>
+<b>
+設問</b></a><b>2</b>　　次の記述中の <b>[　　　] </b>に入れる正しい答えを，解答群の中から選べ。        
+<p>このプログラムを実行したところ，図 2 のように“no         
+convergence”というメッセージを出力して終了した。このとき，関数副プログラム         
+f (x) は<b> [　　a　　] </b>回呼び出された。        
+<p>プログラムでは台形近似の分点数が増えたとき，すべての分点について関数値を計算している。しかし，そのうちの半分は既に計算済みなので，それを利用するようにしたい。そのためには         
+27～32 行目をプログラム<b> [　　b　　] </b>に変更する。これによって出力結果は変わらず，関数         
+f (x) は <b>[　　c　　]</b> 回呼び出される。</p>        
+<p>　<center>
+<div align="left">
+  <table border="1" cellPadding="3" bordercolorlight="#000000" cellspacing="0" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+    <tbody>
+      <tr>
+        <td vAlign="center">　　0　0.750000000000000　　<br>
+          　　1　0.783333333333333　　<br>
+          　　2　0.785529411764706　　<br>
+          　　3　0.785396445940468　　<br>
+          　　4　0.785398166319429　　<br>
+          　　no convergence</td>        
+      </tr>        
+    </tbody>        
+  </table>        
+</div>        
+</center>        
+<p align="left">図２　プログラムの出力例
+<p>　<br>
+a，c に対する解答群        
+<table border="0" cellpadding="3" cellspacing="0">        
+  <tr>        
+    <td width="80">ア　11</td>
+    <td width="80">イ　13</td>
+    <td width="80">ウ　15</td>
+    <td>エ　17</td>
+  </tr>
+  <tr>
+    <td>オ　26</td>
+    <td>カ　28</td>
+    <td>キ　30</td>
+    <td>ク　32</td>
+  </tr>
+</table>
+<p>b に対する解答群<br>        
+<table border="0" cellpadding="3" cellspacing="0">        
+  <tr>        
+    <td valign="top">ア</td>        
+    <td>27&nbsp;&nbsp; sum=0.0<br>        
+      28&nbsp;&nbsp; do i=1,k-1,2<br>        
+      29&nbsp;&nbsp;&nbsp;&nbsp; sum=sum+f(x)<br>        
+      30&nbsp;&nbsp;&nbsp;&nbsp; x=x+h<br>        
+      31&nbsp;&nbsp; enddo<br>        
+      32&nbsp;&nbsp; t(n,0)=t(n-1,0)/2+sum*h</td>        
+  </tr>        
+  <tr>        
+    <td valign="top">イ</td>        
+    <td>27&nbsp;&nbsp; sum=fab<br>        
+      28&nbsp;&nbsp; do i=1,k-1,2<br>        
+      29&nbsp;&nbsp;&nbsp;&nbsp; sum=sum+f(x)<br>        
+      30&nbsp;&nbsp;&nbsp;&nbsp; x=x+h<br>        
+      31&nbsp;&nbsp; enddo<br>        
+      32&nbsp;&nbsp; t(n,0)=t(n-1,0)/2+sum*h</td>        
+  </tr>        
+  <tr>        
+    <td valign="top">ウ</td>        
+    <td>27&nbsp;&nbsp; sum=0.0<br>        
+      28&nbsp;&nbsp; do i=1,k-1,2<br>        
+      29&nbsp;&nbsp;&nbsp;&nbsp; sum=sum+f(x)<br>        
+      30&nbsp;&nbsp;&nbsp;&nbsp; x=x+2*h<br>        
+      31&nbsp;&nbsp; enddo<br>        
+      32&nbsp;&nbsp; t(n,0)=t(n-1,0)/2+sum*h</td>        
+  </tr>        
+  <tr>        
+    <td valign="top">エ</td>        
+    <td>&nbsp;27&nbsp;&nbsp; sum=fab<br>        
+      &nbsp;28&nbsp;&nbsp; do i=1,k-1,2<br>        
+      &nbsp;29&nbsp;&nbsp;&nbsp;&nbsp; sum=sum+f(x)<br>        
+      &nbsp;30&nbsp;&nbsp;&nbsp;&nbsp; x=x+2*h<br>        
+      &nbsp;31&nbsp;&nbsp; enddo<br>        
+      &nbsp;32&nbsp;&nbsp; t(n,0)=t(n-1,0)/2+sum*h</td>        
+  </tr>        
+</table>        
+<p>　</p>
+<HR WIDTH=100%>
+<a HREF="12s_p_a4.htm#132">設問の正解例と解説へ</a>
+<HR WIDTH=100%>
+<p>
+<A HREF="index.htm">メニューへ戻る</A></p>
+<HR WIDTH=100%>
+　<BR>
+<b><a name="140">問14</a>　</b>次のアセンブラプログラムの説明及びプログラムを読んで，設問         
+1 ～ 4 に答えよ。        
+<p>〔プログラムの説明〕        
+<p>与えられたビット列を語に挿入する副プログラム AFLD         
+である。AFLD         
+を作成するためにビット列を移動する副プログラム MVFLD         
+を使用する。        
+<p>(1)　MVFLD は，図 1         
+に示すようにビット列のデータを移動する。        
+<p align="left"><img border="0" src="image/14a.gif" width="324" height="125"><br>       
+図１　ビット列のデータ移動
+<p>　
+<p>(2)　AFLD は，図 2         
+に示す形式のパラメタに基づき，挿入元の第 0         
+ビットから長さ m ビットのデータを挿入先の第 p         
+ビットに挿入する。パラメタの先頭アドレスは GR1         
+に格納されて，主プログラムから渡される。        
+<p align="left"><img border="0" src="image/14b.gif" width="475" height="137"><br>      
+図２　パラメタの形式
+<p>(3)　各副プログラムは呼び出されたプログラムに戻るとき，汎用レジスタ         
+GR1 ～ GR3 の内容を元に戻す。        
+<p>〔プログラム〕        
+<pre>（行番号）
+01      MVFLD   PUSH  0,GR2         ; レジスタを退避する
+02              PUSH  0,GR3         ; 
+03              LD    GR3,FULLB     ; マスクの作成
+04              SRL   GR3,0,GR1     ;
+05              EOR   GR3,FULLB     ;
+06              ST    GR3,TEMP      ; マスクデータを格納する
+07              AND   GR0,TEMP      ; 複写先の領域をクリアする
+08              SRL   GR2,0,GR1     ; 複写元の内容の位置を合わせる
+09              ST    GR2,TEMP      ;
+10              OR    GR0,TEMP      ; 複写元の内容を格納する
+11              POP   GR3           ; レジスタを復元する
+12              POP   GR2           ; 
+13              RET                 ; 
+14      TEMP    DS    1             ;
+15      FULLB   DC    #FFFF         ;
+16      ;
+17      AFLD    PUSH  0,GR2         ; レジスタを退避する
+18              PUSH  0,GR3         ;
+19              LD    GR3,0,GR1     ; DST の内容を取り出す
+20              LD    GR0,0,GR3     ;
+21              ST    GR0,SVFLD     ; DST の内容を一時保存する
+22              LD    GR3,1,GR1     ; SRC の内容を取り出す
+23              LD    GR2,0,GR3     ;
+24              PUSH  0,GR1         ;
+25              LD    GR1,2,GR1     ; DST の位置を取り出す
+26              CALL  MVFLD         ; SRC の内容を DST に格納する
+27              POP   GR1           ;
+28              LD    GR2,SVFLD     ; DST の壊れた内容を復元する
+29              LD    GR3,2,GR1     ; SRC の移動ビット数を求める
+30              SLL   GR2,0,GR3     ; DST の内容を左詰めにする
+31              PUSH  0,GR1         ;
+32              ADD   GR3,3,GR1     ; DST の位置を求める
+33              LEA   GR1,0,GR3     ;
+34              CALL  MVFLD         ; DST に内容を格納する
+35              POP   GR1           ;
+36              LD    GR3,0,GR1     ;
+37              ST    GR0,0,GR3     ; 結果を格納する
+38              POP   GR3           ; レジスタを復元する
+39              POP   GR2           ;
+40              RET                 ;  
+41      SVFLD   DS    1             ;
+42              END</pre>        
+<hr>        
+<p><b><a name="141">設問</a>1　</b>次に示すレジスタの値で MVFLD         
+を呼び出す。 13 行目の RET 命令実行直前の，<br>        
+TEMP の値として正しい答えを，解答群の中から選べ。</p>        
+<center>        
+<div align="left">        
+  <table border="1" cellPadding="3" bordercolorlight="#000000" cellspacing="0" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">        
+    <tbody>        
+      <tr>        
+        <td vAlign="center" width="80" align="center">GR0</td>        
+        <td vAlign="center" width="80" align="center">#1234</td>        
+      </tr>        
+      <tr>        
+        <td vAlign="center" align="center">GR1</td>        
+        <td vAlign="center" align="center">8</td>        
+      </tr>        
+      <tr>        
+        <td vAlign="center" align="center">GR2</td>        
+        <td vAlign="center" align="center">#5600</td>        
+      </tr>        
+    </tbody>        
+  </table>        
+</div>        
+</center>        
+<p>解答群        
+<table border="0" cellpadding="3" cellspacing="0">        
+  <tr>        
+    <td width="100">ア　#0056</td>
+    <td width="100">イ　#00FF</td>
+    <td>ウ　#1234</td>
+  </tr>
+  <tr>
+    <td>エ　#1256</td>
+    <td>オ　#FF00</td>
+    <td></td>
+  </tr>
+</table>
+<p>　</p>
+<A NAME="44">
+<HR WIDTH=100%>
+</a><a HREF="12s_p_a4.htm#141">設問の正解例と解説へ</a>
+<HR WIDTH=100%>
+<p><b><a name="142">設問</a>2　</b>MVFLD         
+にビット列移動を使わないですむ場合の処理を追加して，次のようにプログラムを変更した。プログラム中の         
+<b>[　　　]</b>         
+に入れる正しい答えを，解答群の中から選べ。</p>        
+<table border="0" cellpadding="3" cellspacing="0">        
+  <tr>        
+    <td valign="top">MVFLD</td>        
+    <td><b>[　　　　]</b>&nbsp;<br>        
+      JZE&nbsp;&nbsp; ZEROP</td>        
+  </tr>        
+  <tr>        
+    <td valign="top"></td>        
+    <td>        
+      <table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#FFFFFF" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">        
+        <tr>        
+          <td bordercolor="#000000">&nbsp; PUSH&nbsp;         
+            0,GR2&nbsp;&nbsp;&nbsp;&nbsp; ; レジスタを退避する　<br>
+            &nbsp;&nbsp;&nbsp;&nbsp; ・<br>        
+            &nbsp;&nbsp;&nbsp;&nbsp; ・<br>        
+            &nbsp;&nbsp;&nbsp;&nbsp; ・<br>        
+            &nbsp; POP&nbsp;&nbsp; GR2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;         
+            ;&nbsp;<br>        
+            &nbsp;         
+            RET&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;         
+            ;&nbsp;</td>        
+          <td>従来の処理</td>        
+        </tr>        
+      </table>        
+    </td>        
+  </tr>        
+  <tr>        
+    <td valign="top">ZEROP<br>        
+      <br>        
+      TEMP<br>        
+      FULLB</td>        
+    <td>LEA&nbsp;&nbsp; GR0,0,GR2&nbsp;&nbsp; ;&nbsp;<br>        
+      RET<br>        
+      DS&nbsp;&nbsp;&nbsp;         
+      1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 　　 ;<br>        
+      DC&nbsp;&nbsp;&nbsp; #FFFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;         
+      ;<br>        
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ・<br>        
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ・<br>        
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ・</td>        
+  </tr>        
+</table>        
+<p>解答群        
+<table border="0" cellpadding="3" cellspacing="0">        
+  <tr>        
+    <td width="150">ア　LD GR0,0,GR1</td>        
+    <td width="150">イ　LD GR1,0,GR1</td>        
+    <td>ウ　LD GR2,0,GR1</td>        
+  </tr>        
+  <tr>        
+    <td>エ　LEA GR1,0,GR1</td>        
+    <td>オ　LEA GR1,0,GR2</td>        
+    <td>カ　LEA GR1,0,GR3</td>        
+  </tr>        
+</table>        
+<p>　</p>
+<HR WIDTH=100%>
+<a HREF="12s_p_a4.htm#142">設問2の正解例と解説へ</a>
+<hr>
+<p><b><a name="143">設問</a>3　</b>AFLD         
+を次のパラメタで呼び出す。51 ページの 30         
+行目の命令を実行した直後の<br>        
+GR2 の値として正しい答えを，解答群の中から選べ。</p>        
+<p><img border="0" src="image/14c.gif" width="352" height="105"></p>       
+<table border="0" cellpadding="3" cellspacing="0">       
+  <tr>       
+    <td>　<br> 
+      解答群</td> 
+  </tr> 
+</table> 
+<table border="0" cellpadding="3" cellspacing="0"> 
+  <tr> 
+    <td width="80">ア #00F0</td>        
+    <td width="80">イ #F0F0</td>        
+    <td>ウ #FF0F</td>        
+  </tr>        
+  <tr>        
+    <td>エ #FFF0</td>        
+    <td>オ #FFFF</td>        
+    <td></td>        
+  </tr>        
+</table>        
+<p>　</p>
+<a name="44">
+<hr width="100%">
+</a><a href="12s_p_a4.htm#143">設問3の正解例と解説へ</a>
+<hr width="100%">
+<p><b><a name="144">設問</a>4　</b>AFLD         
+でビット列を挿入すると，挿入先から捨てられるビット列がある。捨てられたビット列を         
+GR0 に左詰めで格納するためのプログラムを， 51 ページの 37         
+行目の直後に追加した。追加したプログラム中の <b>[　　　]         
+</b>に入れる正しい答えを，解答群の中から選べ。</p>        
+<pre>LEA   GR3,16
+SUB   GR3,2,GR1
+SUB   GR3,3,GR1
+<b>[　　　　　　]</b>
+LEA   GR0,0,GR2</pre>        
+<p>解答群        
+<table border="0" cellpadding="3" cellspacing="0">        
+  <tr>        
+    <td width="150">ア　SLL GR2,0,GR1</td>        
+    <td width="150">イ　SLL GR2,0,GR3</td>        
+    <td>ウ　SLL GR3,0,GR2</td>        
+  </tr>        
+  <tr>        
+    <td>エ　SRL GR2,0,GR1</td>        
+    <td>オ　SRL GR2,0,GR3</td>        
+    <td>カ　SRL GR3,0,GR2</td>        
+  </tr>        
+</table>        
+<p>　</p>
+<hr width="100%">
+<a href="12s_p_a4.htm#144">設問4の正解例と解説へ</a>
+<hr>
+<p align="center">
+<a href="12s_p_e5.htm">■　問題15へ進む</a>　　　　　　　<A HREF="index.htm">■メニューへ戻る</A></p>
+<HR WIDTH=100%>
+<p><BR>
+</p>
+
+      <p>　
+
+
+
+
+</blockquote>
+
+
+
+
+</BODY>

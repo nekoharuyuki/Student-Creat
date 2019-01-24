@@ -1,0 +1,592 @@
+<HTML>
+<HEAD>
+<TITLE>平成15年度秋期試験　問題(午後問6～問9)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0">
+<blockquote>
+  <hr>
+  <H3 align="center">平成15年度秋期試験　問題(問6～問9)</H3>
+<hr>
+<P>次の問6から問9までの4問については、この中から1問を選択し、答案用紙の選択欄の 
+選 をマークして解答してください。<br>         
+　なお、2問以上選択した場合には、はじめの1問について採点します。
+<hr>
+<p><b><a name="60">問6</a>　</b>次のCプログラムの説明及びプログラムを読んで，設問に答えよ。<br>
+<br>
+〔プログラムの説明〕<br>
+コンサート会場において，連続して確保したい席数を与えられると，座席を決定し，結果を返却値として返すプログラムである。<br>
+（1）コンサート会場の座席は，図に示すとおりである。<br>
+<br>
+        <p><img border="0" src="image/P_06_01.gif"></p>
+        <p><br>
+図　コンサート会場の座席配置<br>
+<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top"></td>
+            <td><img border="0" src="image/01_maru.GIF">　座席は，A～Zの26列からなり，列によって座席数が異なる。各列の座席表は，列A～Zの順に大域の配列cnumに格納されている。<br>
+<img border="0" src="image/02_maru.GIF">　座席番号は，列と番からなる。番とは，各列についてステージに向かって左から何番目の座席であるかを示す番号のことである。例えば，“L列6番”の座席とは，ステージから12列目（L列）のステージに向かって左から6番目の座席を指す。<br>
+<img border="0" src="image/03_maru.GIF">　図の網掛けの席は，予約済である。<br>
+</td>
+          </tr>
+          <tr>
+            <td valign="top">（2）</td>
+            <td>連続して確保したい希望席数を，引数numberに格納してプログラムに渡す。</td>
+          </tr>
+          <tr>
+            <td valign="top">（3）</td>
+            <td>座席は，ステージに向かって最前列左端（A列1番）から，同一列に希望席数の入る連続した空きがあるかを調べ，最初に見つかった空きを確保する。A列で確保できなかった場合は，順次B列，C列，･･･と後列に対して左端から，希望者席数の入る連続した空きがあるかを調べ，最初に見つかった空きを確保する。全席探しても空きが見つからなかった場合には，座席が確保できなかったものとする。</td>
+          </tr>
+          <tr>
+            <td valign="top">（4）</td>
+            <td>希望数の座席が確保できた場合は，その座席の列名と，確保できた座席の中で，ステージに向かって最も左端に位置する座席の番号とを格納した座席番号構造体（SEAT）へのポインタを，返却値として返す。確保できなかった場合は，空ポインタ（NULL）を返却値として返す。</td>
+          </tr>
+          <tr>
+            <td valign="top">（5）</td>
+            <td>構造体SEATの宣言は，次のとおりである。<br>
+<br>
+typedef struct {<br>
+　　　char   row;         /* 座席の列名 */<br>
+　　　int    no;           /* 座席の番号 */<br>
+} SEAT;<br>
+</td>
+          </tr>
+          <tr>
+            <td valign="top">（6）</td>
+            <td>コンサート会場の各座席の状況は，大域変数statusに格納されている。座席が確保できた場合には，確保できた座席を予約済にする。<br>
+<br>
+status[i][j] = <br>
+'  '：座席は空<br>
+'R'：座席は予約済み<br>
+<br>
+列A～Zに対応する添字iの値は0～25になる。番1～nに対応する添字jの値は0～n－1になる。
+</td>
+          </tr>
+        </table>
+<br>
+〔プログラム〕<br>
+#define MAXNUM　30　　　　/* 列の最大座席数 */<br>
+#define ROWNUM　26　　　　/* 列数 */<br>
+<br>
+typedef struct {<br>
+　　char　　 row;　　　　　/* 座席の列名 */<br>
+　　int　　　no;　　　　　　/* 座席の番号 */<br>
+} SEAT;<br>
+<br>
+static char rname[ ] = {"ABCDEFGHIJKLMNOPQRSTUVWXYZ"},<br>
+　　　　　　　status[ROWNUM][MAXNUM];<br>
+static int　 cnum[ROWNUM] = {12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 30, 30, 30, 30, 30, 30, 30, 28, 26, 24, 22, 20, 18, 16, 14, 12};<br>
+static SEAT empty;<br>
+<br>
+SEAT *book_seat(int);<br>
+<br>
+SEAT *book_seat(int number)<br>
+{<br>
+　 int ridx, cidx, eidx, flg = 0;<br>
+<br>
+　 for (ridx = 0; ridx < ROWNUM; ridx++) {<br>
+　　　　for (cidx = 0; cidx <= cnum[ridx] - number; cidx++) {<br>
+　　　　　　 if (status[ridx][cidx] == ' ') {<br>
+　　　　　　　　　[　　a　　];<br>
+　　　　　　　　　for (eidx = [　　b　　]; cidx < eidx; eidx--)<br>
+　　　　　　　　　　　 if (status[ridx][eidx] == 'R') {<br>
+　　　　　　　　　　　　　　flg = 0;<br>
+　　　　　　　　　　　　　　break;<br>
+　　　　　　　　　　　 }<br>
+　　　　　　　　　if (flg == 1) break;<br>
+　　　　　　 }<br>
+　　　　}<br>
+　　　　if (flg == 1) break;<br>
+　 }<br>
+　 if (flg == 0)<br>
+　　　　return NULL;<br>
+　 for (eidx = cidx + number - 1; cidx <= eidx; eidx--)<br>
+　　　　status[ridx][eidx] = 'R';<br>
+　 empty.row = [　　c　　];<br>
+　 empty.no　= [　　d　　];<br>
+　 return &#38;empty;<br>
+}<br>
+<br>
+<p></p>      
+<hr>
+<p><b><a name="61">設問</a>　</b>プログラム中の［　　　　］に入れる正しい答えを，解答群の中から選べ。<br>
+</p>
+aに関する解答群<BR>
+ア　cidx++　　　　　　　　イ　cidx--　　　 ウ　cidx += number<BR>
+エ　cidx += number - 1　　オ　flg = 0　　　カ　flg = 1<BR>
+<BR>
+<BR>
+bに関する解答群<BR>
+ア　0　　　　　 イ　cidx  　　　ウ　cidx + 1<BR>
+エ　cidx + number　　　　　　　 オ　cidx + number - 1<BR>
+カ　number　　　キ　number - 1<BR>
+<BR>
+<BR>
+cに関する解答群<BR>
+ア　ridx　　　　　 イ　ridx + 1　　　　　　ウ　ridx - 1<BR>
+エ　rname[ridx]　　オ　rname[ridx + 1]　　 カ　rname[ridx - 1]<BR>
+<BR>
+<BR>
+dに関する解答群<BR>
+ア　cidx　　　　　　イ　cidx + 1　　　ウ　cidx - 1<BR>
+エ　ridx + cidx　　 オ　ridx - cidx<BR>
+<BR>
+<hr WIDTH="100%">
+  <a HREF="15F_P_A3.HTM#61">設問の正解例と解説へ</a>
+<hr WIDTH="100%">
+<a HREF="index.htm">メニューへ戻る</a><br>
+<HR WIDTH=100%>
+<a NAME="70">　<BR>
+<b>
+問7</b></a><b>　</b>次のCOBOLプログラムの説明及びプログラムを読んで，設問に答えよ。<br>
+<br>
+[プログラムの説明]<br>
+<br>
+予約状況ファイルと料金ファイルから，パラメタで与えられた検索条件を満たす宿泊施設の空室を検索して，宿泊料金の安い順に並べた空室情報を返す副プログラムである。<br>
+<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">（1）</td>
+            <td>予約状況ファイルBOOKING-FILEのレコード様式は，次のとおりである。<br>
+        <p><img border="0" src="image/P_07_01.gif"></p>
+        <p>
+<img border="0" src="image/01_maru.GIF">　施設コードは宿泊施設を表し，各施設には複数の部屋があるものとする。<br>
+<img border="0" src="image/02_maru.GIF">　予約状況は，366個の要素からなる1次元の表であり，プログラムを実行する翌日から1年間分の予約状況を表している。<br>
+<img border="0" src="image/03_maru.GIF">　要素の値が，0のときは“予約なし”を示し，1のときは“予約済”を示す。予約状況ファイルは毎日更新され，プログラム実行時には，それまでの予約状況が正しく反映されているものとする。<br>
+<br>
+例　プログラムを実行する日が2003年10月19日のときは，2003年10月20日～2004年10月19日の予約状況が格納されている。<br>
+<br>
+</td>
+          </tr>
+          <tr>
+            <td valign="top">（2）</td>
+            <td>料金ファイルCHARGE-FILEは部屋タイプを主キーとする索引ファイルであり，レコード様式は次のとおりである。<br>
+        <p><img border="0" src="image/P_07_02.gif"></p>
+        <p>
+<img border="0" src="image/01_maru.GIF">　宿泊人数：1部屋に泊まる人数を示す。<br>
+<img border="0" src="image/02_maru.GIF">　宿泊料金：部屋の1人当たりの1泊料金を示す。宿泊人数の違いによって4通り用意されている。<br>
+<img border="0" src="image/03_maru.GIF">　予約状況ファイルに格納されている部屋タイプに該当するレコードは，必ず存在する。<br>
+</td>
+          </tr>
+          <tr>
+            <td valign="top">（3）</td>
+            <td>検索条件SEARCH-INFOの形式は，次のとおりである。検索条件で与えられるデータは正しいものとする。<br>
+        <p><img border="0" src="image/P_07_03.gif"></p>
+        <p>
+<img border="0" src="image/01_maru.GIF">　施設コード：3けたの数字である。“000”のときは施設の指定がないことを表す。<br>
+<img border="0" src="image/02_maru.GIF">　宿泊開始日：4けたの西暦年，2けたの月，2けたの日で構成されている。プログラムを実行する翌日から1年以内の日付とする。<br>
+　例　2003年10月20日ならば，“20031020”となる。<br>
+<img border="0" src="image/03_maru.GIF">　宿泊日数：2けたの0でない数字である。宿泊開始日から連続して泊まる日数を表す。連続して泊まる日を含めて，プログラムを実行する翌日から1年間に収まる日数とする。<br>
+　例　1泊2日のときは，“01”となる。<br>
+<img border="0" src="image/04_maru.GIF">　宿泊人数：2けたの0でない数字である。<br>
+<img border="0" src="image/05_maru.GIF">　1泊の予算：1人当たりの1泊の予算であり，下限と上限を示す1組の6けたの数字である。下限と上限がともに“000000”のときは指定なしを表す。<br>
+　例　10,000～15,000円の部屋を検索するときは，<br>
+　　　下限として“010000”，上限として“015000”を指定する。<br>
+</td>
+          </tr>
+          <tr>
+            <td valign="top">（4）</td>
+            <td>検索結果SEARCH-RESULTの形式は，次のとおりである。<br>
+        <p><img border="0" src="image/P_07_04.gif"></p>
+        <p>
+<img border="0" src="image/01_maru.GIF">　空室情報は100個の要素からなる1次元の表であり，検索結果は100件以下とする。検索結果が100件未満のとき，残りの要素は，空白で埋められている。<br>
+<img border="0" src="image/02_maru.GIF">　空室情報は，宿泊料金の安い順に並べる。<br>
+</td>
+          </tr>
+          <tr>
+            <td valign="top">（5）</td>
+            <td>副プログラムGETDAYSを使用する。GETDAYSは，与えられた日付データをプログラムを実行する翌日からの通算日に変換する。GETDAYSの呼び出し方法は，次のとおりである。<br>
+　　　CALL "GETDAYS" USING 日付 通算日<br>
+</td>
+          </tr>
+        </table>
+<br>
+〔プログラム〕<br>
+DATA　　　　　　　　 DIVISION.<br>
+FILE　　　　　　　　 SECTION.<br>
+FD　BOOKING-FILE.<br>
+01　BOOKING-REC.<br>
+　　03　BCODE　　　　　　　　　　　PIC　9(03).<br>
+　　03　BNAME　　　　　　　　　　　PIC　X(10).<br>
+　　03　BTYPE　　　　　　　　　　　PIC　X(02).<br>
+　　03　BOOKING-INFO　　　　　　　PIC　9(01)　 OCCURS 366.<br>
+FD　CHARGE-FILE.<br>
+01　CHARGE-REC.<br>
+　　03　CTYPE　　　　　　　　　　　PIC　X(02).<br>
+　　03　ACCOMMODATION-INFO　　　　　　　　　　 OCCUR 4.<br>
+　　　　05　GUEST-NO　　　　　　　PIC　9(02).<br>
+　　　　05　CHARGE　　　　　　　　PIC　9(06).<br>
+SD　VACANCY-FILE.<br>
+01　VACANCY-REC.<br>
+　　03　VCODE　　　　　　　　　　　PIC　9(03).<br>
+　　03　VNAME　　　　　　　　　　　PIC　X(10).<br>
+　　03　VCHARGE　　　　　　　　　　PIC　9(06).<br>
+WORKING-STORAGE　　 SECTION.<br>
+01　EOF　　　　　　　　　　　　　　PIC　X(01).<br>
+01　BOOKING-FLAG　　　　　　　　 PIC　9(01).<br>
+01　DAYS　　　　　　　　　　　　　PIC　9(03).<br>
+01　MATCH　　　　　　　　　　　　 PIC　9(01).<br>
+01　I　　　　　　　　　　　　　　　PIC　9(03).<br>
+01　J　　　　　　　　　　　　　　　PIC　9(01).<br>
+LINKAGE　　　　　　　SECTION.<br>
+01　SEARCH-INFO.<br>
+　　03　SCODE　　　　　　　　　　 PIC　9(03).<br>
+　　03　CHECKIN-DATE　　　　　　 PIC　9(08).<br>
+　　03　STAY-DAYS　　　　　　　　PIC　9(02).<br>
+　　03　SGUEST-NO　　　　　　　　PIC　9(02).<br>
+　　03　SCHARGE-RANGE.<br>
+　　　　05　LOWER-LIMIT　　　　　PIC　9(06).<br>
+　　　　05　UPPER-LIMIT　　　　　PIC　9(06).<br>
+01　SEARCH-RESULT.<br>
+　　03　SEARCH-COUNT　　　　　　 PIC　9(03).<br>
+　　05　VACANCY-INFO　　　　　　 PIC　X(19)　 OCCURS 100.<br>
+PROCEDURE　　　　　DIVISION　　USING　 SEARCH-INFO SEARCH-RESULT.<br>
+MAIN-PROC.<br>
+　　SORT VACANCY-FILE<br>
+　　　　<B>[　　　　　　　 a　　　　　　　 ]</B><br>
+　　　　INPUT PROCEDURE SEARCH-PROC<br>
+　　　　OUTPUT PROCEDURE RESULT-PROC.<br>
+　　EXIT PROGRAM.<br>
+SEARCH-PROC.<br>
+　　OPEN INPUT BOOKING-FILE CHARGE-FILE.<br>
+　　MOVE SPACE TO EOF.<br>
+　　READ BOOKING-FILE AT END<br>
+　　　　MOVE "E" TO EOF<br>
+　　END-READ.<br>
+　　PERFORM UNTIL EOF = "E"<br>
+　　　　IF (SCODE =ZERO OR<br>
+　　　　　　 SCODE = BCODE) THEN<br>
+　　　　　　 CALL "GETDAYS" USING CHECKIN-DATE DAYS<br>
+　　　　　　 MOVE 0 TO BOOKING-FLAG<br>
+　　　　　　 PERFORM <B>[　　　　　　　 b　　　　　　　 ]</B><br>
+　　　　　　　　IF BOOKING-INFO(I) = 1 THEN<br>
+　　　　　　　　　　MOVE 1 TO BOOKING-FLAG<br>
+　　　　　　　　END-IF<br>
+　　　　　　 END-PERFORM<br>
+　　　　　　 IF <B>[　　　　　　 c　　　　　　 ]</B> THEN<br>
+　　　　　　　　MOVE BTYPE TO CTYPE<br>
+　　　　　　　　READ CHARGE-FILE<br>
+　　　　　　　　MOVE 0 TO MATCH<br>
+　　　　　　　　PERFORM VARYING J FROM 1 BY 1<br>
+　　　　　　　　　　　　　UNTIL J > 4 OR MATCH = 1<br>
+　　　　　　　　　 IF <B>[　　　　　　　 d　　　　　　　 ]</B> THEN<br>
+　　　　　　　　　　　 MOVE BCODE TO VCODE<br>
+　　　　　　　　　　　 MOVE BNAME TO VNAME<br>
+　　　　　　　　　　　 MOVE CHARGE(J) TO VCHARGE<br>
+　　　　　　　　　　　 RELEASE VACANCY-REC<br>
+　　　　　　　　　　　 MOVE 1 TO MATCH<br>
+　　　　　　　　　 END-IF<br>
+　　　　　　　　END-PERFORM<br>
+　　　　　　 END-IF<br>
+　　　　END-IF<br>
+　　　　READ BOOKING-FILE AT END<br>
+　　　　　 MOVE "E" TO EOF<br>
+　　　　END-READ<br>
+　　END-PERFORM.<br>
+　　CLOSE　BOOKING-FILE CHARGE-FILE.<br>
+RESULT-PROC.<br>
+　　INITIALIZE SEARCH-RESULT.<br>
+　　MOVE SPACE TO EOF.<br>
+　　RETURN VACANCY-FILE AT END<br>
+　　　　MOVE "E" TO EOF<br>
+　　END-RETURN.<br>
+　　PERFORM UNTIL EOF = "E"<br>
+　　　　COMPUTE SEARCH-COUNT = SEARCH-COUNT + 1<br>
+　　　　MOVE VACANCY-REC TO VACANCY-INFO(SEARCH-COUNT)<br>
+　　　　RETURN VACANCY-FILE AT END<br>
+　　　　　 MOVE "E" TO EOF<br>
+　　　　END-RETURN<br>
+　　END-PERFORM.<br>
+<br>
+<hr> 
+<a NAME="71">　<BR>
+<b>
+設問</b></a><b>　</b>プログラム中の［　　　　］に入れる正しい答えを，解答群の中から選べ。
+<BR>
+<BR>
+aに関する解答群<BR>
+ア　OCCURS KEY VCHARGE<BR>
+イ　ON ASCENDING KEY VCHARGE<BR>
+ウ　ON DESCENDING KEY VCHARGE<BR>
+エ　SORT KEY VCHARGE<BR>
+オ　USING KEY VCHARGE<BR>
+<BR>
+<BR>
+bに関する解答群<BR>
+ア　VARYING I FROM 1 BY 1 UNTIL I > DAYS<BR>
+イ　VARYING I FROM 1 BY 1 UNTIL I > DAYS OR BOOKING-FLAG = 1<BR>
+ウ　VARYING I FROM 1 BY 1 UNTIL I >= STAY-DAYS<BR>
+エ　VARYING I FROM 1 BY 1 UNTIL I >= STAY-DAYS OR BOOKING-FLAG = 1<BR>
+オ　VARYING I FROM DAYS BY 1 UNTIL I >= DAYS + STAY-DAYS OR BOOKING-FLAG = 1<BR>
+<BR>
+<BR>
+cに関する解答群<BR>
+ア　BOOKING-FLAG = 0<BR>
+イ　BOOKING-FLAG = 1<BR>
+ウ　BOOKING-INFO(I) = 0<BR>
+エ　BOOKING-INFO(I) = 1<BR>
+オ　SCODE = ZERO<BR>
+カ　SCODE NOT = ZERO<BR>
+<BR>
+<BR>
+dに関する解答群<BR>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">ア</td>
+            <td>　(GUEST-NO(J) = SGUEST-NO AND<BR>
+　(SCHARGE-RANGE = ZERO OR<BR>
+　(CHARGE(J) >= LOWER-LIMIT AND CHARGE(J) <= UPPER-LIMIT)))<BR>
+</td>
+          </tr>
+          <tr>
+            <td valign="top">イ</td>
+            <td>　(GUEST-NO(J) = SGUEST-NO AND<BR>
+　(SCHARGE-RANGE NOT = ZERO AND<BR>
+　(CHARGE(J) < LOWER-LIMIT OR CHARGE(J) > UPPER-LIMIT)))<BR>
+</td>
+          </tr>
+          <tr>
+            <td valign="top">ウ</td>
+            <td>　(GUEST-NO(J) = SGUEST-NO OR<BR>
+　(SCHARGE-RANGE = ZERO OR<BR>
+　(CHARGE(J) >= LOWER-LIMIT AND CHARGE(J) <= UPPER-LIMIT)))<BR>
+</td>
+          </tr>
+          <tr>
+            <td valign="top">エ</td>
+            <td>　NOT (GUEST-NO(J) NOT = SGUEST-NO AND<BR>
+　(SCHARGE-RANGE = ZERO OR<BR>
+　(CHARGE(J) >= LOWER-LIMIT AND CHARGE(J) <= UPPER-LIMIT)))<BR>
+</td>
+          </tr>
+          <tr>
+            <td valign="top">オ</td>
+            <td>　NOT (GUEST-NO(J) NOT = SGUEST-NO AND<BR>
+　(SCHARGE-RANGE NOT = ZERO AND<BR>
+　(CHARGE(J) < LOWER-LIMIT OR CHARGE(J) > UPPER-LIMIT)))<BR>
+</td>
+          </tr>
+        </table>
+<BR>
+<HR WIDTH=100%>  
+  <a HREF="15F_P_A3.HTM#71">設問の正解例と解説へ</a>  
+<hr WIDTH="100%">    
+<p><A HREF="index.htm">メニューへ戻る</A>
+<HR WIDTH=100%>     
+<a NAME="80">　<BR>
+<b> 
+問8</b></a>　次のJavaプログラムの説明及びプログラムを読んで，設問に答えよ。<br>
+<br>
+〔プログラムの説明〕<br>
+プログラムは，バイナリデータのバイト列をあるアルゴリズムに従って変換し，その結果を文字の列として取得するためのクラスEncoderとそのテスト用クラスからなる。変換アルゴリズムは次のとおりである。<br>
+<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">（1）</td>
+            <td>バイト列の先頭から順に6ビットずつ取り出し，変換表の対応する文字に変換する。ただし，バイト数が3の倍数でないときは，ビット数が6の倍数になるように，最後に4ビット又は2ビットの0があるものとする。</td>
+          </tr>
+          <tr>
+            <td valign="top">（2）</td>
+            <td>変換後の文字数が，与えられたバイト数の4／3倍以上で最も小さい4の倍数になるように，文字の列の最後に必要な個数だけ“=”を付加する。</td>
+          </tr>
+          <tr>
+            <td valign="top">（3）</td>
+            <td>変換例を図1に示す。<br>
+        <p><img border="0" src="image/P_08-0-1.gif"></p>
+        <p><br>
+</td>
+          </tr>
+          <tr>
+            <td valign="top">（4）</td>
+            <td>クラスEncoderは，nextとhasNextの二つのメソッドをもつ。<br>
+nextは，変換アルゴリズムに従って変換された文字を1文字ずつ順に返すメソッドである。返すべき文字がなくなった後に呼ばれると，<br>
+java.util.NoSuchElementExceptionを投げる。<br>
+hasNextは，次のNext呼出しの際に，例外が発生せずに文字を返すことができるとき真となる。
+</td>
+          </tr>
+          <tr>
+            <td valign="top">（5）</td>
+            <td>変数CHARSは，6ビットの数値を1文字に変換するための表で，配列の大きさは64である。<br>
+変数nは，次にnextが呼ばれたときに返すべき文字が何番目の文字であるかを保持する（先頭の文字は0番目とする）。<br>
+変数binは，変換するバイナリデータの列を保持する。<br>
+</td>
+          </tr>
+          <tr>
+            <td valign="top">（6）</td>
+            <td>図1のバイト列を用いたテスト用クラスEncoderTestの実行結果を図2に示す。<br>
+        <p><img border="0" src="image/P_08_02.gif"></p>
+図2　実行結果<br>
+        <p><br>
+〔プログラム〕<br>
+public class Encoder {<br>
+　static final char[] CHARS = ("ABCDEFGHIJKLMNOPQRSTUVWXYZ" +<br>
+　"abcdefghijklmnopqrstuvwxyz0123456789+/).toCharArray();<br>
+　private in n = 0;<br>
+　private byte[] bin;<br>
+　public Encoder(byte[] bin) {<br>
+　　if (bin == null) this.bin = new byte[0];<br>
+　　else this.bin = bin;<br>
+　}<br>
+　public boolean hasNext() {<br>
+　　return n < <B>[　　　　　　 a　　　　　　 ]</B>;<br>
+　}<br>
+　public char next() {<br>
+　　char letter;<br>
+　　int pos = (int)(n * 0.75);<br>
+　　// 変換対象の6ビットのデータが含まれる2バイトのデータを取得<br>
+　　if (pos < bin.length) {<br>
+　　　int cell = bin[pos++] << 8;<br>
+　　　if (pos < bin.length) cell += bin[pos] & 255;<br>
+　　　// 変換すべき6ビットを抽出し，対応する1文字に変換<br>
+　　　letter = CHARS[(cell >> (n +3) % 4 *2 + 4) & 63];<br>
+　　} else {<br>
+　　　if (<B>[　　　　 b　　　　 ]</B>)<br>
+　　　　throw new java.util.NoSuchElementException();<br>
+　　　else letter = <B>[　　　　 c　　　　 ]</B>;<br>
+　　}<br>
+　　n++;<br>
+　　return letter;<br>
+　}<br>
+}<br>
+<br>
+class EncoderTest {<br>
+　public static void main(string[] args) {<br>
+　　byte[] bin = {0x12, 0x34, 0x45, 0x67};<br>
+　　Encoder encoder = new Encoder(bin);<br>
+　　while (encoder.hasNext()) {<br>
+　　　System.out.print(encoder.next());<br>
+　　}<br>
+　　System.out.println();<br>
+　}<br>
+}<br>
+<br>
+<a NAME="81">　<BR>
+<b>
+<HR WIDTH=100%>   
+設問</b></a><b>　</b>プログラム中の<B>［　　　　　］</B>に入れる正しい答えを，解答群の中から選べ。<br>
+<br>
+aに関する解答群<br>
+ア　(bin.length + 2) * 4 / 3　　イ　(bin.length + 2) / 3 * 4<br>
+ウ　bin.length * 4 / 3 　　　　 エ　bin.length / 3 * 4<br>
+<br>
+<br>
+bに関する解答群<br>
+ア　!hasNext()　　　　　　　　　イ　hasNext()<br>
+ウ　n < bin.length 　　　　　　 エ　n >= bin.length()<br>
+<br>
+<br>
+cに関する解答群<br>
+ア　' '　　　イ　'='　　　ウ　CHARS[n]　　　エ　next()<br>
+<br><br>
+<HR WIDTH=100%>     
+</a><a HREF="15F_P_A3.HTM#81">設問の正解例と解説へ</a>    
+<HR WIDTH=100%>    
+<br>
+<p>          
+<a NAME="90">          
+<b>問9</b></a><b>　</b>次のアセンブラプログラムの説明及びプログラムを読んで，設問1，2に答えよ。<br>
+<br>
+〔プログラムの説明〕<br>
+副プログラムSUBSは，次に示すように指定された文字列の一部分（部分文字列と呼ぶ）を，指定された領域に複写するプログラムである。<br>
+<br>
+        <p><img border="0" src="image/P_09_01.gif"></p>
+        <p><br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">（1）</td>
+            <td>GR1～GR5に，次の値が設定されて，主プログラムから渡される。<br>
+　GR1：文字列が格納されている領域の先頭アドレス<br>
+　GR2：文字列の長さL<br>
+　GR3：部分文字列の開始位置P（0≦P＜L）<br>
+　GR4：部分文字列の長さLp<br>
+　GR5：部分文字列を複写する領域の先頭アドレス<br>
+ただし，部分文字列の領域と複写先の文字列の領域は重ならない。<br>
+</td>
+          </tr>
+          <tr>
+            <td valign="top">（2）</td>
+            <td>次に示すどちらかの処理結果をGR0に設定して主プログラムに戻る。<br>
+　0　　正常に終了<br>
+　-1　長さ指定に誤り（P + Lp ＞L）<br>
+</td>
+          </tr>
+          <tr>
+            <td valign="top">（3）</td>
+            <td>副プログラムから戻るとき，汎用レジスタGR1～GR7の内容は元に戻す。</td>
+          </tr>
+        </table>
+<br>
+［プログラム］<br>
+　（行番号）<br>
+　 1　SUBS　START<br>
+　 2　　　　 RPUSH<br>
+　 3　　　　 LD　　 GR7,GR3<br>
+　 4　　　　 ADDA　 GR7,GR4<br>
+　 5　　　　 CPA　　GR2,GR7　　　　　　; 長さのチェック<br>
+　 6　　　　 JMI　　SETER<br>
+　 7　　　　 ADDL　 GR3,GR1<br>
+　 8　LOOP　LD　　　GR4,GR4<br>
+　 9　　　　 JZE　　 SETS<br>
+　10　　　　 <B>[　　　　 a　　　　 ]</B><br>
+　11　　　　 ST　　　GR0,0,GR5　　　　 ; 文字を格納する<br>
+　12　　　　 LAD　　 GR3,1,GR3<br>
+　13　　　　 <B>[　　　　 b　　　　 ]</B><br>
+　14　　　　 LAD　　 GR5,1,GR5<br>
+　15　　　　 JUMP　　LOOP<br>
+　16　SETER LAD　　 GR0,-1　　　　　　; エラーを設定する<br>
+　17　　　　 JUMP　　FIN<br>
+　18　SETS　LAD　　 GR0,0　　　　　　 ; 正常終了を設定する<br>
+　19　FIN　 RPOP<br>
+　20　　　　 RET<br>
+　21　　　　 END<br>
+　
+
+
+<BR>
+<HR WIDTH=100%>         
+<a NAME="91"><BR>
+<b>         
+設問1</b></a>&nbsp;　プログラム中の<B>［　　　　　　　］</B>に入れる正しい答えを，解答群の中から選べ。<br>
+<br>
+解答群<br>
+ア　LAD　　GR2,1,GR2　　　イ　LAD　　GR2,-1,GR2<br>
+ウ　LAD　　GR4,1,GR4　　　エ　LAD　　GR4,-1,GR4<br>
+オ　LD　　GR0,0,GR3　　　 カ　LD　　GR0,0,GR4<br>
+キ　LD　　GR1,0,GR3　　　 ク　LD　　GR1,0,GR4<br>
+<br>
+<HR WIDTH=100%>
+  <a HREF="15F_P_A3.HTM#91">設問1の正解例へ</a>
+<hr>
+<b>　</b><a NAME="92">
+<b>
+<br>
+設問</b></a><b>2　</b>次の記述中の<B>［　　　　　　　］</B>に入れる正しい答えを，解答群の中から選べ。<br>
+SUBSの仕様では，P + Lp ＞ Lの場合，長さ指定に誤りがあるとしている。これを誤りとしないで次のとおりに変更する。<br>
+（1）文字列の終わりまでを複写する。<br>
+（2）複写できた部分文字列の長さをGR0に設定する。<br>
+そのために，SUBSの処理を次のように変更する。<br>
+（1）に対応する修正として，行番号7にラベルGETPSを追加し，行番号16，17の2行を次のように変更する。<br>
+<br>
+SETER LD　　　　GR4,GR2<br>
+　　　　<B>[　　　　 c　　　　]</B><br>
+　　　　JUMP　　GETPS<br>
+<br>
+（2）に対する修正として，行番号7の直後で<B>［　　　　d　　　　］</B>の値を一時保存し，行番号18でこの値をGR0に設定する。<br>
+<br>
+cに関する解答群<br>
+ア　SUBA    GR3,GR2　　　イ　SUBA    GR4,GR2<br>
+ウ　SUBA    GR4,GR3　　　エ　SUBA    GR5,GR4<br>
+<br>
+<br>
+dに関する解答群<br>
+ア　GR1　　　イ　GR2　　　ウ　GR3　　　エ　GR4　　　オ　GR5<br>
+<br>
+<HR WIDTH=100%>
+</a><a HREF="15F_P_A3.HTM#92">設問2の正解例へ</a>
+<HR WIDTH=100%>
+<p align="center"><a href="15F_P_E4.HTM">■問10へ進む</a>
+<a HREF="INDEX.HTM">■メニューへ戻る</a><br>    
+<br>   
+</blockquote>   
+</BODY>   
+</HTML>   

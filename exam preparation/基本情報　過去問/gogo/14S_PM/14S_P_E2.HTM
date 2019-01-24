@@ -1,0 +1,345 @@
+<HTML>
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<meta http-equiv="Content-Language" content="ja">
+<TITLE>平成14年度春期試験　問題(問3～問5)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0">
+<blockquote>
+  <hr>
+  <H3 align="center">平成14年度春期試験　問題(問3～問5)</H3>
+<HR WIDTH=100%>
+<A NAME="30">　<BR>
+<b>
+問3</b></a><b>　</b>関係データベースに関する次の記述を読んで，設問1～3に答えよ。<br>
+<br>
+  　次のような社員表，社員スキル表からなる関係データベースがある。<br>
+
+        <p><img border="0" src="image/P_03-0-1.gif"></p>
+        <p><br>
+
+
+
+</a><A NAME="31">　<BR>
+<b>
+設問1</b></a><b>　</b>次の記述中の［　　　　］に入れる正しい答えを，解答群の中から選べ。<br>
+<br>
+EXISTS述語は，表副問合せの結果が存在するとき真，存在しないとき偽を値として返す。次のSQL文を実行したとき，選択される社員番号は［　　a　　］個である。<br><br>
+      <pre>SELECT 社員番号 FROM 社員スキル表
+        WHERE EXISTS (SELECT * FROM 社員スキル表
+                           WHERE スキルコード = 'FE') </pre>
+EXISTS述語で，主問合せと異なる表の参照を含む副問合せが指定された場合は，それぞれの行について評価する。次のSQL文を実行したとき，選択される社員名は［　　b　　］個である。<br><br>
+     <pre>SELECT 社員番号 FROM 社員表 A 
+          WHERE EXISTS (SELECT * FROM 社員スキル表 B
+                           WHERE スキルコード = 'FE'
+                               AND A.社員番号 = B.社員番号)</pre>
+解答群<br>
+        <table border="0" cellpadding="3" cellspacing="1">
+          <tr>
+            <td width="90">ア　0</td>
+            <td width="90">イ　1</td>
+            <td width="90">ウ　2</td>
+            <td width="90">エ　3</td>
+          </tr>
+          <tr>
+            <td>	オ　4</td>
+            <td>	カ　5</td>
+            <td>	キ　6</td>
+          </tr>
+        </table>
+
+<p>　</p>
+<A NAME="31">
+<HR WIDTH=100%>
+</a>
+<A HREF="14S_P_A2.HTM#31">設問1の正解例と解説へ</A>
+<HR WIDTH=100%>
+<A NAME="32">　<BR>
+<b>
+設問2</b></a>　次のSQL文が要求しているのは，どのような社員の社員番号か，適切なものを解答群の中から選べ。<br>       
+<br>       
+  <pre>SELECT DISTINCT 社員番号 FROM 社員スキル表 B1
+    WHERE EXISTS (SELECT * FROM 社員スキル表 B2
+                       WHERE B1.社員番号 = B2.社員番号
+                         AND B1.スキルコード <> B2.スキルコード)</pre>
+
+解答群<br> 
+              <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+
+<td valign="top">ア</td>
+            <td>　スキルを少なくとも一つはもっている。</td>
+          </tr>
+          <tr>
+            <td valign="top">イ</td>
+            <td>　スキルを一つだけもつ。</td>
+          </tr>
+          <tr>
+            <td valign="top">ウ</td>
+            <td>　スキルを一つももたない。</td>
+          </tr>
+          <tr>
+            <td valign="top">エ</td>
+            <td>　スキルを複数もつ。</td>
+            </td>
+  </tr>
+</table>
+
+<HR WIDTH=100%>
+<A HREF="14S_P_A2.HTM#32">設問2の正解例と解説へ</A>
+<HR WIDTH=100%>
+<a NAME="33">　<BR>
+<b>
+<p>設問3</b></a><b>&nbsp; </b>設問2で得られる情報に社員名を追加したい。次の記述中の［　　　　　　　　　　］に入れる適切な語句を，解答群の中から選べ</p> 
+
+<pre>  SELECT DISTINCT A.社員番号,社員名 FROM 社員表 A,社員スキル表 B1
+    WHERE EXISTS (SELECT * FROM 社員スキル表 B2
+                       WHERE B1.社員番号 = B2.社員番号
+                          AND B1.スキルコード <> B2.スキルコード)
+          ［                                   ］</pre>
+
+解答群<BR>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">ア</td>
+            <td>　<code>AND A.社員番号 = B1.社員番号</code></td>
+          </tr>
+          <tr>
+            <td valign="top">イ</td>
+            <td>　<code>BETWEEN A.社員番号 AND B1.社員番号</code></td>
+          </tr>
+          <tr>
+            <td valign="top">ウ</td>
+            <td>　<code>LIKE A.社員番号 = B1.社員番号</code></td>
+          </tr>
+          <tr>
+            <td valign="top">エ</td>
+            <td>　<code>OR A.社員番号 = B1.社員番号</code></td>
+          </tr>
+        </table>
+  　</p>
+<HR WIDTH=100%>
+<a HREF="14S_P_A2.HTM#33">設問3の正解例と解説へ</a>
+<HR WIDTH=100%>
+<p><A HREF="index.htm">メニューへ戻る</A>　</p>
+<HR WIDTH=100%>
+<A NAME="40">　<BR>
+<b>
+問4</b></a>　次のプログラムの説明，擬似言語の記述形式の説明及びプログラムを読んで，設問1，2に答えよ。<br><br>
+[プログラムの説明]<br>
+  　整数型の1次元配列AのA[Min]からA[Max]まで（0≦Min＜Max）を，クイックソートで整列する副プログラムQuickSortである。<br>
+（1）整列の手順は，次のとおりである。<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top"><img border="0" src="image/01_maru.GIF"></td>
+            <td>　A[Min + 1]からA[Max]まで，A[Min]と値が異なる要素を順次探し，最初に見つかった要素の値とA[Min]の値のうち大きい方を基準値（Pivot）として選ぶ。配列の要素がすべて同じ値の場合は，整列処理を終了する。この基準値を選ぶ処理には，副プログラムFindPivotを用いる。</td>
+          </tr>
+          <tr>
+            <td valign="top"><img border="0" src="image/02_maru.GIF"></td>
+            <td>　Pivot未満の値の要素がすべてA[Min]，･･･，A[i－1]（Min＜i≦Max）にあり，Pivot以上の値の要素がすべてA[i]，･･･，A[Max]にあるように要素を並べ替える。この処理には，副プログラムArrangeを用いる。</td>
+          </tr>
+          <tr>
+            <td valign="top"><img border="0" src="image/03_maru.GIF"></td>
+            <td>　A[Min]，･･･，A[i－1]とA[i]，･･･，A[Max]をそれぞれ新しい配列とみなして，QuickSortを再帰的に適用して整列する。</td>
+          </tr>
+        </table>
+<br>
+（2）各副プログラムの引数の仕様を表に示す。<br>
+
+        <p><img border="0" src="image/P_04-0-1.gif"></p>
+        <p><br>
+        <p><img border="0" src="image/P_04-0-2.gif"></p>
+        <p><br>
+        <p><img border="0" src="image/P_04-0-3.gif"></p>
+        <p><br>
+〔擬似言語の記述形式の説明〕<br>
+	<p><img border="0" src="image/P_04-0-4.gif"></p>
+        <p><br>
+        <p><img border="0" src="image/P_04-0-5.gif"></p>
+        <p><br>
+        <p><img border="0" src="image/P_04-0-6.gif"></p>
+        <p><br>
+        <p><img border="0" src="image/P_04-0-7.gif"></p>
+        <p><br>
+
+<HR WIDTH=100%>
+<A NAME="41">
+<b>　<BR>
+設問1</b></a><b>　</b>プログラム中の［　　　　］に入れる正しい答えを，解答群の中から選べ。<br>      
+<br>
+a，bに関する解答群<br>
+
+         ア　K　　　　イ　L　　　　ウ　Max　　　　エ　Min<br>
+
+
+<br>
+c，dに関する解答群<br>
+        <table border="0" cellpadding="3" cellspacing="1">
+          <tr>
+            <td width="160">ア　Ret ← A[K]</td>
+            <td width="160">イ　Ret ← A[Max]</td>
+            <td width="160">ウ　Ret ← A[Min]</td>
+          </tr>
+          <tr>
+            <td>	エ　Ret ← K</td>
+            <td>	オ　Ret ← Max</td>
+            <td>	カ　Ret ← Min</td>
+	</tr>
+	</table>
+<br>
+<HR WIDTH=100%>  
+<A HREF="14S_P_A2.HTM#41">設問1の正解例と解説へ</A>  
+<HR WIDTH=100%>  
+<A NAME="42">  
+　<BR> 
+<b> 
+設問2</b></a>  
+&nbsp;整数型の1次元配列要素A[0]からA[9]までをQuickSortを用いて整列したときの，引数の内容を表4にまとめた。表中の［　　　　］に入れる正しい答えを，解答群の中から選べ。<br>
+<br>
+表4　QuickSortの呼出し回数と引数の内容
+       <p><img border="0" src="image/P_04-2-1.gif"></p>
+        <p>
+<br>
+eに関する解答群<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td width="30"><valign="top">ア</valign="top"></td>
+            <td><img border="0" src="image/P_04-2-2.gif"></td>
+          </tr>
+          <tr>
+            <td ><valign="top">イ</valign="top"></td>
+            <td><img border="0" src="image/P_04-2-3.gif"></td>
+          </tr>
+          <tr>
+            <td><valign="top">ウ</valign="top"></td>
+            <td><img border="0" src="image/P_04-2-4.gif"></td>
+          </tr>
+          <tr>
+            <td><valign="top">エ</valign="top"></td>
+            <td><img border="0" src="image/P_04-2-5.gif"></td>
+        </table>
+ <br>
+f，gに関する解答群<br>
+ア　0　　　イ　1　　　ウ　2<br>
+エ　3　　　オ　4　　　カ　5<br>
+<br>
+
+<A NAME="42">  
+<HR WIDTH=100%>  
+</a>  
+<A HREF="14S_P_A2.HTM#42">設問2の正解例と解説へ</A>  
+<HR WIDTH=100%>  
+  　<BR>
+
+<b><a name="50">問5</a>　</b>プログラム設計に関する次の記述を読んで，設問1，2に答えよ。<br>
+<br>
+  　旗の上げ下げのゲームを行うプログラムを設計する。このゲームでは，出力装置の指示（赤旗又は白旗の上げ下げ）に従い，遊戯者が，対応するボタン操作で動作を決める。正しい動作の場合，誤った動作の場合のそれぞれに対応する画面が表示される。<br>
+これを設定された回数だけ繰り返し，正しい動作を行った割合を成績として表示する。<br>
+ゲームの装置の構成と正しい動作及び誤った動作の場合の画面を，図1に示す。<br>
+
+        <p><img border="0" src="image/P_05-0-1.gif"></p>
+  
+・出力装置は，音声で指示を出し，画面に，動作検出時間経過後に正しい動作と遊戯者のボタン操作の結果を，ゲーム終了後には成績を表示する。<br>
+・入力装置は，指示が出された後の最初のボタン操作だけを検出し，プログラムに通知する。<br>
+図1　ゲームの装置の構成と正しい動作及び誤った動作の場合の画面表示<br>
+<br>
+[プログラムの説明]<br>
+（1）内部に現在の旗の状態を保持する。<br>
+　　赤旗の状態：上がっている，下がっている<br>
+　　白旗の状態：上がっている，下がっている<br>
+（2）初期値ファイルを読み込む。また，赤旗，白旗それぞれの初期状態を“下がっている”に設定する。<br>
+ <br>
+初期値ファイルの様式<br>
+
+        <p><img border="0" src="image/P_05-0-2.gif"></p>
+<br>
+（3）表に示す旗の現在の状態を基に，上げ下げの指示の対象となる旗と選択可能な指示をランダムに選び出力装置に送る。<br>
+<br>
+        <p><img border="0" src="image/P_05-0-3.gif"></p>
+  
+<br>
+（4）入力装置から得る動作の種類は，赤旗を上げる，赤旗を下げる，白旗を上げる，白旗を下げる及び旗を動かさない（動作検出時間内に動きが検出されない場合）の5種類である。<br>
+（5）遊戯者の動作を検査し，正しい場合は，正答数に1を加えるとともに，正答に対応する画面を出力装置に送る。<br>
+　　誤りの場合は，誤答に対応する画面を出力装置に送り，初期値ファイルの誤答画面表示時間が経過した後，画面の旗を正しい状態にする。<br>
+（6）初期値ファイルに書かれている繰返し回数に従い，（3）～（5）を繰り返す。<br>
+（7）遊戯者の成績を出力装置に送る。<br>
+<br>
+<hr>
+<p><b><a name="51">設問1</a>　</b>図2は，旗の状態遷移図である。図2に関する次の記述中のに入れる正しい答えを，解答群の中から選べ。<br>
+　S0は初期状態を示し，S0からS1への状態の遷移<img border="0" src="image/01_maru.GIF">に対応する動作は，“赤旗を上げる”である。このとき，S1は，［　　a　　］状態である。また，S3からS0への状態の遷移<img border="0" src="image/02_maru.GIF">に対応する動作は，［　　b　　］であり，S3からS2への状態の遷移<img border="0" src="image/03_maru.GIF">に対応する動作は，［　　c　　］である。<br>
+<br>
+        <p><img border="0" src="image/P_05-1-1.gif"></p>
+
+図2　旗の状態遷移図<br>
+<br>
+aに関する解答群<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">ア</td>
+            <td>　“赤旗が上がっている”かつ“白旗が上がっている”</td>
+          </tr>
+          <tr>
+            <td valign="top">イ</td>
+            <td>　“赤旗が上がっている”かつ“白旗が下がっている”</td>
+          </tr>
+          <tr>
+            <td valign="top">ウ</td>
+            <td>　“赤旗が下がっている”かつ“白旗が上がっている”</td>
+          </tr>
+          <tr>
+            <td valign="top">エ</td>
+            <td>　“赤旗が下がっている”かつ“白旗が下がっている”</td>
+          </tr>
+        </table>
+<br>
+b，cに関する解答群<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td width="200">ア　“赤旗を上げる”</td>
+            <td>	イ　“赤旗を下げる”</td>
+          </tr>
+          <tr>
+            <td>	ウ　“白旗を上げる”</td>
+            <td>	エ　“白旗を下げる”</td>
+          </tr>
+        </table>
+<A NAME="44">
+<p>　</p>
+<HR WIDTH=100%>
+</a><a HREF="14S_P_A2.HTM#51">設問1の正解例と解説へ</a>
+<HR WIDTH=100%>
+  　<BR>
+<b><a name="52">設問2</a>　</b>図3は，このプログラムの流れ図である。初期状態の設定は，初期処理で行われる。初期処理と繰返し回数の設定以外に，初期値ファイルの内容を参照する処理として正しい答えを，解答群の中から二つ選べ。<br>
+<br>
+        <p><img border="0" src="image/P_05-2-1.gif"></p>
+
+図3　流れ図<br>
+<br>
+解答群
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td width="150">ア　誤答対応処理</td>
+    <td width="150">	イ　指示の出力</td>
+    <td>	ウ　指示の選択</td>
+  </tr>
+  <tr>
+    <td>	エ　状態遷移</td>
+    <td>	オ　成績表示</td>
+    <td>カ　正答対応処理</td>
+  </tr>
+  <tr>
+    <td>	キ　動作の検出</td>
+  </tr>
+</table>
+<p>　</p>
+<A NAME="44">
+<HR WIDTH=100%>
+</a><a HREF="14S_P_A2.HTM#52">設問2の正解例と解説へ</a>
+<HR WIDTH=100%>
+<p align="center"> 
+<a href="14S_P_E3.HTM">■問6へ進む</a>　　　　　　<font size="3"><a HREF="INDEX.HTM">■メニューへ戻る</a></font></p>
+<HR WIDTH=100%>
+  <p>　</p>
+</blockquote>
+</BODY>
+</HTML>

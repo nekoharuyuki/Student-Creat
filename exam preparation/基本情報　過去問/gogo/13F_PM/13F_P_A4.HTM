@@ -1,0 +1,392 @@
+<HTML>
+<HEAD>
+<TITLE>平成13年度秋期試験</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0">
+<blockquote>
+  <hr>
+  <H3 align="center">平成13年度秋期試験　正解例と解説(問10～問13)</H3>
+<hr>        
+<p><a NAME="100">        
+<b>問10</b></p>       
+<HR WIDTH=100%>       
+  </a>       
+<a NAME="101"><BR>       
+<b>       
+設問1</b></a>&nbsp;　
+  <p>＜解答＞　ア</p>
+  <p>＜解説＞　関数rcheck( )は，進行方向dirに対して右側の升目のコードMを戻り値として返します。関数fcheck( )は，進行方向dirの次の升目のコードMを戻り値として返します。また関数go( )は，進行方向dirに升目Mの座標を＋１だけ進めます。while文の繰返処理で，升目M［y］［ｘ］の座標値がEXITになるまで以下の順に迷路の探索処理が行われます。</p>    
+  <table border="0" cellpadding="3" cellspacing="0">    
+    <tr>    
+      <td valign="top">(1)</td>    
+      <td>進行方向dirに対し右側の升目のコードMが，ROADまたはEXITである場合（右折可能）<br>    
+        　進行方向dirを右折方向（（dir＋1）を4で割った剰余）にセットして，関数go( )により右折し＋１座標値を進めます。</td>      
+    </tr>     
+    <tr>     
+      <td valign="top">(2)</td>    
+      <td valign="top">進行方向dirに対し右側の升目のコードMが，ROADでもEXITでもない場合（右折可能でない）    
+        <table border="0" cellpadding="3" cellspacing="0">    
+          <tr>    
+            <td>①</td>    
+            <td>進行方向dirの次の升目のコードMが，ROADまたはEXITであれば（直進可能）関数go( )により進行方向に＋１座標値を進めます。</td>      
+          </tr>     
+          <tr>     
+            <td>②</td>     
+            <td>進行方向dirの次の升目のコードMが，ROADでもEXITでもなければ（直進可能でない）進行方向dirを左折方向（（dir＋3）を4で割った剰余）にセットして，さらに繰り返します。</td>     
+          </tr>     
+        </table>     
+      </td>     
+    </tr>     
+  </table>     
+  <p>したがってこの繰返処理により，以下の順に迷路探索を行うことになります。</p>     
+  <table border="0" cellpadding="3" cellspacing="0">    
+    <tr>    
+      <td valign="top">(1)</td>    
+      <td>進行方向に対して右折可能な場合は右折します</td>    
+    </tr>    
+    <tr>    
+      <td valign="top">(2)</td>    
+      <td>進行方向に対して右折可能でない場合，進行方向に対して直進可能であれば前進します</td>    
+    </tr>    
+    <tr>    
+      <td valign="top">(3)</td>    
+      <td>進行方向に対して右折も，直進も可能でない場合，進行方向を左折方向にセットして探索をします</td>    
+    </tr>    
+  </table>    
+  <p>　図2の迷路では以下のように探索を行います。</p> 
+  <table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolordark="#FFFFFF" bordercolor="#FFFFFF"> 
+    <tr> 
+      <td width="36" align="center">　</td> 
+      <td width="42" align="center">(ｘ，y)</td> 
+      <td width="65" align="center">進行方向dir</td> 
+      <td width="95" align="center">rcheck( )<br>      
+        の戻り値</td>     
+      <td width="94" align="center">fcheck( )<br>      
+        の戻り値</td>     
+      <td width="432">探索のトレース</td>    
+    </tr>    
+    <tr>    
+      <td width="40" align="center">始点</td>    
+      <td width="40" align="center">(1，0)</td>    
+      <td width="67" align="center">DOWN</td>    
+      <td width="95" align="center">M［0］［0］</td>    
+      <td width="94" align="center">M［1］［1］</td>    
+      <td width="432">進行方向に対し始点では右折できないが直進できるので①に進みます</td>    
+    </tr>    
+    <tr>    
+      <td width="36" align="center">①</td>    
+      <td width="42" align="center">(1，1)</td>    
+      <td width="67" align="center">DOWN</td>    
+      <td width="95" align="center">M［1］［0］</td>    
+      <td width="94" align="center">M［2］［1］</td>    
+      <td width="432">進行方向に対し①では右折できないが直進できるので②に進みます</td>    
+    </tr>    
+    <tr>    
+      <td width="36" align="center">②</td>    
+      <td width="42" align="center">(4，1)</td>    
+      <td width="67" align="center">DOWN</td>    
+      <td width="95" align="center">M［4］［0］</td>    
+      <td width="94" align="center">M［5］［1］</td>    
+      <td width="432">進行方向に対し②では右折も直進もできないので，dirを左折方向RIGHTにセットし繰返します</td>    
+    </tr>    
+    <tr>    
+      <td width="36" align="center">　</td>    
+      <td width="42" align="center">(4，1)</td>    
+      <td width="67" align="center">RIGHT</td>    
+      <td width="95" align="center">M［5］［1］</td>    
+      <td width="94" align="center">M［4］［2］</td>    
+      <td width="432">進行方向RIGHTに対し右折も直進もできないので，dirを左折方向UPにセットし繰返します</td>    
+    </tr>    
+    <tr>    
+      <td width="36" align="center">　</td>    
+      <td width="42" align="center">(4，1)</td>    
+      <td width="67" align="center">UP</td>    
+      <td width="95" align="center">M［4］［2］</td>    
+      <td width="94" align="center">M［3］［1］</td>    
+      <td width="432">進行方向UPに対し右折できないが直進できるので①に進みます</td>    
+    </tr>    
+    <tr>    
+      <td width="36" align="center">①</td>    
+      <td width="42" align="center">(1，1)</td>    
+      <td width="67" align="center">UP</td>    
+      <td width="95" align="center">M［1］［2］</td>    
+      <td width="94" align="center">　</td>    
+      <td width="432">進行方向UPに対し右折できるのでdirをRIGHTにセットし③に進みます</td>    
+    </tr>    
+    <tr>    
+      <td width="36" align="center">③</td>    
+      <td width="42" align="center">(1，3)</td>    
+      <td width="67" align="center">RIGHT</td>    
+      <td width="95" align="center">M［2］［3］</td>    
+      <td width="94" align="center">　</td>    
+      <td width="432">進行方向RIGHTに対し右折できるのでdirをDOWNにセットし⑤に進みます</td>    
+    </tr>    
+    <tr>    
+      <td width="36" align="center">⑤</td>    
+      <td width="42" align="center">(4，3)</td>    
+      <td width="67" align="center">DOWN</td>    
+      <td width="95" align="center">M［4］［2］</td>    
+      <td width="94" align="center">M［5］［3］</td>    
+      <td width="432">進行方向DOWNに対し⑤では右折できないが直進できるので(6，3)まで進みます</td>    
+    </tr>    
+    <tr>    
+      <td width="36" align="center">　</td>    
+      <td width="42" align="center">(6，3)</td>    
+      <td width="67" align="center">DOWN</td>    
+      <td width="95" align="center">M［6］［2］</td>    
+      <td width="94" align="center">　</td>    
+      <td width="432">進行方向DOWNに対し右折できるのでdirをLEFTにセットし⑥に進みます</td>    
+    </tr>    
+    <tr>    
+      <td width="36" align="center">⑥</td>    
+      <td width="42" align="center">(6，1)</td>    
+      <td width="67" align="center">LEFT</td>    
+      <td width="95" align="center">M［5］［1］</td>    
+      <td width="94" align="center">M［6］［0］</td>    
+      <td width="432">進行方向LEFTに対し右折も直進もできないので，dirを左折方向DOWNにセットし繰返します</td>    
+    </tr>    
+    <tr>    
+      <td width="36" align="center">　</td>    
+      <td width="42" align="center">(6，1)</td>    
+      <td width="67" align="center">DOWN</td>    
+      <td width="95" align="center">M［6］［0］</td>    
+      <td width="94" align="center">M［7］［1］</td>    
+      <td width="432">進行方向DOWNに対し右折も直進もできないので，dirを左折方向RIGHTにセットし繰返します</td>    
+    </tr>    
+    <tr>    
+      <td width="36" align="center">　</td>    
+      <td width="42" align="center">(6，1)</td>    
+      <td width="67" align="center">RIGHT</td>    
+      <td width="95" align="center">M［7］［1］</td>    
+      <td width="94" align="center">M［6］［2］</td>    
+      <td width="432">進行方向RIGHTに対し⑤では右折できないが直進できるので(6，3)まで進みます</td>    
+    </tr>    
+    <tr>    
+      <td width="36" align="center">　</td>    
+      <td width="42" align="center">(6，3)</td>    
+      <td width="67" align="center">RIGHT</td>    
+      <td width="95" align="center">M［7］［3］</td>    
+      <td width="94" align="center">M［6］［4］</td>    
+      <td width="432">進行方向RIGHTに対し右折も直進もできないので，dirを左折方向UPにセットし繰返します</td>    
+    </tr>    
+    <tr>    
+      <td width="36" align="center">　</td>    
+      <td width="42" align="center">(6，3)</td>    
+      <td width="67" align="center">UP</td>    
+      <td width="95" align="center">M［6］［4］</td>    
+      <td width="94" align="center">M［5］［3］</td>    
+      <td width="432">進行方向UPに対し右折できないが直進できるので⑤まで進みます</td>    
+    </tr>    
+    <tr>    
+      <td width="36" align="center">⑤</td>    
+      <td width="42" align="center">(4，3)</td>    
+      <td width="67" align="center">UP</td>    
+      <td width="95" align="center">M［4］［4］</td>    
+      <td width="94" align="center">　</td>    
+      <td width="432">進行方向UPに対し右折できるのでdirをRIGHTにセットし⑦まで進みます</td>    
+    </tr>    
+    <tr>    
+      <td width="36" align="center">⑦</td>    
+      <td width="42" align="center">(4，5)</td>    
+      <td width="67" align="center">RIGHT</td>    
+      <td width="95" align="center">M［5］［5］</td>    
+      <td width="94" align="center">　</td>    
+      <td width="432">進行方向RIGHTに対し右折できるのでdirをDOWNにセットし(6，5)まで進みます</td>    
+    </tr>    
+    <tr>    
+      <td width="36" align="center">　</td>    
+      <td width="42" align="center">(6，5)</td>    
+      <td width="67" align="center">DOWN</td>    
+      <td width="95" align="center">M［6］［4］</td>    
+      <td width="94" align="center">M［7］［5］</td>    
+      <td width="432">進行方向DOWNに対し右折も直進もできないので，dirを左折方向RIGHTにセットし繰返します</td>    
+    </tr>    
+    <tr>    
+      <td width="36" align="center">　</td>    
+      <td width="42" align="center">(6，5)</td>    
+      <td width="67" align="center">RIGHT</td>    
+      <td width="95" align="center">M［7］［5］</td>    
+      <td width="94" align="center">M［6］［6］</td>    
+      <td width="432">進行方向RIGHTに対し右折できないが直進できるので(6，6)まで進みます</td>    
+    </tr>    
+    <tr>    
+      <td width="36" align="center">　</td>    
+      <td width="42" align="center">(6，6)</td>    
+      <td width="67" align="center">RIGHT</td>    
+      <td width="95" align="center">M［7］［6］</td>    
+      <td width="94" align="center">　</td>    
+      <td width="432">進行方向RIGHTに対し右折方向のコードM［7］［6］が終点のコードEXITに一致するので，dirをDOWNにセットし終点(7，6)に進み終了します</td>    
+    </tr>    
+    <tr>    
+      <td width="36" align="center">終点</td>    
+      <td width="42" align="center">(7，6)</td>    
+      <td width="67" align="center">　</td> 
+      <td width="95" align="center">　</td> 
+      <td width="94" align="center">　</td> 
+      <td width="432">　</td> 
+    </tr> 
+  </table> 
+  <p>したがって始点→①→②→①→③→⑤→⑥→⑤→⑦→終点の順になります。<br> 
+  <br> 
+  </p> 
+<HR WIDTH=100%> 
+<a HREF="13f_p_e4.htm#101">問題へ</a> 
+<hr> 
+<b><a NAME="102">設問2</a></b><br>
+<br>
+＜解答＞　イ<br>
+<br>
+＜解説＞　右折可能でない場合は前進するので，始点→①→②→③→④→①と進みます。①に戻った時点では，右折先の升のコードがROADまたはEXITであれば右折して進めますが，右折先の升のコードがENTRANCEなので①で右折できず，また直進もできないので進行方向が左折方向（DOWN）にセットされます。新たにセットされた進行方向（DOWN）に対し右折可能でないので，セットされた方向（DOWN）に進み，無限に繰り返します。したがって解答群のイが正しい。<br> 
+  　<br>
+  　
+<HR WIDTH=100%>
+<a HREF="13f_p_e4.htm#102">問題へ</a>
+<HR WIDTH=100%>
+<b><a NAME="103">設問3</a></b><br>
+<br>
+＜解答＞　ア<br>
+<br>
+＜解説＞　while文の中の繰返ループを1回繰返すごとに1升進みます。したがって始点を印字するには繰返ループの先頭で印字する必要があります。以後終点の直前までに通過する升については，繰返ループの処理を繰り返すごとに1升進み，繰返ループの先頭で印字すればよい。したがって行番号20の直後に印字処理が必要になります。さらに終点については繰返ループを抜けた直後の行番号29で印字すればよい。<br>
+  　<br>
+  &nbsp;
+<HR WIDTH=100%>
+<a HREF="13f_p_e4.htm#103">問題へ</a>
+<HR WIDTH=100%>
+<a NAME="104"><b>設問4</b></a><br>
+<br>
+＜解答＞　イ<br>
+<br>
+＜解説＞　関数lcheck( )は，進行方向に対して左側の升目のコードを返す関数です。この関数により進行方向dirに対して左折可能か否かを判定します。左折可能であれば，dirを進行方向に対して左折方向にセットする必要があります。したがって行番号23をdir = ( dir + 3 )  %  4 に書き換えればよい。さらに行番号28では，dirを進行方向に対して右折方向にセットする必要があるので，行番号28をdir = ( dir + 1 )  %  4 に書き換えればよい。<br>      
+  　<br>
+  　
+<HR WIDTH=100%>
+<a HREF="13f_p_e4.htm#104">問題へ</a>
+<HR WIDTH=100%>
+<p><A HREF="index.htm">メニューへ戻る</A>　</p>
+<HR WIDTH=100%>
+  　　<BR>
+<b><a name="110">問11</a>　</b><tt><br>
+</tt>  
+<hr> 
+<p><b><a name="111">設問</a>1　</b></p> 
+<p>＜解答＞　ａ　カ　　ｂ　オ　　ｃ　エ　　ｄ　エ　　ｅ　オ</p> 
+<p>＜解説＞空欄ａ，ｂについて<br>
+　Ｔファイルを順に読み，AT ENDになるまでUPDATE-RTNを繰り返します。空欄ａ，ｂのMOVE命令の直後で，Mファイルをランダムアクセスしているので，Mファイルを読む前に，空欄ａ，ｂでＴファイルの商品コードGOODS-TRAをMファイルの索引キーであるGOODS-MASにセットしておく必要があります。したがって空欄ａはGOODS-TRA，空欄ｂはGOODS-MASになります。</p>      
+<p>空欄ｃについて<br>    
+　空欄ｃを含むIF文は，MファイルがINVALID（無効キー）になった場合に実行され，Tファイルの商品コードがMファイルに未登録であるときの処理に該当します。空欄ｃはIF文の条件になっており，この条件が成り立つときは，"INS"をACTION-PRIに転送し，Mファイルへの追加処理を行っています。空欄ｃは“Ｔファイルの分類コード，価格，名称がいずれも空白でない”という条件を入れればよい。したがって解答群のエが正しい。</p> 
+<p>空欄ｄ，ｅについて<br>
+　空欄ｄ，ｅを含むIF文は，Tファイルの商品コードがMファイルに登録済みの場合の処理です。空欄ｄはIF文の条件になっています。空欄ｄが成り立つときDELETE命令により削除処理を行っています。空欄ｄはこの削除処理の条件になるので，“Tファイルの分類コード，価格，名称がすべて空白である”という条件を入れればよい。したがって解答群のエが正しい。</p> 
+<p>空欄ｅについて<br>
+　空欄ｅはＴファイルの商品コードがＭファイルに登録済みで，“Ｔファイルの分類コード，価格，名称の少なくとも1つは空白でない”場合の処理に該当します。空欄ｅ直後の処理で，"UPD  OLD"をACTION-PRIに転送しているので，Mファイルの変更処理に該当する部分になります。Mファイルの変更処理の場合，項目Action以外の項目についてはMファイルの内容を印字します。空欄ｅ以降にPRINT2の内容を印字する処理はあっても，PRINT2にMファイルの内容を転送する処理がありません。したがって空欄ｅで“PERFORM　MOVE-MAS-RYN”とし，転送処理を行えばよい。<br>
+<br>
+  </p> 
+<HR WIDTH=100%>   
+<a HREF="13f_p_e4.htm#111">問題へ</a>  
+<HR WIDTH=100%>  
+<p><b><a name="112">設問</a>2　</b> 
+</p>  
+<p>＜解答＞　ア 
+</p>  
+  <table border="0" cellpadding="0" cellspacing="0">
+    <tr>
+      <td>＜解説＞</td>
+    </tr>
+  </table>
+  <table border="0" cellpadding="3" cellspacing="0">
+    <tr>
+      <td valign="top">(1)</td>
+      <td>Tファイルの1件目のデータ<br>
+        Tファイルの商品コードがMファイルに登録済みで，商品コード以外は空白なので，Mファイルからの削除データになります。</td>
+    </tr>
+    <tr>
+      <td valign="top">(2)</td>
+      <td>Tファイルの2件目のデータ<br>
+        Tファイルの商品コードがMファイルに未登録で，分類コードが空白なので，Tファイルのエラーデータになります。</td>
+    </tr>
+    <tr>
+      <td valign="top">(3)</td>
+      <td>Tファイルの3件目のデータ<br>
+        Tファイルの商品コードがMファイルに登録済みで，価格だけが記述されているので，Mファイルの変更データです。</td>
+    </tr>
+    <tr>
+      <td valign="top">(4)</td>
+      <td>Tファイルの4件目のデータ<br>
+        Tファイルの商品コードがMファイルに未登録で，すべての項目が記述されているのでMファイルへの追加データになります。</td>
+    </tr>
+  </table>
+<p>したがって削除データ，エラーデータ，変更データ，追加データの順に印字されるので，解答群のアが正しい。 
+</p>  
+<HR WIDTH=100%>  
+<a HREF="13f_p_e4.htm#112">問題へ</a>  
+<HR WIDTH=100%>  
+<p>
+<A HREF="index.htm">メニューへ戻る</A>
+</p>
+<HR WIDTH=100%>   
+<a NAME="120">　<BR>  
+<b>  
+問12</b></a>
+<hr> 
+<a NAME="121"><BR> 
+<b> 
+設問1</b>
+  </a>
+  <p>＜解答＞　a　カ　　b　ウ　　c　オ　　d　ア</p>
+<p>＜解説＞　プログラム2でICompがインタフェースとして宣言されている。<br>
+ICompは大小の比較を表すインタフェースで，整列の比較を行うメソッドcomparewithはインタフェースIComp型のオブジェクトaがもつ共通のメソッドである。このインタフェースICompのメソッドcompareWithは，Computerクラスの中で定義されている。impulimentsはクラスにインタフェースを実装するための指定である。したがって空欄aはICompが該当する。</p>
+<p>空欄bは，IComp型の変数aをComputer型に変換するためのキャスト演算子であり，Computerに該当する。</p>
+<p>空欄cを含む式は，値引き後の価格を計算している箇所であり，値引き後の価格＝価格＊(1－値引率)により計算できる。空欄cは価格priceを取得するためのメソッドgetPriceに該当する。</p>
+  <p>空欄dを含む箇所は，ワークエリアtempに格納されている価格a[i]をa[j]と比較している部分に該当する。整列の比較を行うメソッドはcomparewith( )であり，空欄dはこれに該当する。</p> 
+<HR WIDTH=100%> 
+<a HREF="13f_p_e4.htm#121">問題へ</a> 
+<HR WIDTH=100%> 
+<a NAME="122"> 
+<b> 
+設問</b></a><b>2　</b>
+  <p>＜解答＞　ウ</p>
+  <p>＜解説＞　この場合は動作周波数の降順に整列されるのでウが正解。<br>
+  　</p>
+<HR WIDTH=100%> 
+<a HREF="13f_p_e4.htm#122">問題へ</a>
+<HR WIDTH=100%>
+<b>　</b><a NAME="123"><b><br>
+設問</b></a><b>3</b>
+<p>＜解答＞　ウ</p>
+<p>＜解説＞　この変更によりパーソナルコンピュータの値引率が0.4になる。ワークステーションの値引率は0.1のままである。したがって<br>
+&nbsp;&nbsp;&nbsp; PC1が180000から108000に，PC2が200000から120000になり、<br>
+&nbsp;&nbsp;&nbsp; WS1が300000から270000に，WS2が500000から450000になる。</p>
+<HR WIDTH=100%>
+<a HREF="13f_p_e4.htm#123">問題へ</a>
+<HR WIDTH=100%>
+<p><a HREF="index.htm">メニューへ戻る</a>　</p>
+<HR WIDTH=100%>
+<p><a NAME="130"><b>問13</b></a><b>　　　</b>（解説は省略します。）</p>
+<hr WIDTH="100%">
+<a NAME="131">　<br>
+<b>設問</b></a><b>1</b>　　
+  <p>＜解答＞　a　ウ　　b　エ　　c　　オ<br>
+  　　</p>
+<hr WIDTH="100%">
+<a HREF="13f_p_e4.htm#131">問題へ</a>
+<hr WIDTH="100%">
+<a NAME="132">　<br>
+<b>設問2</b></a>&nbsp;　
+  <p>＜解答＞　ウ</p>
+<p>　</p> 
+<hr WIDTH="100%">
+<a HREF="13f_p_e4.htm#132">問題へ</a>
+<hr WIDTH="100%">
+<a NAME="133">　<br>
+<b>設問3</b></a>&nbsp;　
+  <p>＜解答＞　イ<br>
+  </p>
+<hr WIDTH="100%">
+<a HREF="13f_p_e4.htm#133">問題へ</a>
+<hr WIDTH="100%">
+<p><a HREF="index.htm">メニューへ戻る</a></p>
+<hr WIDTH="100%">
+  　
+  <p align="left">　</p>
+</blockquote>
+</BODY>
+</HTML>

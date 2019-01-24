@@ -1,0 +1,224 @@
+<html>
+
+<head>
+<title>平成19年度 春期 基本情報技術者試験 問題（午後問1～2）</title>
+<style type="text/css">
+body{line-height:150%;}
+code{font-size:12pt;}
+</style>
+</head>
+
+<body>
+
+<blockquote>
+	<hr>
+	<h3 align="center">平成19年度秋期試験　問題(問1～問2)</h3>
+	<hr>
+	<div align="center">
+		<center>
+		<table border="1" cellpadding="8" cellspacing="0" bordercolor="#000000">
+			<tr>
+				<td>次の<strong>問1</strong>から<strong>問5</strong>までの5問については，全問解答してください。</td>
+			</tr>
+		</table>
+		</center>
+	</div>
+	<hr>
+	<p><a name="10"><strong>問1</strong></a>　浮動小数点表示法に関する次の記述を読んで，設問1，2に答えよ。</p>
+	<p>　A×2<sup>B</sup>の浮動小数点数（Aは仮数，Bは指数）を，図1に示す規格IEEE 754（IEC 
+	60559）による単精度の浮動小数点形式では，次のように表現する。</p>
+	<p>（1）ビット番号31：符号部<br>
+	　A（仮数）の符号を表す。0のときは正を，1のときは負を示す。<br>
+	（2）ビット番号30～23：指数部<br>
+	　B（指数）に127を加えた値を，2進数で表す。<br>
+	（3）ビット番号22～0：仮数部</p>
+	<p>
+	　Bを調整することによって，1≦｜A｜＜2となるように正規化を行い，更に整数部分の1を省略して，ビット番号22が小数第1位となるようにした2進数である。<br>
+	　ただし，数値が0の場合は，符号部，指数部，仮数部とも0とする。</p>
+	<p><img src="img/fig1.png" /></p>
+	<p><a name="11"><strong>設問1</strong></a>　次の記述中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+	<p>
+	　10進数の45.625を2進数で表すと，（101101.101）<sub>2</sub>となる。これを正規化した指数表現にすると，（1.01101101）<sub>2</sub>×2<sup>5</sup>となるので，IEEE 
+	754の形式で表すと，図2に示すとおり符号部は（0）<sub>2</sub>，指数部は指数の5に127を加えて（10000100）<sub>2</sub>となり，仮数部は整数部分を省略するので，（011011010…0）<sub>2</sub>となる。</p>
+	<p><img src="img/fig2.png" /></p>
+	<p>　同様の手順で，10進数の－0.75をIEEE 
+	754の形式で表すと，符号部は（［　　ａ　　］）<sub>2</sub>，指数部は（［　　ｂ　　］）<sub>2</sub>，仮数部の上位8けた（ビット番号22～15）は（［　　ｃ　　］）<sub>2</sub>となる。</p>
+	<p>解答群</p>
+	<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber1">
+		<tr>
+			<td>ア　0</td>
+			<td>イ　1</td>
+		</tr>
+		<tr>
+			<td>ウ　01111110</td>
+			<td>エ　01111111</td>
+		</tr>
+		<tr>
+			<td>オ　10000000</td>
+			<td>カ　11000000</td>
+		</tr>
+	</table>
+	<hr>
+	<p><a href="19F_P_A1.HTM#11">設問1の正解例と解説へ</a></p>
+	<hr>
+	<p><a name="12"><strong>設問2</strong></a>　IEEE 
+	754の形式で表した，次の二つの浮動小数点数を加算した結果として正しい答えを，解答群の中から選べ。</p>
+	<p><img src="img/fig3.png" /></p>
+	<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber2">
+		<tr>
+			<td>ア</td>
+			<td><img src="img/fig4.png" /></td>
+		</tr>
+		<tr>
+			<td>イ</td>
+			<td><img src="img/fig5.png" /></td>
+		</tr>
+		<tr>
+			<td>ウ</td>
+			<td><img src="img/fig6.png" /></td>
+		</tr>
+		<tr>
+			<td>エ</td>
+			<td><img src="img/fig7.png" /></td>
+		</tr>
+	</table>
+	<hr>
+	<p><a href="19F_P_A1.HTM#12">設問2の正解例と解説へ</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a> </p>
+	<hr>
+	<p><a name="20"><strong>問2</strong></a>　関係データベースに関する次の記述を読んで，設問1～3に答えよ。</p>
+	<p>
+	　運送事業を営むX社は，集配場所として，ある地域を網羅するように配置された支店と，それらの支店を管理する集配センタをもつ。支店が配達を受けもつ地域（以下，管轄地区という）は，重複せずに割り振られている。支店では，顧客から届け先に配達する品物（以下，配達品という）を受け付け，預り番号というX社全体で一意の番号を付与する。<br>
+	　支店は，配達品の届け先がその支店の受けもつ管轄地区にあれば配達を行い，そうでなければ，その支店を管理する集配センタに配達品を移送する。支店から支店への配達品の移送は必ず集配センタを経由する。集配センタでは，支店から移送された配達品を受け入れ，配達品の届け先を受けもつ支店がその集配センタの管理する支店であればその支店に，そうでなければ届け先を受けもつ支店を管理している集配センタに配達品を移送する。図1に配達品移送時の支店と集配センタの関係を示す。</p>
+	<p><img src="img/fig8.png" /></p>
+	<p>　X社では，図2に示す構造の関係データベースを用いて，配達品の状態を把握している。図中の下線はキー項目を表す。</p>
+	<p><img src="img/fig9.png" /></p>
+	<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber3">
+		<tr>
+			<td nowrap valign="top" align="right">配達地域表：</td>
+			<td>管轄地区ごとに，配達を受けもつ支店コード（Sで始まる3けた）をもつ。</td>
+		</tr>
+		<tr>
+			<td nowrap valign="top" align="right">支店表：</td>
+			<td>支店コードごとに，支店を管理する集配センタコード（Aで始まる3けた）をもつ。</td>
+		</tr>
+		<tr>
+			<td nowrap valign="top" align="right">配達品表：</td>
+			<td>預り番号ごとに，配達品の依頼元や届け先などの情報を保持する。</td>
+		</tr>
+		<tr>
+			<td nowrap valign="top" align="right">移送履歴表：</td>
+			<td>
+			配達品が集配場所（支店や集配センタ）を出入りするごとに，その日時と出入りした履歴を保持する。入出区分には配達品が集配場所に入るときには<code>'I'</code>を，出るときには<code>'O'</code>を格納する。</td>
+		</tr>
+	</table>
+	<p><a name="21"><strong>設問1</strong></a>　集配センタA01が管理している支店の数を求めるSQL文として正しい答えを，解答群の中から選べ。</p>
+	<p>解答群</p>
+	<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber4">
+		<tr>
+			<td valign="top">ア</td>
+			<td><code>SELECT COUNT(</code><strong>支店コード</strong><code>) FROM
+			</code><strong>支店表</strong><br>
+			　　　<code> WHERE </code><strong>集配センタコード</strong><code> NOT IN 
+			('A01')</code></td>
+		</tr>
+		<tr>
+			<td valign="top">イ</td>
+			<td><code>SELECT COUNT(</code><strong>支店コード</strong><code>) FROM
+			</code><strong>支店表</strong><br>
+			　　　<code> WHERE </code><strong>集配センタコード</strong><code> = 'A01'</code></td>
+		</tr>
+		<tr>
+			<td valign="top">ウ</td>
+			<td><code>SELECT COUNT(</code><strong>支店コード</strong><code>) FROM
+			</code><strong>支店表</strong><code> WHERE </code><strong>支店コード</strong><code> 
+			= 'A01'</code></td>
+		</tr>
+		<tr>
+			<td valign="top">エ</td>
+			<td><code>SELECT </code><strong>支店コード</strong><code> FROM </code>
+			<strong>支店表</strong><code> WHERE </code><strong>集配センタコード</strong><code> 
+			= 'A01'</code></td>
+		</tr>
+		<tr>
+			<td valign="top">オ</td>
+			<td><code>SELECT </code><strong>集配センタコード</strong><code> FROM </code>
+			<strong>支店表</strong><br>
+			　　　<code> WHERE </code><strong>支店コード</strong><code> = 'A01' ORDER BY
+			</code><strong>集配センタコード</strong></td>
+		</tr>
+	</table>
+	<hr>
+	<p><a href="19F_P_A1.HTM#21">設問1の正解例と解説へ</a></p>
+	<hr>
+	<p><a name="22"><strong>設問2</strong></a>　次のSQL文は，支店S11でこれまでに受け付けた配達品のうち，その支店が直接配達を受けもった届け先の一覧を作成するものである。SQL文中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+	<p><code>SELECT </code><strong>届け先管轄地区</strong><code>, </code><strong>届け先住所</strong><code>,
+	</code><strong>届け先氏名</strong><code> FROH </code>［　　ａ　　］<br>
+	<code>&nbsp;&nbsp;&nbsp;WHERE </code><strong>受付支店コード</strong><code> = 'S11' </code>［　　ｂ　　］<br>
+	<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><strong>届け先管轄地区</strong><code> </code>［　　ｃ　　］<code> 
+	(SELECT </code><strong>管轄地区</strong><code> FROM </code><strong>配達地域表</strong><br>
+	<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WHERE </code><strong>支店コード</strong><code> = 'S11')</code></p>
+	<p>解答群</p>
+	<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber5">
+		<tr>
+			<td>ア　移送履歴表</td>
+			<td>イ　支店表</td>
+			<td>ウ　配達地域表</td>
+		</tr>
+		<tr>
+			<td>エ　配達品表</td>
+			<td>オ　<code>AND</code></td>
+			<td>カ　<code>IN</code></td>
+		</tr>
+		<tr>
+			<td>キ　<code>NOT IN</code></td>
+			<td>ク　<code>OR</code></td>
+			<td>　</td>
+		</tr>
+	</table>
+	<hr>
+	<p><a href="19F_P_A1.HTM#22">設問2の正解例と解説へ</a></p>
+	<hr>
+	<p><a name="23"><strong>設問3</strong></a>　移送履歴表に対して次のSQL文による問合せを行った。この問合せの結果として判明することを，解答群の中から選べ。</p>
+	<p><code>SELECT </code><strong>通過日時</strong><code>, </code><strong>通過店コード</strong><code>,
+	</code><strong>入出区分</strong><code> FROM </code><strong>移送履歴表</strong><br>
+	<code>&nbsp;&nbsp;&nbsp;WHERE </code><strong>預り番号</strong><code> = '0000004' AND</code><br>
+	<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><strong>通過日時</strong><code> = (SELECT MAX(</code><strong>通過日時</strong><code>) 
+	FROM </code><strong>移送履歴表</strong><br>
+	<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WHERE </code><strong>預り番号</strong><code> = '0000004')</code></p>
+	<p>解答群</p>
+	<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber6">
+		<tr>
+			<td>ア</td>
+			<td>預り番号が0000004である配達品が最も長い期間保管されていた支店</td>
+		</tr>
+		<tr>
+			<td>イ</td>
+			<td>預り番号が0000004である配達品の依頼元</td>
+		</tr>
+		<tr>
+			<td>ウ</td>
+			<td>預り番号が0000004である配達品のすべての移送履歴</td>
+		</tr>
+		<tr>
+			<td>エ</td>
+			<td>預り番号が0000004である配達品の最新の集配場所と日時</td>
+		</tr>
+		<tr>
+			<td>オ</td>
+			<td>預り番号が0000004である配達品を受け付けてから配達するまでに経過した日数と時間</td>
+		</tr>
+	</table>
+	<hr>
+	<p><a href="19F_P_A1.HTM#23">設問3の正解例と解説へ</a></p>
+	<hr>
+	<p><a href="19F_P_E2.HTM">■問3へ進む</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a></p>
+	<hr>
+</blockquote>
+
+</body>
+
+</html>

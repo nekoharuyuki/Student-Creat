@@ -1,0 +1,527 @@
+<html>
+
+<head>
+<title>平成17年度春期試験　正解例と解説(問10～問13)</title>
+</head>
+
+<body bgcolor="#FFFFFF" topmargin="0" leftmargin="0">
+
+<blockquote>
+<hr>
+<h3 align="center">平成17年度春期試験　正解例と解説(問10～問13)</h3>
+<hr>
+<p><b><a name="100">問10</a></b></p>
+<hr>
+<p><b><a name="101">設問1</a>　</b></p>
+<br>
+＜解答＞　ａ　エ　　　ｂ　イ　　　ｃ　ウ　　　ｄ　ア　　　ｅ　イ<br>
+<br>
+＜解説＞
+<p><strong>空欄ａについて</strong><br>
+空欄ａ直後のfare_table［idx0］［idx1］には，関数calc_fare（dist, 
+cost_list）により駅idx0と駅idx1との間の乗降車駅間の運賃が計算される。この関数calc_fareの引数distには，駅idx0と駅idx1との間の乗降車駅間の距離をセットする必要がある。空欄ａを含むforループ直前で乗車駅idx0が変るごとにdist=0.0にゼロクリアされているので，このforループの中で乗車駅idx0から降車駅idx1までの途中の隣接駅間距離を加算すれば乗降車駅間距離distが求まる。例えば乗車駅0と降車駅2の乗降車駅間の距離はdist_list［0］+dist_list［1］になるので，乗車駅idx0と降車駅idx1との間の乗降車駅間距離distはdist 
++= dist_list［idx1－1］により計算できる。</p>
+<p><strong>空欄ｂ，ｃについて</strong><br>
+区間の上限upper_limitが0でなく，かつ乗降車駅間の距離distが区間の上限upper_limitを超える各区間の運賃については，以下の式で計算する。</p>
+<blockquote>
+<p>ceil（区間の上限－区間の下限）／単位距離＊単位距離ごとの運賃</p>
+</blockquote>
+<p>したがって空欄ｂの条件はupper_limit ! = 0 &amp;&amp; dist &gt; 
+（double）upper_limitになり，空欄ｃは（double）（upper_limit－lower_limit）になる。</p>
+<p><strong>空欄ｄについて</strong><br>
+whileループの繰返し処理で，各区間の運賃を加算して運賃を計算しているので，区間の下限と区間の上限を，次の区間に更新する必要がある。空欄ｄの直前の処理で，次の区間の下限lower_limitに現在の区間の上限upper_limitをセットしている。空欄ｄを含む処理では，次の区間の上限upper_limitに，運賃体系表cost_listより次の区間の上限距離cost_list［++idx］.max_distをセットすればよい。したがって空欄ｄは++idxになる（++idx 
+によりidxをインクリメントした値が配列の要素番号としてセットされるので，次の区間の上限距離がセットできる）。</p>
+<p><strong>空欄ｅについて</strong><br>
+区間の上限値upper_limitが0か，または乗降車駅間の距離distが区間の上限値upper_limit以下となる最終区間については，運賃を以下の式で計算する。</p>
+<blockquote>
+<p>ceil（dist－最終区間の下限）／単位距離＊単位距離ごとの運賃</p>
+</blockquote>
+<p>したがって空欄ｅは（dist－（double）lower_limit）になる。</p>
+<hr>
+<a href="17S_P_E4.HTM#101">問題へ</a>
+<hr>
+<p><b><a name="102">設問2</a>　</b></p>
+<br>
+＜解答＞　オ<br>
+<br>
+＜解説＞
+<p>どちらか1社の路線だけを利用する場合（idx0≧term_no　または　idx1≦term_noの場合）は，処理<strong>α</strong>の直前にある空欄ａの処理dist 
++= dist_list［idx1－1］により乗降車駅間の距離distを計算し，関数calc_fare（dist, 
+cost_list）で乗降車駅間の運賃fare_table［idx0］［idx1］を求めればよい。<br>
+それに対し境の駅term_noで他社の路線に乗り継ぐ場合（idx0＜term_no　かつ　idx1＞term_no）は</p>
+<blockquote>
+<p>①乗車駅idx0から乗り継ぎ駅term_noまでの運賃<br>
+②乗り継ぎ駅term_noから降車駅idx1までの運賃</p>
+</blockquote>
+<p>に分けて計算し，乗降車駅間の運賃を①＋②で求める必要がある。つまり境となる駅term_noで乗り継ぐ場合， 
+term_no以降の乗り継いだ路線の運賃②をcalc_fare（dist, cost_list）により計算する際，term_noを乗車駅とみなして計算する必要がある。したがって降車駅idx1がidx1＞term_noとなる場合，一旦distを0にリセットして乗降車駅間の距離をdist 
++= dist_list［idx1－1］により計算する必要がある。これよりif文の空欄の条件は，term_no以降の駅についてdistを0にリセットする条件に該当し，空欄の条件をidx1 
+= = term_noとすればよい。①はfare_table［idx0］［term_no］で求まるので乗降車駅間の運賃はfare_table［idx0］［idx1］= 
+calc_fare（dist, cost_list）+ fare_table［idx0］［term_no］により計算できることになる。</p>
+<hr>
+<a href="17S_P_E4.HTM#102">問題へ</a>
+<hr>
+<a href="INDEX.HTM">メニューへ戻る</a>
+<hr>
+<p><b><a name="110">問11</a></b></p>
+<hr>
+<p><b><a name="111">設問1</a>　</b></p>
+＜解答＞　ａ　エ　　　ｂ　エ　　　ｃ　ウ　　　ｄ　エ　　　ｅ　ウ<br>
+<br>
+＜解説＞
+<p><strong>空欄ａについて</strong><br>
+空欄ａはLOAN-RTNの処理を繰り返すPERFORM命令のW-KAISUの初期値，増分値，終了条件に関する部分。W-KAISUが1～CD-KAISU（返済回数）である間は繰り返し，W-KAISU 
+＞ CD-KAISUになればPERFORMループを終了すればよいので，空欄ａはVARYING 
+W-KAISU FROM 1 BY 1 UNTIL W-KAISU ＞ CD-KAISUになる。</p>
+<p><strong>空欄ｂについて</strong><br>
+空欄ｂを含むCOMPUTE命令では，最初の返済時の日数を計算している。空欄ｂ直前で関数INTEGER-OF-DATEにより借入日（CD-KARIIRE-YMD）と初回返済日（CD-SHOKAI-YMD）をグレゴリオ暦の通算日に変換し，それぞれJDATE1，JDATE2に格納し，空欄ｂで日数を計算している。<br>
+最初の返済時の日数は，ローン借入日から初回返済日までの日数であり，ローン借入日を含むので，初回返済日－ローン借入日＋1で求める。したがって空欄ｂは，JDATE2－JDATE1＋1になる。</p>
+<p><strong>空欄ｃについて</strong><br>
+空欄ｃを含むCOMPUTE命令では，2回目以降の返済時の日数を計算している。2回目以降の日数は，前回返済日の翌日から当月返済日までの日数であり，前月返済日を含まないので，当月返済日－前月返済日で求める。したがって空欄ｃは，JDATE2－JDATE1になる。</p>
+<p><strong>空欄ｄについて</strong><br>
+空欄ｄを含む式では，毎月の利息を計算している。毎月の利息は，ローン元金残高×（年利÷100）×日数÷365の式で計算する。したがって空欄ｄはW-ZANDAKA＊W-NISSU＊CD-NENRI／100／365になる。</p>
+<p><strong>空欄ｅについて</strong><br>
+翌月の返済日を求めるとき，日付についてはローン条件情報の毎月返済日をW-HENSAI-DDに転送しているので，翌月の月末日を越えた存在しない日付になることがある。そのため“DATECHK”による日付チェックでW-RETCDが0でない場合は，その日付が月末日を越えた日付になっているので，存在する月末日になるまで日付から1を差引く処理が必要になる。したがって空欄ｅはSUBTRACT 
+1 FROM W-HENSAI-DDになる。</p>
+<hr>
+<a href="17S_P_E4.HTM#111">問題へ</a>
+<hr>
+<p><b><a name="112">設問2</a>　</b></p>
+＜解答＞　エ<br>
+<br>
+＜解説＞
+<p>最終回調整または初回調整の場合に元金の端数を返済額の元金部分に用いる。</p>
+<blockquote>
+<p>①最終回調整の条件は　CD-HASUU=0 で，かつW-KAISU=CD-KAISU<br>
+②初回調整の条件は　　 CD-HASUU=1 で，かつW-KAISU=1</p>
+</blockquote>
+<p>したがって最終回調整または初回調整の条件は①または②になるので，86行目は解答エの</p>
+<p><code>IF CD-HASUU = 0 AND W-KAISU = CD-KAISU OR<br>
+&nbsp;&nbsp; CD-HASUU = 1 AND W-KAISU = 1 THEN</code></p>
+<p>になる。</p>
+<hr>
+<a href="17S_P_E4.HTM#112">問題へ</a>
+<hr>
+<a href="INDEX.HTM">メニューへ戻る</a>
+<hr>
+<p><b><a name="120">問12</a></b></p>
+<hr>
+<p><b><a name="121">設問1</a>　</b></p>
+＜解答＞　　ａ　オ　　　ｂ　ウ　　　ｃ　オ<br>
+<br>
+＜解説＞
+<p><strong>空欄ａについて</strong><br>
+空欄ａを含む部分は，クラスCalculatorEventのコンストラクタにおける初期値設定に関する処理に該当する。同じクラス内の変数typeを引数としており，空欄ａでthis（ 
+type, 0 
+）とし，自分と同じクラス内のコンストラクタを呼び出せばよい。</p>
+<p><strong>空欄ｂについて</strong><br>
+（4）より，クラスCalculatorTestは電卓本体Calculatorをテストするプログラムで，CalculatorOutputを匿名クラスとして実装する。この実装で，メソッドdisplay（ 
+）は数値または文字列をSystem.outに出力する。したがって空欄ｂはnew 
+CalculatorOutput（ ）になる。</p>
+<p><strong>空欄ｃについて</strong><br>
+クラスCalculatorEventは電卓のキーが押されたときに発生するイベントである。空欄ｃを含むforループでは，引数arg［0］で与えられた文字列より1文字ずつ取り出しCalculatorEventを生成して，インスタンス変数eventにセットしている。空欄ｃを含むif文の処理は，取り出した文字cが電卓の数字キーに相当するc 
+&gt;= ’0’ &amp;&amp; c &lt;= ’9’の範囲の文字である場合に相当する。したがってCalculatorEventクラスのコンストラクタCalculatorEvent（ 
+int type, int value ）を呼び出して，タイプがDIGIT，数値がc－’0’であるCalculatorEventを生成すればよいので，空欄ｃはCalculatorEvent.DIGIT 
+, c－’0’ になる。</p>
+<hr>
+<a href="17S_P_E4.HTM#121">問題へ</a>
+<hr>
+<p><b><a name="122">設問2</a>　</b></p>
+＜解答＞　　ｄ　ア　　　ｅ　エ　　　ｆ　コ<br>
+<br>
+＜解説＞
+<p><strong>空欄ｄについて</strong><br>
+トレースすると以下のようになる。</p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td valign="top">（1）</td>
+<td valign="top">
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td valign="top">①</td>
+<td valign="top">‘3’が取出されると，タイプがDIGITのイベントが発生し，event.getValue（ 
+）により取り出された値3が変数registerにセットされる。</td>
+</tr>
+<tr>
+<td valign="top">②</td>
+<td valign="top">メソッドdisplay（ ）により値3が表示される。</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr>
+<td valign="top">（2）</td>
+<td valign="top">
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td valign="top">①</td>
+<td valign="top">次に‘＊’が取り出されると，タイプがOPERATORのイベントが発生する。変数operatorの初期値が0なので，メソッドcalculate（ 
+）は直前のイベントで保存されたregisterの値3を戻り値として返し，変数registerにセットする。</td>
+</tr>
+<tr>
+<td valign="top">②</td>
+<td valign="top">registerの値3がメソッドdisplay（ 
+）により再び表示される。</td>
+</tr>
+<tr>
+<td valign="top">③</td>
+<td valign="top">その後accumulatorに，registerの値3が保存される。</td>
+</tr>
+<tr>
+<td valign="top">④</td>
+<td valign="top">そしてevent.getValue（ 
+）により取り出されたイベントの値（演算子）‘＊’が変数operatorに保存される。</td>
+</tr>
+<tr>
+<td valign="top">⑤</td>
+<td valign="top">operatorの内容が‘=’でないのでregisterの値が0にリセットされる。</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr>
+<td valign="top">（3）</td>
+<td valign="top">
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td>①</td>
+<td>次に‘4’が取り出されると，タイプがDIGITのイベントが発生し，event.getValue（ 
+）により取出された値4が変数registerにセットされる。</td>
+</tr>
+<tr>
+<td>②</td>
+<td>メソッドdisplay（ ）により値4が表示される。</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr>
+<td valign="top">（4）</td>
+<td valign="top">
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td valign="top">①</td>
+<td valign="top">次に‘＊’が取出されると，タイプがOPERATORのイベントが発生する。直前のイベントによりoperatorには‘＊’が保存されているので，メソッドcalculate（ 
+）はaccumulatorに保存されている3とregisterの値4により3＊4の演算結果12を戻り値として返し，registerにセットする。</td>
+</tr>
+<tr>
+<td valign="top">②</td>
+<td valign="top">registerの値12がメソッドdisplay（ 
+）により表示される。</td>
+</tr>
+<tr>
+<td valign="top">③</td>
+<td valign="top">その後accumulatorに，registerの値12が保存される。</td>
+</tr>
+<tr>
+<td valign="top">④</td>
+<td valign="top">そしてevent.getValue（ 
+）により取り出されたイベントの値（演算子）‘＊’が変数operatorに保存される。</td>
+</tr>
+<tr>
+<td valign="top">⑤</td>
+<td valign="top">operatorの内容が‘=’でないのでregisterの値が0にリセットされる。</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr>
+<td valign="top">（5）</td>
+<td valign="top">
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td valign="top">①</td>
+<td valign="top">次に‘＊’が取り出されると，タイプがOPERATORのイベントが発生する。直前のイベントによりoperatorには‘＊’が保存されているので，メソッドcalculate（ 
+）はaccumulatorに保存されている12とregisterの値0により12＊0の演算結果0を戻り値として返し，registerにセットする。</td>
+</tr>
+<tr>
+<td valign="top">②</td>
+<td valign="top">registerの値0がメソッドdisplay（ 
+）により表示される。</td>
+</tr>
+<tr>
+<td valign="top">③</td>
+<td valign="top">その後accumulatorに，registerの値0が保存される。</td>
+</tr>
+<tr>
+<td valign="top">④</td>
+<td valign="top">そしてevent.getValue（ 
+）により取り出されたイベントの値（演算子）‘＊’が変数operatorに保存される。</td>
+</tr>
+<tr>
+<td valign="top">⑤</td>
+<td valign="top">operatorの内容が‘=’でないのでregisterの値が0にリセットされる。</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr>
+<td valign="top">（6）</td>
+<td valign="top">
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td valign="top">①</td>
+<td valign="top">次に‘＊’が取り出されると，タイプがOPERATORのイベントが発生する。直前のイベントによりoperatorには‘＊’が保存されているので，メソッドcalculate（ 
+）はaccumulatorに保存されている0とregisterの値0により0＊0の演算結果0を戻り値として返し，registerにセットする。</td>
+</tr>
+<tr>
+<td valign="top">②</td>
+<td valign="top">registerの値0がメソッドdisplay（ 
+）により表示される。</td>
+</tr>
+<tr>
+<td valign="top">③</td>
+<td valign="top">その後accumulatorに，registerの値0が保存される。</td>
+</tr>
+<tr>
+<td valign="top">④</td>
+<td valign="top">そしてevent.getValue（ 
+）により取出されたイベントの値（演算子）‘＊’が変数operatorに保存される。</td>
+</tr>
+<tr>
+<td valign="top">⑤</td>
+<td valign="top">operatorの内容が‘=’でないのでregisterの値が0にリセットされる。</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr>
+<td valign="top">（7）</td>
+<td valign="top">
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td valign="top">①</td>
+<td valign="top">最後に‘=’が取り出されると，タイプがOPERATORのイベントが発生する。直前のイベントによりoperatorには‘＊’が保存されているので，メソッドcalculate（ 
+）はaccumulatorに保存されている0とregisterの値0により0＊0の演算結果0を戻り値として返し，registerにセットする。</td>
+</tr>
+<tr>
+<td valign="top">②</td>
+<td valign="top">registerの値0がメソッドdisplay（ 
+）により表示される。</td>
+</tr>
+<tr>
+<td valign="top">③</td>
+<td valign="top">その後accumulatorに，registerの値0が保存される。</td>
+</tr>
+<tr>
+<td valign="top">④</td>
+<td valign="top">そしてevent.getValue（ 
+）により取出されたイベントの値（演算子）‘＊’が変数operatorに保存される。</td>
+</tr>
+<tr>
+<td valign="top">⑤</td>
+<td valign="top">operatorの内容が‘=’なのでbreakする。</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p>したがって空欄ｄの出力は0になる。</p>
+<p><strong>空欄ｅについて</strong><br>
+3＊4の演算については前記の（1）～（3）と同じである。</p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td valign="top">（4）</td>
+<td valign="top">
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td>①</td>
+<td>次に‘=’が取り出されると，タイプがOPERATORのイベントが発生する。直前のイベントによりoperatorには‘＊’が保存されているので，メソッドcalculate（ 
+）はaccumulatorに保存されている3とregisterの値4により3＊4の演算結果12を戻り値として返し，registerにセットする。</td>
+</tr>
+<tr>
+<td>②</td>
+<td>registerの値12がメソッドdisplay（ ）により表示される。</td>
+</tr>
+<tr>
+<td>③</td>
+<td>その後accumulatorに，registerの値12が保存される。</td>
+</tr>
+<tr>
+<td>④</td>
+<td>そしてevent.getValue（ 
+）により取り出されたイベントの値（演算子）‘=’が変数operatorに保存される。</td>
+</tr>
+<tr>
+<td>⑤</td>
+<td>operatorの内容が‘=’なのでbreakする。</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr>
+<td valign="top">（5）</td>
+<td valign="top">
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td>①</td>
+<td>次に‘＋’が取り出されると，タイプがOPERATORのイベントが発生する。直前のイベントによりoperatorには‘=’が保存されているので，メソッドcalculate（ 
+）はregisterに保存されている値12を戻り値として返し，registerにセットする。</td>
+</tr>
+<tr>
+<td>②</td>
+<td>registerの値12がメソッドdisplay（ ）により表示される。</td>
+</tr>
+<tr>
+<td>③</td>
+<td>その後accumulatorに，registerの値12が保存される。</td>
+</tr>
+<tr>
+<td>④</td>
+<td>そしてevent.getValue（ 
+）により取り出されたイベントの値（演算子）‘＋’が変数operatorに保存される。</td>
+</tr>
+<tr>
+<td>⑤</td>
+<td>operatorの内容が‘=’でないのでregisterの値が0にリセットされる。</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr>
+<td valign="top">（6）</td>
+<td valign="top">
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td>①</td>
+<td>最後に‘5’が取り出されると，タイプがDIGITのイベントが発生し，event.getValue（ 
+）により取り出された値5が変数registerにセットされる。</td>
+</tr>
+<tr>
+<td>②</td>
+<td>メソッドdisplay（ ）により値5が表示される。</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p>したがって空欄ｅの出力は5になる。</p>
+<p><strong>空欄ｆについて</strong><br>
+4/0の演算に対し，メソッドcalculate（ ）の中のaccumulator / 
+registerの割算で「ゼロによる割り算」が発生する。したがってその戻り値がメソッドeventDispatched（ 
+）の中のtry～catch文の処理で，変数registerにセットされるので，ArithmeticExceptionエラーが発生する。したがって“Error”と表示される。</p>
+<hr>
+<a href="17S_P_E4.HTM#122">問題へ</a>
+<hr>
+<a href="INDEX.HTM">メニューへ戻る</a>
+<hr>
+<p><a name="130"><b>問13</b></a></p>
+<hr>
+<p><a name="131"><b>設問1</b></a><b>　</b></p>
+<p>＜解答＞　ａ　オ　　　ｂ　イ　　　ｃ　カ<br>
+<br>
+＜解説＞
+<p>副プログラムNREADは，入力装置から1レコードを読み取り，入力文字列中の間隔文字を読み飛ばし入力文字検査を行った後，副プログラムDTOBを呼び出して，取り出した数字列を2進数に変換する。</p>
+<p><strong>空欄ａについて</strong></p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td valign="top">①</td>
+<td valign="top">行7のLAD命令で，入力データ領域INBUFの先頭アドレスがGR1にセットされる。</td>
+</tr>
+<tr>
+<td valign="top">②</td>
+<td valign="top">行8のADDL命令で，入力データの終端アドレスがGR2にセットされる。</td>
+</tr>
+<tr>
+<td valign="top">③</td>
+<td valign="top">行12ではGR1とGR2のアドレスを比較し，入力データの終端であるかを判定している。</td>
+</tr>
+<tr>
+<td valign="top">④</td>
+<td valign="top">行12～35は，入力データ領域INBUFから1文字ずつ取り出して，（2）①～③に関する入力文字に対する検査を行う繰返しループの処理である。</td>
+</tr>
+<tr>
+<td valign="top">⑤</td>
+<td valign="top">行12の比較でGR1=GR2となり，入力データの終端になれば行36のCNVにジャンプし，行41のCALL命令により副プログラムDTOBを呼び出して10進数文字列を2進数に変換すればよい。</td>
+</tr>
+</table>
+</div>
+<p>したがって空欄ａはJZE CNVになる。</p>
+<p><strong>空欄ｂについて</strong><br>
+GR4に取り出された数字は10進数の各けたの数字で，行16のSUBL命令により‘0’を差引き数値に変換している。これを行26のADDL命令によりGR0に加算している。したがって加算する前に，位取りを考慮してGR0の数値を10倍してからGR4を加算する必要がある。行17のSLL命令で左シフトしてGR0の数値を2倍し，さらに行20，行22のSLL命令で2回左シフトしているので，空欄ｂ直前でGR0の数値は8倍されていることになる。行17のSLL命令で2倍になったGR0の数値が，行19のLD命令でGR5にセットされる。したがって空欄ｂでGR0の数値が10倍になるようにするには，空欄ｂ直前で8倍になったGR0の数値にGR5を加算すればよく，空欄ｂはADDL 
+GR0, GR5になる。</p>
+<p><strong>空欄ｃについて</strong><br>
+行8のCPL命令の比較でGR4に読み込まれた文字が‘－’である場合，GR3が1にセットされる。したがって負数の場合，行31のLD命令のあと，行32でEXITに分岐せず，行33の空欄ｃを実行したあと，行34のADDA命令でGR0に1を加算する。つまり負数の場合はGR0の2進数を2の補数に変換する必要があるので，空欄ｃでGR0のビット列を反転し，行34で1を加算すればよい。ビット列を反転するには16進数FFFFとの排他的論理和をとればよい。したがって空欄ｃはXOR 
+GR0, =#FFFFになる（16進数などの定数の前には=を記述し，16進数であることを表すのに#をつける）。</p>
+<hr>
+<a href="17S_P_E4.HTM#131">問題へ</a>
+<hr>
+<p><a name="132"><b>設問</b></a><b>2</b></p>
+<p>＜解答＞　ｄ　エ　　　ｅ　エ<br>
+<br>
+＜解説＞</p>
+<p><strong>空欄ｄについて</strong><br>
+間隔文字以外の最初の文字がGR4に取り出されると，GR3の初期値が0にセットされているので，行18のJNZ命令は実行されず，次の行19のLAD命令により先頭文字の確認フラグGR3が1にセットされる。これにより符号もしくは数字が先頭の1文字目として取り出されたことになる。したがって次にGR4に取出される間隔文字以外の文字に対して，行18のJNZ命令によりNUMCHKに必ずジャンプすることになる。そのため先頭の‘－’以降に2つ目の‘－’が出現し，GR4に取り出されると，‘0’&gt;‘－’なので，行27のGR4と‘0’との比較で行28のJMI命令が実行されてERRにジャンプする。したがって空欄ｄは28になる。</p>
+<p><strong>空欄ｅについて</strong><br>
+GR5の初期値は1なので，最初の‘－’をGR4に取り出して行22のST命令によりNUMSTR領域に格納した後，行23のLAD命令によりGR5が1だけインクリメントされてGR5=2になる。以降‘5’，‘2’，‘4’の数字をGR4に取り出してNUMSTR領域に格納するごとに，行30のLAD命令によりGR5がインクリメントされるので，GR5=2＋3=5になる。したがって行28のJMI命令でERRに制御が移ったとき，GR5=5になっている。したがって空欄ｅは5である。</p>
+<hr>
+<a href="17S_P_E4.HTM#132">問題へ</a>
+<hr>
+<p><b><a name="133">設問</a></b><a name="133"><b>3</b></a></p>
+<p>＜解答＞　ｆ　エ　　　ｇ　ウ<br>
+<br>
+＜解説＞</p>
+<p><strong>空欄ｆについて</strong><br>
+行15で最後の文字‘0’を取り出したとき，GR0の値は16進表記で2000なので，行17、20の2回のSLL命令により2ビット左シフトされてGR0の値が8000になる。つまりGR0のビット番号15の最上位ビットが1となり，演算結果が負（サインフラグSFが1）となるので，行21のJMI命令によりERRにジャンプする。したがって行29のLAD命令によりGR0に－32768つまり16進表記で8000がセットされて，これがDTOBの戻り値になるので，空欄ｆは8000になる。</p>
+<p><strong>空欄ｇについて</strong></p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td valign="top">①</td>
+<td valign="top">行15で最後の文字‘0’を取り出したときGR0の値が16進表記で2000だが，行17のSLL命令で1ビット左シフトした結果2倍の4000になる。</td>
+</tr>
+<tr>
+<td valign="top">②</td>
+<td valign="top">行20～22の3行をSLL GR0, 2の1行で置き換えた場合，2ビット左シフトされるのでオーバーフローしGR0の値は16進表記で0000になる。</td>
+</tr>
+<tr>
+<td valign="top">③</td>
+<td valign="top">行19でGR5には2倍されたGR0の値4000がセットされているので，行24（空欄ｂ）のADDL 
+GR0, GR5の加算命令によりGR0=0000＋4000=4000となる。</td>
+</tr>
+<tr>
+<td valign="top">④</td>
+<td valign="top">次の行26のADDL命令によりGR0にGR4の値が加算されるが，行16によりGR4にセットされた‘0’から‘0’が差引かれるのでGR4の値は0000である。したがってGR0=4000＋0000=4000となり，行28のJUMP命令により行12に戻る。</td>
+</tr>
+<tr>
+<td valign="top">⑤</td>
+<td valign="top">行12でGR1がインクリメントされるので行13の文字列の終端判定の比較でGR1&gt;GR2となり，行14のJPL命令によりFINにジャンプする。GR3=0（符号が正）なので，EXITにジャンプし，DTOBの戻り値GR0は4000になる。</td>
+</tr>
+</table>
+</div>
+<p>したがって空欄ｇは4000になる。</p>
+<hr>
+<a href="17S_P_E4.HTM#133">問題へ</a>
+<hr>
+<a href="INDEX.HTM">メニューへ戻る</a>
+<hr>
+</blockquote>
+
+</body>
+
+</html>

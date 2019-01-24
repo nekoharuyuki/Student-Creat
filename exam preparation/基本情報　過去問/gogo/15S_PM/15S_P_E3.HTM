@@ -1,0 +1,676 @@
+<HTML>
+<HEAD>
+<TITLE>平成15年度春期試験　問題(午後問6～問9)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0">
+<blockquote>
+  <hr>
+  <H3 align="center">平成15年度春期試験　問題(問6～問9)</H3>
+<hr>
+<P>次の問6から問9までの4問については、この中から1問を選択し、答案用紙の選択欄の 
+選 をマークして解答してください。<br>         
+　なお、2問以上選択した場合には、はじめの1問について採点します。
+<hr>
+<p><b><a name="60">問6</a>　</b>次のCプログラムの説明及びプログラムを読んで，設問1，2に答えよ。<br>
+<br>
+[プログラムの説明]<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">（1）</td>
+            <td>2次元配列を利用して，規則性のある図形を生成するプログラムである。このプログラムでは，表の行0に示した初期値から，図に示すフラクタル図形（シェルピンスキーのギャスケットと呼ばれる）を出力する。ここでは，配列の行数及び列数は33としている。</td>
+          </tr>
+        </table>
+<br>
+        <p><center><img border="0" src="image/P_06-1.gif"></center></p>
+<center>図　出力結果</center><br>
+<br>
+表　生成される状態値<br>
+        <p><img border="0" src="image/P_06-2.gif"></p>
+        <p>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">（2）</td>
+            <td>2次元配列sには，状態を示す値（0又は1）が格納される。上の表に示すように，行0に格納されている初期値から，次の規則によって，行1以降の行の状態値を生成する。<br>
+<img border="0" src="image/01_maru.GIF">　i行j列の状態値をs[i][j]で表す。<br>
+<img border="0" src="image/02_maru.GIF">　列0の値はすべて0である。<br>
+<img border="0" src="image/03_maru.GIF">　s[i+1][j]の値（j≧1）は，s[i][j-1]及びs[i][j]の状態値を基にして，次の表に従って生成する。<br>
+</td>
+          </tr>
+        </table>
+<br>
+        <p><img border="0" src="image/P_06-3.gif"></p>
+<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">（3）</td>
+            <td>2次元配列sの列0及び行32の値は，出力の対象としない。</td>
+          </tr>
+        </table>
+<br>
+〔プログラム〕<br><pre>
+#include &lt;stdio.h&gt;
+#define  ALIVE    1
+#define  DEAD     0
+#define  SZ      33
+
+int stschk( int, int );
+
+main()
+{
+    int s[SZ][SZ], i, j;
+    for ( i=0; i＜SZ; i++ ) s[i][0] = DEAD;
+    for ( j=2; j＜SZ; j++ ) s[0][j] = DEAD;
+    s[0][1] = ALIVE;
+    for ( i=0; i＜SZ-1; i++ ) {
+        for ( j=1; j＜SZ; j++ ) {
+           <b>［　　a　　］</b>= stschk(<b>［　　b　　］</b>,<b>［　　c　　］</b>);
+            if (<b>［　　b　　］</b>== ALIVE ) printf( "*" );
+            else                     printf( " " );
+        }
+        printf( "\n" );
+    }
+}
+int stschk( int s1, int s2 )
+{
+    if ((( s1==DEAD  )&&( s2==ALIVE ))||
+        (( s1==ALIVE )&&( s2==DEAD  ))) return ALIVE;
+    else return DEAD;
+}
+</pre>     
+<p></p>      
+<hr>
+<p><b><a name="61">設問1</a>　</b>プログラム中の<b>[　　        ]</b>に入れる正しい答えを，解答群の中から選べ。<br>
+</p>
+解答群<br>
+        <table border="0" cellpadding="3" cellspacing="1">
+          <tr>
+            <td width="150">ア　s[i-1][j-1]</td>
+            <td width="150">イ　s[i-1][j]</td>
+            <td width="150">ウ　s[i-1][j+1]</td>
+          </tr>
+          <tr>
+            <td>	エ　s[i][j-1]</td>
+            <td>	オ　s[i][j]</td>
+            <td>	カ　s[i][j+1]</td>
+	</tr>
+          <tr>
+            <td>	キ　s[i+1][j-1]</td>
+            <td>	ク　s[i+1][j]</td>
+            <td>	ケ　s[i+1][j+1]</td>
+	</tr>	</table>
+<hr WIDTH="100%">
+  <a HREF="15S_P_A3.HTM#61">設問1の正解例と解説へ</a>
+<hr WIDTH="100%">
+<p><b><a name="62">設問2</a>　</b>関数stschkのif文を変更したところ，次のような図形を出力した。この結果になるif文を解答群の中から選べ。<br>
+</p>
+<br>
+        <p><center><img border="0" src="image/P_06-21.gif"></center></p>
+<br>
+解答群<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">ア</td>
+            <td>　if (( s1==ALIVE ) || ( s2==ALIVE )) return ALIVE;<BR>
+　　else return DEAD;</td>
+          </tr>
+          <tr>
+            <td valign="top">イ</td>
+            <td>　if (( s1==ALIVE ) && ( s2==ALIVE )) return ALIVE;<BR>
+　　else return DEAD;</td>
+          </tr>
+          <tr>
+            <td valign="top">ウ</td>
+            <td>　if (( s1==DEAD ) || ( s2==DEAD )) return DEAD;<BR>
+　　else return ALIVE;</td>
+          </tr>
+          <tr>
+            <td valign="top">エ</td>
+            <td>　if ((( s1==ALIVE )&&( s2==DEAD ))||<BR>
+　　　　(( s1==DEAD )&&( s2==ALIVE ))) return ALIVE;<BR>
+　　else return DEAD;</td>
+          </tr>
+        </table>
+<BR>
+<hr WIDTH="100%">
+  <a HREF="15S_P_A3.HTM#62">設問2の正解例と解説へ</a>
+<hr WIDTH="100%">
+<a HREF="index.htm">メニューへ戻る</a><br>
+<HR WIDTH=100%>
+<a NAME="70">　<BR>
+<b>
+問7</b></a><b>　</b>次のCOBOLプログラムの説明及びプログラムを読んで，設問に答えよ。<br>
+<br>
+[プログラムの説明]<br>
+パソコンの修理状況を記録した修理状況ファイルから故障内容コード別に件数を集計し，故障内容コード別のレコード件数及びその比率を印字するプログラムである。<br>
+（1）　修理状況ファイルのレコード様式は，次のとおりである。<br>
+<br>
+        <p><img border="0" src="image/P_07-011.gif"></p>
+<br>
+（2）　印字様式は，次のとおりである。<br>
+<br>
+        <p><img border="0" src="image/P_07-02.gif"></p>
+<br>
+<img border="0" src="image/01_maru.GIF">　故障内容コード別のレコード件数は，9,999以下とする。<br>
+<img border="0" src="image/02_maru.GIF">　比率は，各故障内容コードの件数を修理状況ファイルの総レコード件数で割った百分率とする。小数第2位以下は，切り捨てる。<br>
+<img border="0" src="image/03_maru.GIF">　見出しの印字は，最初に1回行う。<br>
+<br>
+
+
+<pre>〔プログラム〕
+DATA DIVISION.
+FILE SECTION.
+FD  REPAIR-FILE.
+01  REPAIR-REC.
+    02  ORDER-REP                PIC  X(06).
+    02  DATE-REP                 PIC  X(08).
+    02  FAULT-REP                PIC  X(03).
+    02  EST-REP                  PIC  X(26).
+FD  PRINT-FILE.
+01  PRINT-REC                    PIC  X(29).
+SD  SORT-FILE.
+01  SORT-REC                     PIC  X(03).
+WORKING-STORAGE SECTION.
+01  END-ST                       PIC  9(01).
+01  COUNT-T                      PIC  9(07).
+01  FAULT-WRK                    PIC  X(03).
+01  COUNT-WRK                    PIC  9(04).
+01  TOP-HEADER                   PIC  X(29) VALUE
+        "FAULT CODE  COUNT  PERCENTAGE".
+01  DATA-PRN.
+    02  FAULT-PRN                 PIC  X(03).
+    02                              PIC  X(09) VALUE SPACE.
+    02  COUNT-PRN                 PIC  Z,ZZ9.
+    02                              PIC  X(07) VALUE SPACE.
+    02  PER-PRN                   PIC  ZZ9.9.
+PROCEDURE DIVISION.
+SORT-RTN.
+    SORT SORT-FILE
+       ON ASCENDING KEY SORT-REC
+          INPUT  PROCEDURE IS SELECT-RTN
+          OUTPUT PROCEDURE IS TOTAL-RTN.
+    STOP RUN.
+SELECT-RTN.
+    OPEN INPUT REPAIR-FILE.
+    INITIALIZE END-ST COUNT-T.
+    PERFORM UNTIL END-ST = 1
+       READ REPAIR-FILE AT END
+          MOVE 1 TO END-ST
+       NOT AT END
+          RELEASE SORT-REC FROM FAULT-REP
+          COMPUTE COUNT-T = COUNT-T + 1
+       END-READ
+    END-PERFORM.
+    CLOSE REPAIR-FILE.
+TOTAL-RTN.
+    OPEN OUTPUT PRINT-FILE.
+    WRITE PRINT-REC FROM TOP-HEADER AFTER PAGE.
+    INITIALIZE END-ST.
+    RETURN SORT-FILE AT END
+       MOVE 1 TO END-ST
+    NOT AT END
+       PERFORM INIT-RTN
+    END-RETURN.
+    PERFORM UNTIL END-ST = 1
+       RETURN SORT-FILE AT END
+          PERFORM PRINT-RTN
+          MOVE 1 TO END-ST
+       NOT AT END
+          IF <b>［　　　　　　　a　　　　　　　］</b>
+             COMPUTE COUNT-WRK = COUNT-WRK + 1
+          ELSE
+             PERFORM PRINT-RTN
+             <b>［　　　　　　　b　　　　　　　］</b>
+          END-IF
+       END-RETURN
+    END-PERFORM.
+    CLOSE PRINT-FILE.
+PRINT-RTN.
+    MOVE COUNT-WRK TO COUNT-PRN.
+    <b>［　　　　　　　　　　c　　　　　　　　　　］</b>.
+    MOVE FAULT-WRK TO FAULT-PRN.
+    <b>［　　　　　　　d　　　　　　　］</b>.
+INIT-RTN.
+    MOVE 1 TO COUNT-WRK.
+    <b>［　　　　　　　e　　　　　　　］</b>.
+</pre>
+<hr> 
+<a NAME="71">　<BR>
+<b>
+設問</b></a><b>　</b>プログラム中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。<br>
+<br>
+aに関する解答群
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td width="260">ア　FAULT-WRK = FAULT-REP</td>
+            <td>	イ　FAULT-WRK = SORT-REC</td>
+          </tr>
+          <tr>
+            <td>	ウ　FAULT-WRK > FAULT-REP</td>
+            <td>	エ　FAULT-WRK > SORT-REC</td>
+          </tr>
+          <tr>
+            <td>	オ　FAULT-WRK NOT = FAULT-REP</td>
+            <td>	カ　FAULT-WRK NOT = SORT-REC</td>
+          </tr>
+        </table>
+<br>
+b，eに関する解答群
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">ア</td>
+            <td>　MOVE FAULT-REP TO FAULT-WRK</td>
+          </tr>
+          <tr>
+            <td valign="top">イ</td>
+            <td>　MOVE FAULT-WRK TO FAULT-PRN</td>
+          </tr>
+          <tr>
+            <td valign="top">ウ</td>
+            <td>　MOVE FAULT-WRK TO FAULT-REP</td>
+          </tr>
+          <tr>
+            <td valign="top">エ</td>
+            <td>　MOVE FAULT-WRK TO SORT-REC</td>
+          </tr>
+          <tr>
+            <td valign="top">オ</td>
+            <td>　MOVE SORT-REC TO FAULT-PRN</td>
+          </tr>
+          <tr>
+            <td valign="top">カ</td>
+            <td>　MOVE SORT-REC TO FAULT-WRK</td>
+          </tr>
+          <tr>
+            <td valign="top">キ</td>
+            <td>　PERFORM INIT-RTN</td>
+          </tr>
+          <tr>
+            <td valign="top">ク</td>
+            <td>　PERFORM PRINT-RTN</td>
+          </tr>
+          <tr>
+            <td valign="top">ケ</td>
+            <td>　PERFORM SELECT-RTN</td>
+          </tr>
+          <tr>
+            <td valign="top">コ</td>
+            <td>　PERFORM TOTAL-RTN</td>
+          </tr>
+        </table>
+<br>
+cに関する解答群
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">ア</td>
+            <td>　COMPUTE PER-PRN = 100 * COUNT-T / COUNT-WRK</td>
+          </tr>
+          <tr>
+            <td valign="top">イ</td>
+            <td>　COMPUTE PER-PRN = 100 * COUNT-WRK / COUNT-T</td>
+          </tr>
+          <tr>
+            <td valign="top">ウ</td>
+            <td>　COMPUTE PER-PRN = COUNT-T / COUNT-WRK</td>
+          </tr>
+          <tr>
+            <td valign="top">エ</td>
+            <td>　COMPUTE PER-PRN = COUNT-T / COUNT-WRK / 100</td>
+          </tr>
+          <tr>
+            <td valign="top">オ</td>
+            <td>　COMPUTE PER-PRN = COUNT-WRK / COUNT-T</td>
+          </tr>
+          <tr>
+            <td valign="top">カ</td>
+            <td>　COMPUTE PER-PRN = COUNT-WRK / COUNT-T / 100</td>
+          </tr>
+          <tr>
+            <td valign="top">キ</td>
+            <td>　MOVE COUNT-T TO PER-PRN</td>
+          </tr>
+          <tr>
+            <td valign="top">ク</td>
+            <td>　MOVE COUNT-WRK TO PER-PRN</td>
+          </tr>
+        </table>
+<br>
+dに関する解答群
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">ア</td>
+            <td>　WRITE PRINT-REC</td>
+          </tr>
+          <tr>
+            <td valign="top">イ</td>
+            <td>　WRITE PRINT-REC AFTER 1</td>
+          </tr>
+          <tr>
+            <td valign="top">ウ</td>
+            <td>　WRITE PRINT-REC FROM DATA-PRN AFTER 1</td>
+          </tr>
+          <tr>
+            <td valign="top">エ</td>
+            <td>　WRITE PRINT-REC FROM TOP-HEADER AFTER 1</td>
+          </tr>
+        </table>
+<BR>
+<HR WIDTH=100%>  
+  <a HREF="15S_P_A3.HTM#71">設問の正解例と解説へ</a>  
+<hr WIDTH="100%">    
+<p><A HREF="index.htm">メニューへ戻る</A>
+<HR WIDTH=100%>     
+<a NAME="80">　<BR>
+<b> 
+問8</b></a>　次のJavaプログラムの説明及びプログラムを読んで，設問に答えよ。<br>
+[プログラムの説明]<br>
+<BR>図形の面積を計算し，その結果を出力するプログラムである。図形は，三角形，長方形及び正方形のいずれかであり，プログラムでは，次の属性をもつ図形オブジェクトとして定める。<br>
+　　三角形：3辺の長さ<br>
+　　長方形：縦と横の2辺の長さ<br>
+　　正方形：1辺の長さ<br>
+<br>
+<FONT face="Courier New">AreaTest</FONT><br>
+　メソッドmainをもつクラスである。このクラスは，次の処理を行う。<br>
+　（1）三角形，長方形及び正方形のオブジェクトを生成し，配列figuresに設定する。<br>
+　（2）各図形の面積を求めて，結果を出力する。ここで，各図形には，正しい図形となる数値が与えられているものとする。<br>
+<br>
+<FONT face="Courier New">Figure<br>
+　図形の抽象クラスである。このクラスは，面積を計算してその結果を返す抽象メソッドgetAreaを宣言している。<br>
+<br>
+Triangle<br>
+　三角形のクラスである。このクラスは，属性を文字列にして返すメソッドtoStringと三角形の面積をヘロンの公式によって計算してその結果を返すメソッドgetAreaを定義している。<br>
+<br>
+Rectangle<br>
+　長方形のクラスである。このクラスは，属性を文字列にして返すメソッドtoStringと長方形の面積を計算してその結果を返すメソッドgetAreaを定義している。	<br>
+<br>
+Square<br>
+　正方形のクラスである。このクラスは，属性を文字列にして返すメソッドtoStringを定義している。</FONT><br>
+<br>
+プログラム1の実行結果を図に示す。<br>
+<br>
+        <table border="3" cellpadding="3" cellspacing="0">
+          <tr>
+            <td width="450"><Code>Triangle : side =2.0, 3.0, 3.0 :area =2.8284271247461903<br>
+Rectangle : height = 5.0, width = 8.0 : area = 40.0<br>
+Square : width = 5.0 : area = 25.0</Code></td>
+          </tr>
+        </table>
+<br>
+図　実行結果<br>
+<br>
+<FONT face="Courier New"><pre>
+〔プログラム1〕
+
+public class AreaTest {
+  public static void main(String args[]) {
+    Figure[] figures = {
+      new Triangle(2, 3, 3),
+      new Rectangle(5, 8),
+      new Square(5)};
+    for (int i = 0; i < figures.length; i++) {
+      System.out.println(figures[i] +
+                        "area = " + figures[i].getArea());
+    }
+  }
+}
+
+〔プログラム2〕
+
+public abstract class Figure {
+  public abstract double getArea();
+}
+
+〔プログラム3〕
+
+public class Triangle extends <B>［　　　　a　　　　］</B>{
+  double la;
+  double lb;
+  double lc;
+  public Triangle(double la, double lb, double lc) {
+    this.la = la;
+    this.lb = lb;
+    this.lc = lc;
+  }
+  public String toString() {
+    return "Triangle : sides = " + la + "," + lb + "," +
+            lc + ":";
+  }
+  public double getArea() {
+    double s = (la + lb + lc) / 2.0;
+    return Math.sqrt(s * (s-la) * (s-lb) * (s-lc));
+  }
+}
+
+〔プログラム4〕
+
+public class Rectangle extends <B>［　　　　b　　　　］</B>{
+  double height;
+  double width;
+  public Rectangle(double height, double width) {
+    this.height = height;
+    this.width = width;
+  }
+  public String toString() {
+    return "Rectangle : height = " + height +
+            ", width = " + width + " : ";
+  }
+  public double getArea() {
+    return <B>［　　　　c　　　　］</B>;
+  }
+}
+
+〔プログラム5〕
+
+public class Square extends <B>［　　　　d　　　　］</B>{
+  public Square(double width) {
+    <B>［　　　　e　　　　］</B>;
+  }
+  public String toString() {
+    return "Square : width = " + width + " : ";
+  }
+}
+</pre></FONT>
+<br>
+<A NAME="40">       
+<HR WIDTH=100%>       
+</a><a NAME="81"><b>　<BR>  
+設問</b></a><b><a NAME="81"></a>　</b>プログラム中の[　　　　　]に入れる正しい答えを，解答群の中から選べ。解答は，重複して選んでもよい。<br>      
+<br>
+a，b，dに関する解答群<br>
+        <table border="0" cellpadding="3" cellspacing="1">
+          <tr>
+            <td width="150">ア　abstract</td>
+            <td width="150">イ　Figure</td>
+            <td width="150">ウ　getArea</td>
+          </tr>
+          <tr>
+            <td>	エ　Rectangle</td>
+            <td>	オ　Square</td>
+            <td>	カ　super</td>
+	</tr>
+	</table>
+    <td>&nbsp;<br>     
+      &nbsp;<br>     
+cに関する解答群</td>     
+  </tr>     
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td width="250">ア　height</td>
+            <td>	イ　height * height</td>
+          </tr>
+          <tr>
+            <td>	ウ　height * width</td>
+            <td>	エ　width</td>
+          </tr>
+          <tr>
+            <td>	オ　width * width</td>
+          </tr>
+        </table>
+    <td>&nbsp;<br>     
+      &nbsp;<br>     
+eに関する解答群<br> 
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td width="250">ア　super(height)</td>
+            <td>	イ　super(height, height)</td>
+          </tr>
+          <tr>
+            <td>	ウ　super(width)</td>
+            <td>	エ　super(width, height)</td>
+          </tr>
+          <tr>
+            <td>	オ　super(width, width)</td>
+            <td>	カ　this.height = height</td>
+          </tr>
+          <tr>
+            <td>	キ　this.height = width</td>
+            <td>	ク　this.width = height</td>
+          </tr>
+          <tr>
+            <td>	ケ　this.width = width</td>
+          </tr>
+        </table>
+<br><br>
+<A NAME="41">     
+<HR WIDTH=100%>     
+</a><a HREF="15S_P_A3.HTM#81">設問の正解例と解説へ</a>    
+<HR WIDTH=100%>    
+<br>
+<a HREF="index.htm">メニューへ戻る</a><br>
+<HR WIDTH=100%>
+
+<p>          
+<a NAME="90">          
+<b>問9</b></a><b>　</b>次のアセンブラプログラムの説明及びプログラムを読んで，設問1，2に答えよ。<br>      
+<br>      
+[プログラムの説明]<br>
+連続する16語を4行4列の行列とみなす。副プログラムROTATEは，行列Xの内容を時計回りに90度回転し，行列Yに格納するプログラムである。<br>
+<br>
+<img border="0" src="image/P_09-01.gif">
+<br><br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">（1）</td>
+            <td>行列Xの先頭アドレスはGR1に設定されて，主プログラムから渡される。</td>
+          </tr>
+          <tr>
+            <td valign="top">（2）</td>
+            <td>行列Yの先頭アドレスはGR2に設定されて，主プログラムから渡される。</td>
+          </tr>
+          <tr>
+            <td valign="top">（3）</td>
+            <td>行列Xと行列Yが格納されている領域は，重ならないものとする。</td>
+          </tr>
+          <tr>
+            <td valign="top">（4）</td>
+            <td>副プログラムから戻るとき，汎用レジスタの内容は元に戻す。</td>
+          </tr>
+        </table>
+<br>
+<br>
+〔プログラム〕<pre>
+(行番号)
+    1	ROTATE	START			;
+    2           RPUSH			;
+    3           LAD    GR3,16		;
+    4   LOOP0  LAD    GR4,4			;
+    5   LOOP1  LD     GR5,0,GR1		; 行列Xから行列Yへ
+    6           ST     GR5,3,GR2		; 1語移動
+    7           SUBA   GR3,=1		;
+    8           JZE    FIN			;
+    9           LAD    GR1,1,GR1		;行列Xのポインタを更新
+   10           SUBA   GR4,=1		;
+   11           JZE    NXTROW		;1行分の処理終了？
+   12          ［　　　　　　a　　　　　　］	;
+   13           JUMP   LOOP1		;
+   14   NXTROW［　　　　　　b　　　　　　］	;次の行へ
+   15           JUMP   LOOP0		;
+   16   FIN     RPOP			;
+   17           RET			;
+   18           END			;
+</pre>
+<BR>
+<HR WIDTH=100%>         
+<a NAME="91"><BR>
+<b>         
+設問1</b></a>&nbsp;　プログラム中の［　　　　　　　］に入れる正しい答えを，解答群の中から選べ。<br>
+<br>
+解答群<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td width="200">ア　LAD GR2,-16,GR2</td>
+            <td>	イ　LAD GR2,-15,GR2</td>
+          </tr>
+          <tr>
+            <td>	ウ　LAD GR2,-14,GR2</td>
+            <td>	エ　LAD GR2,-13,GR2</td>
+          </tr>
+          <tr>
+            <td>	オ　LAD GR2,1,GR2</td>
+            <td>	カ　LAD GR2,2,GR2</td>
+          </tr>
+          <tr>
+            <td>	キ　LAD GR2,3,GR2</td>
+            <td>	ク　LAD GR2,4,GR2</td>
+          </tr>
+          <tr>
+            <td>	ケ　LAD GR2,6,GR2</td>
+            <td>	コ　LAD GR2,8,GR2</td>
+          </tr>
+        </table>
+<br>
+<HR WIDTH=100%>
+  <a HREF="15S_P_A3.HTM#91">設問1の正解例へ</a>
+<hr>
+<b>　</b><a NAME="92">
+<b>
+<br>
+設問</b></a><b>2　</b>次の記述中の［　　　　　　　］に入れる正しい答えを，解答群の中から選べ。<br>
+行列Xの内容を反時計回りに90度回転し，行列Yに格納するように変更するには，行番号5を［　　　c　　　　］に，行番号9を［　　　d　　　　］に，それぞれ変更すればよい。<br>
+<br>
+<img border="0" src="image/P_09-21.gif">
+<br><br>
+cに関する解答群
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td width="250">ア　LOOP1 LD GR5,3,GR1</td>
+            <td>	イ　LOOP1 LD GR5,4,GR1</td>
+          </tr>
+          <tr>
+            <td>	ウ　LOOP1 LD GR5,7,GR1</td>
+            <td>	エ　LOOP1 LD GR5,8,GR1</td>
+          </tr>
+          <tr>
+            <td>	オ　LOOP1 LD GR5,15,GR1</td>
+            <td>	カ　LOOP1 LD GR5,16,GR1</td>
+          </tr>
+        </table>
+<br>
+dに関する解答群
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td width="250">ア　LAD GR1,-4,GR1</td>
+            <td>	イ　LAD GR1,-3,GR1</td>
+          </tr>
+          <tr>
+            <td>	ウ　LAD GR1,-2,GR1</td>
+            <td>	エ　LAD GR1,-1,GR1</td>
+          </tr>
+          <tr>
+            <td>	オ　LAD GR1,2,GR1</td>
+            <td>	カ　LAD GR1,3,GR1</td>
+          </tr>
+          <tr>
+            <td>	キ　LAD GR1,4,GR1</td>
+            <td>	ク　LAD GR1,5,GR1</td>
+          </tr>
+        </table><br>
+<br>
+<HR WIDTH=100%>
+</a><a HREF="15S_P_A3.HTM#92">設問2の正解例へ</a>
+<HR WIDTH=100%>
+<p align="center"><a href="15S_P_E4.HTM">■問10へ進む</a>
+<a HREF="INDEX.HTM">■メニューへ戻る</a><br>    
+<br>   
+</blockquote>   
+</BODY>   
+</HTML>   

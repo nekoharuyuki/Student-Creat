@@ -1,0 +1,384 @@
+<html>
+
+<head>
+<title>平成17年度春期試験　問題(問3～問5)</title>
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+</head>
+
+<body bgcolor="#FFFFFF" topmargin="0" leftmargin="0">
+
+<blockquote>
+<hr>
+<h3 align="center">平成17年度春期試験　問題(問3～問5)</h3>
+<hr>
+<p><a name="30"><b>問3</b></a><b>　</b>オンラインシステムに関する次の記述を読んで，設問1，2に答えよ。</p>
+<p>このシステムは，Webサブシステム，アプリケーション（AP）サブシステム及びデータべース（DB）サブシステムの3階層の構成をとる。これらのサブシステムの現在のサーバ構成は，次のとおりである。</p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td>（1）</td>
+<td>Webサブシステムは，2台の同一機種のWebサーバで構成されている。</td>
+</tr>
+<tr>
+<td>（2）</td>
+<td>APサブシステムは，2台の同一機種のアプリケーション（AP）サーバで構成されている。</td>
+</tr>
+<tr>
+<td>（3）</td>
+<td>DBサブシステムは，1台のデータベース（DB）サーバで構成されている。</td>
+</tr>
+</table>
+</div>
+<p align="center"><img border="0" src="IMAGE/05s_kihon-gogo_0301+.gif" width="613" height="300"></p>
+<p>このシステムは，アクセス数の増加に対処するために，各サブシステムにサーバを追加できるように設計されている。システムの処理の概要及び各サブシステムが稼働するための必要条件は，次のとおりである。</p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td valign="top">（1）</td>
+<td>利用者からの正しい要求はすべて，Webサブシステム→APサブシステム→DBサブシステムの順に処理し，DBサブシステム→APサブシステム→Webサブシステムの順に応答を生成して利用者に返す。</td>
+</tr>
+<tr>
+<td valign="top">（2）</td>
+<td>利用者からの要求は，Webサブシステム中のいずれか1台のサーバによって処理される。すなわち，Webサブシステム中のサーバが少なくとも1台稼働していれば，Webサブシステムは稼働しているとみなされる。</td>
+</tr>
+<tr>
+<td valign="top">（3）</td>
+<td>利用者からの要求1件に対して，Webサブシステムは，APサブシステム中の2台のサーバを同時に使用する。すなわち，APサブシステム中のサーバが少なくとも2台稼働していれば，APサブシステムは稼働しているとみなされる。</td>
+</tr>
+<tr>
+<td valign="top">（4）</td>
+<td>すべての処理要求は，DBサブシステム中の1台のサーバによって処理される。すなわち，DBサブシステム中のサーバが少なくとも1台稼働していれば，DBサブシステムは稼働しているとみなされる。</td>
+</tr>
+</table>
+</div>
+<hr>
+<p><a name="31"><b>設問1</b></a><b>　</b>次の記述中の［　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td>（1）</td>
+<td>Webサーバ単体の平均故障間隔（MTBF）を<em>F<sub>W</sub></em>，平均修理時間（MTTR）を<em>R<sub>W 
+</sub></em>とする。</td>
+</tr>
+<tr>
+<td>（2）</td>
+<td>APサーバ単体の平均故障間隔を<em>F<sub>A</sub></em>，平均修理時間を<em>R<sub>A</sub><span style="font-variant: small-caps"> 
+</span></em>とする。</td>
+</tr>
+<tr>
+<td>（3）</td>
+<td>DBサーバ単体の平均故障間隔を<em>F<sub>D</sub></em>，平均修理時間を<em>R<sub>D</sub><span style="font-variant: small-caps"> 
+</span></em>とする。</td>
+</tr>
+</table>
+</div>
+<p>Webサブシステムの稼働率は［　　a　　］であり，APサブシステムの稼働率は［　　b　　］である。また，Webサブシステム，APサブシステム及びDBサブシステムの稼働率をそれぞれ，<em>U<sub>W</sub></em>，<em>U<sub>A</sub><span style="font-variant: small-caps"> 
+</span></em>及び<em>U<sub>D</sub><span style="font-variant: small-caps"> </span></em>とすると，このシステム全体としての稼働率は，［　　c　　］である。</p>
+<p><img border="0" src="IMAGE/05s_kihon-gogo_0302a.gif" width="433" height="126"></p>
+<p><img border="0" src="IMAGE/05s_kihon-gogo_0302b.gif" width="429" height="125"></p>
+<p><img border="0" src="IMAGE/05s_kihon-gogo_0302c.gif" width="573" height="107"></p>
+<hr>
+<a href="17S_P_A2.HTM#31">設問1の正解例と解説へ</a>
+<hr>
+<p><a name="32"><b>設問2</b></a><b>　</b>次の記述中の［　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p>このシステムにおいて，すべてのサーバの稼働率は等しく0.9であるとする。ここで，稼働率0.9のサーバを1台，いずれかのサブシステムに並列構成で追加する。Webサブシステムに追加したときのシステム全体の稼働率を<em>W</em>，APサブシステムに追加したときのシステム全体の稼働率を<em>A</em>，DBサブシステムに追加したときのシステム全体の稼働率を<em>D</em>とすると，<em>W</em>，<em>A</em>，<em>D</em>の大小関係は［　　　　］になる。</p>
+<p>解答群<br>
+ア　A &gt; D &gt; W　　　　イ　A &gt; W &gt; D　　　　ウ　D &gt; A 
+&gt; W<br>
+エ　D &gt; W &gt; A　　　　オ　W &gt; A &gt; D　　　　カ　W &gt; D 
+&gt; A</p>
+<hr>
+<a href="17S_P_A2.HTM#32">設問2の正解例と解説へ</a>
+<hr>
+<a href="index.htm">■メニューへ戻る</a>
+<hr>
+<p><a name="40"><b>問4</b></a>　次のプログラムの説明及びプログラムを読んで，設問1～3に答えよ。</p>
+<p>〔プログラムの説明〕<br>
+副プログラム<code>HeapSort</code>は，配列に格納されている整数値をヒープソートで昇順に整列するプログラムである。</p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td valign="top">（1）</td>
+<td>整列する<code>Num</code>個（<code>Num</code>≧2）の整数値は，大域変数の配列<code>A[1]</code>，<code>A[2]</code>，…，<code>A[Num]</code>に格納されている。</td>
+</tr>
+<tr>
+<td valign="top">（2）</td>
+<td>ヒープソートは，2分木を用いてデータを整列する。2分木を配列で表現するには，ある節が<code>A[i]</code>に対応するとき，その左側の子の節を<code>A[2×i]</code>に，右側の子の節を<code>A[2×i＋1]</code>に対応させる。図では，丸が節を，丸中の数字が節の値を示し，実際に値が格納されている配列の要素を丸の脇（わき）に示している。</td>
+</tr>
+<tr>
+<td valign="top">（3）</td>
+<td>ヒープとは，図のように，各節の値が自分の子の節の値以上になっている2分木である。
+<p><img border="0" src="IMAGE/05s_kihon-gogo_0401.gif" width="520" height="265"></td>
+</tr>
+<tr>
+<td valign="top">（4）</td>
+<td>整列の手順は，次のとおりである。<br>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td>①</td>
+<td>配列Aの中の，<code>A[1]</code>，<code>A[2]</code>，…，<code>A[Num]</code>を整列対象とする。</td>
+</tr>
+<tr>
+<td>②</td>
+<td>整列対象の各要素が，（2）で述べたような2分木を表現しているものとして，要素の値を入れ換えてヒープを作る。その結果，木の根（<code>A[1]</code>）には整列対象の要素の最大値が入る。</td>
+</tr>
+<tr>
+<td>③</td>
+<td>木の根（<code>A[1]</code>）の値と，木の最後の節（整列対象の最後の要素に対応する節）の値とを交換する。</td>
+</tr>
+<tr>
+<td>④</td>
+<td>木の最後の節を2分木から取り除く（整列対象の要素を一つ減らす）。</td>
+</tr>
+<tr>
+<td>⑤</td>
+<td>④の結果が，木の根だけになるまで，②～④の処理を繰り返す。</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr>
+<td valign="top">（5）</td>
+<td>ヒープを作り直す手順は，次のとおりである。<br>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td>①</td>
+<td>木の根を親の節とする。</td>
+</tr>
+<tr>
+<td>②</td>
+<td>子の節がなければ終了する。</td>
+</tr>
+<tr>
+<td>③</td>
+<td>二つの子の節のうち値が大きい方と親の節の値を比較し，親の節の方が小さいときは，値を交換する。親の節の値が子の節の値以上のときは，何もしないで終了する。</td>
+</tr>
+<tr>
+<td>④</td>
+<td>値を交換した子の節を根とする部分木に対して，①～③の処理を繰り返す。</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr>
+<td valign="top">（6）</td>
+<td>副プログラムの引数の仕様を表1～4に示す。
+<p><img border="0" src="IMAGE/05s_kihon-gogo_0402.gif" width="498" height="606"><br>
+</p>
+<p><img border="0" src="IMAGE/05s_kihon-gogo_0403.gif" width="569" height="883"></td>
+</tr>
+</table>
+</div>
+<hr>
+<p><a name="41"><b>設問1</b></a><b>　</b>プログラム中の［　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p>aに関する解答群</p>
+<table border="0" cellpadding="4" cellspacing="0" width="428">
+<tr>
+<td width="50%">ア　<code>L ← Top</code></td>
+<td width="50%">イ　<code>L ← Top ＋ 1</code></td>
+</tr>
+<tr>
+<td width="50%">ウ　<code>L ← Top × 2</code></td>
+<td width="50%">エ　<code>L ← Top × 2 ＋ 1</code></td>
+</tr>
+</table>
+<p>bに関する解答群</p>
+<table border="0" cellpadding="4" cellspacing="0" width="428">
+<tr>
+<td width="50%">ア　<code>L ≦ Last</code></td>
+<td width="50%">イ　<code>L &lt; Last</code></td>
+</tr>
+<tr>
+<td width="50%">ウ　<code>R ≦ Last －1</code></td>
+<td width="50%">エ　<code>R ≦ Last －2</code></td>
+</tr>
+</table>
+<hr>
+<a href="17S_P_A2.HTM#41">設問1の正解例と解説へ</a>
+<hr>
+<p><a name="42"><b>設問2</b></a><b>　</b>次の記述中の［　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p>図のヒープを用いて，〔プログラムの説明〕の（4）の③，④を1回だけ実行して，②が終了したとき，最初<code>A[ 
+10 ]</code>に入っていた値12が格納されている配列要素の添字は［　　c　　］である。また，それまでに節の値を交換した回数は［　　d　　］である。</p>
+<p>解答群<br>
+ア　2　　　　イ　3　　　　ウ　4　　　　エ　5　　　　オ　6<br>
+カ　7　　　　キ　8　　　　ク　9</p>
+<hr>
+<a href="17S_P_A2.HTM#42">設問2の正解例と解説へ</a>
+<hr>
+<p><a name="43"><b>設問3</b></a><b>　</b>最初にヒープを作成する副プログラム<code>InitHeap</code>は<code>MakeHeap</code>を使って作ることができる。次のプログラム中の［　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p><img border="0" src="IMAGE/05s_kihon-gogo_0404.gif" width="241" height="115"></p>
+<p>解答群<br>
+ア　<code>Idx: 1, Idx ≦ Last, 2</code><br>
+イ　<code>Idx: 1, Idx ≦ Last ÷ 2, 1</code><br>
+ウ　<code>Idx: Last, Idx ≧ 1, －2</code><br>
+エ　<code>Idx: Last ÷ 2, Idx ≧ 1, －1</code></p>
+<hr>
+<a href="17S_P_A2.HTM#43">設問3の正解例と解説へ</a>
+<hr>
+<a href="index.htm">■メニューへ戻る</a>
+<hr>
+<p><b><a name="50">問5</a>　</b>プログラム設計に関する次の記述を読んで，設問1，2に答えよ。</p>
+<p>ある大学では，既存システムから出力される授業の時間割ファイルを，新システムの入力とするために，ファイル編集プログラムを作成することになった。<br>
+この大学の時間割では，同じ年次，曜日，時限に複数の科目が存在する場合がある。<br>
+既存システムで出力ファイルを作成した後に，時間割の変更が生じた場合，担当者が出力ファイルを修正してから，編集プログラムに入力することも想定されている。さらに，新システムでは，入力レコードの各項目の値の範囲及び順序の誤りを検査する機能をもっていないので，これらの検査も編集プログラムの機能に含めることにした。<br>
+この大学の時間割の例，既存システムの出力ファイル，新システムの入力ファイル及び編集プログラムの流れを次に示す。</p>
+<p align="center"><img border="0" src="IMAGE/05s_kihon-gogo_0501.gif" width="630" height="447"></p>
+<p>〔既存システムの出力ファイル〕<br>
+既存システムは，次の様式で，年次，曜日，時限，表示順をキーとして，昇順に時間割ファイルのレコードを出力する。</p>
+<blockquote>
+<p>年次 ： 1～4年次を，数字1～4で表す。<br>
+曜日 ： 日～土の曜日を，数字1～7で表す。<br>
+時限 ： 1～9時限（最大9時限まで）を，数字1～9で表す。<br>
+表示順 ： 
+同一年次の同一曜日，同一時限の科目の表示の順番を，1から始まる連続した数字で表す。<br>
+科目名 ： “哲学”，“政治学”などを，文字列で記述する。<br>
+教員名 ： “井上紘司”，“小林慎一”などを，文字列で記述する。</p>
+</blockquote>
+<p>レコード様式は，次のとおりである。</p>
+<p align="center"><img border="0" src="IMAGE/05s_kihon-gogo_0502.gif" width="349" height="48"></p>
+<p>〔新システムの入力ファイル〕<br>
+年次，曜日，時限，科目名，教員名は，それぞれ1レコードとして入力する。ただし，既存システムの出力と同じ順番を維持する。<br>
+複数の科目を，同一年次の同一曜日，同一時限に指定する場合は，登録する順に，科目名と教員名の組を連続して入力する。<br>
+年次，曜日，時限のレコードは，それぞれが変わるときにだけ入力する。<br>
+レコードの内容は，次に示す年次，曜日，時限，科目名，教員名のいずれかである。年次，曜日，時限は，先頭の半角英字1文字と，それに続く半角数字1文字で指定する。科目名と教員名は，全角の文字列で指定する。</p>
+<blockquote>
+<p>年次 ： 1～4年次を，記号G1～G4で表す。<br>
+曜日 ： 日～土の曜日を，記号D1～D7で表す。<br>
+時限 ： 1～9時限（最大9時限まで）を，記号T1～T9で表す。<br>
+科目名 ： “哲学”，“政治学”などを，文字列で記述する。<br>
+教員名 ： “井上紘司”，“小林慎一”などを，文字列で記述する。</p>
+</blockquote>
+<p>既存システムの出力例の一部と対応する新システムへの入力を図2に示す。</p>
+<p align="center"><img border="0" src="IMAGE/05s_kihon-gogo_0503.gif" width="594" height="771"></p>
+<p align="center"><img border="0" src="IMAGE/05s_kihon-gogo_0504.gif" width="591" height="886"></p>
+<p align="center"><img border="0" src="IMAGE/05s_kihon-gogo_0505.gif" width="633" height="944"></p>
+<hr>
+<p><b><a name="51">設問1</a>　</b>編集プログラムの振る舞いに関する次の記述中の［　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p>既存システムの出力ファイルと，新システムへの入力ファイルの特徴から，編集プログラムが出力するレコード件数は，正しい入力レコード1件に対し，最小で［　　a　　］，最大で［　　b　　］となる。<br>
+　図1の時間割を既存システムが出力し，それをそのまま編集プログラムに入力した場合，3年次の火曜日1時限の会計Ⅱの入力レコードに対して，主処理中の処理1～4のうち，実行されるのは［　　c　　］及び処理4である。</p>
+<p>a，bに関する解答群<br>
+ア　1　　　　イ　2　　　　ウ　3　　　　エ　4　　　 オ　5<br>
+カ　6</p>
+<p>cに関する解答群</p>
+<div align="left">
+<table border="0" cellpadding="0" cellspacing="0" width="50%">
+<tr>
+<td>ア　処理1</td>
+<td>イ　処理1，処理2</td>
+</tr>
+<tr>
+<td>ウ　処理1，処理2，処理3</td>
+<td>エ　処理1，処理3</td>
+</tr>
+<tr>
+<td>オ　処理2</td>
+<td>カ　処理2，処理3</td>
+</tr>
+<tr>
+<td>キ　処理3</td>
+<td>　</td>
+</tr>
+</table>
+</div>
+<hr>
+<a href="17S_P_A2.HTM#51">設問1の正解例と解説へ</a>
+<hr>
+<p><b><a name="52">設問2</a>　</b>図3及び図4中の各処理の内容に関する次の記述中の［　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p>条件判定に用いる変数（NENJI，YOBI，JIGEN，HYOJIJUN）の新しい値の設定又はこれらの変数の必要最小限の初期化は，主処理中の処理1～4の中で行っている。<br>
+このうち処理3の <img border="0" src="IMAGE/gray.gif" width="48" height="12"> 
+は，［　　d　　］である。また，編集プログラムの最初に行う，初期値設定での必要十分な変数の初期化は，［　　e　　］である。<br>
+主処理中の <img border="0" src="IMAGE/hasen.gif" width="57" height="15"> 
+の部分の条件Xは，［　　f　　］であり，判定Yは，［　　g　　］である。</p>
+<p>dに関する解答群</p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0" width="354">
+<tr>
+<td valign="top" width="15">ア</td>
+<td valign="top" width="125">JIGEN ← 0</td>
+<td valign="top" width="14">イ</td>
+<td valign="top" width="160">JIGEN ← I_JIGEN</td>
+</tr>
+<tr>
+<td valign="top" width="15">ウ</td>
+<td valign="top" width="125">NENJI ← 0<br>
+YOBI ← 0<br>
+JIGEN ← 0</td>
+<td valign="top" width="14">エ</td>
+<td valign="top" width="160">YOBI ← 0<br>
+JIGEN ← 0</td>
+</tr>
+</table>
+</div>
+<p>eに関する解答群</p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0" width="352">
+<tr>
+<td width="15" valign="top">ア</td>
+<td width="125" valign="top">ERROR ← 偽</td>
+<td width="14" valign="top">イ</td>
+<td width="158" valign="top">ERROR ← 偽<br>
+NENJI ← 0</td>
+</tr>
+<tr>
+<td width="15" valign="top">ウ</td>
+<td width="125" valign="top">ERROR ← 偽<br>
+NENJI ← 0<br>
+YOBI ← 0</td>
+<td width="14" valign="top">エ</td>
+<td width="158" valign="top">ERROR ← 偽<br>
+NENJI ← 0<br>
+YOBI ← 0</td>
+</tr>
+<tr>
+<td width="15" valign="top">オ</td>
+<td width="125" valign="top">ERROR ← 偽<br>
+NENJI ← 0<br>
+YOBI ← 0<br>
+JIGEN ← 0<br>
+HYOJIJUN ← 0</td>
+<td width="14" valign="top">　</td>
+<td width="158" valign="top">　</td>
+</tr>
+</table>
+</div>
+<p>fに関する解答群</p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td>ア</td>
+<td>HYOJIJUN－1：I_HYOJIJUN</td>
+<td>イ</td>
+<td>HYOJIJUN－1：I_HYOJIJUN＋1</td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>HYOJIJUN＋1：I_HYOJIJUN</td>
+<td>エ</td>
+<td>HYOJIJUN＋1：I_HYOJIJUN－1</td>
+</tr>
+<tr>
+<td>オ</td>
+<td>HYOJIJUN：I_HYOJIJUN</td>
+<td>　</td>
+<td>　</td>
+</tr>
+</table>
+</div>
+<p>gに関する解答群</p>
+<p>ア　＝　　　　イ　＞　　　　ウ　＜<br>
+エ　≠　　　　オ　≦　　　　カ　≧</p>
+<hr>
+<a href="17S_P_A2.HTM#52">設問2の正解例と解説へ</a>
+<hr>
+<a href="17S_P_E3.HTM">■問6へ進む</a>
+<hr>
+<a href="INDEX.HTM">■メニューへ戻る</a>
+<hr>
+</blockquote>
+
+</body>

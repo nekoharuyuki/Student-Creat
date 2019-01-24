@@ -1,0 +1,960 @@
+<HTML>
+<HEAD>
+<TITLE>平成12年度春期試験　問題</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0">
+ 
+
+
+<BLOCKQUOTE>
+<hr>
+<H3 align="center">平成12年度春期試験　問題(午後問15～問17)</H3>
+<hr>
+<P>次の問15から問17までの3問については、この中から1問を選択し、答案用紙の選択欄の　選　をマークして解答してください。なお、2問以上選択した場合には、はじめの1問について採点します。<br>
+<HR WIDTH=100%>
+<a NAME="150">　<BR>
+<b>
+問15</b></a>　内部設計に関する次の記述を読んで、設問 1～4 に答えよ。<br>        
+　M 社では、図 1 に示す事務所において入退管理を行うことになり、IC カードを入館証として使用する入退管理システムを構築することになった。<br>        
+<br>        
+現在、データ記録サブシステムと移動状況表示サブシステムの設計を行っている。<br>        
+<br>        
+<img border="0" src="image/A00s15f1.gif" width="460" height="267"><br>      
+　　　　　　　図１　入退管理を適用する事務所
+<p>〔データ記録サブシステムの説明〕<br>
+次のように来訪者の入館から退館までを関係データベースに記録する。<br>
+図 2 に、このサブシステムの構成を示す。</p>        
+<table border="0" cellpadding="3" cellspacing="0">       
+  <tr>       
+    <td valign="top">①</td>       
+    <td>受付は，来訪者に発行する IC カードを読み書き装置 00 に入れる。</td>        
+  </tr>        
+  <tr>        
+    <td valign="top">②</td>       
+    <td>サブシステムは， IC カード固有の入館証番号を読み，サブシステムの時計から受付日時を得　　て、IC カードに書き込む。このサブシステムでは、同一の IC カードを繰返し使うので、入館証番号と受付日時によって、発生データを区別する。</td>        
+  </tr>        
+  <tr>        
+    <td valign="top">③</td>       
+    <td>受付は、来訪者から必要事項 （氏名、会社名、住所、電話番号、目的、訪問先部署、訪問相手）を聞き取り， サブシステムに入力する。&nbsp;</td>       
+  </tr>       
+  <tr>       
+    <td valign="top">④</td>       
+    <td>サブシステムは、③で入力された内容、入館証番号及び受付日時を、 “来訪者表”、“訪問先表”及び“記録表”に書き込む。&nbsp;</td>       
+  </tr>       
+  <tr>       
+    <td valign="top">⑤</td>       
+    <td>来訪者は、発行された IC カードを携帯して、訪問先部署のある部屋へ向かう。</td>        
+  </tr>        
+  <tr>        
+    <td valign="top">⑥</td>       
+    <td>館内の各部屋の出入口には、読取り装置が設置してある。サブシステムは、来訪者が出入口を通過した時に IC カードに書かれた情報を読み、サブシステムの時計から日時を得て、“記録表”にデータを書き込む。</td>        
+  </tr>        
+  <tr>        
+    <td valign="top">⑦</td>       
+    <td>来訪者は、退館時、受付に IC カードを返却する。受付は、返却された IC カードを読み書き装置 99 に入れる。</td>        
+  </tr>        
+  <tr>        
+    <td valign="top">⑧</td>       
+    <td>サブシステムは、IC カードとサブシステムの時計からデータを得て、“記録表”にデータを書き込む。その後、IC カードの受付日時に空白を書き込むことによって、IC カードを初期状態に戻す。このとき、IC カード固有のデータである入館証番号はそのまま残る。</td>        
+  </tr>        
+</table>        
+<p><img border="0" src="image/A00s15f2.gif" width="515" height="78"><br>      
+　　　　　図２　データ記録サブシステムの構成<br>
+　<br>
+<br>
+〔データ記録サブシステムのデータと表の説明〕<br>
+IC カードのデータ様式と各表の様式を次に示す。&nbsp;</p>       
+<table border="0" cellpadding="3" cellspacing="0">       
+  <tr>       
+    <td>IC カードのデータ様式</td>        
+  </tr>        
+</table>        
+<table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">       
+  <tr>       
+    <td>入館証番号</td>       
+    <td>入受付日時</td>       
+  </tr>       
+</table>       
+<table border="0" cellpadding="3" cellspacing="0">       
+  <tr>       
+    <td>　<br>       
+      来訪者表の様式</td>       
+  </tr>       
+</table>       
+<table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">       
+  <tr>       
+    <td>入館証番号</td>       
+    <td>受付日時</td>       
+    <td>氏名</td>       
+    <td>会社名</td>       
+    <td>住所</td>       
+    <td>電話番号</td>       
+  </tr>       
+</table>       
+<table border="0" cellpadding="3" cellspacing="0">       
+  <tr>       
+    <td>　<br>       
+      訪問先表の様式</td>       
+  </tr>       
+</table>       
+<table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">       
+  <tr>       
+    <td>入館証番号</td>       
+    <td>受付日時</td>       
+    <td>訪問先部署</td>       
+    <td>訪問相手</td>       
+    <td>目的</td>       
+  </tr>       
+</table>       
+<table border="0" cellpadding="3" cellspacing="0">       
+  <tr>       
+    <td>　<br>       
+      記録表の様式</td>       
+  </tr>       
+</table>       
+<table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">       
+  <tr>       
+    <td>通過日時</td>       
+    <td>装置番号</td>       
+    <td>入館証番号</td>       
+    <td>受付日時</td>       
+  </tr>       
+</table>       
+<p><br>       
+〔移動状況表示サブシステムの説明〕<br>       
+次のように、来訪者の入館から退館までの館内の移動記録を作成し、表示する。<br>       
+図 3 に移動状況表示サブシステムの構成を示し、図 4 に移動状況表示画面を示す。</p>        
+<table border="0" cellpadding="3" cellspacing="0">       
+  <tr>       
+    <td valign="top">①</td>       
+    <td>端末から入力された来訪者の氏名を読み取る。</td>       
+  </tr>       
+  <tr>       
+    <td valign="top">②</td>       
+    <td>SQL 記述 1 を動的に生成し、実行する。</td>        
+  </tr>        
+  <tr>        
+    <td valign="top">③</td>       
+    <td>端末に、読み取った氏名に該当する来訪者の受付記録の一覧を表示する。</td>       
+  </tr>       
+  <tr>       
+    <td valign="top">④</td>       
+    <td>一覧から選択された受付記録の入館証番号と受付日時を読み取る。</td>       
+  </tr>       
+  <tr>       
+    <td valign="top">⑤</td>       
+    <td>SQL 記述 2 を動的に生成し、実行する。</td>        
+  </tr>        
+  <tr>        
+    <td valign="top">⑥</td>       
+    <td>SQL 記述 3 を動的に生成し、実行する。</td>        
+  </tr>        
+  <tr>        
+    <td valign="top">⑦</td>       
+    <td>上の、⑤、⑥で得られたデータを編集して移動状況画面を表示する。</td>       
+  </tr>       
+</table>       
+<p><img border="0" src="image/A00s15f3.gif" width="372" height="90"><br>      
+                          図３　移動状況表示サブシステムの構成<br>
+<br>
+<img border="0" src="image/15a.gif" width="345" height="216"><br>
+                          図４　移動状況表示画面<br>
+<br>
+〔移動状況表示サブシステムの表の説明〕<br>
+移動状況表示サブシステムでは、図 4 の表示を行うため、データ記録サブシステムで使用する表のうちの二つと新たな一つの表を必要とする。<br>        
+移動状況表示サブシステムで新たに追加する表 Z の様式を次に示す。</p>        
+<table border="0" cellpadding="3" cellspacing="0">       
+  <tr>       
+    <td>表 Z の様式</td>       
+  </tr>       
+</table>       
+<table border="1" bordercolorlight="#000000" cellspacing="0" cellpadding="2" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">       
+  <tbody>       
+    <tr>       
+      <td height="36"><b>　[　　a　　]　</b></td>
+      <td height="36"><b>　[　　b　　]　</b></td>
+    </tr>
+  </tbody>
+</table>
+<p>　注） <b>[　　a　　]</b> は主キーである</p>       
+<p>　</p>        
+<hr>        
+<a NAME="151">　<BR>        
+<b>        
+設問</b></a><b><a NAME="151">1</a>　</b>表 Z の様式中の<b>[　　　]</b>に入れる正しい答えを、解答群の中から選べ。<br>      
+<br>      
+解答群&nbsp;      
+<table border="0" cellpadding="3" cellspacing="0">      
+  <tr>      
+    <td width="120">ア　受付日時</td>
+    <td width="120">イ　会社名</td>
+    <td>ウ　氏名</td>
+  </tr>
+  <tr>
+    <td>エ　設置位置</td>
+    <td>オ　装置番号</td>
+    <td>カ　通過日時</td>
+  </tr>
+  <tr>
+    <td>キ　入館証番号</td>
+    <td>ク　訪問相手</td>
+    <td>ケ　訪問先部署</td>
+  </tr>
+</table>
+<p>　</p>
+<HR WIDTH=100%> 
+<a HREF="12s_p_a5.htm#151">設問の正解例と解説へ</a> 
+<HR WIDTH=100%> 
+<a NAME="152"> 
+<b> 
+設問</b></a><b><a NAME="151">2</a>　</b>　図３中の表 X と表 Y の組合せとして正しい答えを、解答群の中から選べ。<br>       
+　<br>
+　<br>
+解答群
+<table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+  <tr>
+    <td>　</td>
+    <td>表 X</td>       
+    <td>表 Y</td>       
+  </tr>       
+  <tr>       
+    <td>ア</td>       
+    <td>  記録表</td>       
+    <td>     訪問先表</td>       
+  </tr>       
+  <tr>       
+    <td>  イ</td>       
+    <td>  記録表</td>       
+    <td>     来訪者表</td>       
+  </tr>       
+  <tr>       
+    <td>  ウ</td>       
+    <td>  訪問先表</td>       
+    <td>   記録表</td>       
+  </tr>       
+  <tr>       
+    <td>  エ</td>       
+    <td>  来訪者表</td>       
+    <td>記録表&nbsp;</td>      
+  </tr>      
+</table>      
+<p>　</p>   
+<HR WIDTH=100%>   
+<a HREF="12s_p_a5.htm#152">設問の正解例と解説へ</a>   
+<HR WIDTH=100%>   
+<a NAME="153">　<BR>    
+<b>    
+設問</b></a><b><a NAME="151">3</a>　</b>図３中の SQL 記述中の，“記録表”に対する問合せの部分として正しい答えを，解答群の中から選べ。ここで，       
+'XXX…X' は，移動状況表示サブシステムの説明の ④       
+で得られた入館証番号を表し， 'YYY…Y'       
+は，受付日時を表す。      
+<p>解答群      
+<table border="0" cellpadding="3" cellspacing="0">      
+  <tr>      
+    <td valign="top">ア</td>      
+    <td>SELECT&nbsp; 通過日時, 装置番号, 設置位置&nbsp; FROM&nbsp;       
+      記録表<br>      
+      WHERE&nbsp; 記録表.入館証番号='XXX…X' AND 記録表.受付日時='YYY…Y'<br>      
+      ORDER&nbsp; BY&nbsp; 通過日時&nbsp; ASC</td>      
+  </tr>      
+  <tr>      
+    <td valign="top">イ</td>      
+    <td>SELECT&nbsp; 通過日時, 装置番号, 入館証番号&nbsp;       
+      FROM&nbsp; 記録表<br>      
+      ORDER&nbsp; BY&nbsp; 入館証番号 ASC, 受付日時 ASC</td>      
+  </tr>      
+  <tr>      
+    <td valign="top">ウ</td>      
+    <td>SELECT&nbsp; 通過日時, 装置番号&nbsp; FROM&nbsp; 記録表<br>      
+      WHERE&nbsp; 記録表.入館証番号='XXX…X' AND 記録表.受付日時='YYY…Y'<br>      
+      ORDER&nbsp; BY&nbsp; 通過日時&nbsp; ASC</td>      
+  </tr>      
+  <tr>      
+    <td valign="top">エ</td>      
+    <td>SELECT&nbsp; 入館証番号, 氏名, 会社名, 住所,       
+      電話番号&nbsp; FROM&nbsp; 記録表<br>      
+      WHERE&nbsp; 記録表.入館証番号='XXX…X' AND 記録表.受付日時='YYY…Y'</td>      
+  </tr>      
+</table>      
+<p>　</p>
+<HR WIDTH=100%> 
+<a HREF="12s_p_a5.htm#153">設問の正解例と解説へ</a> 
+<HR WIDTH=100%> 
+<a NAME="152"> 
+<b> 
+設問</b></a><b><a NAME="154">4</a>　</b>各表と IC カードの受付日時及び通過日時の値を、それぞれの読み書き装置及び読取り装置の時計から値を得るように設計した場合、問題が発生する可能性がある。その内容として正しい記述を、解答群の中から選べ。<br>       
+<br>       
+解答群       
+<table border="0" cellpadding="3" cellspacing="0">      
+  <tr>      
+    <td valign="top">ア</td>      
+    <td>“記録表”の通過日時の値が、その装置番号の装置の時計から得られた値とは異なる。</td>      
+  </tr>      
+  <tr>      
+    <td valign="top">イ</td>      
+    <td>移動状況の表示が、実際にその来訪者が移動した順番どおりに表示されない。</td>      
+  </tr>      
+  <tr>      
+    <td valign="top">ウ</td>      
+    <td>本来同一である、1 回の来訪に対する受付日時の値が、ICカード、“来訪者表”、 “訪問先表”で異なる。</td>       
+  </tr>       
+  <tr>       
+    <td valign="top">エ</td>      
+    <td>本来同一である、1 回の来訪に対する受付日時の値と“記録表”に書かれる受付を通過した通過日時とが異なる。&nbsp;</td>      
+  </tr>      
+</table>      
+<p>　</p>   
+<HR WIDTH=100%>   
+<a HREF="12s_p_a5.htm#154">設問の正解例と解説へ</a>   
+<HR WIDTH=100%>   
+<p><A HREF="index.htm">メニューへ戻る</A>　</p>   
+<HR WIDTH=100%>   
+<a NAME="160">　<BR>  
+<b>  
+問16</b></a>　プログラム設計に関する次の記述を読んで、設問 1～3 に答えよ。       
+<p>ある企業では、社内で作成される報告書などのさまざまな文書ファイルを検索するシステムを、開発することになった。<br>       
+社内の文書と文書ファイルの概要及びプログラムの概要は、次のとおりである。<br>       
+<br>       
+<br>       
+〔社内の文書と文書ファイルの概要〕<br>       
+(1) 文書の様式は、部署やプロジェクトによって異なり、統一されていない。例えば、作業報告書の場合、印刷結果は図 1 に示すようになる。</p>       
+<p><img border="0" src="image/A00s16f1.gif" width="552" height="267"><br>     
+　　　　　　図１　各部署における作業報告書の印刷例</p> 
+<table border="0" cellpadding="3" cellspacing="0"> 
+  <tr> 
+    <td>(2)</td> 
+    <td> すべての文書は、“&lt;”と“>”で囲まれたタグによって文書の構造を、タグの間の文字列で文書の内容を示す形式の文書ファイルとして保存されている。</td> 
+  </tr> 
+  <tr> 
+    <td>(3)</td> 
+    <td> 文書の作成年月日、作成者氏名及び表題は、文書の最初に順不同で記述されている。 ただし、作成年月日と作成者氏名の一方又は両方が記述されていない場合がある。</td>       
+  </tr>       
+  <tr>       
+    <td>(4)</td>       
+    <td> 文書に作成者氏名が記述されている場合には、社員名簿に記載された氏名が使われていて、一つだけが 1 行に記述されている。</td>       
+  </tr>       
+  <tr>       
+    <td>(5)</td>       
+    <td> 文書に作成年月日が記述されている場合には、次の例のようなさまざまな様式となっている。<br>       
+      　　例：平成12年3月31日<br>
+      　　　　2000-03-31&nbsp;<br>
+      　　　　2000年3月31日<br>
+      　文書に記述される作成年月日は、一つだけが 1 行に記述されている。</td>       
+  </tr>       
+  <tr>       
+    <td>(6)</td>       
+    <td>文書には、表題が一つだけ必ず記述されている。</td>       
+  </tr>       
+  <tr>       
+    <td>(7)</td>       
+    <td>　すべての文書ファイルには“&lt;body>”と“&lt;p>”というタグが含まれており、この二つのタグの間に文書の作成年月日、作成者氏名及び表題が含まれている。<br>
+      　なお、文書ファイル中には、タグを示す以外には“&lt;”と“>”の文字は使われていないものとする。</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>　<br>
+    </td>
+  </tr>
+</table>
+<table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+  <tr>
+    <td>         &lt;!doctype html public "-//w3c//dtd html 4.0 transitional//en"><br>       
+         &lt;html lang="ja"><br>       
+         &lt;head>&lt;meta http-equiv="content-type" content="text/html; charset=iso-2022-jp"><br>       
+         &lt;title>報告書&lt;/title>&lt;/head><br>       
+         &lt;body><br>       
+         &lt;div align="right">平成12年3月31日&lt;br>山田太郎&lt;/div><br>       
+         &lt;div align="center">&lt;h1>&lt;u>3月度作業報告書&lt;/u>&lt;/h1>&lt;/div><br>       
+         &lt;h2>１．概要&lt;/h2><br>       
+         &lt;p>平成12年3月分の作業状況は，おおむね順調であり，新年度を控えて…<br>       
+      　　　：</td>
+  </tr>
+</table>
+<p>                           図２　文書ファイルの例<br>
+　<br>
+〔プログラムの概要〕<br>
+サーバに格納されたすべての文書ファイルに、次の検索処理を行う。</p>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">(1)</td>
+    <td> 文書の作成年月日、作成者氏名及び表題の文字列のいずれか又はそれらの組合せを検索キーとして該当する文書ファイルをすべて抽出する。検索キーとして指定した文字列と一致するか、それを一部に含む文書ファイルを抽出する。</td>
+  </tr>
+  <tr>
+    <td valign="top">(2)</td>
+    <td> 文書ファイルからデータを抽出する方法は、次のとおりである。
+      <table border="0" cellpadding="3" cellspacing="0">
+        <tr>
+          <td valign="top">①</td>
+          <td>文書ファイルの先頭から文字列を走査し、 "&lt;body>"までを読み飛ばす。</td>       
+        </tr>       
+        <tr>       
+          <td valign="top">②</td>      
+          <td>“&lt;”　と　“>”　で囲まれた部分をタグとして認識し，“>”と“&lt;”の間の文字列を抽出する。</td>
+        </tr>
+        <tr>
+          <td valign="top">③</td>
+          <td> ②の処理で抽出した文字列の種類を判別する。<br>
+            ・文字列がない場合又は空白だけの場合には，何もしない。&nbsp;<br>
+            ・抽出した文字列を基に社員名簿マスタファイルを検索し、マスタファイルの氏名と       
+            一致した場合には、その文字列を文書の作成者氏名と見なす。<br>      
+            ・抽出した文字列が年月日を表すものであるかどうかを調べ、年月日であれば、その文字列を文書の作成年月日と見なして、“YYYY-MM-DD”の形式に変換する。<br>      
+            ・文字列が、氏名、年月日のどちらとも見なせなかった場合には、その文字列をその他のデータと見なす。</td>      
+        </tr>      
+        <tr>      
+          <td valign="top">④</td>      
+          <td> ②、③の処理を次のいずれかの条件を満たすまで繰り返す。<br>      
+            ・文書の作成者氏名と見なされた文字列、文書の作成年月日と見なされた文字列及びその他のデータと見なされた文字列の 3 種類が抽出できた。<br>       
+            ・文書ファイルを走査中に“&lt;p>”が出現した。</td>       
+        </tr>       
+        <tr>       
+          <td valign="top">⑤</td>      
+          <td>&nbsp;②～④の処理で抽出した各文字列を対象として、検索キーと照合する。<br>      
+            　　・検索キーに作成者氏名が指定された場合には、文書の作成者氏名と見なした文字列に、検索キーの文字列が含まれるとき、一致したとする。<br>
+            　　・検索キーに作成年月日が指定された場合には、文書の作成年月日と見なした文字列と、検索キーの年月日が同日であるとき、一致したとする。<br>
+            　　・検索キーに文書の表題が指定された場合には、その他のデータと見なした文字列に、検索キーの文字列が含まれるとき、一致したとする。</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">(3)</td>
+    <td> 指定した検索キーと一致する文書ファイルが存在した場合には、該当するファイル名をすべて出力する。存在しなかった場合には、その旨のメッセージを出力する。</td>
+  </tr>
+  <tr>
+    <td valign="top">(4)</td>
+    <td> プログラムのモジュール構成の一部を、図 3 に示す。</td>       
+  </tr>       
+</table>       
+<p><img border="0" src="image/A00s16f2.gif" width="406" height="328"></p> 
+<p>　　　　　　図３　モジュール構成図</p> 
+<HR WIDTH=100%>  
+<a NAME="161"><b>　<BR>  
+設問</b></a><b>1　</b>図 3 のモジュール構成の“2. 文書ファイルごとの処理”には、繰返し処理を示す記号が記されている。図３には、このほかに繰返し処理を示す記号が必要なモジュールがもう一つある。このモジュールとして正しいものを、解答群の中から選べ。<br>       
+<br>       
+解答群       
+<table border="0" cellpadding="3" cellspacing="0">      
+  <tr>      
+    <td valign="top">ア</td>      
+    <td>1. 検索キーの指定</td>       
+  </tr>       
+  <tr>       
+    <td valign="top">イ</td>      
+    <td>2.1 文書ファイルの読込み</td>       
+  </tr>       
+  <tr>       
+    <td valign="top">  ウ</td>      
+    <td>2.2 該当データの抽出とデータ種別判定</td>       
+  </tr>       
+  <tr>       
+    <td valign="top">  エ</td>      
+    <td>2.2.1 該当データの抽出</td>       
+  </tr>       
+  <tr>       
+    <td valign="top">  オ</td>      
+    <td>2.2.2 抽出データの種別判定</td>       
+  </tr>       
+  <tr>       
+    <td valign="top">  カ</td>      
+    <td>2.2.2.1 氏名の判定</td>       
+  </tr>       
+  <tr>       
+    <td valign="top">  キ</td>      
+    <td>2.2.2.2 年月日の判定と変換</td>       
+  </tr>       
+  <tr>       
+    <td valign="top">  ク</td>      
+    <td>2.3 検索キーとの照合</td>       
+  </tr>       
+  <tr>       
+    <td valign="top">  ケ</td>      
+    <td>3. 検索結果の出力&nbsp;</td>      
+  </tr>      
+</table>      
+<p>　</p>     
+<HR WIDTH=100%>     
+<a HREF="12s_p_a5.htm#161">設問1の正解例と解説へ</a>     
+<HR WIDTH=100%>     
+<a NAME="162"><b>　<BR>     
+設問</b></a><b>2　</b>図 3 のモジュール構成の“2.2.1 該当データの抽出”の中で、文字列を走査する処理が終了する条件として正しい答えを、解答群の中から選べ。<br>       
+<br>       
+解答群       
+<table border="0" cellpadding="3" cellspacing="0">      
+  <tr>      
+    <td valign="top">ア</td>      
+    <td>処理中の文書ファイルの文字列を走査して、“&lt;”を読み込んだとき</td>      
+  </tr>      
+  <tr>      
+    <td valign="top">イ</td>      
+    <td>処理中の文書ファイルの文字列を走査して、“&lt;body>”を読み込んだとき</td>      
+  </tr>      
+  <tr>      
+    <td valign="top">ウ</td>      
+    <td>処理中の文書ファイルの文字列を走査して、“&lt;p>”を読み込んだとき</td>      
+  </tr>      
+  <tr>      
+    <td valign="top">エ</td>      
+    <td>処理中の文書ファイルの文字列を走査して、“>”を読み込んだとき</td>      
+  </tr>      
+  <tr>      
+    <td valign="top">オ</td>      
+    <td>処理中の文書ファイルの文字列を走査して、検索キーに該当する文字列が見つかったとき</td>      
+  </tr>      
+  <tr>      
+    <td valign="top">カ</td>      
+    <td>処理中の文書ファイルの文字列を走査して、検索キーに該当する文字列が見つからなかったとき</td>      
+  </tr>      
+  <tr>      
+    <td valign="top">キ</td>      
+    <td>処理中の文書ファイルの文字列を走査して、最後の位置まで読み込んだとき</td>      
+  </tr>      
+</table>      
+<p>　</p>      
+<HR WIDTH=100%>      
+<a HREF="12s_p_a5.htm#162">設問2の正解例と解説へ</a>      
+<HR WIDTH=100%>      
+<a NAME="163"><b>　<BR>      
+設問</b></a><b>3　</b>社内の文書量が増大すると、1 件の検索に要する時間が非常に長くなることが分かった。そこで、あらかじめ各文書ファイルから文書の作成年月日、作成者氏名及び表題を抽出して別個に格納したファイル（検索項目ファイル）を作成することにした。検索の際には、この検索項目ファイルを参照して検索キーと照合し， 該当する文書ファイルが見つかればそのファイル名を表示するという方式に作りかえることにした。<br>       
+  検索項目ファイルの構成は図 4 のとおりである。<br>       
+　
+<table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+  <tr>
+    <td>作成年月日</td>
+    <td>作成者氏名</td>
+    <td>表題</td>
+    <td>文書ファイル名</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>               図４　検索項目ファイルの構成</td>
+  </tr>
+</table>
+<p><br>
+　新しい方式では、検索項目ファイルを作成するプログラムと、検索項目ファイルを検索するプログラムに分ける。検索項目ファイルを作成するプログラムは、図 3 の各モジュールのうち、幾つかをそのまま利用できる。 利用できるすべてのモジュールの組合せとして正しい答えを、解答群の中から選べ。ここで、解答群中の“○”は利用できるモジュールを表す。<br>    
+<br>    
+解答群</p>    
+<table border="1" cellPadding="3" bordercolorlight="#000000" cellspacing="0" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">   
+  <tbody>   
+    <tr align="middle">   
+      <td>　</td>   
+      <td>ア</td>   
+      <td>イ</td>   
+      <td>ウ</td>   
+      <td>エ</td>   
+      <td>オ</td>   
+      <td>カ</td>   
+      <td>キ</td>   
+      <td>ク</td>   
+    </tr>   
+    <tr>   
+      <td>1. 検索キーの指定</td>   
+      <td>   
+        <p align="center">○</p>   
+      </td>   
+      <td>   
+        <p align="center">○</p>   
+      </td>   
+      <td>　</td>
+      <td>　</td>
+      <td>　</td>
+      <td>　</td>
+      <td>　</td>
+      <td>　</td>
+    </tr>
+    <tr>
+      <td>2. 文書ファイルごとの処理</td>   
+      <td>   
+        <p align="center">○</p>   
+      </td>   
+      <td>　</td>
+      <td>
+        <p align="center">○</p>
+      </td>
+      <td>　</td>
+      <td>
+        <p align="center">○</p>
+      </td>
+      <td>
+        <p align="center">○</p>
+      </td>
+      <td>　</td>
+      <td>　</td>
+    </tr>
+    <tr>
+      <td>
+        <p>2.1 文書ファイルの読込み</p>   
+      </td>   
+      <td>   
+        <p align="center">○</p>   
+      </td>   
+      <td>　</td>
+      <td>
+        <p align="center">○</p>
+      </td>
+      <td>
+        <p align="center">○</p>
+      </td>
+      <td>
+        <p align="center">○</p>
+      </td>
+      <td>　</td>
+      <td>　</td>
+      <td>　</td>
+    </tr>
+    <tr>
+      <td>
+        <p>2.2 該当データの抽出とデータ種別判定</p>   
+      </td>   
+      <td>   
+        <p align="center">○</p>   
+      </td>   
+      <td>   
+        <p align="center">○</p>   
+      </td>   
+      <td>   
+        <p align="center">○</p>   
+      </td>   
+      <td>   
+        <p align="center">○</p>   
+      </td>   
+      <td>　</td>
+      <td>
+        <p align="center">○</p>
+      </td>
+      <td>
+        <p align="center">○</p>
+      </td>
+      <td>
+        <p align="center">○</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p>2.2.1 該当データの抽出</p>   
+      </td>   
+      <td>   
+        <p align="center">○</p>   
+      </td>   
+      <td>   
+        <p align="center">○</p>   
+      </td>   
+      <td>   
+        <p align="center">○</p>   
+      </td>   
+      <td>   
+        <p align="center">○</p>   
+      </td>   
+      <td>　</td>
+      <td>
+        <p align="center">○</p>
+      </td>
+      <td>
+        <p align="center">○</p>
+      </td>
+      <td>
+        <p align="center">○</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p>2.2.2 抽出データの種別判定</p>   
+      </td>   
+      <td>   
+        <p align="center">○</p>   
+      </td>   
+      <td>   
+        <p align="center">○</p>   
+      </td>   
+      <td>   
+        <p align="center">○</p>   
+      </td>   
+      <td>   
+        <p align="center">○</p>   
+      </td>   
+      <td>　</td>
+      <td>
+        <p align="center">○</p>
+      </td>
+      <td>
+        <p align="center">○</p>
+      </td>
+      <td>
+        <p align="center">○</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p>2.2.2.1 氏名の判定</p>   
+      </td>   
+      <td>   
+        <p align="center">○</p>   
+      </td>   
+      <td>   
+        <p align="center">○</p>   
+      </td>   
+      <td>   
+        <p align="center">○</p>   
+      </td>   
+      <td>   
+        <p align="center">○</p>   
+      </td>   
+      <td>　</td>
+      <td>
+        <p align="center">○</p>
+      </td>
+      <td>　</td>
+      <td>
+        <p align="center">○</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p>2.2.2.2 年月日の判定と変換</p>   
+      </td>   
+      <td>   
+        <p align="center">○</p>   
+      </td>   
+      <td>   
+        <p align="center">○</p>   
+      </td>   
+      <td>   
+        <p align="center">○</p>   
+      </td>   
+      <td>   
+        <p align="center">○</p>   
+      </td>   
+      <td>　</td>
+      <td>
+        <p align="center">○</p>
+      </td>
+      <td>　</td>
+      <td>
+        <p align="center">○</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p>2.3 検索キーとの照合</p>   
+      </td>   
+      <td>   
+        <p align="center">○</p>   
+      </td>   
+      <td>   
+        <p align="center">○</p>   
+      </td>   
+      <td>　</td>
+      <td>　</td>
+      <td>　</td>
+      <td>　</td>
+      <td>　</td>
+      <td>　</td>
+    </tr>
+  </tbody>
+</table>
+<p>　</p>
+<HR WIDTH=100%>
+<a HREF="12s_p_a5.htm#163">設問3の正解例と解説へ</a>
+<HR WIDTH=100%>
+<p>
+<A HREF="index.htm">メニューへ戻る</A></p>
+<HR WIDTH=100%>
+<p><a NAME="170">
+<b>問17</b></a><b>　</b>拡張 COMET    
+を用いた家庭用タイマに関する次の記述を読んで，設問 1    
+～ 3 に答えよ。</p>   
+<p>　秒単位で設定した時間が経過すると，ブザー音を鳴らして知らせる家庭用タイマのシステム構成を図    
+1 に，流れ図を図 2 にそれぞれ示す。   
+<p>〔動作の説明〕   
+<table border="0" cellpadding="3" cellspacing="0">   
+  <tr>   
+    <td valign="top">(1)</td>   
+    <td>時間計測停止中で，かつブザー音が鳴っていないときに，データ入力部から秒単位で最大    
+      999 までの計測時間値を設定できる。</td>   
+  </tr>   
+  <tr>   
+    <td valign="top">(2)</td>   
+    <td>時間表示部には，計測時間値を常に表示する。</td>   
+  </tr>   
+  <tr>   
+    <td valign="top">(3)</td>   
+    <td>時間計測停止中で，かつ計測時間値が 1    
+      以上のときに，開始／停止スイッチが押されると時間計測を開始する。</td>   
+  </tr>   
+  <tr>   
+    <td valign="top">(4)</td>   
+    <td>時間計測は，10    
+      ミリ秒周期で発生するタイマ割込みの回数を数えることによって，    
+      1秒を計測する。1 秒ごとに計測時間値を 1    
+      ずつ減算する。</td>   
+  </tr>   
+  <tr>   
+    <td valign="top">(5)</td>   
+    <td>時間計測中に開始／停止スイッチが押されると，時間計測を停止する。</td>   
+  </tr>   
+  <tr>   
+    <td valign="top">(6)</td>   
+    <td>時間計測中に計測時間値が 0    
+      になると，ブザー音を鳴らして時間計測を停止する。</td>   
+  </tr>   
+  <tr>   
+    <td valign="top">(7)</td>   
+    <td>ブザー音が鳴っているときに，開始／停止スイッチが押されると，ブザー音を停止する。</td>   
+  </tr>   
+</table>   
+<p align="left"><img border="0" src="image/17a.gif" width="491" height="124"><br>  
+図１　家庭用タイマのシステム構成 
+<p>　 
+<p>〔流れ図中の変数及び副プログラムの説明〕 
+<table border="0" cellpadding="3" cellspacing="0"> 
+  <tr> 
+    <td valign="top">(1)</td> 
+    <td>TIME は計測時間値を示す変数である。</td>   
+  </tr>   
+  <tr>   
+    <td valign="top">(2)</td>   
+    <td>STS は制御状態を記憶する変数であり，0    
+      は時間計測停止中，1 は時間計測中， 2    
+      はブザー音が鳴っている状態を示す。</td>   
+  </tr>   
+  <tr>   
+    <td valign="top">(3)</td>   
+    <td>SEC はタイマ割込みの回数を数えて 1    
+      秒を計測するための変数である。</td>   
+  </tr>   
+  <tr>   
+    <td valign="top">(4)</td>   
+    <td>DISP は変数 TIME の値を 3 けたの 10    
+      進数に変換して，時間表示部に表示する副プログラムである。</td>   
+  </tr>   
+</table>   
+<p align="left"><img border="0" src="image/17b.gif" width="566" height="605"><br>  
+図２　家庭用タイマの流れ図 
+<p align="left">　</p> 
+<HR WIDTH=100%> 
+<a NAME="171">　<BR> 
+<b> 
+設問</b></a><b>1</b>　図 2 中の<b> [　　　　]</b>       
+に入れる正しい答えを，解答群の中から選べ。      
+<p>a に関する解答群      
+<table border="0" cellpadding="3" cellspacing="0">      
+  <tr>      
+    <td width="120">ア　STS ＝ 0</td>      
+    <td width="120">イ　STS ＝ 1</td>      
+    <td>ウ　STS ＝ 2</td>      
+  </tr>      
+  <tr>      
+    <td>エ　STS ≧ 0</td>      
+    <td>オ　STS ≧ 1</td>      
+    <td>カ　STS ≧ 2</td>      
+  </tr>      
+</table>      
+<p>b に関する解答群      
+<table border="0" cellpadding="3" cellspacing="0">      
+  <tr>      
+    <td width="120">ア　0 → STS</td>      
+    <td width="120">イ　0 → TIME</td>      
+    <td>ウ　1 → STS</td>      
+  </tr>      
+  <tr>      
+    <td>エ　1 → TIME</td>      
+    <td>オ　2 → STS</td>      
+    <td>カ　2 → TIME</td>      
+  </tr>      
+</table>      
+<p>　</p>    
+<HR WIDTH=100%>    
+<a HREF="12s_p_a5.htm#171">設問1の正解例と解説へ</a>    
+<HR WIDTH=100%>    
+　<BR>
+<b><a name="172">設問</a>2　</b>次の記述中の<b> [　　　　] </b>に入れる正しい答えを，解答群の中から選べ。
+<p>図 2 の流れ図中の変数 SEC 及び変数 TIME をそれぞれ 2   
+進数の変数としたとき，必要とする最少ビット数は変数 SEC   
+が<b> [　　c　　]</b> ビット ，変数 TIME が <b>[　　d　　] </b>ビットである。拡張   
+COMET は 1 語 16 ビットの計算機であるので，変数 SEC   
+及び変数 TIME のどちらも 1 語で表すことができる。</p>  
+<p>解答群  
+<table border="0" cellpadding="3" cellspacing="0">  
+  <tr>  
+    <td width="60">ア　4</td>
+    <td width="60">イ　5</td>
+    <td width="60">ウ　6</td>
+    <td width="60">エ　7</td>
+    <td>オ　8</td>
+  </tr>
+  <tr>
+    <td>カ　9</td>
+    <td>キ　10</td>
+    <td>ク　11</td>
+    <td>ケ　12</td>
+    <td>コ　13</td>
+  </tr>
+</table>
+<p>　
+<HR WIDTH=100%>
+<a HREF="12s_p_a5.htm#172">設問2の正解例と解説へ</a>
+<HR WIDTH=100%>
+<p><b><a name="173">設問</a>3　</b>次の記述中の<b> [　　　　] </b>に入れる正しい答えを，解答群の中から選べ。
+</p>
+<p>ブザー音が鳴ってから 1  
+分間経過しても，開始／停止スイッチが押されなかったときは，ブザー音を停止する機能を追加することにした。この機能の追加方法として，タイマ割込み処理だけを変更することにした。これを実現するために，図  
+2 に示す流れ図中のタイマ割込み処理を図 3  
+のように変更した。その変更内容は次のとおりである。X  
+はある既存の変数を示す。 
+<p>STS ＝ 1の判定結果が No の場合，次の処理を追加する。 
+<p>変数 STS が 2 であれば，ブザー音が鳴っている 1  
+分を計測する変数 X に 1 を加算する。加算した結果が <b>[　　e　　]</b>  
+であれば，変数 STS を 0 にしてブザー音を停止する。 
+<p>この変更方法において，変数 X  
+として使用できる既存の変数は <b>[　　f　　]</b> 。 
+<p align="left"><img border="0" src="image/17c.gif" width="275" height="484"><br>
+図３　変更後のタイマ割込み処理の流れ図
+<p align="left">　</p>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>e に関する解答群</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td width="80">ア　60</td>
+    <td width="80">イ　100</td>
+    <td>ウ　3600</td>
+  </tr>
+  <tr>
+    <td>エ　6000</td>
+    <td>オ　36000</td>
+    <td></td>
+  </tr>
+</table>
+<p>f に関する解答群
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td width="150">ア　SEC だけである</td>
+    <td>イ　SEC 又は STS のどちらでもよい</td>
+  </tr>
+  <tr>
+    <td>ウ　STS だけである</td>
+    <td>エ　STS 又は TIME のどちらでもよい</td>
+  </tr>
+  <tr>
+    <td>オ　TIME だけである</td>
+    <td>カ　TIME 又は SEC のどちらでもよい</td>
+  </tr>
+</table>
+<p>　
+</p>
+<A NAME="44">
+<HR WIDTH=100%>
+</a><a HREF="12s_p_a5.htm#173">設問3の正解例と解説へ</a>
+<hr>
+<p>
+<A HREF="index.htm">メニューへ戻る</A></p>
+<HR WIDTH=100%>
+<p><BR>
+</p>
+</BLOCKQUOTE>
+      <p>
+
+
+</BODY>

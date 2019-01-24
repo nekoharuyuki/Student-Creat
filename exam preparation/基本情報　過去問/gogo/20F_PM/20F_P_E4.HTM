@@ -1,0 +1,340 @@
+<html>
+
+<head>
+<title>平成20年度 秋期 基本情報技術者試験 午後 問題</title>
+<style type="text/css">
+body{line-height:150%;}
+code{font-size:12pt;}
+</style>
+</head>
+
+<body>
+
+<blockquote>
+	<hr>
+	<h3 align="center">平成20年度 秋期試験　問題(問10～問13)</h3>
+	<hr>
+	<div align="center">
+		<table borderColor="#000000" cellSpacing="0" cellPadding="4" border="1">
+			<tr>
+				<td>　次の<strong>問10</strong>から<strong>問13</strong>までの4問については、この中から1問を選択し、答案用紙の選択欄の（選）をマークして解答してください。<br>
+				　なお、2問以上選択した場合には、はじめの1問について採点します。</td>
+			</tr>
+		</table>
+	</div>
+	<hr>
+	<p><strong><a name="100">問10</a></strong>　次のCプログラムの説明及びプログラムを読んで，設問1，2に答えよ。<br>
+	<br>
+	〔プログラムの説明〕<br>
+	　与えられた平文（ルビ：ひらぶん）を，換字（ルビ：かえじ）表を用いて暗号文に変換する関数encrypt_textである。<br>
+	<br>
+	（1）関数encrypt_textの引数は，次のとおりである。ただし，ファイル名に誤りはないものとする。<br>
+	　in_filename　平文が格納されているファイル名<br>
+	　out_filename 暗号文を格納するファイル名<br>
+	　ctbl　　　　 　換字表<br>
+	<br>
+	（2）平文に含まれるものは，次の92種類の文字である。<br>
+	　①　英字　A～Z，a～z<br>
+	　②　数字　0～9<br>
+	　③　記号　!&quot;#%&amp;'()*+,-./:;&lt;=&gt;?[<font face="Arial">\</font>]^_{|}~<br>
+	　④　空白文字</p>
+	<p>（3）換字表は，平文に含まれる92種類の文字を格納した4行23列の2次元文字型配列である。換字表のすべての要素には，異なる文字が格納される。<br>
+	<br>
+	（4）換字による暗号化は，次のとおりに行う。ただし，換字表の最下行（行3）の下には最上行（行0）が，最右列（列22）の右には最左列（列0）があるものとして処理を行う。<br>
+	　①　平文の先頭から2文字ずつを取り出し，②～⑥の処理を行う。平文の文字数が奇数の場合は，最後の1文字について，後ろに空白文字1文字を追加して2文字にして処理を行う。<br>
+	　②　それぞれの文字について，換字表の中の位置（行と列）を求める。<br>
+	　③　2文字が同じ位置にある（同一の文字である）場合<br>
+	　　　それぞれの文字を，換字表の右下（1行下で1列右）にある文字に置き換える。換字の例を図1中の③に示す。<br>
+	　④　2文字が同じ行にある場合<br>
+	　　　それぞれの文字を，換字表の右隣（同じ行の1列右）にある文字に置き換える。換字の例を図1中の④に示す。<br>
+	　⑤　2文字が同じ列にある場合<br>
+	　　　それぞれの文字を，換字表の直下（1行下の同じ列）にある文字に置き換える。換字の例を図1中の⑤に示す。<br>
+	　⑥　その他の場合<br>
+	　　　それぞれの文字を，換字表の同じ行で，他方の文字と同じ列にある文字に置き換える。換字の例を図1中の⑥に示す。<br>
+	<br>
+	<img border="0" src="img/P39-1.png" width="584" height="396"><br>
+	<br>
+	（5）換字表を用いた暗号化の例を図2に示す。<br>
+	<br>
+	<img border="0" src="img/P40.png" width="575" height="1530"></p>
+	<hr>
+	<p><strong><a name="101">設問1</a></strong>　プログラム中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。<br>
+	<br>
+	aに関する解答群<br>
+	ア　<code>ch[0] != ' '</code><br>
+	イ　<code>ch[0] != ch[1]</code><br>
+	ウ　<code>ch[0] == ' '</code><br>
+	エ　<code>ch[0] == ch[1]</code><br>
+	オ　<code>sts != EOF</code><br>
+	カ　<code>sts == EOF</code><br>
+	<br>
+	b，cに関する解答群<br>
+	ア　<code>ch[0] != ch[1]</code><br>
+	イ　<code>ch[0] == ch[1]</code><br>
+	ウ　<code>col[0] != col[1]</code><br>
+	エ　<code>col[0] == col[1]</code><br>
+	オ　<code>row[0] != row[1]</code> <br>
+	カ　<code>row[0] == row[1]</code><br>
+	<br>
+	dに関する解答群<br>
+	ア　<code>ctbl[(col[0]+1) % ROWS][(row[0]+1) % COLS]</code><br>
+	イ　<code>ctbl[col[0]+1][row[0]+1]</code><br>
+	ウ　<code>ctbl[col[0]][row[0]]</code><br>
+	エ　<code>ctbl[(row[0]+1) % ROWS][(col[0]+1) % COLS]</code><br>
+	オ　<code>ctbl[(row[0]+1][col[0]+1]</code></p>
+	<hr>
+	<p><a href="20F_P_A4.HTM#101">設問1の正解例と解説へ</a></p>
+	<hr>
+	<p><strong><a name="102">設問2</a></strong>　次の記述中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。<br>
+	<br>
+	（1）平文に含まれる文字として改行文字を追加し，換字による暗号化を次のとおりに変更する。<br>
+	（新しい方法）<br>
+	　平文から改行文字を除いた文を従来の換字規則で暗号化し，平文と同じ位置に改行文字を挿入したものを暗号文とする。</p>
+	<p>（2）図2の換字表を用いた新しい方法での暗号化の例を図3に示す。<br>
+	<br>
+	<img border="0" src="img/P43-1.png" width="463" height="267"><br>
+	<br>
+	（3）これに対応するために，プログラムを表のとおりに変更する。<br>
+	<br>
+	<img border="0" src="img/P43-2.png" width="581" height="358"><br>
+	<br>
+	解答群<br>
+	ア　行番号53と54<br>
+	イ　行番号54と55<br>
+	ウ　行番号55と56<br>
+	エ　行番号56と57<br>
+	オ　行番号57と58</p>
+	<hr>
+	<p><a href="20F_P_A4.HTM#102">設問2の正解例と解説へ</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">メニューへ戻る</a></p>
+	<hr>
+	<p><strong><a name="110">問11</a></strong> 
+	　次のCOBOLプログラムの説明及びプログラムを読んで，設問1，2に答えよ。<br>
+	<br>
+	〔プログラムの説明〕<br>
+	　論理式評価プログラムEVAL-EXPの動作検証のため，論理式を構成するすべてのパターンの文字列を生成するプログラムGEN-EXPである。</p>
+	<p>（1）GEN-EXPは，1文字から7文字までの論理式文字列を自動生成してEVAL-EXPを呼び出し，図1のような結果を印字する。検証はこの結果リストを使って目視で行う。見出しは印刷済とする。<br>
+	<br>
+	<img border="0" src="img/P44-1.png" width="175" height="217"><br>
+	<br>
+	（2）論理式評価プログラムの呼出しは，次のように行う。<br>
+	<br>
+	　<code><strong>CALL &quot;EVAL-EXP&quot; USING パラメタ1　パラメタ2</strong></code><br>
+	<br>
+	　ここで，<code><strong>パラメタ</strong></code>は8けたで，空白で終了する1文字から7文字の論理式を指定する。<code><strong>パラメタ2</strong></code>は評価結果であり、真のときはT，偽のときはF，構文エラーがあるときはEが返る。<code><strong>パラメタ1</strong></code>はEVAL-EXPの実行によって変更されることはない。</p>
+	<p>（3）EVAL-EXPで扱う論理式は，次の仕様とする。<br>
+	　①　論理式は，論理項目T，F，二つの論理式を論理演算子&amp;，|でつないだもの，及び論理式を括弧（，）でくくったもので構成される。ここで，Tは真値，Fは偽値，&amp;は論埋積，|は論理和を表す。<br>
+	　②　論理式の評価の順序は，括弧でくくられた内側が先に評価され，括弧でくくられていないか又は括弧が同じ順位の場合は&amp;が|よりも優先順位が高い。同じ優先順位が並ぶ場合は左から右に評価される。</p>
+	<p>（4）論理式の自動生成は，数字1～6からなる長さ1～7の数字列を，作業領域NUM-TBLに生成し，数字1～6に6種類の文字T，F，(，&amp;, |, 
+	)を対応させて変換する（図2）。<br>
+	<br>
+	<img border="0" src="img/P45.png" width="568" height="1580"></p>
+	<hr>
+	<p><strong><a name="111">設問1</a></strong>　プログラム中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。<br>
+	<br>
+	解答群<br>
+	ア　<code>ADD 1 TO NUM-TBL(WK-I)</code><br>
+	イ　<code>ADD 1 TO WK-I</code><br>
+	ウ　<code>MOVE 1 TO NUM-TBL(WK-I)</code><br>
+	エ　<code>SUBTRACT 1 FROM WK-I</code><br>
+	オ　<code>UNTIL EXIT-SW = 1</code><br>
+	カ　<code>UNTIL WK-I &lt; 1</code><br>
+	キ　<code>UNTIL WK-I &gt; EXP-L</code></p>
+	<hr>
+	<p><a href="20F_P_A4.HTM#111">設問1の正解例と解説へ</a></p>
+	<hr>
+	<p><strong><a name="112">設問2</a></strong>　GEN-EXPでは，論理式を構成するすべてのパターンの文字列を生成しているので，評価結果のほとんどが構文エラーであった。そこで，EVAL-EXPでの論理式評価が効率よく実行できるよう，GEN－EXPで論理式生成後に論理式の構文チェックを行い，構文エラーでないものだけを検査対象とするように変更することとなった。論理式の構文チェックは次の①，②に従う。<br>
+	　①　論理式で許される文字でT，F，(，&amp;, |, )の記述の順序の可否は表1のとおりとする。<br>
+	<br>
+	<img border="0" src="img/P47-1.png" width="328" height="150"><br>
+	<br>
+	②　論理式の先頭文字には&amp;, |, )は許されず，論理式の末尾文字には&amp;, |, (は許されない。また，左右の括弧は対になっていなければならない。<br>
+	<br>
+	　このためにプログラムを次のとおりに変更する。表2中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。<br>
+	<br>
+	<img border="0" src="img/P48-1.png" width="650" height="894"><br>
+	<br>
+	解答群<br>
+	ア　<code>&quot;&amp;&quot; OR &quot;|&quot; OR &quot;)&quot;</code><br>
+	イ　<code>&quot;T&quot; OR &quot;F&quot; OR &quot;(&quot;</code><br>
+	ウ　<code>&quot;T&quot; OR &quot;F&quot; OR &quot;)&quot;</code><br>
+	エ　<code>ADD 1 TO NEST-LEVEL</code><br>
+	オ　<code>SUBTRACT 1 FROM NEST-LEVEL</code></p>
+	<hr>
+	<p><a href="20F_P_A4.HTM#112">設問2の正解例と解説へ</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">メニューへ戻る</a></p>
+	<hr>
+	<p><strong><a name="120">問12</a></strong> 
+	　次のJavaプログラムの説明及びプログラムを読んで，設問1，2に答えよ。<br>
+	<br>
+	　（Javaプログラムで使用するAPIの説明は，この冊子の末尾を参照してください。）<br>
+	<br>
+	〔プログラムの説明〕<br>
+	　文字列照合用パターン（以下，パターンという）と，与えられた文字列を照合するプログラムである。パターン及び与えられた文字列は0個以上の文字からなる文字列である。パターンを構成する文字には，照合するときに特殊な意味をもつ文字（以下，メタ文字という）及びメタ文字以外の文字（以下，通常文字という）がある。表1にメタ文字とその意味を示す。<br>
+	<br>
+	<img border="0" src="img/P50-1.png" width="262" height="136"><br>
+	<br>
+	　通常文字は，その文字と一致する。例えば，通常文字'a'は1文字のaに一致する。<br>
+	　与えられた文字列の全部又は一部にパターン全体が一致した場合，一致したものと判定する。パターンの文字数が0のとき，すべての文字列に一致する。表2にパターンとそのパターンに一致する文字列及び一致しない文字列の例を示す。<br>
+	<br>
+	<img border="0" src="img/P50-2.png" width="571" height="165"><br>
+	<br>
+	　プログラムは，与えられたパターンを1文字ずつ解析し，照合処理がしやすい形式に変換する。この解析及び変換処理をコンパイルと呼び，変換された照合処理の単位をパターン要素と呼ぶ。メタ文字は，そのメタ文字の意味を表すパターン要素に変換され，通常文字は，その文字を表すパターン要素に変換される。パターン全体はパターン要素のリストで表される。例えば，パターン&quot;^ho.e&quot;は, 
+	'^', 'h', 'o', '.'及び'e'に分けられ，それぞれが次のパターン要素に変換される。<br>
+	　①　文字列の先頭を表すパターン要素<br>
+	　②　'h'を表すパタ－ン要素<br>
+	　③　'o'を表すパターン要素<br>
+	　④　任意の1文字を表すパターン要素<br>
+	　⑤　'e'を表すパターン要素<br>
+	　次に，パターンと与えられた文字列との照合を，パターン要素のリストを評価しながら行う。リスト中のパターン要素（前の例では①～⑤）と，与えられた文字列の先頭の文字から順に照合し，連続してすべてのパターン要素が一致したとき，パターンは与えられた文字列に一致すると判定する。<br>
+	　インタフェースPatternElementは，パターン要素を表す。メソッドmatchesは，このパターン要素が，引数で与えられた文字列strの位置indexから一致するかどうかを調べ，一致すればtrueを，それ以外はfalseを返す。ただし，indexの値は0以上であるものとする。メソッドlengthは，このパターン要素に一致する文字列の長さを返す。<br>
+	　インタフェースPatternElementを実装した各クラスを次に示す。<br>
+	（1）クラスOneCharは，通常文字1文字を表すパターン要素である。<br>
+	（2）クラスAnyCharは，任意の1文字を表すバターン要素である。<br>
+	（3）クラスBeginningOfString及びEndOfStringは，それぞれ文字列の先頭及び文字列の末尾を表すパターン要素である。<br>
+	　クラスPatternは，コンストラクタで与えられたパターンをパターン要素のリストに変換する。メソッドmatchesは，与えられた文字列とパターン要素のリストを照合し，一致すればtrueを，それ以外はfalseを返す。メソッドmainはクラスPatternのテストを行う。メソッドmainを実行すると，図1のような出力結果が得られる。<br>
+	<br>
+	<img border="0" src="img/P51-1.png" width="321" height="87"><br>
+	<br>
+	　なお，このプログラムでは，1文字がcharで表現できるものとし，Unicodeの補助文字は考えないものとする。<br>
+	<br>
+	<img border="0" src="img/P52-1.png" width="574" height="875"><br>
+	<br>
+	<img border="0" src="img/P53-1.png" width="592" height="778"><br>
+	<br>
+	<img border="0" src="img/P54-1.png" width="461" height="255"></p>
+	<hr>
+	<p><strong><a name="121">設問1</a></strong>　プログラム中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。<br>
+	<br>
+	aに関する解答群<br>
+	ア　<code>str.charAt(index)！= ch</code><br>
+	イ　<code>str.charAt(index) &lt; ch</code><br>
+	ウ　<code>str.charAt(index) == ch</code><br>
+	エ　<code>str.charAt(index) &gt; ch</code><br>
+	<br>
+	bに関する解答群<br>
+	ア　<code>str.length() &lt; index</code><br>
+	イ　<code>str.length() &lt;= index</code><br>
+	ウ　<code>str.length() &gt; index</code><br>
+	エ　<code>str.length() &gt;= index</code><br>
+	<br>
+	c，dに関する解答群<br>
+	ア　<code>AnyChar('.')</code><br>
+	イ　<code>AnyChar()</code><br>
+	ウ　<code>AnyChar(c)</code><br>
+	エ　<code>AnyChar(i)</code><br>
+	オ　<code>OneChar('.')</code><br>
+	カ　<code>OneChar()</code><br>
+	キ　<code>OneChar(c)</code><br>
+	ク　<code>OneChar(i)</code><br>
+	<br>
+	eに関する解答群<br>
+	ア　<code>!pattern.equals(str)</code><br>
+	イ　<code>!pattern.matches(str)</code><br>
+	ウ　<code>pattern.equals(str)</code><br>
+	エ　<code>pattern.matches(str)</code></p>
+	<hr>
+	<p><a href="20F_P_A4.HTM#121">設問1の正解例と解説へ</a></p>
+	<hr>
+	<p><strong><a name="122">設問2</a></strong>　プログラム6の<strong>α</strong>の行を図2のとおりに変更したとき，プログラムの動作はどうなるか。適切な記述を，解答群の中から選べ。<br>
+	<br>
+	<img border="0" src="img/P55-1.png" width="374" height="63"><br>
+	<br>
+	解答群<br>
+	ア　文字'^'は，常に通常文字として扱われる。<br>
+	イ　文字'^'は，引数patternの先頭にあるときだけメタ文字として扱われ，それ以外のときは，通常文字として扱われる<br>
+	ウ　文字'^'は，引数patternの先頭にあるときだけメタ文字として扱われ，それ以外のときは，無視される。<br>
+	エ　文字'^'は，引数patternの先頭にあるときだけメタ文字として扱われ，それ以外のときは，例外が発生する。</p>
+	<hr>
+	<p><a href="20F_P_A4.HTM#122">設問2の正解例と解説へ</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">メニューへ戻る</a></p>
+	<hr>
+	<p><strong><a name="130">問13</a></strong> 
+	　次のアセンブラプログラムの説明及びプログラムを読んで，設問1，2に答えよ。<br>
+	<br>
+	〔プログラムの説明〕<br>
+	　アンケートに対するn人分の回答を集計し，集計結果をグラフで出力する副プログラムSUMMARYである。<br>
+	　アンケートの質問は16項目からなり，“はい”又は“いいえ”で答える。副プログラムSUMMARYは，項目ごとに“はい”と答えた人数を集計し，棒グラフで出力する。このグラフの表示形式を図1に示す。横軸は項目番号，縦軸は“はい”と答えた人数であり，一つの“*”が1人を表す。□は空白文字を表す。<br>
+	<br>
+	<img border="0" src="img/P56-1.png" width="451" height="207"><br>
+	<br>
+	（1）1人分の回答は図2のように1語に格納され，左端のビットから順に項目番号1～16に対応している。“はい”が1，“いいえ”が0として格納されている。<br>
+	<br>
+	<img border="0" src="img/P56-2.png" width="510" height="73"><br>
+	<br>
+	（2）n人分の回答が，図3のように連続するn語の領域に格納され，その先頭アドレスがGR1に設定されて主プログラムから渡される。<br>
+	<br>
+	<img border="0" src="img/P56-3.png" width="318" height="136"><br>
+	<br>
+	（3）値n（1≦n≦100）はGR0に設定されて，主プログラムから渡される。</p>
+	<p>（4）副プログラムSUMMARYは，まず，項日ごとに“はい”と答えた人数を数え，図4に示す16語の領域COUNTRに格納する。<br>
+	<br>
+	<img border="0" src="img/P57-1.png" width="386" height="136"><br>
+	<br>
+	　次に，この集計結果を図1で示した棒グラフで出力する。グラフは，上から順に1行ずつ出力する（出力行数は，q<sub>1</sub>～q<sub>16</sub>の最大値に1を加えたものとなる）。<br>
+	（5）副プログラムから戻るとき，汎用レジスタGR1～GR7の内容は元に戻す。<br>
+	<br>
+	<img border="0" src="img/P57.png" width="571" height="1157"></p>
+	<hr>
+	<p><strong><a name="131">設問1</a></strong>　プログラム中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。<br>
+	<br>
+	aに関する解答群<br>
+	ア　<code>LAD&nbsp;&nbsp; GR5,1,GR5</code><br>
+	イ　<code>LAD&nbsp;&nbsp; GR5,2,GR5</code><br>
+	ウ　<code>LAD&nbsp;&nbsp; GR5,3,GR5</code><br>
+	エ　<code>LAD&nbsp;&nbsp; GR5,4,GR5</code><br>
+	<br>
+	bに関する解答群<br>
+	<br>
+	ア　<code>JMI&nbsp;&nbsp; ON</code><br>
+	イ　<code>JNZ&nbsp;&nbsp; ON</code><br>
+	ウ　<code>JOV&nbsp;&nbsp; ON</code><br>
+	エ　<code>JPL&nbsp;&nbsp; ON</code><br>
+	<br>
+	cに関する解答群<br>
+	<br>
+	ア　<code>LAD&nbsp;&nbsp; GR1,-1,GR1</code><br>
+	イ　<code>LAD&nbsp;&nbsp; GR1,1,GR1</code><br>
+	ウ　<code>LAD&nbsp;&nbsp; GR2,-1,GR2</code><br>
+	エ　<code>LAD&nbsp;&nbsp; GR2,1,GR2</code><br>
+	<br>
+	dに関する解答群<br>
+	<br>
+	ア　<code>JPL&nbsp;&nbsp; LOOP4</code><br>
+	イ　<code>JPL&nbsp;&nbsp; LOOP5</code><br>
+	ウ　<code>JZE&nbsp;&nbsp; LOOP4</code><br>
+	エ　<code>JZE&nbsp;&nbsp; LOOP5</code></p>
+	<hr>
+	<p><a href="20F_P_A4.HTM#131">設問1の正解例と解説へ</a></p>
+	<hr>
+	<p><strong><a name="132">設問2</a></strong>　次の記述中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。<br>
+	<br>
+	　主プログラムから渡されるnの値は3で，3人分の解答は図5のとおりとする。<br>
+	<br>
+	<img border="0" src="img/P59-1.png" width="433" height="112"><br>
+	<br>
+	　このとき，行番号20のSLL命令は［　　e　　］回実行され，行番号44のST命令は［　　f　　］回実行される。<br>
+	<br>
+	解答群<br>
+	<br>
+	ア　4<br>
+	イ　6<br>
+	ウ　11<br>
+	エ　16<br>
+	オ　17<br>
+	カ　20<br>
+	キ　48</p>
+	<hr>
+	<p><a href="20F_P_A4.HTM#132">設問2の正解例と解説へ</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">メニューへ戻る</a></p>
+	<hr>
+	<p>　</p>
+</blockquote>
+
+</body>
+
+</html>

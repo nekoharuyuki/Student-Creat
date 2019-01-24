@@ -1,0 +1,373 @@
+<html>
+<head>
+<title>平成21年度 秋期 基本情報技術者 午後 問題（問10～問13）</title>
+<style type="text/css"><!--
+body{line-height:150%;}
+code{font-size:12pt;}
+h3{text-align:center;}
+div.caution{border:solid 1px #000000; padding:0.5em;}
+--></style>
+</head>
+<body>
+<blockquote>
+<hr>
+<h3>平成21年度　秋期　基本情報技術者<br>
+午後　問題（問10～問13）</h3>
+<hr>
+<p><strong><a name="100">問10</a></strong>　次のCOBOLプログラムの説明及びプログラムを読んで，設問1，2に答えよ。<br/>
+<br/>
+〔プログラムの説明〕<br/>
+　売上伝票ファイルに記録された各支店（A～E）の月単位の売上情報を支店ごとに集計して，売上マスタファイルに格納する月次処理のプログラムである。<br/>
+　なお，集計した当該月の売上データは画面にも表示する。<br/>
+（1）売上伝票ファイルは，図1に示すレコード様式の順ファイルである。<br/>
+<br/>
+<img src="img/pmq38.png"><br/>
+<br/>
+①　売上伝票ファイルには，ある月の1か月分の売上データを格納する。<br/>
+②　伝票番号には，6けたの数字を格納する。<br/>
+③　売上日には，西暦年を4けた，月，日をそれぞれ2けたの数守で格納する。<br/>
+　なお，一つのファイルに含まれるレコードの西暦年と月は，それぞれすべて等しい。<br/>
+④　支店コードは，A～Eの支店に対して昇順に割り当てた1～5の数字である。<br/>
+（2）売上マスタファイルは，図2に示すレコード様式の，売上年月を主キーとする索引ファイルである。<br/>
+<br/>
+<img src="img/pmq39.png"><br/>
+<br/>
+①　売上年月には，西暦年が4けた，月が2けたの数字を格納する。<br/>
+②　売上金額には，当該月の各支店の売上金額を格納する。<br/>
+③　売上合計金額には，当該月の全支店の売上金額の合計を格納する。<br/>
+④　各支店の1か月分の売上金額は，8けたを超えないものとする。<br/>
+<br/>
+（3）集計結果の表示例を図3に示す。<br/>
+<br/>
+<img src="img/pmq40.png"><br/>
+<br/>
+①　当該月の支店別売上金額を降順に整列して表示する。<br/>
+②　<code>TOTAL</code>には，売上合計金額を表示する。<br/>
+<br/>
+<img src="img/pmq41.png"></p>
+<hr>
+<p><strong><a name="101">設問1</a></strong>　プログラム中の［　　 　　］に入れる正しい答えを，解答群の中から選べ。<br/>
+<br/>
+a，b，dに関する解答群<br/>
+ア　<code>ADD MAST-AMOUNT(CNT) TO MAST-TOTAL</code><br/>
+イ　<code>ADD SALES-AMOUNT TO MAST-TOTAL</code><br/>
+ウ　<code>ADD SALES-AMOUNT TO SORT-AMOUNT</code><br/>
+エ　<code>MOVE MAST-AMOUNT(CNT) TO SORT-AMOUNT</code><br/>
+オ　<code>MOVE SALES-AMOUNT TO SORT-AMOUNT</code><br/>
+カ　<code>MOVE SALES-BR TO SORT-BR</code><br/>
+キ　<code>MOVE SALES-YYYYMM TO MAST-YYYYMM</code><br/>
+<br/>
+cに関する解答群<br/>
+ア　<code>ASCENDING KEY SORT-AMOUNT</code><br/>
+イ　<code>ASCENDING KEY SORT-BR</code><br/>
+ウ　<code>DESCENDING KEY SORT-AMOUNT</code><br/>
+エ　<code>DESCENDING KEY SORT-BR</code></p>
+<hr>
+<a href="21F_P_A4.HTM#101">設問1の正解例と解説へ</a>
+<hr>
+<p><strong><a name="102">設問2</a></strong>　設問2</strong>　各支店の当該月の売上金額に加えて対前年同月比を表示するようにプログラムを変更する。このとき，前年同月の売上金額がゼロであるか又は情報の取得に失敗した場合は，“<code>( - %)</code>”と表示する。集計結果の表示例を，図4に示す。次の表中の［　　 　　］に入れる正しい答えを，解答群の中から選べ。<br/>
+　なお，対前年同月比は，999％を超えないものとする。<br/>
+<br/>
+<img src="img/pmq43.png"><br/>
+<br/>
+<img src="img/pmq44.png"><br/>
+<br/>
+eに関する解答群<br/>
+ア　<code>MOVE MAST-AMOUNT(CNT) TO THIS-TOTAL</code><br/>
+イ　<code>MOVE MAST-REC TO W-MAST</code><br/>
+ウ　<code>MOVE MAST-TOTAL TO THIS-TOTAL</code><br/>
+エ　<code>MOVE W-MAST TO MAST-REC</code><br/>
+<br/>
+f，gに関する解答群<br/>
+ア　<code>COMPUTE RATIO = MAST-AMOUNT(SORT-BR) * 100 / SORT-AMOUNT</code><br/>
+イ　<code>COMPUTE RATIO = MAST-TOTAL * 100 / THIS-TOTAL</code><br/>
+ウ　<code>COMPUTE RATIO = SORT-AMOUNT * 100 / MAST-AMOUNT(SORT-BR)</code><br/>
+エ　<code>COMPUTE RATIO = SORT-AMOUNT * 100 / MAST-TOTAL</code><br/>
+オ　<code>COMPUTE RATIO = THIS-TOTAL * 100 / MAST-TOTAL</code></p>
+<hr>
+<a href="21F_P_A4.HTM#102">設問2の正解例と解説へ</a>
+<hr>
+<a href="INDEX.HTM">■メニューへ戻る</a>
+<hr>
+<p><strong><a name="110">問11</a></strong>　次のJavaプログラムの説明及びプログラムを読んで，設問1，2に答えよ。<br/>
+<br/>
+〔プログラムの説明〕<br/>
+　携帯電話の利用状況に対して，最も安価な料金プラン（割引サービスを含む）を提示するプログラムである。1か月の料金は，基本料金，通話料金及びパケット料金からなる。パケット料金にはオプションの割引サービスがある。<br/>
+　表1に料金プラン，表2にパケット料金の割引サービス，表3にテスト用の利用状況を示す。<br/>
+　なお，パケット料金を計算するとき，パケット数は100パケット単位に切り上げる。<br/>
+<br/>
+<img src="img/pmq45.png"><br/>
+<img src="img/pmq46.png"><br/>
+<br/>
+（1）クラス<code>CellPhonePlan</code>は，料金プランを表す。メソッド<code>calculateCharge</code>は，引数で渡された利用状況に対する料金を返す。<br/>
+（2）クラス<code>CallingPlan</code>は，通話料金を計算するクラスである。メソッド<code>calculateCharge</code>は，引数で渡された通話時間（分単位に切上げ）に対する料金を返す。<br/>
+（3）インタフェース<code>PacketPlan</code>は，パケット料金を計算するためのインタフェースである。メソッド<code>calculateCharge</code>は，引数で渡されたパケット数に対する料金を返す。<br/>
+（4）クラス<code>Measured</code>は，従量制のパケット料金（割引サービスなしの場合）を表す。<br/>
+（5）クラス<code>Tiered</code>は，パケット料金の割引サービスS1を表す。<br/>
+（6）クラス<code>CellPhonePlanner</code>は，利用状況に対して，最も安価な料金プラン（割引サービスを含む）を提示する。メソッド<code>getRecommendedPlan</code>は，与えられた利用状況に対して，最も安価な料金プラン（割引サービスを含む）を返す。メソッド<code>main</code>は，テスト用のメインプログラムである。<br/>
+　プログラムの実行結果を図に示す。<br/>
+<br/>
+<img src="img/pmq47.png"><br/>
+<br/>
+<img src="img/pmq48.png"></p>
+<hr>
+<p><strong><a name="111">設問1</a></strong>　プログラム中の［　　 　　］に入れる正しい答えを，解答群の中から選べ。<br/>
+<br/>
+aに関する解答群<br/>
+ア　<code>callingRate * minutes</code><br/>
+イ　<code>callingRate * minutes - included</code><br/>
+ウ　<code>included</code><br/>
+エ　<code>included - callingRate * minutes</code><br/>
+<br/>
+bに関する解答群<br/>
+ア　<code>callingCharge < 0</code><br/>
+イ　<code>callingCharge < included</code><br/>
+ウ　<code>callingCharge > 0</code><br/>
+エ　<code>callingCharge > included</code><br/>
+<br/>
+cに関する解答群<br/>
+ア　<code>extends CellPhonePlan</code><br/>
+イ　<code>extends PacketPlan</code><br/>
+ウ　<code>implements CellPhonePlan</code><br/>
+エ　<code>implements PacketPlan</code><br/>
+<br/>
+dに関する解答群<br/>
+ア　<code>allowance + 99</code><br/>
+イ　<code>packets + 99</code><br/>
+ウ　<code>packets + allowance + 99</code><br/>
+エ　<code>packets - allowance + 99</code><br/>
+<br/>
+e，fに関する解答群<br/>
+ア　<code>0</code><br/>
+イ　<code>Integer.MIN_VALUE</code><br/>
+ウ　<code>Integer.MAX_VALUE</code><br/>
+エ　<code>cellPhonePlan.calculateCharge(minutes， packets)</code><br/>
+オ　<code>recommended.calculateCharge(minutes, packets)</code></p>
+<hr>
+<a href="21F_P_A4.HTM#111">設問1の正解例と解説へ</a>
+<hr>
+<p><strong><a name="112">設問2</a></strong>　パケット通信を大量に行う人を対象として，S1の内容を変更したパケット料金割引サービスS2を追加することにした。表4にサービスの内容，プログラム7にS2を表すクラスを示す。プログラム7中の［　　 　　］に入れる正しい答えを，解答群の中から選べ。<br/>
+<br/>
+<img src="img/pmq54.png"><br/>
+<br/>
+gに関する解答群<br/>
+ア　<code>extends PacketPlan</code><br/>
+イ　<code>extends Tiered</code><br/>
+ウ　<code>implements PacketPlan</code><br/>
+エ　<code>implements Tiered</code><br/>
+<br/>
+h，iに関する解答群<br/>
+ア　<code>0</code><br/>
+イ　<code>allowance</code><br/>
+ウ　<code>basicCharge</code><br/>
+エ　<code>basicCharge + maxCharge</code><br/>
+オ　<code>maxCharge</code><br/>
+カ　<code>super.calculateCharge(packets)</code><br/>
+キ　<code>this.calculateCharge(packets)</code></p>
+<hr>
+<a href="21F_P_A4.HTM#112">設問2の正解例と解説へ</a>
+<hr>
+<a href="INDEX.HTM">■メニューへ戻る</a>
+<hr>
+<p><strong><a name="120">問12</a></strong>　次のアセンブラプログラムの説明及びプログラムを読んで，設問1，2に答えよ。<br/>
+<br/>
+〔プログラムの説明〕<br/>
+　連続したn語を16×nビットのビット列とみなし，ビット列Aとする。ビット列Aの（p＋1）ビット目からのqビットを，別のqビットのビット列Bで置き換える副プログラム<code>REPLACE</code>である。置換えの概要を図1に示す。<br/>
+　ここで，p≧0，1≦q≦16，p＋q≦16×nとする。<br/>
+<br/>
+<img src="img/pmq55.png"><br/>
+<br/>
+（1）ビット列Aの先頭アドレスは，<code>GR1</code>に設定されて主プログラムから渡される。<br/>
+（2）ビット列Bは<code>GR0</code>に左詰めで設定され，<code>GR0</code>の残りの部分は<code>0</code>で埋められて主プログラムから渡される。ビット列Bと<code>GR0</code>の関係を図2に示す。<br/>
+<br/>
+<img src="img/pmq56.png"><br/>
+<br/>
+（3）値pは<code>GR2</code>に，値qは<code>GR3</code>に設定されて主プログラムから渡される。<br/>
+（4）副プログラムから戻るとき，汎用レジスタ<code>GR1</code>～<code>GR7</code>の内容は元に戻す。<br/>
+<br/>
+<img src="img/pmq57.png"></p>
+<hr>
+<p><strong><a name="121">設問1</a></strong>　次の記述中の［　　 　　］に入れる正しい答えを，解答群の中から選べ。<br/>
+<br/>
+　主プログラムから渡されたp，qの値及び<code>GR0</code>の内容は，次のとおりであった。<br/>
+<br/>
+P：　　　　55<br/>
+q：　　　　12<br/>
+<code>GR0：　1011000111010000</code><br/>
+<br/>
+　行番号8の<code>SUBA</code>の実行直後における<code>GR2</code>の値は［　　a　　］であり，<code>GR4</code>の値は［　　b　　］である。<br/>
+<br/>
+　行番号17の<code>SLL</code>の実行直後における<code>GR0</code>の内容は［　　c　　］であり，<code>GR5</code>の内容は［　　d　　］である。<br/>
+<br/>
+a，bに関する解答群<br/>
+ア　1<br/>
+イ　5<br/>
+ウ　7<br/>
+エ　9<br/>
+オ　11<br/>
+カ　15<br/>
+<br/>
+c，dに関する解答群<br/>
+ア　<code>0000000001011000</code><br/>
+イ　<code>0000000101100011</code><br/>
+ウ　<code>1010000000000000</code><br/>
+エ　<code>1110100000000000</code></p>
+<hr>
+<a href="21F_P_A4.HTM#121">設問1の正解例と解説へ</a>
+<hr>
+<p><strong><a name="122">設問2</a></strong>　プログラム中の［　　 　　］に入れる正しい答えを，解答群の中から選べ。<br/>
+。<br/>
+解答群<br/>
+ア　<code>ADDL</code><br/>
+イ　<code>AND</code><br/>
+ウ　<code>LD</code><br/>
+エ　<code>OR</code><br/>
+オ　<code>SLL</code><br/>
+カ　<code>SRL</code><br/>
+キ　<code>XOR</code></p>
+<hr>
+<a href="21F_P_A4.HTM#122">設問2の正解例と解説へ</a>
+<hr>
+<a href="INDEX.HTM">■メニューへ戻る</a>
+<hr>
+<p><strong><a name="130">問13</a></strong>　次の表計算及びワークシートの説明を読んで，設問1，2に答えよ。<br/>
+<br/>
+〔表計算の説明〕<br/>
+　ある企業では，アルバイトの勤務を管理するための勤怠管理表と出勤割当表の作成を手作業で行っていたが，これを表計算ソフトで行うことにした。<br/>
+<br/>
+〔ワークシート：勤怠管理〕<br/>
+（1）表計算ソフトのワークシート“勤怠管理”を作成した。その例を図1に示す。<br/>
+<br/>
+<img src="img/pmq59.png"><br/>
+<br/>
+（2）時刻及び時間の表記はh:mm，hh:mm又はhhh:mmで表示されるが，内部では24時間を1とする実数値で記録されている。例えば，10:30は10.5／24＝0.4375，18:00は18／24＝0.75である。計算にはこの数値を利用する。<br/>
+（3）図1中の各項目の説明は，次のとおりである。<br/>
+ID，氏名：アルバイトの識別番号と氏名である。<br/>
+日付：　1か月分の日付がyyyy-mm-ddの形式で表示される。日数30日以下の月でも31日まで列挙する。<br/>
+出社予定：出社予定日には1を，出社予定でない日や2009-09-31のように存在しない日には0を格納する。<br/>
+出社時刻：始業時刻は10時である。10時に遅れた場合は遅刻扱いとなる。出社しなかった日，又は存在しない日のセルは空白とする。<br/>
+退社時刻：終業時刻は17時である。17時前の退社は早退扱いとなる。出社しなかった日，又は存在しない日のセルは空白とする。<br/>
+勤務時間：出社してから退社するまでの時間である。ただし，12時から13時までは昼休みであり，この時間は勤務時間に含まれない。出社しなかった日は0:00が表示される。また，日をまたいで勤務することはない。<br/>
+勤怠理由：初期値は0である。欠勤，遅刻，早退について正当な理由がある場合は1を設定する。<br/>
+ペナルティ：正当な理由なく出社予定日に欠勤した場合は3を，正当な理由なく遅刻又は早退した場合は1を表示する。これら以外の場合は0を表示する。<br/>
+合計（勤務時間）：当該月の勤務時間の合計を表示する。<br/>
+合計（ペナルティ）：当該月のペナルティの合計を表示する。<br/>
+　ペナルティの合計は，出勤割当表を作成するときに利用する。</p>
+<hr>
+<p><strong><a name="131">設問1</a></strong>　ワークシート“勤怠管理”に関する次の記述中の［　　 　　］に入れる正しい答えを，解答群の中から選べ。<br/>
+<br/>
+　各日のペナルティを算出するために，ワークシート“勤怠管理”のセルG4には次の式を入力し，セルG5～G34に複写する。<br/>
+　　　IF（F4＝1,0,IF（［　　a　　］,3,<br/>
+　　　	IF（［　　b　　］,1,0）））<br/>
+　ペナルティの合計を算出するために，セルG35には次の式を入力する。<br/>
+　　　合計（G4～G34）<br/>
+　各日の勤務時間を算出するために，ワークシート“勤怠管理”のセルE4には次の式を入力し，セルE5～E34に複写する。算術演算のとき，空白セルは0として取り扱われる。<br/>
+　　　［　　c　　］<br/>
+　勤務時間の合計を算出するために，セルE35には次の式を入力する。<br/>
+　　　合計（E4～E34）<br/>
+<br/>
+aに関する解答群<br/>
+ア　否定（論理積（B4＝0,C4＝''））<br/>
+イ　否定（論理積（B4＝1,C4＝''））<br/>
+ウ　否定（論理和（B4＝0,C4＝''））<br/>
+エ　否定（論理和（B4＝1,C4＝''））<br/>
+オ　論理積（B4＝1,C4＝''）<br/>
+力　論理和（B4＝1,C4＝''）<br/>
+<br/>
+bに関する解答群<br/>
+ア　論理積（B4＝1,論理積（C4≦（10／24）,D4≧（17/24）））<br/>
+イ　論理積（B4＝1,論理和（C4＞（10／24）,D4＜（17/24）））<br/>
+ウ　論理積（C4≦（10／24),D4≧（17／24））<br/>
+エ　論理和（B4＝1,論理積（C4≦（10／24),D4≧（17／24）））<br/>
+オ　論理和（B4＝1,論理和（C4＞（10／24）,D4＜(17／24）））<br/>
+力　論理和（C4＞（10／24）,D4＜(17／24））<br/>
+<br/>
+cに関する解答群<br/>
+ア　D4－C4－1／24<br/>
+イ　最小（D4,12／24）－最小（C4，12／24）＋最大（D4,13／24）－最大(C4,13／24)<br/>
+ウ　最小（D4,13／24）－最小（C4，12／24）－1／24<br/>
+エ　最小（D4,13／24）－最大（C4，12／24）－1／24<br/>
+オ　最大（D4,12／24）－最小（C4，12／24）＋最大(D4,13／24)－最小(C4,13／24)<br/>
+カ　最大（D4,13／24）－最小（C4，12／24）－1／24<br/>
+キ　最大（D4,13／24）－最大（C4，12／24）－1／24<br/>
+<br/>
+〔ワークシート：勤務可能調査〕<br/>
+　月末になると翌月の出勤割当表の作成に先立って，アルバイトの申告した勤務可能日に基づいて，ワークシート“勤務可能調査"を作成する。その例を図2に示す。ワ一クシート“勤務可能調査”では，勤務可能なことを1で，勤務不可能なことを0で表す。また，存在しない日は，全員が0となる。<br/>
+　なお，アルバイトは15名とする。<br/>
+<br/>
+<img src="img/pmq60.png"><br/>
+<br/>
+〔ワークシート：出勤割当表〕<br/>
+（1）ワークシート“勤務可能調査”に基づいて，ワークシート“出勤割当表”を作成する。その例を図3に示す。ワークシート“出勤割当表”では，勤務を割り当てた場合を1で，割り当てなかった場合を0で表す。<br/>
+<br/>
+<img src="img/pmq61.png"><br/>
+<br/>
+（2）図3中の各項目の説明は，次のとおりである。<br/>
+　経験順位：業務経験が長い人ほど小さい値が入力されている。同順位の人はいない。<br/>
+　先々月ペナルティ：各アルバイトの先々月のペナルティの合計が入力されている。<br/>
+　先々月ペナルティ順位：各アルバイトの先々月ペナルティを昇順に順位付けする。<br/>
+　　　　　　　　　　　　先々月ペナルティが同じ場合は同順位となる。<br/>
+（3）出勤割当表の作成は，月初から月末まで順番に1日分ずつ次の規則に基づいて行う。<br/>
+（a）その日に出社可能な人が5人以下の場合は，その全員を割り当てる。<br/>
+（b）その日に出社可能な人が5人より多い場合は，その中から次の優先順位で5人を割り当てる。<br/>
+　①　先々月ペナルティ順位がより小さい。<br/>
+　②　①が等しい場合は，既に割当てが決められた期間（月初から前日まで）に割り当てられた回数がより少ない。<br/>
+　③　①，②がともに等しい場合は，経験順位がより小さい。<br/>
+（4）（3）の規則を定式化するために，出社の可否，先々月ペナルティ順位，前日までの割当回数，経験順位からなる次のような7けたの数値（以下，評価値という）を定義する。<br/>
+<br/>
+<img src="img/pmq62.png"><br/>
+<br/>
+　この評価値が小さい人から，順番に出勤を割り当てる。評価値の計算には，ワークシート“出勤割当表”の列AB～APを使用する。<br/>
+（5）ワークシート“出勤割当表”で用いる関数を表に示す。<br/>
+<br/>
+<img src="img/pmq63.png"><br/>
+<br/>
+（6）複数のワークシート間でデータを参照する場合には，“ワークシート名!セル”又は“ワークシート名!セル範囲”という形式で指定する。</p>
+<hr>
+<a href="21F_P_A4.HTM#131">設問1の正解例と解説へ</a>
+<hr>
+<p><strong><a name="132">設問2</a></strong>　ワークシート“出勤割当表”に関する次の記述中の［　　 　　］に入れる正しい答えを，解答群の中から選べ。<br/>
+<br/>
+　先々月ペナルティ順位を算出するために，ワークシート“出勤割当表”のセルB38には次の式を入力し，セルC38～P38に複写する。<br/>
+　　　順位（B37,$B37～$P37,0）<br/>
+　次に，セルAB3～AP33に評価値を設定する。<br/>
+　セルAB3には次の式を入力し，セルAC3～AP3に複写する。<br/>
+　　　（（（1－勤務可能調査!B3）＊100＋［　　d　　］)＊100）＊100＋［　　e　　］セルAB4には次の式を入力し，セルAB4～AP33に複写する。<br/>
+（（（1－勤務可能調査!B4）＊100＋［　　d　　］)＊100＋［　　f　　］)＊100＋［　　e　　］<br/>
+　出勤者を決定するために，セルB3には次の式を入力し，セルB3～P33に複写する。<br/>
+　　　IF（論理積(［　　g　　］,<br/>
+　　　	［　　h　　］）,1,0）<br/>
+　各アルバイトの割当日数の合計を算出するために，セルB34には次の式を入力し，セルC34～P34に複写する。<br/>
+　　　合計（B3～B33）<br/>
+　各日の合計割当入数を算出するために，セルQ3には次の式を入力し，セルQ4～Q33に複写する。<br/>
+　　　合計（B3～P3）<br/>
+<br/>
+d～fに関する解答群<br/>
+ア　B$3<br/>
+イ　B$36<br/>
+ウ　B$38<br/>
+エ　B3<br/>
+オ　B36<br/>
+カ　B38<br/>
+キ　合計（B$3～B3）<br/>
+ク　合計（B$3～$B3）<br/>
+<br/>
+g，hに関する解答群<br/>
+ア　勤務可能調査!B3＝0<br/>
+イ　勤務可能調査!B3＝1<br/>
+ウ　合計（$B3～$P3）≦5<br/>
+エ　合計（$B3～$P3）≧5<br/>
+オ　合計（勤務可能調査!$B3～$P3)≦5<br/>
+カ　合計(勤務可能調査!$B3～$P3)≧5<br/>
+キ　順位（AB3,$AB3～$AP3,0)≦5<br/>
+ク　順位(AB3,$AB3～$AP3,1)≦5<br/>
+ケ　順位(B3,$B3～$P3,0)≦5<br/>
+コ　順位(B3,$B3～$P3,1)≦5</p>
+<hr>
+<a href="21F_P_A4.HTM#132">設問2の正解例と解説へ</a>
+<hr>
+<a href="INDEX.HTM">■メニューへ戻る</a>
+<hr>
+</blockquote>
+</body>
+</html>

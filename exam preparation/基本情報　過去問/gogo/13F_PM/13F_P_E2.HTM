@@ -1,0 +1,704 @@
+<HTML>
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<meta http-equiv="Content-Language" content="ja">
+<TITLE>平成13年度秋期試験　問題(午後問3～問6)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0">
+<blockquote>
+  <hr>
+  <H3 align="center">平成13年度秋期試験　問題(問3～問5)</H3>
+<HR WIDTH=100%>
+<A NAME="30">　<BR>
+<b>
+問3</b></a><b>　</b>トランザクション処理性能に関する次の記述を読んで，設問に答えよ。<br>
+<br>
+  　図に示すように1個のCPU及び2台のディスク装置から構成されるサーバがある。各ディスクには図のようにそれぞれデータベースDB1とデータベースDB2が格納されている。このサーバにおいて，各ディスクで異なるトランザクションをそれぞれ独立に処理することができる。このトランザクション処理の内容を分析したところ，1トランザクション当たりのシステム資源の平均使用時間の内訳は，表のとおりであった。
+  <p><img border="0" src="image/pm3a.gif" width="515" height="350"><br>
+<br>
+  <br>
+サーバ稼動中のある時点において，1秒間にそのサーバが処理するトランザクション件数をそのサーバのTPS（Transaction Per Second）と呼ぶ。このとき，サーバのTPS，あるシステム資源の使用率，及び1トランザクション当たりのそのシステム資源の平均使用時間（以下，平均使用時間と呼ぶ）の関係は，次のとおりである。</p>   
+<p>使用率＝TPS×平均使用時間････････①</p>       
+<p>　例えば，あるシステムの平均使用時間が50ミリ秒であって，その使用率が80%であるとき，サーバのTPSは次式で計算できる。<br>
+<br>
+TPS＝0.8／0.05＝16</p>
+<p>　</p>
+<A NAME="30">
+<HR>
+</a><A NAME="31">　<BR>
+<b>
+設問1</b></a><b>　</b>次の記述中の<b>[　　]</b>に入れる正しい答えを，解答群の中から選べ。<br>
+  　
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">（1）</td>
+    <td>図で示す各システム資源の使用率の上限値を40%とした場合，このサーバのTPSの上限値は<b>[　　a　　]</b>である。</td>
+  </tr>
+  <tr>
+    <td valign="top">（2）</td>
+    <td>各システム資源の使用率の上限値を40%としたままで，サーバのTPSの上限値を4倍にするためには，少なくとも<b>[　　　b　　　]</b>にしてディスク装置のアクセス時間を短縮させる必要がある。ここで，あるシステム資源をn倍にした場合，トランザクション処理におけるそのシステム資源のアクセス時間は1/nになるものとする。</td>
+  </tr>
+  <tr>
+    <td valign="top">（3）</td>
+    <td>このサーバのTPSが10のとき，このトランザクション処理の平均応答時間は，トランザクション処理時間の約<b>[　　　c　　　]</b>倍である。ここで，各システム資源の平均応答時間は次のとおりとし，トランザクション処理の平均応答時間は各システム資源の平均応答時間の和とする。
+      <table border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td rowspan="2">平均応答時間＝</td>
+          <td><u><sub>　平均使用時間　</sub></u></td>
+          <td rowspan="2">　･･････②</td>
+        </tr>
+        <tr>
+          <td>
+            <p align="center"><sup>1-使用率</sup></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">（4）</td>
+    <td>式①及び②から，サーバのTPSを上げていくとシステム資源の使用率は高くなり，<b>[　　　d　　　]</b>ことが分かる。</td>
+  </tr>
+</table>
+<p>　</p>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>aに関する解答群</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td width="150">ア　0.005</td>
+    <td width="150">	イ　0.01</td>
+    <td>	ウ　0.02</td>
+  </tr>
+  <tr>
+    <td>	エ　5</td>
+    <td>	オ　10</td>
+    <td>	カ　20</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>　<br>
+      bに関する解答群</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">ア</td>
+    <td>ディスク1の台数を4台</td>
+  </tr>
+  <tr>
+    <td valign="top">イ</td>
+    <td>ディスク2の台数を4台</td>
+  </tr>
+  <tr>
+    <td valign="top">ウ</td>
+    <td>ディスク1の台数を2台，かつディスク2の台数を2台</td>
+  </tr>
+  <tr>
+    <td valign="top">エ</td>
+    <td>ディスク1の台数を2台，かつディスク2の台数を4台</td>
+  </tr>
+  <tr>
+    <td valign="top">オ</td>
+    <td>ディスク1の台数を4台，かつディスク2の台数を2台</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>　<br>
+      cに関する解答群</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td width="120">ア　0.48</td>
+    <td width="120">	イ　0.95</td>
+    <td>	ウ　1.66</td>
+  </tr>
+  <tr>
+    <td>	エ　2.86</td>
+    <td>	オ　3.51</td>
+    <td></td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>　<br>
+      dに関する解答群</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td width="220">ア　平均応答時間が増加する</td>
+    <td>	イ　平均応答時間が減少する</td>
+  </tr>
+  <tr>
+    <td>ウ　平均使用時間が増加する</td>
+    <td>	エ　平均使用時間が減少する</td>
+  </tr>
+</table>
+<p>　</p>
+<HR WIDTH=100%>
+<A HREF="13f_p_a2.htm#31">設問の正解例と解説へ</A>
+<HR WIDTH=100%>
+<p><A HREF="index.htm">メニューへ戻る</A>　</p>
+<HR WIDTH=100%>
+<A NAME="40">　<BR>
+<b>
+問4</b></a>　次のプログラムの説明，擬似言語の記述形式の説明及びプログラムを読んで，設問1，2に答えよ。<br>
+<br>
+[プログラムの説明]<br>
+配列Mの要素番号fromからlen個の配列要素（これを複写元領域と呼ぶ）の内容を，配列Mの要素番号toからlen個の配列要素（これを複写先領域と呼ぶ）へ複写する。
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">（1）</td>
+    <td>配列Mの要素数はsizeで，size＞0である。要素番号は0から始まる。</td>
+  </tr>
+  <tr>
+    <td valign="top">（2）</td>
+    <td>複写する要素数はlenで，len≧0である。</td>
+  </tr>
+  <tr>
+    <td valign="top">（3）</td>
+    <td>処理は，1要素を読み出して格納する操作を，要素番号の昇順にlen回繰り返す。</td>
+  </tr>
+  <tr>
+    <td valign="top">（4）</td>
+    <td>処理の概要を，次に示す。</td>
+  </tr>
+</table>
+<p><img border="0" src="image/pm4a.gif" width="390" height="60"></p>
+<p><img border="0" src="image/pm4b.gif" width="371" height="288"></p>
+<p>
+[プログラム1]<br>
+<img border="0" src="image/pm4c.gif" width="500" height="341"></p>
+  <p>　</p>
+<HR WIDTH=100%>
+<A NAME="41">
+<b>　<BR>
+設問1</b></a><b>　</b>次の記述中の[　　]に入れる正しい答えを，解答群の中から選べ。<br>
+<br>
+  　プログラム1の選択処理では，from，to，lenの値が負でないこと，及びプログラムの処理中に配列Mの添字の値が上限を超えないことを判定している。このために指定すべき条件式は，<b>[　　　a　　]</b>である。<br>
+  　複写元領域と複写先領域とが一部重複していると，プログラム実行前の複写元領域の内容と，プログラム実行後の複写先領域の内容とが一致しない場合が生ずる。例えば，プログラム実行前の複写元領域の内容が，次のとき，
+<table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#FFFFFF" bordercolordark="#FFFFFF" bordercolor="#008000">
+  <tr>
+    <td>　</td>
+    <td colspan="3">
+      <p align="center">from<br>
+      ↓</td>
+    <td>　</td>
+    <td>　</td>
+    <td>　</td>
+    <td>　</td>
+    <td>　</td>
+  </tr>
+  <tr>
+    <td width="15" align="center">…</td>
+    <td bordercolor="#000000" width="15" align="center">&nbsp;</td>
+    <td bordercolor="#000000" bgcolor="#C0C0C0" width="15" align="center">W</td>
+    <td bordercolor="#000000" bgcolor="#C0C0C0" width="15" align="center">R</td>
+    <td bordercolor="#000000" bgcolor="#C0C0C0" width="15" align="center">I</td>
+    <td bordercolor="#000000" bgcolor="#C0C0C0" width="15" align="center">T</td>
+    <td bordercolor="#000000" bgcolor="#C0C0C0" width="15" align="center">E</td>
+    <td bordercolor="#000000" width="15" align="center">&nbsp;</td>
+    <td width="15" align="center">…</td>
+  </tr>
+  <tr>
+    <td width="15" align="center">　</td>
+    <td width="15" align="center">　</td>
+    <td align="center" colspan="5">
+      <p align="center">←　len=5　→</td>
+    <td width="15" align="center">　</td>
+    <td width="15" align="center">　</td>
+  </tr>
+</table>
+<p>toの値を<b>[　　　b　　　]</b>としてプログラムを実行すると，実行後の複写先領域の内容は，</p>
+<table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#FFFFFF" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+  <tr>
+    <td>…</td>
+    <td width="15" bordercolor="#000000">　</td>
+    <td width="15" bordercolor="#000000">W</td>
+    <td width="15" bordercolor="#000000">W</td>
+    <td width="15" bordercolor="#000000">W</td>
+    <td width="15" bordercolor="#000000">W</td>
+    <td width="15" bordercolor="#000000">W</td>
+    <td width="15" bordercolor="#000000">　</td>
+    <td>…</td>
+  </tr>
+</table>
+<p>となる。<br>
+　一般に，内容の一致が保証できないのは，複写先として格納された要素が，後に複写元の要素として読み出される場合であるから，<b>[　　　c　　　]</b>という条件のときである。<br>
+　</p>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>aに関する解答群</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>ア</td>
+    <td>from &lt; size and to &lt; size</td>      
+  </tr>      
+  <tr>      
+    <td>イ</td>      
+    <td>from &lt; size and to &lt; size and len &lt; size</td>      
+  </tr>      
+  <tr>      
+    <td>ウ</td>      
+    <td>from + len &lt; size and to+len &lt; size</td>      
+  </tr>      
+  <tr>      
+    <td>エ</td>      
+    <td>from + len ≦ size and to+len ≦ size</td>      
+  </tr>      
+</table>      
+<table border="0" cellpadding="3" cellspacing="0">     
+  <tr>     
+    <td>　<br>
+      bに関する解答群</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>ア</td>
+    <td>from-1</td>
+  </tr>
+  <tr>
+    <td>イ</td>
+    <td>from+len-1</td>
+  </tr>
+  <tr>
+    <td>ウ</td>
+    <td>from+1</td>
+  </tr>
+  <tr>
+    <td>エ</td>
+    <td>from+len+1</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>　<br>
+      cに関する解答群</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>ア</td>
+    <td>from &lt; to and to &lt; from+len</td>      
+  </tr>      
+  <tr>      
+    <td>イ</td>      
+    <td>to &lt; from and from &lt; to+len</td>      
+  </tr>      
+  <tr>      
+    <td>ウ</td>      
+    <td>from &lt; to and to ≦ from+len</td>      
+  </tr>      
+  <tr>      
+    <td>エ</td>      
+    <td>to &lt; from ana from ≦ to+len</td>      
+  </tr>      
+</table>      
+<p>　</p> 
+<HR WIDTH=100%>  
+<A HREF="13f_p_a2.htm#41">設問1の正解例と解説へ</A>  
+<HR WIDTH=100%>  
+<A NAME="42">  
+　<BR> 
+<b> 
+設問2</b></a>  
+次のプログラム2中の[　　]に入れる正しい答えを，解答群の中から選べ。<br>
+<br>
+前に示したプログラムの説明に，次の(5)～(7)を追加して，その仕様を満たすプログラム2を作る。
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">
+（5）</td>
+    <td>配列Mの配列要素は，最後尾から先頭へと循環しているものとする。すなわち，複写元領域及び複写先領域のいずれも，M[size-1]の直後にM[0]が続くものとして，処理を継続する。<br>
+      　次に示すのは，複写元領域が循環している場合の例である。
+      <table border="1" cellpadding="0" cellspacing="0" bordercolorlight="#FFFFFF" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+        <tr>
+          <td align="center">0<br>
+            ↓</td>
+          <td align="center">1<br>
+            ↓</td>
+          <td align="center">2<br>
+            ↓</td>
+          <td align="center" colspan="6">　</td>
+          <td colspan="3" align="center">to<br>
+            ↓</td>
+          <td align="center" colspan="10">　</td>
+          <td align="center" colspan="3">
+            <p align="right">from<br>
+            ↓</td>
+          <td align="center" colspan="3">
+            <p align="right">size-1<br>
+            ↓</td>
+        </tr>
+        <tr>
+          <td width="18" align="center" bgcolor="#C0C0C0" bordercolor="#000000">P</td>
+          <td width="18" align="center" bgcolor="#C0C0C0" bordercolor="#000000">E</td>
+          <td width="18" align="center" bgcolor="#C0C0C0" bordercolor="#000000">D</td>
+          <td width="18" align="center" bordercolor="#000000">　</td>
+          <td width="18" align="center" bordercolor="#000000">　</td>
+          <td width="18" align="center" bordercolor="#000000">　</td>
+          <td width="18" align="center">…&nbsp;&nbsp;</td>
+          <td width="18" align="center" bordercolor="#000000">　</td>
+          <td width="18" align="center" bordercolor="#000000">　</td>
+          <td width="18" align="center" bordercolor="#000000">　</td>
+          <td width="18" align="center" bordercolor="#000000">W</td>
+          <td width="18" align="center" bordercolor="#000000">R</td>
+          <td width="18" align="center" bordercolor="#000000">A</td>
+          <td width="18" align="center" bordercolor="#000000">P</td>
+          <td width="18" align="center" bordercolor="#000000">P</td>
+          <td width="18" align="center" bordercolor="#000000">E</td>
+          <td width="18" align="center" bordercolor="#000000">D</td>
+          <td width="18" align="center" bordercolor="#000000">　</td>
+          <td width="18" align="center" bordercolor="#000000">　</td>
+          <td width="18" align="center" bordercolor="#000000">　</td>
+          <td width="18" align="center">…</td>
+          <td width="18" align="center" bordercolor="#000000">&nbsp;&nbsp;</td>
+          <td width="18" align="center" bordercolor="#000000">　</td>
+          <td width="18" align="center" bordercolor="#000000">　</td>
+          <td width="18" align="center" bgcolor="#C0C0C0" bordercolor="#000000">W</td>
+          <td width="18" align="center" bgcolor="#C0C0C0" bordercolor="#000000">R</td>
+          <td width="18" align="center" bgcolor="#C0C0C0" bordercolor="#000000">A</td>
+          <td width="18" align="center" bgcolor="#C0C0C0" bordercolor="#000000">P</td>
+        </tr>
+        <tr>
+          <td align="center" colspan="3">――→</td>
+          <td align="center" colspan="7">　</td>
+          <td align="center" colspan="7">←　　　len　　　→</td>
+          <td align="center" colspan="7">　</td>
+          <td align="center" colspan="4">←　　len</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">
+（6）</td>
+    <td>複写する要素数lenの値の範囲は，0≦len≦sizeとする。</td>
+  </tr>
+  <tr>
+    <td valign="top">
+（7）</td>
+    <td>プログラム実行前の複写元領域の内容と，プログラム実行後の複写先領域の内容との一致が保証できないときは，複写をせずにエラー処理プログラムを呼ぶ。<br>
+      <img border="0" src="image/pm4g.gif" width="410" height="395"></td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>　<br>
+      　　<br>
+解答群</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>
+ア</td>
+    <td>from+len ≦ to and to ≦ from</td>    
+  </tr>    
+  <tr>    
+    <td>     
+イ</td>    
+    <td>from+len ≦ to or to ≦ from</td>    
+  </tr>    
+  <tr>    
+    <td>     
+ウ</td>    
+    <td>from+len-size ≦ to and to ≦ from</td>    
+  </tr>    
+  <tr>    
+    <td>     
+エ</td>    
+    <td>from+len-size ≦ to or to ≦ from</td>    
+  </tr>    
+</table>    
+<p>　</p>
+<A NAME="42">  
+<HR WIDTH=100%>  
+</a>  
+<A HREF="13f_p_a2.htm#42">設問2の正解例と解説へ</A>  
+<HR WIDTH=100%>  
+<p>
+<A HREF="index.htm">メニューへ戻る</A>　</p>
+<HR WIDTH=100%>  
+  　<BR>
+<b><a name="50">問5</a>　</b>ファイルの突合せ処理に関する次の記述を読んで，設問1～4に答えよ。<br>
+<br>
+R社は通信販売業者である。R社の顧客管理システムの概要は，次のとおりである。
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">（1）</td>
+    <td>広告の実施：毎月1回，新聞とダイレクトメール（DM）によって商品の広告をする。DMは過去に商品を購入したことのある顧客（既存顧客）に郵送する。</td>
+  </tr>
+  <tr>
+    <td valign="top">（2）</td>
+    <td>商品購入申し込みの受付：DMに同封した専用の申込みはがき（以下，専用はがきと呼ぶ）による商品購入申込みの場合は，既存顧客からの申込みとして処理する。専用はがきには，顧客番号をはじめとする情報があらかじめ印字してある。新聞広告をみて，専用はがきを用いずに商品購入申込みをしてきた場合には，新規顧客として顧客データベースに登録する。顧客データベースの更新処理は，決まった曜日に一括して行う。</td>
+  </tr>
+</table>
+<p>　R社の顧客データベースには，顧客の郵便番号，住所，氏名，電話番号，過去1年間の申込み実績などが記録されている。（2）で述べた新規顧客を，顧客データベースに登録する際，顧客カウンタを使って顧客番号を付与する。<br>
+　顧客データベースに登録されている顧客が，専用はがきを用いずに申し込んできた場合は，新規顧客として顧客データベースに登録されてしまう。その結果，同一顧客が顧客データベール上に別顧客として登録される事例（重複顧客）が発生する。このとき，住所表記の省略の仕方などが異なっている場合がある。<br>
+<br>
+　顧客の重複はDMコストの無駄にもなるので，重複顧客の名寄せ（同一人の登録データをまとめること）を行うことにした。<br>
+　当初は名寄せを，手作業で行うことにした。そのための資料として，顧客データベースの内容を様々な順序（例えば，氏名順，住所順，電話番号順など）で整列して各種のリストを出力した。これらのリストをもとに，同一顧客かどうかの判定をし，重複顧客のデータをまとめた。しかし，現在の顧客データベース更新方式のままでは，期間が経過すると，再び顧客の重複が発生してしまう。<br>
+　そこで，名寄せキー及び名寄せ用顧客マスタファイルを用いた，図1の名寄せキー作成及び顧客データベース更新処理と図2の名寄せ用顧客マスタファイル更新処理で，重複の発生防止状況を観察することにした。</p>
+<p><img border="0" src="image/pm5a.gif" width="433" height="586"></p>
+<p>名寄せキーとは，郵便番号，住所，氏名及び電話番号を一定の形式に変換したものであり，突合せ処理に使用する。手作業での名寄せの経験を基に，例えば，“東京都港区虎ノ門一丁目16番4号”と“港区虎ノ門1-16-4”を同一住所と見なすための工夫が，名寄せキーにはなされている。<br>
+　名寄せ用顧客マスタファイルは，顧客データベースの内容に名寄せキーを付加し，名寄せキーの順番に並べ替えたものである。<br>
+　申込みデータ（図3）を作成するとき，専用はがきによる申込みの場合にだけ顧客番号を入力する。それ以外の場合は，空白にする。また，専用はがきの場合，住所などの変更記入があるときだけ，申込みデータに郵便番号，住所，氏名及び電話番号をすべて入力する。</p>
+<table border="1" cellPadding="3" bordercolorlight="#000000" cellspacing="0" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+  <tbody>
+    <tr>
+      <td rowSpan="2">
+        <p align="center"><font size="2">顧客番号</font></p>
+      </td>
+      <td rowSpan="2">
+        <p align="center"><font size="2">郵便番号</font></p>
+      </td>
+      <td rowSpan="2">
+        <p align="center"><font size="2">住所</font></p>
+      </td>
+      <td rowSpan="2">
+        <p align="center"><font size="2">氏名</font></p>
+      </td>
+      <td rowSpan="2">
+        <p align="center"><font size="2">電話番号</font></p>
+      </td>
+      <td rowSpan="2">
+        <p align="center"><font size="2">申込日</font></p>
+      </td>
+      <td rowSpan="2">
+        <p align="center"><font size="2">備考</font></p>
+      </td>
+      <td colSpan="5">
+        <p align="center"><font size="2">申込内容</font></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p align="center"><font size="2">商品コード</font></p>
+      </td>
+      <td>
+        <p align="center"><font size="2">数量</font></p>
+      </td>
+      <td>
+        <p align="center"><font size="2">…</font></p>
+      </td>
+      <td>
+        <p align="center"><font size="2">商品コード</font></p>
+      </td>
+      <td>
+        <p align="center"><font size="2">数量</font></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>　</p>
+<hr>
+<p><b><a name="51">設問1</a>　</b>図1の処理4について，Tファイルのデータを1件ずつ読むときの処理として，[　　]に入れる正しい答えを，解答群の中から選べ。
+</p>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">（1）</td>
+    <td>顧客番号のあるデータは，<b>[　　a　　]</b>する。</td>
+  </tr>
+  <tr>
+    <td valign="top">（2）</td>
+    <td>顧客番号がなく，一致する名寄せキーが名寄せ用顧客マスタファイルに存在した。その場合<b>[　　b　　]</b>し，<b>[　　c　　]</b>する。</td>
+  </tr>
+  <tr>
+    <td valign="top">（3）</td>
+    <td>顧客番号がなく，一致する名寄せキーが名寄せ用顧客マスタファイルに存在しなかった。その場合<b>[　　d　　]</b>し，変更したデータをUファイルに出力する。</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>　<br>
+      解答群</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>ア</td>
+    <td>Tファイルの顧客番号を取得</td>
+  </tr>
+  <tr>
+    <td>イ</td>
+    <td>Tファイルの郵便番号，住所，氏名及び電話番号を取得</td>
+  </tr>
+  <tr>
+    <td>ウ</td>
+    <td>顧客カウンタを用いて，新たな顧客番号を取得</td>
+  </tr>
+  <tr>
+    <td>エ</td>
+    <td>そのままUファイルに出力</td>
+  </tr>
+  <tr>
+    <td>オ</td>
+    <td>名寄せキーを再作成</td>
+  </tr>
+  <tr>
+    <td>カ</td>
+    <td>名寄せ用顧客マスタファイルの顧客番号を取得</td>
+  </tr>
+  <tr>
+    <td>キ</td>
+    <td>名寄せ用顧客マスタファイルの名寄せキーと照合</td>
+  </tr>
+  <tr>
+    <td>ク</td>
+    <td>名寄せ用顧客マスタファイルの郵便番号，住所，氏名及び電話番号を取得</td>
+  </tr>
+  <tr>
+    <td>ケ</td>
+    <td>変更したデータをUファイルに出力</td>
+  </tr>
+</table>
+<p>　
+</p>
+<HR WIDTH=100%>
+<a HREF="13f_p_a2.htm#51">設問1の正解例と解説へ</a>
+<HR WIDTH=100%>
+  　<BR>
+<b><a name="52">設問2</a>　</b>図1の名寄せ用顧客マスタファイルの内容は，当初，顧客データベースの内容をそのまま並べ替えたものとして作成したので，過去1年間の申込み実績などこの処理に必要でない項目を含んでいた。名寄せ用顧客マスタファイルの内容として必要な項目の正しい組合せを，解答群の中から選べ。<br>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>①</td>
+    <td>顧客番号</td>
+  </tr>
+  <tr>
+    <td>②</td>
+    <td>氏名</td>
+  </tr>
+  <tr>
+    <td>③</td>
+    <td>住所</td>
+  </tr>
+  <tr>
+    <td>④</td>
+    <td>電話番号</td>
+  </tr>
+  <tr>
+    <td>⑤</td>
+    <td>名寄せキー</td>
+  </tr>
+  <tr>
+    <td>⑥</td>
+    <td>郵便番号</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>　<br>
+      解答群</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>ア　①</td>
+    <td width="150">	イ　⑤</td>
+    <td>	ウ　①，②&nbsp;</td>
+  </tr>
+  <tr>
+    <td>	エ　①，⑤</td>
+    <td>	オ　①，②，⑤</td>
+    <td>	カ　①，②，⑥</td>
+  </tr>
+  <tr>
+    <td>キ　①，②，③，④&nbsp;</td>
+    <td>	ク　①，②，③，⑤</td>
+    <td>	ケ　①，②，⑤，⑥</td>
+  </tr>
+  <tr>
+    <td>コ　①，②，③，④，⑤，⑥</td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+<p>　</p>
+<HR WIDTH=100%>
+<a HREF="13f_p_a2.htm#52">設問2の正解例と解説へ</a>
+<HR WIDTH=100%>
+<p><b><a name="53">設問3</a>　</b>図2中の[　　]に入れる正しい答えを，解答群の中から選べ。
+</p>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>解答群</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td width="150">ア　Sファイル</td>
+    <td>	イ　Tファイル</td>
+  </tr>
+  <tr>
+    <td>	ウ　Uファイル</td>
+    <td>	エ　Vファイル</td>
+  </tr>
+  <tr>
+    <td>	オ　顧客カウンタ</td>
+    <td>カ　名寄せ用顧客マスタファイル</td>
+  </tr>
+  <tr>
+    <td>	キ　申込みデータ</td>
+    <td></td>
+  </tr>
+</table>
+<p>　</p>
+<HR WIDTH=100%>
+<a HREF="13f_p_a2.htm#53">設問3の正解例と解説へ</a>
+<hr>
+<p><b><a name="54">設問4</a>　</b>図2の処理8で行う処理を，解答群の中から<b>二つ</b>選べ。</p> 
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>解答群</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">ア</td>
+    <td>既存顧客のデータは，そのままXファイルに出力する。</td>
+  </tr>
+  <tr>
+    <td valign="top">イ</td>
+    <td>既存顧客のデータは，名寄せキーを更新する。</td>
+  </tr>
+  <tr>
+    <td valign="top">ウ</td>
+    <td>既存顧客のデータは，抹消する。</td>
+  </tr>
+  <tr>
+    <td valign="top">エ</td>
+    <td>既存顧客のデータは，郵便番号，住所，氏名及び電話番号を更新する。</td>
+  </tr>
+  <tr>
+    <td valign="top">オ</td>
+    <td>新規顧客のデータは，顧客番号順の該当箇所に挿入する。</td>
+  </tr>
+  <tr>
+    <td valign="top">カ</td>
+    <td>新規顧客のデータは，名寄せキー順の該当箇所に挿入する。</td>
+  </tr>
+  <tr>
+    <td valign="top">キ</td>
+    <td>新規顧客のデータは，名寄せキーを作成する。</td>
+  </tr>
+</table>
+<p>　</p> 
+<HR WIDTH=100%>
+<a HREF="13f_p_a2.htm#54">設問4の正解例と解説へ</a>
+<hr>
+<p align="center">
+<a href="13f_p_e3.htm">■問6へ</a>　　　　　<font size="3"><a HREF="index.htm">■メニューへ戻る</a></font></p>
+  <hr>
+  <p align="left">　</p>
+</blockquote>
+</BODY>
+</HTML>

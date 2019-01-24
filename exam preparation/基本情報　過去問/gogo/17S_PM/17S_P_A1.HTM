@@ -1,0 +1,93 @@
+<html>
+
+<head>
+<title>平成17年度春期試験　正解例と解説(問1～問2)</title>
+</head>
+
+<body bgcolor="#FFFFFF" topmargin="0" leftmargin="0" style="font-size: 12pt">
+
+<blockquote>
+<hr>
+<h3 align="center">平成17年度春期試験　正解例と解説(問1～問2)</h3>
+<basefont size="3">
+<hr>
+<p><font size="3"><a name="10"><b>問1</b></a><b>　</b></font><a name="10"></p>
+<hr>
+</a>
+<p><font size="3"><a name="11"><b>設問1</b></a><b>　</b></font><br>
+<br>
+＜解答＞　イ<br>
+<br>
+＜解説＞
+<p>第1語に値，第2語に次の要素へのポインタが格納される。</p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td valign="top">①</td>
+<td valign="top">ROOTの番地00FFの内容がポイントする0100番地に最初の要素がある。その第1語目には値0091，第2語目の0101番地に次の要素へのポインタ010Aが格納されている。</td>
+</tr>
+<tr>
+<td valign="top">②</td>
+<td valign="top">0101番地の内容010Aがポイントする2番目の要素の第1語目には値0093，第2語目の010B番地には次の要素へのポインタ0104が格納されている。</td>
+</tr>
+</table>
+</div>
+<p>同様にポインタのリンクをたどっていくと，各番地に格納されている内容は以下のようになる。</p>
+<p><img border="0" src="IMAGE/PMKaisetsu_01-01.gif" width="515" height="77"></p>
+<p>値の昇順に連結されているので，010C番地の値は00A0と00A2の間の値00A1になる。</p>
+<hr>
+<a href="17S_P_E1.HTM#11"><font size="3">問題へ</font></a>
+<hr>
+<p><font size="3"><b><a name="12">設問2</a></b>　</font></p>
+<p>＜解答＞　ａ　コ　　　ｂ　イ<br>
+<br>
+＜解説＞
+<p>0117番地のポインタを，削除する要素がポイントする次要素の番地0102に変えればよい。</p>
+<p><img border="0" src="IMAGE/PMKaisetsu_01-02.gif" width="515" height="94"></p>
+<hr>
+<a href="17S_P_E1.HTM#12"><font size="3">問題へ</font></a>
+<hr>
+<p><font size="3"><b><a name="13">設問3</a></b>　</font></p>
+<p>＜解答＞　ｃ　オ　　　ｄ　コ　　　ｅ　キ　　　ｆ　ケ<br>
+<br>
+＜解説＞
+<p>0118番地から011D番地に格納されている3要素の値は00A7，009C，00A5であり，これを昇順に並べて併合する。3要素を値の昇順に並べると以下のようになる。</p>
+<p><img border="0" src="IMAGE/PMKaisetsu_01-03.gif" width="169" height="77"></p>
+<p>したがって値009Cは値009Bと009Fの間に，値00A5と00A7は値00A2と00A9の間に挿入することになる。</p>
+<p><img border="0" src="IMAGE/PMKaisetsu_01-04.gif" width="515" height="111"></p>
+<p>したがって以下のように変更すればよい。</p>
+<p><img border="0" src="IMAGE/PMKaisetsu_01-05.gif" width="515" height="175"></p>
+<p>したがって0111番地の内容を011Aに，011B番地の内容を0102に，0115番地の内容を011Cに，0119番地の内容を0108に変更すればよい。</p>
+<hr>
+<a href="17S_P_E1.HTM#13"><font size="3">問題へ</font></a>
+<hr>
+<a href="INDEX.HTM">メニューへ戻る</a>
+<hr>
+<p><font size="3"><a name="20"><b>問2</b></a><b>　</b></font></p>
+<hr>
+<p><font size="3"><b><a name="21">設問</a></b>　</font><font size="3"><br>
+<br>
+＜解答＞　ａ　オ　　　ｂ　イ　　　ｃ　オ　　　ｄ　イ<br>
+<br>
+＜解説＞</font>
+<p><font size="3"><strong>空欄ａについて</strong><br>
+空欄ａの直後の処理Sidx ← Sidx＋1に対してSidxの初期値設定が必要で，これを空欄ａで行う必要がある。したがって空欄ａはSidx 
+← 0になる。</font></p>
+<p><font size="3"><strong>空欄ｂについて</strong><br>
+空欄ｂの直前の処理で文字列Sと文字列Aの文字位置を1文字進めているが，これは文字列Sの文字が文字列Aの文字と一致するかを比較している処理になる。文字列Ｓの文字と文字列Aの文字が一致し，A［Aidx］≠EOSである間はこの比較を繰り返す。したがって空欄ｂに関する繰返し条件はA［Aidx］＝S［Sidx］になる。</font></p>
+<p><font size="3"><strong>空欄ｃについて</strong><br>
+空欄ｃの条件が成立つ場合，D［Didx］≠EOSの間はB［Bidx］ ← 
+D［Didx］ の処理により，文字列Dと置き換えて文字列Bに出力している。この置換えは直前の空欄ｂを含む繰返し処理で，文字列Sの最後の文字まで一致した場合に行うので，空欄ｃはS［Sidx］＝EOSになる。</font></p>
+<p><font size="3"><strong>空欄ｄについて</strong><br>
+空欄ｄを含む処理は，空欄ｃが成立たない場合（S［Sidx］≠EOS），つまり文字列Aと文字列Sの2文字目以降で一致しなくなった場合の処理になる。この場合文字列Sの先頭の文字S［0］とは一致してA［Aidx］＝S［0］となっているので，この先頭文字S［0］を文字列Bに転送し，AidxとBidxをインクリメントして次の文字の比較を行えばよい。したがって空欄ｄはB［Bidx］＝S［0］になる。</p>
+<hr>
+<a href="17S_P_E1.HTM#21">問題へ</a>
+<hr>
+<a href="INDEX.HTM">メニューへ戻る</a>
+<hr>
+</blockquote>
+<p>　</font>
+
+</body>
+
+</html>

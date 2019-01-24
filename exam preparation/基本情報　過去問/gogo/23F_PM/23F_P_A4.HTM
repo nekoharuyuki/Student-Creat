@@ -1,0 +1,141 @@
+<html>
+<head>
+<title>平成23年度 秋期 基本情報技術者 午後 正解例と解説（問10～問13）</title>
+<style type="text/css"><!--
+body{line-height:150%;}
+code{font-size:12pt;}
+h3{text-align:center;}
+div.caution{border:solid 1px #000000; padding:0.5em;}
+--></style>
+</head>
+<body>
+<blockquote>
+<hr>
+<h3>平成23年度　秋期　基本情報技術者<br/>
+午後　正解例と解説（問10～問13）</h3>
+<hr>
+<p><strong><a name="100">問10</a></strong></p>
+<hr>
+<p><strong><a name="101">設問1</a></strong></p>
+<p>〈解答〉　a：エ，b：カ，c：ア</p>
+<p>〈解説〉</p>
+<p>●空欄aについて<br/>
+空欄aの直後の<code>SEARCH</code>命令によりテーブル<code>TEST-W3</code>をテーブルサーチしており，テーブル<code>TEST-W3</code>の要素番号が<code>TEST-IDX</code>である。したがってこのテーブルサーチに入る直前の空欄aでテーブルの要素番号<code>TEST-IDX</code>の初期値設定が必要で，空欄aはエの<code>SET TEST-IDX TO 1</code>が適切。</p>
+<p>●空欄bについて<br/>
+空欄bに関する<code>SEARCH</code>命令直後で，テーブル要素<code>TEST-W3</code>（<code>TEST-IDX</code>）に試験区分<code>TEST-CATEG-M</code>と一致するものがあるか検索しているので，<code>SEARCH</code>命令にテーブル名<code>TEST-W3</code>を指定する必要がある。したがって空欄bはカの<code>TEST-W3</code>が適切。</p>
+<p>●空欄cについて<br/>
+空欄bの<code>SEARCH</code>命令によるテーブルサーチで試験区分<code>TEST-CATEG-M</code>に一致するテーブル要素が見つかれば，直後の<code>ADD</code>命令で集計用テーブル<code>SUM-WK</code>（<code>TEST-NO TEST-PLACE</code>）を用いて，試験区分別，開催地区分別に受験者数のテーブル集計を行っている。したがって空欄cで，集計結果<code>SUM-WK</code>が0でない要素について<code>PRINT-S</code>に転送し出力すればよい。空欄cを含む<code>PERFORM</code>命令の二重ループの制御変数が<code>LOOP1</code>，<code>LOOP2</code>で，それぞれ試験区分，開催地区分に対応するので，空欄cはアの<code>SUM-WK(LOOP1 LOOP2)</code>が適切。</p>
+<hr>
+<a href="23F_P_E4.HTM#101">問題へ</a>
+<hr>
+<p><strong><a name="102">設問2</a></strong></p>
+<p>〈解答〉　d：ウ，e：オ，f：キ，g：イ</p>
+<p>〈解説〉</p>
+<p>●空欄dについて<br/>
+空欄dは<code>SORT</code>命令におけるソートキーの指定である。受験区分の印字を申込者数の多い順に行うので，<code>SORT-FILE</code>のレコードを申込者数の降順にソートする必要がある。入力手続<code>IN-PROC</code>の<code>PERFORM</code>命令の繰返処理で入力ファイル<code>TEST-SUM-FILE</code>のレコードをソートファイル<code>TEST-SORT-FILE</code>に転送し，入力ファイルの申込者数<code>SUM-S</code>がソートキー<code>SORT-S</code>に転送されている。したがって空欄dはウの<code>DESCENDING KEY SORT-S</code>が適切。</p>
+<p>●空欄eについて<br/>
+入力手続<code>IN-PROC</code>の<code>PERFORM</code>命令の繰返処理で<code>READ</code>命令により読み込んだ入力ファイル<code>TEST-SUM-FILE</code>のレコードをソートファイル<code>TEST-SORT-FILE</code>に転送した直後に実行している処理が空欄eの処理である。したがって転送された<code>SORT-REC</code>の内容を<code>TEST-SORT-FILE</code>に書き出せばよく，空欄eはオの<code>RELEASE SORT-REC</code>が適切。</p>
+<p>●空欄f，gについて<br/>
+空欄f，gを含む<code>PERFORM</code>命令の繰返処理中で<code>SORT-TEST-REC</code>の内容を<code>PRINT-TEST-REC</code>に転送し，印字している。したがって空欄fでソートファイル<code>TEST-SORT-FILE</code>のレコードを読み込む処理が必要で，空欄fはキの<code>RETURN TEST-SORT-FILE</code>が適切。空欄gには<code>RETURN</code>命令の終端命令が必要で，イの<code>END-RETURN</code>が適切。</p>
+<hr>
+<a href="23F_P_E4.HTM#102">問題へ</a>
+<hr>
+<a href="INDEX.HTM">■メニューへ戻る</a>
+<hr>
+<p><strong><a name="110">問11</a></strong></p>
+<hr>
+<p><strong><a name="111">設問1</a></strong></p>
+<p>〈解答〉　a：ア，b：オ，c：キ，d：オ，e：ア</p>
+<p>〈解説〉</p>
+<p>●空欄aについて<br/>
+クラス<code>Name</code>，<code>Address</code>の入れ子クラス<code>Criteria</code>は，インタフェース<code>SearchCriteria</code>を実装したクラスであり，空欄aでインタフェース<code>SearchCriteria</code>の実装が必要となり，空欄aはアの<code>SearchCriteria</code>が適切。</p>
+<p>●空欄bについて<br/>
+クラス<code>AddressBook</code>のメソッド<code>meetsAnyOf</code>は，引数で与えられたインタフェース<code>SearchCriteria</code>のどれかに合致するエントリの集合を返す。住所録のクラス<code>AddressBook</code>の入れ子クラス<code>AddressBook.Entry</code>は，住所録のエントリで，クラス<code>Name</code>と<code>Address</code>のインスタンスを保持する。<br/>
+入れ子クラス<code>Entry</code>の<code>SET</code>オブジェクト<code>entry</code>に，引数で与えられた検索条件のインスタンス<code>criteria</code>のいずれかと合致するものがあれば，オブジェクト<code>result</code>にメソッド<code>add</code>により合致した<code>entry</code>を追加して返せばよい。したがって空欄bはオの<code>result.add(entry)</code>が適切。</p>
+<p>●空欄cについて<br/>
+クラス<code>AddressBook</code>のメソッド<code>meetsAllOf</code>は，引数で与えられたインタフェース<code>SearchCriteria</code>のすべてに合致するエントリの集合を返す。住所録のクラス<code>AddressBook</code>の入れ子クラス<code>AddressBook.Entry</code>は住所録のエントリで，クラス<code>Name</code>と<code>Address</code>のインスタンスを保持する。<br/>
+引数で指定された検索条件<code>criteria</code>の全てに合致するエントリの集合を返すので，入れ子クラス<code>Entry</code>の<code>SET</code>オブジェクト<code>entry</code>に，引数で与えられた検索条件のインスタンス<code>criteria</code>と合致しないものがあれば，オブジェクト<code>result</code>からメソッド<code>remove</code>により合致しない<code>entry</code>だけを除去して返せばよい。したがって空欄cはキの<code>result.remove(entry)</code>が適切。</p>
+<p>●空欄dについて<br/>
+空欄b直前の<code>if</code>文の条件で，メソッド<code>meets</code>はインタフェース<code>SearchCriteria</code>型の変数<code>sc</code>を引数としている。したがってメソッド<code>meets</code>の引数<code>criteria</code>のインスタンス型を空欄dで<code>SearchCriteria</code>と指定する必要があるので，オが適切。また〔プログラム5〕のインタフェース<code>Searchable</code>の定義で，メソッド<code>meets</code>の引数<code>criteria</code>の型が<code>T</code>となっているが，<code>T</code>はインタフェース<code>SearchCriteria</code>を継承したインタフェース型である。</p>
+<p>●空欄eについて<br/>
+入れ子クラス<code>AddressBook.Entry</code>は住所録のエントリで，そのメソッド<code>meets</code>は，引数で与えられた<code>SearchCriteria</code>の具体的な型によって<code>name</code>又は<code>addr</code>のメソッド<code>meets</code>を呼び出して，<code>AddressBook.Entry</code>のインスタンスが引数で指定された検索条件に合致するかどうかを調べる。<code>AddressBook.Entry</code>は，クラス<code>Name</code>と<code>Address</code>のインスタンスを保持する。メソッド<code>meets</code>の引数にはインタフェース<code>SearchCriteria</code>型の引数を指定するので，インタフェース<code>SearchCriteria</code>を実装した検索条件のクラス<code>Name.Criteria</code>又は<code>Address.Criteria</code>型の引数<code>criteria</code>を指定して検索条件に合致するかを調べればればよい。<code>instanceof</code>演算子はそのクラスのインスタンスかどうかを調べる演算子で，空欄e直前の<code>if</code>文では，インスタンス<code>criteria</code>が<code>Name.Criteria</code>のインスタンスであれば，メソッド<code>meets</code>により<code>name</code>オブジェクトが<code>Name.Criteria</code>の検索条件<code>criteria</code>に合致するかを調べている。したがって空欄eでは，インスタンス<code>criteria</code>が<code>Address.Criteria</code>のインスタンスであれば，メソッド<code>meets</code>により<code>addr</code>オブジェクトが<code>Address.Criteria</code>の検索条件<code>criteria</code>に合致するかを調べればよく，空欄eはアの<code>Address.Criteria</code>が適切。</p>
+<hr>
+<a href="23F_P_E4.HTM#111">問題へ</a>
+<hr>
+<p><strong><a name="112">設問2</a></strong></p>
+<p>〈解答〉　イ，オ</p>
+<p>〈解説〉</p>
+<p>入れ子クラス<code>Name.Criteria</code>は，引数<code>familyName</code>及び<code>givenName</code>でそれぞれ姓及び名を検索条件として指定する。検索条件に含めないときは<code>null</code>を指定する。クラス<code>Name</code>のメソッド<code>meets</code>は，引数で与えられた<code>criteria</code>で実装された<code>boolean</code>型メソッド<code>areMetBy</code>を呼出して，このクラスのインスタンスが検索条件に合致するかを調べる。引数<code>familyName</code>及び<code>givenName</code>に<code>null</code>を指定すると，検索条件に含めないことになり，全件検索ができる。したがってイ，オが適切。</p>
+<hr>
+<a href="23F_P_E4.HTM#112">問題へ</a>
+<hr>
+<a href="INDEX.HTM">■メニューへ戻る</a>
+<hr>
+<p><strong><a name="120">問12</a></strong></p>
+<hr>
+<p><strong><a name="121">設問1</a></strong></p>
+<p>〈解答〉　a：イ，b：ウ</p>
+<p>〈解説〉</p>
+<p>●空欄aについて<br/>
+プログラム1は減算を用いた32ビットの除算を行う。最初の二つの<code>LD</code>命令で，<code>GR1</code>，<code>GR2</code>の被除数の上位語と下位語をそれぞれ<code>GR6</code>，<code>GR7</code>に転送した後，次の二つの<code>LD</code>命令で，商を格納する領域<code>GR1</code>，<code>GR2</code>を<code>#FFFF</code>に初期化している。次の二つのLD命令で，<code>GR6</code>，<code>GR7</code>の内容を，剰余を格納する領域<code>GR4</code>，<code>GR5</code>に転送した後，次の論理加算命令<code>ADDL</code>により<code>GR2</code>に1加算し，商の下位語をカウントアップしている。当初<code>GR2</code>は<code>#FFFF</code>で初期化されているので，この結果<code>GR2</code>はオーバフローして<code>GR2</code>の内容は0にリセットされ，<code>JOV</code>命令により<code>ADJ1</code>にオーバフロー分岐し，空欄aの処理を実行する。空欄a直後の二つの<code>SUBL</code>命令により<code>GR6</code>，<code>GR7</code>の被除数の上位語，下位語から，それぞれアドレス<code>GR3</code>，<code>GR3+1</code>に格納されている除数の上位語，下位語を減算した後，空欄b直後の<code>JUMP</code>命令により，<code>LP</code>に戻り繰り返している。したがって空欄a直後の二つの<code>SUBL</code>命令により被除数の上位語，下位語からそれぞれ除数の上位語，下位語を減算するごとに<code>ADDL</code>命令により商の下位語をカウントアップしていることになる。このカウントアップの結果，商の下位語<code>GR2</code>がオーバフローした場合に<code>GR2</code>が0にリセットされ，<code>JOV</code>命令により<code>ADJ1</code>に分岐し，空欄aの処理が実行される。つまり商の下位語<code>GR2</code>がオーバフローすれば，<code>GR1</code>の商の上位語をカウントアップすればよく，空欄aはイの<code>ADDL GR1,=1</code>が適切。</p>
+<p>●空欄bについて<br/>
+空欄a直後の<code>SUBL</code>命令による<code>GR6</code>の被除数の上位語からの除数の上位語の減算の結果，<code>GR6</code>＜0となる場合は除数を減算できないので<code>GR4</code>，<code>GR5</code>の剰余の上位語，下位語は確定し，<code>JOV</code>命令により<code>FIN</code>にオーバフロー分岐する。空欄bの直前の<code>SUBL</code>命令による<code>GR7</code>の下位語からの除数の下位語の減算の結果，<code>GR7</code>＜0となり除数の下位語を減算できない場合，<code>GR6</code>の上位語≧1であれば<code>JUMP</code>命令により<code>LP</code>に無条件分岐し繰り返す必要がある。したがって空欄bで<code>JOV</code>命令により<code>ADJ2</code>にオーバフロー分岐すればよく，空欄bはウが適切。</p>
+<hr>
+<a href="23F_P_E4.HTM#121">問題へ</a>
+<hr>
+<p><strong><a name="122">設問2</a></strong></p>
+<p>〈解答〉　c：イ，d：イ，e：オ，f：イ</p>
+<p>〈解説〉</p>
+<p>●空欄cについて<br/>
+プログラム2では，10進表記で0～99999の範囲の32ビット符号なし整数の上位語を<code>GR1</code>に，下位語を<code>GR2</code>に，変換結果を格納する領域の先頭アドレスを<code>GR3</code>に設定して<code>BTOD</code>を呼び出す。プログラム2では変換結果の10進表記の上位桁から求めて，最初に最上位の10000の位を先頭アドレス<code>GR3</code>の領域に格納し，最後に最下位の1の位をアドレス<code>GR3</code>＋4の領域に格納する。このアドレス<code>GR3</code>，<code>GR3</code>＋4を最初の<code>LD</code>命令と<code>LAD</code>命令により，それぞれ<code>GR6</code>，<code>GR7</code>に転送している。次の<code>LAD</code>命令で<code>GR3</code>に除数の上位語のアドレス<code>UDAT</code>を設定しているが，アドレス<code>GR3</code>＋1の除数の下位語には10000が格納されており，次の<code>CALL</code>命令によりプログラム<code>DIV</code>の1回目の呼出しを行う。つまりこの1回目の<code>DIV</code>の呼出しにより，32ビット符号なし整数を被除数，10000を除数として除算を行うことになる。この結果，0～99999の範囲の32ビット符号なし整数を10000で割った商の最上位の1桁が<code>GR2</code>に格納される。したがって<code>CALL</code>命令直後の<code>OR</code>命令により<code>GR2</code>と<code>'0'</code>との論理和をとり数字に変換後，次の<code>ST</code>命令によりアドレス<code>GR6</code>に格納すればよく，空欄cはイの<code>GR2</code>が適切。</p>
+<p>●空欄dについて<br/>
+2回目の<code>CALL</code>命令によるプログラム<code>DIV</code>の呼出しでは，除数の下位語に1000を格納し，1回目の<code>DIV</code>による除数10000での割算の剰余に対して，1000で割算を行う。したがって空欄dで<code>GR3</code>のアドレスを2だけインクリメントし，次の<code>JUMP</code>命令で<code>LP</code>に戻り繰り返せばよいので，空欄dはイの<code>LD  GR3,2,GR3</code>が適切。</p>
+<p>●空欄e，fについて<br/>
+プログラム2とは逆にプログラム3では，変換結果の10進表記の下位桁から求めて，最初に最下位の1の位をアドレス<code>GR3</code>＋4の領域に格納し，最後に最上位の10000の位を末尾アドレス<code>GR3</code>に格納する。このアドレス<code>GR3</code>＋4，<code>GR3</code>を最初の<code>LD</code>命令と<code>LAD</code>命令により，それぞれ<code>GR6</code>，<code>GR7</code>に転送している。次の<code>LAD</code>命令で<code>GR3</code>に除数の上位語のアドレス<code>DAT</code>を設定している。変換結果を最下位桁から順に上位桁に向かって求めるには，32ビット符号なし整数を10で割った剰余を求めると，最初に変換結果の最下位桁の1の位が求まる。次にその商に対して更に10で割った剰余を求めると，次の10の位が求まる。これを繰り返せばよい。したがって<code>CALL</code>命令により<code>DIV</code>を呼び出す際に，除数の下位語に10を設定し除算を繰り返せばよいので，空欄fはイの10が適切。
+この1回目の<code>DIV</code>の呼出しにより，32ビット符号なし整数を被除数，10を除数として除算を行うことになる。この結果，0～99999の範囲の32ビット符号なし整数を10で割った剰余の最下位の1桁が<code>GR5</code>に格納される。したがって<code>CALL</code>命令直後の<code>OR</code>命令により<code>GR5</code>と<code>'0'</code>との論理和をとり数字に変換後，次の<code>ST</code>命令によりアドレス<code>GR6</code>に格納すればよく，空欄eはオの<code>GR5</code>が適切。</p>
+<hr>
+<a href="23F_P_E4.HTM#122">問題へ</a>
+<hr>
+<a href="INDEX.HTM">■メニューへ戻る</a>
+<hr>
+<p><strong><a name="130">問13</a></strong></p>
+<hr>
+<p><strong><a name="131">設問1</a></strong></p>
+<p>〈解答〉　a：エ，b：エ，c：イ </p>
+<p>〈解説〉</p>
+<p>●空欄aについて<br/>
+役職給は垂直照合関数により求める。垂直照合関数の引数には，式の値，セル範囲，列の位置，検索の指定の四つを指定する。式の値は，ワークシート“基本給・賞与計算”の役職ランクのセルC2を指定する。セル範囲はワークシート“役職給”の役職ランクの列Bを左端列とした範囲B2～C6を指定するが，計算式を入力するセルF2を行方向に複写するので，行番号を絶対参照として固定する必要があり，B$2～C$6とする必要がある。列位置は参照するセル範囲B$2～C$6の左から2列目の役職給なので2とする。検索の指定は一致する値を検索するので0とする。したがってエの垂直照合（C2，役職給！B$2～C$6，2，0）が適切。</p>
+<p>●空欄bについて<br/>
+年齢給は50歳未満の場合，その年齢に7,000円を乗じて計算する。50歳以上の場合，固定額350,000円となる。年齢給は，列Eの年齢により条件判定する必要があるので，IF関数により求める。セルG2に入力するIF関数は，条件をセルE2＜50とし，E2＜50が真の場合にE2＊7，偽の場合に350とすればよく，エのIF（E2＜50，E2＊7，350）が適切。</p>
+<p>●空欄cについて<br/>
+個人評価係数は垂直照合関数により求める。垂直照合関数の引数には，式の値，セル範囲，列の位置，検索の指定の四つを指定する。式の値は，ワークシート“基本給・賞与計算”の個人評価点のセルJ2を指定する。セル範囲はワークシート“賞与係数”の個人評価点の範囲の下限値の列Aを左端列とした範囲A11～B15を指定するが，計算式を入力するセルK2を行方向に複写するので，行番号を絶対参照として固定する必要があり，A$11～B$15とする必要がある。列位置は参照するセル範囲A$11～B$15の左から2列目の個人評価係数なので2とする。検索の指定は式の値以下の最大値を検索するので1とする。したがってイの垂直照合（J2，賞与係数！A$11～B$15，2，1）が適切。</p>
+<hr>
+<a href="23F_P_E4.HTM#131">問題へ</a>
+<hr>
+<p><strong><a name="132">設問2</a></strong></p>
+<p>〈解答〉　d：キ，e：エ，f：ウ，g：エ，h：ウ</p>
+<p>〈解説〉</p>
+<p>●空欄dについて<br/>
+賞与の計算式は役職によって異なる。<br/>
+①役職が本部長，部長又は課長の場合<br/>
+　賞与＝基本給×（役職係数＋個人評価係数＋本部加点／10）<br/>
+②役職が主任又はなしの場合<br/>
+　賞与＝基本給×（役職係数＋個人評価係数＋本部加点／20）<br/>
+によりそれぞれ計算する。本部長，部長，課長の役職ランクはそれぞれ1，2，3で，主任，なしはそれぞれ4，5である。したがって列Cの役職ランクが3以下であれば①式で計算し，それ以外は②式で計算すればよい。<br/>
+したがってM6に入力する賞与の計算式では，基本給はセルH6，役職係数はセルI6，個人評価係数はセルK6，本部加点はセルL6，役職ランクはセルC6を参照し，C6≧3であるか否かによりL6／10かL6／20のいずれかを加算すればよい。したがって空欄dはキのH6＊（I6＋K6＋IF（C6≧3，L6／10，L6／20））が適切。</p>
+<p>●空欄eについて<br/>
+本部ごとの賞与合計は条件付合計関数で求める。条件付合計関数の引数は，検索のセル範囲，検索条件の記述，合計のセル範囲の三つである。セルM2に入力する条件付合計関数では，検索のセル範囲には本部の列D6～D112を指定するが，セルM2の式を行方向に複写するので行番号を絶対参照とする必要があり，D$6～D$112とする。検索条件は“第1本部”とするため，検索条件の記述には＝I2を指定する。セルM2の式はM3～M4の複写した際に，相対的にセルI3～I4を参照する必要があるので，セルI2は相対参照とする。合計のセル範囲はM6～M112を参照するが，セルM2の式を行方向に複写するので行番号を絶対参照とする必要があり，M$6～M$112とする。したがって空欄eはエの条件付合計（D$6～D$112，＝I2，M$6～M$112）が適切。</p>
+<p>●空欄fについて<br/>
+空欄fは，第1本部から第3本部までの繰返ループの制御変数に関する初期値，終了条件，増分値で，ウのrow：1，row≦3，1が適切。</p>
+<p>●空欄gについて<br/>
+空欄f直後の処理DeptPoint←0は本部加点の初期値を0にリセットしている処理である。次のDeptPoint←DeptPoint＋1は本部加点に1を加算している処理である。相対（L1，row，0）はセルの相対表現で，セルL1を基準とした相対的は行位置と列位置で指定したセルを表し，この場合セルL1からrowだけ下，0だけ右のセルを表す。したがってrowが1であればセルL2，rowが2であればセルL3，rowが3であればセルL4を表す。したがって相対（L1，row，0）←DeptPointの処理は，直前で1加算した本部加点DeptPointを，rowが1の場合はセルL2の第1本部の本部加点にセットする処理である。この結果，rowが1の場合はセルM2の本部賞与合計がDeptPointの値に対応して更新される。これが③の処理に該当する処理になる。したがって空欄gで④に該当する処理を行えばよい。空欄gはループの繰返条件であり，例えばrowが1の場合は第1本部賞与合計M2≦本部賞与合計上限K2で，かつ本部加点DeptPoint≦20という繰返条件にする必要がある。この場合rowの値により参照するセルが変わるので，セルの相対表現により繰返条件を表す必要がある。セルL1を基準とし相対表現で，セルM2は相対（L1，row，1），セルK2は相対（L1，row，－1）と表現できるので，空欄gはエの論理積（相対（L1，row，1）≦相対（L1，row，－1），DeptPoiny≦20）が適切。</p>
+<p>●空欄hについて<br/>
+空欄hは⑤の処理に該当し本部加点から1を減じた値を各本部の本部加点とし，対応するセルに代入する処理である。したがってセルL1を基準とし相対表現で，空欄hはウの相対（L1，row，0）←DeptPoint－1とするのが適切。</p>
+<hr>
+<a href="23F_P_E4.HTM#132">問題へ</a>
+<hr>
+<a href="INDEX.HTM">■メニューへ戻る</a>
+<hr>
+</blockquote>
+</body>
+</html>

@@ -1,0 +1,427 @@
+<HTML>
+<HEAD>
+<TITLE>平成11年度秋期試験</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0">
+<blockquote>
+  <hr>
+  <H3 align="center">平成11年度秋期試験　正解例と解説(問7～問10)</H3>
+<hr>
+<P>
+<a NAME="70">
+<b>
+問7</b></a><b>　</b>
+<hr> 
+<a NAME="71">　<BR>
+<b>
+設問</b></a><b>　<br>
+  </b>＜解答＞ａ　キ　　　　ｂ　ク　　　　ｃ　イ　　　　ｄ　エ
+  <p>＜解説＞<br>
+  　整列された２分木は、最上位のルートを頂点とし、下位階層に節点をもった階層的なデータ構造である。この2分木の１つである２分探索木では、常に</p>
+  <p>　左の節点のデータ＜上位の節点のデータ＜右の節点のデータ</p>
+  <p>の関係がある。つまり</p>
+  <p>　左の要素Lower[Root]＜親の要素Root＜右の要素Upper[Root]</p>
+  <p>の関係がある。</p>
+  <table border="0" cellpadding="3" cellspacing="0">
+    <tr>
+      <td valign="top">(1)</td>
+      <td>プログラムmain（ ）の最初のforループと　Upper[MAXNUM－1]＝－1は、<br>
+        　整列前の初期設定の処理で、配列要素の出現順にUpper側にすべて接続する<br>
+        　処理で、２分木は下図のような状態になる。
+        <p><img border="0" src="image/A11a07f1.gif" width="650" height="233"></td>
+    </tr>
+    <tr>
+      <td valign="top">(2)</td>
+      <td>以下は、関数BinTrrSort（Root）における処理。
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">①</td>
+            <td>最初にRootのUpper側の要素Upper[Root]をDataとしてセット。</td>
+          </tr>
+          <tr>
+            <td valign="top">②</td>
+            <td>Dataが－1、つまりUpper側の要素が－１となればreturnする。</td>
+          </tr>
+          <tr>
+            <td valign="top">③</td>
+            <td>次にUpper[Root]＝－１を実行し、RootのUpper側が－１となるので、下図のようにRootが切離される。
+              <p><img border="0" src="image/A11a07f2.gif" width="644" height="231"></td>
+          </tr>
+          <tr>
+            <td valign="top">④</td>
+            <td>ここから　while文のループに入る。</td>
+          </tr>
+        </table>
+        <p>　空欄ａは、変数Nextへの設定値であるが、このWhileループの最後の命令Data＝Nextにより、次の繰返しにおける次回のDataの値として変数Nextの値をセッセットし準備している。したがって上図のように、次回のDataの値として、DataのUpper側のUpper[Data]をNextにセットすればよい。つまり空欄ａは解答群のキが正解。<br>
+        1) if文の条件Stu[Data].Height≧Stu[Root].Heightが成り立つ場合<br>    
+        　下図のようにRootのUpper側にDataを接続する処理を行う。</p>
+        <p><img border="0" src="image/A11a07f3.gif" width="491" height="240"><br>
+        したがってRootのUpper側にDataを接続する直前で、当初のUpper[Root]の値－１をUpper[Data]にセットすればよい。つまり空欄ｂは解答群のクが正解。</p>
+        <p>2) if文の条件Stu[Data].Height＜Stu[Root].Heightが成り立つ場合<br>    
+        　下図のようにRootのLower側にDataを接続する処理を行う。</p>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top"></td>
+            <td>したがってRootのLower側Lower[Root]にDataを接続した直後に、当初のLower[Root]の値－１をUpper[Data]にセットすればよい。つまり空欄ｃは解答群のイが正解。</td>
+          </tr>
+          <tr>
+            <td valign="top">⑤</td>
+            <td>引数DataをUpper[Root]とし、Data≠－１であれば関数BinTrrSort（Data）の処理を再帰的に繰り返す。</td>
+          </tr>
+          <tr>
+            <td valign="top">⑥</td>
+            <td>引数DataをLower[Root]とし、Data≠－１であれば関数BinTrrSort（Data）の処理を再帰的に繰り返す。</td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">(3)</td>
+      <td>以下は関数DisplayData（ ）について<br>    
+        　関数DisplayData（ ）は、身長に関して昇順に整列された２分木の要素の順に<br>    
+        　従って、名前、年齢、身長、体重を出力する処理である。<br>
+        　①その引数の要素が－１のときは、何もせずに関数をReturnする。<br>
+        　②その引数の要素が－１でないときは
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td>1)</td>
+            <td>Lower側の要素について再帰的に繰り返す。（空欄ｄの処理に該当）</td>
+          </tr>
+          <tr>
+            <td>2)</td>
+            <td>その引数の要素の値（名前、年齢、身長、体重）を出力する。</td>
+          </tr>
+          <tr>
+            <td>3)</td>
+            <td>Upper側の要素について再帰的に繰り返す。</td>
+          </tr>
+        </table>
+        <p>　したがって空欄ｄは、Lower側の要素Lower[Root]であり、これを引数として<br>
+        再帰的に関数DisplayData（ ）を繰り返せばよい。つまり解答群のエが正解。</p>    
+        <p>　</td>    
+    </tr>    
+  </table>    
+<HR WIDTH=100%>     
+<a HREF="11f_p_e3.htm#71">問題へ</a>     
+<HR WIDTH=100%>     
+<p><A HREF="index.htm">メニューへ戻る</A>　</p>     
+<HR WIDTH=100%>     
+<a NAME="80">　<BR>    
+<b>    
+問8</b></a>　<br>
+  　
+<HR WIDTH=100%> 
+<a NAME="81"><b>　<BR> 
+設問</b></a><b>　</b>
+  <p>＜解答＞ａク　　　　ｂ　エ　　　　ｃ　エ　　　　ｄ　エ　　　　ｅ　エ</p>
+  <p>＜解説＞<br>
+  このCOBOLプログラムでは、SORT命令により２回のソートが行われている。</p>
+  <table border="0" cellpadding="3" cellspacing="0">
+    <tr>
+      <td valign="top">(1)</td>
+      <td>１回目のSORT文では、
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">①</td>
+            <td>ソート前に入力手続としてBUNKAI-RTNを行った後</td>
+          </tr>
+          <tr>
+            <td valign="top">②</td>
+            <td>SORT-FILEを部門BUMON-SORの昇順に、部門販売額GAKU-SORの降順にソート</td>
+          </tr>
+          <tr>
+            <td valign="top">③</td>
+            <td>ソート後に出力手続としてBANGO-RTNを行っている</td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">(2)</td>
+      <td>２回目のSORTでは、
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">①</td>
+            <td>USING句により作業用のBANGO-FILEを入力ファイルとしてSORT-FILEに書出し、</td>
+          </tr>
+          <tr>
+            <td valign="top">②</td>
+            <td>空欄ａをソートキーとして昇順にソート</td>
+          </tr>
+          <tr>
+            <td valign="top">③</td>
+            <td>ソート後に出力手続としてMATOME-RTNを行っている</td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+  <p>１回目のSORT文における入力手続BUNKAI-RTNについて<br>
+  　販売ファイルHANBAI-FILEのレコードを１件ずつ読み、AT ENDになるまで以下の処理を繰り返している。HANBAI-FILEの１レコード中の５つの部門の部門別販売額を、店舗別部門別に５つのレコードに分解して、SORT-FILEに書出している処理が空欄ｂを含むPERFORM文の処理に相当する。したがって空欄ｂは、RELEASE文によるSORT-FILEへの書出しに該当し、“RELEASE　SORT-REC”とすればよい。つまり解答群のエが正解。<br>
+  <br>
+  １回目のSORT文における出力手続BANGO-RTNについて<br>
+  　ソート済みSORT-FILEのレコードを１件ずつ読み、AT ENDになるまで以下の処理を繰り返している。</p>   
+  <table border="0" cellpadding="3" cellspacing="0">  
+    <tr>  
+      <td valign="top">①</td>  
+      <td>LCN＝BUMON-SORのとき、つまり部門が同じレコードが出現するごとに  
+        <table border="0" cellpadding="3" cellspacing="0">  
+          <tr>  
+            <td>1)</td>  
+            <td>変数Xをカウントアップ</td>  
+          </tr>  
+          <tr>  
+            <td>2)</td>  
+            <td>GAKU-WRK＞GAKU-SORのときだけSORT-FILEから読込んだ部門別販売額GAKU-SORをその保存エリアGAKU-WRKにセットし、さらに空欄ｃの処理を行っている</td>  
+          </tr>  
+          <tr>  
+            <td>3)</td>  
+            <td>このIF文直後のMOVE文により、変数Yに作業ファイルの部門順位BANGO-BANをセットしている。</td>  
+          </tr>  
+        </table>  
+        <p>　したがって変数Yは同一部門内での販売額の部門順位をカウントする変数であり、直前の部門販売額GAKU-WRKより小さくなったときにだけ、同一部門内のそれまで順位をつけた店舗数より１だけ大きな数で順位Yを更新する必要がある。これが空欄ｃでの処理に該当する。<br>
+        　　同一部門内のそれまでに順位をつけた店舗数は、COMPUTE文により変数Xがカウントアップされている。したがって空欄ｃでこの変数Xを変数Yにセットすればよく、“MOVE　X　TO　Y”つまり解答群のエが正解。</td>
+    </tr>
+    <tr>
+      <td valign="top">②</td>
+      <td>LCN≠BUMON-SORのとき、つまり異なる部門のレコードが出現したとき
+        <p>1)部門別販売額GAKU-SORをその保存エリアにセット<br>
+        2)部門BUMON-SORを保存エリアLCNのにセット<br>
+        3)変数X、Y、部門順位BANGO-BANを１に初期設定</td>
+    </tr>
+    <tr>
+      <td valign="top">③</td>
+      <td>作業用ファイルBANGO-FILEに出力している</td>
+    </tr>
+  </table>
+  <p>２回目のSORT文について<br>
+  　USING句により作業用のBANGO-FILEを入力ファイルとしてSORT-FILEに書出して、ソート後、出力手続MATOME-RTNで成績ファイルSEISEKI-FILEに出力するためには、店舗コードTENPO-SORの昇順にSORT-FILEをソートしておく必要がある。したがって空欄ａにおけるソートキーはTENPO-SORの昇順とすればよく、解答群のクが正解。<br>
+  <br>
+  ２回目のSORT文における出力手続MATOME-RTNについて<br>
+  　店舗コードTENPO-SORの昇順にソート済みのSORT-FILEを１レコードずつ読み、各店舗ごとに５つの部門のレコードを１レコードに合成し、各店舗コードごとに成績ファイルSEISEKI-FILEとして出力している処理に相当する。<br>
+  　SORT-FILEのレコードは、店舗コードTENPO-SORごとに、1～5の部門コードBUMON-SORとその部門販売額GAKU-SORが出現するので、SEISEKI-FILEの店舗コードTENPO-SEIごとに、出現した部門コードBUMON-SORに応じて、出現順にBANGO-SEI（BUMON-SOR）、GAKU-SEI（BUMON-SOR）に５部門の部門コードと部門販売額をセットすればよい。したがって空欄ｄはBUMON-SOR。つまり解答群のエが正解。<br>
+  <br>
+  空欄ｅは、成績ファイルにレコードを出力するタイミングに関する条件で、SORT-FILEのレコードの店舗コードTENPO-SORが直前の店舗コードと変わったときに出力すればよい。直前の店舗コードは成績ファイルのTENPO-SEIにセットされているので、IF文の条件は、“TENPO-SEI　NOT　＝　TENPO-SOR”とすればよい。したがって解答群のエが正解。<br>
+  </p>
+<p>　</p>
+<HR WIDTH=100%> 
+<a HREF="11f_p_e3.htm#81">問題へ</a> 
+<HR WIDTH=100%> 
+<A HREF="index.htm"><br> 
+メニューへ戻る<br> 
+</A> 
+<HR WIDTH=100%> 
+<p> 
+<a NAME="90"> 
+<b>問9</b></a><b>　　</b>（解説は省略します。）</p> 
+<HR WIDTH=100%> 
+<a NAME="91">　<BR> 
+<b> 
+設問</b></a>;　＜解答＞　ａ　ア　　　　ｂ　カ　　　　ｃ　エ　　　　ｄ　カ<br>
+  <br>
+  　
+<HR WIDTH=100%>
+<a HREF="11f_p_e3.htm#91">問題へ</a>
+<HR WIDTH=100%>
+  　<BR>
+<b><a name="100">問10</a>　</b>
+<hr>
+<p><b><a name="101">設問</a>　</b></p>
+  <p>＜解答＞　ａ　エ　　　　ｂ　エ　　　　ｃ　キ　　　　ｄ　オ
+  <p>＜解説＞プログラムのアルゴリズムについて順に解説していきます。</p>
+  <table border="0" cellpadding="3" cellspacing="0">
+    <tr>
+      <td valign="top">(1)</td>
+      <td>PUSH命令によりレジスタGR1,GR2,GR3の内容をスタックに退避。</td>
+    </tr>
+    <tr>
+      <td valign="top">(2)</td>
+      <td>右回転を表す＋１または左回転を表す－１が、主プログラムよりGR3に引き渡されており、これをST命令によりINCR番地に退避。</td>
+    </tr>
+    <tr>
+      <td valign="top">(3)</td>
+      <td>LEA命令によりセットされたGR3の内容により、次のJPZ命令により分岐先を判定。<br>
+        GR3が＋１のとき、RIGHTへジャンプし、右回転処理を行う。<br>
+        GR3が－１のとき、左回転の前処理としてLEA命令によりGR1,GR2のアドレスに15を加算。</td>
+    </tr>
+    <tr>
+      <td valign="top">(4)</td>
+      <td>［RIGHTの処理］<br>
+        ST命令により、GR1の元の図形の語のアドレスをSOURCE番地に退避。<br>
+        ST命令により、GR2の結果の図形の格納先の語のアドレスをTARGET番地に退避。</td>
+    </tr>
+    <tr>
+      <td valign="top">(5)</td>
+      <td>LEA命令によりGR0に１をセットし、格納先ビット位置を初期化。<br>
+        ST命令によりGR0の格納先ビット位置をBITPOS番地に退避。</td>
+    </tr>
+    <tr>
+      <td valign="top">(6)</td>
+      <td>LEA命令により語数カウンタGR3を16に初期化。</td>
+    </tr>
+    <tr>
+      <td valign="top">(7)</td>
+      <td>［LOOP1の処理］
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">①</td>
+            <td>ST命令により、現在の語数カウンタの値GR3をCOUNTR番地に退避。</td>
+          </tr>
+          <tr>
+            <td valign="top">②</td>
+            <td>LD命令により、アドレスGR1番地の元の図形の１語をGR1にセット。</td>
+          </tr>
+          <tr>
+            <td valign="top">③</td>
+            <td>LD命令により、アドレスGR2番地の結果の図形の１語をGR0 
+              にセット。</td>
+          </tr>
+          <tr>
+            <td valign="top">④</td>
+            <td>このGR0とビット列BITPOSとの論理和ORにより、ビット列BITPOSが１であるビット位置に対応したGR0のビットを１（ON）にする。</td>
+          </tr>
+          <tr>
+            <td valign="top">⑤</td>
+            <td>LEA命令によりビット数カウンタGR3を16に初期化する。</td>
+          </tr>
+          <tr>
+            <td valign="top">⑥</td>
+            <td>LEA命令により、GR1にセットされた元の図形の１語の先頭ビットが１であるか０かを検査。</td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">(8)</td>
+      <td>［LOOP2の処理］
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">①</td>
+            <td>GR1にセットされた元の図形の先頭ビットが１のときJMI命令により、RESTORの処理にジャンプ。</td>
+          </tr>
+          <tr>
+            <td valign="top">②</td>
+            <td>空欄ａの処理。</td>
+          </tr>
+          <tr>
+            <td valign="top">③</td>
+            <td>［RESTORの処理］<br>
+              GR0に格納された結果の図形の１語をST命令により、GR2番地に退避。</td>
+          </tr>
+          <tr>
+            <td valign="top">④</td>
+            <td>LEA命令により、ビット数カウンタGR3を－１する。</td>
+          </tr>
+          <tr>
+            <td valign="top">⑤</td>
+            <td>GR3＝0となれば、JZE命令によりNWORDの処理にジャンプ。</td>
+          </tr>
+          <tr>
+            <td valign="top">⑥</td>
+            <td>ADD命令により、結果の図形の語のアドレスGR2を次語のアドレスに進める。</td>
+          </tr>
+          <tr>
+            <td valign="top">⑦</td>
+            <td>LD命令により、アドレスGR2番地の結果の図形の次語をGR0にセット。</td>
+          </tr>
+          <tr>
+            <td valign="top">⑧</td>
+            <td>このGR0とビット列BITPOSとの論理和ORにより、ビット列BITPOSが１であるビット位置に対応したGR0のビットを１（ON）にする。</td>
+          </tr>
+          <tr>
+            <td valign="top">⑨</td>
+            <td>GR1にセットされた元の図形の１語を、SLL命令により１ビット左シフトする。</td>
+          </tr>
+          <tr>
+            <td valign="top">⑩</td>
+            <td>空欄ｂの処理。JMP命令によりLOOP2へ戻り、ループを繰返す。</td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">(9)</td>
+      <td>［NWORDの処理］（１語分の処理が終わったときの処理）
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">①</td>
+            <td>SOURCE番地に退避されている、元の図形の語のアドレスをGR1にセット。</td>
+          </tr>
+          <tr>
+            <td valign="top">②</td>
+            <td>ADD命令により、元の図形の語のアドレスGR1を次語のアドレスに進める。</td>
+          </tr>
+          <tr>
+            <td valign="top">③</td>
+            <td>ST命令により、アドレスGR1番地の元の図形の次語をSOURCE番地に退避する。</td>
+          </tr>
+          <tr>
+            <td valign="top">④</td>
+            <td>TARGET番地に退避されている結果の図形の先頭語をGR2にセットし、格納先を結果の図形の先頭語にリセットする。</td>
+          </tr>
+          <tr>
+            <td valign="top">⑤</td>
+            <td>LD命令により、結果の図形の語の格納先のビット位置BITPOSをGR0にセット。</td>
+          </tr>
+          <tr>
+            <td valign="top">⑥</td>
+            <td>空欄ｃにおいて、元の図形の次語の格納先である、結果の図形の語のビット位置GR0を１ビット左シフトし、格納先のビット位置を更新する。</td>
+          </tr>
+          <tr>
+            <td valign="top">⑦</td>
+            <td>更新後のビット位置GR0を、ST命令によりBITPOS番地に保存。</td>
+          </tr>
+          <tr>
+            <td valign="top">⑧</td>
+            <td>COUNTR番地に退避されている、現在の語数カウンタの値をGR3にセット。</td>
+          </tr>
+          <tr>
+            <td valign="top">⑨</td>
+            <td>語数カウンタGR3の値を－１し、語数カウンタをデクリメント。</td>
+          </tr>
+          <tr>
+            <td valign="top">⑩</td>
+            <td>空欄ｄは、LOOP1の繰返し条件。<br>
+              語数カウンタGR3≠0のときLOOP1に戻り、繰返す。<br>
+              語数カウンタGR3＝0のときLOOP1を終了する。</td>
+          </tr>
+          <tr>
+            <td valign="top">⑪</td>
+            <td>スタックに退避されている値を、レジスタGR3,GR2,GR1に順に復元する。</td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+  <p><img border="0" src="image/a99a10r0.gif" width="676" height="337">　　　　<br>
+  　　　　</p>
+  <p>空欄ａについて<br>
+  　(7)の②～④の処理で、GR0にセットされた結果の図形の語の格納先のビットを１（ON）にした後、空欄ａの直前において、GR1にセットされた元の図形の先頭ビットが１のときJMI命令により、RESTORの処理にジャンプ。空欄ａの処理の後に続くRESTORの処理で、GR0の結果の図形の１語を、ST命令によりそのままGR2番地に退避している。したがって空欄ａにおいて、GR1にセットされた元の図形の先頭ビットが0のときの処理を行う必要がある。つまりGR1の先頭ビットが0のとき、GR0に格納された結果の図形の１語について１（ON）にしたビットを0（OFF）に戻せばよい。これにはGR0とBITPOSとの排他的論理和EORをとればよい。（上図参照）空欄ａは、&quot;EOR 
+  GR0, BITPOS、つまり解答群のエが正解。
+  <p align="left">空欄ｂについて<br>
+  　空欄ｂの直前の処理で、GR1にセットされた元の図形の１語を、SLL命令により１ビット左にシフトし、処理対象のビットを先頭ビットに移動している。また空欄ｂの直後の［NWORDの処理］は、１語分の処理が終わったときの処理である。<br>
+  　したがって空欄ｂではLOOP2に戻り、この先頭ビットが１か0かにより処理を繰返せばよい。つまり空欄ｂでJMP命令によりLOOP2へ戻りループを繰返せばよく、空欄ｂは&quot;JMP 
+  LOOP2&quot;、つまり解答群のエが正解。</p>
+  <p align="left">空欄ｃについて<br>
+  　空欄ｃの直前のLD命令により、結果の図形の語の格納先のビット位置BITPOSをGR0にセットしている。したがって空欄ｃにおいて、元の図形の次語の格納先である、結果の図形の語のビット位置GR0を１ビット左シフトし、格納先のビット　　位置を更新すればよいので、空欄ｃは&quot;SLL 
+  GR0,1&quot;、つまり解答群のキが正解。</p>
+  <p align="left">空欄ｄについて<br>
+  　空欄ｄの直前で、語数カウンタGR3の値が－１されている。このGR3が0となれば、元の図形のすべての語について処理が終了したことになる。したがってGR3の値が0でない間は、LOOP1に戻り処理を繰返す必要がある。<br>
+  つまり空欄ｂは&quot;JNZ LOOP1&quot;、つまり解答群のオが正解。<br>
+  </p>
+  <p><img border="0" src="image/a99a10am.gif" width="329" height="141"><br>
+  </p>
+<p><br>
+　</p>
+<HR WIDTH=100%>
+<a HREF="11f_p_e3.htm#101">問題へ</a>
+<HR WIDTH=100%>
+  　<BR>
+<A HREF="index.htm">メニューへ戻る</A>
+<HR WIDTH=100%>
+<p><BR>
+</p>
+  <p>　</p>
+</blockquote>
+</BODY>
+</HTML>

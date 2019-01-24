@@ -1,0 +1,102 @@
+<html>
+
+<head>
+<title>平成20年度 春期 基本情報技術者試験 問題（午後問1～2）</title>
+<style type="text/css">
+body{line-height:150%;}
+code{font-size:12pt;}
+</style>
+</head>
+
+<body>
+
+<blockquote>
+	<hr>
+	<h3 align="center">平成20年度春期試験　問題(問1～問2)</h3>
+	<hr>
+	<div align="center">
+		<center>
+		<table border="1" cellpadding="8" cellspacing="0" bordercolor="#000000">
+			<tr>
+				<td>次の<strong>問1</strong>から<strong>問5</strong>までの5問については，全問解答してください。</td>
+			</tr>
+		</table>
+		</center>
+	</div>
+	<hr>
+	<p><a name="10"><strong>問1</strong></a>　ハードディスク装置に関する次の記述を読んで，設問1，2に答えよ。</p>
+	<p>　X社では，ハードディスク装置である製品Aと製品Bを生産している。製品Aと製品Bの仕様を表に示す。 </p>
+	<p><img border="0" src="img/20spmq01.png" width="424" height="205"></p>
+	<p><a name="11"><strong>設問1</strong></a>　次の記述中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。解答は小数第2位以下を切り捨てるものとする。</p>
+	<p>　製品Aでは，平均回転待ち時間は［　　ａ　　］ミリ秒であり，100 kバイトのデータを転送する時間は［　　ｂ　　］ミリ秒である。</p>
+	<p>　一方，製品Bでは，平均回転待ち時間が5.5ミリ秒であり，100 kバイトのデータを転送する時間が3.3ミリ秒であることから，100 
+	kバイトの平均アクセス時間（平均位置決め時間＋平均回転待ち時間＋データ転送時間）は，製品Aに比べて［　　ｃ　　］ミリ秒短い。 </p>
+	<p>解答群</p>
+	<p>ア　3.3<br>
+	イ　5.0<br>
+	ウ　5.3<br>
+	エ　5.5<br>
+	オ　7.1<br>
+	カ　11.1<br>
+	キ　14.2</p>
+	<hr>
+	<p><a href="20S_P_A1.HTM#11">設問1の正解例と解説へ</a></p>
+	<hr>
+	<p><a name="12"><strong>設問2</strong></a>　次の記述中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。解答は小数第2位以下を切り捨てるものとする。</p>
+	<p>　読取り時のアクセス時間を短縮するために，ディスクキャッシュを搭載した製品Cを開発した。ディスクキャッシュヘの書込みと読取りは，2 
+	kバイトのブロック単位で行う。あるブロックに対するデータの読取り要求があった場合，ディスクキャッシュを検索し，ディスクキャッシュ上にそのブロックのデータがあればディスクキャッシュ上のデータを返す。ディスクキャッシュ上にそのブロックのデータがなければ，磁気ディスクからデータを読み込み，データを返すと同時にディスクキャッシュ上の最も古いブロックのデータと交換する。</p>
+	<p>
+	　ディスクキャッシュを検索する平均時間は1.0ミリ秒，ディスクキャッシュの平均ヒット率は0.4，ディスクキャッシュからの1ブロック当たりのデータの平均読取り時間は0.4ミリ秒とする。ディスクキャッシュがヒットしなかったとき，磁気ディスクからの1ブロック当たりのデータの平均読取り時間は，ディスクキャッシュ上の最も古いブロックのデータと交換する時間も含めて17.0ミリ秒とする。このとき，製品Cの1ブロック当たりの読取り時の平均アクセス時間は［　　ｄ　　］ミリ秒となる。</p>
+	<p>解答群<br>
+	ア　7.0<br>
+	イ　8.0<br>
+	ウ　10.3<br>
+	エ　11.3<br>
+	オ　13.2<br>
+	カ　14.2</p>
+	<hr>
+	<p><a href="20S_P_A1.HTM#12">設問2の正解例と解説へ</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a> </p>
+	<hr>
+	<p><a name="20"><strong>問2</strong></a>　次のプログラムの説明及びプログラムを読んで，設問1，2に答えよ。</p>
+	<p>　〔プログラムの説明〕 　長さが<code>Textlen</code>の文字列<code>SourceText</code>の中で，長さが<code>Patlen</code>の文字列<code>Pattern</code>と一致する部分の文字列（以下，部分文字列という）の出現回数を数える関数<code>MatchCounter</code>である。ここで，<code>0</code>＜<code>Patlen</code>≦<code>Textlen</code>である。</p>
+	<p>　（1）<code>MatchCounter</code>の処理手順は，次のとおりである。<br>
+	　①　一致する部分文字列の出現回数を数える変数<code>Counter</code>の値を0に初期化する。<br>
+	　②　<code>SourceText</code>の比較開始位置を先頭から順に1文字ずつ後ろにずらしながら，その比較開始位置から始まる長さ<code>Patlen</code>の文字列と<code>Pattern</code>が一致するかどうかを調べ，一致したら出現回数<code>Counter</code>の値に1を加算する。<br>
+	　③　<code>Counter</code>の値を返す。</p>
+	<p>（2）<code>MatchCounter</code>の引数と返却値の仕様を表に示す。文字列は文字型配列の各要素に1文字ずつ格納されている。また，各配列の添字は0から始まる。</p>
+	<p><img border="0" src="img/20spmq02.png" width="651" height="253"></p>
+	<p><img border="0" src="img/20spmq03.png" width="540" height="577"></p>
+	<p><a name="21"><strong>設問1</strong></a>　プログラム中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+	<p>aに関する解答群<br>
+	ア　<code>i </code>＋<code> Patlen </code>≦<code> Textlen</code><br>
+	イ　<code>i </code>＋<code> Patlen </code>＜<code> Textlen</code><br>
+	ウ　<code>i </code>＋<code> Textlen </code>≦<code> Patlen<br>
+	</code>エ　<code>i </code>＋<code> Textlen </code>＜<code> Patlen</code></p>
+	<p>bに関する解答群<br>
+	ア　<code>SourceText[i] </code>＝<code> Pattern[k]</code><br>
+	イ　<code>SourceText[j] </code>＝<code> Pattern[k]</code><br>
+	ウ　<code>SourceText[k] </code>＝<code> Pattern[i]</code><br>
+	エ　<code>SourceText[k] </code>＝<code> Pattern[j]</code></p>
+	<hr>
+	<p><a href="20S_P_A1.HTM#21">設問1の正解例と解説へ</a></p>
+	<hr>
+	<p><a name="22"><strong>設問2</strong></a>　<code>Pattern</code>と一致した部分文字列は以降の検索対象から外すように，このプログラムを変更する。</p>
+	<p>　例えば，<code>SourceText</code>と<code>Pattern</code>が図に示す文字列であるとき，プログラムでは，比較開始位置を①，②，③，…と移動して，一致する部分文字列の出現回数を求めるので，下線の部分文字列と二重下線の部分文字列がともに数えられる。これに対して，一致した部分文字列を検索対象から外す場合は，比較開始位置を①，②，⑤，…と移動するので，二重下線の部分文字列は数えられない。</p>
+	<p><img border="0" src="img/20spmq04.png" width="522" height="167"></p>
+	<p>　このとき，プログラム中のα部分の変更内容として正しい答えを，解答群の中から選べ。</p>
+	<p>解答群</p>
+	<p><img border="0" src="img/20spmq05.png" width="584" height="231"></p>
+	<hr>
+	<p><a href="20S_P_A1.HTM#22">設問2の正解例と解説へ</a></p>
+	<hr>
+	<p><a href="20S_P_E2.HTM">■問3へ進む</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a></p>
+	<hr>
+</blockquote>
+
+</body>
+
+</html>

@@ -1,0 +1,163 @@
+<HTML>
+<HEAD>
+<TITLE>平成11年度春期試験　問題</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0">
+<blockquote>
+  <hr>
+  <H3 align="center">平成11年度春期試験　正解例と解説(問11～問14)</H3>
+<HR WIDTH=100%>  
+<a NAME="110">　<BR> 
+<b> 
+問11</b></a>　
+<hr>
+<a NAME="111">　<BR>
+<b>
+設問</b></a><b>　</b>
+  <p>＜解答＞ａ　オ　　　　ｂ　オ　　　　ｃ　オ　　　　ｄ　ウ</p>
+  <p><br>
+  ＜解説＞プログラムロジックは、以下の(1)と(2)の部分に分けられる。<br>
+  (1) 乗車駅fromと降車駅toの間の運賃距離を駅名表を検索して各駅間の実距離×重みを加算して算出する処理。<img border="0" src="image/A11s11f1.gif" width="734" height="261"></p>   
+  <table border="0" cellpadding="3" cellspacing="0">   
+    <tr>   
+      <td valign="top">①</td>   
+      <td>乗車駅fromが駅名表line[i]の駅名nameと一致しない間は、ｉ＋１→ｉ</td>   
+    </tr>   
+    <tr>   
+      <td valign="top">②</td>   
+      <td>乗車駅fromが駅名表line[i]の駅名nemeと一致したとき、ループを抜けて乗車駅と隣駅との運賃距離distfを実距離×重みで計算し求める（初期値）。</td>   
+    </tr>   
+    <tr>   
+      <td valign="top">③</td>   
+      <td>降車駅toが駅名表line[i]の駅名nameと一致しない間は、各隣接駅間の運賃距離を実距離×重みで計算し、distfに加算する。</td>   
+    </tr>   
+    <tr>   
+      <td valign="top">④</td>   
+      <td>運賃距離distfの小数点以下を切り上げてdistxにセット</td>   
+    </tr>   
+  </table>   
+  <p>(2)運賃距離distxに対し、距離運賃表dist_fare（運賃距離を適用する上限）を検索し、各隣接駅間の運賃を加算して算出する処理。<br>   
+  <br>   
+  <img border="0" src="image/A11s11f2.gif" width="702" height="349"><br>   
+  設問は乗車駅を"a"、降車駅を"f"として、プログラムをトレースしている。<br>   
+  空欄ａ、ｂについて<br>   
+  　乗車駅"a"に関してｉ=0で"a"=line[0].nameとなり、14行目のwhile文のループを抜け、16行目で運賃距離distfの初期値が以下のように計算される。<br>
+  　distf =line[0].dist＊weight[line[0].rank] =5＊weight[0] =5＊1.0 =5<br>    
+  降車駅"f"に関して、18～21行目のwhile文においてi=5で"f"=line[5].nameとなりループを抜け、運賃距離distfが以下のように計算される。<br>    
+  　distf=5＋line[1].dist＊weight[line[1].rank]<br>
+  　　　　　＋line[2].dist＊weight[line[2].rank]<br>
+  　　　　　＋line[3].dist＊weight[line[3].rank]<br>
+  　　　　　＋line[4].dist＊weight[line[4].rank]<br>
+  　　　 =5＋6＊1.2＋11＊1.1＋8＊2.0＋7＊1.5<br>    
+  　　　 =5＋7.2＋12.1＋16＋10.5<br>    
+  　 =50.8<br>    
+  つまり隣接駅間の運賃距離を加算する処理である19行目は４回実行される。<br>    
+  このdistfは22行目で少数点以下が切り上げられて、distx=51となる。<br>    
+  したがって空欄ａは、解答群のオ、空欄ｂは解答群のオが正解。<br>    
+  <br>    
+  <img border="0" src="image/A11s11f3.gif" width="666" height="193"><br>   
+  空欄ｃ、ｄについて<br>   
+  　23行目でfarexの初期値がfarex=dist_fare[0].cost=100にセットされ、24～30行のforループに入る。<br>
+  　運賃距離distx=51に対してi=5のときdistx≦dist_fare[i－1].distとなりforループを終了し、乗車駅"a"と降車駅"f"間の運賃farexが以下のように計算される。<br>
+  　farex=100＋(dist_fare[1].dist－dist_fare[0].dist)＊dist_fare[1].cost<br>
+  　　　　　　＋(dist_fare[2].dist－dist_fare[1].dist)＊dist_fare[2].cost<br>
+  　　　　　　＋(dist_fare[3].dist－dist_fare[2].dist)＊dist_fare[3].cost<br>
+  　　　　　　＋(distx　　　　　　－dist_fare[3].dist)＊dist_fare[4].cost<br>
+  　　　 =100＋(5－0)＊50＋(20－5)＊40＋(40－20)＊30＋(51－40)＊20<br>    
+  　　　 =100＋250＋600＋+600＋220<br>    
+  　　　 =1770<br>    
+  <br>    
+  <img border="0" src="image/A11s11f4.gif" width="666" height="167"><br>   
+  つまり隣接駅間の運賃を加算して乗車－降車駅間の運賃farexを求める25行目の処理は、４回実行される。したがって空欄ｃは、解答群のオ、空欄ｄは解答群のウが正解。<br>   
+  </p>   
+<HR WIDTH=100%>   
+  <a HREF="11s_p_e4.htm#111">問題へ</a>   
+<HR WIDTH=100%>   
+<p><A HREF="index.htm">メニューへ戻る</A>　</p>   
+<HR WIDTH=100%>   
+<a NAME="120">　<BR>   
+<b>   
+問12</b></a>　
+<HR WIDTH=100%> 
+<a NAME="121"><b>　<BR> 
+設問</b></a><b>1　</b>
+  <p>＜解答＞　ａ　カ　　　　ｂ　オ　　　　ｃ　キ　　　　ｄ　ケ</p>
+  <p>＜解説＞<br>
+  空欄ａについて<br>
+  　累積輸出記録ファイルのレコードは当初15けたであり、４けた拡張法により輸出年月の年が2けたから4けたになることで2けた増加する。これに対応し新累積輸出記録ファイルのレコードの桁数を15から17けたに増やす必要がある。したがって空欄ａは17で、解答群のカが正解。<br>
+  <br>
+  空欄ｂについて<br>
+  　空欄ｂに関する処理の直後に追加する処理は、YUSYUTU-FILEの輸出年月Y-NENを4けたのY-NEN-Y2Kに変換する処理。したがって29行目のPERFORMでの日付の比較処理直前に入れる必要がある。<br>
+  <br>
+  空欄ｃについて<br>
+  　②で定義された"4けたの年"に揃えて日付を比較する必要があるので、解答群のキが正解。<br>
+  <br>
+  空欄ｄについて<br>
+  　空欄ｄに関するIF文で行われている処理は、"ウインドウ法"により境界年より日付が小さければ2000を加算し、そうでなければ1900を加算する処理であり、空欄ｄはそのIF文の条件に該当する。<br>
+  　読み込まれた累積輸出記録ファイルYUSYUTU-FILEの2けたの輸出年月Y-NENはワークエリアW-NEW2-Y2Kにセットされているので、このW-NEW2-Y2Kを境界年のKYOKAIと比較する必要がある。したがって解答群のケが正解。<br>
+  　</p>
+<HR WIDTH=100%>
+  <a HREF="11s_p_e4.htm#121">問題へ</a>
+<A NAME="40">
+<HR WIDTH=100%>
+</a><a NAME="122"><b>　<BR>
+設問</b></a><b>2　</b>
+  <p>＜解答＞ｅ　コ　　　　ｆ　イ</p>
+<p>＜解説＞空欄ｅ、ｆについて
+  <table border="0" cellpadding="3" cellspacing="0">
+    <tr>
+      <td valign="top">①</td>
+      <td>実行日（システム日付）の西暦00年を4けたの2000に変換するために、まず１回CONVERT-DATE-RTNが呼びだされ、COMPUTE文が１回実行される。</td>
+    </tr>
+    <tr>
+      <td valign="top">②</td>
+      <td>以後、累積輸出記録ファイルのレコードが読み込まれるごとに、輸出年月の変換のためにレコード件数の数だけ、つまり20回呼び出される。そのうち境界年よりも日付が小さいデータについてのみCOMPUTE文が実行されるので、輸出年が00である４つのレコードに対してだけCOMPUTE文が実行される。</td>
+    </tr>
+  </table>
+  <p>したがって①と②の合計で、<br>
+  　CONVERT-DATE-RTNは20＋1=21回呼び出され、COMPUTE命令は4＋1=5回実行される。つまり空欄ｅは、解答群のコ、空欄ｆは解答群のイが正解<p>　
+<HR WIDTH=100%>
+  <a HREF="11s_p_e4.htm#122">問題へ</a>
+<HR WIDTH=100%>
+<p>
+<A HREF="index.htm">メニューへ戻る</A></p>
+<HR WIDTH=100%>
+<p>
+<a NAME="130">
+<b>問13</b></a><b>　　</b>（解説は省略します。）</p>
+<HR WIDTH=100%> 
+<a NAME="131">　<BR> 
+<b> 
+設問</b></a>&nbsp;　
+  <p>＜解答＞　ａ　ウ　　　　ｂ　ウ　　　　ｃ　ア　　　　ｄ　ウ<br>
+  　</p>
+<HR WIDTH=100%>
+  <a HREF="11s_p_e4.htm#131">問題へ</a>
+<HR WIDTH=100%>
+  　<BR>
+<b><a name="140">問14</a>　　</b>（解説は省略します。）
+  <br>
+  　
+<hr> 
+<p><b><a name="141">設問</a>1</b></p> 
+<p>＜解答＞設問１　ａ　イ　　　　ｂ　ウ<br>
+<br>
+　</p> 
+<HR WIDTH=100%> 
+  <a HREF="11s_p_e4.htm#141">問題へ</a> 
+<HR WIDTH=100%> 
+<p><b><a name="142">設問</a>2　</b></p> 
+<p>＜解答＞　c　カ　　　　d　イ</p> 
+<p>　</p>
+<HR WIDTH=100%> 
+  <a HREF="11s_p_e4.htm#142">問題へ</a> 
+<hr> 
+<p> 
+<A HREF="index.htm">メニューへ戻る</A></p> 
+<HR WIDTH=100%> 
+<p><BR> 
+</p> 
+  <p>　</p>
+</blockquote>
+</BODY> 
+</HTML> 

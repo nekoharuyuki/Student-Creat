@@ -1,0 +1,154 @@
+<html>
+
+<head>
+<title>平成20年度 秋期　基本情報技術者 午後 解説</title>
+<style type="text/css">
+body{line-height:150%;}
+code{font-size:12pt;}
+</style>
+</head>
+
+<body>
+
+<blockquote>
+	<hr>
+	<h3 align="center">平成20年度秋期試験　正解例と解説(問6～問9)</h3>
+	<hr>
+	<p><a name="60"><strong>問6</strong></a></p>
+	<hr>
+	<p><a name="61"><strong>設問</strong></a></p>
+	<p>〈解答〉　オ，b：オ，c：エ</p>
+	<p>〈解説〉</p>
+	<p>空欄aについて</p>
+	<blockquote>
+		<p>　関数<code>convert</code>は，整数<code>num</code>を3けた区切り形式の文字列に変換し，文字列配列<code>str[]</code>に先頭から格納する。配列<code>table[]</code>の配列要素には先頭から順に0から9までの数字が格納されている。<code>do_while</code>ループの最初の処理で，整数<code>num</code>の下位けたから順に文字に変換している。<code>num 
+		% 10</code>により整数<code>num</code>の最下位けたの数値を求め，配列要素<code>table[num % 10]</code>により最下位けたの数値に対応する数字に変換している。したがって繰返処理において最下位けたから上位けたに向けて次のけたの数値を最下位けたに移動させるため，空欄aの処理で整数<code>num</code>を10で割算しておく必要があり，空欄aはオの<code>/ 
+		= 10</code>が適切。</p>
+	</blockquote>
+	<p>空欄bについて</p>
+	<blockquote>
+		<p>　空欄bを含む<code>if</code>文の条件が成立つとき，<code>str[j++] = ','</code>の処理により3けたごとに<code>','</code>を挿入している。空欄b直前で変数<code>i</code>をカウントアップした後，空欄bの<code>if</code>文の処理で3けたごとのカンマを挿入している。したがって変数<code>i</code>が3の倍数になるごとにカンマを挿入すればよく，空欄bはオの<code>i 
+		% 3</code>が適切。</p>
+	</blockquote>
+	<p>空欄cについて</p>
+	<blockquote>
+		<p>　<code>do_while</code>ループの繰返処理では，配列<code>str[]</code>に整数の最下位けたの数字から順に格納しているので，空欄cの<code>for</code>ループ処理で，順序を逆に入れ替えている。配列<code>str[]</code>の<code>i</code>番目の要素と<code>j</code>番目の要素との入れ替えを行っており，空欄cはその繰返し条件と増分値になっている。したがって繰返条件は<code>i 
+		&lt; j</code>，増分値は<code>i++</code>，<code>j--</code>で，エが適切。</p>
+	</blockquote>
+	<hr>
+	<p><a href="20F_P_E3.HTM#61">問題へ</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a> </p>
+	<hr>
+	<p><a name="70"><strong>問7</strong></a></p>
+	<hr>
+	<p><a name="71"><strong>設問1</strong></a></p>
+	<p>〈解答〉　a：イ，b：ウ</p>
+	<p>〈解説〉</p>
+	<p>空欄aについて</p>
+	<blockquote>
+		<p>　空欄aは<code>CNT-PROC</code>手続で，利用実績ファイル（<code>COPY-FILE</code>）のコピー用紙の使用枚数<code>CP-CNT</code>を集計している処理に該当する。この集計では，集計用テーブル<code>DEPT-TOTAL</code>を用いて，利用部署<code>CP-DEPT</code>ごとの使用枚数をテーブル集計している。したがって空欄aはイの<code>ADD 
+		CP-CNT TO DEPT-TOTAL(CP-DEPT)</code>が適切。</p>
+	</blockquote>
+	<p>空欄bについて</p>
+	<blockquote>
+		<p>　空欄bを含む<code>PERFORM</code>文のループ処理では，集計用テーブル<code>DEPT-TOTAL</code>に集計された利用部署ごとのコピー用紙の使用枚数の集計結果を棒グラフで表示している。100枚を<code>*</code>印一つとして表示する。空欄b直後の<code>DISPLAY</code>命令により，利用部署<code>DEPT-NAME(DEPT-CNT)</code>と<code>MARK-CNT</code>個の<code>*</code>印を<code>MARKER(1:MARK-CNT)</code>により表示している。100枚に満たない場合は切上げて<code>*</code>を表示するので，1枚～100枚のとき<code>*</code>，101枚から200枚のとき<code>**</code>，…のように表示する。100枚に満たない枚数を切上げて<code>*</code>の個数を<code>MARK-CNT</code>に求めるためには，<code>DEPT-TOTAL(DEPT-CNT)</code>に99を加算した枚数を100で割ればよく，空欄bはウが適切。</p>
+	</blockquote>
+	<hr>
+	<p><a href="20F_P_E3.HTM#71">問題へ</a></p>
+	<hr>
+	<p><a name="72"><strong>設問2</strong></a></p>
+	<p>〈解答〉　c：ウ，d：ア</p>
+	<p>〈解説〉</p>
+	<p>空欄cについて</p>
+	<blockquote>
+		<p>　空欄cの箇所に追加する処理では，両面コピー機能を利用したコピー用紙の使用枚数を利用部署ごとにテーブル<code>DEPT-BOTH(CP-DEPT)</code>にテーブル集計している。したがって空欄aの直後の行番号35と36の間に追加すればよく，ウが適切。</p>
+	</blockquote>
+	<p>空欄dについて</p>
+	<blockquote>
+		<p>　空欄d直後の<code>IF</code>文の処理で，<code>BOTH-RATE</code>が50％未満の場合には棒グラフの右端に“<code>(!)</code>”を表示している。したがって空欄dの処理で，両面コピー機能を利用したコピー枚数の比率を計算しておく必要がある。利用部署<code>CP-DEPT</code>ごとの使用枚数<code>DEPT-TOTAL(CP-DEPT)</code>に対する両面コピー機能を利用したコピー用紙の使用枚数<code>DEPT-BOTH(CP-DEPT)</code>の比率を計算すればよく，アが適切。</p>
+	</blockquote>
+	<hr>
+	<p><a href="20F_P_E3.HTM#72">問題へ</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a> </p>
+	<hr>
+	<p><a name="80"><strong>問8</strong></a></p>
+	<hr>
+	<p><a name="81"><strong>設問1</strong></a></p>
+	<p>〈解答〉　a：イ，b：ウ，c：ク</p>
+	<p>〈解説〉</p>
+	<p>空欄a，bについて</p>
+	<blockquote>
+		<p>　クラス<code>PhoneBook</code>は，電話帳を表すクラスで，1つの名前に複数の電話番号を対応付ける。メソッド<code>add(String 
+		name, String phoneNumber)</code>は，電話帳に名前<code>name</code>と電話番号<code>phoneNumber</code>を登録する。メソッド<code>add</code>を複数回呼び出すことにより，1つの名前に複数の電話番号を対応付けることができる。<code>Set&lt;String&gt;</code>は，<code>String</code>型の要素を集合として管理するインタフェースで，クラス<code>HashSet&lt;String&gt;</code>は，インタフェース<code>Set</code>のハッシュを用いた実装であり，<code>numbers</code>はそのオブジェクトで，電話番号の集合を表す。また<code>Map&lt;String, 
+		Set&lt;String&gt;&gt;</code>は，<code>String</code>型のキーに<code>String</code>型の要素の集合を対応付けて保持するインタフェースであり，クラス<code>HashMap&lt;String, 
+		Set&lt;String&gt;&gt;</code>は，<code>String</code>型のキーに<code>String</code>型の要素の集合を対応付けて保持するインタフェース<code>Map</code>の実装で，<code>book</code>はそのオブジェクトで電話帳を表す。<br>
+		　名前<code>name</code>と電話番号の集合<code>numbers</code>との対応付けがなければ<code>numbers</code>は<code>null</code>となり，空欄a直前の<code>if</code>文の条件を満たし，クラス<code>HashSet</code>のオブジェクト<code>numbers</code>を生成した後，空欄aと空欄bの処理を行う。したがって空欄aで電話番号の集合<code>numbers</code>に，メソッド<code>add</code>により電話番号を追加した後，空欄bで電話帳<code>book</code>にメソッド<code>put</code>により名前<code>name</code>に電話番号の集合<code>numbers</code>を対応付けて登録すればよい。これより空欄aはイの<code>add(phoneNumber)</code>，空欄bはウの<code>put(name, 
+		numbers)</code>が適切。</p>
+	</blockquote>
+	<p>空欄cについて</p>
+	<blockquote>
+		<p>　メソッド<code>remove(String name, String phoneNumber)</code>は，電話帳を表すクラス<code>PhoneBook</code>のメソッドで，引数に指定した名前<code>name</code>に対応付けられている指定した電話番号<code>phoneNumber</code>を削除する。電話番号の集合<code>numbers</code>が<code>null</code>でなければメソッド<code>remove</code>により<code>phoneNumber</code>を削除すればよく，空欄cはクの<code>remove(phoneNumber)</code>が適切。</p>
+	</blockquote>
+	<hr>
+	<p><a href="20F_P_E3.HTM#81">問題へ</a></p>
+	<hr>
+	<p><strong><a name="82">設問2</a></strong></p>
+	<p>〈解答〉　イ</p>
+	<p>〈解説〉</p>
+	<blockquote>
+		<p>　メソッド<code>startsWith</code>は，クラス<code>String</code>の<code>boolean</code>型のメソッドで，引数に指定した文字列で始まるかどうかを判定し，指定した文字列で始まれば<code>true</code>を返し，それ以外は<code>false</code>を返す。<code>Set&lt;String&gt;</code>は，<code>String</code>型の要素を集合として管理するインタフェースで，クラス<code>HashSet&lt;String&gt;</code>は，インタフェース<code>Set</code>のハッシュを用いた実装であり，<code>ret</code>はそのオブジェクトである。<code>keySet()</code>はインタフェース<code>Map</code>のメソッドで，登録されているキーの集合を返す。したがって<code>book.keySet()</code>は電話帳<code>book</code>に登録されている名前の集合を返すので，<code>for</code>ループにより登録されているすべての名前について<code>if</code>文の処理を繰返す。この<code>if</code>文の条件で電話帳に登録されている名前<code>key</code>が，引数<code>var</code>で指定された文字列で始まる場合，メソッド<code>add</code>により名前の集合<code>ret</code>に名前<code>key</code>を追加し，<code>for</code>ループ終了後，名前の集合<code>ret</code>を戻値として返している。したがって追加したメソッド<code>methodX</code>は，電話帳に登録されている名前のうち，引数<code>var</code>で与えられた文字列で始まるすべての名前の集合を返し，イが適切。</p>
+	</blockquote>
+	<hr>
+	<p><a href="20F_P_E3.HTM#82">問題へ</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a> </p>
+	<hr>
+	<p><a name="90"><strong>問9</strong></a></p>
+	<hr>
+	<p><strong><a name="91">設問1</a></strong></p>
+	<p>〈解答〉　a：ウ，b：オ，c：ア</p>
+	<p>〈解説〉</p>
+	<p>空欄aについて</p>
+	<blockquote>
+		<p>　プログラム<code>PTN1</code>では，最上位ビットから指定したビット番号までのビットを1に，それ以外を0に設定する。プログラムでは<code>LAD</code>命令により<code>GR2</code>に15を設定した後，次の<code>SUBL</code>命令により<code>GR2</code>から<code>GR1</code>を差し引いた15－<code>GR1</code>が<code>GR2</code>に設定される。この<code>GR2</code>の内容は次の<code>LD</code>命令により<code>GR1</code>に転送され，結果的に<code>GR1</code>には（15－指定したビット番号）が設定される。<br>
+		　<code>LD</code>命令により<code>GR2</code>に空欄aのビット列を格納した後，次の算術右シフト<code>SRA</code>命令により<code>GR2</code>のビット列を<code>GR1</code>ビット右シフトしている。算術右シフトではシフトによる左側の空きビットには符号ビットと同じ値がセットされる。したがって最上位ビットからビット番号<code>GR1</code>までの（15－<code>GR1</code>）ビットを1に，それ以外を0に設定するには，ビット列<code>#8000</code>を<code>GR2</code>に格納し算術右シフトを行えばよく，空欄aはウの<code>#8000</code>が適切。<br>
+		<br>
+		<img border="0" src="img/ans18.png" width="351" height="157"></p>
+	</blockquote>
+	<p>空欄bについて</p>
+	<blockquote>
+		<p>　プログラム<code>PTN2</code>では，最上位ビットから指定したビット番号のビットまでを0に，それ以外を1に設定する。プログラムでは<code>LAD</code>命令により<code>GR2</code>に16を設定した後，次の<code>SUBL</code>命令により<code>GR2</code>から<code>GR1</code>を差し引いた16－<code>GR1</code>が<code>GR2</code>に設定される。この<code>GR2</code>の内容は次の<code>LD</code>命令により<code>GR1</code>に転送され，結果的に<code>GR1</code>には（16－指定したビット番号）が設定される。<br>
+		　<code>LD</code>命令により<code>GR2</code>に空欄bのビット列を格納した後，次の論理右シフト<code>SRL</code>命令により<code>GR2</code>のビット列を<code>GR1</code>ビット右シフトしている。論理右シフトではシフトによる左側の空きビットには0がセットされる。したがって最上位ビットからビット番号<code>GR1</code>までの（16－<code>GR1</code>）ビットを0に，それ以外を1に設定するには，ビット列<code>#FFFF</code>を<code>GR2</code>に格納し論理右シフトを行えばよく，空欄bはオの<code>#FFFF</code>が適切。<br>
+		<br>
+		<img border="0" src="img/ans19.png" width="347" height="162"></p>
+	</blockquote>
+	<p>空欄cについて</p>
+	<blockquote>
+		<p>　プログラム<code>PTN3</code>では，指定したビット番号のビットだけを1に，それ以外のビットを0に設定する。プログラムでは，<code>GR2</code>に空欄cのビット列を格納した後，次の論理左シフト<code>SLL</code>命令により，<code>GR2</code>のビット列を<code>GR1</code>ビット論理左シフトしている。論理左シフトではシフトによる右側の空きビットには0がセットされる。したがって指定したビット番号<code>GR1</code>のビットだけを1に，それ以外のビットを0に設定するには，ビット列<code>#0001</code>を<code>GR2</code>に格納し論理左シフトを行えばよく，空欄cはアの<code>#0001</code>が適切。<br>
+		<br>
+		<img border="0" src="img/ans20.png" width="293" height="113"></p>
+	</blockquote>
+	<hr>
+	<p><a href="20F_P_E3.HTM#91">問題へ</a></p>
+	<hr>
+	<p><strong><a name="92">設問2</a></strong></p>
+	<p>〈解答〉　d：カ</p>
+	<p>〈解説〉</p>
+	<p>　プログラム<code>PTN4</code>では，<code>PTN1</code>，<code>PTN2</code>を利用し，ビット番号B1からB2（15＞B1≧B2＞0）までのビットを0に，それ以外を1に設定する。プログラムでは<code>GR1</code>にビット番号B1を，<code>GR2</code>にビット番号B2をセットし<code>PTN4</code>を呼び出す。<br>
+	　先ず<code>ST</code>命令により<code>GR1</code>のビット番号B1を<code>WRK</code>に退避した後，次の<code>LD</code>命令により<code>GR1</code>に<code>GR2</code>のビット番号B2を転送し，プログラム<code>PTN1</code>を呼び出している。プログラム<code>PTN1</code>の呼出しにより，最上位ビットから指定したビット番号B2までのビットが1に，それ以外が0に設定され，<code>GR2</code>に格納される。次の<code>PUSH</code>命令により，<code>GR2</code>のビット列をスタックに一時的に保存している。<br>
+	　次の<code>LD</code>命令では<code>WRK</code>に退避したビット番号B1を<code>GR1</code>に格納し，<code>LAD</code>命令によりB1＋1を<code>GR1</code>に設定した後，プログラム<code>PTN2</code>を呼び出している。プログラム<code>PTN2</code>の呼出しにより，最上位ビットから指定したビット番号（B1＋1）までのビットが0に，それ以外が1に設定され，<code>GR2</code>に格納される。スタックに保存していた<code>PTN1</code>の結果を，次の<code>POP</code>命令により<code>GR1</code>にセットしている。この直後の処理が空欄dの処理である。したがってビット番号B1からB2（15＞B1≧B2＞0）までのビットを0に，それ以外を1に設定するには，空欄dで<code>XOR</code>命令により<code>GR2</code>と<code>GR1</code>との排他的論理和をとればよい。したがって空欄dはカの<code>XOR 
+	GR2,GR1</code>が適切。<br>
+	<br>
+	<img border="0" src="img/ans21.png" width="443" height="239"></p>
+	<hr>
+	<p><a href="20F_P_E3.HTM#92">問題へ</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a></p>
+	<hr>
+</blockquote>
+
+</body>
+
+</html>

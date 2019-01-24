@@ -1,0 +1,298 @@
+<html>
+
+<head>
+<title>平成19年度秋期試験　問題(問3～問5)</title>
+</head>
+
+<body>
+
+<blockquote>
+	<hr>
+	<h3 align="center">平成19年度秋期試験　問題(問3～問5)</h3>
+	<hr>
+	<p><a name="30"><strong>問3</strong></a>　通信回線に関する次の記述を読んで，設問に答えよ。</p>
+	<p>　A社は，本社と工場を結ぶ，X，Y，Zの3系統の独立した通信回線をもっている。</p>
+	<p>〔回線X，Y，Zの説明〕<br>
+	（1）X，Y，Zは，それぞれ運用開始年は異なるが，3系統とも運用開始年の1月の始業とともに運用が開始されている。3系統とも，昨年1年間の運用時間は6,240時間であった。<br>
+	（2）Xは，導入した年から数えて（導入した年を1年目として）13年経過し，14年目に入った回線であり，今年の12月いっぱいで運用をやめることになっている。一昨年（12年目の1年間）と昨年（13年目の1年間）の故障頻度は，安定的に推移していたそれまでの数年間より増える傾向にあった。Xの昨年のMTTR（平均修復時間）は6時間であり，故障時間の合計はYの6倍であった。<br>
+	（3）Yは，導入後7年目の回線であり，3年前（4年目）から故障頻度は安定している。Yの昨年（6年目の1年間）のMTTRは4時間であり，故障回数は3回であった。<br>
+	（4）Zは，導入後2年目の最も新しい回線であり，Zの昨年（1年目の1年間）のMTTRは6時間であり，故障頻度はYより高い値であった。</p>
+	<p>〔バスタブ曲線の説明〕<br>
+	　ハードウェアの故障頻度は，横軸に導入からの経過時間，縦軸に故障頻度をとると，図のようなバスタブを縦に切った断面のような形状の曲線に従うことが知られており，この曲線をバスタブ曲線と呼んでいる。<br>
+	　バスタブ曲線では，運用開始直後から時間の経過とともに故障頻度が減少する期間を初期故障期間，老朽化によって故障頻度が増加する期間を摩耗故障期間，この二つの期間の間で，偶発故障が主になり故障頻度が安定する期間を偶発故障期間と呼ぶ。<br>
+	　X，Y，Zの3系統の回線の故障頻度は，同じバスタブ曲線に従うとする。</p>
+	<p><img src="img/fig10.png" /></p>
+	<p><a name="31"><strong>設問</strong></a>　次の記述中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。解答は，重複して選んでもよい。</p>
+	<p>　バスタブ曲線の特徴から，YとZの故障頻度が両方ともに安定する時期は，今年から数えて［　　ａ　　］年目から，［　　ｂ　　］年間であるといえる。<br>
+	　表中の昨年のXのMTBF（平均故障間隔）は，［　　ｃ　　］時間であり，Yの故障時間の合計は，［　　ｄ　　］時間である。<br>
+	　MTBF，MTTRは，それぞれ次式で求められる。<br>
+	　　MTBF＝稼働時間の合計／故障回数<br>
+	　　MTTR＝故障時間の合計／故障回数</p>
+	<p><img src="img/fig11.png" /></p>
+	<p>a，bに関する解答群</p>
+	<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber1">
+		<tr>
+			<td>ア　1</td>
+			<td>イ　2</td>
+			<td>ウ　3</td>
+			<td>エ　4</td>
+			<td>オ　5</td>
+		</tr>
+	</table>
+	<p>cに関する解答群</p>
+	<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber2">
+		<tr>
+			<td>ア　72</td>
+			<td>イ　514</td>
+			<td>ウ　516</td>
+			<td>エ　520</td>
+			<td>オ　2,074</td>
+		</tr>
+	</table>
+	<p>dに関する解答群</p>
+	<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber3">
+		<tr>
+			<td>ア　1.3</td>
+			<td>イ　12</td>
+			<td>ウ　1,558</td>
+			<td>エ　2,080</td>
+			<td>オ　6,228</td>
+		</tr>
+	</table>
+	<hr>
+	<p><a href="19F_P_A2.HTM#31">設問の正解例と解説へ</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a></p>
+	<hr>
+	<p><a name="40"><strong>問4</strong></a>　次のプログラムの説明及びプログラムを読んで，設問1，2に答えよ。</p>
+	<p>〔プログラムの説明〕<br>
+	　スタックを使って，実数値を10進数字列（文字列）に変換する副プログラム<code>FloatFormat</code>である。</p>
+	<p>（1）<code>FloatFormat</code>は，実数<code>Float</code>の値を10進数字列に変換し，その先頭の数字から順に1文字ずつ文字型配列<code>Out[]</code>に格納する。</p>
+	<p>（2）小数点以下は，引数<code>Num</code>（<code>Num</code>≧1）で指定されたけた数までを格納する。</p>
+	<p>（3）<code>FloatFormat</code>の引数の仕様を表に示す。</p>
+	<p><img src="img/fig12.png" /></p>
+	<p>（4）実数<code>Float</code>の値を10進数字列に変換する手順は，次のとおりである。</p>
+	<blockquote>
+		<p>
+		①　<code>Float</code>の値が負の場合は，負符号を表す“<code>-</code>”を<code>Out[]</code>に格納し，<code>Float</code>の値を正数に変換する。</p>
+		<p>②　整数部を，1の位から上位に向かって，1けたずつ10進数字に変換し，スタックに積む。</p>
+		<p>
+		③　スタックに積み終わったら，スタックに積んだ文字を順番に取り出して<code>Out[]</code>に格納することによって，整数部の10進数字を正しい順番に並べ替える。</p>
+		<p>④　整数部が0の場合は“<code>0</code>”を<code>Out[]</code>に格納する。</p>
+		<p>⑤　小数点を表す“<code>.</code>”を<code>Out[]</code>に格納する。</p>
+		<p>⑥　小数部を，小数第1位から第<code>Num</code>位まで，1けたずつ10進数字に変換し，<code>Out[]</code>に格納する。</p>
+	</blockquote>
+	<p>
+	（5）<code>Push()</code>はスタックに1文字を積む関数，<code>Pop()</code>はスタックから1文字を取り出す関数である。<code>Int()</code>は小数点以下を切り捨てる関数である。</p>
+	<p>
+	（6）配列の添字は0から始まり，文字型配列<code>Out[]</code>の要素数は十分に大きいものとする。また，プログラム中の各演算であふれは発生しないものとする。</p>
+	<p>（7）<code>FloatFormat</code>の変換例を図に示す。</p>
+	<blockquote>
+		<p><img src="img/fig13.png" /></p>
+		<p><img src="img/fig14.png" /></p>
+	</blockquote>
+	<p><a name="41"><strong>設問1</strong></a>　プログラム中の[　　　　　]に入れる正しい答えを，解答群の中から選べ。</p>
+	<p>aに関する解答群</p>
+	<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber4">
+		<tr>
+			<td>ア</td>
+			<td><code>Fint </code>－<code> 10</code></td>
+		</tr>
+		<tr>
+			<td>イ</td>
+			<td><code>Fint </code>－<code> Fint </code>÷<code> 10</code></td>
+		</tr>
+		<tr>
+			<td>ウ</td>
+			<td><code>Fint </code>－<code> (Fint </code>÷<code> 10) </code>×<code> 10</code></td>
+		</tr>
+		<tr>
+			<td>エ</td>
+			<td><code>Fint </code>÷<code> 10</code></td>
+		</tr>
+		<tr>
+			<td>オ</td>
+			<td><code>(Fint </code>÷<code> 10) </code>×<code> 10</code></td>
+		</tr>
+	</table>
+	<p>bに関する解答群</p>
+	<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber5">
+		<tr>
+			<td>ア</td>
+			<td><code>L </code>＝<code> 0</code></td>
+		</tr>
+		<tr>
+			<td>イ</td>
+			<td><code>L </code>＝<code> 0 or Out[0] </code>＝<code> &quot;</code>－<code>&quot;</code></td>
+		</tr>
+		<tr>
+			<td>ウ</td>
+			<td><code>L </code>＝<code> 0 or (L </code>＝<code> 1 and Out[0] </code>＝<code> &quot;</code>－<code>&quot;)</code></td>
+		</tr>
+		<tr>
+			<td>エ</td>
+			<td><code>L </code>＝<code> 1</code></td>
+		</tr>
+		<tr>
+			<td>オ</td>
+			<td><code>L </code>＝<code> 1 and Out[0] </code>＝<code> &quot;</code>－<code>&quot;</code></td>
+		</tr>
+	</table>
+	<p>c，dに関する解答群</p>
+	<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber6">
+		<tr>
+			<td>ア</td>
+			<td><code>Fdec </code>－<code> Int(Fdec)</code></td>
+		</tr>
+		<tr>
+			<td>イ</td>
+			<td><code>Fdec </code>－<code> Int(Fdec </code>×<code> 10)</code></td>
+		</tr>
+		<tr>
+			<td>ウ</td>
+			<td><code>Fdec </code>－<code> Int(Fdec </code>÷<code> 10)</code></td>
+		</tr>
+		<tr>
+			<td>エ</td>
+			<td><code>Fdec </code>×<code> 1O</code></td>
+		</tr>
+		<tr>
+			<td>オ</td>
+			<td><code>Fdec </code>÷<code> 10</code></td>
+		</tr>
+	</table>
+	<hr>
+	<p><a href="19F_P_A2.HTM#41">設問1の正解例と解説へ</a></p>
+	<hr>
+	<p><a name="42"><strong>設問2</strong></a>　次の記述中の[　　　　　]に入れる正しい答えを，解答群の中から選べ。</p>
+	<p>　<code>Float </code>＝<code> </code>－<code>0.012</code>，<code>Num </code>＝<code> 2</code>として<code>FloatFormat</code>を呼び出した場合，プログラム中のαの部分は［　　ｅ　　］回実行され，βの部分は［　　ｆ　　］回実行される。</p>
+	<p>解答群</p>
+	<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber7">
+		<tr>
+			<td>ア　0</td>
+			<td>イ　1</td>
+			<td>ウ　2</td>
+			<td>エ　3</td>
+			<td>オ　4</td>
+		</tr>
+	</table>
+	<hr>
+	<p><a href="19F_P_A2.HTM#42">設問2の正解例と解説へ</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a></p>
+	<hr>
+	<p><a name="50"><strong>問5</strong></a>　プログラム設計に関する次の記述を読んで，設問1～3に答えよ。</p>
+	<p>
+	　Z社はWebを使った通信販売システムによって，会員に商品を販売している。会員は，Z社の提供する通信販売システムを利用して商品を購入する。今回，Z社では，会員ごとの購入実績を用いて，購入の可能性が高いと判定された商品を表示する関連商品表示プログラムを開発した。</p>
+	<p>〔通信販売システムの概要〕</p>
+	<p>（1）通信販売システムはZ社の会員だけが利用でき，会員は一意の会員IDをもつ。</p>
+	<p>（2）通信販売対象の商品は商品表に登録されている。商品表のレコード様式を図1に示す。</p>
+	<p><img src="img/fig15.png" /></p>
+	<p>（3）会員は次の手順で，商品の購入操作を行う。</p>
+	<blockquote>
+		<p>①　通信販売システムに会員IDとパスワードを入力し，ログインする。</p>
+		<p>②　購入を希望する商品を検索する。</p>
+		<p>
+		③　購入する商品を指定し，購入数量を入力する。商品価格と購入数量の乗算が行われ，購入金額に加えられる。購入する商品がほかにもある場合は，②に戻る。</p>
+		<p>④　購入金額を確認し，支払方法を入力する。このときの日時が購入日時として記録される。</p>
+		<p>⑤　ログアウトする。</p>
+	</blockquote>
+	<p>
+	（4）会員が支払方法を入力したとき，商品の購入が成立し，その際に一意な購入番号を割り当てる。購入番号をキーとして，購入日時，会員ID及び購入金額を，購入表に登録する。また，会員が購入した商品は，商品ごとに購入番号と商品コードをキー項目として購入明細表に登録する。<br>
+	　なお，1回のログインで同一商品を複数回に分けて指定したときには，その商品の購入数量を合計し，1件のレコードとして購入明細表に登録する。購入表と購入明細表のレコード様式を図2に示す。</p>
+	<p><img src="img/fig16.png" /></p>
+	<p>〔関連商品表示プログラムの概要〕</p>
+	<p>（1）新規登録商品の表示機能<br>
+	　会員がログインしたとき，その会員IDで最近購入した商品と同一商品カテゴリの商品の情報を，商品表から最大10件表示する機能である。ただし，表示する商品の情報は，その会員の最も新しい購入日時以降に商品表に登録されたものだけとする。</p>
+	<blockquote>
+		<p>①　最新購入実績の抽出<br>
+		　ログイン時に入力された会員IDを用いて，購入表と購入明細表からその会員の最も新しい購入の実績をすべて取り出す。</p>
+		<p>②　商品カテゴリの抽出<br>
+		　①で取り出した購入の実績のレコードと商品表のレコードを，商品コードをキーとして突き合わせ，一致したときに商品表から商品カテゴリを取り出す。</p>
+		<p>③　登録商品の抽出<br>
+		　②で取り出した商品カテゴリのすべてと，商品表の商品カテゴリを突き合わせ，等しい商品カテゴリをもつ商品表のレコードをすべて取り出す。</p>
+		<p>④　新規登録商品の表示<br>
+		　③の結果を基に，その会員の最も新しい購入日時以降に商品表に登録された商品のうち，登録日時が新しいものから最大10件の情報を表示する。</p>
+	</blockquote>
+	<p>（2）検索した商品に関連する商品の表示機能<br>
+	　会員がある商品を検索したとき，その商品を既に購入した他会員が同時に購入した商品の情報を，最大10件表示する機能である。ただし，表示する商品の情報はその会員がまだ購入していない商品だけとする。</p>
+	<blockquote>
+		<p>①　購入番号の抽出<br>
+		　検索した商品の商品コードを用いて，購入明細表からその商品コードをもつすべてのレコードの購入番号を取り出す。その購入番号とログイン時に入力された会員IDを用いて，購入表を検索し，他会員の購入番号だけを取り出す。</p>
+		<p>②　同時購入商品の抽出<br>
+		　①で取り出した他会員の購入番号ごとに購入明細表を検索し，その購入番号をもつレコードをすべて取り出す。</p>
+		<p>③　検索した商品の削除<br>
+		　②で取り出したレコードの商品コードと，会員が検索した商品の商品コードを突き合わせ，検索した商品の商品コードをもつレコードをすべて取り除く。</p>
+		<p>④　関連商品の抽出<br>
+		　③で残ったレコードの商品コードのすべてと商品表のレコードを，商品コードをキーとして突き合わせ，一致したレコードを商品表から取り出す。</p>
+		<p>⑤　購入済商品の削除<br>
+		　④の結果を基に，その会員が既に購入した商品の商品コードをもつレコードをすべて取り除く。</p>
+		<p>⑥　関連商品の表示<br>
+		　⑤の結果を基に，登録日時が新しいものから最大10件の商品の情報を取り出し表示する。</p>
+	</blockquote>
+	<p><img src="img/fig17.png" /></p>
+	<p><a name="51"><strong>設問1</strong></a>　図3中の中間表A及び中間表Bで保持する項目のうち，“商品カテゴリの抽出”，“登録商品の抽出”で必要とする項目の組合せとして正しい答えを，解答群の中から選べ。</p>
+	<p><img src="img/fig18.png" /></p>
+	<hr>
+	<p><a href="19F_P_A2.HTM#51">設問1の正解例と解説へ</a></p>
+	<hr>
+	<p><a name="52"><strong>設問2</strong></a>　図3中の“最新購入実績の抽出”に関する次の説明中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+	<p>
+	　ログイン時に入力された会員IDを用いて，購入表からその会員の［　　ａ　　］を1件取り出す。取り出したレコードの購入番号をもつレコードを購入明細表からすべて取り出す。取り出した結果を中間表Aのレコード様式に編集し，中間表Aに出力する。購入表に該当するレコードが存在しない場合は，何も出力しない。</p>
+	<p>解答群</p>
+	<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber8">
+		<tr>
+			<td>ア</td>
+			<td>最も新しい購入日時をもつレコード</td>
+		</tr>
+		<tr>
+			<td>イ</td>
+			<td>最も多い購入数量をもつレコード</td>
+		</tr>
+		<tr>
+			<td>ウ</td>
+			<td>最も大きい購入金額をもつレコード</td>
+		</tr>
+		<tr>
+			<td>エ</td>
+			<td>最も小さい購入金額をもつレコード</td>
+		</tr>
+		<tr>
+			<td>オ</td>
+			<td>最も古い購入日時をもつレコード</td>
+		</tr>
+	</table>
+	<hr>
+	<p><a href="19F_P_A2.HTM#52">設問2の正解例と解説へ</a></p>
+	<hr>
+	<p><a name="53"><strong>設問3</strong></a>　図4中の“購入済商品の削除”に関する次の説明中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+	<p>
+	　中間表Gから読み込んだレコードの商品コードを用いて，［　　ｂ　　］を検索し，等しい商品コードをもつ［　　ｃ　　］をすべて取り出す。［　　ｃ　　］ごとに［　　ｄ　　］を検索し，ログインのときに入力した会員IDをもつレコードが一つでもあれば，商品は既に購入済みと判定し，取り除く。</p>
+	<p>b，dに関する解答群</p>
+	<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber9">
+		<tr>
+			<td>ア　購入表</td>
+			<td>イ　購入明細表</td>
+			<td>ウ　商品表</td>
+		</tr>
+	</table>
+	<p>cに関する解答群</p>
+	<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber10">
+		<tr>
+			<td>ア　会員ID</td>
+			<td>イ　購入番号</td>
+			<td>ウ　商品コード</td>
+		</tr>
+	</table>
+	<hr>
+	<p><a href="19F_P_A2.HTM#53">設問3の正解例と解説へ</a></p>
+	<hr>
+	<p><a href="19F_P_E3.HTM">■問6へ進む</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a></p>
+	<hr>
+</blockquote>
+
+</body>
+
+</html>

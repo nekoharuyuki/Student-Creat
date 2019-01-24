@@ -1,0 +1,714 @@
+<HTML>
+<HEAD>
+<TITLE>平成14年度春期試験　問題(午後問6～問9)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0">
+<blockquote>
+  <hr>
+  <H3 align="center">平成14年度春期試験　問題(問6～問9)</H3>
+<hr>
+<P>次の問6から問9までの4問については、この中から1問を選択し、答案用紙の選択欄の 
+選 をマークして解答してください。<br>         
+　なお、2問以上選択した場合には、はじめの1問について採点します。
+<hr>
+<p><b><a name="60">問6</a>　</b>次のCプログラムの説明及びプログラムを読んで，設問に答えよ。<br>
+<br>
+〔プログラムの説明〕<br>
+水平方向に512画素，垂直方向に512画素からなるビットマップ画面がある。水平方向をX座標，垂直方向をY座標とする。座標の割当てを図に示す。</p>
+<br>
+        <p><img border="0" src="image/P_06-01.gif"></p>
+図　ビットマップ画面の座標の割当て<br>
+<br>
+このビットマップ画面に三角形を描画する。三角形は，3頂点P1（x1，y1），P2（x2，y2），P3（x3，y3）によって与えられる。三角形の各辺，及び辺で囲まれた閉領域内の画素をすべて点灯する再帰的な関数DrawTrgの処理手順を，次に示す。<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">（1）</td>
+            <td>与えられた3頂点が隣接しているかどうかを検査する。</td>
+          </tr>
+          <tr>
+            <td valign="top">（2）</td>
+            <td>隣接しているときは，3頂点の画素を点灯して処理を終了する。</td>
+          </tr>
+          <tr>
+            <td valign="top">（3）</td>
+            <td>隣接していないときは，三平方の定理を用いて，各辺の長さの2乗値を求める。</td>
+          </tr>
+          <tr>
+            <td valign="top">（4）</td>
+            <td>最も長い辺を選び，この辺の中点Cの座標（xc，yc）を求める。この中点によって二つの三角形に分割する。例えば，図のように辺P2P3が最長である場合には，三角形P1CP2と三角形P1CP3に分割する。</td>
+          </tr>
+          <tr>
+            <td valign="top">（5）</td>
+            <td>分割したそれぞれの三角形に，再帰的にこの関数DrawTrgを適用する。</td>
+          </tr>
+        </table>
+<br>
+画素を点灯するために，次の関数が用意されている。<br><br>
+<code>  void qSetPixel( int sx, int sy );</code><br><br>
+機能：座標（sx，sy）の画素を点灯する。<br>
+<br>
+<pre>     
+〔プログラム〕
+
+  void gSetPixel ( int, int );
+  double GetMax ( double, double, double );
+  double GetMin ( double, double, double );
+
+  double GetMax ( double a, double b, double c);
+  {
+     if  ( ( a >= b ) && ( a >= c) ) return a;
+     if ( b >= c ) return b;
+     return c;
+  }
+
+  double GetMin ( double a, double b, double c);
+  {
+     if  ( ( a <= b ) && ( a <= c) ) return a;
+     if ( b <= c ) return b;
+     return c;
+  }
+
+  void DrawTrg( double x1, double y1, double x2, double y2,
+                double x3, double y3 )
+  {
+      double Len1, Len2, Len3;
+      double dx, dy;
+
+      dx = GetMax( x1, x2, x3 ) - GetMin( x1, x2, x3 );
+      dy = <b>[        a        ]</b> - GetMin( y1, y2, y3 );
+      if ( ( dx <= 1.0 ) && ( dy <= 1.0 ) ) {
+          gSetPixel( (int)x1, (int)y1 );
+          gSetPixel( (int)x2, (int)y2 );
+          gSetPixel( (int)x3, (int)y3 );
+          return;
+          }
+      Len1 = ( x2-x1 )*( x2-x1) + ( y2-y1 )*( y2-y1);
+      Len2 = ( x3-x2 )*( x3-x2) + ( y3-y2 )*( y3-y2);
+      Len3 = ( x1-x3 )*( x1-x3) + ( y1-y3 )*( y1-y3);
+
+      if (  <b>[        b        ] </b>) {
+          DrawTrg( x1, y1, (x1+x2)/2, (y1+y2)/2, x3, y3 );
+          DrawTrg( x3, y3, (x1+x2)/2, (y1+y2)/2, x2, y2 );
+          }
+      else if ( Len2 >= Len3 ) {
+          <b>[                   c                    ]</b>
+          }
+      else {
+          DrawTrg( x1, y1, (x1+x3)/2, (y1+y3)/2, x2, y2 );
+          DrawTrg( x2, y2, (x1+x3)/2, (y1+y3)/2, x3, y3 );
+          }
+  }</pre>     
+<p></p>      
+<hr>      
+<p><b><a name="61">設問</a>　</b>プログラム中の<b>［　　　　　］</b>に入れる正しい答えを，解答群の中から選べ。<br>      
+</p>      
+<table border="0" cellpadding="3" cellspacing="0">     
+  <tr>     
+    <td>aに関する解答群</td>     
+  </tr>     
+</table>     
+<table border="0" cellpadding="3" cellspacing="0">     
+  <tr>     
+    <td width="250">ア　GetMax( x1, x2, x3 )</td>      
+    <td>	イ　	GetMin( x1, x2, x3 )</td>      
+  </tr>      
+  <tr>      
+    <td>ウ　GetMax( x1, y1, y2 )</td>
+    <td>	エ　	GetMin( y1, x1, x2 )</td>      
+  </tr>      
+  <tr>      
+    <td>オ　GetMax( y1, y2, y3 )</td>      
+    <td>	カ　GetMin( y1, y2, y3 )</td>      
+  </tr>      
+</table>      
+<table border="0" cellpadding="3" cellspacing="0">     
+  <tr>     
+    <td>　<br>
+      bに関する解答群</td>
+  </tr>
+</table>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">ア</td>
+            <td>　Len1 <= Len2</td>
+          </tr>
+          <tr>
+            <td valign="top">イ</td>
+            <td>　Len1 <= Len3</td>
+          </tr>
+          <tr>
+            <td valign="top">ウ</td>
+            <td>　Len2 <= Len3</td>
+          </tr>
+          <tr>
+            <td valign="top">エ</td>
+            <td>　( Len1 >= Len2 ) && ( Len1 >= Len3 )</td>
+          </tr>
+          <tr>
+            <td valign="top">オ</td>
+            <td>　( Len1 <= Len2 ) && ( Len1 <= Len3 )</td>
+          </tr>
+        </table>
+<table border="0" cellpadding="3" cellspacing="0">     
+  <tr>     
+    <td>　<br>
+      cに関する解答群</td>
+  </tr>
+</table>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">ア</td>
+            <td>　DrawTrg( x1, y1, (x1+x3)/2, (y1+y3)/2, x3, y3);<br>
+    　DrawTrg( x2, y2, (x1+x3)/2, (y1+y3)/2, x1, y1);</td>
+          </tr>
+          <tr>
+            <td valign="top">イ</td>
+            <td>　DrawTrg( x1, y1, (x2+x3)/2, (y2+y3)/2, x3, y3);<br>
+    　DrawTrg( x2, y2, (x2+x3)/2, (y2+y3)/2, x1, y1);</td>
+          </tr>
+          <tr>
+            <td valign="top">ウ</td>
+            <td>　DrawTrg( x2, y2, (x1+x3)/2, (y1+y3)/2, x3, y3);<br>
+    　DrawTrg( x3, y3, (x1+x3)/2, (y1+y3)/2, x1, y1);</td>
+          </tr>
+          <tr>
+            <td valign="top">エ</td>
+            <td>　DrawTrg( x2, y2, (x2+x3)/2, (y2+y3)/2, x3, y3);<br>
+   　DrawTrg( x3, y3, (x2+x3)/2, (y2+y3)/2, x1, y1);</td>
+          </tr>
+          <tr>
+            <td valign="top">オ</td>
+            <td>　DrawTrg( x3, y3, (x1+x3)/2, (y1+y3)/2, x1, y1);<br>
+    　DrawTrg( x3, y3, (x1+x3)/2, (y1+y3)/2, x2, y2);</td>
+          </tr>
+        </table> 
+<p>　</p>
+<hr WIDTH="100%">
+  <a HREF="14S_P_A3.HTM#61">設問の正解例と解説へ</a>
+<hr WIDTH="100%">
+<br>
+<a HREF="INDEX.HTM">メニューへ戻る</a><br>
+<HR WIDTH=100%>
+<a NAME="70">　<BR>
+<b>
+問7</b></a><b>　</b>次のCOBOLプログラムの説明及びプログラムを読んで，設問に答えよ。<br>
+<br>
+〔プログラムの説明〕<br>
+ある会社の1ヶ月の売り上げファイルを入力して，合計売上金額の上位10製品を印字するプログラムである。<br>
+<br>
+（1）売上ファイルのレコード様式は，次のとおりである。<br>
+<br>
+        <p><img border="0" src="image/P_07-01.gif"></p>
+<br>
+（2）印字用のファイルの様式は，次のとおりである。<br>
+<br>
+        <p><img border="0" src="image/P_07-02.gif"></p>
+<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top"><img border="0" src="image/01_maru.GIF"></td>
+            <td>　順位は，2けたの数字からなり，合計売上金額が等しい製品の順位は同じとする。</td>
+          </tr>
+          <tr>
+            <td valign="top"><img border="0" src="image/02_maru.GIF"></td>
+            <td>　同順位のときは，製品コードの小さい順に印字する。</td>
+          </tr>
+          <tr>
+            <td valign="top"><img border="0" src="image/03_maru.GIF"></td>
+            <td>　製品別の売上金額は，単価×個数で求めることができ，その合計（合計売上金額）は8けた以内とする。</td>
+          </tr>
+          <tr>
+            <td valign="top"><img border="0" src="image/04_maru.GIF"></td>
+            <td>　印字例のように，11件目以降に10件目と同じ順位が続くときには，それらをすべて印字する。</td>
+          </tr>
+        </table>
+<br>
+<br>
+<img border="0" src="image/P_07-03.GIF"><br>
+<br>
+
+
+<pre>〔プログラム〕
+
+  DATA DIVISION.
+  FILE SECTION.
+  FD  URIAGE-FILE.
+  01  URIAGE-REC.
+      03  U-MCODE    PIC      X(4).
+      03  U-SCODE    PIC      X(4).
+      03  U-DATE     PIC      X(8).
+      03  U-TANKA    PIC      9(6).
+      03  U-KOSU     PIC      9(6).
+  FD  PRINT-FILE.
+  01  PRINT-REC.
+      03  P-NUM        PIC      9(2).
+      03               PIC      X(1).
+      03  P-CODE       PIC      X(4).
+      03               PIC      X(1).
+      03  P-KINGAKU    PIC      9(2).
+  FD  SHUKEI-FILE.
+  01  SHUKEI-REC.
+      03  P-CODE       PIC      X(4).
+      03  P-KINGAKU    PIC      9(2).
+  SD  WORK-FILE.
+  01  WORK-REC.
+      03  W-CODE       PIC      X(4).
+      03  W-KINGAKU    PIC      9(8).
+  WORKING-STORAGE SECTION.
+  01  WK-AREA.
+      03  WK-CODE      PIC      X(4).
+      03  WK-KINGAKU   PIC      9(8).
+  01  WK-NUM1          PIC      9(2)  VALUE ZERO.
+  01  WK-NUM2          PIC      9(2)  VALUE ZERO.
+  01  FLG-1            PIC      X(1)  VALUE SPACE.
+  01  FLG-2            PIC      X(1)  VALUE SPACE.
+  01  FLG-3            PIC      X(1)  VALUE SPACE.
+  PROCEDURE DIVISION.
+  MAIN-SHORI.
+      SORT WORK-FILE
+         ON ASCENDING KEY W-CODE
+         INPUT PROCEDURE NYURYOKU-SHORI
+         GIVING SHUKEI-FILE.
+      SORT WORK-FILE
+         ON DESCENDING KEY W-KINGAKU
+         ON ASCENDING KEY W-CODE
+         INPUT PROCEDURE SHUKEI-SHORI.
+         OUTPUT PROCEDURE PRINT-SHORI.
+      STOP RUN.
+  NYURYOKU-SHORI.
+      OPEN INPUT URIAGE-FILE.
+      PERFORM UNTIL FLG-1 = "E"
+         READ URIAGE-FILE AT END
+            MOVE "E" TO FLG-1
+         NOT AT END
+            MOVE U-SCODE TO W-CODE
+            <b>[        a        ]</b>
+            RELEASE WORK-REC
+         END-READ
+      END-PERFORM.
+      CLOSE URIAGE-FILE.
+  SHUKEI-SHORI.
+      OPEN INPUT SHUKEI-FILE.
+      MOVE SPACE TO WK-CODE.
+      PERFORM UNTIL FLG-2 = "E"
+         READ SHUKEI-FILE AT END
+            MOVE "3" TO FLG-2
+            IF WK-CODE NOT = SPACE THEN
+               RELEASE WORK-REC FROM WK-AREA
+            END-IF
+         NOT AT END
+            IF S-CODE ) WK-CODE THEN
+               COMPUTE WK-KINGAKU = WK-KINGAKU + S-KINGAKU
+            ELSE
+               IF WK-CODE NOT = SPACE THEN
+                  RELEASE WORK-REC FROM WK-AREA
+               END-IF
+               <b>[        b        ]</b>
+            END-IF
+         END-READ
+      END-PERFORM.
+      CLESE SHUKEI-FILE.
+  PRINT-SHORI.
+      OPEN OUTPUT PRINT-FILE.
+      MOVE SPACE TO PRINT-REC.
+      MOVE ZERO TO P-KINGAKU.
+      PERFORM UNTIL FLG-3 = "E" OR WK-NUM1 > 10
+         RETURN WORK-FILE AT END
+            MOVE "E" TO FLG-3
+         NOT AT END
+            COMPUTE WK-NUM2 = WK-NEM2 + 1
+            IF <b>[        c        ]</b> THEN
+               <b>[        d        ]</b>
+            END-IF
+            IF WK-NUM1 <= 10 THEN
+               MOVE WK-NUM1 TO P-NUM
+               MOVE W-CODE TO P-CODE
+               MOVE W-KINGAKU TO P-KINGAKU
+               WRITE PRINT-REC
+            END-IF
+         END-RETURN
+      END-PERFORM.
+      CLOSE PRINT-FILE.
+</pre>
+<hr> 
+<a NAME="71">　<BR>
+<b>
+設問</b></a><b>　</b>プログラム中の<b>[　　　　]</b>に入れる正しい答えを，解答群の中から選べ。<br>
+<br>
+aに関する解答群
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">ア</td>
+            <td>　COMPUTE W-KINGAKU = U-TANKA * U-KOSU</td>
+          </tr>
+          <tr>
+            <td valign="top">イ</td>
+            <td>　COMPUTE W-KINGAKU = W-KINGAKU + U-TANKA</td>
+          </tr>
+          <tr>
+            <td valign="top">ウ</td>
+            <td>　COMPUTE W-KINGAKU = W-KINGAKU + U-TANKA * U-KOSU</td>
+          </tr>
+          <tr>
+            <td valign="top">エ</td>
+            <td>　MOVE U-COSU TO W-KINGAKU</td>
+          </tr>
+          <tr>
+            <td valign="top">オ</td>
+            <td>　MOVE U-TANKA TO W-KINGAKU</td>
+          </tr>
+        </table>
+<br>
+bに関する解答群
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">ア</td>
+            <td>　MOVE SHUKEI-REC TO WK-AREA</td>
+          </tr>
+          <tr>
+            <td valign="top">イ</td>
+            <td>　MOVE SHUKEI-REC TO WORK-REC</td>
+          </tr>
+          <tr>
+            <td valign="top">ウ</td>
+            <td>　MOVE WK-AREA TO WK-AREA</td>
+          </tr>
+          <tr>
+            <td valign="top">エ</td>
+            <td>　MOVE WK-REC TO SHUKEI-REC</td>
+          </tr>
+          <tr>
+            <td valign="top">オ</td>
+            <td>　MOVE WORK-REC TO WK-AREA</td>
+          </tr>
+        </table>
+<br>
+cに関する解答群
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">ア</td>
+            <td>　W-KINGAKU = P-KINGAKU</td>
+          </tr>
+          <tr>
+            <td valign="top">イ</td>
+            <td>　W-KINGAKU NOT = P-KINGAKU</td>
+          </tr>
+          <tr>
+            <td valign="top">ウ</td>
+            <td>　WK-NUM2 <= 10</td>
+          </tr>
+          <tr>
+            <td valign="top">エ</td>
+            <td>　WK-NUM2 = 10</td>
+          </tr>
+          <tr>
+            <td valign="top">オ</td>
+            <td>　WK-NUM2 > 10</td>
+          </tr>
+        </table>
+<br>
+dに関する解答群
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">ア</td>
+            <td>　COMPUTE WK-NUM1 = WK-NUM1 + WK-NUM2</td>
+          </tr>
+          <tr>
+            <td valign="top">イ</td>
+            <td>　COMPUTE WK-NUM2 = WK-NUM2 + WK-NUM1</td>
+          </tr>
+          <tr>
+            <td valign="top">ウ</td>
+            <td>　MOVE WK-NUM1 TO WK-NUM2</td>
+          </tr>
+          <tr>
+            <td valign="top">エ</td>
+            <td>　MOVE WK-NUM2 TO WK-NUM1</td>
+          </tr>
+          <tr>
+            <td valign="top">オ</td>
+            <td>　MOVE ZERO TO WK-NUM2</td>
+          </tr>
+        </table>
+<HR WIDTH=100%>  
+  <a HREF="14S_P_A3.HTM#71">設問の正解例と解説へ</a>  
+<HR WIDTH=100%>
+<p><A HREF="INDEX.HTM">メニューへ戻る</A>　</p>     
+<HR WIDTH=100%>     
+<a NAME="80">　<BR> 
+<b> 
+問8</b></a>　次のJavaプログラムの説明及びプログラムを読んで，設問に答えよ。<br>
+<p>[プログラムの説明]<br>
+　整数（int型）値のスタックを実現するクラスと，そのテストプログラムである。プログラム1で定義されるクラスIntStackの使用方法は，次のとおりである。</p>
+<BR> 
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">（1）</td>
+            <td>スタックに1件のデータを格納するには，メソッドpushを用いる。スタックの容量（capacity）は，必要に応じて動的に拡張される。つまり，データを格納する時点でスタックの容量が不足しているならば，所定の増分（INCREMENT）だけスタックの容量を拡張する。</td>
+          </tr>
+          <tr>
+            <td valign="top">（2）</td>
+            <td>スタックから，直前に格納した1件のデータを取り出すには，メソッドpopを用いる。空のスタックに対してpopを実行すると，例外EmptyStackExceptionが発生する。</td>
+          </tr>
+          <tr>
+            <td valign="top">（3）</td>
+            <td>直前にスタックへ格納したデータを参照するためには，メソッドpeekを用いる。</td>
+          </tr>
+        </table>
+<BR>
+プログラム2は，IntStackのテストプログラムである。端末に表示したプロンプト=>に対して入力された整数値をIntStack型のオブジェクトに格納し，空の値（改行文字だけ）が入力された時点で，その内容を表示する。<BR>
+<BR>
+        <p><img border="0" src="image/P_08-0-1.gif"></p>
+        <p><br>
+図　プログラム2の実行例<BR>
+
+<pre>
+〔プログラム1〕<BR>
+ import java.util.EmptyStackException;<BR>
+<BR>
+public class IntStack {<BR>
+  private static final int INITIAL_CAPACITY = 10;<BR>
+  private static final int INCREMENT = 5;<BR>
+  private int capacity = INITIAL_CAPACITY;<BR>
+  private int[] content;<BR>
+  private int n_elements = 0;<BR>
+<BR>
+  public IntStack() { content = new int[capacity]; }<BR>
+<BR>
+  public boolean empty() { return n_elements == 0; }<BR>
+<BR>
+  public void push(int value) {<BR>
+    if (n_elements == content.length) {<BR>
+      // 配列を拡張する<BR>
+      int[] newContent = new int[capacity + INCREMENT];<BR>
+      for (int i = 0; i < capacity; i++) {<BR>
+         <b>［　　　　　a　　　　　］</b>;<BR>
+      }<BR>
+      capacity += INCREMENT;<BR>
+      content = newContent;<BR>
+    }<BR>
+<BR>
+   <b>［　　　　　b　　　　　］</b>= value;<BR>
+  }<BR>
+<BR>
+  public int peek() throws EmptyStackException {<BR>
+    if (n_elements > 0) {<BR>
+      return ;<b>［　　　　　c　　　　　］</b><BR>
+    }<BR>
+    throw new EmptyStackException();<BR>
+  }<BR>
+<BR>
+  public int pop() throws EmptyStackException {<BR>
+    int value = peek();<BR>
+    n_elements--;<BR>
+    return value;<BR>
+  }<BR>
+}<BR>
+<BR>
+〔プログラム2〕<BR>
+<BR><CODE>
+import java.io.*;<BR>
+<BR>
+public class TestIntStack {<BR>
+  public static void main(String[] args) {<BR>
+    IntStack stack = new IntStack();<BR>
+    //標準入力ストリームから読み込むためのReaderオブジェクトを生成する<BR>
+    BufferedReader in =<BR>
+      new BufferedReader(new InputStreamReader(System.in));<BR>
+    while (true) {<BR>
+      System.out.print("=> ");<BR>
+      try {<BR>
+        String input = in.readLine(); //標準入力から1行分読み込む<BR>
+        if (input.equals("")) break;<BR>
+        int n = Integer.parseInt(input);<BR>
+        stack.push(n);<BR>
+      } catch (Exception e) {         e.printStackTrace();<BR>
+      }<BR>
+    }<BR>
+    while (<b>［　　　　　d　　　　　］</b>) {<BR>
+      System.out.println(stack.pop());<BR>
+    }<BR>
+    System.out.println("---bottom of Stack---");<BR>
+  }<BR>
+}<BR></CODE>
+</pre>     
+<p>
+なお，プログラム2の8行目で使用するInputStreamReaderとBufferedReaderとは，ともにパッケージjava.ioに含まれるクラスである。クラスInputStreamReaderは，入力ストリーム（端末）からのバイト入力を文字に変換する。クラスBufferedReaderは，文字入力ストリームからの入力をバッファリングし，メソッドreadLineによる行単位での入力処理を可能とする。<br>
+
+<A NAME="40">       
+</p>      
+<HR WIDTH=100%>       
+</a><a NAME="81"><b>　<BR>  
+設問</b></a><b><a NAME="81"></a>　</b>プログラム中の[        ]に入れる正しい答えを，解答群の中から選べ。<br>      
+<br>      
+aに関する解答群      
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">ア</td>
+            <td>　newContent[i] = content[i].clone()</td>
+          </tr>
+          <tr>
+            <td valign="top">イ</td>
+            <td>　newContent.set(i, content[i])</td>
+          </tr>
+          <tr>
+            <td valign="top">ウ</td>
+            <td>　newContent[i] = content[i]</td>
+          </tr>
+          <tr>
+            <td valign="top">エ</td>
+            <td>　newContent[i + INCREMENT] = content[i]</td>
+          </tr>
+        </table>
+    <td>&nbsp;<br>     
+      &nbsp;<br>     
+      b，cに関する解答群</td>     
+  </tr>     
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td width="250">ア　content[n_elements]</td>
+            <td>	イ　content[n_elements--]</td>
+          </tr>
+          <tr>
+            <td>	ウ　content[n_elements-1]</td>
+            <td>	エ　content.elementAt(n_elements)</td>
+          </tr>
+          <tr>
+            <td>	オ　content[n_elements++]</td>
+            <td>	カ　content.elementAt(n_elements--)</td>
+          </tr>
+          <tr>
+            <td>	キ　content[n_elements+1]</td>
+            <td>	ク　content.elementAt(n_elements++)</td>
+          </tr>
+        </table>
+    <td>&nbsp;<br>     
+      &nbsp;<br>     
+      dに関する解答群<br> 
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td width="250">ア　true</td>
+            <td>	イ　stack.n_elements >=0</td>
+          </tr>
+          <tr>
+            <td>	ウ　stack.peek() != null</td>
+            <td>	エ　!stack.empty()</td>
+          </tr>
+        </table>
+    
+<p>　</p>    
+<A NAME="41">     
+<HR WIDTH=100%>     
+</a><a HREF="14S_P_A3.HTM#81">設問の正解例と解説へ</a>    
+<HR WIDTH=100%>    
+<br>
+<a HREF="INDEX.HTM">メニューへ戻る</a><br>
+<HR WIDTH=100%>
+
+<p>          
+<a NAME="90">          
+<b>問9</b></a><b>　</b>次のアセンブラプログラムの説明及びプログラムを読んで，設問1～3に答えよ。<br>      
+<br>      
+〔プログラムの説明〕<br>   
+GR1中の，値が1であるビットの個数を求め，GR2に格納する副プログラムである。<br>   
+<br>
+〔プログラム〕
+  <pre>
+（行番号）
+   1  CNT1  START
+   2        LAD   GR2,0
+   3        LD    GR1,GR1
+   4        JZE   FIN
+   5        PUSH  0,GR1
+   6  LP    JPL   NCNT
+   7        LAD   GR2,1,GR2
+   8  NCNT  SLL   GR1,1
+   9        JNZ   LP
+  10        POP   GR1
+  11  FIN   RET
+  12        END
+</pre>
+<pre>　</pre>         
+<HR WIDTH=100%>         
+<a NAME="91"><BR>         
+<b>         
+設問</b></a><b>1　</b>GR1に#BCA0を格納して副プログラムCNT1を呼んだとき，行番号6の実行によってNCNTへ分岐する回数として，正しい答えを解答群の中から選べ。<br>
+<br>
+<p>解答群</p>
+ア　4　　　　イ　5　　　　ウ　7　　　　エ　8　　　　オ　9<br>
+<br>
+<HR WIDTH=100%>
+  <a HREF="14S_P_A3.HTM#91">設問1の正解例へ</a>
+<hr>
+<b>　</b><a NAME="92">
+<b>
+<br>
+設問</b></a><b>2　</b>GR1中の，値が0であるビットの個数を求め，GR2に格納するようにもとのプログラムを修正する場合，まず行番号2を“LAD GR2, 16”と修正した。さらに修正すべき行の行番号と修正内容の組として，正しい答えを解答群の中から選べ。<br>
+<br>
+解答群<br>
+<br>
+        <p><img border="0" src="image/P_09-01.gif"></p>
+<p>　</p>
+<HR WIDTH=100%>
+</a><a HREF="14S_P_A3.HTM#92">設問2の正解例へ</a>
+<HR WIDTH=100%>
+<b>　</b><a NAME="93">
+<b>
+<br>
+設問</b></a><b><a NAME="113">3</a>　</b>別のアルゴリズムを試すため，値が1であるビットの個数を数えるプログラムを次のように書き換えることにした。変更前と同じ結果を得るために，プログラム中の<b>［　　　　］</b>に入れる正しい答えを，解答群の中から選べ。<br>
+<br><pre>
+（行番号）
+ 1   CNT1   START
+ 2          LAD   GR2,0
+ 3          LD    GR1,GR1
+ 4          [      a      ]
+ 5          PUSH  0,GR1
+ 6   LP     SLL   GR1,1
+ 7          [      b      ]
+ 8          JUMP  NCNT
+ 9   CNT    LAD   GR2,1,GR2
+10   NCNT   JNZ   LP
+11          POP   GR1
+12   FIN    RET
+13          END
+</pre>
+<p>aに関する解答群</p>
+        <table border="0" cellpadding="3" cellspacing="1">
+          <tr>
+            <td width="130">ア　JNZ   CNT</td>
+            <td width="130">イ　JNZ   NCNT</td>
+            <td width="130">ウ　JNZ   FIN</td>
+
+          </tr>
+          <tr>
+            <td>	エ　JZE   CNT</td>
+            <td>	オ　JZE   NCNT</td>
+            <td>	カ　JZE   FIN
+</td>
+	</tr>
+	</table>
+
+<p>bに関する解答群</p>
+        <table border="0" cellpadding="3" cellspacing="1">
+          <tr>
+            <td width="130">ア　JPL   CNT</td>
+            <td width="130">イ　JMI   CNT</td>
+            <td width="130">ウ　JOV   CNT</td>
+
+          </tr>
+          <tr>
+            <td>	エ　JPL   LP</td>
+            <td>	オ　JMI   LP</td>
+            <td>	カ　JOV   LP</td>
+	</tr>
+	</table>
+<HR WIDTH=100%>
+</a><a HREF="14S_P_A3.HTM#93">設問3の正解例へ</a>
+<HR WIDTH=100%>
+<p align="center"><a href="14S_P_E4.HTM">■問10へ進む</a>　　　　　　<a HREF="INDEX.HTM">■メニューへ戻る</a><br>    
+    
+<HR WIDTH=100%>    
+<p>　</p>   
+</blockquote>   
+</BODY>   
+</HTML>   

@@ -1,0 +1,114 @@
+<HTML>
+<HEAD>
+<TITLE>平成16年度春期試験　</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0">
+<blockquote>
+  <hr>
+  <H3 align="center">平成16年度春期試験　正解例と解説(問6～問8)</H3>
+<hr>
+<p><b><a name="60">問6</a>　</b></p>
+<hr> 
+<p><b><a name="61">設問</a>　</b> 
+<br>＜解答＞　ａ　ア　　　ｂ　イ　　　ｃ　ウ　　　ｄ　カ<br>
+<br>＜解説＞このプログラムでは，2次元平面上にあるｎ個の点すべてを含む最小半径の円の中心座標と半径を求めている。<br>
+<br>
+空欄ａ，ｂについて<br>
+関数solvcircle( )のwhile文の中にある最初のfor文の繰返条件がt＜LOOPMAX（LOOPMAXの値は100）であることから，このforループの処理が，仮中心点の移動を100回繰返す処理であることが分かる。このfor文の中にあるforループの処理では，仮中心点（*cx， *cy）と点（pt_x[i]，pt_y[i]）との距離distがmaxdistより大きければdistをmaxdistにセットすることで，仮中心点から最も遠い点（pt_x[k]，pt_y[k]）とその距離をmaxdistに求めている。<br>
+空欄ａ，ｂに関する処理では，仮中心点から最も遠い点（pt_x[k]，pt_y[k]）と空欄ａ，ｂを座標とする点との座標差に，移動係数mvrateを掛算し，仮中心点の座標に加算していることから，仮中心点を移動している処理であることが分かる。したがって空欄ａ，ｂは仮中心点のx座標へのポインタ*cx，ｙ座標へのポインタ*cyになる。<br>
+<br>
+空欄ｃについて<br>
+空欄ｃを含むif文の条件は，仮中心点の移動距離が10<sup>-9</sup>以下になる条件である。直前に算出された仮中心点の座標は（xsv，ysv）に保存されているので，仮中心点の移動距離はdistance(xsv，ysv，*cx，*cy)となる。したがって空欄ｃはdistance(xsv，ysv，*cx，*cy)。<br>
+<br>
+<hr WIDTH="100%">
+  <a HREF="16S_P_E3.HTM#61">問題へ</a>
+<hr WIDTH="100%">
+<br>
+<a HREF="INDEX.HTM">メニューへ戻る</a><br>
+<HR WIDTH=100%>
+<a NAME="70">　<BR>
+<b>
+問7</b></a><b>　</b>
+<hr> 
+<a NAME="71">　<BR>
+<b>
+設問</b></a><b></b>
+<br>＜解答＞　ａ　イ　　　ｂ　カ　　　ｃ　ア　　　ｄ　ウ　　　ｅ　エ<br>
+<br>＜解説＞プログラムでは，英語点数ファイル，情報処理技術認定ファイルを技能資格ファイルに突合せて，技能資格ファイルを更新する処理をしている。<BR>
+<BR>
+空欄ａについて<BR>
+空欄ａを終了条件とするPERFORM文の更新処理ループを終了した直後にプログラムは終了する。旧技能資格ファイル，英語点数ファイル，情報処理技術認定ファイルがすべてAT ENDになれば，旧技能資格ファイルの社員番号W-SBANGO，英語点数ファイルの社員番号W-E-SBANGO，情報処理技術認定ファイルのW-J-SBANGOが3つともすべてHIGH-VALUEにセットされる。したがってこのタイミングでPERFORM文の更新処理ループを終了すればよいので，空欄ａの終了条件は，  <BR>
+　　W-SBANGO = HIGH-VALUE AND W-E-SBANGO = HIGH-VALUE<BR>
+　　　　AND W-J-SBANGO = HIGH-VALUE<BR>
+とすればよい。<BR>
+<BR>
+空欄ｂ，ｃ，ｄについて<BR>
+空欄ｂ，ｃ，ｄを含む最初のEVALUATE文では，旧技能資格ファイルの社員番号W-SBANGOと英語点数ファイルの社員番号W-E-SBANGOとを突合わせ比較を行っている。さらに2つ目のEVALUATE文では，旧技能資格ファイルの社員番号W-SBANGOと情報処理技術認定ファイルの社員番号W-J-SBANGOとを突合わせ比較を行っている。この2つのEVALUATE文による突合わせ処理の直後，旧技能資格ファイルの社員番号W-SBANGOが，英語点数ファイルの社員番号W-E-SBANGO及び情報処理技術認定ファイルの社員番号W-J-SBANGOのいずれよりも小さければ，更新したレコードを新技能資格ファイルに書出し，次の社員の技能資格ファイルを読んでいる。<BR>
+旧技能資格ファイルの社員番号W-SBANGOと英語点数ファイルの社員番号W-E-SBANGOが同じときは，E-RTNにより英語の点数を更新し，READ-EIGOFにより英語点数ファイルを読めばよいので空欄ｂは，解答群のカになる。<BR>
+旧技能資格ファイルの社員番号W-SBANGO＜英語点数ファイルの社員番号W-E-SBANGOのときは，旧技能資格ファイルに該当する社員番号がないときなので，次のEVALUATE文で情報処理技術認定ファイルとの突合わせを行えばよいので空欄ｃはアのCONTINUEになる。<BR>
+旧技能資格ファイルの社員番号W-SBANGO＞英語点数ファイルの社員番号W-E-SBANGOのときは，旧技能資格ファイルには存在しない社員番号のエラーデータなので，エラーメッセージを表示し，READ-EIGOFにより英語点数ファイルの次のレコードを読めばよい。したがって空欄ｄは解答群のウになる。<BR>
+<BR>
+空欄ｅについて<BR>
+空欄ｅに関するJ-RTNでは，情報処理技術認定ファイルの情報処理技術資格の区分を更新する処理を行っており，空欄ｅはJ-RTNのPERFORM文の終了条件になっている。このJ-RTNは，旧技能資格ファイルの社員番号W-SBANGOと情報処理技術認定ファイルのW-J-SBANGOが一致したとき実行される。情報処理技術認定ファイルには，社員番号が同じ複数のレコードが出現するので，同じ社員番号の複数レコードについて区分の更新が完了し，次の人の社員番号に変ったときにJ-RTNのPERFORM文の資格区分に関する更新処理を終了すればよい。したがって空欄ｅは，W-J-SBANGO NOT = W-SBANGOになる。<BR>
+<br>
+<br>
+<HR WIDTH=100%>  
+  <a HREF="16S_P_E3.HTM#71">問題へ</a>  
+<HR WIDTH=100%>  
+<p><a HREF="INDEX.HTM">メニューへ戻る</a>　</p> 
+<HR WIDTH=100%> 
+<a NAME="80">　<BR> 
+<b> 
+問8</b></a><br>  
+<A NAME="80">  
+<HR WIDTH=100%>  
+</a><a NAME="81"><b>　<BR>  
+設問</b></a><b><a NAME="81"></a>　</b>
+<br>＜解答＞　ａ　ウ　　　ｂ　ア　　　ｃ　ウ　　　ｄ　エ<br>
+<br>＜解説＞<br>
+空欄ａについて<br>
+インタフェースConverterは，単位変換を行うクラスCtoF，FtoCが実装すべきインタフェースを定義している。インタフェースは，クラスのCtoF，FtoCに対する抽象メソッドだけを定義できる。この抽象メソッドの具体的な中身は，クラスCtoF，FtoCのメソッドであるconverterで定義されている。したがって空欄ａの抽象メソッドは，public double converter( double input )になる。<br>
+<br>
+空欄ｂについて<br>
+クラスConverterRunnerは，単位変換クラスを利用するプログラムからアクセスするためのクラスであり，単位変換クラスに実装されたインタフェースConverterを介してアクセスする必要がある。メソッドsetConverterにより単位変換クラスのインスタンスを設定しており，その引数convをインタフェースConvert型の変数にする必要がある。したがって空欄ｂはConvertになる。<br>
+<br>
+空欄ｃについて<br>
+空欄ｃに関するクラスの定義は，インタフェースConverterを実装した単位変換を行うクラスCtoF，FtoCの定義であり，空欄ｃはimplementsとすればよい。<br>
+<br>
+空欄ｄについて<br>
+runnerは，単位変換クラスを利用するプログラムからアクセスするためのクラスConverterRunnerのオブジェクトである。ConverterRunnerのメソッドrunは，単位変換を行うクラスCtoF，FtoCのメソッドconvertを呼出して，入力された温度値valueの単位変換を行う。空欄ｄでこの単位変換を行えばよく，空欄ｄはrunner.run( value )になる。<br>
+<br>
+<hr WIDTH="100%">
+</a><a HREF="16S_P_E3.HTM#81">問題へ</a>
+<hr WIDTH="100%">
+  <a HREF="INDEX.HTM"><br>
+メニューへ戻る<br> 
+  </a> 
+<HR WIDTH=100%> 
+
+問9</b></a>　　　（解説は省略します。）<br>  
+<A NAME="90">  
+<HR WIDTH=100%>  
+</a><a NAME="91"><b>　<BR>  
+設問</b></a><b><a NAME="81">1</a>　</b>
+  <p>＜解答＞　イ</p>
+<A NAME="91">  
+<HR WIDTH=100%>  
+</a><a HREF="16S_P_E3.HTM#91">問題へ</a> 
+<HR WIDTH=100%> 
+<b><a name="92">設問2</a>　</b></p>
+<p>＜解答＞　ａ　エ　　　ｂ　ウ<br>
+　</p>
+<a NAME="92">
+<hr WIDTH="100%">
+</a><a HREF="16S_P_E3.HTM#92">問題へ</a>
+<hr WIDTH="100%">
+  <a HREF="INDEX.HTM"><br>
+メニューへ戻る<br> 
+  </a> 
+<HR WIDTH=100%> 
+
+<p>　</p>
+</blockquote>
+</BODY>
+</HTML>

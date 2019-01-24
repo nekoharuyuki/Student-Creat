@@ -1,0 +1,144 @@
+<html>
+
+<head>
+<title>平成20年度 春期　基本情報技術者 午後 解説</title>
+<style type="text/css">
+body{line-height:150%;}
+code{font-size:12pt;}
+</style>
+</head>
+
+<body>
+
+<blockquote>
+	<hr>
+	<h3 align="center">平成20年度春期試験　正解例と解説(問6～問9)</h3>
+	<hr>
+	<p><a name="60"><strong>問6</strong></a></p>
+	<hr>
+	<p><a name="61"><strong>設問</strong></a></p>
+	<p>〈解答〉　a　エ　　　b　イ　　　c　エ　　　d　ア</p>
+	<p>〈解説〉</p>
+	<p>関数<code>markup_reference</code>は，入力ファイルから元の文書の文字を1文字ずつ読み，元の文書中の前後を“＼”で囲まれた参照資料名を参照番号に置き換えて，文書の末尾に“<code>References</code>”以降に参照番号と抜き出した参照資料名を対にして出力ファイルに出力する。</p>
+	<p>空欄aについて</p>
+	<blockquote>
+		<p><code>while</code>ループの繰返条件において，元の文書が格納されているファイル<code>in_filename</code>から<code>fgetc()</code>関数により1文字取り出して変数<code>ch</code>に格納した文字が<code>EOF</code>でない間，<code>while</code>ループの処理を繰り返している。空欄aの条件が成立つ場合に，変数<code>ch</code>に取り出した文字を<code>fputc()</code>関数により，処理後の文書を格納するファイル<code>out_filename</code>に出力している。元の文書中の参照資料名は前後を文字“＼”で囲まれているので，変数chに参照資料名の直前の“＼”が出現するまでは，変数<code>ch</code>の文字をそのままファイル<code>out_filename</code>に出力すればよい。プログラム中では文字“＼”は<code>MARK</code>で定義されているので，空欄aの条件はエの<code>ch 
+		!= MARK</code>が適切。</p>
+	</blockquote>
+	<p>空欄bについて</p>
+	<blockquote>
+		<p>変数<code>ch</code>に参照資料名の直前の“＼”が出現したとき，空欄aの<code>if</code>文の条件<code>ch 
+		!= MARK</code>を満たさなくなり，<code>else</code>直後の<code>for</code>ループを実行する。空欄b直前のこの<code>for</code>ループの処理では，<code>fgetc()</code>関数により読込んだ文字が<code>MARK</code>でない間，つまり参照資料名直後の“＼”が出現するまでは，配列<code>ref_name</code>に参照資料名の文字を1文字ずつ格納する処理を繰り返している。したがって参照資料名直後の“＼”が出現すれば<code>for</code>ループを抜けて，空欄bの処理で文字列最後を表す終端文字‘＼<code>0</code>’を，配列<code>ref_name</code>の最後の要素<code>ref_name[i]</code>に格納すればよく，空欄bはイが適切。</p>
+	</blockquote>
+	<p>空欄cについて</p>
+	<blockquote>
+		<p>空欄c直前の<code>for</code>ループでは，配列<code>ref_name</code>に取り出された参照資料名が，これまでに出現した参照資料名を格納する配列<code>ref_name_tbl[0]</code>～<code>ref_name_tbl[ref_num 
+		- 1]</code>の中に存在するかを検索している。この配列中に配列<code>ref_name</code>と一致するものがなかった場合，空欄cを条件とする<code>if</code>文の処理で，<code>strcpy()</code>関数により配列<code>ref_name</code>の参照資料名を配列要素<code>ref_name_tbl[ref_num]</code>に格納すればよい。配列<code>ref_name_tbl[0]</code>～<code>ref_name_tbl[ref_num 
+		- 1]</code>の中に配列<code>ref_name</code>と一致するものがなかった場合，変数<code>i</code>は<code>i 
+		&gt;= ref_num</code>となって<code>for</code>ループを抜ける。したがって空欄cの<code>if</code>文の条件を<code>i 
+		&gt;= ref_num</code>とすればよく，エが適切。</p>
+	</blockquote>
+	<p>空欄dについて</p>
+	<blockquote>
+		<p>
+		空欄dは文書中の参照資料名の代わりに参照番号を，処理後の文書を格納するファイルに出力する処理に該当する。配列要素の先頭の添字が0から始まるので，配列要素<code>ref_name_tbl[i]</code>に対応する参照番号は<code>i 
+		+ 1</code>になるので，空欄bで出力する参照番号を<code>i + 1</code>とすればよく，アが適切。</p>
+	</blockquote>
+	<hr>
+	<p><a href="20S_P_E3.HTM#61">問題へ</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a> </p>
+	<hr>
+	<p><a name="70"><strong>問7</strong></a></p>
+	<hr>
+	<p><a name="71"><strong>設問1</strong></a></p>
+	<p>〈解答〉　a　ア　　　b　エ</p>
+	<p>プログラムでは，アンケート結果ファイル<code>RESULT-FILE</code>を先頭から順に読み，ファイルのレコードが終わりになるまで，手続<code>CNT-PROC</code>を繰り返し，アンケート結果を集計している。読み込んだレコードのアンケート結果に対応するデータ名<code>SURVEY</code>の内容をテーブル<code>SURVAY-DATA</code>のテーブル要素<code>EVENT(1)</code>～<code>EVENT(5)</code>に転送した後，手続<code>CNT-PROC</code>の中で集計している。</p>
+	<p>空欄aについて</p>
+	<blockquote>
+		<p>
+		プログラムの説明②より，楽しかったイベントは二つまで選択でき，三つ以上のイベントが選択されていた場合は，無効として集計対象から除外する。空欄aに関する<code>PERFORM</code>文の繰返処理直後の<code>IF</code>文で，<code>CHOICE-CNT 
+		&lt;= 2</code>の場合に空欄bに関する<code>PERFORM</code>文の繰返処理を行っている。この<code>IF</code>文の処理がイベントの選択数のチェックに該当する。したがって空欄aに関する<code>PERFORM</code>文の繰返処理でイベントの選択数を<code>CHOICE-CNT</code>に求めればよい。テーブル要素<code>EVENT(1)</code>～<code>EVENT(5)</code>には楽しかったイベントに1が，それ以外は0がセットされているので，イベントの選択数を求めるには<code>EVENT(1)</code>～<code>EVENT(5)</code>までの合計を計算すればよい。したがって空欄aはアの<code>COMPUTE 
+		CHOICE-CNT = CHOICE-CNT + EVENT(WK-CNT)</code>が適切。</p>
+	</blockquote>
+	<p>空欄bについて</p>
+	<blockquote>
+		<p>空欄bに関する<code>PERFORM</code>文の繰返処理は，イベントの選択数が二つ以下の場合のアンケート結果の集計処理に該当する。手続<code>PRT-RTN</code>でテーブル要素のイベント名<code>EVENT-NAME(WK-CNT)</code>と集計結果<code>EVENT-TOTAL(WK-CNT)</code>を表示しているので，アンケート結果<code>EVENT(WK-CNT)</code>を集計用テーブル<code>EVENT-TOTAL(WK-CNT)</code>を用いてテーブル集計すればよい。したがって空欄bはエの<code>COMPUTE 
+		EVENT-TOTAL(WK-CNT) = EVENT-TOTAL(WK-CNT) + EVENT(WK-CNT)</code>が適切。</p>
+	</blockquote>
+	<hr>
+	<p><a href="20S_P_E3.HTM#71">問題へ</a></p>
+	<hr>
+	<p><a name="72"><strong>設問2</strong></a></p>
+	<p>〈解答〉　c　ア　　　d　エ</p>
+	<p>〈解説〉</p>
+	<p>空欄cについて</p>
+	<blockquote>
+		<p>空欄dの<code>DISPLAY</code>命令により，<code>INV-CNT</code>の内容を表示しているので，三つ以上のイベントを選択した無効なアンケート結果の総数を求めるには，<code>IF</code>文の条件が<code>CHOICE-CNT 
+		&lt;= 2</code>でない場合に<code>INV-CNT</code>をカウントアップすればよい。したがって空欄cはアの<code>ADD 
+		1 TO INV-CNT</code>が適切。</p>
+	</blockquote>
+	<p>空欄dについて</p>
+	<blockquote>
+		<p>無効なアンケート結果の総数は，集計結果の次に表示するので，行番号45の次に空欄dに関する<code>DISPLAY</code>命令を追加すればよい。したがってエが適切。</p>
+	</blockquote>
+	<hr>
+	<p><a href="20S_P_E3.HTM#72">問題へ</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a> </p>
+	<hr>
+	<p><a name="80"><strong>問8</strong></a></p>
+	<hr>
+	<p><a name="81"><strong>設問</strong></a></p>
+	<p>〈解答〉　a　ウ　　　b　エ　　　c　ウ　　　d　ア</p>
+	<p>〈解説〉</p>
+	<p>空欄a，bについて</p>
+	<blockquote>
+		<p>空欄a，bに関する<code>if</code>文を含むメソッド<code>heat(ElectricPot pot)</code>は，沸騰ボタンが押されると水がある場合加熱して加熱中<code>HEATING</code>に状態遷移を行い，水がない場合は過熱を開始せず警告を表示するメソッドである。電気ポットを表すクラス<code>ElectricPot</code>のオブジェクト<code>pot</code>に水がない場合，<code>No 
+		Water!</code>の例外を投げればよい。メソッド<code>isEmpty()</code>は，<code>pot</code>に水がない場合<code>true</code>を，それ以外の場合<code>false</code>を返す。したがって空欄aの<code>if</code>文の条件を<code>pot.isEmpty()</code>とし，これが<code>true</code>である場合に空欄bにおいて例外<code>Exception(&quot;No 
+		Water!&quot;)</code>を投げればよい。これより空欄aはウの<code>pot.isEmpty()</code>，空欄bはエの<code>throw 
+		new Exception(&quot;No Water!&quot;)</code>が適切。</p>
+	</blockquote>
+	<p>空欄cについて</p>
+	<blockquote>
+		<p>クラス<code>Idle</code>とクラス<code>Heating</code>は電気ポットの状態を定義する抽象クラス<code>State</code>のサブクラスである。したがって抽象クラス<code>State</code>の属性を継承してサブクラス<code>Idle</code>と<code>Heating</code>を定義すればよく，空欄cはウの<code>extends 
+		State</code>が適切。</p>
+	</blockquote>
+	<p>空欄dについて</p>
+	<blockquote>
+		<p>電気ポットを表すクラス<code>ElectricPot</code>のメソッド<code>heat()</code>は，抽象クラス<code>State</code>のメソッド<code>heat(this)</code>を呼び出して，沸騰ボタンが押された場合に電気ポットの状態<code>currentState</code>の状態遷移（加熱中<code>HEATING</code>への状態遷移）を行う。同様にメソッド<code>boiled()</code>は抽象クラスのメソッド<code>boiled(this)</code>を呼び出して，沸点に達した場合に電気ポットの状態遷移（休止中<code>Idle</code>への状態遷移）を行う。したがって空欄dはアの<code>currentState</code>が適切。</p>
+	</blockquote>
+	<hr>
+	<p><a href="20S_P_E3.HTM#81">問題へ</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a> </p>
+	<hr>
+	<p><a name="90"><strong>問9</strong></a></p>
+	<hr>
+	<p><a name="91"><strong>設問</strong></a></p>
+	<p>〈解答〉　a　イ　　　b　ウ　　　c　エ</p>
+	<p>〈解説〉</p>
+	<p>空欄aについて</p>
+	<blockquote>
+		<p>ラベル<code>LP</code>の<code>LAD</code>命令でアドレス<code>GR1</code>をインクリメントし，次の1文字を<code>GR4</code>に取り出している。空欄a直前の<code>CPL</code>命令による比較で，この<code>GR4</code>の文字が空白であるかを検査している。ラベル<code>ALNUM</code>の<code>LD</code>命令で<code>GR3</code>にセットされる内容が1なら英字を含む単語の処理中であり，<code>JPL</code>命令によりラベル<code>LP</code>に正分岐する。また<code>GR3</code>の内容が0なら数字だけの単語を処理中であり，<code>JZE</code>命令によりラベル<code>ACHK</code>に零分岐する。したがってGR4に取り出された文字が空白でない場合は，ラベル<code>ALNUM</code>の<code>LD</code>命令にジャンプし，英字を含む単語を処理中であるか，数字だけの単語を含む処理中であるかによってラベル<code>LP</code>か<code>ACHK</code>の処理に分岐すればよく，イが適切。</p>
+	</blockquote>
+	<p>空欄bについて</p>
+	<blockquote>
+		<p><code>GR4</code>に取り出された文字が空白でなく，<code>GR3</code>が<code>-1</code>の場合，つまり単語の先頭の文字が出現し単語が処理中でない場合には，空欄bの処理を行った後，<code>GR1</code>に格納されている単語の先頭アドレスを<code>GR6</code>に退避している。その後，ラベル<code>ACHK</code>の<code>CPL</code>命令による比較で，<code>GR4</code>の文字が数字であるかを検査し，数字であれば<code>JMI</code>命令でラベル<code>LP</code>に戻り，次の1文字を取り出して繰り返すが，英字の場合は<code>GR3</code>に<code>1</code>をセットしている。したがって数字である場合，<code>GR3</code>に<code>0</code>がセットされている必要があり，これを空欄bで行っておく必要がある。したがって空欄bはウの<code>LD 
+		GR3,=0</code>が適切。</p>
+	</blockquote>
+	<p>空欄cについて</p>
+	<blockquote>
+		<p><code>GR4</code>に取り出された文字が空白の場合，空欄a直後の<code>CALL</code>命令により手続<code>SETTKN</code>を呼出す。<code>SETTKN</code>の処理では，単語の処理中でなければ何もしないが，単語が処理中であれば，単語の先頭アドレスを管理テーブル，単語の長さ，単語の属性を管理テーブルの<code>GR2</code>を先頭アドレスとする3語に格納する。したがって単語の先頭アドレスを格納する管理テーブルのアドレス<code>GR2</code>を3語分だけ進める必要がある。したがって空欄cはエの<code>LAD 
+		GR2,3,GR2</code>が適切。</p>
+	</blockquote>
+	<hr>
+	<p><a href="20S_P_E3.HTM#91">問題へ</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a></p>
+	<hr>
+</blockquote>
+
+</body>
+
+</html>

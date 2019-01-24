@@ -1,0 +1,426 @@
+<html>
+
+<head>
+<title>平成17年度秋期試験　問題(問10～問13)</title>
+</head>
+
+<body bgcolor="#FFFFFF" topmargin="0" leftmargin="0">
+
+<blockquote>
+<hr>
+<h3 align="center">平成17年度秋期試験　問題(問10～問13)</h3>
+<hr>
+<p>次の問10から問13までの4問については、この中から1問を選択し、答案用紙の選択欄の<img border="0" src="IMAGE/select.gif">（選）をマークして解答してください。<br>
+なお、2問以上選択した場合には、はじめの1問について採点します。</p>
+<hr>
+
+<p><a name="100"><b>問10</b></a><b>　</b>次のCプログラムの説明及びプログラムを読んで，設問1～3に答えよ。</p>
+<p>〔プログラムの説明〕</p>
+<p>　ある大学における成績出力用プログラムである。</p>
+
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+
+<tr>
+<td valign="top">（1）</td>
+<td>この大学では，学期終了時に学生の履修科目成績一覧を図1に示すレコード様式でファイルに出力する。学生数は15,000，科目数は2,000であり，得点は0～100の整数値である。</td>
+</tr>
+
+<tr>
+<td></td>
+<td><p align="center"><img border="0" src="./IMAGE/PM05F10-z1.gif" width="478" height="69"></p></td>
+</tr>
+
+<tr>
+<td valign="top">（2）</td>
+<td>出力に必要なデータは，図2に示す3種類のファイルに記述されている。</td>
+</tr>
+
+<tr>
+<td></td>
+<td><p align="center"><img border="0" src="./IMAGE/PM05F10-z2.gif" width="414" height="221"></p></td>
+</tr>
+
+<tr>
+<td valign="top">（3）</td>
+<td>プログラムは，はじめに関数initを呼ぶことで，図2に示した3種類のファイルから図3に示すようなリスト構造をメモリ上に構成する。科目キーcourseKeyの科目名は，char型の配列courseName[courseKey]に格納される。また，学生キーstudentKeyの学生情報はSTUDENT型の構造体student[studentKey]で表現され，メンバstudentNameには学生氏名が，メンバrFirstCourseにはその学生の成績情報を表すリストの先頭へのポインタが格納される。学生の各履修科目についての成績情報はRECORD型の構造体で表現し，メンバscoreには得点，メンバcourseNameには科目名へのポインタ，メンバrNextCourseには他の履修科目の成績情報へのポインタが格納される。</td>
+</tr>
+
+<tr>
+<td></td>
+<td><p align="center"><img border="0" src="./IMAGE/PM05F10-z3.gif" width="424" height="313"></p></td>
+</tr>
+
+<tr>
+<td valign="top">（4）</td>
+<td>プログラム中で定義されているその他の関数の説明は次のとおりである。</td>
+</tr>
+
+<tr>
+<td></td>
+<td>void regist（int courseKey, int studentKey, short s）;<br>
+機能：新たにRECORD型の構造体を生成し，メンバscoreに得点sを代入する。また，この得点が学生キーstudentKeyの科目キーcourseKeyについてのものであるという情報を設定する。</td>
+</tr>
+
+<tr>
+<td></td>
+<td>void writeCourses（）;<br>
+機能：全学生分の履修科目成績一覧をファイルに出力する。</td>
+</tr>
+
+<tr>
+<td valign="top">（5）</td>
+<td>このプログラムでは，次のライブラリ関数を用いる。</td>
+</tr>
+
+<tr>
+<td></td>
+<td>void *malloc（size_t size）<br>
+機能：sizeバイトの領域をメモリ上に割り付け，割り付けられた領域へのポインタを返す。メモリ割付けに失敗した場合はNULLを返す。</td>
+</tr>
+
+</table>
+</div>
+<p align="center"><img border="0" src="./IMAGE/PM05F10-1.gif" width="448" height="1073"></p>
+<hr>
+<p><a name="101"><b>設問1</b></a><b>　</b>プログラム中の［　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p>aに関する解答群<br>
+　ア　&p　　イ　&p＋＋　　ウ　NULL　　エ　p　　オ　p＋＋</p>
+<p>bに関する解答群<br>
+　ア　&courseName　　　　　　　　イ　*courseName[courseKey］<br>
+　ウ　courseName　　　　　　　　 エ　courseName[courseKey］<br>
+　オ　p->rNextCourse->courseName</p>
+<p>cに関する解答群<br>
+　ア　&p->courseName, &p->score　イ　&p->courseName, p->score<br>
+　ウ　*p->courseName, *p->score　エ　*p->courseName, p->score<br>
+　オ　p->courseName, &p->score　 カ　p->courseName, *p->score<br>
+　キ　p->courseName, p->score</p>
+<hr>
+<a href="17F_P_A4.HTM#101">設問1の正解例と解説へ</a>
+<hr>
+<p><a name="102"><b>設問2</b></a><b>　</b>図1に例示した履修科目成績一覧において，科目名の出力順として正しい答えを，解答群の中から選べ。</p>
+<p>解答群<br>
+　ア　科目キーの値が小さい科目ほど先に出力される。<br>
+　イ　科目キーの値が小さい科目ほど後に出力される。<br>
+　ウ　先に関数registで登録した科目ほど先に出力される。<br>
+　エ　先に関数registで登録した科目ほど後に出力される。<br>
+　オ　履修者数の少ない科目ほど先に出力される。<br>
+　カ　履修者数の少ない科目ほど後に出力される。</p>
+<hr>
+<a href="17F_P_A4.HTM#102">設問2の正解例と解説へ</a>
+<hr>
+<p><a name="103"><b>設問3</b></a><b>　</b>次の記述中の［　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p>　図1に例示した履修科目成績一覧において，得点の降順に出力されるように，関数registのα，βを次のとおりに変更した。</p>
+<p>　なお，［　a　］には正しい答えが既に入っているものとする。</p>
+<p align="center"><img border="0" src="./IMAGE/PM05F10-2.gif" width="472" height="220"></p>
+<p>解答群<br>
+　ア　q != NULL && q->score &lt; s<br>
+　イ　q != NULL && q->score > s<br>
+　ウ　q == NULL || q->score &lt; s<br>
+　エ　q == NULL || q->score > s<br>
+　オ　q->rNextCourse != NULL && q->rNextCourse->score &lt; s<br>
+　カ　q->rNextCourse != NULL && q->rNextCourse->score > s<br>
+　キ　q->rNextCourse == NULL || q->rNextCourse->score &lt; s<br>
+　ク　q->rNextCourse == NULL || q->rNextCourse->score > s<br>
+<hr>
+<a href="17F_P_A4.HTM#103">設問3の正解例と解説へ</a>
+<hr>
+<a href="index.htm">■メニューへ戻る</a>
+<hr>
+<p><a name="110"><b>問11</b></a><b>　</b>次のCOBOLプログラムの説明及びプログラムを読んで，設問1，2に答えよ。</p>
+<p>〔プログラムの説明〕</p>
+<p>　渡された会員IDを基に，会員ファイルから会員情報を検索し，画面データとして返却する呼ばれるプログラム（以下，副プログラムという）である。</p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td valign="top">（1）</td>
+<td>呼ぶプログラム（以下，主プログラムという）は，会員IDを読み取り，検索結果を画面に表示する。主プログラムが副プログラムへ渡す情報は，次のとおりである。現在の年月は，YYYYMMの形式である。</td>
+</tr>
+<tr>
+<td></td>
+<td><p align="left"><img border="0" src="./IMAGE/PM05F11-1.gif" width="133" height="42"></p></td>
+</tr>
+<tr>
+<td valign="top">（2）</td>
+<td>副プログラムでは，主プログラムから受け取った会員IDで会員ファイルを検索し，見つかった会員情報を画面データに格納して主プログラムに返す。画面データに格納する情報は，見つかった会員のレコード項目のうち会員ID以外のすべての項目である。このとき，新規入会サービスの対象者であるかどうかを調べ，フラグをセットする。新規入会サービスの対象者は，特別会員及び一般会員のうち，会員期間が，入会月を基準に月単位で数えて，12か月以内の会員である。例えば，10月入会の場合は，翌年の9月までがサービス対象期間となる。</td>
+</tr>
+<tr>
+<td valign="top">（3）</td>
+<td>会員ファイルのレコード様式は，次のとおりである。</td>
+</tr>
+<tr>
+<td></td>
+<td><p align="left"><img border="0" src="./IMAGE/PM05F11-2.gif" width="419" height="45"></p></td>
+</tr>
+
+<tr>
+<td></td>
+<td>　①　会員IDをキーとした索引ファイルであり，会員IDは数字0～9の組合せからなる。</td>
+</tr>
+<tr>
+<td></td>
+<td>　②　区分には会員区分が記録されている。会員区分には，特別会員，一般会員，学生会員があり，次のとおりコード化されている。<br>
+　　　　　1：特別会員　2：一般会員　3：学生会員</td>
+</tr>
+
+<tr>
+<td></td>
+<td>　③　入会年月日には，その会員の入会した年月日がYYYYMMDDの形式で記録されている。</td>
+</tr>
+
+<tr>
+<td valign="top">（4）</td>
+<td>画面データ（L-SCREEN）のデータ様式は，次のとおりである。</td>
+</tr>
+<tr>
+<td></td>
+<td><p align="left"><img border="0" src="./IMAGE/PM05F11-3.gif" width="275" height="42"></p></td>
+</tr>
+<tr>
+<td></td>
+<td>フラグ1及びフラグ2は，次の決定表に従って値が決まる。</td>
+</tr>
+<tr>
+<td></td>
+<td><p align="center"><img border="0" src="./IMAGE/PM05F11-4.gif" width="416" height="259"></p></td>
+</tr>
+</div>
+</table>
+<p align="center"><img border="0" src="./IMAGE/PM05F11-5.gif" width="375" height="573"></p>
+<p><a name="111"><b>設問1</b></a><b>　</b>決定表及びプログラム中の［　］に入れる正しい答えを，解答群の中から選べ。ここで，決定表のフラグ1，フラグ2は，プログラムのS-F1，S-F2に対応している。</p>
+<p align="center"><img border="0" src="./IMAGE/PM05F11-6.gif" width="406" height="228"></p>
+<p>bに関する解答群<br>
+　ア　01　W-YEAR1　　　　　　　　　　PIC X（6）.<br>
+　　　01　W-YEAR2　REDEFINES W-YEAR1 PIC 9（6）.<br>
+<br>
+　イ　01　W-YEAR1　　　　　　　　　　PIC 9（6）.<br>
+　　　01　W-YEAR2　REDEFINES W-YEAR1 PIC X（6）.<br>
+<br>
+　ウ　01　W-YEAR1　　　　　　　　　　PIC X（6）.<br>
+　　　01 W-YEAR2　　　　　　　　　　 PIC 9（6）.</p>
+<p>cに関する解答群<br>
+　ア　0　　　イ　1　　　ウ　12<br>
+　エ　99　　 オ　100　　カ　101</p>
+<hr>
+<a href="17F_P_A4.HTM#111">設問1の正解例と解説へ</a>
+<hr>
+<p><a name="112"><b>設問2</b></a><b>　</b>次の記述中の［　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p>　このシステムでは，会員IDの最後の1文字だけの入力ミスが非常に多いことが経験上分かっている。そこで，主プログラムから渡された会員IDと一致する会員情報が見つからなかったとき，会員IDの最後の1文字だけが異なるすべての会員の会員IDと氏名を修正候補として主プログラムに戻すように，次のとおり変更した。</p>
+<p align="center"><img border="0" src="./IMAGE/PM05F11-7.gif" width="467" height="420"></p>
+<p>dに関する解答群<br>
+ア　x＝6　　イ　x＞6　　ウ　x＝9　　エ　x＞9　　オ　x＞10</p>
+<p>eに関する解答群<br>
+　ア　MOVE L-ID TO M-ID　　　　イ　MOVE L-ID TO M-ID<br>
+　　　　　　　　　　　　　　　　 　MOVE X TO M-ID（6:）<br>
+<br>
+　ウ　MOVE L-ID TO M-ID　　　　エ　MOVE L-ID TO M-ID<br>
+　　　MOVE X TO M-NUM（6）　　　　 MOVE X TO M-NUM（X）<br>
+<br>
+　オ　MOVE X TO M-NUM（6）　　 カ　MOVE X TO M-NUM（X）</p>
+<p>fに関する解答群<br>
+　ア　X　　イ　X＋1　　ウ　Y　　エ　Y＋1</p>
+<hr>
+<a href="17F_P_A4.HTM#112">設問2の正解例と解説へ</a>
+<hr>
+<a href="index.htm">■メニューへ戻る</a>
+<hr>
+<p><a name="120"><b>問12</b></a><b>　</b>次のJavaプログラムの説明及びプログラムを読んで，設問1，2に答えよ。</p>
+<p>〔プログラムの説明〕</p>
+<p>　Aを起点，Dを終点とする四つの駅A，B，C，Dからなる路線の各駅に設置された自動改札機の処理を模したプログラムである。この路線では片道切符（以下，切符という）とプリペイドカード（以下，カードという）の2種類の乗車券が使用できる。</p>
+<p>　路線の運賃は駅間の距離で決められる。距離が4kmまでは120円（この運賃を初乗り運賃という）で，それを超えると2kmごとに30円加算される。2km未満は2kmに切り上げる。例えば，距離が7kmのとき，運賃は180円である。</p>
+<p>　切符には，乗車駅で自動改札機を通って入場するとき，乗車駅の情報が記録される。降車駅で自動改札機を通って出場するとき，運賃が計算され，金額が不足しているときはゲートが閉じられ，出場できない。一度使用した切符は無効となる。この路線では切符を発券した駅にかかわらず，どの駅の自動改札機からでも入場し，乗車できる。例えば，A駅で発券された切符でB駅の自動改札機から入場できる。</p>
+<p>　カードには，乗車駅で自動改札機を通って入場するとき，乗車駅の情報が記録される。このとき，カードの残高が0円の場合は，ゲートが閉じられ，入場できない。降車駅で自動改札機を通って出場するとき，精算処理が行われる。すなわち，運賃が計算され，カードの残高から引かれる。このとき，カードの残高が運賃に満たない場合は，ゲートが閉じられ，出場できない。</p>
+<p>　クラスLineは路線を表す。メソッドgetFareは与えられた距離から運賃を計算して返す。</p>
+<p>　クラスGateは，自動改札機を表す。クラスLineのフィールドA，B，C，DはGateのインスタンスであり，それぞれA，B，C，Dの各駅に設置された自動改札機を表す。コンストラクタ及び各メソッドは，次の処理を行う。</p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td valign="top">（1）</td>
+<td>コンストラクタは，Gateのインスタンスを生成する。最初の引数に駅名，2番目の引数に路線の起点であるA駅からの距離を指定する。</td>
+</tr>
+<td valign="top">（2）</td>
+<td>メソッドenterは，自動改札機を通って入場するときの処理を行う。乗車券が適正でない場合はゲートを閉じる。入場処理が正常に行われた場合は，乗車券に乗車駅の情報を記録する。</td>
+</tr>
+<td valign="top">（3）</td>
+<td>メソッドexitは，自動改札機を通って出場するときの処理を行う。乗車券の金額（残高）が不足するなど，適正でない場合はゲートを閉じる。</td>
+</tr>
+<td valign="top">（4）</td>
+<td>メソッドopen及びcloseは，それぞれゲートの開閉を表すメッセージを出力する。</td>
+</table>
+</div>
+<p>　抽象クラスTicketは，この路線の乗車券を表し，このクラスを継承して切符やカードを定義する。コンストラクタ及び各メソッドは，次の処理を行う。</p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td valign="top">（1）</td>
+<td>コンストラクタは，購入時の金額を初期値として乗車券に保持する。</td>
+</tr>
+<tr>
+<td valign="top">（2）</td>
+<td>メソッドgetValueは，呼び出された時点での乗車券の金額（残高）を返す。</td>
+</tr>
+<tr>
+<td valign="top">（3）</td>
+<td>メソッドadjustValueは，必要であれば精算処理を行う。</td>
+</tr>
+<tr>
+<td valign="top">（4）</td>
+<td>メソッドdeductは，引数で指定された金額を乗車券の金額（残高）から差し引いて金額（残高）を更新する。</td>
+</tr>
+<tr>
+<td valign="top">（5）</td>
+<td>メソッドsetOriginは，指定されたGateを乗車駅として記録する。nullが指定されたときは，乗車駅の記録を消去する。</td>
+</tr>
+<tr>
+<td valign="top">（6）</td>
+<td>メソッドgetOriginは，記録されている乗車駅を返す。記録されていないときはnullを返す。<br>
+　クラスOneWayTicketは切符を表し，クラスPrepaidCardはカードを表す。それぞれの乗車券の処理で，抽象メソッドを実装し，必要に応じてTicketのメソッドをオーバライドする。</td>
+</tr>
+</table>
+</div>
+<p align="left"><img border="0" src="./IMAGE/PM05F12-1.gif" width="393" height="157"></p>
+<p align="left"><img border="0" src="./IMAGE/PM05F12-2.gif" width="449" height="528"></p>
+<p align="left"><img border="0" src="./IMAGE/PM05F12-3.gif" width="382" height="286"></p>
+<p align="left"><img border="0" src="./IMAGE/PM05F12-4.gif" width="316" height="250"></p>
+<p align="left"><img border="0" src="./IMAGE/PM05F12-5.gif" width="407" height="175"></p>
+<p><a name="121"><b>設問1</b></a><b>　</b>プログラム中の［　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p>aに関する解答群<br>
+　ア　ticket.setOrigin（Line.A）　　イ　ticket.setOrigin（Line.D）<br>
+　ウ　ticket.setOrigin（nu11）　　　エ　ticket.setOrigin（this）<br>
+　オ　ticket.setOrigin（ticket）</p>
+<p>bに関する解答群<br>
+　ア　ticket.getValue（） &lt; fare　イ　ticket.getValue（） &lt;= fare<br>
+　ウ　ticket.getValue（） == fare　　エ　ticket.getValue（） > fare<br>
+　オ　ticket.getValue（） >= fare<br>
+<p>cに関する解答群<br>
+　ア　super（）　　　　　　　　　　　イ　super（this）<br>
+　ウ　super（value）　　　　　　　　 エ　super（）; this.value＝value<br>
+　オ　this（value）</p>
+<hr>
+<a href="17F_P_A4.HTM#121">設問1の正解例と解説へ</a>
+<hr>
+<p><a name="122"><b>設問2</b></a><b>　</b>この路線で，新しいタイプの乗車券を発売することになった。この乗車券は発券した時刻から24時間以内は全駅で乗り降り自由な乗車券である。発券から24時間経過すると出場はできるが入場はできなくなる。これに伴い，抽象クラスTicketを継承して新しいクラスを定義し，クラスGateには修正を加えずにこの乗車券をサポートしたい。このクラスのコンストラクタ及びメソッドの処理を次の表にまとめた。表中の［　］に入れる正しい答えを，解答群の中から選べ。ここで，解答群中のvalueは，クラスTicketのフィールドvalueであり，コンストラクタで初期値を設定し，値はメソッドgetValueで得るものとする。</p>
+<p align="left"><img border="0" src="./IMAGE/PM05F12-6.gif" width="422" height="176"></p>
+<p>解答群<br>
+　ア　valueが路線の最高運賃（全運賃の最大値）以上のときだけtrueを返す。それ以外はfalseを返す。<br>
+　イ　valueが路線の初乗り運賃以上のときだけtrueを返す。それ以外はfalseを返す。<br>
+　ウ　valueの初期値に，理論的に24時間かかっても使い切れない金額を設定する。<br>
+　エ　valueの初期値に，路線の最高運賃（全運賃の最大値）を設定し，発券時刻を記録する。<br>
+　オ　スーパクラスで定義されたとおり<br>
+　カ　常に0を返す。<br>
+　キ　常に路線の初乗り運賃の値を返す。<br>
+　ク　何もしない（メソッド本体が文を含まない）。<br>
+　ケ　メソッドdeductを，amountを引数として呼び出す。<br>
+　コ　呼び出されたときの時刻がインスタンスに格納されている発券時刻から24時間以内のときだけtrueを返す。それ以外はfalseを返す。</p>
+<hr>
+<a href="17F_P_A4.HTM#122">設問2の正解例と解説へ</a>
+<hr>
+<a href="index.htm">■メニューへ戻る</a>
+<hr>
+<p><a name="130"><b>問13</b></a><b>　</b>次のアセンブラプログラムの説明及びプログラムを読んで，設問1～3に答えよ。</p>
+<p>〔プログラムの説明〕</p>
+<p>　1語の中から指定されたビットパターンを検索する副プログラムBPSRHである。</p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td valign="top">（1）</td>
+<td>主プログラムは，パラメタ領域の先頭番地をGR1に設定して，BPSRHを呼ぶ。パラメタの形式は次のとおりである。</td>
+</tr>
+<tr>
+<td></td>
+<td><p align="left"><img border="0" src="./IMAGE/PM05F13-1.gif" width="375" height="75"></p></td>
+</tr>
+<tr>
+<td valign="top">（2）</td>
+<td>BPSRHは，検索対象語の上位ビットからビットパターンと照合し，最初に一致した部分の最上位のビット番号をGR0に設定して主プログラムに戻る。一致した部分がない場合は，－1をGR0に設定して主プログラムに戻る。次の例では，GR0には，一致した部分の最上位のビット番号12が設定される。</td>
+</tr>
+<tr>
+<td></td>
+<td><p align="left"><img border="0" src="./IMAGE/PM05F13-2.gif" width="281" height="103"></p></td>
+</tr>
+<tr>
+<td valign="top">（3）</td>
+<td>副プログラムから戻るとき，汎用レジスタGR1～GR7の内容は元に戻す。</td>
+</tr>
+</table>
+</div>
+<p align="left"><img border="0" src="./IMAGE/PM05F13-3.gif" width="406" height="406"></p>
+<p><a name="131"><b>設問1</b></a><b>　</b>プログラム中の［　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p>aに関する解答群<br>
+　ア　SLL　GR4,0,GR6　　イ　SLL　GR4,0,GR7<br>
+　ウ　SRA　GR4,0,GR6　　エ　SRA　GR4,0,GR7<br>
+　オ　SRL　GR4,0,GR6　　カ　SRL　GR4,0,GR7</p>
+<p>bに関する解答群<br>
+　ア　LD　 GR5,1,GR2　　イ　SLL　GR3,1<br>
+　ウ　SLL　GR5,1　　　　エ　SRL　GR3,1<br>
+　オ　SRL　GR5,0,GR2　　カ　SRL　GR5,0,GR3<br>
+　キ　SRL　GR5,1</p>
+<hr>
+<a href="17F_P_A4.HTM#131">設問1の正解例と解説へ</a>
+<hr>
+<p><a name="132"><b>設問2</b></a><b>　</b>次のパラメタが渡され，ラベルFINDに制御が移ったときの，GR5の値の16進表記として正しい答えを，解答群の中から選べ。</p>
+<p align="left"><img border="0" src="./IMAGE/PM05F13-4.gif" width="207" height="74"></p>
+<p>解答群<br>
+　ア　000D　　　イ　1AD6　　　ウ　AD60<br>
+　エ　D000　　　オ　D6B0</p>
+<hr>
+<a href="17F_P_A4.HTM#132">設問2の正解例と解説へ</a>
+<hr>
+<p><a name="133"><b>設問3</b></a><b>　</b>1の連続するビットパターンに特化した検索を行う副プログラムBP1SRHを使用して，映画館の指定席を予約する副プログラムRESERVEを作成した。</p>
+<p>　RESERVE中の［　］に入れる正しい答えを，解答群の中から選べ。</p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td valign="top">（1）</td>
+<td>映画館の指定席は1,024席あり，座席番号は0～1023である。また，指定席は座席番号順に16席ごとにグループ化されている。指定席管理表は連続する64語からなり，先頭の語のビット番号15が座席番号0の状態を，末尾の語のビット番号0が座席番号1023の状態を表す。指定席管理表の対応するビットが1のとき空席を，0のとき予約済を表す。</td>
+<tr>
+<td></td>
+<td><p align="left"><img border="0" src="./IMAGE/PM05F13-5.gif" width="441" height="105"></p></td>
+</tr>
+<tr>
+<td valign="top">（2）</td>
+<td>主プログラムは，予約すべき席数n（1≦n≦16）をGR1に，指定席管理表の開始アドレスをGR2に設定して，RESERVEを呼ぶ。</td>
+</tr>
+<tr>
+<td valign="top">（3）</td>
+<td>RESERVEは，指定された数の席を連続して，かつグループをまたがらないで確保する。座席番号0から順に空席を探し，見つかれば“予約済”の状態にして，確保された一番若い番号の座席番号をGR0に設定し，主プログラムに戻る。確保できなければ，－1をGR0に設定して主プログラムに戻る。</td>
+</tr>
+<tr>
+<td valign="top">（4）</td>
+<td>RESERVEから戻るとき，汎用レジスタGR1～GR7の内容は元に戻す。</td>
+</tr>
+<tr>
+<td valign="top">（5）</td>
+<td>BP1SRHに与えるパラメタは，次の形式とする。</td>
+</tr>
+<tr>
+<td></td>
+<td><p align="left"><img border="0" src="./IMAGE/PM05F13-6.gif" width="372" height="63"></p></td>
+</tr>
+<tr>
+<td></td>
+<td>BP1SRHは，BPSRHの行番号6～9を次の三つの命令で置き換えたプログラムである。</td>
+</tr>
+<tr>
+<td></td>
+<td><p align="left"><img border="0" src="./IMAGE/PM05F13-7.gif" width="112" height="39"></p></td>
+</tr>
+</table>
+</div>
+<p align="left"><img border="0" src="./IMAGE/PM05F13-8.gif" width="486" height="504"></p>
+<p>cに関する解答群<br>
+　ア　AND　GR5,GR3　　　イ　AND　GR5,GR7<br>
+　ウ　OR　 GR5,GR3　　　エ　OR　 GR5,GR7<br>
+　オ　SRA　GR7,0,GR3　　カ　SRL　GR7,0,GR3</p>
+<p>dに関する解答群<br>
+　ア　SLL　GR2,1　　　　イ　SLL　GR2,2<br>
+　ウ　SLL　GR2,4　　　　エ　SLL　GR3,1<br>
+　オ　SLL　GR3,2　　　　カ　SLL　GR3,4<br>
+<hr>
+<a href="17F_P_A4.HTM#133">設問3の正解例と解説へ</a>
+<hr>
+<a href="index.htm">■メニューへ戻る</a>
+<hr>
+</blockquote>
+</body>
+</html>

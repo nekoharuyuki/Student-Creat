@@ -1,0 +1,467 @@
+<HTML>
+<HEAD>
+<TITLE>平成12年度春期試験　問題(午後問1～2)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0" >
+<blockquote>
+  <hr>
+  <h3 align="center">平成年12度春期試験　問題(問1～問2)</h3>
+<basefont size="3">
+<hr>
+<br>
+<b><font size="3">次の問1、問2は必須問題です。全問解答してください。</font></b><font size="3"><br>
+</font>
+<HR WIDTH=100%>
+<font size="3">
+<A NAME="10">
+<b>
+問1</b></a><b>　</b>次の流れ図の説明及び流れ図を読んで、設問 1～3 に答えよ。<br>     
+〔流れ図の説明〕&nbsp;<br>    
+  ホテルにおける空き部屋を検索する処理の流れ図である。この処理は、部屋の階級と利用者の人数を入力すると、利用可能な部屋数と部屋番号を出力する。部屋の階級を問わないときは、階級の値を 0 にする。流れ図で使用する主な変数を表１に示す。配列の添字ｎがとる値の範囲は１～maxnであり、添字ｍがとる値の範囲は１～Orm である。<br>     
+　　　　　　　</font>
+<p><font size="3">表１　主な変数</font>
+<table border="1" cellPadding="3" bordercolorlight="#000000" cellspacing="0" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+  <tbody>
+    <tr align="middle">
+      <td>　　変数名　　</td>
+      <td>内容　　　</td>
+      <td>　値の範囲　</td>
+    </tr>
+    <tr>
+      <td>maxn</td>
+      <td>部<font size="3">屋数</font></td>
+      <td>
+        <p align="center">－</p>
+      </td>
+    </tr>
+    <tr>
+      <td>no(n)</td>
+      <td>部屋番号</td>
+      <td>
+        <p align="center">－</p>
+      </td>
+    </tr>
+    <tr>
+      <td>umaxn(n)</td>
+      <td>部屋の最大利用可能人数　</td>
+      <td>
+        <p align="center">－</p>
+      </td>
+    </tr>
+    <tr>
+      <td>status(n)</td>
+      <td>部屋の状態</td>
+      <td>
+        <p align="center">空き<br>
+        使用中</td>
+    </tr>
+    <tr>
+      <td>rank(n)</td>
+      <td>部屋の階級</td>
+      <td>
+        <p align="center">1 ～ 3</p>    
+      </td>    
+    </tr>    
+    <tr>    
+      <td>Irank</td>    
+      <td>検索する部屋の階級</td>    
+      <td>    
+        <p align="center">0 ～ 3</p>    
+      </td>    
+    </tr>    
+    <tr>    
+      <td>Iusrn</td>    
+      <td>検索する部屋の利用人数</td>    
+      <td>    
+        <p align="center">－</p>    
+      </td>    
+    </tr>    
+    <tr>    
+      <td>Orm</td>    
+      <td>利用可能な部屋数</td>    
+      <td>    
+        <p align="center">－</p>    
+      </td>    
+    </tr>    
+    <tr>    
+      <td>Ormno(m)</td>    
+      <td>利用可能な部屋番号</td>    
+      <td>    
+        <p align="center">－</p>    
+      </td>    
+    </tr>    
+  </tbody>    
+</table>    
+<p><font size="3">〔流れ図〕</font></p>    
+<p><font size="3"><img border="0" src="image/A00s01f1.gif" width="400" height="447"><br>   
+</font>   
+<A NAME="10">   
+</p>   
+<HR WIDTH=100%>   
+</a><font size="3"><A NAME="11">   
+<b>   
+設問1</b></a><b>　</b>次の説明文中の<b>[　　　　]</b>に入れる正しい答えを、解答群の中から選べ。<br>  
+      部屋の状況が表２のとき、次の入力データで検索を実行するとOrmの値は<b>[　　ａ　　]</b>、Ormno(2)の値は<b>[　　ｂ　　]</b>となる。<br>  
+Irank : 0 　　 Iusrn : 4<br>     
+</font>     
+<p align="left"><font size="3">表２　部屋の構成と状況</font><center>
+<div align="left">
+  <table border="1" cellPadding="3" bordercolorlight="#000000" cellspacing="0" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+    <tbody>
+      <tr>
+        <td align="middle">　n　</td>
+        <td>　　no　　</td>
+        <td>　umaxn　</td>
+        <td>　status　</td>
+        <td>　rank　</td>
+      </tr>
+      <tr align="middle">
+        <td>1</td>
+        <td>101</td>
+        <td>4</td>
+        <td><font size="3">空き</font></td>
+        <td>3</td>
+      </tr>
+      <tr align="middle">
+        <td>2</td>
+        <td>102</td>
+        <td>4</td>
+        <td>使用中</td>
+        <td>3</td>
+      </tr>
+      <tr align="middle">
+        <td>3</td>
+        <td>201</td>
+        <td>3</td>
+        <td>空き</td>
+        <td>2</td>
+      </tr>
+      <tr align="middle">
+        <td>4</td>
+        <td>202</td>
+        <td>4</td>
+        <td>使用中</td>
+        <td>2</td>
+      </tr>
+      <tr align="middle">
+        <td>5</td>
+        <td>301</td>
+        <td>6</td>
+        <td>空き</td>
+        <td>1</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</center>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td><font size="3">　<br>
+      　<br>
+      解答群</font></td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td width="80"><font size="3">  ア　1</font></td>
+    <td width="80"><font size="3">イ　2</font></td>
+    <td width="80"><font size="3">ウ　3</font></td>
+    <td width="80"><font size="3">エ　4</font></td>
+    <td width="80"><font size="3">オ　5</font></td>
+  </tr>
+  <tr>
+    <td><font size="3">  カ　101</font></td>
+    <td><font size="3">キ　102</font></td>
+    <td><font size="3">ク　201</font></td>
+    <td><font size="3">ケ　202</font></td>
+    <td><font size="3">コ　301</font></td>
+  </tr>
+</table>
+<p><font size="3">　</font></p>
+
+<HR WIDTH=100%>
+
+<A HREF="12s_p_a1.htm#11"><font size="3">設問1の正解例と解説へ</font></A>
+<HR WIDTH=100%>
+<font size="3"><b><a name="12">設問2</a></b>　人数分の宿泊料金を部屋ごとに計算して配列Ormpに格納する処理を追加する。流れ図のβで示す箱の最後に追加する正しい答えを、解答群の中から選べ。ここで、各部屋の階級に対する１人当たりの料金（表 3 ）は配列 rct に格納されている。配列 rct の添字は１から始まり、階級を示す。</font>     
+<p><font size="3">表３　料金表（rct）</font>
+<table border="1" cellPadding="3" bordercolorlight="#000000" cellspacing="0" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+  <tbody>
+    <tr align="middle">
+      <td>　階級　</td>
+      <td>　料金（円／人）　</td>
+    </tr>
+    <tr align="middle">
+      <td>1</td>
+      <td>20,000</td>
+    </tr>
+    <tr align="middle">
+      <td>2</td>
+      <td>10,000</td>
+    </tr>
+    <tr align="middle">
+      <td>3</td>
+      <td>8,000</td>
+    </tr>
+  </tbody>
+</table>
+<p><font size="3"><br>
+解答群<br>
+  ア　Iusrn → Ormp(Orm)&nbsp;<br>    
+  イ　rct(Irank) → Ormp(n)&nbsp;<br>    
+  ウ　rct(Irank) ＋ Iusrn → Ormp(n)&nbsp;<br>    
+  エ　rct(Irank) × Iusrn → Ormp(n)&nbsp;<br>    
+  オ　rct(Irank) × Iusrn → Ormp(Orm)&nbsp;<br>    
+  カ　rct(rank(n)) × Iusrn → Ormp(n)&nbsp;<br>    
+  キ　rct(rank(n)) × Iusrn → Ormp(Orm)<br>     
+　</font></p>
+<hr>
+<p><a HREF="12s_p_a1.htm#12"><font size="3">設問2の正解例と解説へ</font></a></p>
+<hr>
+<p><font size="3"><b><a name="13">設問3</a>　</b>検索結果の出力件数を制限するために、出力件数の最大値を与える変数 rcmaxn を追加する。<br>     
+　　流れ図のαで示す箱の条件をどのように変更すればよいか。正しい答えを、解答群の中から選べ。&nbsp;<br>
+<br>
+解答群<br>
+ア　n ＜ maxn かつ Orm ＜ rcmaxn&nbsp;<br>    
+  イ　n ＜ maxn かつ Orm ≧ rcmaxn&nbsp;<br>    
+  ウ　n ＞ maxn かつ Orm ＞ rcmaxn&nbsp;<br>    
+  エ　n ＜ maxn 又は Orm ＞ rcmaxn&nbsp;<br>    
+  オ　n ＞ maxn 又は Orm ＜ rcmaxn&nbsp;<br>    
+  カ　n ＞ maxn 又は Orm ≧ rcmaxn</font></p>     
+<hr>     
+<p><a HREF="12s_p_a1.htm#13"><font size="3">設問3の正解例と解説へ</font></a></p>    
+<hr>    
+<a NAME="20"><font size="3">　</font><br>    
+<b>問2</b></a><b>　</b><font size="3">画面の画素描画に関する次の記述を読んで，設問に答えよ。</font>
+<p><font size="3">水平方向及び垂直方向がそれぞれ 128     
+画素からなる画面がある。水平方向を x 座標，垂直方向を y     
+座標とする。この画面の 1 画素の状態を 1     
+ビットで記憶する配列 MAP（添字は 0     
+から始まる）がある。配列 MAP の各要素の大きさは 16     
+ビットであり，各ビットの値が 1     
+のときには対応する画素が点灯し， 0     
+のときには消灯する。画面上の画素の座標と，配列 MAP     
+の要素中のビット位置との関係を図に示す。</font></p>    
+<p><img border="0" src="image/A00s02f1.gif" width="347" height="357"></p>   
+<p><font size="3">図　画素の座標と配列 MAP との対応</font></p>    
+<p>　</p>    
+<hr>    
+<p>    
+<font size="3">    
+<b><a name="21">設問</a></b>　座標（x、y）が与えられたときに、対応する画素を点灯又は消灯するアルゴリズムを作成する。このアルゴリズムを説明した次の記述中の<b>[　　　　　]</b>に入れる正しい答えを、 解答群の中から選べ。ここで、X、Y、N、V、Q、S、W は、すべて 16 ビットの符号なし整数とする。</font>     
+</p>     
+<table border="0" cellpadding="3" cellspacing="0" height="647">    
+  <tr>    
+    <td valign="top"><font size="3">(1)</font></td>    
+    <td height="130"><font size="3">座標（x、y）の画素に対応するビットが含まれる配列要素の番号 V を求める。</font>     
+      <table border="0" cellpadding="3" cellspacing="0">    
+        <tr>    
+          <td valign="top"><font size="3">①</font></td>    
+          <td><font size="3"> x を X に代入し、y を Y に代入する。</font></td>     
+        </tr>     
+        <tr>     
+          <td valign="top"><font size="3">②</font></td>    
+          <td><font size="3"> 画面の水平方向１行に対応する配列要素の個数を N とする。Y を N 倍するため、Y を<b>[　ａ&nbsp;　]</b>だけ算術シフトした値を Y に代入する。</font></td>     
+        </tr>     
+        <tr>     
+          <td valign="top"><font size="3">③</font></td>    
+          <td><font size="3"> X を<b>[　　ｂ 　] </b>  だけ算術シフトした値を S に代入する。</font></td>     
+        </tr>     
+        <tr>     
+          <td valign="top"><font size="3">④</font></td>    
+          <td><font size="3"> Y＋S を計算して V に代入する。</font></td>     
+        </tr>     
+      </table>     
+    </td>     
+  </tr>     
+  <tr>     
+    <td valign="top"><font size="3">(2)</font></td>    
+    <td height="303"><font size="3">&nbsp;座標（x、y）の画素に対応する配列要素 MAP（V）の該当ビットだけが１となっているデータ Qを求める。このため、表に示す配列 BIT を参照する。</font>     
+      <p><font size="3">表　配列 BIT の内容</font>    
+      <table border="1" cellPadding="3" bordercolorlight="#000000" cellspacing="0" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">    
+        <tbody>    
+          <tr align="middle">    
+            <td width="24%"><font size="3">配列の要素</font></td>    
+            <td width="24%"><font size="3">要素の値</font></td>    
+            <td width="4%">　</td>    
+            <td width="24%"><font size="3">配列の要素</font></td>    
+            <td width="24%"><font size="3">要素の値</font></td>    
+          </tr>    
+          <tr>    
+            <td><font size="3">BIT(0)</font></td>    
+            <td>    
+              <p align="right"><font size="3">32768</font></p>    
+            </td>    
+            <td>　</td> 
+            <td><font size="3">BIT(8)</font></td> 
+            <td> 
+              <p align="right"><font size="3">128</font></p> 
+            </td> 
+          </tr> 
+          <tr> 
+            <td><font size="3">BIT(1)</font></td> 
+            <td> 
+              <p align="right"><font size="3">16384</font></p> 
+            </td> 
+            <td>　</td> 
+            <td><font size="3">BIT(9)</font></td> 
+            <td> 
+              <p align="right"><font size="3">64</font></p> 
+            </td> 
+          </tr> 
+          <tr> 
+            <td><font size="3">BIT(2)</font></td> 
+            <td> 
+              <p align="right"><font size="3">8192</font></p> 
+            </td> 
+            <td>　</td> 
+            <td><font size="3">BIT(10)</font></td> 
+            <td> 
+              <p align="right"><font size="3">32</font></p> 
+            </td> 
+          </tr> 
+          <tr> 
+            <td><font size="3">BIT(3)</font></td> 
+            <td> 
+              <p align="right"><font size="3">4096</font></p> 
+            </td> 
+            <td>　</td> 
+            <td><font size="3">BIT(11)</font></td> 
+            <td> 
+              <p align="right"><font size="3">16</font></p> 
+            </td> 
+          </tr> 
+          <tr> 
+            <td><font size="3">BIT(4)</font></td> 
+            <td> 
+              <p align="right"><font size="3">2048</font></p> 
+            </td> 
+            <td>　</td> 
+            <td><font size="3">BIT(12)</font></td> 
+            <td> 
+              <p align="right"><font size="3">8</font></p> 
+            </td> 
+          </tr> 
+          <tr> 
+            <td><font size="3">BIT(5)</font></td> 
+            <td> 
+              <p align="right"><font size="3">1024</font></p> 
+            </td> 
+            <td>　</td> 
+            <td><font size="3">BIT(13)</font></td> 
+            <td> 
+              <p align="right"><font size="3">4</font></p> 
+            </td> 
+          </tr> 
+          <tr> 
+            <td><font size="3">BIT(6)</font></td> 
+            <td> 
+              <p align="right"><font size="3">512</font></p> 
+            </td> 
+            <td>　</td> 
+            <td><font size="3">BIT(14)</font></td> 
+            <td> 
+              <p align="right"><font size="3">2</font></p> 
+            </td> 
+          </tr> 
+          <tr> 
+            <td><font size="3">BIT(7)</font></td> 
+            <td> 
+              <p align="right"><font size="3">256</font></p> 
+            </td> 
+            <td>　</td> 
+            <td><font size="3">BIT(15)</font></td> 
+            <td> 
+              <p align="right"><font size="3">1</font></p> 
+            </td> 
+          </tr> 
+        </tbody> 
+      </table> 
+    </td> 
+  </tr> 
+  <tr> 
+    <td valign="top"></td> 
+    <td height="50"><font size="3">Q を求める処理の手順は、次のとおりである。<br>     
+      ① X と 15 の<b>[　　ｃ　　]</b>を求めて X に代入する。<br>     
+      ② BIT（X）の値を Q に代入する。</font></td>     
+  </tr>     
+  <tr>     
+    <td valign="top"><font size="3">(3)</font></td>    
+    <td><font size="3">配列 MAP の内容を変更して、座標（x、y）の画素を点灯又は消灯する。</font>     
+      <table border="0" cellpadding="3" cellspacing="0">    
+        <tr>    
+          <td valign="top"><font size="3">①</font></td>    
+          <td><font size="3"> MAP（V）の値を W に代入する。</font></td>     
+        </tr>     
+        <tr>     
+          <td valign="top"><font size="3">②</font></td>    
+          <td><font size="3"> 点灯する場合には、W と Q の<b>[　　ｄ　  
+            ]</b>を求めて MAP（V）に代入する。</font></td>     
+        </tr>     
+        <tr>     
+          <td valign="top"><font size="3">③</font></td>    
+          <td><font size="3"> 消灯する場合には、Q のすべてのビットを反転（0 と 1 を逆に）し、W と Q のビット単位の論理積を求めて MAP（V）に代入する。</font></td>     
+        </tr>     
+      </table>     
+    </td>     
+  </tr>     
+</table>     
+<table border="0" cellpadding="3" cellspacing="0">    
+  <tr>    
+    <td><font size="3">　<br>  
+      　<br>  
+      a、b に関する解答群</font></td>     
+  </tr>     
+</table>     
+<table border="0" cellpadding="3" cellspacing="0">    
+  <tr>    
+    <td width="140"><font size="3">ア　左に 1 ビット</font></td>     
+    <td width="140"><font size="3">イ　左に 2 ビット</font></td>     
+    <td><font size="3">ウ　左に 3 ビット</font></td>     
+  </tr>     
+  <tr>     
+    <td><font size="3">  エ　左に 4 ビット</font></td>     
+    <td><font size="3">オ　右に 1 ビット</font></td>     
+    <td><font size="3">カ　右に 2 ビット</font></td>     
+  </tr>     
+  <tr>     
+    <td><font size="3">  キ　右に 3 ビット</font></td>     
+    <td><font size="3">ク　右に 4 ビット</font></td>     
+    <td></td>     
+  </tr>     
+</table>     
+<table border="0" cellpadding="3" cellspacing="0">    
+  <tr>    
+    <td><font size="3">　<br>  
+      　<br>  
+      c、d に関する解答群</font></td>     
+  </tr>     
+</table>     
+<table border="0" cellpadding="3" cellspacing="0">    
+  <tr>    
+    <td><font size="3">  ア　2 の補数</font></td>     
+    <td><font size="3">イ　ビット単位の排他的論理和</font></td>    
+  </tr>    
+  <tr>    
+    <td><font size="3">  ウ　ビット単位の論理積</font></td>    
+    <td><font size="3">エ　ビット単位の論理和</font></td>    
+  </tr>    
+  <tr>    
+    <td><font size="3">  オ　ビットの反転</font></td>    
+    <td><font size="3">カ　加算結果</font></td>    
+  </tr>    
+  <tr>    
+    <td><font size="3">  キ　減算結果</font></td>    
+    <td><font size="3">ク　乗算結果</font></td>    
+  </tr>    
+</table>    
+<p>　</p>    
+<HR WIDTH=100%>    
+<a HREF="12s_p_a1.htm#21"><font size="3">設問の正解例と解説へ</font></a>    
+<hr>    
+<p align="center"><a href="12s_p_e2.htm">■問3へ進む　</a>　　　　　　　　<A HREF="index.htm">■メニューへ戻る</A>  
+</p>  
+<HR WIDTH=100%>  
+</blockquote>  
+</BODY>  
+</HTML>  

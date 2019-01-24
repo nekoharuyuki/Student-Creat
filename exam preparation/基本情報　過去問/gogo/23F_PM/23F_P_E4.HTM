@@ -1,0 +1,444 @@
+<html>
+<head>
+<title>平成23年度 秋期 基本情報技術者 午後 問題（問10～問13）</title>
+<style type="text/css"><!--
+body{line-height:150%;}
+code{font-size:12pt;}
+h3{text-align:center;}
+div.caution{border:solid 1px #000000; padding:0.5em;}
+--></style>
+</head>
+<body>
+<blockquote>
+<hr>
+<h3>平成23年度　秋期　基本情報技術者<br/>
+午後　問題（問10～問13）</h3>
+<hr>
+<p><strong><a name="100">問10</a></strong>　次のCOBOLプログラムの説明及びプログラムを読んで，設問1，2に答えよ。</p>
+<p>〔プログラムの説明〕<br/>
+　受験の申込みを登録した申込ファイルから，受験区分別に申込者の人数を集計し，集計表を印字するプログラムである。</p>
+
+<p>（1）　申込ファイルは図1に示すレコード様式の順ファイルである。</p>
+
+<p><img src="img/23f_pm_q10_01.png"><br/>
+<strong>図1　申込ファイルのレコード様式</strong></p>
+
+<p>　①　受験の申込み1件に対して，1件のレコードが作成され，5桁の申込番号が付与される。<br/>
+　②　受験区分は，試験区分と開催地区分から構成される。<br/>
+　③　試験区分は，試験内容に対応付けたA～Hのいずれか1文字である。<br/>
+　④　開催地区分は，開催地に対応付けた01～20のいずれかの数字である。<br/>
+　⑤　各受験区分の申込者数は，999人以下である。<br/>
+　⑥　申込ファイルの内容には，誤りはないものとする。</p>
+
+<p>（2）集計表の印字例は，図2のとおりである。申込者がいない受験区分は，印字しない。</p>
+
+<p><img src="img/23f_pm_q10_02.png"><br/>
+<strong>図2　集計表の印字例</strong></p>
+
+<p><img src="img/23f_pm_q10_03.png"></p>
+<hr>
+<p><strong><a name="101">設問1</a></strong>　プログラムの［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+
+<p>aに関する解答群<br/>
+ア　<code>MOVE 1 TO TEST-IDX</code><br/>
+イ　<code>MOVE 1 TO TEST-NO</code><br/>
+ウ　<code>MOVE TEST-IDX TO TEST-NO</code><br/>
+エ　<code>SET TEST-IDX TO 1</code><br/>
+オ　<code>SET TEST-IDX TO TEST-CATEG-S</code><br/>
+カ　<code>SET TEST-IDX TO TEST-N0</code></p>
+
+<p>bに関する解答群<br/>
+ア　<code>SUM-WK</code><br/>
+イ　<code>TEST-IDX</code><br/>
+ウ　<code>TEST-NO</code><br/>
+エ　<code>TEST-W1</code><br/>
+オ　<code>TEST-W2</code><br/>
+カ　<code>TEST-W3</code></p>
+
+<p>cに関する解答群<br/>
+ア　<code>SUM-WK(LOOP1 LOOP2)</code><br/>
+イ　<code>SUM-WK(LOOP2 LOOP1)</code><br/>
+ウ　<code>SUM-WK(TEST-CATEG-M TEST-NO)</code><br/>
+エ　<code>SUM-WK(TEST-NO TEST-PLACE-M)</code><br/>
+オ　<code>SUM-WK(TEST-PLACE-M TEST-NO)</code><br/>
+カ　<code>SUM-WK(TEST-PLACE-S TEST-NO)</code></p>
+<hr>
+<a href="23F_P_A4.HTM#101">設問1の正解例と解説へ</a>
+<hr>
+<p><strong><a name="102">設問2</a></strong>　集計表における受験区分の印字を申込者数の多い順になるようにプログラムを変更したい。表1に示すプログラムの変更内容の［　　　　　］に入れる正しい答えを，解答群の中から選べ。ここで，［　　c　　］には設問1の正しい答えが入っているものとする。</p>
+
+<p><strong>表1　プログラムの変更内容</strong><br/>
+<img src="img/23f_pm_q10_05.png"></p>
+
+<p>dに関する解答群<br/>
+ア　<code>ASCENDING KEY SORT-S</code><br/>
+イ　<code>ASCENDING KEY SORT-TEST-REC</code><br/>
+ウ　<code>DESCENDING KEY SORT-S</code><br/>
+エ　<code>DESCENDING KEY SORT-TEST-REC</code></p>
+
+<p>e～gに関する解答群<br/>
+ア　<code>END-READ</code><br/>
+イ　<code>END-RETURN</code><br/>
+ウ　<code>READ TEST-SORT-FILE</code><br/>
+エ　<code>READ TEST-SUM-FILE</code><br/>
+オ　<code>RELEASE SORT-REC</code><br/>
+カ　<code>RELEASE SUM-REC</code><br/>
+キ　<code>RETURN TEST-SORT-FILE</code><br/>
+ク　<code>RETURN TEST-SUM-FILE</code></p>
+
+<p></p>
+
+<p></p>
+<hr>
+<a href="23F_P_A4.HTM#102">設問2の正解例と解説へ</a>
+<hr>
+<a href="INDEX.HTM">■メニューへ戻る</a>
+<hr>
+<p><strong><a name="110">問11</a></strong>　次のJavaプログラムの説明及びプログラムを読んで，設問1，2に答えよ。<br/>
+（Javaプログラムで使用するAPIの説明は，この冊子の末尾を参照してください。）</p>
+
+<p>〔プログラムの説明〕<br/>
+　名前及び住所からなる住所録のエントリの追加，削除及び検索を行う住所録管理プログラムであり，次のクラスからなる。<br/>
+（1）　クラス<code>Name</code>は，姓及び名をそれぞれ文字列で保持する。<br/>
+（2）　クラス<code>Address</code>は，郵便番号及び住所を保持する。郵便番号は，上位3桁と下位4桁をそれぞれ<code>int</code>型の整数で保持する。住所は，文字列で保持する。<br/>
+（3）　クラス<code>AddressBook</code>は，住所録である。入れ子クラス<code>AddressBook.Entry</code>は，住所録のエントリであり，<code>Name</code>と<code>Address</code>のインスタンスを保持する。クラス<code>AddressBook</code>は，エントリを追加及び削除するメソッドをもつ。</p>
+
+<p>　クラス<code>Name</code>，<code>Address</code>，及び<code>AddressBook.Entry</code>のインスタンスは，検索可能である。検索処理を支援するために，次のインタフェースを定義する。<br/>
+（1）　インタフェース<code>SearchCriteria</code>は，検索条件を示すデータ型であり，メソッドをもたない。<br/>
+（2）　インタフェース<code>Searchable</code>は，これを実装するクラスが検索条件を与えて検索可能であることを示す。検索するときは，メソッド<code>meets</code>を呼び出す。</p>
+
+<p>　クラス<code>Name</code>及び<code>Address</code>は，それぞれ入れ子クラス<code>Criteria</code>を定義し，その<code>Criteria</code>を検索条件とするインタフェース<code>Searchable</code>を実装する。<br/>
+（1）　入れ子クラス<code>Name.Criteria</code>は，引数<code>familyName</code>及び<code>givenName</code>でそれぞれ姓及び名を検索条件として指定する。検索条件に含めないときは，<code>null</code>を指定する。<br/>
+（2）　クラス<code>Name</code>は，インタフェース<code>Searchable</code>を実装する。メソッド<code>meets</code>は，引数で与えられた<code>criteria</code>で実装されたメソッドを呼び出し，このクラスのインスタンスが検索条件に合致するかどうか調べる。<br/>
+（3）　入れ子クラス<code>Address.Criteria</code>は，引数<code>postalCode3</code>，<code>postalCode4</code>及び<code>addr</code>でそれぞれ郵便番号の上位3桁，下位4桁及び住所を検索条件として指定する。検索条件に含めないときは，<code>postalCode3</code>及び<code>postalCode4</code>は負の値，<code>addr</code>は<code>null</code>を指定する。住所については，部分文字列が一致する場合も合致しているとみなす。例えば，“京都”は“東京都”の部分文字列なので，合致するとみなす。<br/>
+（4）　クラス<code>Address</code>は，インタフェース<code>Searchable</code>を実装する。メソッド<code>meets</code>は，引数で与えられた<code>criteria</code>で実装されたメソッドを呼び出し，このクラスのインスタンスが検索条件に合致するかどうか調べる。</p>
+
+<p>　クラス<code>AddressBook</code>のメソッド<code>meetsAnyOf</code>は，引数で与えられたインタフェース<code>SearchCriteria</code>のどれかに合致するエントリの集合を返す。メソッド<code>meetsAllOf</code>は，引数で与えられた<code>SearchCriteria</code>の全てに合致するエントリの集合を返す。<br/>
+　入れ子クラス<code>AddressBook.Entry</code>は，インタフェース<code>Searchable</code>を実装する。メソッド<code>meets</code>は，引数で与えられた<code>SearchCriteia</code>の具体的な型によって，<code>name</code>又は<code>addr</code>のメソッド<code>meets</code>を呼び出し，この<code>AddressBook.Entry</code>のインスタンスが引数で指定された検索条件に合致するかどうか調べる。<br/>
+　なお，クラス<code>Name</code>，<code>Address</code>，<code>AddressBook.Entry</code>は，インタフェース<code>Set</code>で使用できるように，クラス<code>Object</code>のメソッド<code>equals</code>及び<code>hashCode</code>を上書きしているものとする。また，各コンストラクタ及びメソッドの引数は正しいものとする。<br/>
+　クラス<code>Test</code>は，この住所録プログラムのテストプログラムである。メソッド<code>main</code>を実行すると，次の結果が得られた。</p>
+
+<p><img src="img/23f_pm_q11_01.png"><br/>
+<strong>図1　テストプログラムの実行結果</strong></p>
+
+<p>〔プログラム1〕<br/>
+<img src="img/23f_pm_q11_02.png"></p>
+
+<p>〔プログラム2〕<br/>
+<img src="img/23f_pm_q11_04.png"></p>
+
+<p>〔プログラム3〕<br/>
+<img src="img/23f_pm_q11_06.png"></p>
+
+<p>〔プログラム4〕<br/>
+<img src="img/23f_pm_q11_08.png"></p>
+
+<p>〔プログラム5〕<br/>
+<img src="img/23f_pm_q11_09.png"></p>
+
+<p>〔プログラム6〕<br/>
+<img src="img/23f_pm_q11_10.png"></p>
+<hr>
+<p><strong><a name="111">設問1</a></strong>　プログラム中の［　　 　　］に入れる正しい答えを，解答群の中から選べ。</p>
+
+<p>aに関する解答群<br/>
+ア　<code>SearchCriteria</code><br/>
+イ　<code>SearchCriteria&lt;Name&gt;</code><br/>
+ウ　<code>SeanchCriteria&lt;String&gt;</code><br/>
+エ　<code>Searchable</code><br/>
+オ　<code>Searchable&lt;Name&gt;</code><br/>
+カ　<code>Searchable&lt;String&gt;</code></p>
+
+<p>b，cに関する解答群<br/>
+ア　<code>book.add(entry)</code><br/>
+イ　<code>book.add(sc)</code><br/>
+ウ　<code>book.remove(entry)</code><br/>
+エ　<code>book.remove(sc)</code><br/>
+オ　<code>result.add(entry)</code><br/>
+カ　<code>result.add(sc)</code><br/>
+キ　<code>result.remove(entry)</code><br/>
+ク　<code>result.remove(sc)</code></p>
+
+<p>d，eに関する解答群<br/>
+ア　<code>Address.Criteria</code><br/>
+イ　<code>Criteria</code><br/>
+ウ　<code>Entry.Criteria</code><br/>
+エ　<code>Name.Criteria</code><br/>
+オ　<code>SearchCriteria</code></p>
+<hr>
+<a href="23F_P_A4.HTM#111">設問1の正解例と解説へ</a>
+<hr>
+<p><strong><a name="112">設問2</a></strong>　クラス<code>Test</code>において，住所録<code>addrbook</code>に登録されている全エントリを取得する方法として正しい答えを，解答群の中から<U>二つ</U>選べ。ここで，プログラム中の［　　　　　］には，正しい答えが入っているものとする。</p>
+
+<p>解答群<br/>
+ア　<code>addrbook.meetsAllOf(new Name.Criteria("", ""))</code><br/>
+イ　<code>addrbook.meetsAllOf(new Name.Criteria(null, null))</code><br/>
+ウ　<code>addrbook.meetsAllOf(null)</code><br/>
+エ　<code>addrbook.meetsAnyOf(new Name.Criteria("", ""))</code><br/>
+オ　<code>addrbook.meetsAnyOf(new Name.Criteria(null，null))</code><br/>
+カ　<code>addrbook.meetsAnyOf(null)</code></p>
+<hr>
+<a href="23F_P_A4.HTM#112">設問2の正解例と解説へ</a>
+<hr>
+<a href="INDEX.HTM">■メニューへ戻る</a>
+<hr>
+<p><strong><a name="120">問12</a></strong>　次のアセンブラプログラムの説明及びプログラムを読んで，設問1，2に答えよ。</p>
+
+<p>〔プログラム1の説明〕<br/>
+　除算を行う副プログラム<code>DIV</code>である。<br/>
+（1）　<code>DIV</code>は表1に示すレジスタを介して，被除数と除数を受け取り，商と剰余を返す。数値は全て32ビットの符号なし整数とし，除数は0でないものとする。</p>
+
+<p><strong>表1　パラメタの受渡し方法</strong><br/>
+<img src="img/23f_pm_q12_01.png"></p>
+
+<p>（2）　副プログラム<code>DIV</code>から戻るとき，汎用レジスタ<code>GR6</code>，<code>GR7</code>の内容は元に戻す。</p>
+
+<p>〔プログラム1〕<br/>
+<img src="img/23f_pm_q12_02.png"></p>
+<hr>
+<p><strong><a name="121">設問1</a></strong>　プログラム1中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+
+<p>aに関する解答群<br/>
+ア　<code>ADDL  GR1,0,GR3</code><br/>
+イ　<code>ADDL  GR1,=1</code><br/>
+ウ　<code>ADDL  GR2,1,GR3</code><br/>
+エ　<code>ADDL  GR2,=1</code><br/>
+オ　<code>ADDL  GR4,0,GR3</code><br/>
+カ　<code>ADDL  GR5,1,GR3</code></p>
+
+<p>bに関する解答群<br/>
+ア　<code>JMI  ADJ2</code><br/>
+イ　<code>JMI  CONT</code><br/>
+ウ　<code>JOV  ADJ2</code><br/>
+エ　<code>JOV  CONT</code><br/>
+オ　<code>JPL  ADJ2</code><br/>
+カ　<code>JPL  CONT</code></p>
+<hr>
+<a href="23F_P_A4.HTM#121">設問1の正解例と解説へ</a>
+<hr>
+<p><strong><a name="122">設問2</a></strong>　10進表記で0～99999の値の整数を32ビット符号なし整数として与えたとき，<code>DIV</code>を用いて10進数文字列に変換する副プログラム<code>BTOD</code>を異なるアルゴリズムで2種類作成した。プログラム2は10進表記の上位桁から求めるものであり，プログラム3は10進表記の下位桁から求めるものである。プログラム2，プログラム3中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+
+<p>（1）　<code>BTOD</code>は32ビット符号なし整数の上位語を<code>GR1</code>に，下位語を<code>GR2</code>に，変換結果を格納する領域の先頭アドレスを<code>GR3</code>に設定して呼び出される。<br/>
+（2）　変換後の10進数文字列は5語の領域に格納される。ただし，5桁に満たない場合は上位桁に“0”が補われる。対象数値が16進表記で0000054Dの場合の実行結果を，次に示す。</p>
+
+<p><img src="img/23f_pm_q12_04.png"></p>
+
+<p>（3）　副プログラム<code>BTOD</code>から戻るとき，汎用レジスタ<code>GR1</code>～<code>GR7</code>の内容は元に戻す。</p>
+
+<p>〔プログラム2〕<br/>
+<img src="img/23f_pm_q12_05.png"></p>
+
+<p>〔プログラム3〕<br/>
+<img src="img/23f_pm_q12_06.png"></p>
+
+<p>c，eに関する解答群<br/>
+ア　<code>GR1</code>　　　イ　<code>GR2</code>　　　ウ　<code>GR3</code><br/>
+エ　<code>GR4</code>　　　オ　<code>GR5</code></p>
+
+<p>dに関する解答群<br/>
+ア　<code>LAD GR3,1,GR3</code><br/>
+イ　<code>LAD GR3,2,GR3</code><br/>
+ウ　<code>LAD GR7,1,GR7</code><br/>
+エ　<code>LAD GR7,2,GR7</code><br/>
+オ　<code>LD GR3,1,GR3</code><br/>
+カ　<code>LD GR3,2,GR3</code><br/>
+キ　<code>LD GR7,1,GR7</code><br/>
+ク　<code>LD GR7,2,GR7</code></p>
+
+<p>fに関する解答群<br/>
+ア　<code>1</code>　　　イ　<code>10</code>　　　ウ　<code>100</code><br/>
+エ　<code>1000</code>　　　オ　<code>10000</code></p>
+<hr>
+<a href="23F_P_A4.HTM#122">設問2の正解例と解説へ</a>
+<hr>
+<a href="INDEX.HTM">■メニューへ戻る</a>
+<hr>
+<p><strong><a name="130">問13</a></strong>　次の表計算，ワークシート及びマクロの説明を読んで，設問1，2に答えよ。</p>
+<p>〔表計算の説明〕<br/>
+　三つの事業本部（以下，本部という）からなるK社では，次のルールに従って，社員の基本給及び賞与の額を決めている。<br/>
+（1）　基本給<br/>
+　①　基本給は，毎月支給され，次の式で計算する。<br/>
+　　基本給 ＝ 年齢給 ＋ 役職給<br/>
+　②　年齢給は，4月1日時点の年齢が50歳未満の場合，その年齢に7,000円を乗じて算出され，50歳以上の場合，固定額350,000円となる。<br/>
+　③　役職給の金額は，表1に示すとおりである。</p>
+
+<p><strong>表1役職給</strong><br/>
+<img src="img/23f_pm_q13_01.png"></p>
+
+<p>（2）　賞与<br/>
+　①　賞与は，次の式で計算する。<br/>
+　　賞与 ＝ 基本給 × （役職係数 ＋ 個人評価係数）<br/>
+　②　役職係数は，表2に示すとおりである。<br/>
+　③　個人評価係数は，表3に示すとおり個入評価点の範囲によって決まる。</p>
+
+<p><strong>表2　役職係数</strong><br/>
+<img src="img/23f_pm_q13_02.png"></p>
+
+<p><strong>表3　個人評価係数</strong><br/>
+<img src="img/23f_pm_q13_03.png"></p>
+
+<p>〔ワークシート:役職給〕<br/>
+　基本給の計算の基となる役職ごとの役職給を登録した図1のワークシート“役職給”を作成した。</p>
+
+<p><img src="img/23f_pm_q13_04.png"><br/>
+<strong>図1　ワークシート“役職給”</strong></p>
+
+<p>　役職をセルA2～A6に，役職の序列を示す数値である役職ランクをセルB2～B6に，役職給をセルC2～C6に入力する。</p>
+
+<p>〔ワークシート:賞与係数〕<br/>
+　賞与の計算の基となる役職ごとの役職係数及び個人評価点に対応した個人評価係数を登録した図2のワークシート“賞与係数”を作成した。</p>
+
+<p><img src="img/23f_pm_q13_05.png"><br/>
+<strong>図2　ワークシート“賞与係数”</strong></p>
+
+<p>（1）　役職をセルA3～A7に，役職ランクをセルB3～B7に，役職係数をセルC3～C7に入力する。<br/>
+（2）　個人評価点の範囲の下限値をセルA11～A15に，個人評価係数をセルB11～B15に入力する。</p>
+
+<p>〔ワークシート:基本給・賞与計算〕<br/>
+　K社の三つの本部（第1本部，第2本部，第3本部）に所属する社員107名の基本給及び賞与を計算するためのワークシート“基本給・賞与計算”を作成した。そのワークシートを図3に示す。</p>
+
+<p><img src="img/23f_pm_q13_06.png"><br/>
+<strong>注記</strong>　賞与は，小数第1位を四捨五入した値を表示している。<br/>
+<strong>図3　ワークシート“基本給・賞与計算”</strong></p>
+<hr>
+<p><strong><a name="131">設問1</a></strong>　ワークシート“基本給・賞与計算”に関する次の記述中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+
+<p>（1）　社員番号をセルA2～A108に，役職をセルB2～B108，本部をセルD2～D108に，4月1日時点での年齢をセルE2～E108に入力する。役職ランクを参照する計算式をセルC2～C108に入力する。<br/>
+（2）　基本給を求めるための計算式を入力する。<br/>
+　①　役職給を求める計算式［　　a　　］をセルF2に入力し，セルF3～F108に複写する。<br/>
+　②　年齢給を求める計算式［　　b　　］をセルG2に不力し，セルG3～G108に複写する。<br/>
+　③　基本給を求める計算式をセルH2～H108に入力する。<br/>
+（3）　賞与を求めるための計算式を入力する。<br/>
+　①　役職係数を求める計算式をセルI2～I108に入力する。<br/>
+　②　個人評価点をセルJ2～J108に入力する。<br/>
+　③　個人評価点に対応した個人評価係数を求めるための計算式［　　c　　］をセルK2に入力し，セルK3～K108に複写する。<br/>
+　④　賞与を求める計算式をセルL2～L108に入力する。</p>
+
+<p>aに関する解答群<br/>
+ア　垂直照合(B1, 役職給!B$2～C$6, 2, 0)<br/>
+イ　垂直照合(B1, 役職給!B$2～C$6, 3, 0)<br/>
+ウ　垂直照合(C2, 役職給!A$2～C$6, 2, 0)<br/>
+エ　垂直照合(C2, 役職給!B$2～C$6, 2, 0)<br/>
+オ　水平照合(Bl, 役職給!B$2～C$6, 2, 0)<br/>
+力　水平照合(B1, 役職給!B$2～C$6, 3, 0)<br/>
+キ　水平照合(C2, 役職給!A$2～C$6, 2, 0)<br/>
+ク　水平照合(C2, 役職給!B$2～C$6, 2, 0)</p>
+
+<p>bに関する解答群<br/>
+ア　IF(E2＜49, C2＊7, 350)<br/>
+イ　IF(E2＜49, E2＊7, 350)<br/>
+ウ　IF(E2＜50, C2＊7, 350)<br/>
+エ　IF(E2＜50, E2＊7, 350)<br/>
+オ　IF(E2≦51, C2＊7, 350)<br/>
+カ　IF(E2≦51, E2＊7, 350)<br/>
+キ　IF(E2≧50, C2＊7, 350)<br/>
+ク　IF(E2≧50, E2＊7, 350)</p>
+
+<p>cに関する解答群<br/>
+ア　垂直照合(J2, 賞与係数!A$11～B$15, 2, 0)<br/>
+イ　垂直照合(J2, 賞与係数!A$11～B$15, 2, 1)<br/>
+ウ　垂直照合(J2, 賞与係数!B$3～C$7, 2, 0)<br/>
+エ　垂直照合(J2, 賞与係数!B$3～C$7, 2, 1)<br/>
+オ　水平照合(J2, 賞与係数!A$11～B$15, 2, 0)<br/>
+力　水平照合(J2, 賞与係数!A$11～B$15, 2, 1)<br/>
+キ　水平照合(J2, 賞与係数!B$3～C$7, 2, 0)<br/>
+ク　水平照合(J2, 賞与係数!B$3～C$7, 2, 1)</p>
+<hr>
+<a href="23F_P_A4.HTM#131">設問1の正解例と解説へ</a>
+<hr>
+<p><strong><a name="132">設問2</a></strong>　賞与の見直しに関する次の記述中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+
+<p>　K社では，役職及び個人評価に加えて，本部ごとの利益（以下，本部利益という）を賞与に反映するために，本部利益に応じた評価点（以下，本部加点という）を加味するよう賞与の計算式を見直すことにした。</p>
+
+<p>〔見直した賞与計算方式に関する説明〕<br/>
+（1）　見直した賞与計算式は次のとおりである。<br/>
+　①　役職が本部長，部長又は課長のとき<br/>
+　　賞与＝基本給×(役職係数＋個人評価係数＋本部加点／10)<br/>
+　②　役職が主任又はなしのとき<br/>
+　　賞与＝基本給×(役職係数＋個人評価係数＋本部加点／20)<br/>
+（2）　本部に属する社員の賞与の合計（以下，本部賞与合計という）が，本部利益の15％の金額（以下，本部賞与合計上限という）以下となる条件を満足する1～20の整数があるときは，その最大値を本部加点とする。無いときは，本部加点を0とする。</p>
+
+<p>　条件を満足する本部加点を求め，それを加味した賞与計算を行うために，ワークシート“新賞与計算”とマクロ<code>BonusCalc</code>を作成した。そのワークシート及びマクロ<code>BonusCalc</code>の実行結果の表示例を図4に示す。</p>
+
+<p><img src="img/23f_pm_q13_07.png"><br/>
+<strong>注記</strong>　本部賞与合計上限，本部賞与合計及び賞与は，小数第1位を四捨五入した値を表示している。<br/>
+<strong>図4　ワークシート“新賞与計算”</strong></p>
+
+<p>〔ワークシート：新賞与計算〕<br/>
+（1）　本部名をセルI2～I4に，本部利益をセルJ2～J4に，本部賞与合計上限を求める計算式をセルK2～K4に入力する。<br/>
+（2）　ワークシート“基本給・賞与計算”のセルA1～K108をワークシート“新賞与計算”のセルA5～K112に複写する。<br/>
+（3）　所属本部によって決まる社員ごとの本部加点を求める計算式をセルL6～L112に入力する。社員ごとの賞与を求める計算式［　　d　　］をセルM6に入力し，セルM7～M112に複写する。<br/>
+（4）　本部ごとの賞与合計を求める計算式［　　e　　］をセルM2に入力し，セルM3～M4に複写する。</p>
+
+<p>〔マクロの説明〕<br/>
+（1）　マクロ<code>BonusCalc</code>は，各本部の条件を満足する本部加点を求めるマクロである。<br/>
+（2）　マクロ<code>BonusCalc</code>の処理手順は次のとおりである。<br/>
+　①　第1本部の本部加点の初期値を0とする。<br/>
+　②　本部加点に1を加算する。<br/>
+　③　手順②で設定された本部加点に基づき，第1本部に所属する社員の賞与の合計である第1本部の本部賞与合計をワークシートの計算式から算出する。<br/>
+　④　第1本部の本部賞与合計と本部賞与合計上限の値を比較し，前者が後者を上回る，又は，本部加点が20を超えたときは，手順⑤に進む。それ以外のときは，手順②に戻る。<br/>
+　⑤　このときの本部加点から1を減じた値を第1本部の本部加点とし，対応するセルに代入する。<br/>
+　⑥　同様に，第2本部及び第3本部の本部加点をそれぞれ対応するセルに代入する。</p>
+
+<p>〔マクロ：<code>BonusCalc</code>〕<br/>
+<img src="img/23f_pm_q13_08.png"></p>
+
+<p>dに関する解答群<br/>
+ア　H6＊(I6＋K6)＋IF(C6＜3, L6／10, L6／20)<br/>
+イ　H6＊(I6＋K6)＋IF(C6＜3, L6／20, L6／10)<br/>
+ウ　H6＊(I6＋K6)＋IF(C6≦3, L6／10, L6／20)<br/>
+エ　H6＊(I6＋K6)＋IF(C6≦3, L6／20, L6／10)<br/>
+オ　H6＊(I6＋K6＋IF(C6＜3, L6／10, L6／20))<br/>
+カ　H6＊(I6＋K6＋IF(C6＜3, L6／20, L6／10))<br/>
+キ　H6＊(I6＋K6＋IF(C6≦3, L6／10, L6／20))<br/>
+ク　H6＊(I6＋K6＋IF(C6≦3, L6／20, L6／10))</p>
+
+<p>eに関する解答群<br/>
+ア　条件付合計(C$6～C$112,＝I2, L$6～L$112)<br/>
+イ　条件付合計(C$6～C$112,＝I2, M$6～M$112)<br/>
+ウ　条件付合計(D$6～D$112,＝I2, L$6～L$112)<br/>
+エ　条件付合計(D$6～D$112,＝I2, M$6～M$112)<br/>
+オ　照合検索(I2, C$6～C$112, L$6～L$112)<br/>
+カ　照合検索(I2, C$6～C$112, M$6～M$112)<br/>
+キ　照合検索(I2, D$6～D$112, L$6～L$112)<br/>
+ク　照合検索(I2, D$6～D$112, M$6～M$112)</p>
+
+<p>fに関する解答群<br/>
+ア　<code>row: 1, row </code>＜<code> 3, 1</code><br/>
+イ　<code>row: 1, row </code>＜<code> 20, 1</code><br/>
+ウ　<code>row: 1, row </code>≦<code> 3, 1</code><br/>
+エ　<code>row: 1, row </code>≦<code> 20, 1</code><br/>
+オ　<code>row: 2, row </code>＜<code> 4, 1</code><br/>
+カ　<code>row: 2, row </code>≦<code> 4, 1</code><br/>
+キ　<code>row: 6, row </code>＜<code> 112, 1</code><br/>
+ク　<code>row: 6, row </code>≦<code> 112, 1</code></p>
+
+<p>gに関する解答群<br/>
+ア　論理積<code>(M2 </code>≦<code> K2, DeptPoint </code>≦<code> 20)</code><br/>
+イ　論理積<code>(M2 </code>≦<code> K2, L2 </code>≦<code> 20)</code><br/>
+ウ　論理積(相対<code>(L1, row, 1) </code>＞<code> </code>相対<code>(L2, row, －1), DeptPoint </code>＞<code> 20)</code><br/>
+エ　論理積<code>(</code>相対<code>(L1, row, 1) </code>≦<code> </code>相対<code>(L1, row, －1), DeptPoint </code>≦<code> 20)</code><br/>
+オ　論理和<code>(M2 </code>＞<code> K2, DeptPoint </code>＞<code> 20)</code><br/>
+力　論理和<code>(M2 </code>＞<code> K2, L2 </code>＞<code> 20)</code><br/>
+キ　論理和<code>(</code>相対<code>(L1, row, 1) </code>＞<code> </code>相対<code>(L2, row, －1), DeptPoint </code>＞<code> 20)</code><br/>
+ク　論理和<code>(</code>相対<code>(L1, row, 1) </code>≦<code> </code>相対<code>(L2, row, －1), DeptPoint </code>≦<code> 20)</code></p>
+
+<p>hに関する解答群<br/>
+ア　相対<code>(L1, row, 0) </code>←<code> DeptPoint</code><br/>
+イ　相対<code>(L1, row, 0) </code>←<code> DeptPoint ＋ 1</code><br/>
+ウ　相対<code>(L1, row, 0) </code>←<code> DeptPoint － 1</code><br/>
+エ　相対<code>(L1, row, －1) </code>←<code> DeptPoint</code><br/>
+オ　相対<code>(L1, row, －1) </code>←<code> DeptPoint ＋ 1</code><br/>
+カ　相対<code>(L1, row, －1) </code>←<code> DeptPoint － 1</code><br/>
+キ　相対<code>(L2, row, 0) </code>←<code> DeptPoint</code><br/>
+ク　相対<code>(L2, row, 0) </code>←<code> DeptPoint ＋ 1</code><br/>
+ケ　相対<code>(L2, row, -1) </code>←<code> DeptPoint ＋ 1</code><br/>
+コ　相対<code>(L2, row, -1) </code>←<code> DeptPoint － 1</code></p>
+<hr>
+<a href="23F_P_A4.HTM#132">設問2の正解例と解説へ</a>
+<hr>
+<a href="INDEX.HTM">■メニューへ戻る</a>
+<hr>
+</blockquote>
+</body>
+</html>

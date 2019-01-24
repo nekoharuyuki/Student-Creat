@@ -1,0 +1,239 @@
+<html>
+
+<head>
+<title>平成17年度春期試験　正解例と解説(問6～問8)</title>
+</head>
+
+<body bgcolor="#FFFFFF" topmargin="0" leftmargin="0">
+
+<blockquote>
+<hr>
+<h3 align="center">平成17年度春期試験　正解例と解説(問6～問8)</h3>
+<hr>
+<p><b><a name="60">問6</a>　</b></p>
+<hr>
+<p><b><a name="61">設問</a>　</b><br>
+＜解答＞　ａ　エ　　　ｂ　イ　　　ｃ　カ　　　ｄ　イ<br>
+<br>
+＜解説＞</p>
+<p><strong>空欄ａについて</strong><br>
+空欄ａを繰返し条件とするforループの先頭の処理で，英文を構成する単語str_list［idx］の単語幅を，関数word_width（ 
+）により求め，変数str_wにセットしている。単語の配列str_listの最後の要素にはNULLが格納されているので，空欄ａの繰返し条件はstr_list［idx］ 
+!= NULLになる。</p>
+<p><strong>空欄ｂについて</strong><br>
+空欄ｂ直後のif文の次のif文では，判定条件cur_w≦line_wによりcur_wが1行の行幅line_w以下であるかを判定している。したがって変数cur_wは，行の先頭の単語から，出力しようとする単語の最後の文字までの文字幅の合計を格納している変数であることが分かる。<br>
+空欄ｂ直後のif文の判定条件で，単語幅str_wが変数cur_wの内容に一致するかにより，いちばん最初の単語であるか否かを判定している。いちばん最初の単語であるためには，このif文の直前でcur_wに単語幅str_wがセットされている必要がある。したがって空欄ｂでcur_w 
++= str_wとすればよい。</p>
+<p><strong>空欄ｃについて</strong><br>
+cur_w＞line_wとなり1行の行幅を超える場合は，空欄ｃ直後のprintf文により改行し，次の行の先頭に単語を出力する。したがって空欄ｃにおいて，変数cur_wの内容を行の先頭に出力した単語の単語幅str_wにリセットする必要がある。</p>
+<p><strong>空欄ｄについて</strong><br>
+関数word_width（ 
+）は，単語を構成する各文字の文字幅の和を戻り値としてprint_wに格納して返す。空欄ｄを繰返し条件とするfor文を終了した直後のprint_w 
++= char_list［idx］.char_wにより，文字のリストのidx番目の文字の文字幅char_list［idx］.char_wをprint_wに加算している。したがって空欄ｄを繰返し条件とするfor文では，ポインタ*strがポイントする単語の文字を，出力する単語を構成する文字のリストchar_listから検索する処理を行っていることになる。*strがポイントする単語の文字が，単語を構成する文字のリストの文字char_list［idx］.char_pに一致しない間は，idxをインクリメントして検索を繰り返すので，空欄ｄの繰返し条件は*str 
+!= char_list［idx］.char_pになる。</p>
+<hr>
+<a href="17S_P_E3.HTM#61">問題へ</a>
+<hr>
+<a href="INDEX.HTM">メニューへ戻る</a>
+<hr>
+<a name="70">　<br>
+<b>問7</b></a><b>　</b>
+<hr>
+<p><a name="71"><b>設問</b><b>1</b></a><br>
+＜解答＞　ａ　ウ　　　ｂ　コ　　　ｃ　ア<br>
+<br>
+＜解説＞</p>
+<p><strong>空欄ａについて</strong><br>
+PERFORM命令直後のWRITE命令で改行して1行目に空白を出力し，次のWRITE命令で空欄ａの行数だけ改行して空白行を出力している。さらに次のPERFORM命令の繰返し処理中のWRITE命令で，2行改行して明細行を印字している。最初の明細行は6行目に印字されているので，1＋2＋空欄ａ＝6より空欄ａは3になる。</p>
+<p><strong>空欄ｂについて</strong><br>
+最初のPERFORM命令の繰返し処理におけるCOMPUTE命令で，2次元テーブルBを用いて年代別職業別にテーブル集計を行っている。その配列要素B（E-NENREI　E-SHOKUGYO）の添字より，配列要素B（X　Y）の添字X，Yはそれぞれ年齢，職業に対応する。MEISAIの印字用テーブルNINZUU（Z）は職業別の印字用テーブルで，添字Zは職業1～4に対応する。したがってこのZはYに対応する。空欄ｂ直後の命令文でテーブルの集計値B（X　Y）を，明細行の職業1～4に対応する印字用テーブルNINZUU（Z）に転送しているので，空欄ｂにおいてZにYの職業コードをセットする必要がある。したがって空欄ｂはSET　Z　TO　Yになる。</p>
+<p><strong>空欄ｃについて</strong><br>
+空欄ｃを含むPERFORM命令直後の命令で，GOKEIの内容をNINZUU（5）に転送している。NINZUU（5）には年代別の合計値をセットする必要があるので，このGOKEIにはB（X　1）～B（X　4）の合計が計算されていなければならない。したがって空欄ｃでCOMPUTE　GOKEI＝GOKEI＋B（X　Y）とすればよい。</p>
+<hr>
+<a href="17S_P_E3.HTM#71">問題へ</a>
+<hr>
+<p><b><a name="72">設問2</a></b><br>
+＜解答＞　オ<br>
+<br>
+＜解説＞</p>
+<p>2次元テーブルBを用いて，職業別興味別にテーブル集計すればよいが，明細行1行に1～4の興味別の集計値を印字しているので，2次元テーブルB（X　Y）の添字Xが職業に，添字Yが興味に対応している必要がある。したがって<strong>α</strong>の処理をCOMPUTE　B（E-SHOKUGYO 
+E-KYOMI） ＝ B（E-SHOKUGYO E-KYOMI） ＋ 1に置き換えればよい。</p>
+<hr>
+<a href="17S_P_E3.HTM#72">問題へ</a>
+<hr>
+<a href="INDEX.HTM">メニューへ戻る</a>
+<hr>
+<p><a name="80"><b>問8</b></p>
+<hr>
+</a>
+<p><b><a name="81">設問1</a>　</b><br>
+＜解答＞　ａ　ウ　　　ｂ　エ<br>
+<br>
+＜解説＞</p>
+<p><strong>空欄ａについて</strong><br>
+プログラム2は，Runnableインタフェースを実装した抽象クラスMotionを定義し，run（ 
+）メソッドの中で点の描画，移動及び消去を繰り返すスレッドの処理を記述している。while文の最初の処理Space.draw（point）により長方形領域に点を描画している。空欄ａの直後でcurrentに退避された移動前の点がerase（ 
+）メソッドにより消去されている。空欄ａは点を移動するスレッドの処理に該当する。空欄ａの直前で，移動前の点のインスタンスpointをインスタンス変数currentに退避している。点pointの移動後の座標位置は抽象メソッドupdate（point）により与えられる。したがって空欄ａにおいて移動後の点update（point）をインスタンス変数pointに上書きしてセットすればよい。</p>
+<p><strong>空欄ｂについて</strong><br>
+プログラム2でRunnableインタフェースを実装したクラスMotionを定義し，スレッドが生成されている。クラスSimpleMotionはMotionを継承したサブクラスである。空欄ｂを含む命令で，start（ 
+）メソッドによりスレッドを起動している。スレッドを起動するには，まずMotionのサブクラスSimpleMotionのインスタンスnew 
+SimpleMotion（points［i］）を生成して，これを引数としてThreadのコンストラクタに引渡し，Threadクラスのオブジェクトnew 
+Thread（new SimpleMotion（points［i］））を作成する。このThreadクラスのオブジェクトをstart（ 
+）メソッドで起動すればよい。したがって空欄ｂはnew 
+SimpleMotion（points［i］）になる。</p>
+<hr>
+<a href="17S_P_E3.HTM#81">問題へ</a>
+<hr>
+<p><b><a name="82">設問2</a>　</b><br>
+＜解答＞　イ<br>
+<br>
+＜解説＞</p>
+<p>directionX=1，directionY=1でspeedが1なので，X座標，Y座標ともに増加する方向に移動し，領域の境界で反射する動きを繰り返すので，矢印②の動きになる。</p>
+<hr>
+<a href="17S_P_E3.HTM#82">問題へ</a>
+<hr>
+<a href="INDEX.HTM">メニューへ戻る</a>
+<hr>
+<p><a name="90"><b>問9</b></a></p>
+<hr>
+<p><a name="91"><b>設問1</b></a><b>　</b></p>
+<p>＜解答＞　ａ　オ　　　ｂ　ア<br>
+<br>
+＜解説＞</p>
+<p><strong>空欄ａについて</strong></p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td valign="top">①</td>
+<td valign="top">まず行3のLAD命令によりGR3に1が格納される。</td>
+</tr>
+<tr>
+<td valign="top">②</td>
+<td valign="top">行4のLD命令によりGR4には，GR2が指定する在庫表の先頭アドレスの内容Nが格納される。</td>
+</tr>
+<tr>
+<td valign="top">③</td>
+<td valign="top">行9～10のLD命令とADDL命令の実行によりGR5には1＋N，つまりLT＋RTが計算される。したがってLTとRTの中央の位置MIDを求めるには，LT＋RTを2で割ればよく，空欄ａでGR5の内容を1ビット論理右シフトすればよい。したがって空欄ａはSRL 
+GR5, 1になる。</td>
+</tr>
+</table>
+</div>
+<p><strong>空欄ｂについて</strong></p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td valign="top">①</td>
+<td valign="top"><font color="#339966">行15で検索キーの商品番号と在庫表の商品番号［MID］とが一致した場合</font><br>
+空欄ｂ直前の零分岐命令JZEによりFINDへジャンプし，在庫表のGR6＋1番地の，一致した商品番号に対応する在庫量をGR0にセットして，主プログラムに戻る。</td>
+</tr>
+<tr>
+<td valign="top">②</td>
+<td valign="top"><font color="#339966">行15で検索キーの商品番号＞在庫表の商品番号［MID］となった場合</font><br>
+MID以降を再検索する必要があるので，MID＋1→LTに設定し，行7に戻り検索を繰り返す。</td>
+</tr>
+<tr>
+<td valign="top">③</td>
+<td valign="top"><font color="#339966">行15で検索キーの商品番号＜在庫表の商品番号［MID］となった場合</font><br>
+MIDより手前を再検索する必要があるので，MID－1→RTに設定し，行7に戻り検索を繰り返す。</td>
+</tr>
+</table>
+</div>
+<p>したがってGR1＜GR6のときRTSETにジャンプすればよく，空欄ｂはJMI 
+RTSETになる。</p>
+<hr>
+<a href="17S_P_E3.HTM#91">問題へ</a>
+<hr>
+<p><b><a name="92">設問2</a>　</b></p>
+<p>＜解答＞　ウ<br>
+<br>
+＜解説＞</p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td valign="top">（1）</td>
+<td valign="top">
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td valign="top">①</td>
+<td valign="top">GR1の検索キーの商品番号が2，GR2で指定された在庫表の先頭アドレスの内容が8なので，行10のADDL命令によりGR5=1＋8=9にセットされる。</td>
+</tr>
+<tr>
+<td valign="top">②</td>
+<td valign="top">行11のSRL命令によりGR5=4にセットされ，中央の位置MIDが4になる。</td>
+</tr>
+<tr>
+<td valign="top">③</td>
+<td valign="top">したがって検索キーの商品番号2と在庫表の商品番号［4］=7を行15で比較することになるが，2＜商品番号［4］なので，行17のJMI命令によって行20にジャンプして，行20の1回目の実行を行う。</td>
+</tr>
+<tr>
+<td valign="top">④</td>
+<td valign="top">この結果GR4=4－1=3にセットされ，行7に戻り繰り返す。</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr>
+<td valign="top">（2）</td>
+<td valign="top">
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td valign="top">①</td>
+<td valign="top">GR3=1，GR4=3なので，行10のADDL命令によりGR5=1＋3=4にセットされる。</td>
+</tr>
+<tr>
+<td valign="top">②</td>
+<td valign="top">行11のSRL命令によりGR5=2にセットされ，中央の位置MIDが2になる。</td>
+</tr>
+<tr>
+<td valign="top">③</td>
+<td valign="top">したがって検索キーの商品番号2と在庫表の商品番号［2］=3を行15で比較することになるが，2＜商品番号［2］なので，行17のJMI命令によって行20にジャンプして，行20の2回目の実行を行う。</td>
+</tr>
+<tr>
+<td valign="top">④</td>
+<td valign="top">この結果GR4=2－1=1にセットされ，行7に戻り繰り返す。</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr>
+<td valign="top">（3）</td>
+<td valign="top">
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td valign="top">①</td>
+<td valign="top">GR3=1，GR4=1なので，行10のADDL命令によりGR5=1＋1=2にセットされる。</td>
+</tr>
+<tr>
+<td valign="top">②</td>
+<td valign="top">行11のSRL命令によりGR5=1にセットされ，中央の位置MIDが1になる。</td>
+</tr>
+<tr>
+<td valign="top">③</td>
+<td valign="top">したがって検索キーの商品番号2と在庫表の商品番号［1］=1を行15で比較することになるが，2＞商品番号［1］なので，行18のLAD命令を実行してGR3=1＋1=2にセットされ，行7に戻る。</td>
+</tr>
+<tr>
+<td valign="top">④</td>
+<td valign="top">ここでGR3＞GR4，つまりLT＞RTとなるので，行8のJPL命令を実行しEXITへジャンプして主プログラムに戻る。</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p>したがってこの場合，行20は2回実行される。</p>
+<hr>
+<a href="17S_P_E3.HTM#92">問題へ</a>
+<hr>
+<a href="INDEX.HTM">メニューへ戻る</a>
+<hr>
+</blockquote>
+
+</body>
+
+</html>

@@ -1,0 +1,1092 @@
+<HTML>
+<HEAD>
+<TITLE>平成12年度秋期試験　問題</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td>
+<blockquote>
+<hr>
+<H3 align="center">平成12年度秋期試験　問題(午後問11～問14)</H3>
+<hr>
+<P>次の問11から問14までの4問については、この中から1問を選択し、答案用紙の選択欄の              
+選 をマークして解答してください。なお、2問以上選択した場合には、はじめの1問について採点します。<br>             
+<HR WIDTH=100%>             
+<a NAME="110">　<BR>           
+<b>           
+問11</b></a>　
+<p>次の C プログラムの説明及びプログラムを読んで，設問 1           
+～ 4 に答えよ。          
+<p>〔プログラムの説明〕<br>          
+画面上に表示されたモグラに対して，マウスでポインタを移動し，クリックして得点を競うプログラムである。          
+<table border="0" cellPadding="3" cellspacing="0">          
+  <tbody>          
+    <tr>          
+      <td noWrap vAlign="top">(1)</td>          
+      <td>          
+        <p>画面上には，縦横 16 個ずつの正方形の           
+        枡目に分割されたウィンドウがある。升目の縦及び横の画素数は           
+        24 であり，ウィンドウは縦 384×横 384           
+        の画素で構成されている（図 1           
+        ）。画素の座標値は，ウィンドウの左上隅を基点 (0,           
+        0) とした横座標及び縦座標の組合せである。</p>          
+      </td>          
+    </tr>          
+    <tr>          
+      <td noWrap vAlign="top">(2)</td>          
+      <td>          
+        <p>乱数を用いて選択した升目に，1           
+        匹のモグラの絵（図 2           
+        ）を表示する。モグラの絵はプログラム内で宣言された回数の繰返し処理の間だけ表示されており，繰返し処理の終了と同時に画面から消える。</p>          
+      </td>          
+    </tr>          
+    <tr>          
+      <td noWrap vAlign="top">(3)</td>          
+      <td>          
+        <p>モグラが画面に表示されている間に，升目内をクリックできれば，升目の絵が図           
+        3 に変わり，得点が得られる。          
+        <p align="left"><img border="0" src="image/A00a11f1.gif" width="487" height="227"></p>         
+      </td>         
+    </tr>         
+    <tr>         
+      <td noWrap vAlign="top">(4)</td>         
+      <td>         
+        <p>クリック検出及びクリックされた画素の座標は，関数           
+        sense を使用して獲得する。</p>          
+      </td>          
+    </tr>          
+    <tr>          
+      <td noWrap vAlign="top">(5)</td>          
+      <td>          
+        <p>このプログラムでは，次の三つの関数を利用している。</p>          
+        <table border="0" cellpadding="3" cellspacing="0">          
+          <tr>          
+            <td valign="top">①</td>          
+            <td>関数 rand16          
+              <ul>          
+                <li>          
+                  <p align="left">形式： int rand16( void );</li>          
+                <li>機能： 0 ～ 15           
+                  の整数の一つをランダムに発生する。</li>          
+                <li>引数： なし</li>          
+                <li>返却値： 0 ～ 15 の整数値</li>          
+              </ul>          
+            </td>          
+          </tr>          
+          <tr>          
+            <td valign="top">②</td>          
+            <td>関数 mogura          
+              <ul>          
+                <li>形式： void mogura( char *p1, int p2, int p3 );          
+                <li>機能：<br>          
+                  引数 p1 が“open”の場合 ： p2 及び p3           
+                  で指定された升目に図 2 を表示する。<br>          
+                  引数 p1 が“hit”の場合 ： p2 及び p3           
+                  で指定された升目に図 3 を表示する。<br>          
+                  引数 p1 が“close”の場合： p2 及び p3           
+                  で指定された升目の図を消去する。          
+              </ul>          
+              <ul>          
+                <li>引数：<br>          
+                  p1： 処理モード（“open”，“hit”，“close”の           
+                  3 種類）<br>          
+                  p2： 升目の列番号（0 ～ 15）<br>          
+                  p3： 升目の行番号（0 ～ 15）<br>          
+                </li>          
+                <li>返却値： なし</li>          
+              </ul>          
+            </td>          
+          </tr>          
+          <tr>          
+            <td valign="top">③</td>          
+            <td>関数 sense          
+              <ul>          
+                <li>形式： int sense( int *p1, int *p2 );<br>          
+                <li>機能：           
+                  マウスのクリックを検出する。この関数が初めて呼び出されたときには，クリックなし           
+                  ( 0 ) を返す。 2           
+                  回目以降の呼出しにおいては，前回の呼出し後から今回の呼出しまでの間に，マウスのクリックが発生したかどうかを検出する。クリックを検出した場合には，クリックあり           
+                  ( 1 )           
+                  とクリックされた位置の座標を返す。マウスのクリックを検出しなかった場合には，クリックなしを返す。           
+                  2           
+                  回以上のクリックが行われていた場合には，最初のクリックによる座標を返す。<br>          
+                </li>          
+                <li>引数：          
+                  <table border="0" cellpadding="3" cellspacing="0">          
+                    <tr>          
+                      <td valign="top">p1：</td>          
+                      <td>クリックされた画素の横座標へのポインタ<br>          
+                        マウスのクリックありの場合にだけ，p1           
+                        が指すアドレスに座標値が設定される。</td>          
+                    </tr>          
+                    <tr>          
+                      <td valign="top">p2：</td>          
+                      <td>クリックされた画素の縦座標へのポインタ<br>          
+                        マウスのクリックありの場合にだけ，p2           
+                        が指すアドレスに座標値が設定される。<br>          
+                        　</td>
+                    </tr>
+                  </table>
+                <li>返却値： クリックありの場合には ON ( 1 )           
+                  を，クリックなしの場合には OFF ( 0 ) を返す。</li>          
+              </ul>          
+            </td>          
+          </tr>          
+        </table>          
+      </td>          
+    </tr>          
+  </tbody>          
+</table>          
+<p>〔プログラム〕          
+<pre>01  #include  &lt;stdio.h&gt;
+02  #define   ON        1
+03  #define   OFF       0
+04  #define   HIT       1
+05  #define   CMAX      16
+06  #define   BLKSZ     24
+07  #define   MGNCNT    200
+08  #define   DSPCNT    250
+09  #define   STOP      3000</pre>          
+<pre>10  typedef struct { int flg; int st; } mbox;
+11  int  rand16(void);
+12  int  sense( int*, int* );
+13  void mogura( char*, int, int );</pre>          
+<pre>14  main(void) {
+15      int mflg=OFF, hitpt=0;
+16      int hitck[BLKSZ][BLKSZ], gcnt, gx, gy, ix, iy;
+17      mbox mg[CMAX][CMAX];</pre>          
+<pre>18      for ( ix=0; ix&lt;CMAX; ix++ ) 
+19          for ( iy=0; iy&lt;CMAX; iy++ ) {
+20              mg[ix][iy].flg = OFF;
+21              mg[ix][iy].st = 0;
+22          }
+23      for ( ix=0; ix&lt;BLKSZ; ix++ )
+24          for ( iy=0; iy&lt;BLKSZ; iy++ ) hitck[ix][iy] = HIT;
+25      for ( gcnt=0; gcnt&lt;STOP; gcnt++ ) {
+26          if ( gcnt % MGNCNT == 0 ) {
+27              ix = rand16();
+28              iy = rand16();
+29              if ( mg[ix][iy].flg == OFF ) {
+30                  mg[ix][iy].flg = ON;
+31                  mg[ix][iy].st = gcnt;
+32                  mogura( &quot;open&quot;, ix, iy );
+33              }
+34          }
+35          mflg = sense( &amp;gx, &amp;gy );
+36          if ( mflg == ON ) {
+37              if ( mg[gx/BLKSZ][gy/BLKSZ].flg == ON &amp;&amp;
+38                   hitck[gx%BLKSZ][gy%BLKSZ] == HIT ) {
+39                  hitpt += 10;
+40                  mogura( &quot;hit&quot;, gx/BLKSZ, gy/BLKSZ );
+41                  mg[gx/BLKSZ][gy/BLKSZ].flg = OFF;
+42                  mg[gx/BLKSZ][gy/BLKSZ].st = 0;
+43              }
+44              else hitpt--;
+45          }
+46          for ( ix=0; ix&lt;CMAX; ix++ ) {
+47              for ( iy=0; iy&lt;CMAX; iy++ )
+48                  if ( mg[ix][iy].flg == ON ) {
+49                      if ( (gcnt-mg[ix][iy].st)&gt;DSPCNT ) {
+50                          mg[ix][iy].flg = OFF;
+51                          mg[ix][iy].st = 0;
+52                          mogura( &quot;close&quot;, ix, iy );
+53                      }
+54                  }
+55          }
+56      }
+57      printf( &quot;ゲーム終了\nあなたの得点は%dです\n&quot;, hitpt );
+58 }
+</pre>          
+<p>　</p>
+<hr>
+<a NAME="111">　<BR>
+<b>
+設問</b></a><b><a NAME="111">1</a>　</b>このプログラムでは，ゲーム終了までに図           
+2 のモグラが最大何回出現するか，解答群の中から選べ。          
+<table border="0" cellpadding="3" cellspacing="0">          
+  <tr>          
+    <td>　<br>          
+      解答群</td>          
+  </tr>          
+</table>          
+<table border="0" cellpadding="3" cellspacing="0">          
+  <tr>          
+    <td width="60">ア 12</td>          
+    <td width="60">イ 15</td>          
+    <td width="60">ウ 16</td>          
+    <td>エ 20</td>          
+  </tr>          
+  <tr>          
+    <td>オ 24</td>          
+    <td>カ 25</td>          
+    <td>キ 32</td>          
+    <td></td>          
+  </tr>          
+</table>          
+<p>　</p>
+<HR WIDTH=100%>
+<a HREF="12f_p_a4.htm#111">設問の正解例と解説へ</a>
+<HR WIDTH=100%>
+<a NAME="112">
+<b>
+設問</b></a><b>2　</b>プログラムの内容に関する記述として，正しくないものを解答群の中から二つ選べ。<br>
+&nbsp;
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>解答群</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">ア</td>
+    <td>行番号 7 の MGNCNT を 400           
+      にすると得点が得やすくなる。</td>          
+  </tr>          
+  <tr>          
+    <td valign="top">イ</td>          
+    <td>行番号 8 の DSPCNT を 400           
+      にすると得点が得やすくなる。</td>          
+  </tr>          
+  <tr>          
+    <td valign="top">ウ</td>          
+    <td>図 2 のモグラの表示回数の増減によって，図 2           
+      が表示されてから消えるまでの時間が変化する。</td>          
+  </tr>          
+  <tr>          
+    <td valign="top">エ</td>          
+    <td>モグラが表示された状態でプログラムが終了することがある。</td>          
+  </tr>          
+  <tr>          
+    <td valign="top">オ</td>          
+    <td>モグラが表示されていないところをクリックすると得点に影響がある。</td>          
+  </tr>          
+</table>          
+<p>　</p>          
+<HR WIDTH=100%>          
+<a HREF="12f_p_a4.htm#112">設問の正解例と解説へ</a>          
+<HR WIDTH=100%>          
+<a NAME="111">          
+<b>          
+設問</b></a><b><a NAME="113">3</a>　</b>クリックによる得点だけでなく、見逃したモグラも数えることにした。 そこで、初期値が 0 である int 型変数 scnt を宣言部に追加し、行番号 57 の printf を次のように変更した。           
+<pre>printf ( &quot;ゲーム終了＼n あなたの得点は%d，見逃しは%d 匹です＼n&quot;,
+　　　　hitpt, scnt );</pre>          
+<p>関数 main への変更として適切なものを、解答群の中から選べ。<br>           
+　</p>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>解答群</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">ア</td>
+    <td>行番号 33 の直後に else scnt++; を追加する。</td>           
+  </tr>           
+  <tr>           
+    <td valign="top">  イ</td>          
+    <td>行番号 34 の直後に else scnt++; を追加する。</td>           
+  </tr>           
+  <tr>           
+    <td valign="top">  ウ</td>          
+    <td>行番号 44 を else { hitpt--; scnt++; } に置き換える。</td>           
+  </tr>           
+  <tr>           
+    <td valign="top">  エ</td>          
+    <td>行番号 45 の直後に else scnt++; を追加する。</td>           
+  </tr>           
+  <tr>           
+    <td valign="top">  オ</td>          
+    <td>行番号 52 の直後に scnt++; を追加する。</td>           
+  </tr>           
+</table>           
+<p><br>           
+　</p>          
+<HR WIDTH=100%>          
+<a HREF="12f_p_a4.htm#113">設問の正解例と解説へ</a>          
+<HR WIDTH=100%>          
+<a NAME="114">          
+<b>          
+設問</b></a><b>4　</b>行番号 6 の直後に、次の #define の行を追加し、行番号 24 の直後に次の for文による繰返し処理を追加した。その結果、升目内でのモグラのクリックを認識する領域が変化した。変更後のクリック認識画素領域に近い図形を解答群の中から選べ。ここで、図中の灰色の領域がクリックを認識する領域である。           
+<pre>#define TSZ BLKSZ/3
+
+for ( ix=0; ix&lt;TSZ; ix++ ) {
+　　for ( iy=0; iy&lt;TSZ-ix; iy++ ) {
+　　　　hitck[ix ][iy ] = OFF;
+　　　　hitck[ix ][BLKSZ-iy-1] = OFF;
+　　　　hitck[BLKSZ-ix-1][iy ] = OFF;
+　　　　hitck[BLKSZ-ix-1][BLKSZ-iy-1] = OFF;
+　　}
+}
+</pre>          
+<p>解答群</p>           
+<p><img border="0" src="image/A00a11f2.gif" width="352" height="119"></p>         
+<p>　</p> 
+<HR WIDTH=100%> 
+<a HREF="12f_p_a4.htm#114">設問の正解例と解説へ</a> 
+<HR WIDTH=100%> 
+<p><A HREF="index.htm">メニューへ戻る</A>　</p> 
+<HR WIDTH=100%> 
+<a NAME="120">　<BR>
+<b>
+問</b><b>12</b></a>　次の COBOL プログラムの説明及びプログラムを読んで、設問に答えよ。           
+<p>〔プログラムの説明〕<br>           
+システムにログインした利用者番号、日時などを 1 か月分記録したログファイルを読んで、利用者番号別にログイン回数を集計し、利用回数ファイルに出力する。</p>           
+<table border="0" cellpadding="3" cellspacing="0">          
+  <tr>          
+    <td valign="top">(1)</td>          
+    <td> ログファイルのレコード様式は、次のとおりである。          
+      <table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">          
+        <tr>          
+          <td align="center">       利用者番号<br>          
+         10 けた</td>           
+          <td align="center">ログイン日<br>          
+ 8 けた</td>           
+          <td align="center">ログイン時刻<br>          
+ 6 けた</td>           
+          <td align="center">その他<br>          
+ 26 けた</td>           
+        </tr>           
+      </table>           
+      <table border="0" cellpadding="3" cellspacing="0">          
+        <tr>          
+          <td valign="top"><br>          
+            ①</td>          
+          <td><br>          
+ このファイルは、利用者番号、ログイン日及びログイン時刻の昇順に整列されている。</td>          
+        </tr>          
+        <tr>          
+          <td valign="top">②</td>          
+          <td> ログイン日は、4 けたの西暦年、2 けたの月、2 けたの日で構成されている。<br>           
+      例：2000 年 10 月 15 日の場合は、20001015 である。</td>           
+        </tr>           
+        <tr>           
+          <td valign="top">③</td>          
+          <td> ログイン時刻は、2 けたの時（24 時制）、2 けたの分、2 けたの秒で構成されている。<br>           
+      例：午後 3 時 50 分 20 秒の場合は、155020 である。</td>           
+        </tr>           
+      </table>           
+    </td>           
+  </tr>           
+  <tr>           
+    <td valign="top">(2)</td>          
+    <td> 利用回数ファイルのレコード様式は、次のとおりである。利用回数は、3 けたを超えないものとする。           
+      <table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolor="#FFFFFF" bordercolordark="#FFFFFF">          
+        <tr>          
+          <td>       利用者番号<br>          
+         10 けた</td>           
+          <td>利用回数<br>           
+            3 けた</td>           
+        </tr>           
+      </table>           
+    </td>           
+  </tr>           
+</table>           
+<pre>〔プログラム〕</pre>          
+<pre>01 DATA DIVISION.
+02 FILE SECTION.
+03 FD  LOG-FILE.
+04 01  LOG-REC.
+05     02  LOG-USER-NO           PIC  X(10). 
+06     02  LOG-DAY               PIC  9(08).
+07     02  LOG-TIME              PIC  9(06).
+08     02                        PIC  X(26).
+09 FD  USER-FILE.
+10 01  USER-REC.
+11     02  USER-NO               PIC  X(10).
+12     02  USER-COUNT            PIC  9(03).
+13 WORKING-STORAGE SECTION.
+14 01  LOG-FILE-FLG              PIC  X(01) VALUE SPACE.
+15 01  WORK-COUNT                PIC  9(03) VALUE ZERO.
+16 PROCEDURE DIVISION.
+17 INIT-RTN.
+18     OPEN INPUT LOG-FILE  OUTPUT USER-FILE.
+19     READ LOG-FILE AT END
+20        MOVE &quot;E&quot; TO LOG-FILE-FLG
+21     NOT AT END
+22        MOVE LOG-USER-NO TO USER-NO
+23     END-READ.
+24     PERFORM MAIN-RTN UNTIL LOG-FILE-FLG = &quot;E&quot;.
+25     CLOSE LOG-FILE USER-FILE.
+26     STOP RUN.
+27 MAIN-RTN.
+28     IF LOG-USER-NO = USER-NO THEN
+29        COMPUTE WORK-COUNT = WORK-COUNT + 1
+30     ELSE
+31        MOVE WORK-COUNT TO USER-COUNT
+32        WRITE USER-REC
+33        MOVE 1 TO WORK-COUNT
+34        MOVE LOG-USER-NO TO USER-NO
+35     END-IF.
+36     READ LOG-FILE AT END
+37        MOVE &quot;E&quot; TO LOG-FILE-FLG
+38        MOVE WORK-COUNT TO USER-COUNT
+39        WRITE USER-REC
+40     END-READ.
+</pre>  
+<p>　</p>
+<HR WIDTH=100%>
+<a NAME="121"><b>　<BR>
+設問</b></a><b>　</b>次に示す機能を追加するために，プログラムを変更する。変更内容を記述した表中の<b>[　　　]           
+</b>に入れる正しい答えを，解答群の中から選べ。解答は，重複して選んでもよい。          
+<p>同一利用者が 1           
+か月に何日ログインしたかを集計するため，同一利用者が 1           
+日に複数回ログインしても利用日数を 1           
+とみなす方法で，利用した日数も集計することになった。このため，プログラム仕様のうち，利用回数ファイルのレコード様式を次のように変更する。</p>          
+          
+  <p>　          
+  <div align="left">          
+    <table border="1" cellPadding="3" bordercolorlight="#000000" cellspacing="0" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">          
+      <tbody>          
+        <tr vAlign="center">          
+          <td>          
+            <p align="center">利用者番号          
+            <p align="center">10 けた</p>          
+          </td>          
+          <td>          
+            <p align="center">利用回数          
+            <p align="center">3 けた</p>          
+          </td>          
+          <td>          
+            <p align="center">利用日数          
+            <p align="center">2 けた</p>          
+          </td>          
+        </tr>          
+      </tbody>          
+    </table>          
+  </div>          
+          
+<p align="left">表　機能追加のための修正内容          
+<table border="1" cellPadding="3" bordercolorlight="#000000" cellspacing="0" bordercolor="#FFFFFF" bordercolordark="#FFFFFF">          
+  <tbody>          
+    <tr>          
+      <td vAlign="top">          
+        <p align="center">処理</p>          
+      </td>          
+      <td vAlign="center">          
+        <p align="center">文</p>          
+      </td>          
+    </tr>          
+    <tr vAlign="center">          
+      <td>行番号 12 の直後に追加</td>          
+      <td>02 USER-DAY-COUNT PIC 9(02).</td>          
+    </tr>          
+    <tr vAlign="center">          
+      <td>行番号 15 の直後に追加</td>          
+      <td>01 WORK-DAY　　　　　　　PIC 9(08).<br>          
+        01 WORK-DAY-COUNT　　　PIC 9(02) VALUE ZERO.</td>          
+    </tr>          
+    <tr vAlign="center">          
+      <td>行番号 22 の直後に追加</td>          
+      <td><b>[　　　　a　　　　]</b></td>
+    </tr>
+    <tr vAlign="center">
+      <td>行番号 29 の直後に追加</td>          
+      <td>IF <b>[　　b　　]</b> THEN<br>         
+        　　MOVE LOG-DAY TO WORK-DAY<br>          
+        　　<b>[　　　　c　　　]</b><br>
+        END-IF</td>
+    </tr>
+    <tr>
+      <td vAlign="center">
+        <p>行番号 31 の直後に追加</p>          
+      </td>          
+      <td vAlign="center">          
+        <p><b>[　　　　d　　　　]</b>
+        <p>MOVE LOG-DAY TO WORK-DAY<br> 
+        MOVE ZERO TO WORK-DAY-COUNT</p> 
+      </td> 
+    </tr> 
+    <tr> 
+      <td vAlign="center"> 
+        <p>行番号 38 の直後に追加</p>          
+      </td>          
+      <td vAlign="center">          
+        <p><b>[　　　　e　　　　]</b></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>a，c ～ e に関する解答群          
+<table border="0" cellpadding="3" cellspacing="0">         
+  <tr>         
+    <td valign="top">ア</td>         
+    <td>COMPUTE USER-DAY-COUNT = WORK-DAY-COUNT + 1</td>          
+  </tr>          
+  <tr>          
+    <td valign="top">イ</td>         
+    <td>COMPUTE WORK-DAY-COUNT = WORK-DAY-COUNT + 1</td>          
+  </tr>          
+  <tr>          
+    <td valign="top">ウ</td>         
+    <td>MOVE LOG-DAY TO WORK-DAY</td>          
+  </tr>          
+  <tr>          
+    <td valign="top">エ</td>         
+    <td>MOVE LOG-USER-NO TO USER-NO</td>          
+  </tr>          
+  <tr>          
+    <td valign="top">オ</td>         
+    <td>MOVE WORK-DAY-COUNT TO USER-DAY-COUNT</td>          
+  </tr>          
+  <tr>          
+    <td valign="top">カ</td>         
+    <td>MOVE WORK-COUNT TO USER-COUNT</td>          
+  </tr>          
+  <tr>          
+    <td valign="top">キ</td>         
+    <td>MOVE ZERO TO WORK-DAY</td>          
+  </tr>          
+  <tr>          
+    <td valign="top">ク</td>         
+    <td>MOVE ZERO TO WORK-DAY-COUNT</td>          
+  </tr>          
+</table>          
+<p>b に関する解答群          
+<table border="0" cellpadding="3" cellspacing="0">         
+  <tr>         
+    <td valign="top">ア</td>         
+    <td>LOG-DAY NOT = WORK-DAY</td>          
+  </tr>          
+  <tr>          
+    <td valign="top">イ</td>         
+    <td>LOG-DAY = WORK-DAY</td>          
+  </tr>          
+  <tr>          
+    <td valign="top">ウ</td>         
+    <td>LOG-DAY &lt; WORK-DAY</td>          
+  </tr>          
+  <tr>          
+    <td valign="top">エ</td>         
+    <td>LOG-USER-NO NOT = USER-NO</td>          
+  </tr>          
+  <tr>          
+    <td valign="top">オ</td>         
+    <td>LOG-USER-NO &lt; USER-NO</td>          
+  </tr>          
+  <tr>          
+    <td valign="top">カ</td>         
+    <td>LOG-USER-NO &gt; USER-NO</td>          
+  </tr>          
+</table>          
+<p>　</p> 
+<HR WIDTH=100%> 
+<a HREF="12f_p_a4.htm#121">設問の正解例と解説へ</a> 
+<HR WIDTH=100%> 
+<p> 
+<A HREF="index.htm">メニューへ戻る</A></p> 
+<HR WIDTH=100%> 
+<p> 
+<a NAME="130"> 
+<b>問13</b></a><b>　</b>次の Fortran          
+プログラムの説明及びプログラムを読んで，設問 1 ～ 4          
+に答えよ。</p>         
+<p>〔プログラムの説明〕<br>         
+ガウスの消去法を用いて n 元連立 1 次方程式         
+<p>a<sub>11</sub>x<sub>1</sub> + a<sub>12</sub>x<sub>2</sub> + ･･･ + a<sub>1n</sub>x<sub>n</sub>          
+= b<sub>1</sub><br>         
+a<sub>21</sub>x<sub>1</sub> + a<sub>22</sub>x<sub>2</sub> + ･･･ + a<sub>2n</sub>x<sub>n</sub>          
+= b<sub>2</sub><br>         
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;          
+：<br>         
+a<sub>n1</sub>x<sub>1</sub> + a<sub>n2</sub>x<sub>2</sub> + ･･･ + a<sub>nn</sub>x<sub>n</sub>          
+= b<sub>n</sub></p>         
+<p>を解くプログラムである。</p>         
+<table border="0" cellPadding="3" cellspacing="0">         
+  <tbody>         
+    <tr>         
+      <td noWrap vAlign="top">(1)</td>         
+      <td>         
+        <p>n 元連立 1 次方程式の n（2≦n≦100）を変数 na          
+        に，係数 a<sub>ij</sub>（i＝1, …, n； j＝1, …, n），定数          
+        b<sub>i</sub>（i＝1, …, n）を配列 a，b に入力する。</p>         
+    <tr>         
+      <td noWrap vAlign="top">(2)</td>         
+      <td>         
+        <p>ガウスの消去法は，次に示す前進消去と後退代入の二つの処理を行うことによって，          
+        n 元連立 1 次方程式の解を求める。</p>         
+      </td>         
+    </tr>         
+  </tbody>         
+</table>         
+<p>①　前進消去は，次に示す計算を k＝1, …, n－1          
+について行う。ここで，a<sub>kk</sub> をピボットと呼ぶ。         
+<p>a<sub>kj</sub> = a<sub>kj </sub>/ a<sub>kk</sub>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;          
+( j = k, ･･･)<br>         
+b<sub>kj</sub> = b<sub>k&nbsp;</sub> / a<sub>kk</sub><br>         
+a<sub>ij</sub> = a<sub>ij </sub>- a<sub>ik</sub> ･ a<sub>kj</sub>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;          
+( i = k+1,･･･ n ; j =k+1, ･･･,n)<br>         
+b<sub>i</sub> = b<sub>i</sub> - a<sub>jk</sub> ･ b<sub>k</sub>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;          
+( i = k+1 ,･･･ ,n )</p>         
+<p>②　後退代入は，次に示す計算を行い， n 元連立 1          
+次方程式の解 x<sub>i</sub>（i＝1, …, n）を求める。         
+<p>xn = bn / ann       
+<table border="0" cellpadding="3" cellspacing="0">       
+  <tr>       
+    <td>xk = bk -&nbsp;</td>       
+    <td align="center"><sub>n</sub><br>       
+      <font size="4"><b>Σ</b></font><br>       
+      <sup>j-k+1</sup></td>       
+    <td>akj ･        
+      xj&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ( k =        
+      n-1 , ･･･, 1)&nbsp;</td>       
+  </tr>       
+</table>       
+<table border="0" cellpadding="3" cellspacing="0">       
+  <tr>       
+    <td>&nbsp;</td>       
+  </tr>       
+</table>       
+<table border="0" cellpadding="0" cellspacing="0" width="651">       
+  <tr>       
+    <td width="145">プログラムでは，内積</td>       
+    <td align="center" width="30"><sub>n</sub><br>       
+      <font size="4"><b>Σ</b></font><br>       
+      <sup>j-k+1</sup></td>       
+    <td width="470">akj ･ xj を計算するために組込み関数 dot_product を用いている。&nbsp;</td>       
+  </tr>       
+</table>       
+<table border="0" cellpadding="3" cellspacing="0">       
+  <tr>       
+    <td>        
+       
+  <p>a<sub>kj</sub>・x<sub>j</sub>         
+  dot_product (s，t) は，同じ大きさの実数型などの 1 次元配列          
+  s，t を。ベクトルとみなして，s と t の内積を返す。</p>         
+    </td>        
+  </tr>        
+</table>        
+<p>(3)　図 1 に示す入力データに対する出力結果を図 2          
+に示す。<center>         
+<div align="left">       
+<table border="1" cellPadding="3" bordercolorlight="#000000" cellspacing="0" bordercolor="#FFFFFF" bordercolordark="#FFFFFF">        
+  <tbody>        
+    <tr>        
+      <td vAlign="top">　3<br>
+        　2.0　　 3.0　　1.0　　6.0<br>
+        　1.0　　 4.0　　2.0　　4.0<br>
+        　5.0　　-1.0　　6.0　　3.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</center>
+<p align="left">
+図１　入力データ
+<p>　<center>
+<div align="left">
+<table border="1" cellPadding="4" bordercolorlight="#000000" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+  <tbody>
+    <tr>
+      <td vAlign="top">　　coefficients　of　simultaneous　equations　constant　vector<br>
+        　　0.20000E+01　0.30000E+01　0.10000E+01　0.60000E+01<br>
+        　　0.10000E+01　0.40000E+01　0.20000E+01　0.40000E+01<br>
+        　　0.50000E+01　-0.10000E+01　0.60000E+01　0.30000E+01<br>
+        solution　=　　0.20000E+01　　0.10000E+01　　-0.10000E+01</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</center>
+<p align="left">
+図２　出力結果
+<p>&nbsp;<br>
+〔プログラム〕
+
+  <pre>01  real,parameter:: eps=1.0e-6
+02  real,dimension(100,100):: a
+03  real,dimension(100):: b,x
+04  real:: piv,work,sum
+05  integer:: na,row,column,k
+06  read(*,*) na
+07  read(*,*)(((a(row,column),column=1,na),b(row)),row=1,na)
+08  write(*,'(&quot;       coefficients of simultaneous equations&quot;, &amp;
+   &amp;            &quot;   constant vector  &quot;)')
+09  do row=1,na
+10    write(*,'(&quot;   &quot;,101e14.5)')(a(row,column),column=1,na),b(row)
+11  enddo
+12  do k=1,na-1
+13    piv = a(k,k)
+14    if( abs(piv) &lt; eps ) then
+15      write(*,'(a,e12.5,a,e12.5)') &amp;
+   &amp; ' The absolute value of pivot ',piv,' is less than ',eps
+16      stop
+17    endif
+18    a(k,k:na) = a(k,k:na)/piv
+19    b(k) = b(k)/piv
+20    do row=k+1,na
+21      work = a(row,k)
+22      a(row,k+1:na) = a(row,k+1:na)-work*a(k,k+1:na)
+23      b(row) = b(row)-work*b(k)
+24    enddo
+25  enddo
+26  if( abs(a(na,na)) &lt; eps ) then
+27    write(*,'(a,e12.5,a,e12.5)') &amp;
+   &amp; ' The absolute value of pivot ',a(na,na),' is less than ',eps
+28    stop
+29  endif
+30  x(na) = b(na)/a(na,na)
+31  do k=na-1,1,-1
+32    sum = dot_product(a(k,k+1:na),x(k+1:na))
+33    x(k) = b(k)-sum
+34  enddo
+35  write(*,'(/&quot;  solution = &quot;,100e14.5)')(x(row),row=1,na)
+36  end</pre>
+
+<p>
+<b>　</b></p>
+<HR WIDTH=100%>
+<a NAME="131">　<BR>
+<b>
+設問</b></a><b>1</b>　図 3        
+に示すデータを入力して実行したとき，行番号 22        
+の計算の結果，       
+<p>The absolute value of pivot 0.00000E+00 is less than 0.10000E-05       
+<p>というメッセージが表示され，プログラムが停止した。絶対値が        
+1.0×10<sup>-6</sup>        
+より小さくなった配列要素とメッセージの出力場所として正しい答えを，解答群の中から選べ。</p>       
+<p>　<center>
+<div align="left">
+  <table border="1" cellPadding="3" bordercolorlight="#000000" cellspacing="0" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+    <tbody>
+      <tr>
+        <td vAlign="top">&nbsp;3<br>
+          2.0　　 2.0　　 4.0　　 6.0<br>       
+          1.0　　 1.0　　 3.0　　 4.0<br>       
+          3.0　　 5.0　　 6.0&nbsp;&nbsp;&nbsp;&nbsp; 5.0</td>       
+      </tr>       
+    </tbody>       
+  </table>       
+</div>       
+</center>       
+<p align="left">図３　入力データ
+<p>解答群
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">ア</td>
+    <td>a(1, 1) の絶対値が小さくなり，行番号 15        
+      でメッセージを出力した。</td>       
+  </tr>       
+  <tr>       
+    <td valign="top">イ</td>       
+    <td>a(1, 1) の絶対値が小さくなり，行番号 27        
+      でメッセージを出力した。</td>       
+  </tr>       
+  <tr>       
+    <td valign="top">ウ</td>       
+    <td>a(2, 2) の絶対値が小さくなり，行番号 15        
+      でメッセージを出力した。</td>       
+  </tr>       
+  <tr>       
+    <td valign="top">エ</td>       
+    <td>a(2, 2) の絶対値が小さくなり，行番号 27        
+      でメッセージを出力した。</td>       
+  </tr>       
+  <tr>       
+    <td valign="top">オ</td>       
+    <td>a(3, 3) の絶対値が小さくなり，行番号 15        
+      でメッセージを出力した。</td>       
+  </tr>       
+  <tr>       
+    <td valign="top">カ</td>       
+    <td>a(3, 3) の絶対値が小さくなり，行番号 27        
+      でメッセージを出力した。</td>       
+  </tr>       
+</table>       
+<p>　</p>       
+<HR WIDTH=100%>       
+<a HREF="12f_p_a4.htm#131">設問の正解例と解説へ</a>       
+<HR WIDTH=100%>       
+<a NAME="132">　<BR>       
+<b>       
+設問2</b></a>&nbsp;　設問 1        
+で起こった問題を防ぐ方法としてピボット選択処理がある。これは，方程式の順番を入れ替えても解は変わらないという性質に基づき，絶対値が最も大きい値がピボットになるように，式の順序を入れ替える方式である。ピボット選択処理を記述した次に示すプログラムの挿入場所として正しい答えを，解答群の中から選べ。ここで，プログラムの行番号        
+4 と 5 の間に       
+<p><b>real:: mpivot<br>       
+integer:: mindex</b></p>       
+<p>を挿入する。</p>       
+<p>〔ピボット選択処理〕       
+<pre>mindex = k
+mpivot = abs(a(k,k))
+do row=k+1,na
+  if( abs(a(row,k)) &gt; mpivot ) then
+    mindex = row
+    mpivot = abs(a(row,k))
+  endif
+enddo
+if( mindex /= k ) then
+  do column=k,na
+    work = a(k,column)
+    a(k,column) = a(mindex,column)
+    a(mindex,column) = work
+  enddo
+  work = b(k)
+  b(k) = b(mindex)
+  b(mindex) = work
+endif
+</pre>       
+<p>解答群       
+<table border="0" cellpadding="3" cellspacing="0">       
+  <tr>       
+    <td width="230">ア　行番号 12 と行番号 13の間</td>       
+    <td>イ　行番号 13 と行番号 14 の間</td>       
+  </tr>       
+  <tr>       
+    <td>ウ　行番号 17 と行番号 18 の間</td>       
+    <td>エ　行番号 19 と行番号 20 の間</td>       
+  </tr>       
+</table>       
+<p>　</p>       
+<HR WIDTH=100%>       
+<a HREF="12f_p_a4.htm#132">設問の正解例と解説へ</a>       
+<HR WIDTH=100%>       
+<a NAME="133">　<BR>
+<b>
+設問3</b></a>&nbsp;　図 3 に示す入力データを使い，設問 2        
+で示したピボット選択処理を行った場合， 1        
+回目のピボット選択処理が終了したときの配列 a        
+の内容として正しい答えを，解答群の中から選べ。       
+<p>解答群       
+<table border="0" cellpadding="3" cellspacing="0">       
+  <tr>       
+    <td valign="top">ア</td>       
+    <td valign="top">4.0&nbsp;&nbsp; 2.0&nbsp;&nbsp; 2.0 　&nbsp;&nbsp;&nbsp;<br>
+      3.0&nbsp;&nbsp; 1.0&nbsp;&nbsp; 1.0&nbsp;<br>       
+      6.0&nbsp;&nbsp; 5.0&nbsp;&nbsp; 3.0<br>       
+    </td>       
+    <td valign="top">イ</td>       
+    <td valign="top">6.0&nbsp;&nbsp; 5.0&nbsp;&nbsp; 3.0<br>       
+      4.0&nbsp;&nbsp; 2.0&nbsp;&nbsp; 2.0<br>       
+      3.0&nbsp;&nbsp; 1.0&nbsp;&nbsp; 1.0<br>       
+    </td>       
+  </tr>       
+  <tr>       
+    <td valign="top">ウ</td>       
+    <td valign="top">3.0&nbsp;&nbsp; 5.0&nbsp;&nbsp; 6.0<br>       
+      2.0&nbsp;&nbsp; 2.0&nbsp;&nbsp; 4.0<br>       
+      1.0&nbsp;&nbsp; 1.0&nbsp;&nbsp; 3.0</td>       
+    <td valign="top">エ</td>       
+    <td>3.0&nbsp;&nbsp; 5.0&nbsp;&nbsp; 6.0<br>       
+      1.0&nbsp;&nbsp; 1.0&nbsp;&nbsp; 3.0<br>       
+      2.0&nbsp;&nbsp; 2.0&nbsp;&nbsp; 4.0</td>       
+  </tr>       
+</table>       
+<pre>　 </pre>       
+<HR WIDTH=100%>       
+<a HREF="12f_p_a4.htm#133">設問の正解例と解説へ</a>       
+<HR WIDTH=100%>       
+<a NAME="134">　<BR>       
+<b>       
+設問</b></a><b>4</b>　プログラムの行番号 18，19        
+を削除し，行番号 21，33        
+を変更することによって，同等の結果を得るプログラムを作成することができる。行番号        
+21，33        
+の変更内容として正しい答えを，解答群の中から選べ。       
+<p>解答群       
+<table border="0" cellpadding="3" cellspacing="0">       
+  <tr>       
+    <td valign="top">ア</td>       
+    <td>行番号 21 work = a(row,k)*piv<br>       
+      行番号 33 x(k) = (b(k)-sum)/a(k,k)</td>       
+  </tr>       
+  <tr>       
+    <td valign="top">イ</td>       
+    <td>行番号 21 work = a(row,k)*piv<br>       
+      行番号 33 x(k) = b(k)-sum/a(k,k)</td>       
+  </tr>       
+  <tr>       
+    <td valign="top">ウ</td>       
+    <td>行番号 21 work = a(row,k)/piv<br>       
+      行番号 33 x(k) = (b(k)-sum)/a(k,k)</td>       
+  </tr>       
+  <tr>       
+    <td valign="top">エ</td>       
+    <td>行番号 21 work = a(row,k)/piv<br>       
+      行番号 33 x(k) = b(k)-sum/a(k,k)</td>       
+  </tr>       
+</table>       
+<p>&nbsp;</p>       
+<HR WIDTH=100%>       
+<a HREF="12f_p_a4.htm#134">設問の正解例と解説へ</a>       
+<hr>       
+<p>       
+<A HREF="index.htm">メニューへ戻る</A></p>       
+<HR WIDTH=100%>       
+　<BR>
+<b><a name="140">問14</a>　</b>次のアセンブラプログラムの説明及びプログラムを読んで，設問        
+1 ～ 3 に答えよ。       
+<p>〔プログラムの説明〕<br>       
+指定された 1        
+語中に，指定されたビットパターンと一致するビット列が重複せずに幾つあるかを検索する副プログラム        
+BPSRCH と，それを呼び出す主プログラム MAIN である。図 1 に        
+BPSRCH の入出力の関係を示す。図 1 では“011”の 3        
+ビットからなるビットパターンを検索している。       
+<p align="left"><img border="0" src="image/14a.gif" width="368" height="118">      
+<p align="left">      
+図１　入出力の関係 
+<p>(1)　MAIN は GR1 にパラメタの先頭番地を格納して BPSRCH        
+を呼ぶ。パラメタの内容は，図 2 のとおりである。<br>       
+　
+<table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#FFFFFF" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+  <tr>
+    <td align="right">(GR1) +0</td>       
+    <td bordercolor="#000000">検索される語</td>       
+    <td>　</td>       
+  </tr>       
+  <tr>       
+    <td align="right">+1</td>       
+    <td bordercolor="#000000">検索するビットパターン（右詰め）</td>       
+    <td>　</td>       
+  </tr>       
+  <tr>       
+    <td align="right">+2</td>       
+    <td bordercolor="#000000">パターンのビット数（n）</td>       
+    <td>1≦n≦16</td>       
+  </tr>       
+  <tr>       
+    <td align="right">　</td>
+    <td>図２　パラメタの内容</td>
+    <td>　</td>
+  </tr>
+</table>
+<p>(2)　BPSRCH は，検索結果を GR0 に格納する。       
+<p>(3)　BPSRCH から戻るとき，汎用レジスタ GR2，GR3        
+の内容を元に戻す。</p>       
+      
+<p>〔プログラム〕       
+       
+  <pre>01 MAIN    START
+02         LEA    GR1,PARAM
+03         CALL   BPSRCH
+04         EXIT
+05 PARAM   DC     #CDEF
+06         DC     #0003
+07         DC     2
+08 BPSRCH  PUSH   0,GR2
+09         PUSH   0,GR3
+10         LEA    GR3,16
+11         SUB    GR3,2,GR1
+12         LD     GR2,1,GR1
+13         SLL    GR2,0,GR3
+14         ST     GR2,SRCHP           ; 検索するパターンを格納する
+15         LEA    GR2,-1
+16         SLL    GR2,0,GR3
+17         ST     GR2,MASKP           ; マスクパターンを格納する
+18         LEA    GR3,0
+19         LEA    GR0,0
+20         LD     GR2,0,GR1           ; パターンを検索する
+21 LOOP    ADD    GR3,2,GR1
+22         CPA    GR3,MAXP
+23         JPZ    RESULT
+24         PUSH   0,GR2
+25         AND    GR2,MASKP
+26         CPL    GR2,SRCHP           ; パターンを比較する
+27         JNZ    NEXT
+28         ADD    GR0,ONE
+29         POP    GR2
+30         PUSH   0,GR3
+31         LD     GR3,2,GR1
+32         SLL    GR2,0,GR3
+33         POP    GR3
+34         JMP    LOOP
+35 NEXT    SUB    GR3,2,GR1
+36         LEA    GR3,1,GR3
+37         POP    GR2
+38         SLL    GR2,1
+39         JMP    LOOP
+40 RESULT  POP    GR3 
+41         POP    GR2
+42         RET
+43 ONE     DC     1
+44 MASKP   DS     1
+45 SRCHP   DS     1
+46 MAXP    DC     17
+47         END
+</pre>       
+       
+<hr>       
+<p><b><a name="141">設問</a>1　</b>次の記述中の <b>[　　　　] </b>に入れる値として正しい答えを，解答群の中から選べ。解答は，重複して選んでもよい。</p>      
+<p>プログラムの行番号 03       
+を実行して主プログラムに戻ったときの GR0 の値は<b>[　　a　　]&nbsp;</b>&nbsp;       
+，MASKP の値は&nbsp; ，<b>[　　b　　] </b>SRCHP の値は&nbsp; <b>[　　c　　]       
+</b>である。      
+<p>a に関する解答群      
+<p>ア　3　　　イ　4　　　ウ　5　　　エ　6　　　オ　7　　　カ　8<br>
+&nbsp;</p>
+<p>b，c に関する解答群      
+<table border="0" cellpadding="3" cellspacing="0">      
+  <tr>      
+    <td width="120">ア　#1000</td>
+    <td width="120">イ　#3FFF</td>
+    <td>ウ　#4000</td>
+  </tr>
+  <tr>
+    <td>エ　#5FFF</td>
+    <td>オ　#6000</td>
+    <td>カ　#A000</td>
+  </tr>
+  <tr>
+    <td>キ　#B000</td>
+    <td>ク　#C000</td>
+    <td></td>
+  </tr>
+</table>
+<p>　</p>
+<HR WIDTH=100%>
+<a HREF="12f_p_a4.htm#141">設問の正解例と解説へ</a>
+<HR WIDTH=100%>
+<p><b><a name="142">設問</a>2　</b>図 2 のパラメタの“検索するビットパターン”を左詰めに変更することによって副プログラム       
+BPSRCH       
+中で不要になる命令の行番号を，解答群の中から選べ。<br>      
+&nbsp;</p>      
+<p>解答群      
+<p>ア　11　　　イ　13　　　ウ　16　　　エ　22　　　オ　26</p>
+<p>　</p>
+<HR WIDTH=100%>
+<a HREF="12f_p_a4.htm#142">設問の正解例と解説へ</a>
+<hr>
+<p><b><a name="143">設問</a>3　</b>BPSRCH の行番号 29 ～ 39       
+を次のように変更して，主プログラム MAIN       
+を実行した。プログラムの行番号 03       
+を実行して主プログラムに戻ったときの GR0       
+の値として正しい答えを，解答群の中から選べ。</p>      
+<pre>NEXT POP GR2
+SUB GR3,2,GR1
+LEA GR3,1,GR3
+SLL GR2,1
+JMP LOOP</pre>      
+<table border="0" cellpadding="3" cellspacing="0">      
+  <tr>      
+    <td>解答群</td>      
+  </tr>      
+</table>      
+<table border="0" cellpadding="3" cellspacing="0">      
+  <tr>      
+    <td width="60">ア　3</td>
+    <td width="60">イ　4</td>
+    <td width="60">ウ　5</td>
+    <td>エ　6</td>
+  </tr>
+  <tr>
+    <td>オ　7</td>
+    <td>カ　8</td>
+    <td>キ　9</td>
+    <td>ク　10</td>
+  </tr>
+</table>
+<p>　</p>
+<HR WIDTH=100%>
+<a HREF="12f_p_a4.htm#143">設問の正解例と解説へ</a>
+<hr>
+<p align="center">
+<a href="12f_p_e5.htm">■問15へ進む</a>　　　　　<A HREF="index.htm">■メニューへ戻る</A></p>
+<HR WIDTH=100%>
+<p><BR>
+</p>
+      <p>　
+</blockquote>
+    </td>
+  </tr>
+</table>
+</BODY>
+</HTML>

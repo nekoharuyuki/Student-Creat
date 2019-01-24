@@ -1,0 +1,217 @@
+<html>
+
+<head>
+<title>平成18年度春期試験　問題(問3～問5)</title>
+</head>
+
+<body bgcolor="#FFFFFF" topmargin="0" leftmargin="0">
+
+<blockquote>
+<hr>
+<h3 align="center">平成18年度春期試験　問題(問3～問5)</h3>
+<hr>
+<p><a name="30"><b>問3</b></a><b>　</b>通信ネットワークの信頼性に関する次の記述を読んで，設問1，2に答えよ。</p>
+<p>　三つの拠点A，B，Cが図1のように3本の回線で接続されている。各回線の稼働率と通信速度は図1のとおりである。拠点Aと拠点Cとの間で業務処理の通信が行われており，これらの回線はそのためだけに利用されている。この業務処理では，週末には50 Mbps，月末には100 Mbps，それ以外の通常時には40 Mbpsの通信速度を確保する必要がある。</p>
+<p>　図1の拠点Bと拠点Cとの間のように拠点間に複数の回線が存在する場合，その間の通信速度は各回線の通信速度の和になるものとする。また，1本の回線に障害が発生しても残りの回線で通信が可能であり，このときの回線切替えに伴う通信遅延などは考慮しなくてよい。</p>
+<p align="center"><img border="0" src="IMAGE/pm06s011.gif" width="397" height="154"></p>
+<p align="center"><b>図1　拠点A，B，C間のネットワーク接続状況</b></p>
+<p><a name="31"><b>設問1</b></a><b>　</b>次の記述中の［　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p>　拠点Aと拠点Cとの間で，通常時に必要な通信速度が確保できるネットワークの稼働率は［　a　］，週末に必要な通信速度が確保できるネットワークの稼働率は［　b　］である。</p>
+<p>解答群<br>
+ア　0.648　　イ　0.72　　ウ　0.8<br>
+エ　0.81　　 オ　0.882　 カ　0.9</p>
+<hr>
+<a href="18S_P_A2.HTM#31">設問1の正解例と解説へ</a>
+<hr>
+<p><a name="32"><b>設問2</b></a><b>　</b>次の記述中の［　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p>　拠点Aと拠点Cとの間のネットワークの稼働率を高めるために，新たに稼働率0.9，通信速度40 Mbpsの回線を追加することにした。回線の追加方法として，図2に示す3通りを検討している。稼働率は，通常時，週末，月末のすべての場合に対して高めたいと考えている。この条件を満たす方法は，［　c　］である。さらに，通常時，週末，月末のすべての場合の稼働率を高めるだけでなく，月末の処理の増大に備え，回線に障害が発生していないときの最大通信速度も上げるために選択すべき方法は，［　d　］である。</p>
+<p align="center"><img border="0" src="IMAGE/pm06s012.gif" width="494" height="554"></p>
+<p align="center"><b>図2　回線の3通りの追加方法</b></p>
+<p>解答群<br>
+ア　（1）だけ　　　 イ　（2）だけ　　　 ウ　（3）だけ<br>
+エ　（1）又は（2）　オ　（1）又は（3）　カ　（2）又は（3）</p>
+<hr>
+<a href="18S_P_A2.HTM#32">設問2の正解例と解説へ</a>
+<hr>
+<a href="index.htm">■メニューへ戻る</a>
+<hr>
+<p><a name="40"><b>問4</b></a>　次のプログラムの説明及びプログラムを読んで，設問1，2に答えよ。</p>
+<p>〔プログラム1の説明〕<br>
+　関数CreateFileは，ディスクにファイルの領域を確保するプログラムである。</p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td valign="top">（1）</td>
+<td>ディスク上のファイルは，ファイル管理テーブル（以下，FCTという）とファイル割当テーブル（以下，FATという）で管理される。<br>
+なお，ファイル名は一意である。</td>
+</tr>
+<tr>
+<td valign="top">（2）</td>
+<td>ディスクは，クラスタと呼ばれる一定の大きさの領域に区切られる。クラスタには，1から始まる番号が順に付けられている。ファイルは，1個以上のクラスタを使用する。複数のクラスタを使用するファイルは，クラスタを連結リストとして使うので，必ずしも連続するクラスタを使用するとは限らない。<br>
+なお，クラスタの大きさは1,024バイトである。</td>
+</tr>
+<tr>
+<td valign="top">（3）</td>
+<td>FCTは構造体の配列であり，構造体のメンバとその意味は次のとおりである。<br>
+<p align="left"><img border="0" src="IMAGE/pm06s014a.gif" width="376" height="109"></p><br>
+例えば，第10要素のメンバNameの参照は，FCT[10].Nameと表記する。</td>
+</tr>
+<tr>
+<td valign="top">（4）</td>
+<td>FATは，クラスタの使用状況を示す整数型の配列であり，クラスタの状態に応じて，次に示す値が格納されている。<br>
+<p align="center"><img border="0" src="IMAGE/pm06s014b.gif" width="345" height="120"></td>
+</tr>
+<tr>
+<td valign="top">（5）</td>
+<td>FCTとFATは，ともに大域変数であり，配列の要素番号は1から始まる。</td>
+</tr>
+<tr>
+<td valign="top">（6）</td>
+<td>FCTとFATの使用例を，次に示す。ここで，Nameの内容が空文字列の場合は，その配列要素が未使用であることを示す。<br>
+<p align="center"><img border="0" src="IMAGE/pm06s015a.gif" width="550" height="275"></td>
+</tr>
+<tr>
+<td valign="top">（7）</td>
+<td>関数CreateFileがファイルの領域を確保する手順は，次のとおりである。</td>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td valign="top">　　①</td>
+<td>FAT内を先頭から順番に調べて，引数で指定されたファイルが格納できる必要最小限の個数のクラスタを確保する。</td>
+</tr>
+<tr>
+<td valign="top">　　②</td>
+<td>FCT内を先頭から順番に調べて，未使用要素（メンバNameの内容が空文字列）に情報を記録する。</td>
+</tr>
+<tr>
+<td valign="top">　　③</td>
+<td>FAT内で必要なクラスタが確保できない場合や，FCT内に未使用要素がない場合はエラーとする。</td>
+</tr>
+</table>
+</div>
+<td valign="top">（8）</td>
+<td>関数CreateFileの引数と返却値の仕様を次に示す。<br>
+<p align="center"><img border="0" src="IMAGE/pm06s015b.gif" width="536" height="150"></td>
+</tr>
+</table>
+</div>
+<p>〔プログラム1〕</p>
+<p align="center"><img border="0" src="IMAGE/pm06s016.gif" width="527" height="1213"></p>
+<hr>
+<p><a name="41"><b>設問1</b></a><b>　</b>プログラム1中の［　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p>aに関する解答群<br>
+　ア　FileSize ÷ CSIZE<br>
+　イ　FileSize ÷ CSIZE＋1<br>
+　ウ　FileSize ÷ CSIZE－1<br>
+　エ　（FileSize ＋ CSIZE ＋ 1）÷ CSIZE<br>
+　オ　（FileSize ＋ CSIZE － 1）÷ CSIZE</p>
+<p>
+
+b～dに関する解答群<br>
+　ア　FAT[Idx] ← Idx　　　　イ　FAT[Idx] ← Wk<br>
+　ウ　FAT[Idx] ← －1　　　　エ　FAT[Wk] ← Idx<br>
+　オ　FAT[Wk] ← Wk　　　　　カ　FAT[Wk] ← －1<br>
+　キ　Idx ← FAT[Idx]　　　　ク　Idx ← FAT[Wk]<br>
+　ケ　Idx ← Wk</p>
+<hr>
+<a href="18S_P_A2.HTM#41">設問1の正解例と解説へ</a>
+<hr>
+<p><a name="42"><b>設問2</b></a><b>　</b>数DeleteFileは，ファイルを削除するプログラムである。次のプログラム2中の［　］に入れる正しい答えを，解答群の中から選べ。ただし，［　d　］には設問1の正しい答えが入っているものとする。<br>
+　関数DeleteFileの引数と返却値の仕様を次に示す。</p>
+<p align="center"><img border="0" src="IMAGE/pm06s018a.gif" width="409" height="105"></p>
+<p>〔プログラム2〕</p>
+<p align="center"><img border="0" src="IMAGE/pm06s018b.gif" width="454" height="335"></p>
+<p>解答群<br>
+　ア　Idx ≦ CMAX<br>
+　イ　Idx ＞ CMAX<br>
+　ウ　Idx ≦ CMAX and FCT[Idx].Name ≠ FileName<br>
+　エ　Idx ≦ CMAX or FCT[Idx].Name ≠ FileName<br>
+　オ　Idx ＞ CMAX and FCT[Idx].Name ≠ FileName<br>
+　カ　Idx ＞ CMAX or FCT[Idx].Name ≠ FileName</p>
+<hr>
+<a href="18S_P_A2.HTM#42">設問2の正解例と解説へ</a>
+<hr>
+<a href="index.htm">■メニューへ戻る</a>
+<hr>
+<p><b><a name="50">問5</a>　</b>プログラム設計に関する次の記述を読んで，設問1，2に答えよ。</p>
+<p>　ある通信販売会社では，期間限定のキャンペーンを実施する。このキャンペーンに応募し，期間中の1回の購入金額が3,000円以上であった顧客に，購入回数に関係なく賞品抽選券を1枚だけ郵送することにした。このために，既存のファイルから対象となる顧客を選び，当該顧客のレコードをあて先ファイルに出力するプログラムを設計する。</p>
+<p>〔ファイルの説明〕</p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td valign="top">（1）</td>
+<td>売上伝票ファイルのレコードは，1回の購入ごとに1件作成されている。</td>
+</tr>
+<tr>
+<td valign="top">（2）</td>
+<td>売上伝票ファイルは，購入日付をキーとして，昇順に整列されている。</td>
+</tr>
+<tr>
+<td valign="top">（3）</td>
+<td>顧客番号は，6けたの数字で構成されている。</td>
+</tr>
+<tr>
+<td valign="top">（4）</td>
+<td>キャンペーンに応募した顧客の顧客番号は，応募者ファイルに登録されている。<br>
+応募者ファイルには，同じ顧客番号のレコードが複数存在することはない。</td>
+</tr>
+<tr>
+<td valign="top">（5）</td>
+<td>応募者ファイルは，顧客番号をキーとして，昇順に整列されている。</td>
+</tr>
+<tr>
+<td valign="top">（6）</td>
+<td>顧客情報は，顧客マスタファイルに登録されている。</td>
+</tr>
+<tr>
+<td valign="top">（7）</td>
+<td>売上伝票ファイル，応募者ファイル，顧客マスタファイル及びあて先ファイルの様式を図1に示す。</td>
+</tr>
+</table>
+</div>
+<p align="center"><img border="0" src="IMAGE/pm06s020.gif" width="513" height="138"></p>
+<p align="center"><b>図1　各ファイルの様式</b></p>
+<p>　入力ファイルと出力ファイルの様式を検討した結果，図2に示すように，売上伝票ファイルに対する前処理プログラムとあて先ファイル作成プログラムの二つに分割する設計とした。</p>
+<p>　このうち，あて先ファイル作成プログラムは，中間ファイルと応募者ファイルからレコードを順番に読み，突合せ処理によって，両方のファイルに存在する顧客番号について，顧客情報を顧客マスタファイルから得て，あて先ファイルを作成する。</p>
+<p align="center"><img border="0" src="IMAGE/pm06s021.gif" width="373" height="313"></p>
+<p align="center"><b>図2　分割した処理と入出力ファイル</b></p>
+<hr>
+<p><a name="51"><b>設問1</b></a>　前処理プログラムが行う処理のうち，購入金額が3,000円以上であるレコードの抽出以外の処理として，正しい答えを，解答群の中から<u>二つ</u>選べ。<br>
+　なお，前処理プログラムの出力である中間ファイルの様式は，売上伝票ファイルと同じとする。</p>
+<p>解答群<br>
+ア　応募者のレコードの抽出<br>
+イ　キャンペーン対象期間のレコードの抽出<br>
+ウ　購入金額をキーとする整列<br>
+エ　購入数量が正数であるレコードの抽出<br>
+オ　購入日付をキーとする整列<br>
+カ　顧客番号をキーとする整列<br>
+キ　商品コードをキーとする整列</p>
+<hr>
+<a href="18S_P_A2.HTM#51">設問1の正解例と解説へ</a>
+<hr>
+<p><a name="52"><b>設問2</b></a>　あて先ファイル作成プログラムのモジュール構造を図3のとおりにし，モジュールの実行条件と処理を表に示すように設計した。表中の［　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p align="center"><img border="0" src="IMAGE/pm06s022a.gif" width="314" height="267"></p>
+<p align="center"><b>図3　モジュール構造図</b></p>
+<br>
+<p align="center"><b>表　モジュールの実行条件と処理</b></p>
+<p align="center"><img border="0" src="IMAGE/pm06s022b.gif" width="558" height="385"></p>
+<p>解答群<br>
+ア　あて先ファイルが終わる　　　イ　応募者ファイルが終わる<br>
+ウ　購入日付が変わる　　　　　　エ　購入日付が対象外となる<br>
+オ　顧客住所が変わる　　　　　　カ　顧客番号が変わる<br>
+キ　顧客マスタファイルが終わる　ク　商品コードが変わる<br>
+ケ　中間ファイルが終わる</p>
+<hr>
+<a href="18S_P_A2.HTM#52">設問2の正解例と解説へ</a>
+<hr>
+<p><a name="53"><b>設問3</b></a><b>　</b>次のテストデータは，設問2の表中の条件1～3による分岐において，処理A，あて先処理，処理Bのすべてが実行されることを確かめるものである。このデータ中の［　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p align="center"><img border="0" src="IMAGE/pm06s023.gif" width="526" height="134"></p>
+<p>解答群</p>
+<p>ア　400101　　　イ　400102　　　ウ　400103　　　エ　400104</p>
+<hr>
+<a href="18S_P_A2.HTM#53">設問3の正解例と解説へ</a>
+<hr>
+<a href="18S_P_E3.HTM">■問6へ進む</a>
+<hr>
+<a href="index.htm">■メニューへ戻る</a>
+<hr>

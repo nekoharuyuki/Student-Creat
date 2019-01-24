@@ -1,0 +1,396 @@
+<html>
+
+<head>
+<title>平成18年度秋期試験　問題（午前問61～問80）</title>
+<style>
+<!--
+p            { line-height: 175% }
+-->
+</style>
+</head>
+
+<body>
+
+<blockquote>
+<hr>
+<div align="center">
+<h3>平成18年度秋期試験　問題（午前問61～問80）</h3>
+</div>
+<hr>
+<p>次の問1から問80まですべて必須問題です。全問について解答してください。<br>
+解答は，ア～エの中から一つ選んでください。</p>
+<hr>
+<p><strong><a name="61">問61</a></strong>　データの正規化に関する記述のうち，適切なものはどれか。</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber1">
+<tr>
+<td>ア</td>
+<td>関係データベースに特有なデータベース構築技法であり，データの信頼性と格納効率を向上させる。</td>
+</tr>
+<tr>
+<td>イ</td>
+<td>データの重複や矛盾を排除して，データベースの論理的なデータ構造を導き出す。</td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>データベースの運用管理を容易にするために，レコードをできるだけ短く分割する。</td>
+</tr>
+<tr>
+<td>エ</td>
+<td>ファイルに格納するデータの冗長性をなくすことによって，アクセス効率を向上させる。</td>
+</tr>
+</table>
+<hr>
+<p><a href="18F_A_A4.HTM#61">問61の正解例と解説へ</a> </p>
+<hr>
+<p><strong><a name="62">問62</a></strong>　 “出庫記録”表に対するSQL文のうち，最も大きな値を得られるものはどれか。</p>
+<p>
+<img border="0" src="figs/gozen018.jpg" width="244" height="163"></p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber2">
+<tr>
+<td>ア</td>
+<td><code>SELECT AVG(数量) FROM 出庫記録 WHERE 商品番号 = 'NP200'</code></td>
+</tr>
+<tr>
+<td>イ</td>
+<td><code>SELECT COUNT(*) FROM 出庫記録</code></td>
+</tr>
+<tr>
+<td>ウ</td>
+<td><code>SELECT MAX(数量) FROM 出庫記録</code></td>
+</tr>
+<tr>
+<td>エ</td>
+<td><code>SELECT SUM(数量) FROM 出庫記録 WHERE 日付 = '2006-10-11'</code></td>
+</tr>
+</table>
+<hr>
+<p><a href="18F_A_A4.HTM#62">問62の正解例と解説へ</a> </p>
+<hr>
+<p><strong><a name="63">問63</a></strong>　カーソル操作に関する記述のうち，適切なものはどれか。</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber3">
+<tr>
+<td>ア</td>
+<td>INSERT文を実行する前に，OPEN文を実行してカーソルを開いておかなければならない。</td>
+</tr>
+<tr>
+<td>イ</td>
+<td>PREPARE文は，与えられたSQL文を実行し，その結果を自分のプログラム中に記録する。</td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>カーソル操作によって複数行を一括更新することが可能となる。</td>
+</tr>
+<tr>
+<td>エ</td>
+<td>プログラム言語は通常レコード単位の処理を行うことに対し，SQLでは集合単位の処理を行うので，その間をカーソルによって橋渡しする。</td>
+</tr>
+</table>
+<hr>
+<p><a href="18F_A_A4.HTM#63">問63の正解例と解説へ</a> </p>
+<hr>
+<p><strong><a name="64">問64</a></strong>　 暗号方式に関する記述のうち，適切なものはどれか。</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber4">
+<tr>
+<td>ア</td>
+<td>共通鍵暗号方式は，多数の相手との通信の際，同一の暗号化鍵を用いても安全である。</td>
+</tr>
+<tr>
+<td>イ</td>
+<td>公開鍵暗号方式では，暗号化鍵を通信相手へ秘密裏に配信する必要がある。</td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>公開鍵暗号方式は，共通鍵暗号方式に比べて複合処理が単純かつ高速である。</td>
+</tr>
+<tr>
+<td>エ</td>
+<td>通信の開始時に共通鍵を公開鍵暗号方式で暗号化して相手に送り，データの暗号化を共通鍵暗号方式で行う方法が実用化されている。</td>
+</tr>
+</table>
+<hr>
+<p><a href="18F_A_A4.HTM#64">問64の正解例と解説へ</a> </p>
+<hr>
+<p><strong><a name="65">問65</a></strong>
+ディジタル署名を通信に利用する主な目的は二つある。一つは，メッセージの発信者を受信者が確認することである。もう一つの目的はどれか。</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber5">
+<tr>
+<td>ア</td>
+<td>署名が行われた後でメッセージ変更が加えられていないかどうかを，受信者が確認すること</td>
+</tr>
+<tr>
+<td>イ</td>
+<td>送信の途中でメッセージが不当に解読されていないことを，受信者が確認すること</td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>発信者のIDを受信者が確認すること</td>
+</tr>
+<tr>
+<td>エ</td>
+<td>秘密鍵を返送してよいかどうかを受信者が確認すること</td>
+</tr>
+</table>
+<hr>
+<p><a href="18F_A_A4.HTM#65">問65の正解例と解説へ</a> </p>
+<hr>
+<p><strong><a name="66">問66</a></strong>　フィッシングの手口に該当するものはどれか。</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber6">
+<tr>
+<td>ア</td>
+<td>Webページに入力した内容をそのまま表示する部分がある場合，ページ内に悪意のスクリプトを埋め込み，ユーザとサーバに被害を与える。</td>
+</tr>
+<tr>
+<td>イ</td>
+<td>ウイルスに感染したコンピュータを，インターネットなどのネットワークを通じて外部から操る。</td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>コンピュータ利用者のIPアドレスやWebの閲覧履歴などの個人情報を，ひそかに収集して外部へ送信する。</td>
+</tr>
+<tr>
+<td>エ</td>
+<td>電子メールを発信して受信者を誘導し，実在する会社などを装った偽のWebサイトにアクセスさせ，個人情報をだまし取る。</td>
+</tr>
+</table>
+<hr>
+<p><a href="18F_A_A4.HTM#66">問66の正解例と解説へ</a> </p>
+<hr>
+<p><strong><a name="67">問67</a></strong>　セキュリティプロトコルSSLの特徴はどれか。</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber7">
+<tr>
+<td>ア</td>
+<td>SSLはWebサーバだけで使用されるセキュリティ対策用のプロトコルで，ネットワーク層に位置するものである。</td>
+</tr>
+<tr>
+<td>イ</td>
+<td>SSLを利用するWebサーバでは，そのFQDNをディジタル証明書に組み込む。</td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>個人認証用のディジタル証明書は，PCごとに固有のものを作成する必要がある。</td>
+</tr>
+<tr>
+<td>エ</td>
+<td>日本国内では，政府機関に限り128ビットの共通鍵長のディジタル証明書を取得申請できる。</td>
+</tr>
+</table>
+<hr>
+<p><a href="18F_A_A4.HTM#67">問67の正解例と解説へ</a> </p>
+<hr>
+<p><strong><a name="68">問68</a></strong>　経済産業省が策定した“ソフトウェア管理ガイドライン”はどれか。</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber8">
+<tr>
+<td>ア</td>
+<td>アプリケーションソフトウェアの開発工程で，開発管理者が最低限実施すべき事項を取りまとめたもの</td>
+</tr>
+<tr>
+<td>イ</td>
+<td>ソフトウェアの違法複製などを防止するために，法人，団体などがソフトウェアを使用するに当たって実施すべき事項を取りまとめたもの</td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>ソフトウェアの品質保証のために，ソフトウェア管理者がチェックすべき事項をガイドラインとして示したもの</td>
+</tr>
+<tr>
+<td>エ</td>
+<td>ソフトウェアパッケージの適正な利用を促進するために，ソフトウェア管理者が策定すべき管理規則や，ソフトウェアの利用手順のひな形を示したもの</td>
+</tr>
+</table>
+<hr>
+<p><a href="18F_A_A4.HTM#68">問68の正解例と解説へ</a> </p>
+<hr>
+<p><strong><a name="69">問69</a></strong>　OMGが標準化したUMLはどれか。</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber9">
+<tr>
+<td>ア</td>
+<td>オブジェクト指向を用いたソフトウェア開発で使用されるモデリング言語</td>
+</tr>
+<tr>
+<td>イ</td>
+<td>オブジェクトをほかのプログラムから利用するためのインタフェースの記述言語</td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>表の定義やデータ操作などを行う関係データベースの操作言語</td>
+</tr>
+<tr>
+<td>エ</td>
+<td>文書やデータの意味や構造を記述するためのマークアップ言語</td>
+</tr>
+</table>
+<hr>
+<p><a href="18F_A_A4.HTM#69">問69の正解例と解説へ</a> </p>
+<hr>
+<p><strong><a name="70">問70</a></strong>　縦・横方向に情報をもたせることによって，1次元シンボルよりも多くのデータを記録することができるコードはどれか。</p>
+<p>ア　Code128　　　イ　ITFコード　　　ウ　JANコード　　　エ　QRコード</p>
+<hr>
+<p><a href="18F_A_A4.HTM#70">問70の正解例と解説へ</a> </p>
+<hr>
+<p><strong><a name="71">問71</a></strong>　 プロジェクト組織を説明したものはどれか。</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber10">
+<tr>
+<td>ア</td>
+<td>構成員が，自己の専門とする職能部門と特定の事業を遂行する部門の両方に所属する組織である。</td>
+</tr>
+<tr>
+<td>イ</td>
+<td>購買・生産・販売・財務などの仕事の性質によって，部門を編成した組織である。</td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>特定の課題のもとに各部門から専門家を集めて編成し，期間と目標を定めて活動する一時的かつ柔軟な組織である。</td>
+</tr>
+<tr>
+<td>エ</td>
+<td>利益責任と業務遂行に必要な職能を，製品別，顧客別又は地域別にもつことによって，自己完結的な経営活動が展開できる組織である。</td>
+</tr>
+</table>
+<hr>
+<p><a href="18F_A_A4.HTM#71">問71の正解例と解説へ</a> </p>
+<hr>
+<p><strong><a name="72">問72</a></strong>　ROEを説明したものはどれか。</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber11">
+<tr>
+<td>ア</td>
+<td>企業が保有する総資産に対する収益性を示す指標</td>
+</tr>
+<tr>
+<td>イ</td>
+<td>自己資本と総資本の比率から，財務体質の健全性を示す指標</td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>自己資本と他人資本の有効活用の度合いを計る指標</td>
+</tr>
+<tr>
+<td>エ</td>
+<td>自己資本に対する収益性を示す指標</td>
+</tr>
+</table>
+<hr>
+<p><a href="18F_A_A4.HTM#72">問72の正解例と解説へ</a> </p>
+<hr>
+<p><strong><a name="73">問73</a></strong>　表の受払記録において，商品の払出単価の計算方法として後入先出法を適用したとき，9月の売上原価は何万円か。</p>
+<p>
+<img border="0" src="figs/gozen019.jpg" width="322" height="177"></p>
+<p>ア　550　　　イ　561　　　ウ　563　　　エ　600</p>
+<hr>
+<p><a href="18F_A_A4.HTM#73">問73の正解例と解説へ</a> </p>
+<hr>
+<p><strong><a name="74">問74</a></strong>　取扱商品をABC分析した場合，Aグループの管理対象となる商品の商品番号はどれか。</p>
+<p>
+<img border="0" src="figs/gozen020.jpg" width="301" height="295"></p>
+<p>ア　1と2　　　イ　2と5　　　ウ　2と6　　　エ　4と8</p>
+<hr>
+<p><a href="18F_A_A4.HTM#74">問74の正解例と解説へ</a> </p>
+<hr>
+<p><strong><a name="75">問75</a></strong>　図は，ある製品ロットの抜取り検査の結果を表すOC曲線（検査特性曲線）である。この図が表しているものはどれか。</p>
+<p>
+<img border="0" src="figs/gozen021.jpg" width="431" height="225"></p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber12">
+<tr>
+<td>ア</td>
+<td>p1％よりも大きい不良率のロットが合格する確率は，L1以上である。</td>
+</tr>
+<tr>
+<td>イ</td>
+<td>p1％よりも小さい不良率のロットが不合格となる確率は，1.0－L1以上である。</td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>p2％よりも大きい不良率のロットが合格する確率は，L2以下である。</td>
+</tr>
+<tr>
+<td>エ</td>
+<td>p2％よりも小さい不良率のロットが不合格となる確率は，L2以下である。</td>
+</tr>
+</table>
+<hr>
+<p><a href="18F_A_A4.HTM#75">問75の正解例と解説へ</a> </p>
+<hr>
+<p><strong><a name="76">問76</a></strong>　管理図を説明したものはどれか。</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber13">
+<tr>
+<td>ア</td>
+<td>原因と結果の関連を魚の骨のような形状として体系的にまとめ，結果に対してどのような原因が関連しているかを明確にする。</td>
+</tr>
+<tr>
+<td>イ</td>
+<td>時系列的に発生するデータのばらつきを折れ線グラフで表し，上限と下限を設定して異常の発見に用いる。</td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>収集したデータを幾つかの区間に分類し，各区間に属するデータの個数を棒グラフとして描き，品質のばらつきをとらえる。</td>
+</tr>
+<tr>
+<td>エ</td>
+<td>データを幾つかの項目に分類し，横軸方向に大きい順に棒グラフとして並べ，累積値を折れ線グラフで描き，主要な問題点を把握する。</td>
+</tr>
+</table>
+<hr>
+<p><a href="18F_A_A4.HTM#76">問76の正解例と解説へ</a> </p>
+<hr>
+<p><strong><a name="77">問77</a></strong>　 散布図のうち，“負の相関図”を示すものはどれか。</p>
+<p>
+<img border="0" src="figs/gozen022.jpg" width="530" height="387"></p>
+<hr>
+<p><a href="18F_A_A4.HTM#77">問77の正解例と解説へ</a> </p>
+<hr>
+<p><strong><a name="78">問78</a></strong>　T商店では毎日KとLという菓子を作り，これを組み合わせて箱詰めした商品MとNを販売している。箱詰めの組合せと1商品当たりの利益は表に示すとおりである。Kの1日の最大製造能力は360個であり，Lの1日の最大製造能力は240個である。１日の販売利益を最大にするように，商品MとNを製造し，すべて販売したときの利益は何円か。</p>
+<p>
+<img border="0" src="figs/gozen023.jpg" width="313" height="100"></p>
+<p>ア　24,000　　　イ　36,000　　　ウ　40,000　　　エ　48,000</p>
+<hr>
+<p><a href="18F_A_A4.HTM#78">問78の正解例と解説へ</a> </p>
+<hr>
+<p><strong><a name="79">問79</a></strong>　デビットカードの決済方式はどれか。</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber14">
+<tr>
+<td>ア</td>
+<td>後払い方式の決済を行う。</td>
+</tr>
+<tr>
+<td>イ</td>
+<td>カード内で残高管理を行い，財布のように利用できる。</td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>前払い方式の決済を行う。</td>
+</tr>
+<tr>
+<td>エ</td>
+<td>利用金額を預金口座から即時に引き落とす。</td>
+</tr>
+</table>
+<hr>
+<p><a href="18F_A_A4.HTM#79">問79の正解例と解説へ</a> </p>
+<hr>
+<p><strong><a name="80">問80</a></strong>　ソフトウェアパッケージのライセンス契約形態のうち，サイトライセンスを説明したものはどれか。</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber15">
+<tr>
+<td>ア</td>
+<td>特定の企業や団体などにある複数のコンピュータでの使用を一括して認める。</td>
+</tr>
+<tr>
+<td>イ</td>
+<td>特定のコンピュータ又は一定数のコンピュータでの使用を認める。</td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>特定のサーバにインストールし，そのクライアントでの使用を認める。</td>
+</tr>
+<tr>
+<td>エ</td>
+<td>特定のユーザ又は一定数のユーザに使用を認める。</td>
+</tr>
+</table>
+<hr>
+<p><a href="18F_A_A4.HTM#80">問80の正解例と解説へ</a> </p>
+<hr>
+<p><a href="INDEX.HTM">メニューへ戻る</a></p>
+<hr>
+</blockquote>
+
+</body>
+
+</html>

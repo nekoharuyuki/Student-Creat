@@ -1,0 +1,111 @@
+<HTML>
+<HEAD>
+<TITLE>平成16年度秋期試験　</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0">
+<blockquote>
+  <hr>
+  <H3 align="center">平成16年度秋期試験　正解例と解説(問6～問9)</H3>
+<hr>
+<p><b><a name="60">問6</a>　</b></p>
+<hr> 
+<p><b><a name="61">設問</a>　</b> 
+<br>＜解答＞　a　カ　　　b　イ　　　c　ウ　　　d　ク<br>
+<br>＜解説＞<br>
+空欄aについて<br>
+whileループの繰返処理で，変換前の文字列へのポインタ*inputが指す文字符号を変換し，outputに格納している。空欄aを含むif文の条件replaceChar(　空欄a　)は，変換前の文字列の文字符号が無変換文字であるか否かを判定する条件になっている。したがって空欄aは，*inputとすればよい。<br>
+<br>
+空欄bについて<br>
+文字符号が無変換文字でなければreplaceChar(*input)は1となり，この場合*output++ = ' % '以下の処理で%の後に16進表記を続けた3文字に変換している。空欄bに関する処理は，文字符号の上位4ビットに対応する部分をchar型配列chars [ ] により16進表記に変換し，出力文字列outputに格納している処理である。この変換を行うには，*inputのポイントする文字符号の上位4ビットに対応する部分を右4ビットシフトして下位4ビット部分にセットし，これを配列chars [ ] により16進表記に変換すればよい。したがって空欄bを含む行は*output++ = chars [ *input >> 4]となり，空欄bは*input >> 4とすればよい。<br>
+<br>
+空欄cについて<br>
+空欄cに関する処理は，文字符号の下位4ビットに対応する部分をchar型配列chars [ ] により16進表記に変換し，出力文字列outputに格納している処理である。この変換を行うには，*inputのポイントする文字符号の下位4ビットに対応する部分*input & 0x0Fをchars [ ] により16進表記に変換すればよい。したがって空欄cを含む行は*output++ = chars [ *input & 0x0F ]となり，空欄bは*input & 0x0Fとすればよい。<br>
+<br>
+空欄dについて<br>
+変換前の文字列の文字符号をループ中で順に変換するには，空欄dで次の文字符号に進めるためのインクリメントの処理が必要であり，空欄dでinput++とすればよい。<br>
+<br>
+<hr WIDTH="100%">
+  <a HREF="16F_P_E3.HTM#61">問題へ</a>
+<hr WIDTH="100%">
+<br>
+<a HREF="INDEX.HTM">メニューへ戻る</a><br>
+<HR WIDTH=100%>
+<a NAME="70">　<BR>
+<b>
+問7</b></a><b>　</b>
+<hr> 
+<a NAME="71">　<BR>
+<b>
+設問</b></a><b></b>
+<br>＜解答＞　a　オ　　　b　オ　　　c　オ<br>
+<br>＜解説＞<br>
+<br>
+空欄aについて<br>
+空欄aの直後にあるSEARCH命令で，内容区分のテーブルKEN-W3(KEN)をテーブルサーチし，内容区分KEN-N-Mに一致する要素KEN-W3(KEN)のインデックスKENをサーチしている。したがってSEACH命令の手前でテーブルのインデックスKENの初期値を1に設定しておく必要があり，空欄aでSET KEN TO 1とすればよい。<br>
+<br>
+空欄bについて<br>
+空欄bを含むSEARCH命令で，内容区分KEN-N-Mに一致する要素KEN-W3(KEN)のインデックスKENをサーチし，KEN-NOにセットしている。したがってこのSEARCH命令で内容区分のテーブルKEN-W3をテーブルサーチすればよいので，空欄bはKEN-W3とすればよい。<br>
+<br>
+空欄cについて<br>
+空欄bを含むSEARCH命令で，内容区分テーブルKEN-W3(KEN)のテーブルサーチにより内容区分KEN-N-Mを1～8のインデックスに変換した後，SEARCH命令直後の命令で集計用の2次元テーブルSU-WK( KEN-NO  KEN-K-M )を用いて，内容区分，開催区分ごとの申込者数の分類集計を行っている。空欄cを含むPRINT-RTNは，2次元テーブルSU-WKの申込者数をPERFORM命令の2重ループにより印字している処理である。このPERFORMループでは2つの変数LOOP1とLOOP2が使われている。変数LOOP1は1～8の数値をとり内容区分に対応し，変数LOOP2は1～20の数値をとり開催区分に対応する。この処理では，空欄cが0でない場合にだけ，印字用出力エリアのSU-Sに空欄cの内容をセットし印字している。申込者人数が0でない場合にだけ印字するので，空欄cはSU-WK( LOOP1  LOOP2 )になる。<br>
+<br>
+<HR WIDTH=100%>  
+  <a HREF="16F_P_E3.HTM#71">問題へ</a>  
+<HR WIDTH=100%>  
+<p><a HREF="INDEX.HTM">メニューへ戻る</a>　</p> 
+<HR WIDTH=100%> 
+<a NAME="80">　<BR> 
+<b> 
+問8</b></a><br>  
+<A NAME="80">  
+<HR WIDTH=100%>  
+</a><a NAME="81"><b>　<BR>  
+設問</b></a><b><a NAME="81"></a>　</b>
+<br>＜解答＞　a　エ　　　b　エ　　　c　イ　　　d　エ<br>
+<br>＜解説＞<br>
+空欄aについて<br>
+変数indexは，Object型配列data[ ]のインデックスになっており，配列data[ ]に格納できるオブジェクトの上限は50までである。空欄aはDataStoreExceptionを投げる条件で，空欄aの条件が成立たない場合に，index=0を初期値として配列data[index++]にオブジェクトValueを格納している。Object型配列data[ ]の生成で50個の要素が生成され，サイズはdata.Length=50で，配列要素data[0]～data[49]に格納される。したがって上限data.Length=50を超えたとき，つまりindex≧data.LengthのときにDataStoreExceptionを投げればよく，空欄aはindex≧data.Lengthが適切。<br>
+<br>
+空欄bについて<br>
+index＜data.Lengthの場合，data[index++] = Valueによりオブジェクト型配列data[ ]に格納される。indexの初期値を0とし，Valueを配列data[ ]に格納後にindexはインクリメントされるので，配列に格納されているオブジェクトの個数はindexに一致する。メソッドsize( )は，格納されているオブジェクトの個数を返すので，空欄bの戻値はindexが適切。<br>
+<br>
+空欄cについて<br>
+クラスFifoStoreのメソッドget( )は，先入れ先出しで取出したオブジェクトを戻り値として返す。メソッドget( )では，以下の処理を行えばよい。<br>
+(1)配列data[0]～data[index－1]に格納されている先頭のオブジェクトdata[0]を戻り値Valueにセットする<br>
+(2)data[1]～data[index－1]を1つずつ前にシフトして，data[0]～data[index－2]に格納する
+<br>
+(3)data[index－1]にnullをセットする<br>
+空欄cを含むforループでは，data[i] = data[i+1]により1つずつ前にシフトする(2)の処理をしており，空欄cは変数iの初期値，終値，増分値に関する部分である。data[0]～data[index－2]に格納すればよいので，iの初期値が0，終値がindex－2となり，空欄cはint i = 0; i < index－1: i++が適切。<br>
+<br>
+<img border="0" src="image/A_PM08_1.jpg"><br>
+<br>
+空欄dについて<br>
+fifo，lifoはそれぞれクラスStoreを継承したサブクラスFifoStore，LifoStoreのオブジェクトであり，メソッドPrintDataはオブジェクトlifo，fifoを引数とする。したがってメソッドPrintDataはStore型のオブジェクトを引数とする必要があり，空欄dはStoreが適切。<br>
+<br>
+<hr WIDTH="100%">
+</a><a HREF="16F_P_E3.HTM#81">問題へ</a>
+<hr WIDTH="100%">
+  <a HREF="INDEX.HTM"><br>
+メニューへ戻る<br> 
+  </a> 
+<HR WIDTH=100%> 
+
+問9</b></a>　　　（解説は省略します。）<br>  
+<A NAME="90">  
+<HR WIDTH=100%>  
+</a><a NAME="91"><b>　<BR>  
+設問</b></a><b><a NAME="81"></a>　</b>
+  <p>＜解答＞　a　イ　　　b　ウ　　　c　エ</p>
+<A NAME="91">  
+<HR WIDTH=100%>  
+</a><a HREF="16F_P_E3.HTM#91">問題へ</a> 
+<HR WIDTH=100%> 
+ <a HREF="INDEX.HTM"><br>
+メニューへ戻る<br> 
+  </a> 
+<HR WIDTH=100%> 
+
+<p>　</p>
+</blockquote>
+</BODY>
+</HTML>

@@ -1,0 +1,760 @@
+<HTML>
+<HEAD>
+<TITLE>平成11年度春期試験　問題(問15～問17)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0">
+<blockquote>
+  <hr>
+  <H3 align="center">平成11年度春期試験　問題(問15～問17)</H3>
+<hr>
+<P>次の問15から問17までの3問については、この中から1問を選択し、答案用紙の選択欄の　選　をマークして解答してください。なお、2問以上選択した場合には、はじめの1問について採点します。<br>
+<HR WIDTH=100%>
+<a NAME="150">　<BR>
+<b>
+問15</b></a>　内部設計に関する次の記述を読んで、設問 1、2に答えよ。      
+<p>ある学校内の複数箇所に設置されたクライアントコンピュータ上のプログラム（以下、クライアントと呼ぶ）と、LANで接続された図書室のサーバコンピュータ上のプログラム（以下、サーバと呼ぶ）とが通信を行って、図書の検索を行うシステムを開発することになった。<br>      
+このクライアントが表示する画面と処理の概要は、次のとおりである。      
+<table border="0" cellpadding="3" cellspacing="0">      
+  <tr>      
+    <td valign="top">(1)</td>      
+    <td>ユーザは、検索条件指定画面に検索したい図書の条件を入力する。検索条件指定画面の初期状態を図１に示す。      
+      <p><img border="0" src="image/A99s15f1.gif" width="294" height="149"><br>     
+      図１　検索条件指定画面</td>    
+  </tr>    
+  <tr>    
+    <td valign="top">(2)</td>    
+    <td>ユーザは、検索条件として、書名か著者名のいずれか、又は両方を入力する。入力した文字列と一致するか、それを一部に含む書名又は著者名の図書を検索できる。</td>    
+  </tr>    
+  <tr>    
+    <td>  
+      <p style="line-height: 50%"><br> 
+      (3)</p> 
+    </td>   
+    <td>ユーザが、文字を入力してから<img border="0" src="image/Clear.gif" width="68" height="23">をクリックすると、入力した文字列は消去される。</td>   
+  </tr>   
+  <tr>   
+    <td valign="top"> 
+      <p style="line-height: 40%"><br> 
+      (4)</p> 
+    </td>   
+    <td>ユーザが、検索条件指定画面で検索条件を入力し、<img border="0" src="image/Kensaku.gif" width="68" height="23">をクリックすると、クライアントは、サーバに検索条件を送信し、サーバからの応答を待つ。このときの画面を図２に示す。   
+      <p><img border="0" src="image/A99s15f2.gif" width="294" height="149"></p>   
+      <p>図２　検索中画面</td>   
+  </tr>   
+  <tr>   
+    <td valign="top">(5)</td>   
+    <td>検索条件を受信したサーバは、条件に従ってデータベースを検索する。該当する図書データが１件以上見つかったときは、その件数、並びにそれぞれの図書データの書名、著者名及び図書番号をクライアントへ返信する。該当する図書データが見つからなかったときは、その旨のメッセージを返信する。</td>   
+  </tr>   
+  <tr>   
+    <td valign="top">(6)</td>   
+    <td>クライアントは、該当する図書データが見つからなかった旨のメッセージを受信　したとき、又はサーバから一定時間応答がなかったとき（タイムアウト）には、図１の画面に戻り、メッセージ欄にその旨のメッセージを表示する。</td> 
+  </tr> 
+  <tr> 
+    <td valign="top">(7)</td> 
+    <td>クライアントがサーバからの応答を待つ間に、ユーザが<img border="0" src="image/Chuusi.gif" width="69" height="23">をクリックすると、検索処理は中断され、図１の画面に戻る。</td> 
+  </tr> 
+  <tr> 
+    <td valign="top">(8)</td> 
+    <td>クライアントは、サーバから図書データを受信したとき、図３に示す該当図書一覧画面を表示する。 
+      <p><img border="0" src="image/A99s15f3.gif" width="294" height="177"> 
+      <p>図３　該当図書一覧画面</td> 
+  </tr> 
+  <tr> 
+    <td valign="top">(9)</td> 
+    <td>ユーザが、該当図書一覧画面の中から希望する図書をマウスで選択して反転表示させた後、<img border="0" src="image/Gaiyou.gif" width="68" height="23">をクリックすると、クライアントは、選択された図書の図書番号をサーバに送信し、サーバからの応答を待つ。このときの画面を図４に示す。 
+      <p><img border="0" src="image/A99s15f4.gif" width="294" height="149"></p> 
+      <p>図４　概要データ取得中画面</td> 
+  </tr> 
+  <tr> 
+    <td valign="top">(10)</td> 
+    <td>図書番号を受信したサーバは、再度データベースを検索し、該当する図書の概要　データをクライアントへ返信する。</td> 
+  </tr> 
+  <tr> 
+    <td valign="top">(11)</td> 
+    <td>クライアントは、サーバから一定時間応答がないときには、図３の画面に戻り、　メッセージ欄にその旨のメッセージを表示する。</td> 
+  </tr> 
+  <tr> 
+    <td valign="top">(12)</td> 
+    <td>クライアントがサーバからの応答を待つ間に、ユーザが<img border="0" src="image/Chuusi.gif" width="69" height="23">をクリックすると、概要データ取得処理は中断され、図３の画面に戻る。</td> 
+  </tr> 
+  <tr> 
+    <td valign="top">(13)</td> 
+    <td>クライアントは、サーバから概要データを受信すると、図５に示す概要表示画面を表示する。<p><img border="0" src="image/A99s15f5.gif" width="294" height="177">　</p> 
+      <p>図５　概要表示画面</td> 
+  </tr> 
+  <tr> 
+    <td valign="top">(14)</td> 
+    <td>ユーザが、概要表示画面の中の<img border="0" src="image/Itiran.gif" width="68" height="23">をクリックすると、クライアントは該当図書一覧画面（図３）を再度表示する。</td> 
+  </tr> 
+  <tr> 
+    <td valign="top">(15)</td> 
+    <td>ユーザが、該当図書一覧画面（図３）又は概要表示画面の中の<img border="0" src="image/Jyouken.gif" width="68" height="23">をクリックすると、クライアントは検索条件指定画面（図１）を再度表示する。</td> 
+  </tr> 
+  <tr> 
+    <td valign="top">(16)</td> 
+    <td>ユーザが、各画面の中の<img border="0" src="image/Syuryou.gif" width="68" height="23">をクリックすると、クライアントは表示している画面を消去して、処理を終了する。</td> 
+  </tr> 
+</table> 
+<p>　</p> 
+<hr> 
+<a NAME="151">　<BR> 
+<b> 
+設問</b></a><b><a NAME="151">1</a>　</b> 
+<p>ユーザが操作を円滑に行うために、画面上のボタンをクリックできないよう<br> 
+　にした方が望ましい場合を、解答群の中から三つ選べ。 
+  <table border="0" cellpadding="3" cellspacing="0">
+    <tr>
+      <td>　<br>
+        　<br>
+        解答群</td>
+    </tr>
+  </table>
+<table border="0" cellpadding="3" cellspacing="0"> 
+  <tr> 
+    <td>ア</td> 
+    <td>該当図書一覧画面で、ユーザが図書を選択する前の<img border="0" src="image/Gaiyou.gif" width="68" height="23"></td> 
+  </tr> 
+  <tr> 
+    <td>イ</td> 
+    <td>該当図書一覧画面で、ユーザが図書を選択する前の<img border="0" src="image/Jyouken.gif" width="68" height="23"></td> 
+  </tr> 
+  <tr> 
+    <td>ウ</td> 
+    <td>該当図書一覧画面で、ユーザが図書を選択する前の<img border="0" src="image/Syuryou.gif" width="68" height="23"></td> 
+  </tr> 
+  <tr> 
+    <td>エ</td> 
+    <td>該当図書一覧画面で、ユーザが図書を選択した後の<img border="0" src="image/Gaiyou.gif" width="68" height="23"></td> 
+  </tr> 
+  <tr> 
+    <td>オ</td> 
+    <td>該当図書一覧画面で、ユーザが図書を選択した後の<img border="0" src="image/Jyouken.gif" width="68" height="23"></td> 
+  </tr> 
+  <tr> 
+    <td>カ</td> 
+    <td>検索条件指定画面で、ユーザが入力する前の<img border="0" src="image/Clear.gif" width="68" height="23"></td> 
+  </tr> 
+  <tr> 
+    <td>キ</td> 
+    <td>検索条件指定画面で、ユーザが入力する前の<img border="0" src="image/Kensaku.gif" width="68" height="23"></td> 
+  </tr> 
+  <tr> 
+    <td>ク</td> 
+    <td>検索条件指定画面で、ユーザが入力する前の<img border="0" src="image/Syuryou.gif" width="68" height="23"></td> 
+  </tr> 
+  <tr> 
+    <td>ケ</td> 
+    <td>検索条件指定画面で、ユーザが入力した後の<img border="0" src="image/Clear.gif" width="68" height="23"></td> 
+  </tr> 
+  <tr> 
+    <td>コ</td> 
+    <td>検索条件指定画面で、ユーザが入力した後の<img border="0" src="image/Kensaku.gif" width="68" height="23"></td> 
+  </tr> 
+</table> 
+<p>　</p> 
+<HR WIDTH=100%> 
+  <a HREF="11s_p_a5.htm#151">設問の正解例と解説へ</a> 
+<HR WIDTH=100%> 
+<a NAME="152"> 
+<b> 
+設問</b></a><b><a NAME="151">2</a>　</b>次の記述中の<b>[　　　　]</b>に入れる正しい答えを、解答群の中から選べ。
+<p>クライアントが表示する画面の推移をまとめた状態遷移表は、次のとおりである。</p>
+  <table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+    <tr>
+      <td rowspan="3">
+        <p align="left"><font size="1">　　　　　状態<br>
+        　　　</font>＼<br>
+        <font size="1">条件</font></td>
+      <td align="center"><font size="2">初期</font></td>
+      <td rowspan="2" align="center"><font size="2">該当図書<br>
+        一覧画面</font></td>
+      <td rowspan="2" align="center"><font size="2">概要表示<br>
+        画面</font></td>
+      <td rowspan="2" align="center"><font size="2">検索中画面</font></td>
+      <td rowspan="2" align="center"><font size="2">概要データ<br>
+        取得中画面</font></td>
+      <td align="center"><font size="2">終了</font></td>
+    </tr>
+    <tr>
+      <td align="center"><font size="2">検索条件<br>
+        指定画面</font></td>
+      <td align="center"><font size="2">消去された<br>
+        画面</font></td>
+    </tr>
+    <tr>
+      <td align="center"><font size="2">1</font></td>
+      <td align="center"><font size="2">2</font></td>
+      <td align="center"><font size="2">3</font></td>
+      <td align="center"><font size="2">4</font></td>
+      <td align="center"><font size="2">5</font></td>
+      <td align="center"><font size="2">6</font></td>
+    </tr>
+    <tr>
+      <td><font size="2"><img border="0" src="image/Clear.gif" width="68" height="23"><br>
+        のクリック</font></td>
+      <td>
+        <p align="center"><font size="2">文字列の消去</font></p>
+        <p><img border="0" src="image/Tb1.gif" align="right" width="58" height="36"></td>
+      <td>　</td>
+      <td>　</td>
+      <td>　</td>
+      <td>　</td>
+      <td>　</td>
+    </tr>
+    <tr>
+      <td><font size="2"><img border="0" src="image/Kensaku.gif" width="68" height="23"><br>
+        のクリック</font></td>
+      <td>
+        <p align="right"><img border="0" src="image/Tb4.gif" width="58" height="36"></td>
+      <td>　</td>
+      <td>　</td>
+      <td>　</td>
+      <td>　</td>
+      <td>　</td>
+    </tr>
+    <tr>
+      <td><b><font size="2">[　　a　　]</font></b></td>
+      <td>　</td>
+      <td><img border="0" src="image/Tb1.gif" align="right" width="58" height="36"></td>
+      <td>
+        <p align="right"><img border="0" src="image/Tb1.gif" width="58" height="36"></td>
+      <td>　</td>
+      <td>　</td>
+      <td>　</td>
+    </tr>
+    <tr>
+      <td><font size="2"><img border="0" src="image/Gaiyou.gif" width="68" height="23"><br>
+        のクリック</font></td>
+      <td>　</td>
+      <td>
+        <p align="right"><img border="0" src="image/Tb5.gif" width="58" height="36"></td>
+      <td>　</td>
+      <td>　</td>
+      <td>　</td>
+      <td>　</td>
+    </tr>
+    <tr>
+      <td><b><font size="2">[　　b　　]</font></b></td>
+      <td>　</td>
+      <td>　</td>
+      <td>
+        <p align="right"><img border="0" src="image/Tb2.gif" width="58" height="36"></td>
+      <td>　</td>
+      <td>　</td>
+      <td>　</td>
+    </tr>
+    <tr>
+      <td><b><font size="2">[　　c　　]</font></b></td>
+      <td>　</td>
+      <td>　</td>
+      <td>　</td>
+      <td>
+        <p align="right"><img border="0" src="image/Tb2.gif" width="58" height="36"></td>
+      <td>
+        <p align="right"><img border="0" src="image/Tb3.gif" width="58" height="36"></td>
+      <td>　</td>
+    </tr>
+    <tr>
+      <td><b><font size="2">[　　d　　]</font></b></td>
+      <td>　</td>
+      <td>　</td>
+      <td>　</td>
+      <td>
+        <p align="right"><img border="0" src="image/Tb1.gif" width="58" height="36"></td>
+      <td>
+        <p align="right"><img border="0" src="image/Tb2.gif" width="58" height="36"></td>
+      <td>　</td>
+    </tr>
+    <tr>
+      <td><font size="2">タイムアウト</font></td>
+      <td>　</td>
+      <td>　</td>
+      <td>　</td>
+      <td>
+        <p align="right"><img border="0" src="image/Tb1.gif" width="58" height="36"></td>
+      <td>
+        <p align="right"><img border="0" src="image/Tb2.gif" width="58" height="36"></td>
+      <td>　</td>
+    </tr>
+    <tr>
+      <td><font size="2">該当図書<br>
+        データなし</font></td>
+      <td>　</td>
+      <td>　</td>
+      <td>　</td>
+      <td>
+        <p align="right"><img border="0" src="image/Tb1.gif" width="58" height="36"></td>
+      <td>　</td>
+      <td>　</td>
+    </tr>
+    <tr>
+      <td><b><font size="2">[　　e　　]</font></b></td>
+      <td><img border="0" src="image/Tb6.gif" align="right" width="58" height="36"></td>
+      <td><img border="0" src="image/Tb6.gif" align="right" width="58" height="36"></td>
+      <td><img border="0" src="image/Tb6.gif" align="right" width="58" height="36"></td>
+      <td>　</td>
+      <td>　</td>
+      <td>　</td>
+    </tr>
+  </table>
+<p>解答群</p>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>ア　該当図書データなし</td>
+    <td>イ　<img border="0" src="image/Gaiyou.gif" width="68" height="23">のクリック</td>
+  </tr>
+  <tr>
+    <td>ウ　<img border="0" src="image/Clear.gif" width="68" height="23">のクリック</td>
+    <td>エ　<img border="0" src="image/Kensaku.gif" width="68" height="23">のクリック</td>
+  </tr>
+  <tr>
+    <td>オ　検索又は概要データ取得に成功</td>
+    <td>カ　<img border="0" src="image/Syuryou.gif" width="68" height="23">のクリック</td>
+  </tr>
+  <tr>
+    <td>キ　<img border="0" src="image/Jyouken.gif" width="68" height="23">のクリック</td>
+    <td>ク　タイムアウト</td>
+  </tr>
+  <tr>
+    <td>ケ　<img border="0" src="image/Chuusi.gif" width="69" height="23">のクリック</td>
+    <td>コ　<img border="0" src="image/Itiran.gif" width="68" height="23">のクリック</td>
+  </tr>
+</table>
+<p>　</p>
+<HR WIDTH=100%>
+  <a HREF="11s_p_a5.htm#152">設問の正解例と解説へ</a>
+<HR WIDTH=100%>
+<p><A HREF="index.htm">メニューへ戻る</A>　</p>
+<HR WIDTH=100%>
+<a NAME="160">　<BR>
+<b>
+問16</b></a>　プログラム設計に関する次の記述を読んで、設問       
+1～ 3に答えよ。      
+<p>企業間取引における支払は、一般に現金及び手形で行われる。Ａ社の場合は、現金、３か月手形及び４か月手形の３種類に分割して支払われ、分割方法は、支払明細ごとに決められる。      
+<p>Ａ社では、この処理を行う支払分割プログラムを作成することになった。      
+<p>〔支払明細ファイルの説明〕<br>      
+(1)ファイルのレコード様式は、次のとおりである。<br>      
+<table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolor="#FFFFFF" bordercolordark="#FFFFFF">      
+  <tr>      
+    <td>支払先コード</td>      
+    <td>金額</td>      
+    <td>区分</td>      
+  </tr>      
+</table>      
+<p>(2)レコードは、“支払先コード”の昇順に整列されている。      
+<p>(3)支払う“金額”（正の整数値）と支払いの分割方法を指定する“区分”とが格納されている。プログラムは、“区分”の値（“F”，“0”，“3”又は“4”）に対応して処理を行う。<br>      
+<p>〔分割割合ファイルの説明〕<br>      
+(1)ファイルのレコード様式は、次のとおりである。<br>      
+<table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolor="#FFFFFF" bordercolordark="#FFFFFF">      
+  <tr>      
+    <td>支払先コード</td>      
+    <td>現金の割合</td>      
+    <td>3か月手形の割合</td>      
+    <td>4か月手形の割合</td>      
+  </tr>      
+</table>      
+<p>(2)“支払先コード”をキーとする索引ファイルである。      
+<p>(3)支払先ごとの現金、３か月手形及び４か月手形への分割割合が、合計で       
+100％となるように、百分率（0～ 100の整数値）で格納されている。<br>      
+<p>〔支払ファイルの説明〕<br>      
+(1)ファイルのレコード様式は、次のとおりである。<br>      
+<table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolor="#FFFFFF" bordercolordark="#FFFFFF">      
+  <tr>      
+    <td>支払先コード</td>      
+    <td>現金の金額</td>      
+    <td>3か月手形の金額</td>      
+    <td>4か月手形の金額</td>      
+  </tr>      
+</table>      
+<p>(2)　支払先ごとに現金、3か月手形及び 4か月手形のそれぞれの金額を集計して格納する。      
+<p>〔プログラムの説明〕<br>      
+(1)支払明細ファイルを読み、次の条件に従って支払金額を分割する。</p>      
+  <table border="0" cellpadding="3" cellspacing="0"> 
+    <tr> 
+      <td valign="top">①</td> 
+      <td>支払明細ファイルのレコードの区分が“F”のときは、“通常分割”として処理する。このときは、分割割合ファイルから分割割合を得て、現金、３か月手形及び４か月手形のそれぞれの金額を計算する。３か月手形及び４か月手形の場合は、小数点以下切捨てとし、支払明細ファイルの金額との差額は、現金の額で補正する。</td> 
+    </tr> 
+    <tr> 
+      <td valign="top">②</td> 
+      <td>支払明細ファイルのレコードの区分が、“0”、“3”及び“4”のときは、“特別分割”として処理する。“0”のときは支払明細ファイルの金額の全額を現金とし、“3”のときは全額を３か月手形とし、“4”のときは全額を４か月手形とする。</td> 
+    </tr> 
+    <tr> 
+      <td valign="top">③</td> 
+      <td>支払明細ファイルのレコードの区分が、“F”、“0”、“3”及び“4”以外のときは、エラーである。このときは、支払明細ファイルの内容をエラーファイルに出力する。</td> 
+    </tr> 
+  </table> 
+<p>(2)エラーとなった明細を除き、支払先ごとに現金の金額、３か月手形の金額及び４か月手形の金額のそれぞれを集計し、支払ファイルに出力する。<br>    
+<p>(3)入出力関連図を図１に、モジュール構造図を図２に示す。    
+<p><img border="0" src="image/A99s16f4.gif" width="256" height="122"><br>    
+<table border="0" cellpadding="3" cellspacing="0">    
+  <tr>    
+    <td>図１　入出力関連図<br>    
+      　</td>    
+  </tr>    
+</table>    
+  <p><img border="0" src="image/A99s16f5.gif" width="339" height="192"></p>  
+<table border="0" cellpadding="3" cellspacing="0">    
+  <tr>    
+    <td>図２　モジュール構造図</td>    
+  </tr>    
+</table>    
+<p>　</p>    
+<HR WIDTH=100%>    
+  <a NAME="161"><b>　<BR>    
+設問</b></a><b>1　</b>図２の第３階層及び第４階層の最下位のモジュールのうち、“区分”が入力として必要なものを、解答群の中から選べ。   
+<p>解答群</p>   
+<table border="0" cellpadding="3" cellspacing="0">   
+  <tr>   
+    <td width="120">ア　集計処理</td>   
+    <td width="120">イ　通常分割</td>   
+    <td width="120">ウ　特別分割</td>   
+  </tr>   
+  <tr>   
+    <td>エ　分割初期化</td>   
+    <td>オ　明細エラー</td>   
+    <td></td>   
+  </tr>   
+</table>   
+<p>　</p>   
+<HR WIDTH=100%>   
+  <a HREF="11s_p_a5.htm#161">設問1の正解例と解説へ</a>   
+<HR WIDTH=100%>   
+  <a NAME="162"><b>　<BR>   
+設問</b></a><b>2</b>　図３は、主処理と明細分割の流れ図である。図中の[　　　　]に入れる正しい答えを、解答群の中から選べ。<br>
+  <p><img border="0" src="image/A99s16f6.gif" width="365" height="213"></p>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>図３　主処理と明細分割の流れ図</td>
+  </tr>
+</table>
+<p>aに関する解答群
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">ア</td>
+    <td>支払明細ファイルの終わり</td>
+  </tr>
+  <tr>
+    <td valign="top">イ</td>
+    <td>支払明細ファイルの金額＞ 0、又は支払明細ファイルの終わり</td>     
+  </tr>     
+  <tr>     
+    <td valign="top">ウ</td>     
+    <td>支払明細ファイルの金額≦ 0</td>     
+  </tr>     
+  <tr>     
+    <td valign="top">エ</td>     
+    <td>支払明細ファイルの金額＝ 0、又は支払明細ファイルの支払先コードが変わる</td>     
+  </tr>     
+  <tr>     
+    <td valign="top">オ</td>     
+    <td>支払明細ファイルの金額＝ 0、かつ支払明細ファイルの支払先コードが変わる</td>     
+  </tr>     
+  <tr>     
+    <td valign="top">カ</td>     
+    <td>支払明細ファイルの金額の累計≦ 0、かつ支払明細ファイルの区分が変わる</td>     
+  </tr>     
+  <tr>     
+    <td valign="top">キ</td>     
+    <td>支払明細ファイルの金額の累計≦ 0、又は支払明細ファイルの終わり</td>     
+  </tr>     
+  <tr>     
+    <td valign="top">ク</td>     
+    <td>支払明細ファイルの区分が変わる、又は支払明細ファイルの終わり</td>     
+  </tr>     
+  <tr>     
+    <td valign="top">ケ</td>     
+    <td>支払明細ファイルの支払先コードが変わる、又は支払明細ファイルの終わり</td>     
+  </tr>     
+  <tr>     
+    <td valign="top">コ</td>     
+    <td>支払明細ファイルの支払先コードが変わる、又は支払明細ファイルの区分が変わる</td>     
+  </tr>     
+</table>     
+<table border="0" cellpadding="3" cellspacing="0">     
+  <tr>     
+    <td>b、cに関する解答群</td>     
+  </tr>     
+</table>     
+<table border="0" cellpadding="3" cellspacing="0">     
+  <tr>     
+    <td valign="top">ア</td>     
+    <td>（区分≠“0”）or（区分≠“3”）or（区分≠“4”）</td>     
+  </tr>     
+  <tr>     
+    <td valign="top">イ</td>     
+    <td>（区分≠“F”）or（（区分≠“0”）and（区分≠“3”）and（区分≠“4”））</td>     
+  </tr>     
+  <tr>     
+    <td valign="top">ウ</td>     
+    <td>（区分≠“F”）or（区分≠“0”）or（区分≠“3”）or（区分≠“4”）</td>     
+  </tr>     
+  <tr>     
+    <td valign="top">エ</td>     
+    <td>（区分＝“0”）or（区分＝“3”）or（区分＝“4”）</td>     
+  </tr>     
+  <tr>     
+    <td valign="top">オ</td>     
+    <td>（区分＝“F”）or（（区分≠“0”）and（区分≠“3”）and（区分≠“4”））</td>     
+  </tr>     
+  <tr>     
+    <td valign="top">カ</td>     
+    <td>（区分＝“F”）or（区分＝“0”）or（区分＝“3”）or（区分＝“4”）</td>     
+  </tr>     
+  <tr>     
+    <td valign="top">キ</td>     
+    <td>not（（区分≠“0”）or（区分≠“3”）or（区分≠“4”））</td>     
+  </tr>     
+  <tr>     
+    <td valign="top">ク</td>     
+    <td>not（（区分＝“0”）or（区分＝“3”）or（区分＝“4”））</td>     
+  </tr>     
+  <tr>     
+    <td valign="top">ケ</td>     
+    <td>区分≠“F”</td>     
+  </tr>     
+  <tr>     
+    <td valign="top">コ</td>     
+    <td>区分＝“F”</td>     
+  </tr>     
+</table>     
+<p>　</p>
+<HR WIDTH=100%>
+  <a HREF="11s_p_a5.htm#162">設問2の正解例と解説へ</a>
+<HR WIDTH=100%>
+  <a NAME="163"><b>　<BR>
+設問</b></a><b>3　</b>図４は、通常分割の流れ図である。図中の<img border="0" src="image/box.gif" width="58" height="17">に入れる正しい答えを、解答群の中から選べ。
+<p>〔通常分割の流れ図の説明〕<br>
+“金額”は、支払明細ファイルの値である。“３か月手形の割合”、“４か月手形の割合”は、分割割合ファイルの値である。除算の計算結果は、小数点以下を切り捨てる。</p>
+<p><img border="0" src="image/A99s16f7.gif" width="278" height="241"><br>
+図４　通常分割の流れ図</p>
+<p>解答群<br>
+ア　金額－ w3<br>     
+イ　金額－ w3－ w4<br>     
+ウ　金額－ w4<br>     
+エ　金額×（100－３か月手形の割合－４か月手形の割合）÷      
+100<br>     
+オ　金額×現金の割合÷ 100<br>     
+</p>     
+<HR WIDTH=100%>     
+  <a HREF="11s_p_a5.htm#163">設問3の正解例と解説へ</a>    
+<HR WIDTH=100%>    
+<p>    
+<A HREF="index.htm">メニューへ戻る</A></p>    
+<HR WIDTH=100%>    
+<p><a NAME="170">    
+<b>問17</b></a><b>　</b>マイコンを用いた電子ポットに関する次の記述を読んで、設問１～３に答えよ。</p>
+<p>　電子ポットの水温制御部のシステム構成図を図１に示す。拡張     
+COMETは、10秒ごとに発生するタイマ割込み（割込み 0）の処理で、電子ポット内の水温を制御する。    
+<p>〔タイマ割込み処理による水温制御の説明〕    
+<table border="0" cellpadding="3" cellspacing="0">    
+  <tr>    
+    <td valign="top">(1)</td>    
+    <td>計測した水温に応じて、ヒータを     
+      OFF、弱、又は強のいずれかに設定することによって水温を制御する。</td>    
+  </tr>    
+  <tr>    
+    <td valign="top">(2)</td>    
+    <td>水温は、温度センサからの温度データを     
+      A／D変換器を介して読み込むことによって計測する。水温と     
+      A／D変換器からの出力値は比例していて、その関係は表１に示すとおりである。</td>    
+  </tr>    
+  <tr>    
+    <td valign="top">(3)</td>    
+    <td>計測温度が     
+      93℃未満のときは、ヒータを強にする。ヒータを一度強にしたら強を保ち、98℃以上になったときにヒータを     
+      OFFにする。ヒータを強から     
+      OFFにすることによって水温は徐々に下がり、98℃未満になったらヒータを弱にし、93℃までこの状態を保つ。</td>    
+  </tr>    
+</table>    
+<p><img border="0" src="image/a99s17f1.gif" width="447" height="86"><br>   
+図１　電子ポットの水温制御部のシステム構成図<br>  
+<table border="0" cellpadding="3" cellspacing="0">  
+  <tr>  
+    <td>表１　水温と A／D変換器の出力値の関係</td>    
+  </tr>    
+</table>    
+<table border="1" bordercolorlight="#000000" bordercolor="#FFFFFF" bordercolordark="#FFFFFF" cellspacing="0" cellpadding="3">    
+  <tbody>    
+    <tr>    
+      <td>　水温(℃)　</td>
+      <td>　90</td>
+      <td>　91</td>
+      <td>　92</td>
+      <td>　93</td>
+      <td>　94</td>
+      <td>　95</td>
+      <td>　96</td>
+      <td>　97</td>
+      <td>　98</td>
+      <td>　99</td>
+      <td>　100</td>
+    </tr>
+    <tr>
+      <td>A／D変換器の出力値<br>
+        　　(16進数)　　　</td>
+      <td>　D0</td>
+      <td>　D2</td>
+      <td>　D4</td>
+      <td>　D6</td>
+      <td>　D8</td>
+      <td>　DA</td>
+      <td>　DC</td>
+      <td>　DE</td>
+      <td>　E0</td>
+      <td>　E2</td>
+      <td>　 E4</td>    
+    </tr>    
+  </tbody>    
+</table>    
+<HR WIDTH=100%>    
+<a NAME="171">　<BR>    
+<b>    
+設問</b></a><b>1</b>　
+<p>表２は、水温を連続して 10回計測したときの、A／D変換器の出力値と計測温度に対するヒータの設定の推移を示す。<br>    
+表２中の<b>[　　　]</b>に入れる正しい答えを、解答群の中から選べ。<br>  
+<p>　　　　表２　計測温度に対するヒータの設定の推移  
+<table border="1" bordercolorlight="#000000" cellspacing="0" cellpadding="3" bordercolor="#FFFFFF" bordercolordark="#FFFFFF">  
+  <tbody>  
+    <tr>  
+      <td>計測時点　　</td>  
+      <td align="center">１</td>  
+      <td align="center">２</td>  
+      <td align="center">３</td>  
+      <td align="center">４</td>  
+      <td align="center">５</td>  
+      <td align="center">６</td>  
+      <td align="center">７</td>  
+      <td align="center">８</td>  
+      <td align="center">９</td>  
+      <td align="center">10</td>  
+    </tr>  
+    <tr>  
+      <td>A／D変換器<br>  
+        の出力値<br>  
+        (16進数)</td>  
+      <td align="center">D6</td>  
+      <td align="center">D5</td>  
+      <td align="center">D6</td>  
+      <td align="center"><b>[　a　]</b></td>
+      <td align="center">DD</td>
+      <td align="center">E1</td>
+      <td align="center">E3</td>
+      <td align="center">E2</td>
+      <td align="center">E0</td>
+      <td align="center">DF</td>
+    </tr>
+    <tr>
+      <td>計測温度(℃)</td>
+      <td align="center">93</td>
+      <td align="center">92.5</td>
+      <td align="center">93</td>
+      <td align="center">94.5</td>
+      <td align="center">96.5</td>
+      <td align="center"><b>[　b　]</b></td>
+      <td align="center">99.5</td>
+      <td align="center">99</td>
+      <td align="center">98</td>
+      <td align="center">97.5</td>
+    <tr>
+      <td>ヒータの設定</td>
+      <td align="center">弱</td>
+      <td align="center">強</td>
+      <td align="center">強</td>
+      <td align="center">強</td>
+      <td align="center">強</td>
+      <td align="center">OFF</td>
+      <td align="center">OFF</td>
+      <td align="center">OFF</td>
+      <td align="center">OFF</td>
+      <td align="center">弱</td>
+    </tr>
+  </tbody>
+</table>
+<p>aに関する解答群<br>
+ア　D7　　　　イ　D8　　　　ウ　D9　　　エ　DA　　　　オ　DB<br>
+<p>bに関する解答群<br>
+ア　97　　　　イ　97.5　　　ウ　98 エ　98.5　　　 オ　99<br>
+</p>
+<HR WIDTH=100%>
+  <a HREF="11s_p_a5.htm#171">設問1の正解例と解説へ</a>
+<HR WIDTH=100%>
+  　<BR>
+<b><a name="172">設問</a>2　</b>タイマ割込み処理の流れ図を図２に示す。流れ図中の[　　　　]に入れる正しい答えを、解答群の中から選べ。
+<p><img border="0" src="image/a99s17f2.gif" width="447" height="349"></p>
+<p>図２　タイマ割込み処理の流れ図</p>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>cに関する解答群</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td width="120">ア　TEMP＝ D6</td>   
+    <td width="120">イ　TEMP＜ D6</td>   
+    <td width="120">ウ　TEMP＞ D6</td>   
+  </tr>   
+  <tr>   
+    <td>エ　TEMP≦ D6</td>   
+    <td>オ　TEMP≧ D6</td>   
+    <td></td>   
+  </tr>   
+</table>   
+<table border="0" cellpadding="3" cellspacing="0">   
+  <tr>   
+    <td><br>   
+      dに関する解答群</td>   
+  </tr>   
+</table>   
+<table border="0" cellpadding="3" cellspacing="0">   
+  <tr>   
+    <td width="120">ア　HSTS ＝ 1</td>   
+    <td width="120">イ　HSTS ＝ 2</td>   
+    <td width="120">ウ　HSTS ≠ 0</td>   
+  </tr>   
+  <tr>   
+    <td>エ　HSTS ≠ 1</td>   
+    <td>オ　HSTS ≠ 2</td>   
+    <td></td>   
+  </tr>   
+</table>   
+<p>　</p>
+<HR WIDTH=100%>
+<a HREF="11s_p_a5.htm#172">設問2の正解例と解説へ</a>
+<HR WIDTH=100%>
+<p><b><a name="173">設問</a>3　</b>次の記述中の<b>[　　　　]</b>に入れる正しい答えを、解答群の中から選べ。</p>
+<p>開発中に水温が 98℃を超えてもヒータが強のままという現象が発生した。その原因を調査した結果、温度センサが故障しており、水温が   
+98℃以上になっても計測温度は 70℃ぐらいにしかならなかった。そこで、温度センサや   
+A／D変換器が故障しても、ヒータが強に固定されないように、タイマ割込み処理のプログラムを変更することにした。<br>  
+ヒータが強の場合、計測した水温が 20秒間で 2℃以上上昇しなければ、ヒータをOFFにすることにした。その変更は次の   
+2項目である。<br>  
+　
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">(1)</td>
+    <td>20秒前の A／D変換器の出力値を記憶する変数 X、<b>[　　e　　]</b>秒前の   
+      A／D変換器の出力値を記憶する変数 Yを追加する。</td>  
+  </tr>  
+  <tr>  
+    <td valign="top">(2)</td>  
+    <td>ヒータが強の場合、現在の A／D変換器の出力値が、変数   
+      Xに記憶されている値より<b>[　　f　　]</b>以上大きくなければ、ヒータをOFFにしてタイマ割込みを禁止にする。<br>  
+      <b>[　　f　　]</b>以上大きければ、変数 Xに変数 Yの値を、変数   
+      Yに現在の A／D変換器の出力値を、それぞれ記憶する。</td>  
+  </tr>  
+</table>  
+<p>解答群<br>  
+ア　1　　　　イ　2　　　　ウ　3　　　　エ　4　　　　オ　5<br>
+カ　10　　　 キ　20 　　 ク　30　　　 ケ　40　 　　コ　50<br>
+</p>
+<HR WIDTH=100%>
+  <a HREF="11s_p_a5.htm#173">設問3の正解例と解説へ</a>
+<hr>
+<p>
+<A HREF="index.htm">メニューへ戻る</A></p>
+<HR WIDTH=100%>
+<p><BR>
+</p>
+  <p>　</p>
+</blockquote>
+</BODY>
+</HTML>

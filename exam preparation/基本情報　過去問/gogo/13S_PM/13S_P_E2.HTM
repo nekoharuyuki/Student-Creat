@@ -1,0 +1,753 @@
+<HTML>
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<meta http-equiv="Content-Language" content="ja">
+<TITLE>平成13年度春期試験　問題(問3～問5)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0">
+<blockquote>
+  <hr>
+  <H3 align="center">平成13年度春期試験　問題(問3～問5)</H3>
+<HR WIDTH=100%>
+<A NAME="30">　<BR>
+<b>
+問3</b></a><b>　</b>発注データの処理に関する次の記述を読んで，設問1～3に答えよ。<br>
+<br>
+  　県内に五つの店舗をもつ文房具販売会社がある。この会社では，各店舗の発注管理を本部で一括して行っている。このたび，各店舗の発注データを電子メールとして送受信するシステムを開発することになった。<br>
+  　発注データの送受信の概要は，次のとおりである。
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">(1)</td>
+    <td>各店舗では，商品ごとに納品期日を定めて，発注データを作成する。</td>
+  </tr>
+  <tr>
+    <td valign="top">(2)</td>
+    <td>発注データの項目及びけた数は，次のとおりである。
+      <table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolor="#FFFFFF" bordercolordark="#FFFFFF">
+        <tr>
+          <td>発注日</td>
+          <td>	店舗コード</td>
+          <td>	商品コード&nbsp;</td>
+          <td>	発注数量</td>
+          <td>	納品期日</td>
+        </tr>
+        <tr>
+          <td>8けた</td>
+          <td>	1けた</td>
+          <td>	8けた</td>
+          <td>	1～3けた</td>
+          <td>	8けた</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">(3)</td>
+    <td>各店舗では，発注データ入力プログラムを利用して，1日分の発注データをコンマ区切り形式の文字列データに変換した後，送信する。コンマ区切り形式では，項目をコンマ区切り，レコードを改行コードで区切る。</td>
+  </tr>
+  <tr>
+    <td valign="top">(4)</td>
+    <td>本部では，受信した発注データが正しいかどうか検査した後，発注管理システムに入力する。</td>
+  </tr>
+  <tr>
+    <td valign="top">(5)</td>
+    <td>(1)～(4)の処理は，毎日1回行い，その日のうちに終了する。</td>
+  </tr>
+</table>
+<A NAME="30">
+<p>　</p>
+<HR>
+</a><A NAME="31">　<BR>
+<b>
+設問1</b></a><b>　</b>発注データをコンマ区切り形式に変換する際に，電子メールの本文の各行に記録するデータ項目の組合せを工夫することによって，データ量を少なくすることができる。各店舗からのデータ量が最も少なくて済むデータ項目の組合せとして適切なものを，解答群の中から選べ。<br>
+<br>
+解答群<br>
+ア
+<table border="1" cellpadding="5" cellspacing="0" bordercolorlight="#FFFFFF" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+  <tr>
+    <td bordercolor="#000000">発注日</td>
+    <td bordercolor="#000000">	店舗コード</td>
+    <td bordercolor="#000000">	商品コード</td>
+    <td bordercolor="#000000">	発注数量</td>
+    <td bordercolor="#000000">	納品期日</td>
+    <td>	が複数行</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>&nbsp;<br>
+      イ</td>
+  </tr>
+</table>
+<table border="1" cellpadding="5" cellspacing="0" bordercolorlight="#FFFFFF" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+  <tr>
+    <td bordercolor="#000000">発注日</td>
+    <td>	が1行と</td>
+  </tr>
+</table>
+<table border="1" cellpadding="5" cellspacing="0" bordercolorlight="#FFFFFF" bordercolor="#FFFFFF" bordercolordark="#FFFFFF">
+  <tr>
+    <td bordercolor="#000000">店舗コード&nbsp;</td>
+    <td bordercolor="#000000">	商品コード</td>
+    <td bordercolor="#000000">	発注数量</td>
+    <td bordercolor="#000000">	納品期日</td>
+    <td>	が複数行</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>&nbsp;<br>
+      ウ</td>
+  </tr>
+</table>
+<table border="1" cellpadding="5" cellspacing="0" bordercolorlight="#FFFFFF" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+  <tr>
+    <td bordercolor="#000000">発注日</td>
+    <td bordercolor="#000000">店舗コード</td>
+    <td>	が1行と</td>
+  </tr>
+</table>
+<table border="1" cellpadding="5" cellspacing="0" bordercolorlight="#FFFFFF" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+  <tr>
+    <td bordercolor="#000000">商品コード</td>
+    <td bordercolor="#000000">	発注数量</td>
+    <td bordercolor="#000000">	納品期日</td>
+    <td>	が複数行</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>&nbsp;<br>
+      エ</td>
+  </tr>
+</table>
+<table border="1" cellpadding="5" cellspacing="0" bordercolorlight="#FFFFFF" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+  <tr>
+    <td bordercolor="#000000">発注日</td>
+    <td bordercolor="#000000">	店舗コード&nbsp;</td>
+    <td bordercolor="#000000">	商品コード</td>
+    <td>	が1行と</td>
+  </tr>
+</table>
+<table border="1" cellpadding="5" cellspacing="0" bordercolorlight="#FFFFFF" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+  <tr>
+    <td bordercolor="#000000">発注数量</td>
+    <td bordercolor="#000000">	納品期日</td>
+    <td>	が複数行</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>&nbsp;<br>
+      オ</td>
+  </tr>
+</table>
+<table border="1" cellpadding="5" cellspacing="0" bordercolorlight="#FFFFFF" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+  <tr>
+    <td bordercolor="#000000">発注日</td>
+    <td bordercolor="#000000">	店舗コード</td>
+    <td bordercolor="#000000">	商品コード</td>
+    <td bordercolor="#000000">	発注数量</td>
+    <td>	が1行と</td>
+  </tr>
+</table>
+<table border="1" cellpadding="5" cellspacing="0" bordercolorlight="#FFFFFF" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+  <tr>
+    <td bordercolor="#000000">納品期日</td>
+    <td>	が複数行</td>
+  </tr>
+</table>
+<p>　</p>
+<A NAME="31">
+<HR WIDTH=100%>
+</a>
+<A HREF="13s_p_a2.htm#31">設問1の正解例と解説へ</A>
+<HR WIDTH=100%>
+<A NAME="32">　<BR>
+<b>
+設問2</b></a>　次の文中の<b>[　　　        ]</b>に入れる適切な答えを，解答群の中から選べ。<br>       
+<br>       
+  　本部では，受信した発注データを検査する。検査に対するエラーメッセージは，次のとおりである。
+<table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+  <tr>
+    <td>項目</td>
+    <td colspan="4">エラーメッセージ</td>
+  </tr>
+  <tr>
+    <td>発注日</td>
+    <td>けた数が多い又は少ない</td>
+    <td>	数字でない</td>
+    <td>	暦にない日付である</td>
+    <td><b>	[ 　a 　]</b></td>
+  </tr>
+  <tr>
+    <td>店舗コード</td>
+    <td>	けた数が多い</td>
+    <td colspan="3">	店舗マスタファイルに存在しない</td>
+  </tr>
+  <tr>
+    <td>商品コード</td>
+    <td>	けた数が多い又は少ない</td>
+    <td colspan="3">	商品マスタファイルに存在しない</td>
+  </tr>
+  <tr>
+    <td>発注数量</td>
+    <td>	けた数が多い</td>
+    <td colspan="3"><b>	[ 　　　b 　　　]</b></td>
+  </tr>
+  <tr>
+    <td>納品期日</td>
+    <td>	けた数が多い又は少ない</td>
+    <td>	数字でない</td>
+    <td>	暦にない日付である</td>
+    <td><b>	[ 　c 　]</b></td>
+  </tr>
+</table>
+<p><br>
+解答群<br>
+ア　数字でない<br>
+イ　電子メールの送信日と異なっている<br>
+ウ　発注日以降の日付になっている<br>
+エ　発注日より前の日付になっている</p>
+<HR WIDTH=100%>
+<A HREF="13s_p_a2.htm#32">設問2の正解例と解説へ</A>
+<HR WIDTH=100%>
+<a NAME="33">　<BR>
+<b>
+設問3</b></a><b>&nbsp; </b>本部で発注データの検査を行うと，検査結果が正しくない場合には，店舗に通知して，正しい発注データを再度送信してもらう必要がある。これは，効率が悪い。そこで，各店舗で用いる発注データ入力プログラムに，誤った値が入力できないようにする機能をもたせることにした。発注データ入力プログラムの機能として，不適切なものを，解答群の中から選べ。 
+<p>　</p> 
+<table border="0" cellpadding="3" cellspacing="0"> 
+  <tr> 
+    <td> 
+解答群</td> 
+  </tr> 
+</table> 
+<table border="0" cellpadding="3" cellspacing="0"> 
+  <tr> 
+    <td valign="top"> 
+ア</td> 
+    <td>店舗コードは，あらかじめ設定されており，入力できないようにする。</td> 
+  </tr> 
+  <tr> 
+    <td valign="top"> 
+イ</td> 
+    <td>納品期日には，発注日を自動的に入れる。</td> 
+  </tr> 
+  <tr> 
+    <td valign="top"> 
+ウ</td> 
+    <td>発注数量には，3けた以下の数字しか入力できないようにする。</td> 
+  </tr> 
+  <tr> 
+    <td valign="top"> 
+エ</td> 
+    <td>発注日には，処理を行った日付を自動的に入れる。</td> 
+  </tr> 
+  <tr> 
+    <td valign="top"> 
+オ</td> 
+    <td>表示したメニューの中から発注する商品名が選ばれると，対応する商品コードを自動的に入れる。</td> 
+  </tr> 
+</table> 
+  <p><br> 
+  　</p>
+<HR WIDTH=100%>
+<a HREF="13s_p_a2.htm#33">設問3の正解例と解説へ</a>
+<HR WIDTH=100%>
+<p><A HREF="index.htm">メニューへ戻る</A>　</p>
+<HR WIDTH=100%>
+<A NAME="40">　<BR>
+<b>
+問4</b></a>　次のプログラムの説明，擬似言語の記述形式の説明及びプログラムを読んで，設問1～3に答えよ。<br>
+[プログラムの説明]<br>
+  　インデックス(索引)を用いて英和辞書を検索する副プログラムである。
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">(1)</td>
+    <td>インデックスは，一時インデックスと二次インデックスで構成する。</td>
+  </tr>
+  <tr>
+    <td valign="top">(2)</td>
+    <td>二次インデックスは，辞書に登録されているすべての英単語，及びその英単語が記載されているページ番号と行番号を，英単語の昇順に格納したものである。一次インデックスは，二次インデックスからある間隔で英単語を抜粋し，その二次インデックスへのポインタとともに格納したものである。まず，一次インデックスを検索し，その結果に従って二次インデックスを検索する。</td>
+  </tr>
+  <tr>
+    <td valign="top">(3)</td>
+    <td>図1のように，一次インデックスはキーとポインタからなるレコードの配列である。二次インデックスは，キー，ページ及び行からなるレコードの配列である。キーには英単語が，ポインタには二次インデックスの配列の要素番号が，ページにはページ番号が，行には行番号がそれぞれ格納される。配列の要素番号は0から始まる。</td>
+  </tr>
+  <tr>
+    <td valign="top">(4)</td>
+    <td>一次インデックスの要素数は変数一次要素数に，二次インデックスの要素数は変数二次要素数に格納されている。</td>
+  </tr>
+  <tr>
+    <td valign="top">(5)</td>
+    <td>一次インデックスの要素番号0の要素のキーには空白が，ポインタには－1が格納されている。</td>
+  </tr>
+</table>
+<p>　<br>
+<img border="0" src="image/e4.gif" width="494" height="333"><br>
+  </p>
+<p>(6)　この副プログラムの引数を表に示す。</p>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>表　引数の仕様</td>
+  </tr>
+</table>
+<table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+  <tr>
+    <td valign="top">変数名</td>
+    <td valign="top">	入力／出力</td>
+    <td>
+      <p align="center">	意味</td>
+  </tr>
+  <tr>
+    <td valign="top">検索語</td>
+    <td valign="top">	入力</td>
+    <td>	検索したい英単語(空白は除く)</td>
+  </tr>
+  <tr>
+    <td valign="top">返却値[ ]</td>     
+    <td valign="top">	出力</td>    
+    <td>	返却値[ ]は配列である。<br>     
+	英単語が見つかった場合：<br>     
+      　返却値[0]にページ番号を，返却値[1]に行番号を格納する。<br>
+	英単語が見つからなかった場合：<br>
+      　返却値[0]に－1を格納する。</td>
+  </tr>
+</table>
+<p><img border="0" src="image/e4b.gif" width="508" height="545"></p>
+<p><img border="0" src="image/e4c.gif" width="570" height="863"></p>
+<HR WIDTH=100%>
+<A NAME="41">
+<b>　<BR>
+設問1</b></a><b>　</b>プログラム中の[        ]に入れる正しい答えを，解答群の中から選べ。<br>      
+<br>      
+解答群      
+<table border="0" cellpadding="3" cellspacing="0">     
+  <tr>     
+    <td valign="top">ア</td>     
+    <td>一致フラグ ← 1</td>      
+  </tr>      
+  <tr>      
+    <td valign="top">イ</td>     
+    <td>一致フラグ ← 2</td>      
+  </tr>      
+  <tr>      
+    <td valign="top">ウ</td>     
+    <td>添字2 ← 一次[添字1].ポインタ + 1</td>      
+  </tr>      
+  <tr>      
+    <td valign="top">エ</td>     
+    <td>添字2 ← 一次[添字1 + 1].ポインタ + 1</td>      
+  </tr>      
+  <tr>      
+    <td valign="top">オ</td>     
+    <td>添字2 ← 一次[添字1－1].ポインタ + 1</td>      
+  </tr>      
+  <tr>      
+    <td valign="top">カ</td>     
+    <td>添字2 ← 二次要素数</td>      
+  </tr>      
+  <tr>      
+    <td valign="top">キ</td>     
+    <td>添字2 ← 添字2 + 1</td>      
+  </tr>      
+  <tr>      
+    <td valign="top">ク</td>     
+    <td>添字2 ← 添字2－1</td>      
+  </tr>      
+</table>      
+<p>　</p>  
+<HR WIDTH=100%>  
+<A HREF="13s_p_a2.htm#41">設問1の正解例と解説へ</A>  
+<HR WIDTH=100%>  
+<A NAME="42">  
+　<BR> 
+<b> 
+設問2</b></a>  
+&nbsp;次の記述中の[　　　　]に入れる正しい答えを，解答群の中から選べ。<br>      
+<br>      
+各インデックスが図2の場合，"decided"を検索すると，プログラム中のαとβの処理は併せて<b>[     
+　　c 　　]</b>回実行される。また，"decibel"を検索すると，併せて<b>[     
+　　d 　　]</b>回実行される。<br>    
+  　
+<table border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td valign="top">　キー　　　　ポインタ
+      <table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+        <tr>
+          <td colspan="2">
+            <p align="center">：</td>
+        </tr>
+        <tr>
+          <td>cyclic</td>
+          <td>　　799</td>
+        </tr>
+        <tr>
+          <td>decided　　　</td>
+          <td>　　999</td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <p align="center">：</td>
+        </tr>
+      </table>
+    </td>
+    <td>　<br>
+      　
+      <table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#FFFFFF" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+        <tr>
+          <td></td>
+        </tr>
+        <tr>
+          <td align="right">　　　　799</td>
+        </tr>
+        <tr>
+          <td align="right">　　</td>
+        </tr>
+        <tr>
+          <td align="right">997</td>
+        </tr>
+        <tr>
+          <td align="right">998</td>
+        </tr>
+        <tr>
+          <td align="right">999</td>
+        </tr>
+        <tr>
+          <td></td>
+        </tr>
+      </table>
+    </td>
+    <td>二次インデックス<br>
+      　　キー　　　　ページ　　　行
+      <table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolor="#FFFFFF" bordercolordark="#FFFFFF">
+        <tr>
+          <td colspan="3" width="200">
+            <p align="center">：</td>
+        </tr>
+        <tr>
+          <td width="80">cyclic</td>
+          <td width="60">　　　　</td>
+          <td width="60">　　　　</td>
+        </tr>
+        <tr>
+          <td colspan="3" width="200">
+            <p align="center">：</td>
+        </tr>
+        <tr>
+          <td>decibel</td>
+          <td>　</td>
+          <td>　</td>
+        </tr>
+        <tr>
+          <td>decide</td>
+          <td>　</td>
+          <td>　</td>
+        </tr>
+        <tr>
+          <td>decided　　　</td>
+          <td>　</td>
+          <td>　</td>
+        </tr>
+        <tr>
+          <td colspan="3" width="200">
+            <p align="center">：</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>　<br>
+      解答群</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td width="60"> 
+ア　4</td>
+    <td width="60">	イ　5</td>
+    <td width="60">	ウ　6</td>
+    <td width="60">	エ　198</td>
+    <td>	オ　199</td>
+  </tr>
+  <tr>
+    <td>	カ　200</td>
+    <td>	キ　203</td>
+    <td>	ク　204</td>
+    <td>	ケ　205</td>
+    <td></td>
+  </tr>
+</table>
+<p></p>  
+<A NAME="42">  
+<HR WIDTH=100%>  
+</a>  
+<A HREF="13s_p_a2.htm#42">設問2の正解例と解説へ</A>  
+<HR WIDTH=100%>  
+<A NAME="43">　<BR>  
+<b>  
+設問3</b></a><b>　</b>二次インデックスから一次インデックスを作成するプログラムの処理部である。プログラム中の[        ]に入れる正しい答えを，解答群の中から選べ。<br>     
+ここで，二次要素数 ＞ 一次要素数 ＞ 1とする。<br>     
+<br>     
+  <img border="0" src="image/e4_3.gif" width="557" height="341"><br>    
+<br>    
+解答群    
+<table border="0" cellpadding="3" cellspacing="0">   
+  <tr>   
+    <td width="150">ア　一次要素数</td>   
+    <td width="150">	イ　一次要素数 + 1</td>     
+    <td>	ウ　一次要素数－1</td>  
+  </tr>  
+  <tr>  
+    <td>	エ　二次要素数</td>  
+    <td>	オ　二次要素数 + 1</td>     
+    <td>	カ　二次要素数－1</td>  
+  </tr>  
+</table>  
+<p>　</p>  
+<HR WIDTH=100%>    
+<A HREF="13s_p_a2.htm#43">設問3の正解例と解説へ</A>    
+<HR WIDTH=100%>    
+  　<BR>
+<b><a name="50">問5</a>　</b>プログラム設計に関する次の記述を読んで，設問1～4に答えよ。<br>
+  　日付を与えて曜日を求める副プログラムを作成する。現在，この副プログラムのテストを行っている。<br>
+<br>
+[副プログラムの説明]<br>
+  　日付(西暦年月日)を与えて，曜日を求める副プログラムである。与えられた日付に誤りがある場合は，その内容に対応した誤りコードを返す。
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">(1)</td>
+    <td>日付は，"yyyy,mm,dd"(yyyy：西暦年4けた，mm：月2けた，dd：日2けた)の形式で与える。</td>
+  </tr>
+  <tr>
+    <td valign="top">(2)</td>
+    <td>正しい日付のときは，日，月，火，水，木，金，土のいずれかを，戻り値として返す。</td>
+  </tr>
+  <tr>
+    <td valign="top">(3)</td>
+    <td>誤った日付のときは，表1に示す3種類に分けて検査した結果の誤りコードを，戻り値として返す。</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>　<br>
+      表1　日付の検査と誤りコード</td>
+  </tr>
+</table>
+<table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+  <tr>
+    <td width="90">
+      <p align="center">誤りコード</td>
+    <td>
+      <p align="center">	検査の内容</td>
+  </tr>
+  <tr>
+    <td width="87" align="center">E1</td>
+    <td>	範囲内(年は1900～2299，月は01～12，日は01～31)であることを検査する。</td>
+  </tr>
+  <tr>
+    <td width="87" align="center">E2</td>
+    <td>	日が31日の時，月が2月，4月，6月，9月，11月でないこと，及び日が30日のとき，月が2月でないことを検査する。</td>
+  </tr>
+  <tr>
+    <td width="87" align="center">E3</td>
+    <td>	2月29日のとき，年がうるう年であることを検査する。</td>
+  </tr>
+</table>
+<p><br>
+<br>
+[副プログラムのテスト]<br>
+<br>
+　副プログラムの説明から，テスト項目を設定し，境界値を考慮したテストデータを作成した。表2に，テストデータと期待される正しい結果を示す。<br>
+<br>
+</p>
+<p align="center">表２　テストデータと期待される正しい結果<br>
+<table border="1" cellPadding="3" bordercolorlight="#000000" cellspacing="0" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+  <tbody>
+    <tr>
+      <td vAlign="top">
+        <p align="center">テスト項目</p>
+      </td>
+      <td>
+        <p align="center">テストデータと結果｛（テストデータ；結果）として表記｝</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p align="center">年の値</p>
+      </td>
+      <td>
+        <p>(1899,12,31；E1)，(1900,01,01；月)， (2299,12,31；日)，(2300,01,01；E1)</p>  
+      </td>  
+    </tr>  
+    <tr>  
+      <td>  
+        <p align="center">月の値</p>  
+      </td>  
+      <td>  
+        <p>(2001,00,01；E1)， <b>[　　　]</b>，(2001,12,01；水)，(2001,13,01；E1)</p>  
+      </td>  
+    </tr>  
+    <tr>  
+      <td>  
+        <p align="center">日の値</p>  
+      </td>  
+      <td>  
+        <p>(2001,01,00；E1)，(2001,01,01；月)， (2001,01,31；水)，(2001,01,32；E1)</p>  
+      </td>  
+    </tr>  
+    <tr>  
+      <td valign="top">うるう年では<br>  
+        ない年の月と<br>  
+        日の組合せ</td>  
+      <td>  
+        <p>(2001,02,28；水)，(2001,02,30；E2)， (2001,02,31；E2)，(2001,03,31；土)，  
+        <p>(2001,04,30；月)，(2001,04,31；E2)，(2001,05,31；木)，(2001,06,30；土)，  
+        <p>(2001,06,31；E2)，(2001,07,31；火)，(2001,08,31；金)，(2001,09,30；日)，  
+        <p>(2001,09,31；E2)，(2001,10,31；水)，(2001,11,30；金)，(2001,11,31；E2)，  
+        <p>(2001,12,31；月)</p>  
+      </td>  
+    </tr>  
+    <tr>  
+      <td>  
+        <p align="center">2 月 29 日</p>  
+      </td>  
+      <td>  
+        <p>(1996,02,29；木)，(2000,02,29；火)， (2001,02,29；E3)，<u>(2100,02,29；E3)</u></p>  
+      </td>  
+    </tr>  
+  </tbody>  
+</table>  
+<p>注）西暦 1996 年と 2000 年はうるう年であり，西暦 2001   
+年と 2100 年はうるう年ではない。<br>  
+　</p>
+<hr>
+<p><b><a name="51">設問1</a>　</b>表2のテストデータによるテストが該当するテストの種別として，正しい答えを解答群の中から選べ。
+</p>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>解答群</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>ア　結合テスト</td>
+    <td>	イ　性能テスト</td>
+    <td>	ウ　耐久テスト</td>
+  </tr>
+  <tr>
+    <td>	エ　ブラックボックステスト　</td>
+    <td>	オ　ホワイトボックステスト</td>
+    <td></td>
+  </tr>
+</table>
+<A NAME="44">
+<p>　</p>
+<HR WIDTH=100%>
+</a><a HREF="13s_p_a2.htm#51">設問1の正解例と解説へ</a>
+<HR WIDTH=100%>
+  　<BR>
+<b><a name="52">設問2</a>　</b>表2の<b>[ 　　　]</b>に入れる正しい答えを，解答群の中から選べ。<br>
+<br>
+  　<br>
+解答群
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td width="150">ア　(2001，01，01；月)&nbsp;</td>
+    <td width="150">	イ　(2001，01，33；E1)</td>
+    <td>	ウ　(2001，06，01；金)&nbsp;</td>
+  </tr>
+  <tr>
+    <td>	エ　(2001，00，99；E1)</td>
+    <td>	オ　(2002，02，29；E3)</td>
+    <td>キ　(2010，13，14；E1)</td>
+  </tr>
+</table>
+<p>　</p>
+<A NAME="44">
+<HR WIDTH=100%>
+</a><a HREF="13s_p_a2.htm#52">設問2の正解例と解説へ</a>
+<HR WIDTH=100%>
+<p><b><a name="53">設問3</a>　</b>表2に示すテストデータでこの副プログラムを実行したところ，テスト項目"2月29日"のデータのうち，2100年のときに"(2100，02，29；月)"となり，下線で示す正しい結果が得られなかった。このことから得られる結論として適切な記述を，解答群の中から選べ。<br>
+</p>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>解答群</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">ア</td>
+    <td>2月29日の存在が問題となるのは，4年間に1日だけであり，影響は小さい。一方，プログラムの修正に手間がかかること，及び修正によって新たな誤りを生じる可能性もあることから，この副プログラムを修正することは不適切である。</td>
+  </tr>
+  <tr>
+    <td valign="top">イ</td>
+    <td>うるう年以外では正しい値が得られるようなので，下線のテストデータをうるう年以外のものに替えて，テストデータの件数を減らさずにすべて正しいテスト結果にするのがよい。</td>
+  </tr>
+  <tr>
+    <td valign="top">ウ</td>
+    <td>うるう年の計算処理に誤りがあると考えられる。したがって，副プログラムの修正には，まず，うるう年の処理に対応する部分を調べる。</td>
+  </tr>
+  <tr>
+    <td valign="top">エ</td>
+    <td>月末日は月によって異なるが，月は1月から12月までであることは明らかであるので，月の値に対する範囲テストは行う必要はなかった。</td>
+  </tr>
+  <tr>
+    <td valign="top">オ</td>
+    <td>現時点では，西暦2100年まで約100年あるので，この副プログラムの修正は必要ないと判断できる。</td>
+  </tr>
+</table>
+<A NAME="44">
+<p>　</p>
+<HR WIDTH=100%>
+</a><a HREF="13s_p_a2.htm#53">設問3の正解例と解説へ</a>
+<hr>
+<p><b><a name="54">設問4</a>　</b>図は，バグ修正後の副プログラムを使って，与えられた年(西暦2000年以降とする)の体育の日(10月の第2月曜日)の日付を求める流れ図である。[        ]に入れる正しい答えを解答群の中から選べ。</p>   
+<p><br>   
+<img border="0" src="image/e5_4.gif" width="354" height="403"></p>  
+<p>図　体育の日の日付を求める流れ図</p>  
+<table border="0" cellpadding="3" cellspacing="0"> 
+  <tr> 
+    <td>解答群</td> 
+  </tr> 
+</table> 
+<table border="0" cellpadding="3" cellspacing="0"> 
+  <tr> 
+    <td valign="top">ア</td> 
+    <td>日＞31</td> 
+  </tr> 
+  <tr> 
+    <td valign="top">イ</td> 
+    <td>日≦31</td> 
+  </tr> 
+  <tr> 
+    <td valign="top">ウ</td> 
+    <td>戻り値が，誤りコードである</td> 
+  </tr> 
+  <tr> 
+    <td valign="top">エ</td> 
+    <td>戻り値が，"月"である</td> 
+  </tr> 
+  <tr> 
+    <td valign="top">オ</td> 
+    <td>戻り値が，"日"，"火"，"水"，"木"，"金"，"土"のいずれかである</td> 
+  </tr> 
+  <tr> 
+    <td valign="top">カ</td> 
+    <td>戻り値が，"日"，"月"，"火"，"水"，"木"，"金"，"土"のいずれかである</td> 
+  </tr> 
+</table> 
+<A NAME="44"> 
+<p>　</p> 
+<HR WIDTH=100%> 
+</a><a HREF="13s_p_a2.htm#54">設問4の正解例と解説へ</a> 
+<hr> 
+<p align="center"> 
+<a href="13s_p_e3.htm">■問6へ進む</a>　　　　　　<font size="3"><a HREF="index.htm">■メニューへ戻る</a></font></p>
+<HR WIDTH=100%>
+  <p>　</p>
+</blockquote>
+</BODY>
+</HTML>

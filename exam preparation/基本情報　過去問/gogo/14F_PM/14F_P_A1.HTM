@@ -1,0 +1,138 @@
+<HTML>
+<HEAD>
+<TITLE>平成14年度秋期試験　(問1～2)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0" style="font-size: 12pt">
+<BLOCKQUOTE>
+<hr>
+<H3 align="center">平成14年度秋期試験　正解例と解説(問1～問2)</H3>
+<basefont size="3">
+<HR WIDTH=100%>
+<font size="3">
+<A NAME="10">
+<b>
+問1</b></a>
+</font>
+<A NAME="10">
+<HR WIDTH=100%>
+</a><font size="3"><A NAME="11">
+<b>
+設問</b></a><b><A NAME="11">1</a>　</b></font>
+＜解答＞　ウ<br>
+<br>＜解説＞語3のビット列は01111110で，4ビットごとに区切り0111と1110をそれぞれ16進数で表記すると7Eとなる。<br>
+<br>
+<HR WIDTH=100%>
+<A HREF="14F_P_E1.HTM#11"><font size="3">問題へ</font></A>
+<HR WIDTH=100%>
+<p>
+<font size="3">
+<b><a name="12">設問2</a></b>　</font>
+</p>
+＜解答＞　キ<br>
+<br>＜解説＞ビット番号3の縦1列のビット列11111111を90°回転させると，語3になる。このビット列11111111を4ビットごとに区切り1111と1111をそれぞれ16進数で表記するとFFとなる。<br>
+        <p><img border="0" src="image/FPA1-2.GIF"></p>
+        <p><br>
+<HR WIDTH=100%>
+<a HREF="14F_P_E1.HTM#12"><font size="3">問題へ</font></a>
+<HR WIDTH=100%>
+
+<p><font size="3"><b><a name="13">設問3</a></b>　</font></p>
+＜解答＞　ウ<br>
+<br>＜解説＞直線Aを対象軸として対称移動する操作は，左右対称反転し90°回転することにより実現できる。<br>
+
+        <p><img border="0" src="image/FPA1-3.GIF"></p>
+        <p><br>
+<br>
+図3の16進数表記を2進数表記し，これを左右対象反転すると以下のようになる。<br>
+        <p><img border="0" src="image/FPA1-4.GIF"></p>
+        <p><br>
+<hr>   
+<p><a HREF="14F_P_E1.HTM#13"><font size="3">問題へ</font></a></p>   
+<HR WIDTH=100%>
+
+<p><font size="3"><b><a name="14">設問4</a></b>　</font></p>
+＜解答＞　a　オ　　　b　イ<br>
+<br>＜解説＞点（i，j）を左右対称反転すると，点（i，n－j－1）に移動する。<br>
+　　　　点（i，j）を90°回転すると，点（j，n－i－1）に移動する。<br>
+　　　　したがって点（i，n－j－1）を90°回転させると，点（n－j－1，n－i－1）に移動する。<br>
+        <p><img border="0" src="image/FPA1-5.GIF"></p>
+        <p><br>
+<hr>   
+<p><a HREF="14F_P_E1.HTM#14"><font size="3">問題へ</font></a></p>   
+<hr>   
+<p><font size="3"> 
+<A HREF="index.htm">メニューへ戻る</A> 
+</font> 
+</p> 
+<HR WIDTH=100%> 
+<p>   
+<font size="3">   
+<a NAME="20">   
+<b>問2</b></a><b>　</b>
+</font>
+</p>
+
+<hr> 
+<p> 
+<font size="3"> 
+
+<b><a name="21">設問1</a></b>　</font>
+</p>
+<p> 
+<font size="3"> 
+＜解答＞　イ，エ<br>
+<br>＜解説＞変数TAILには常に最後の行に対応した配列要素番号が格納されている。したがって最後の行の行番号を返すLAST( )は，この変数TAILを参照することにより，行数に関係なくプログラムの計算量を一定にできる。<br>
+また処理の対象となる行を格納した要素の配列要素番号が大域変数CPに格納されている。したがってCPが指し示す行の文字列を返すGET( )も，この大域変数CPを参照することにより，行数に関係なくプログラムの計算量を一定にできる。これに対してDELETE( )とINSERT( )は，行数が増えると行CP以降の行のシフトのための計算量が増える可能性がある。<br>
+        <p><img border="0" src="image/FPA2-1.GIF"></p>
+
+<br>
+<HR WIDTH=100%>   
+<a HREF="14F_P_E1.HTM#21"><font size="3">問題へ</font></a>  
+<HR WIDTH=100%>  
+
+<p><font size="3"><b><a name="22">設問2</a></b>　</font></p> 
+<p> 
+<font size="3"> 
+＜解答＞　ア，イ，ウ<br>
+<br>＜解説＞DELETE( )の場合は，削除する行の次ポインタを直前の行の次ポインタにセットし，削除する行の前ポインタを次の行の前ポインタにセットする。したがって行数が増えても計算量は増えない。<br>
+        <p><img border="0" src="image/FPA2-21.GIF"></p>
+
+<br>
+GET( )の場合は，ポインタCPの指すリストの行を直接参照し文字列を取得するので，行数が増えても計算量は増えない。<br>
+        <p><img border="0" src="image/FPA2-22.GIF"></p>
+
+<br>
+INSERT( )の場合は，挿入行の次ポインタに直前の行の次ポインタをセットし，挿入行の前ポインタに次の行の前ポインタをセットする。さらに直前の行の次ポインタと次の行の前ポインタには，挿入行へのポインタCPをセットする。したがって行数が増えても計算量は増えない。<br>
+        <p><img border="0" src="image/FPA2-23.GIF"></p>
+
+<br>
+LAST( )の場合は，TAILの指す最後の行からリストのポインタをたどって遡り，先頭行までの行数をカウントするので，行数が増えると計算量が増える。<br>
+        <p><img border="0" src="image/FPA2-24.GIF"></p>
+
+
+
+<br>
+したがってDELETE( )，GET( )，INSERT( )の場合は計算量は増えないが，LAST( )の場合は計算量が増える。<br>
+<HR WIDTH=100%> 
+<p><a HREF="14F_P_E1.HTM#22"><font size="3">問題へ</font></a></p> 
+<hr> 
+
+<b><a name="23">設問3</a></b>　</font>
+</p>
+<p> 
+<font size="3"> 
+＜解答＞　a　ウ　　　b　キ　　　c　エ<br>
+<br>＜解説＞ポインタCPの指す要素番号8の行を削除する。削除した配列要素8は空リストの先頭に追加するので，現在空リストの先頭にある要素番号3の要素の前に，要素番号8の要素を挿入する。したがってNEXT[8]を9から3に変更し，EMPTY＝8とする。さらに要素番号9の前ポインタPREV[9]を8から2に変更し，要素番号2の次ポインタNEXT[2]を8から9に変更する。<br>
+<br>
+<HR WIDTH=100%> 
+<p><a HREF="14F_P_E1.HTM#23"><font size="3">問題へ</font></a></p> 
+<hr> 
+<p><font size="3"> 
+<A HREF="index.htm">メニューへ戻る</A> 
+</font> 
+</p> 
+<HR WIDTH=100%> 
+</BLOCKQUOTE> 
+<p>　 
+</BODY> 
+</HTML> 

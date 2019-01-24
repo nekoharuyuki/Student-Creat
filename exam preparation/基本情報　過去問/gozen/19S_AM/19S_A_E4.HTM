@@ -1,0 +1,434 @@
+<html>
+
+<head>
+<title>平成19年度春期試験　問題（午前問61～問80）</title>
+<style>
+<!--
+p { line-height: 175% }
+-->
+</style>
+</head>
+
+<body>
+
+<blockquote>
+<hr>
+<div align="center">
+<h3>平成19年度春期試験　問題（午前問61～問80）</h3>
+</div>
+<hr>
+<p>次の問1から問80まですべて必須問題です。全問について解答してください。<br>
+解答は，ア～エの中から一つ選んでください。</p>
+<hr>
+<!-- 問の開始 -->
+<p><strong><a name="61">問61</a></strong>　“商品”表に対してデータの更新処理が正しく実行できるUPDATE文はどれか。ここで，“商品”表は次のCREATE文で定義されている。</p>
+<p>　<code>CREATE TABLE </code>商品<br>
+　　　<code>(</code>商品番号<code> CHAR(4),</code>商品名<code> CHAR(20),</code>仕入先番号<code> 
+CHAR(6),</code>単価<code> INT,</code><br>
+　　　<code>PRIMARY KEY(</code>商品番号<code>))</code></p>
+<p><img border="0" src="IMAGE/q61.jpg" width="627" height="257"></p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber1">
+<tr>
+<td>ア</td>
+<td><code>UPDATE </code>商品<code> SET </code>商品番号<code> = 'S001' WHERE </code>商品番号<code> 
+= 'S002'</code></td>
+</tr>
+<tr>
+<td>イ</td>
+<td><code>UPDATE </code>商品<code> SET </code>商品番号<code> = 'S006' WHERE </code>商品名<code> 
+= 'C'</code></td>
+</tr>
+<tr>
+<td>ウ</td>
+<td><code>UPDATE </code>商品<code> SET </code>商品番号<code> = NULL WHERE </code>商品番号<code> = 
+'S002'</code></td>
+</tr>
+<tr>
+<td>エ</td>
+<td><code>UPDATE </code>商品<code> SET </code>商品名<code> = 'D' WHERE </code>商品番号<code> = 
+'S003'</code></td>
+</tr>
+</table>
+<hr>
+<p><a href="19S_A_A4.HTM#61">問61の正解例と解説へ</a></p>
+<hr>
+<p><strong><a name="62">問62</a></strong>　データベースの更新前や更新後の値を書き出して，データベースの更新記録として保存するファイルはどれか。</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber2">
+<tr>
+<td>ア</td>
+<td>ジャーナルファイル</td>
+<td>イ</td>
+<td>ダンプファイル</td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>チェックポイントファイル</td>
+<td>エ</td>
+<td>バックアップファイル</td>
+</tr>
+</table>
+<hr>
+<p><a href="19S_A_A4.HTM#62">問62の正解例と解説へ</a></p>
+<hr>
+<p><strong><a name="63">問63</a></strong>　事務室が複数の建物に分散している会社で，PCの設置場所を管理するデータベースを作ることになった。“資産”，“部屋”，“建物”の三つの表を作成し，各表の関連付けを行った。新規にデータを入力する場合は，参照される表のデータが先に存在している必要がある。各表へのデータの入力順序として，適切なものはどれか。ここで，各表の下線部の項目は，主キー又は外部キーである。</p>
+<p><img border="0" src="IMAGE/q63.jpg" width="425" height="235"></p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber3">
+<tr>
+<td>ア</td>
+<td>資産→建物→部屋</td>
+<td>イ</td>
+<td>建物→部屋→資産</td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>部屋→資産→建物</td>
+<td>エ</td>
+<td>部屋→建物→資産</td>
+</tr>
+</table>
+<hr>
+<p><a href="19S_A_A4.HTM#63">問63の正解例と解説へ</a></p>
+<hr>
+<p><strong><a name="64">問64</a></strong>　文書の内容を秘匿して送受信する場合の公開鍵暗号方式における鍵の取扱いのうち，適切なものはどれか。</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber4">
+<tr>
+<td>ア</td>
+<td>暗号化鍵と復号鍵は公開してもよいが，暗号化のアルゴリズムは秘密にしなければならない。</td>
+</tr>
+<tr>
+<td>イ</td>
+<td>暗号化鍵は公開してもよいが，暗号化のアルゴリズムは秘密にしなければならない。</td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>暗号化鍵は秘密にしなければならないが，復号鍵は公開する。</td>
+</tr>
+<tr>
+<td>エ</td>
+<td>復号鍵は秘密にしなければならないが，暗号化鍵は公開する。</td>
+</tr>
+</table>
+<hr>
+<p><a href="19S_A_A4.HTM#64">問64の正解例と解説へ</a></p>
+<hr>
+<p><strong><a name="65">問65</a></strong>　二つの通信主体XとYの間で，次の手順の情報交換を行う認証はどれか。</p>
+<p>〔手順〕<br>
+（1）Yは，任意の情報を含む文字列（チャレンジ）をXへ送信する。<br>
+（2）Xは，あらかじめX，Y間で定めた規則に基づき，受け取った文字列から新たな文字列（レスポンス）を生成し，Yへ返送する。<br>
+（3）Yは，返送されてきた文字列（レスポンス）が正しいことを確認する。</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber5">
+<tr>
+<td>ア</td>
+<td>XがYを認証する。</td>
+</tr>
+<tr>
+<td>イ</td>
+<td>XがYを認証することによって，結果としてYがXを認証する。</td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>YがXを認証する。</td>
+</tr>
+<tr>
+<td>エ</td>
+<td>YがXを認証することによって，結果としてXがYを認証する。</td>
+</tr>
+</table>
+<hr>
+<p><a href="19S_A_A4.HTM#65">問65の正解例と解説へ</a></p>
+<hr>
+<p><strong><a name="66">問66</a></strong>　メッセージ認証符号におけるメッセージダイジェストの利用目的はどれか。</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber6">
+<tr>
+<td>ア</td>
+<td>メッセージが改ざんされていないことを確認する。</td>
+</tr>
+<tr>
+<td>イ</td>
+<td>メッセージの暗号化方式を確認する。</td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>メッセージの概要を確認する。</td>
+</tr>
+<tr>
+<td>エ</td>
+<td>メッセージの秘匿性を確保する。</td>
+</tr>
+</table>
+<hr>
+<p><a href="19S_A_A4.HTM#66">問66の正解例と解説へ</a></p>
+<hr>
+<p><strong><a name="67">問67</a></strong>　Webビーコンを説明したものはどれか。</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber7">
+<tr>
+<td>ア</td>
+<td>WebサイトからダウンロードされPC上で画像ファイルを消去するウイルス</td>
+</tr>
+<tr>
+<td>イ</td>
+<td>Webサイトで用いるアプリケーションプログラムに潜在する誤り</td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>悪意のあるスクリプトによってPCとWebサーバ自体の両方に被害を及ぼす不正な手口</td>
+</tr>
+<tr>
+<td>エ</td>
+<td>利用者のアクセス動向などの情報を収集するためにWebページなどに埋め込まれた画像</td>
+</tr>
+</table>
+<hr>
+<p><a href="19S_A_A4.HTM#67">問67の正解例と解説へ</a></p>
+<hr>
+<p><strong><a name="68">問68</a></strong>　ネットワークシステムのセキュリティ対策に関する記述のうち，適切なものはどれか。</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber8">
+<tr>
+<td>ア</td>
+<td>ISDN回線やパケット交換回線では，接続時に通知される相手の加入者番号によって相手確認を行うことができる。これをコールバックと呼ぶ。</td>
+</tr>
+<tr>
+<td>イ</td>
+<td>回線暗号化装置をDTE（通信制御装置や端末装置など）とDCE（モデムやDSUなど）の間に設置して，伝送区間ごとに暗号化を行う方法では，既設のハードウェアやソフトウェアの一部に変更が必要になる。</td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>閉域接続機能をもつ回線交換網を利用して，回線接続の範囲を特定の利用者グループに限定することは，外部からの不正アクセスの防止に有効である。</td>
+</tr>
+<tr>
+<td>エ</td>
+<td>無線LANの使用は，ケーブルを介在させないので伝送途中の盗聴防止に有効である。</td>
+</tr>
+</table>
+<hr>
+<p><a href="19S_A_A4.HTM#68">問68の正解例と解説へ</a></p>
+<hr>
+<p><strong><a name="69">問69</a></strong>　UCS-2（Unicode）を説明したものはどれか。</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber9">
+<tr>
+<td>ア</td>
+<td>JISから派生したコード体系であり，英数字は1バイト，漢字は2バイトで表現する。</td>
+</tr>
+<tr>
+<td>イ</td>
+<td>主にUNIXで使用するコード体系であり，英数字は1バイト，漢字は2バイトで表現する。</td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>すべての文字を1バイトで表現するコード体系である。</td>
+</tr>
+<tr>
+<td>エ</td>
+<td>すべての文字を2バイトで表現するコード体系であり，多くの国の文字体系に対応できる。</td>
+</tr>
+</table>
+<hr>
+<p><a href="19S_A_A4.HTM#69">問69の正解例と解説へ</a></p>
+<hr>
+<p><strong><a name="70">問70</a></strong>　静止画像データの圧縮方式の特徴のうち，適切なものはどれか。</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber10">
+<tr>
+<td>ア</td>
+<td>可逆符号化方式で圧縮したファイルのサイズは，非可逆符号化方式よりも小さくなる。</td>
+</tr>
+<tr>
+<td>イ</td>
+<td>可逆符号化方式では，圧縮率は伸張後の画像品質に影響しない。</td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>非可逆符号化方式では，伸張後の画像サイズが元の画像よりも小さくなる。</td>
+</tr>
+<tr>
+<td>エ</td>
+<td>非可逆符号化方式による圧縮では，圧縮率を変化させることはできない。</td>
+</tr>
+</table>
+<hr>
+<p><a href="19S_A_A4.HTM#70">問70の正解例と解説へ</a></p>
+<hr>
+<p><strong><a name="71">問71</a></strong>　企業経営において，ステークホルダを重視する目的はどれか。</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber11">
+<tr>
+<td>ア</td>
+<td>企業存続の危機につながりかねない，経営者や従業員による不祥事の発生を抑制する。</td>
+</tr>
+<tr>
+<td>イ</td>
+<td>競合他社に対する差別化の源泉となる経営資源を保有し，競争力を強化する。</td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>経営者の権力行使をけん制し，健全な経営を行うことができる仕組みを作る。</td>
+</tr>
+<tr>
+<td>エ</td>
+<td>顧客，株主，従業員などの利害関係者の満足度を向上させ，企業の継続した発展を図る。</td>
+</tr>
+</table>
+<hr>
+<p><a href="19S_A_A4.HTM#71">問71の正解例と解説へ</a></p>
+<hr>
+<p><strong><a name="72">問72</a></strong>　毎年1,000,000個の製品を生産している工場がある。不良率は5％であり，不良品1個当たりの損失額は10円である。不良率を低減させ，製品1個当たりのコストを削減させるために，表に示す機器A，Bの導入を検討している。生産量，不良品1個当たりの損失額は変わらず，機器はそれぞれ5年間使用する。機器の導入によるコスト見積りに関する記述のうち，適切なものはどれか。</p>
+<p><img border="0" src="IMAGE/q72.jpg" width="458" height="120"></p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber12">
+<tr>
+<td>ア</td>
+<td>機器Aはコスト削減が期待できるが，機器Bではコスト増加になる。</td>
+</tr>
+<tr>
+<td>イ</td>
+<td>機器Bはコスト削減が期待できるが，機器Aではコスト増加になる。</td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>どちらの機器を導入しても，コスト削減が期待できる。</td>
+</tr>
+<tr>
+<td>エ</td>
+<td>どちらの機器を導入しても，コストは導入前と変わらない。</td>
+</tr>
+</table>
+<hr>
+<p><a href="19S_A_A4.HTM#72">問72の正解例と解説へ</a></p>
+<hr>
+<p><strong><a name="73">問73</a></strong>　表の条件でA～Eの商品を販売したときの機会損失は何千円か。</p>
+<p><img border="0" src="IMAGE/q73.jpg" width="629" height="226"></p>
+<p>ア　800　　　イ　1,500　　　ウ　1,600　　　エ　2,400</p>
+<hr>
+<p><a href="19S_A_A4.HTM#73">問73の正解例と解説へ</a></p>
+<hr>
+<p><strong><a name="74">問74</a></strong>　システムの運用設計においては，運用操作ミスを防止するために，あらゆる場合を想定した設計を行うことが大切である。これまでの経験を生かしながら，未知の状況を先読みして対処手順の検討，問題点の所在の確認を行う必要がある。これをまとめるときに活用できる手法はどれか。</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber13">
+<tr>
+<td>ア</td>
+<td>PDPC法</td>
+<td>イ</td>
+<td>アローダイアグラム法</td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>系統図法</td>
+<td>エ</td>
+<td>連関図法</td>
+</tr>
+</table>
+<hr>
+<p><a href="19S_A_A4.HTM#74">問74の正解例と解説へ</a></p>
+<hr>
+<p><strong><a name="75">問75</a></strong>　パレート図を説明したものはどれか。</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber14">
+<tr>
+<td>ア</td>
+<td>2変数を縦軸と横軸にとり，測定された値を打点し作図して，相関関係を見る。</td>
+</tr>
+<tr>
+<td>イ</td>
+<td>管理項目を出現頻度の大きい順に並べた棒グラフとその累積和の折れ線グラフを作成し，管理上の重要項目を選択する。</td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>作業別に作業内容と実施期間を棒状に図示し，作業の予定や実績を示す。</td>
+</tr>
+<tr>
+<td>エ</td>
+<td>複数項目の基準値に対する比率をプロットし，各点を線で結んだ形状によって，全体のバランスを比較する。</td>
+</tr>
+</table>
+<hr>
+<p><a href="19S_A_A4.HTM#75">問75の正解例と解説へ</a></p>
+<hr>
+<p><strong><a name="76">問76</a></strong>　乱数を応用して，求める解や法則性の近似を得る手法はどれか。</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber15">
+<tr>
+<td>ア</td>
+<td>クラスタ分析法</td>
+<td>イ</td>
+<td>指数平滑法</td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>デルファイ法</td>
+<td>エ</td>
+<td>モンテカルロ法</td>
+</tr>
+</table>
+<hr>
+<p><a href="19S_A_A4.HTM#76">問76の正解例と解説へ</a></p>
+<hr>
+<p><strong><a name="77">問77</a></strong>　表の条件で，1回の発注量を40個とする場合を，1回の発注量を100個とする場合と比べたとき，仕入額，発注費，保管費用の年間総額はどうなるか。ここで，在庫は一定の割合で減少し，在庫がなくなると同時に入荷するものとする。</p>
+<p><img border="0" src="IMAGE/q77.jpg" width="576" height="187"></p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber16">
+<tr>
+<td>ア</td>
+<td>182万円安い</td>
+<td>イ</td>
+<td>152万円安い</td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>152万円高い</td>
+<td>エ</td>
+<td>182万円高い</td>
+</tr>
+</table>
+<hr>
+<p><a href="19S_A_A4.HTM#77">問77の正解例と解説へ</a></p>
+<hr>
+<p><strong><a name="78">問78</a></strong>　図中の矢印に記した数値は，各区間の運賃を表す。出発地から目的地までの経路のうち，最も安い総運賃は幾らか。</p>
+<p><img border="0" src="IMAGE/q78.jpg" width="818" height="255"></p>
+<p>ア　19　　　イ　20　　　ウ　21　　　エ　23</p>
+<hr>
+<p><a href="19S_A_A4.HTM#78">問78の正解例と解説へ</a></p>
+<hr>
+<p><strong><a name="79">問79</a></strong>　ICタグ（RFID）の特徴はどれか。</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber17">
+<tr>
+<td>ア</td>
+<td>GPSを利用し，位置情報を表示する。</td>
+</tr>
+<tr>
+<td>イ</td>
+<td>大量の情報を扱うので，情報の記憶には外部記憶装置を使用する。</td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>プラスチック製のカードに埋め込み，専用の読取り装置に挿入して利用する。</td>
+</tr>
+<tr>
+<td>エ</td>
+<td>汚れに強く，梱包の外からも記録された情報を読むことができる。</td>
+</tr>
+</table>
+<hr>
+<p><a href="19S_A_A4.HTM#79">問79の正解例と解説へ</a></p>
+<hr>
+<p><strong><a name="80">問80</a></strong>　コンピュータプログラムなどの著作物に関する記述のうち，適切なものはどれか。</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber18">
+<tr>
+<td>ア</td>
+<td>共同開発によるプログラムの著作権は，開発費用を負担した割合に従って権利が帰属する。</td>
+</tr>
+<tr>
+<td>イ</td>
+<td>著作権は，プログラムには認められるが，データベースについては認められていない。</td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>著作権法では，プログラム及びプログラムを作成するためのノウハウを保護の対象としている。</td>
+</tr>
+<tr>
+<td>エ</td>
+<td>著作物を作成するために用いるプログラム言語や規約は，著作権法による保護の対象外である。</td>
+</tr>
+</table>
+<hr>
+<p><a href="19S_A_A4.HTM#80">問80の正解例と解説へ</a></p>
+<hr>
+<p><a href="INDEX.HTM">メニューへ戻る</a> </p>
+<hr>
+</blockquote>
+
+</body>
+
+</html>

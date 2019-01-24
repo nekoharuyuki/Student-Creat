@@ -1,0 +1,976 @@
+<HTML>
+<HEAD>
+<TITLE>平成13年度試験　問題(午後問3～問6)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0">
+<blockquote>
+  <hr>
+  <H3 align="center">平成13年度春期試験　問題(問9～問11)</H3>
+<hr>
+<P>次の問9から問11までの3問については、この中から1問を選択し、答案用紙の選択欄の             
+選 をマークして解答してください。なお、2問以上選択した場合には、はじめの1問について採点します。<br>            
+<hr>         
+<p>          
+<a NAME="90">          
+<b>問9</b></a><b>　</b>次のCプログラムの説明及びプログラムを読んで，設問1～4に答えよ。<br>      
+<br>      
+[プログラムの説明]<br>      
+　画面上の点Sの座標(sx, sy)と点Eの座標(ex, ey)を両端とする自由曲線を，微細な直線群で近似して描く関数DrawCurveを作成した。自由曲線の形を決めるために，二つの制御点C1の座標(x1, y1)とC2の座標(x2, y2)を引数で指定する。図のように与えられた4点で構成される折れ線を再帰的に分割していき，引数len(len＞2)によって定まる収束条件が成立した時点で直線を描画する。</p>         
+<p>          
+<img border="0" src="image/e9.gif" width="358" height="227"></p>        
+<p>         
+関数DrawCurveの原型(プロトタイプ)は，</p>        
+<p>         
+void DrawCurve ( int sx, int sy, int x1, int y1,&nbsp;<br>       
+　　　　　　　　　　　int x2, int y2, int ex, int ey, int len ) ;</p>         
+<p>          
+であり，引数と点の座標の関係は，図のとおりである。<br>        
+ここで，2点を結ぶ直線を描画するために次の二つの関数が用意されている。</p>         
+<p>          
+void MoveTo( int sx, int sy ) ;<br>        
+  機能：直線を描画する始点を座標(sx, sy)とする。</p>         
+<p>          
+void LineTo( int ex, int ey ) ;<br>        
+  機能：現在の始点から，座標(ex, ey)まで直線を描き，始点を座標(ex, ey)に更新する。</p>         
+  <pre>〔プログラム〕
+void    MoveTo( int sx, int sy ) ;
+void    LineTo( int ex, int ey ) ;
+int     CmpLine( int xs, int ys, int xe, int ye, int len ) ;
+void  DrawCurve( int sx, int sy, int x1, int y1, int x2, int y2,
+                 int ex, int ey, int len )
+{
+  int   p1x, p1y, p2x, p2y, p3x, p3y ;
+  int   p4x, p4y, p5x, p5y, p6x, p6y ;
+  if ( CmpLine( sx, sy, x1, y1, len ) &amp;&amp; 
+       CmpLine( x1, y1, x2, y2, len ) &amp;&amp;
+       CmpLine( x2, y2, ex, ey, len )  )  {
+        MoveTo( sx, sy ) ; LineTo( x1, y1 ) ;
+        LineTo( x2, y2 ) ; LineTo( ex, ey ) ;
+        return ;
+  }
+  p1x = ( sx + x1 ) / 2 ; p1y = ( sy + y1 ) / 2 ;
+  p2x = ( x1 + x2 ) / 2 ; p2y = ( y1 + y2 ) / 2 ;
+  p3x = ( x2 + ex ) / 2 ; p3y = ( y2 + ey ) / 2 ;
+  p4x = ( p1x + p2x ) / 2 ; p4y = ( p1y + p2y ) / 2 ; 
+  p5x = ( p2x + p3x ) / 2 ; p5y = ( p2y + p3y ) / 2 ;
+  p6x = ( p4x + p5x ) / 2 ; p6y = ( p4y + p5y ) / 2 ;
+  DrawCurve( sx, sy, p1x, p1y, p4x, p4y, p6x, p6y, len ) ;
+  DrawCurve( p6x, p6y, p5x, p5y, p3x, p3y, ex, ey, len ) ;
+  return ;
+}
+int  CmpLine( int xs, int ys, int xe, int ye, int len )
+{
+  int   len1 = xe - xs ;
+  int   len2 = ye - ys ;
+  if ( len1 &lt; 0 ) len1 = -len1 ;
+  if ( len2 &lt; 0 ) len2 = -len2 ;
+  if ( ( len1 &lt; len ) &amp;&amp; ( len2 &lt; len ) )
+        return  1 ;
+  return 0 ;
+}
+</pre>
+<pre>　</pre>         
+<HR WIDTH=100%>         
+<a NAME="91"><BR>         
+<b>         
+設問1</b></a>&nbsp;　このプログラムでは，折れ線を二つに分割するため，三つの線分の中点の座標を求めて，さらにいくつかの線分の中点の座標を求める。新たな折れ線の四つの頂点を決定する方法を説明した図はどれか，解答群の中から選べ。
+<p>解答群</p>
+<p><img border="0" src="image/e9_1.gif" width="526" height="510"></p>
+<p>　</p>
+<HR WIDTH=100%>
+  <a HREF="13s_p_a4.htm#91">設問の正解例と解説へ</a>
+<hr>
+<b>　</b><a NAME="92">
+<b>
+<br>
+設問</b></a><b>2　</b>再帰的な分割処理が終了する条件として，正しいものを解答群の中から選べ。<br>
+<br>
+解答群
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">ア</td>
+    <td>折れ線の三つの線分それぞれが，引数lenで与えられた長さより長くなった。</td>
+  </tr>
+  <tr>
+    <td valign="top">イ</td>
+    <td>折れ線の三つの線分それぞれが，引数lenで与えられた長さより短くなった。</td>
+  </tr>
+  <tr>
+    <td valign="top">ウ</td>
+    <td>折れ線の三つの線分それぞれが，引数lenを1辺とする正方形の中に含まれる長さになった。</td>
+  </tr>
+  <tr>
+    <td valign="top">エ</td>
+    <td>折れ線の三つの線分のうち，どれか1本が，引数lenで与えられた長さより長くなった。</td>
+  </tr>
+  <tr>
+    <td valign="top">オ</td>
+    <td>折れ線の三つの線分のうち，どれか1本が，引数lenで与えられた長さより短くなった。</td>
+  </tr>
+  <tr>
+    <td valign="top">カ</td>
+    <td>折れ線の三つの線分のうち，どれか1本が，引数lenを1辺とする正方形の中に含まれる長さになった。</td>
+  </tr>
+</table>
+<p>　</p>
+<A NAME="31">
+<HR WIDTH=100%>
+</a><a HREF="13s_p_a4.htm#92">設問の正解例と解説へ</a>
+<HR WIDTH=100%>
+<b>　</b><a NAME="93">
+<b>
+<br>
+設問</b></a><b><a NAME="113">3</a>　</b>このプログラムの特性を説明する次の記述中の[　　　]に入れる正しい答えを，解答群の中から選べ。        
+<p>　引数lenの値を8にして自由曲線を描画した場合，直線を描画する関数LineToの呼出し回数が最も多かった曲線は<b>[　　 
+a　　   ]</b>である。<br> 
+　同じ曲線を引数lenの値を16にして描画した場合，引数lenの値が8のときと比較して，関数LineToの呼出し回数は<b>[ 
+　　b 　　]</b>。</p>
+<p><img border="0" src="image/e9_3.gif" width="559" height="542"></p>
+<p>bに関する解答群</p>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td width="150">ア　多くなる</td>
+    <td width="150">イ　変わらない</td>
+    <td>ウ　少なくなる</td>
+  </tr>
+</table>
+<p>　</p>
+<A NAME="31">
+<HR WIDTH=100%>
+</a><a HREF="13s_p_a4.htm#93">設問の正解例と解説へ</a>
+<HR WIDTH=100%>
+<a NAME="94">
+<b>
+<br>
+設問</b></a><b>4　</b>次のプログラムの実行結果として正しい図を，解答群の中から選べ。
+<pre>int Lines ;
+int cx1, cy1 ;
+int cx2, cy2 ;
+
+for ( Lines = 0, cx1 = 128, cy1 = 160, cx2 = 256, cy2 = 160;
+Lines &lt; 16 ;
+Lines++, cx1 += 16, cy1 -= 16, cx2 -= 16, cy2 += 16 ) {
+DrawCurve( 50, 160, cx1, cy1, cx2, cy2, 384, 160, 8 ) ;
+}</pre>
+<p>解答群</p>
+<p><img border="0" src="image/e9_4b.gif" width="552" height="495"><br>
+</p>
+<A NAME="31">
+<HR WIDTH=100%>
+</a><a HREF="13s_p_a4.htm#94">設問の正解例と解説へ</a>
+<HR WIDTH=100%>
+<p><A HREF="index.htm">メニューへ戻る</A>　</p>
+<HR WIDTH=100%>
+  　　<BR>
+<b><a name="100">問10</a>　</b>次のCOBOLプログラムの説明及びプログラムを読んで，設問に答えよ。<br>
+<br>
+[プログラムの説明]<br>
+研修の申込みを登録した研修申込ファイルがある。研修申込みは，1人につき1回だけであり，10件まで申し込むことができる。開催日が同一の研修を複数記載した申込者をエラーとし，エラーリストを印字するプログラムである。<br>
+(1)　研修申込ファイルのレコード様式は，次のとおりである。
+<table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+  <tr>
+    <td rowspan="2" align="center">申し込み番号<br>
+      5けた</td>
+    <td rowspan="2" align="center">申込者番号<br>
+      5けた</td>
+    <td colspan="5" align="center">研修番号</td>
+  </tr>
+  <tr>
+    <td align="center">欄1<br>
+      4けた</td>
+    <td align="center">欄2<br>
+      4けた</td>
+    <td align="center">欄3<br>
+      4けた</td>
+    <td align="center">･･･</td>
+    <td align="center">欄10<br>
+      4けた</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">①</td>
+    <td>同じ研修番号は，指定しないものとする。</td>
+  </tr>
+  <tr>
+    <td valign="top">②</td>
+    <td>研修の申込は，研修番号の欄1から順次登録し，10件に満たない場合は，残りの欄を空白とする。</td>
+  </tr>
+  <tr>
+    <td valign="top">③</td>
+    <td>研修番号は，研修開催ファイルに登録されているものとする。</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>　</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">(2)</td>
+    <td>研修の詳細を登録した研修開催ファイルのレコード様式は，次のとおりである。
+      <table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+        <tr>
+          <td align="center">研修番号<br>
+            4けた</td>
+          <td align="center">開催日<br>
+	8けた</td>
+          <td align="center">	教室番号<br>
+	10けた</td>
+        </tr>
+      </table>
+      <table border="0" cellpadding="3" cellspacing="0">
+        <tr>
+          <td>
+①</td>
+          <td>研修番号をキーとする索引ファイルである。</td>
+        </tr>
+        <tr>
+          <td>
+②</td>
+          <td>開催される研修は，すべて登録されている。</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">
+(3)</td>
+    <td>このプログラムで開催日の重複確認のために利用しているテーブルCHK-TBLの例は，次のとおりである。
+      <p>例　次の研修申込ファイルのデータ及び研修開催ファイルのデータが与えられたとする。</p>
+      <table border="0" cellpadding="3" cellspacing="0">
+        <tr>
+          <td>研修申込ファイルのデータ</td>
+        </tr>
+      </table>
+      <table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+        <tr>
+          <td>M0001</td>
+          <td>Y0002</td>
+          <td>A001</td>
+          <td>B002</td>
+          <td>C003</td>
+          <td>･･･</td>
+          <td>　　　</td>
+        </tr>
+      </table>
+      <table border="0" cellpadding="3" cellspacing="0">
+        <tr>
+          <td>　<br>
+            研修開催ファイルのデータ</td>
+        </tr>
+      </table>
+      <table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+        <tr>
+          <td align="center">&nbsp;A001&nbsp;<br>
+            B002<br>
+            C003</td>
+          <td align="center">&nbsp;20010411&nbsp;<br>
+            20010412<br>
+            20010411</td>
+          <td align="center">&nbsp;TORAN-F801&nbsp;<br>
+            TORAN-F801<br>
+            TORAN-F802</td>
+        </tr>
+      </table>
+      <p>このときテーブルCHK-TBLの内容は次のようになる。</p>
+      <p><img border="0" src="image/e10c.gif" width="514" height="122"></p>
+      <p>
+このとこからテーブルCHK-SEM-NOの<img border="0" src="image/box2.gif" width="61" height="26">　部分のA001とC003の開催日が重複していることが分かる。</p>
+     
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">
+(4)</td>
+    <td>エラーリストの印字様式は，次のとおりである。
+      <table border="1" cellpadding="5" cellspacing="0" bordercolorlight="#000000" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+        <tr>
+          <td>
+            <table border="0" cellpadding="3" cellspacing="0">
+              <tr>
+                <td>申込番号</td>
+                <td>申込者番号</td>
+                <td>開催日</td>
+                <td colspan="5">研修番号</td>
+              </tr>
+              <tr>
+                <td>XXXXX</td>
+                <td>XXXXX</td>
+                <td>XXXXXXXX</td>
+                <td>XXXX</td>
+                <td>XXXX</td>
+                <td>XXXX</td>
+                <td>･･･</td>
+                <td>XXXX</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td>XXXXXXXX</td>
+                <td>XXXX</td>
+                <td>XXXX</td>
+                <td>XXXX</td>
+                <td>･･･</td>
+                <td>XXXX</td>
+              </tr>
+              <tr>
+                <td>XXXXX</td>
+                <td>XXXXX</td>
+                <td>XXXXXXXX</td>
+                <td>XXXX</td>
+                <td>XXXX</td>
+                <td>XXXX</td>
+                <td>･･･</td>
+                <td>XXXX</td>
+              </tr>
+              <tr>
+                <td align="center">：</td>
+                <td align="center">：</td>
+                <td align="center">：</td>
+                <td align="center">：</td>
+                <td align="center">：</td>
+                <td align="center">：</td>
+                <td align="center"></td>
+                <td align="center">：</td>
+              </tr>
+              <tr>
+                <td>XXXXX</td>
+                <td>XXXXX</td>
+                <td>XXXXXXXX</td>
+                <td>XXXX</td>
+                <td>XXXX</td>
+                <td>XXXX</td>
+                <td>･･･</td>
+                <td>XXXX</td>
+              </tr>
+              <tr>
+                <td>XXXXX</td>
+                <td>XXXXX</td>
+                <td>XXXXXXXX</td>
+                <td>XXXX</td>
+                <td>XXXX</td>
+                <td>XXXX</td>
+                <td>･･･</td>
+                <td>XXXX</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top"></td>
+    <td>
+      <table border="0" cellpadding="3" cellspacing="0">
+        <tr>
+          <td valign="top">
+①</td>
+          <td>見出しは，あらかじめ印刷されている。</td>
+        </tr>
+        <tr>
+          <td valign="top">
+②</td>
+          <td>一つの申込番号で，同一の開催日の研修が複数あるときは，その研修番号すべてを1行に印字する。</td>
+        </tr>
+        <tr>
+          <td valign="top">
+③</td>
+          <td>一つの申込番号で②に該当するものが複数組ある場合は，開催日ごとに行を分けて印字する。このとき，最初の行には，申込番号及び申込者番号を印字するが，次の行からは印字しない。</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+  <pre>　</pre>
+  <p>〔プログラム〕
+  <pre>DATA DIVISION.
+FILE SECTION.
+FD  APPLY-FILE.
+01  APPLY-REC.
+    02  APP-NO                    PIC  X(05).
+    02  APP-PSN-NO                PIC  X(05).
+    02  APP-SEM-NO OCCURS 10      PIC  X(04).
+FD  SEMINAR-FILE.
+01  SEMINAR-REC.
+    02  SEM-NO                    PIC  X(04).
+    02  SEM-YMD                   PIC  X(08).
+    02  SEM-ROOM                  PIC  X(10).
+FD  CHECK-FILE.
+01  CHECK-REC                     PIC  X(85).
+WORKING-STORAGE SECTION.
+01  INFILE-EOF                    PIC  9(01) VALUE 0.
+01  PRINT-WRK.
+    02  PRI-NO                    PIC  X(05).
+    02                            PIC  X(05).
+    02  PRI-PSN-NO                PIC  X(05).
+    02                            PIC  X(07).
+    02  PRI-YMD                   PIC  X(08).
+    02                            PIC  X(01).
+    02  OCCURS 10.
+        03                        PIC  X(01).
+        03  PRI-SEM-NO            PIC  X(04).
+01  CHK-TBL.
+    02  OCCURS 10.
+        03  CHK-NUM               PIC  9(02).
+        03  CHK-YMD               PIC  X(08).
+        03  CHK-SEM-NO OCCURS 10  PIC  X(04).
+01  CHK-CNT                       PIC  9(02).
+01  CHK-WK                        PIC  9(02).
+01  CNT1                          PIC  9(02).
+01  CNT2                          PIC  9(02).
+01  CNT3                          PIC  9(02).
+PROCEDURE DIVISION.
+MAIN-RTN.
+    OPEN INPUT APPLY-FILE SEMINAR-FILE OUTPUT CHECK-FILE.
+    PERFORM UNTIL INFILE-EOF = 1
+       READ APPLY-FILE AT END
+          MOVE 1 TO INFILE-EOF
+       NOT AT END
+          PERFORM CHECK-RTN
+          PERFORM PRINT-RTN
+       END-READ
+    END-PERFORM.
+    CLOSE APPLY-FILE SEMINAR-FILE CHECK-FILE.
+    STOP RUN.
+CHECK-RTN.
+    INITIALIZE CHK-TBL CHK-CNT.
+    PERFORM VARYING CNT1 FROM 1 BY 1 UNTIL CNT1 &gt; 10
+                                 OR APP-SEM-NO (CNT1) = SPACE
+       <b>[ 　　　a　 　　]</b>
+       READ SEMINAR-FILE INVALID KEY
+          DISPLAY &quot;ケンシュウ バンゴウ エラー&quot;
+       NOT INVALID KEY
+          PERFORM TABLE-SET-RTN
+       END-READ
+    END-PERFORM.
+TABLE-SET-RTN.
+    MOVE 0 TO CNT3.
+    PERFORM VARYING CNT2 FROM 1 BY 1 UNTIL <b>[ 　　　b 　　　]</b>
+       IF SEM-YMD = CHK-YMD (CNT2) THEN
+          <b>[ 　　　c　 　　]</b>
+       END-IF
+    END-PERFORM.
+    IF CNT3 = 0 THEN 
+       COMPUTE CHK-CNT = CHK-CNT + 1
+       MOVE SEM-YMD TO CHK-YMD (CHK-CNT)
+       MOVE CHK-CNT TO CNT3
+    END-IF.
+    COMPUTE CHK-NUM (CNT3) = CHK-NUM (CNT3) + 1.
+    MOVE CHK-NUM (CNT3) TO CHK-WK.
+    MOVE APP-SEM-NO (CNT1) TO CHK-SEM-NO (CNT3 CHK-WK).
+PRINT-RTN.
+    MOVE 0 TO CNT3.
+    PERFORM VARYING CNT1 FROM 1 BY 1 UNTIL <b>[ 　　　d 　　　]</b>
+       MOVE SPACE TO PRINT-WRK
+       IF <b>[ 　　　e 　　　]</b> THEN
+          IF CNT3 = 0 THEN
+             MOVE APP-NO TO PRI-NO
+             MOVE APP-PSN-NO TO PRI-PSN-NO
+             MOVE 1 TO CNT3
+          END-IF
+          MOVE CHK-YMD (CNT1) TO PRI-YMD
+          PERFORM VARYING CNT2 FROM 1 BY 1
+                               UNTIL CNT2 &gt; CHK-NUM (CNT1)
+             <b>[ 　　　d 　　　]</b>
+          END-PERFORM
+          WRITE CHECK-REC FROM PRINT-WRK AFTER 1
+       END-IF
+    END-PERFORM.
+</pre>
+<pre>
+</pre>  
+<hr> 
+<p><b><a name="101">設問</a>　</b>プログラム中の[      ]に入れる正しい答えを，解答群から選べ。　</p> 
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>a，cに関する解答群</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td width="230">ア　MOVE CNT1 TO CNT2</td>   
+    <td>イ　MOVE CNT1 TO SEM-NO</td>   
+  </tr>   
+  <tr>   
+    <td>ウ　MOVE CNT2 TO CNT1</td>   
+    <td>	エ　MOVE CNT2 TO CNT3</td>   
+  </tr>   
+  <tr>   
+    <td>オ　MOVE CNT2 TO SEM-NO</td>   
+    <td>カ　MOVE CNT3 TO CNT1</td>   
+  </tr>   
+  <tr>   
+    <td>キ　MOVE CNT3 TO CNT2</td>   
+    <td>	ク　MOVE APP-SEM-NO TO CNT1</td>   
+  </tr>   
+  <tr>   
+    <td colspan="2">ケ　MOVE SEM-NO TO PRI-SEM-NO (CNT1)</td>   
+  </tr>   
+  <tr>   
+    <td colspan="2">コ　MOVE APP-SEM-NO (CNT1) TO SEM-NO</td>   
+  </tr>   
+</table>   
+<table border="0" cellpadding="3" cellspacing="0">  
+  <tr>  
+    <td>　<br>
+      b，dに関する解答群</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td width="230">ア　CHK-CNT > CNT1</td>   
+    <td>	イ　CHK-CNT > CNT2</td>   
+  </tr>   
+  <tr>   
+    <td>ウ　CHK-CNT > CNT3</td>   
+    <td>	エ　CHK-NUM (CNT1) > CNT2</td>   
+  </tr>   
+  <tr>   
+    <td>オ　CHK-NUM (CNT2) > CNT3</td>   
+    <td>	カ　CNT1 > CHK-CNT</td>   
+  </tr>   
+  <tr>   
+    <td>キ　CNT2 > CHK-CNT</td>   
+    <td>	ク　CNT2 > CHK-NUM (CNT1)</td>   
+  </tr>   
+  <tr>   
+    <td>ケ　CNT3 > CHK-CNT</td>   
+    <td>	コ　CNT3 > CHK-NUM (CNT2)</td>   
+  </tr>   
+</table>   
+<table border="0" cellpadding="3" cellspacing="0">  
+  <tr>  
+    <td>　<br>
+      eに関する解答群</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td width="200">ア　CHK-NUM (CNT1) > 1</td>   
+    <td>	イ　CHK-NUM (CNT1) > CNT1</td>   
+  </tr>   
+  <tr>   
+    <td>ウ　CHK-NUM (CNT3) > 1</td>   
+    <td>	エ　CHK-NUM (CNT3) > CNT3</td>   
+  </tr>   
+  <tr>   
+    <td>オ　CNT1 > 1	カ　CNT3 > 1</td>   
+    <td></td>   
+  </tr>   
+</table>   
+<table border="0" cellpadding="3" cellspacing="0">  
+  <tr>  
+    <td>　<br>
+      fに関する解答群</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">ア</td>
+    <td>MOVE CHK-SEM-NO (CNT1 CNT2) TO PRI-SEM-NO (CNT1)</td>   
+  </tr>   
+  <tr>   
+    <td valign="top">イ</td>  
+    <td>MOVE CHK-SEM-NO (CNT1 CNT2) TO PRI-SEM-NO (CNT2)</td>   
+  </tr>   
+  <tr>   
+    <td valign="top">ウ</td>  
+    <td>MOVE CHK-SEM-NO (CNT1 CNT3) TO PRI-SEM-NO (CNT3)</td>   
+  </tr>   
+  <tr>   
+    <td valign="top">エ</td>  
+    <td>MOVE CHK-SEM-NO (CNT2 CNT1) TO PRI-SEM-NO (CNT1)</td>   
+  </tr>   
+  <tr>   
+    <td valign="top">オ</td>  
+    <td>MOVE CHK-SEM-NO (CNT2 CNT1) TO PRI-SEM-NO (CNT2)</td>   
+  </tr>   
+  <tr>   
+    <td valign="top">カ</td>  
+    <td>MOVE CHK-SEM-NO (CNT2 CNT3) TO PRI-SEM-NO (CNT2)</td>   
+  </tr>   
+</table>   
+<p>　</p> 
+<HR WIDTH=100%>  
+  <a HREF="13s_p_a4.htm#101">設問の正解例と解説へ</a>  
+<HR WIDTH=100%>  
+  　<BR>
+<A HREF="index.htm">メニューへ戻る</A>
+<HR WIDTH=100%>   
+<a NAME="110">　<BR>  
+<b>  
+問11</b></a>　次のアセンブラプログラムの説明及びプログラムを読んで，設問1，2に答えよ。
+<p>〔プログラムの説明〕<br>
+映画館の指定席を管理するための副プログラム群である。映画館の指定席は1,024席あり，座席番号は0～1023である。副プログラムには，指定席予約テーブルRSVTBLを初期化するINIT，指定席を予約するRESERVE及び指定席の予約を取り消すCANCELがある。指定席の状態を格納する指定席予約テーブルの構造を図に示す。</p>
+<p><img border="0" src="image/e11.gif" width="363" height="196"><br>
+<br>
+</p>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">（1）</td>
+    <td>副プログラムINITは，指定席予約テーブルのすべてのビットを“空”の状態にする。</td>
+  </tr>
+  <tr>
+    <td valign="top">（2）</td>
+    <td>副プログラムRESERVEは，指定席を一つ予約する。処理は座席番号0から順に“空”の座席を探し，見つかれば“予約済”の状態にして，座席番号をGR0に格納する。指定席がすべて予約されている場合には，GR0に-1を格納して戻る。</td>
+  </tr>
+  <tr>
+    <td valign="top">（3）</td>
+    <td>副プログラムCANCELは，GR1で指定された座席番号の予約を取り消す。指定された座席が“予約済”の状態であることを確認して，“空”の状態に変更する。取消しの処理が正常に終了すれば，GR0に0を格納する。座席番号の指定誤り，又は座席番号で指定した座席が“空”の場合には，GR0に-1を格納して戻る。</td>
+  </tr>
+  <tr>
+    <td valign="top">（4）</td>
+    <td>GR0を除いて，すべての副プログラムで使用する汎用レジスタの内容は保存される。</td>
+  </tr>
+  <tr>
+    <td valign="top">（5）</td>
+    <td>プログラム内で使用しているマクロ命令RPUSH，RPOPの機能は，それぞれ次のとおりとする。<br>
+      　　　RPUSH　：　GR1～GR7の内容をスタックに退避する。<br>
+      　　　RPOP　　：　スタックの内容をGR1～GR7に復元する。</td>
+  </tr>
+</table>
+<pre>〔プログラム〕</pre>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">MAIN<br>
+      <br>
+      <br>
+      INIT<br>
+      <br>
+      <br>
+      CLEARP<br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      RESERVE<br>
+      <br>
+      <br>
+      RSV01<br>
+      <br>
+      <br>
+      <br>
+      RSV02<br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      RSV03<br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      RSV04<br>
+      <br>
+      RRET<br>
+      <br>
+      <br>
+      CANCEL<br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      CERROR<br>
+      CRET<br>
+      <br>
+      <br>
+      α→RSVTBLSZ<br>
+      β→RSVTBL</td>
+    <td>&nbsp;START<br>
+            ：<br>
+      ; 指定予約テーブルの初期化<br>  
+      PUSH   0,GR1<br>  
+           LD     GR1,RSVTBLSZ<br>  
+           LAD    GR0,0<br>  
+      LAD    GR1,-1,GR1<br>  
+      <b>           [ 　　　　a　　　　          ]&nbsp;</b><br> 
+           LD     GR1,GR1<br>  
+           JNZ    CLEARP<br>  
+           POP    GR1<br>  
+           RET<br>  
+      ; 指定席の予約<br>  
+      RPUSH<br>  
+           LAD    GR2,0<br>  
+           LD     GR0,GR2<br>  
+      LD     GR1,RSVTBL,GR2<br>  
+      <b>           [ 　　　　b　　　　          ]</b><br>  
+           JZE    RSV03<br>  
+           LAD    GR3,#8000<br>  
+      LD     GR4,GR1<br>  
+           AND    GR4,GR3&nbsp;<br> 
+           JZE    RSV04<br>  
+           ADDL   GR0,=1<br>  
+      <b>           [　　　　          C 　　　　]&nbsp;</b><br> 
+           JUMP   RSV02<br>  
+      ADDL   GR0,=16<br>  
+           LAD    GR2,1,GR2<br>  
+           CPL    GR2,RSVTBLSZ<br>  
+           JNZ    RSV01<br>  
+      <b>           [　　　　         d　　　　            ]&nbsp;</b><br> 
+           JUMP   RRET<br>  
+      OR     GR1,GR3<br>  
+           ST     GR1,RSVTBL,GR2<br>  
+      RPOP<br>  
+           RET<br>  
+      ; 指定席の予約を取り消す<br>  
+      RPUSH<br>  
+           LD     GR2,GR1<br>  
+      <b>           [ 　　　　e 　　　　]&nbsp;</b><br> 
+           CPL    GR1,RSVTBLSZ<br>  
+           JPL    CERROR<br>  
+           JZE    CERROR<br>  
+           LAD    GR1,RSVTBL,GR1<br>  
+           AND    GR2,=#000F<br>  
+           LAD    GR3,#8000<br>  
+           SRL    GR3,0,GR2&nbsp;<br> 
+           LD     GR0,0,GR1<br>  
+           AND    GR0,GR3<br>  
+           JZE    CERROR<br>  
+      <b>           [ 　　　　f 　　　　]</b><br>
+           LD     GR0,0,GR1<br>  
+           AND    GR0,GR3<br>  
+           ST     GR0,0,GR1<br>  
+           LAD    GR0,0<br>  
+           JUMP   CRET<br>  
+      LAD    GR0,-1<br>  
+      RPOP<br>  
+           RET<br>  
+      ;<br>  
+      DC      64<br>  
+      DS      64<br>  
+               END</td>  
+    <td valign="top"><br> 
+      <br> 
+      <br> 
+      <br> 
+      <br> 
+      <br> 
+      <br> 
+      ; 0 → RSVTBL<br>  
+      <br>  
+      <br>  
+      <br>  
+      <br>  
+      <br>  
+      <br>  
+      <br>  
+      <br>  
+      <br>  
+      &nbsp;; 16席すべてが予約済み？<br>  
+      <br>  
+      <br>  
+      <br>  
+                 ; 各座席の予約チェック<br>  
+      <br>  
+      <br>  
+        ; 次の座席の準備<br>  
+      <br>  
+      <br>  
+      <br>  
+      <br>  
+      <br>  
+        ; 空席なし<br>  
+      <br>  
+      <br>  
+      <br>  
+      <br>  
+      <br>  
+      <br>  
+      <br>  
+      <br>  
+        ; 語の位置を求める<br>  
+      <br>  
+      <br>  
+      <br>  
+      <br>  
+      <br>  
+      <br>  
+                  ; ビット位置を求める<br>  
+      <br>  
+      <br>  
+      <br>  
+      &nbsp;; ビットを反転する<br>  
+      <br>  
+      <br>  
+      <br>  
+      <br>  
+      <br>  
+      <br>  
+      <br>  
+      <br>  
+      <br>  
+      &nbsp;; 予約テーブルの大きさ<br>  
+      &nbsp;; 予約テーブル</td>  
+  </tr>  
+</table>  
+<p>　</p>  
+<hr>  
+<a NAME="111">　<BR>  
+<b>  
+設問</b></a><b><a NAME="111">1</a>　</b>プログラム中の[　　　]に入れる正しい答えを，解答群の中から選べ。
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>　<br>
+      aに関する解答群</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td width="180">ア　ST GR0,0,GR1</td>  
+    <td>	イ　ST GR0,RSVTBL,GR1</td>  
+  </tr>  
+  <tr>  
+    <td>ウ　ST GR1,0,GR1</td>  
+    <td>	エ　ST GR1,RSVTBL,GR1</td>  
+  </tr>  
+  <tr>  
+    <td>オ　ST GR2,0,GR1</td>  
+    <td>	カ　ST GR2,RSVTBL,GR1</td>  
+  </tr>  
+</table>  
+<table border="0" cellpadding="3" cellspacing="0"> 
+  <tr> 
+    <td>　<br>
+      bに関する解答群</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td width="130">ア　CPL GR0,-1</td>  
+    <td width="130">	イ　CPL GR0,=0</td>  
+    <td>	ウ　CPL GR0,=#FFFF</td>  
+  </tr>  
+  <tr>  
+    <td>エ　CPL GR1,-1</td>  
+    <td>	オ　CPL GR1,=0</td>  
+    <td>	カ　CPL GR1,=#FFFF</td>  
+  </tr>  
+</table>  
+<table border="0" cellpadding="3" cellspacing="0"> 
+  <tr> 
+    <td>　<br>
+      c，eに関する解答群</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td width="120">ア　SLL GR1,1</td>  
+    <td width="120">	イ　SLL GR1,4</td>  
+    <td>	ウ　SLL GR3,1</td>  
+  </tr>  
+  <tr>  
+    <td>エ　SLL GR3,4</td>  
+    <td>	オ　SRL GR1,1</td>  
+    <td>	カ　SRL GR1,4</td>  
+  </tr>  
+  <tr>  
+    <td>キ　SRL GR3,1</td>  
+    <td>	ク　SRL GR3,4&nbsp;</td> 
+    <td></td> 
+  </tr> 
+</table> 
+<table border="0" cellpadding="3" cellspacing="0"> 
+  <tr> 
+    <td>　<br>
+      dに関する解答群</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td width="120">ア　LAD GR0,-1</td>  
+    <td>	イ　LAD GR1,-1</td>  
+  </tr>  
+  <tr>  
+    <td>	ウ　LD GR0,-1</td>  
+    <td>エ　LD GR1,-1</td>  
+  </tr>  
+</table>  
+<table border="0" cellpadding="3" cellspacing="0"> 
+  <tr> 
+    <td>　<br>
+      fに関する解答群</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td width="160">ア　AND GR3,-1</td>  
+    <td width="160">	イ　AND GR3,=#FFFF</td>  
+    <td>	ウ　OR GR3,-1</td>  
+  </tr>  
+  <tr>  
+    <td>エ　OR GR3,=#FFFF</td>  
+    <td>オ　XOR GR3,-1</td>  
+    <td>	カ　XOR GR3,=#FFFF</td>  
+  </tr>  
+</table>  
+<p>　</p> 
+<HR WIDTH=100%> 
+  <a HREF="13s_p_a4.htm#111">設問の正解例と解説へ</a> 
+<HR WIDTH=100%> 
+<a NAME="112"> 
+<b> 
+設問</b></a><b>2　</b>プログラム中のα，βを次のとおりに変更した。この結果，対応できる指定席数の最大値として正しい答えを，解答群の中から選べ。<br>
+  　
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>RSVTBLSZ</td>
+    <td width="120">   DC   120</td> 
+    <td>; 予約テーブルの大きさ</td>  
+  </tr>  
+  <tr>  
+    <td>RSVTBL</td>  
+    <td>     DS   120</td>  
+    <td>; 予約テーブル</td>  
+  </tr>  
+</table>  
+<table border="0" cellpadding="3" cellspacing="0"> 
+  <tr> 
+    <td>　<br> 
+      解答群</td> 
+  </tr> 
+</table> 
+<table border="0" cellpadding="3" cellspacing="0"> 
+  <tr> 
+    <td width="120">ア　960</td>
+    <td width="120">	イ　1,440</td>
+    <td>	ウ　1,920</td>
+  </tr>
+  <tr>
+    <td>エ　2,400</td>
+    <td>	オ　2,880</td>
+    <td></td>
+  </tr>
+</table>
+<p>　</p>
+<HR WIDTH=100%>
+  <a HREF="13s_p_a4.htm#112">設問の正解例と解説へ</a>
+<HR WIDTH=100%>
+<p><A HREF="index.htm">メニューへ戻る</A>　</p>
+<HR WIDTH=100%>
+  　<BR>
+<BR>
+  <p>　</p>
+</blockquote>
+</BODY>
+</HTML>

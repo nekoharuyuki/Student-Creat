@@ -1,0 +1,359 @@
+<html>
+
+<head>
+<title>平成19年度 秋期 基本情報技術者試験 午後 問題</title>
+<style type="text/css">
+body{line-height:150%;}
+code{font-size:12pt;}
+</style>
+</head>
+
+<body>
+
+<blockquote>
+	<hr>
+	<h3 align="center">平成19年度秋期試験　問題(問10～問13)</h3>
+	<hr>
+	<div align="center">
+		<table borderColor="#000000" cellSpacing="0" cellPadding="4" border="1">
+			<tr>
+				<td>　次の<strong>問10</strong>から<strong>問13</strong>までの4問については、この中から1問を選択し、答案用紙の選択欄の（選）をマークして解答してください。<br>
+				　なお、2問以上選択した場合には、はじめの1問について採点します。</td>
+			</tr>
+		</table>
+	</div>
+	<hr>
+	<p><strong><a name="100">問10</a></strong>　次のCプログラムの説明及びプログラムを読んで，設問1，2に答えよ。</p>
+	<p>〔プログラムの説明〕<br>
+	　関数<code>calc_carriage</code>は，直方体の配送物の配送種別及び配送料金を求めるプログラムである。</p>
+	<p>（1）関数<code>calc_carriage</code>の引数は，次のとおりである。</p>
+	<blockquote>
+		<p><code>weight</code>：配送物の重量（単位はグラム）<br>
+		<code>size</code>：配送物の大きさ（縦，横，高さの合計，単位はcm）<br>
+		<code>dist_mode</code>：配送先までの距離区分（0：近距離，1：中距離，2：遠距離）<br>
+		<code>class</code>：配送種別<br>
+		<code>price</code>：配送料金（単位は円）</p>
+	</blockquote>
+	<p>（2）配送種別は，配送物の重量及び大きさから，1，2，3，－1，－2のいずれか一つの値に定まる。配送種別が－1又は－2の配送物は，受け付けない。</p>
+	<p>（3）配送料金は，配送種別ごとに用意された計算式によって求められる。</p>
+	<p><img src="img/fig33.png" /></p>
+	<p><strong><a name="101">設問1</a></strong>　重量が1,000グラム（<code>Weight_tbl2[NUM2 - 1]</code>）を超えて10,000グラム（<code>Max_weight</code>）以下の配送物の配送料金は表のとおりになる。表中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+	<p><img src="img/fig34.png" /></p>
+	<p>解答群</p>
+	<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber1">
+		<tr>
+			<td>ア　1,600</td>
+			<td>イ　1,750</td>
+			<td>ウ　1,900</td>
+			<td>エ　2,100</td>
+			<td>オ　2,300</td>
+		</tr>
+	</table>
+	<hr>
+	<p><a href="19F_P_A4.HTM#101">設問1の正解例と解説へ</a></p>
+	<hr>
+	<p><strong><a name="102">設問2</a></strong>　配送種別及び配送料金に関する次の記述中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+	<p>（1）重量600グラム，大きさ180cmの配送物を送る場合，配送種別は［　　ｂ　　］となる。<br>
+	（2）重量3,000グラム，大きさ180cmの配送物を送る場合，配送種別は［　　ｃ　　］となる。<br>
+	（3）重量12,000グラム，大きさ180cmの配送物を送る場合，配送種別は［　　ｄ　　］となる。<br>
+	（4）重量80グラム，大きさ30cmの配送物を中距離の場所に送る場合，配送料金は［　　ｅ　　］円となる。<br>
+	（5）重量400グラム，大きさ30cmの配送物を中距離の場所に送る場合，配送料金は［　　ｆ　　］円となる。</p>
+	<p>b～dに関する解答群</p>
+	<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber2">
+		<tr>
+			<td>ア　－2</td>
+			<td>イ　－1</td>
+			<td>ウ　1</td>
+			<td>エ　2</td>
+			<td>オ　3</td>
+		</tr>
+	</table>
+	<p>e，fに関する解答群</p>
+	<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber3">
+		<tr>
+			<td>ア　80</td>
+			<td>イ　150</td>
+			<td>ウ　250</td>
+		</tr>
+		<tr>
+			<td>エ　500</td>
+			<td>オ　1,000</td>
+			<td>カ　2,000</td>
+		</tr>
+	</table>
+	<hr>
+	<p><a href="19F_P_A4.HTM#102">設問2の正解例と解説へ</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a></p>
+	<hr>
+	<p><strong><a name="110">問11</a></strong> 
+	　次のCOBOLプログラムの説明及びプログラムを読んで，設問1，2に答えよ。</p>
+	<p>〔プログラムの説明〕<br>
+	　B社は，取引先あてに請求書と振込用紙を発行し，取引先はその振込用紙を使ってC銀行に請求金額を振り込む。このプログラムは，毎月C銀行から受け取る振込データと，社内で管理している請求データの突合せを行って，入金確認リストを印字するものである。突合せキーは，一意に振られている請求書コードである。</p>
+	<p>
+	（1）銀行から受け取る振込データ<code>BANK-F</code>は順ファイルで，レコード様式は，次のとおりである。レコードは，振込日で昇順に整列されている。</p>
+	<p><img src="img/fig35.png" /></p>
+	<p>
+	（2）社内で管理している請求データ<code>ACCOUNT-F</code>は順ファイルで，レコード様式は，次のとおりである。レコードは，請求書コードで昇順に整列されている。</p>
+	<p><img src="img/fig36.png" /></p>
+	<p>（3）入金確認リストの印字様式は，次のとおりである。</p>
+	<p><img src="img/fig37.png" /></p>
+	<blockquote>
+		<p>①　入金確認リストの見出しは印刷済みとする。<br>
+		②　入金予定金額には請求金額を印字する。<br>
+		③　入金確認結果は，次の4種類のいずれかを印字する。</p>
+	</blockquote>
+	<p><img src="img/fig38.png" /></p>
+	<p><img src="img/fig39.png" /></p>
+	<p><strong><a name="111">設問1</a></strong>　プログラム中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+	<p>aに関する解答群</p>
+	<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber4">
+		<tr>
+			<td>ア　<code>BANK-AMOUNT</code></td>
+			<td>イ　<code>BANK-BILL-CD</code></td>
+		</tr>
+		<tr>
+			<td>ウ　<code>BANK-CUSTOMER-NM</code></td>
+			<td>エ　<code>BANK-DATE</code></td>
+		</tr>
+	</table>
+	<p>b～eに関する解答群</p>
+	<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber5">
+		<tr>
+			<td>ア</td>
+			<td><code>MOVE &quot;NO BILL&quot; TO P-MESSAGE</code></td>
+		</tr>
+		<tr>
+			<td>イ</td>
+			<td><code>MOVE &quot;NOT PAID&quot; TO P-MESSAGE</code></td>
+		</tr>
+		<tr>
+			<td>ウ</td>
+			<td><code>MOVE &quot;UNMATCH&quot; TO P-MESSAGE</code></td>
+		</tr>
+		<tr>
+			<td>エ</td>
+			<td><code>PERFORM READ-ACCOUNT</code></td>
+		</tr>
+		<tr>
+			<td>オ</td>
+			<td><code>PERFORM RETURN-BANK</code></td>
+		</tr>
+	</table>
+	<hr>
+	<p><a href="19F_P_A4.HTM#111">設問1の正解例と解説へ</a></p>
+	<hr>
+	<p><strong><a name="112">設問2</a></strong>　B社への振込手数料は，取引先が負担していたが，一部の大口取引に対しては，B社が振込手数料を負担することにした。この場合，銀行から受け取る振込金額は，請求金額から振込手数料を差し引いた金額となる。振込手数料の金額とその負担先は，請求金額によって決定される。振込手数料の計算には，次の様式の手数料計算プログラム<code>CHARGE</code>を使用する。</p>
+	<blockquote>
+		<p><code>CALL &quot;CHARGE&quot; USING </code><strong>請求金額</strong><code> </code><strong>振込手数料</strong></p>
+	</blockquote>
+	<p>　手数料計算プログラムは，請求金額を基に，振込手数料を返す。ただし，B社が負担しない場合はゼロを返す。</p>
+	<p>
+	　この対応のため，プログラムを変更する。入金確認リストの入金予定金額は請求金額から振込手数料を差し引いた金額を印字する。次の表中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+	<p><img src="img/fig40.png" /></p>
+	<p>解答群</p>
+	<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber6">
+		<tr>
+			<td>ア　行番号47と48の間</td>
+			<td>イ　行番号49と50の間</td>
+		</tr>
+		<tr>
+			<td>ウ　行番号56と57の間</td>
+			<td>エ　行番号70と71の間</td>
+		</tr>
+	</table>
+	<hr>
+	<p><a href="19F_P_A4.HTM#112">設問2の正解例と解説へ</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a></p>
+	<hr>
+	<p><strong><a name="120">問12</a></strong> 
+	　次のJavaプログラムの説明及びプログラムを読んで，設問1，2に答えよ。<br>
+	　（<a href="java.htm" target="_blank">Javaプログラムで使用するAPIの説明は，この冊子の末尾を参照してください。</a>）</p>
+	<p>〔プログラムの説明〕<br>
+	　複数の文字列の並びから条件に合う文字列を抽出するプログラムである。<br>
+	　例えば，文字列の並びから特定の文字列で始まるものを抽出することができる。表に文字列の並びから条件に合う文字列を抽出する例を示す。</p>
+	<p><img src="img/fig41.png" /></p>
+	<p>（1）プログラムは次のクラス及びインタフェースから構成される。</p>
+	<blockquote>
+		<p>①　クラス<code>Extraction&lt;E&gt;</code><br>
+		　条件に当てはまる型<code>E</code>の要素を抽出する。<br>
+		　コンストラクタの引数には，抽出元の要素の並びと抽出する条件を指定する。要素の並びは，<code>java.util.LinkedList</code>などの<code>java.lang.Iterable</code>を実装したクラスのインスタンスとして与える。<br>
+		　メソッド<code>iterator</code>は，抽出結果を取得するための反復子を返す。</p>
+		<p>②　インタフェース<code>Evaluator&lt;E&gt;</code><br>
+		　型<code>E</code>の要素の抽出条件を定義するインタフェースである。<br>
+		　メソッド<code>evaluate</code>は，引数で指定された要素が抽出条件を満たしていれば<code>true</code>を，満たしていなければ<code>false</code>を返す。</p>
+	</blockquote>
+	<p>（2）（1）のクラス及びインタフェースをテストするために次のクラスを用意した。</p>
+	<blockquote>
+		<p>①　クラス<code>StringStartsEvaluator</code><br>
+		　指定された文字列で始まる文字列を抽出する条件を実装する。<br>
+		　コンストラクタの引数には，抽出される文字列の先頭文字列を指定する。<br>
+		　メソッド<code>evaluate</code>は，引数で指定された文字列が，コンストラクタで指定された文字列で始まるならば<code>true</code>を，それ以外は<code>fa1se</code>を返す。</p>
+		<p>②　クラス<code>ExtractionTester</code><br>
+		　クラス<code>StringStartsEvaluator</code>を利用して，文字列の並びから<code>&quot;t&quot;</code>で始まる文字列を抽出し，表示する。</p>
+	</blockquote>
+	<p>　<code>ExtractionTester</code>の実行結果を図に示す。</p>
+	<p><img src="img/fig42.png" /></p>
+	<p><img src="img/fig43.png" /></p>
+	<p><strong><a name="121">設問1</a></strong>　プログラム1中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+	<p>aに関する解答群</p>
+	<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber7">
+		<tr>
+			<td>ア　<code>!=</code></td>
+			<td>イ　<code>&amp;&amp;</code></td>
+			<td>ウ　<code>==</code></td>
+			<td>エ　<code>||</code></td>
+		</tr>
+	</table>
+	<p>bに関する解答群</p>
+	<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber8">
+		<tr>
+			<td>ア　<code>!found</code></td>
+			<td>イ　<code>found</code></td>
+		</tr>
+		<tr>
+			<td>ウ　<code>element != null</code></td>
+			<td>エ　<code>element == null</code></td>
+		</tr>
+	</table>
+	<p>cに関する解答群</p>
+	<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber9">
+		<tr>
+			<td>ア　<code>false</code></td>
+			<td>イ　<code>hasNext()</code></td>
+		</tr>
+		<tr>
+			<td>ウ　<code>iterator.hasNext()</code></td>
+			<td>エ　<code>true</code></td>
+		</tr>
+	</table>
+	<p>dに関する解答群</p>
+	<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber10">
+		<tr>
+			<td>ア　<code>E</code></td>
+			<td>イ　<code>element</code></td>
+		</tr>
+		<tr>
+			<td>ウ　<code>iterator.next()</code></td>
+			<td>エ　<code>next()</code></td>
+		</tr>
+	</table>
+	<hr>
+	<p><a href="19F_P_A4.HTM#121">設問1の正解例と解説へ</a></p>
+	<hr>
+	<p><strong><a name="122">設問2</a></strong>　次のプログラム5に示す条件クラスを新たに作成した。この条件クラスで抽出される文字列として正しい答えを，解答群の中から<span style="text-decoration:underline">二つ</span>選べ。</p>
+	<p><img src="img/fig44.png" /></p>
+	<p>解答群</p>
+	<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber11">
+		<tr>
+			<td>ア　<code>&quot;one&quot;</code></td>
+			<td>イ　<code>&quot;two&quot;</code></td>
+			<td>ウ　<code>&quot;three&quot;</code></td>
+			<td>エ　<code>&quot;four&quot;</code></td>
+		</tr>
+		<tr>
+			<td>オ　<code>&quot;five&quot;</code></td>
+			<td>カ　<code>&quot;six&quot;</code></td>
+			<td>キ　<code>&quot;seven&quot;</code></td>
+			<td>ク　<code>&quot;eight&quot;</code></td>
+		</tr>
+	</table>
+	<hr>
+	<p><a href="19F_P_A4.HTM#122">設問2の正解例と解説へ</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a></p>
+	<hr>
+	<p><strong><a name="130">問13</a></strong> 
+	　次のアセンブラプログラムの説明及びプログラムを読んで，設問1～3に答えよ。</p>
+	<p>〔プログラムの説明〕<br>
+	　連続する16語を16×16ビットからなる2次元配列とみなし，この配列の中で，1であるビットが16個並んでいる行，列及び対角線の本数を数える副プログラム<code>BTEST</code>である。図の例では網掛けの部分が該当し，本数は4である。</p>
+	<p><img src="img/fig45.png" /></p>
+	<p>（1）語0のアドレスが<code>GR1</code>に設定されて，主プログラムから渡される。<br>
+	（2）本数を数えた結果は<code>GR0</code>に設定して，主プログラムに返す。<br>
+	（3）行番号21で呼び出される副プログラム<code>SETGR0</code>は，副プログラム<code>BTEST</code>から渡された<code>GR0</code>，<code>GR2</code>，<code>GR3</code>，<code>GR4</code>の内容を基に，列及び対角線の本数を加えた結果を<code>GR0</code>に設定する。<br>
+	（4）副プログラム<code>BTEST</code>から戻るとき，汎用レジスタ<code>GR1</code>～<code>GR7</code>の内容は元に戻す。</p>
+	<p><img src="img/fig46.png" /></p>
+	<p><strong><a name="131">設問1</a></strong>　プログラム1中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+	<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber12">
+		<tr>
+			<td>ア　<code>JMI&nbsp;&nbsp;&nbsp;&nbsp;LOOP1</code></td>
+			<td>イ　<code>JNZ&nbsp;&nbsp;&nbsp;&nbsp;CHECK</code></td>
+			<td>ウ　<code>JNZ&nbsp;&nbsp;&nbsp;&nbsp;NWORD</code></td>
+		</tr>
+		<tr>
+			<td>エ　<code>JPL&nbsp;&nbsp;&nbsp;&nbsp;LOOP1</code></td>
+			<td>オ　<code>JZE&nbsp;&nbsp;&nbsp;&nbsp;CHECK</code></td>
+			<td>カ　<code>JZE&nbsp;&nbsp;&nbsp;&nbsp;NWORD</code></td>
+		</tr>
+	</table>
+	<hr>
+	<p><a href="19F_P_A4.HTM#131">設問1の正解例と解説へ</a></p>
+	<hr>
+	<p><strong><a name="132">設問2</a></strong>　配列の内容が図のとおりであった場合，行番号21の<code>CALL</code>命令実行直前における，次の表に示すレジスタの内容として正しい答えを，解答群の中から選べ。</p>
+	<p><img src="img/fig47.png" /></p>
+	<p>cに関する解答群</p>
+	<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber13">
+		<tr>
+			<td>ア　<code>#0000</code></td>
+			<td>イ　<code>#0001</code></td>
+			<td>ウ　<code>#0002</code></td>
+			<td>エ　<code>#0003</code></td>
+		</tr>
+	</table>
+	<p>d，eに関する解答群</p>
+	<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber14">
+		<tr>
+			<td>ア　<code>#0000</code></td>
+			<td>イ　<code>#0001</code></td>
+			<td>ウ　<code>#8000</code></td>
+			<td>エ　<code>#8001</code></td>
+		</tr>
+	</table>
+	<p>fに関する解答群</p>
+	<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber15">
+		<tr>
+			<td>ア　<code>#0208</code></td>
+			<td>イ　<code>#8208</code></td>
+			<td>ウ　<code>#82CB</code></td>
+			<td>エ　<code>#FFFF</code></td>
+		</tr>
+	</table>
+	<hr>
+	<p><a href="19F_P_A4.HTM#132">設問2の正解例と解説へ</a></p>
+	<hr>
+	<p><strong><a name="133">設問3</a></strong>　副プログラム<code>SETGR0</code>を次に示す。プログラム2中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+	<p><img src="img/fig48.png" /></p>
+	<p>gに関する解答群</p>
+	<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber16">
+		<tr>
+			<td>ア　<code>JMI&nbsp;&nbsp;&nbsp;&nbsp;LOOP2</code></td>
+			<td>イ　<code>JNZ&nbsp;&nbsp;&nbsp;&nbsp;LOOP2</code></td>
+		</tr>
+		<tr>
+			<td>ウ　<code>JPL&nbsp;&nbsp;&nbsp;&nbsp;LOOP2</code></td>
+			<td>エ　<code>JZE&nbsp;&nbsp;&nbsp;&nbsp;LOOP2</code></td>
+		</tr>
+	</table>
+	<p>hに関する解答群</p>
+	<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber17">
+		<tr>
+			<td>ア　<code>SLL&nbsp;&nbsp;&nbsp;&nbsp;GR2,14</code></td>
+			<td>イ　<code>SLL&nbsp;&nbsp;&nbsp;&nbsp;GR2,15</code></td>
+		</tr>
+		<tr>
+			<td>ウ　<code>SRL&nbsp;&nbsp;&nbsp;&nbsp;GR2,14</code></td>
+			<td>エ　<code>SRL&nbsp;&nbsp;&nbsp;&nbsp;GR2,15</code></td>
+		</tr>
+	</table>
+	<hr>
+	<p><a href="19F_P_A4.HTM#133">設問3の正解例と解説へ</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a></p>
+	<hr>
+	<p>　</p>
+</blockquote>
+
+</body>
+
+</html>

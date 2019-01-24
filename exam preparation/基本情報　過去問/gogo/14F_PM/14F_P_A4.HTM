@@ -1,0 +1,182 @@
+<HTML>
+<HEAD>
+<TITLE>平成14年度秋期試験　</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0">
+<blockquote>
+  <hr>
+  <H3 align="center">平成14年度秋期試験　正解例と解説(問10～問13)</H3>
+<hr>
+<BR>
+<b><a name="100">問10</a></b>
+<hr> 
+<p><b><a name="101">設問1</a>　</b></p> 
+＜解答＞　a　ウ　　　b　ウ　　　c　オ<br>
+<br>＜解説＞空欄a，bについて<br>
+dy×x－dx×y＋k＝0は，2点P3，P4を通る直線の方程式で点P3を通るので，点P3の座標（Vx[2]，Vy[2]）を代入するとkの値が求まる。代入するとdy× Vx[2]－dx×Vy[2]＋k＝0となるので，k＝dx×Vy[2]－dy× Vx[2]となり，直線の方程式はdy×x－dx×y＋dx×Vy[2]－dy× Vx[2]となる。<br>
+<br>
+空欄cについて<br>
+凸四角形となるためには，，2点P3，P4を通る直線と線分L12が交差してはならない。第1の判定では，2点P3，P4を通る直線の方程式dy×x－dx×y＋k＝0に点P1の座標（Vx[0]，Vy[0]）を代入した値dy×Vx[0]－dx×Vy[0]＋kの符号と点P2の座標（Vx[1]，Vy[1]）を代入した値dy×Vx[1]－dx×Vy[1]＋kの符号が反対になるかを判定している。つまり点P1と点P2がP3とP4を通る直線の反対側にあるかを判定している。<br>
+<br>
+<HR WIDTH=100%>    
+  <a HREF="14F_P_E4.HTM#101">問題へ</a>   
+<hr> 
+<p><b><a name="102">設問2</a>　</b></p> 
+＜解答＞　d　ウ　　　e　ア　　　f　エ　　　g　イ<br>
+<br>＜解説＞空欄dについて<br>
+第1の判定条件では，2点P3，P4を通る直線の方程式dy×x－dx×y＋k＝0に点P1の座標（Vx[0]，Vy[0]）を代入した値dy×Vx[0]－dx×Vy[0]＋kの符号と点P2の座標（Vx[1]，Vy[1]）を代入した値dy×Vx[1]－dx×Vy[1]＋kの符号が反対になる場合，if文の条件nside0 != nside1が成り立ち，関数DrawRect ( )は戻り値－1を返す。したがって第1の判定条件は，点P1と点P2がP3とP4を通る直線の反対側にある条件であり，解答群のウのような図形となる場合に該当する。<br>
+        <p><img border="0" src="image/FPA10-21.gif"></p>
+        <p>
+
+空欄e，fについて<br>
+第2の判定条件では，2点P4，P1を通る直線の方程式dy×x－dx×y＋k＝0に点P2の座標（Vx[1]，Vy[1]）を代入した値dy×Vx[1]－dx×Vy[1]＋kの符号と点P3の座標（Vx[2]，Vy[2]）を代入した値dy×Vx[2]－dx×Vy[2]＋kの符号が反対になる場合，if文の条件nside1 != nside2が成り立ち，関数DrawRect ( )は戻り値－1を返す。したがって第2の判定条件は，点P2と点P3がP4とP1を通る直線の反対側にある条件であり，解答群のアやエのような図形となる場合に該当する。ウのような図形は第1の判定条件で除外されるので，第2の判定条件に該当し，無効とされるのはアやエのような図形である。<br>
+        <p><img border="0" src="image/FPA10-22.gif"></p>
+        <p>
+
+空欄gについて<br>
+第3の判定条件では，2点P3，P1を通る直線の方程式dy×x－dx×y＋k＝0に点P2の座標（Vx[1]，Vy[1]）を代入した値dy×Vx[1]－dx×Vy[1]＋kの符号と点P4の座標（Vx[3]，Vy[3]）を代入した値dy×Vx[3]－dx×Vy[3]＋kの符号が同じになる場合，if文の条件nside1*nside2 !=－1が成り立ち，関数DrawRect ( )は戻り値－1を返す。したがって第1の判定条件は，点P2と点P4がP3とP1を通る直線の同じ側にある条件であり，解答群のア，イ，ウのような図形となる場合に該当する。ア，ウの図形は第1，第2の判定条件で除外されるので，第3の判定条件ではイのような図形を無効としている。<br>
+
+        <p><img border="0" src="image/FPA10-23.gif"></p>
+        <p><br>
+<br>
+
+<HR WIDTH=100%>    
+  <a HREF="14F_P_E4.HTM#102">問題へ</a>   
+<HR WIDTH=100%>   
+  　<BR>
+<A HREF="INDEX.HTM">メニューへ戻る</A>
+<HR WIDTH=100%>
+<BR>
+<b><a name="110">問11</a></b>
+<hr> 
+<p><b><a name="111">設問1</a>　</b></p> 
+＜解答＞　a　エ　　　b　オ　　　c　ウ　　　d　カ<br>
+<br>＜解説＞空欄a，b，cについて<br>
+プログラムではCOMPANY-FILEを読み，AT ENDでなければMOVE-RTNを実行している。MOVE-RTNでは先ず企業コードCOMP-CODEの6けたを出力編集用テーブルOUT-WRKに転送し，その7けた目OUT-S-WRK（7）に半角コンマを転送した後，編集文字位置P-CNTを7にセットしている。これに続く行42のPERFORM文で，社名テーブルCOMP-NAMEの50けた目から検索開始し，社名の空白でない最後尾の文字が出現する位置をL-CNTにセットしている。さらに行46のPERFORM文では，W-CNTを1から1ずつカウントアップするごとに，出力編集用テーブルOUT-WRKの編集文字位置P-CNTをカウントアップし，1文字ずつ社名テーブルCOMP-NAMEの文字をOUT-S-WRKに転送している。したがってCOMP-NAME（W-CNT）の1文字をOUT-S-WRK（P-CNT）にW-CNT＞L-CNTになるまで転送を繰返せばよい。これより空欄aの終了条件はW-CNT＞L-CNT，空欄bはW-CNT，空欄cはP-CNTになる。<br>
+        <p><img border="0" src="image/FPA11-1.GIF"></p>
+        <p><br>
+空欄dについて<br>
+この後，行50のPERFORM文でNUM-RTNを実行している。行58のPERFORM文では，COMP-SUM（1）～COMP-SUM（3）に格納された売上高，営業利益，経常利益の8けたの数字項目をテーブルNUMX-WRKに転送し，始めて0でない数字が出現する位置をW-CNTにセットしている。これに続く行62のPERFORM文では，テーブルNUMX-WRK（M-CNT）の文字をOUT-S-WORK（P-CNT）に1文字ずつ転送しているが，空欄dはこの繰返処理の終了条件になっている。始めて0でない数字が出現する位置W-CNTからM-CNT＞8となるまで繰返せばよいので，空欄dはW-CNT　BY　1　UNTIL　M-CNT ＞ 8とすればよい。なお8けたの数字がすべて0である場合はW-CNT=8にセットされるので，NUMX-WRK(8)="0"がOUT-S-WORK(P-CNT)に転送される。これにより"00000000"が"0"にゼロ抑制される。<br>
+        <p><img border="0" src="image/FPA11-2.GIF"></p>
+        <p><br>
+<br>
+<HR WIDTH=100%>    
+  <a HREF="14F_P_E4.HTM#111">問題へ</a>   
+<hr> 
+<p><b><a name="112">設問2</a>　</b></p> 
+＜解答＞　e　エ　　　f　キ<br>
+<br>＜解説＞<br>
+行57でCOMP-SUM（V-CNT）の金額をNUM9-WRKに転送する前に，COMP-SUM（V-CNT）＜ 0であれば，P-CNTをカウントアップし，負符号“－”をOUT-S-WRK（P-CNT）に転送する必要がある。したがって空欄eは56，空欄fはCOMP-SUM（V-CNT）＜ 0となる。<br>
+<br>
+<HR WIDTH=100%>    
+  <a HREF="14F_P_E4.HTM#112">問題へ</a>   
+<HR WIDTH=100%>   
+  　<BR>
+<A HREF="INDEX.HTM">メニューへ戻る</A>
+<HR WIDTH=100%>
+<BR>
+<b><a name="120">問12</a></b>
+<hr> 
+<p><b><a name="121">設問</a>　</b></p> 
+＜解答＞　a　イ　　　b　イ　　c　エ　　d　ク　　e　エ　　f　エ<br>
+<br>＜解説＞<br>
+空欄aについて<br>
+プログラム1では，startDocument ( )，startRecord ( )，value ( )，endRecord ( )，endDocument ( )の5つのメソッドを呼び出しているが，value ( )メソッドに関する宣言がない。したがって空欄aでvalue ( )メソッドの宣言が必要になる。value ( )メソッドは，String型の引数charsとint型の引数nを引数とするので，空欄aは，value ( String chars , int n ) { }になる。<br>
+このプログラム1のクラスCSVparserで宣言されている5つのメソッドは，プログラム2においてCSVparserを継承したサブクラスTaggedDataGeneratorの中で定義されている。<br>
+<img border="0" src="image/01_maru.GIF">　startDocument ( )<br>
+要素addressbookの開始タグ<addressbook>を出力する<br>
+<img border="0" src="image/02_maru.GIF">　startRecord ( )<br>
+　要素personの開始タグとレコードIDを出力する<br>
+<img border="0" src="image/03_maru.GIF">　value ( )<br>
+　String型でフィールドの値とint型でフィールド番号を引数とし，フィールド番号で指定したフィールドの値（氏名，メールアドレス，電話番号）をタグ付形式で出力する。<br>
+<img border="0" src="image/04_maru.GIF">　endRecord ( )<br>
+　要素personの終了タグ</person>を出力する<br>
+<img border="0" src="image/05_maru.GIF">　endDocument ( )<br>
+　要素addressbookの終了タグ</addressbook>を出力する<br>
+<br>
+空欄bについて<br>
+空欄bはboolean型の変数の宣言で，空欄bを含むparse ( )メッソドの中でboolean型の変数endOfRecordが使われているので，endOfRecordの宣言と初期値設定が必要になる。Switch ( ch )文でchが ’＼n’のとき，つまり入力ストリームreaderから読み込んだ文字に改行コードが出現したときに，endOfRecord=falseであればendOfRecordにtrueをセットしている。したがってfalseを初期値として空欄bでendOfRecord=falseとすればよい。<br>
+<br>
+空欄cについて<br>
+空欄cはSwitch ( ch )文でchが ’,’ のときの処理，つまり入力ストリームreaderから読み込んだ文字にコンマ区切りが出現した場合の処理に該当する。このときStringBuffer型オブジェクトbufにレコード中のフィールドを1項目読み込んだ状態なので，空欄cでvalue ( )メッソドにより，取得したbufの文字列をタグ付形式で出力すればよい。value ( )メソッドは，String型でフィールドの値とint型でフィールド番号を引数とし，フィールド番号で指定したフィールドの値をタグ付形式で出力する。toString ( )メソッドはStringBuffer型オブジェクトのメッソドで，そのすべての文字列を取得する。フィールド番号fealdNumberの初期値が0であるので，フィールドの値を取得する前にカウントアップし取得したフィールドの値をタグ付形式で出力する必要がある。したがって空欄cはvalue ( buf.toString ( ), ++fealdNumber )。<br>
+<br>
+空欄dについて<br>
+空欄dはSwitch ( ch )文でchが ’＼n’のとき，つまり入力ストリームreaderから読み込んだ文字に改行コードが出現した場合の処理に該当する。この場合，先ずendOfRecord=falseであればendOfRecordにtrueをセットし，空欄cで空欄cでvalue ( )メッソドにより，bufのすべての文字列を取得した後，buf.delete ( 0, buf.length ( ) )により文字列バッファbufの先頭からbuf.length ( )文字目までを削除し，fealdNumberを0に初期設定している。改行コードが出現しているので要素personの終了タグの出力が必要であり，この後の空欄dでメソッドendRecord ( )を呼び出し，要素personの終了タグを出力すればよい。したがって空欄dはendRecord ( recordNumber )。<br>
+<br>
+空欄eについて<br>
+レコードの終端に達して要素personの終了タグを出力した後endOfRecord=trueにセットされる。空欄eは，入力ストリームから読み込んだ文字が コンマ区切り’,’，改行コード’＼n’以外であり，endOfRecord=trueとなっている場合の処理である。つまりレコードの終端に達して要素personの終了タグを出力した後，入力ストリームからコンマ区切り’,’，改行コード’＼n’以外の文字を読み込んだ場合に該当する。したがって空欄eでrecordNumberをカウントアップし，要素personの開始タグとレコードIDをメソッドstartRecord (++recordNumber)により出力する。この後endOfRecord=falseにセットし，空欄fの処理に入る。<br>
+<br>
+空欄fについて<br>
+空欄fは，入力ストリームから読み込んだ文字が コンマ区切り’,’，改行コード’＼n’以外で，endOfRecord=falseとなっていてレコードの終端ではない場合の処理に該当する。この場合は，読み込んだchar型の１文字を文字列バッファbufの末尾にappend ()メソッドにより追加すればよい。したがって空欄ｆはbuf.append (ch)になる（append( )メソッドは，char型，int型，String型などの基本データ型をstring型に変換し，StringBuffer型のオブジェクトの末尾に追加するメソッド）。<br>
+        <p><img border="0" src="image/FPA12.GIF"></p>
+        <p><br>
+
+
+
+
+
+<HR WIDTH=100%>    
+  <a HREF="14F_P_E4.HTM#121">問題へ</a>   
+<HR WIDTH=100%>   
+  　<BR>
+<A HREF="INDEX.HTM">メニューへ戻る</A>
+<HR WIDTH=100%>
+
+<a NAME="130">　<BR>  
+<b>  
+問13</b></a>　　　（解説は省略します。）
+<hr> 
+<a NAME="131">　<BR> 
+<b> 
+設問</b></a><b><a NAME="131">1</a>　</b>
+  <p>＜解答＞　オ<br>
+  &nbsp;</p>
+<HR WIDTH=100%> 
+  <a HREF="14F_P_E4.HTM#131">問題へ</a> 
+<HR WIDTH=100%> 
+  <b>　</b> 
+<a NAME="132"> 
+<b> 
+<br>
+設問</b></a><b>2　</b>
+  <p>＜解答＞　エ</p>
+<HR WIDTH=100%>
+  <a HREF="14F_P_E4.HTM#132">問題へ</a>
+<HR WIDTH=100%>
+<a NAME="133">　<BR> 
+<b> 
+設問</b></a><b><a NAME="133">3</a>　</b>
+  <p>＜解答＞　a　イ　　　b　オ<br>
+  &nbsp;</p>
+<HR WIDTH=100%> 
+  <a HREF="14F_P_E4.HTM#133">問題へ</a> 
+<HR WIDTH=100%> 
+  <b>　</b> 
+<a NAME="134">　<BR> 
+<b> 
+設問</b></a><b><a NAME="134">4</a>　</b>
+  <p>＜解答＞　エ<br>
+  &nbsp;</p>
+<HR WIDTH=100%> 
+  <a HREF="14F_P_E4.HTM#134">問題へ</a> 
+<HR WIDTH=100%> 
+<a NAME="135">　<BR> 
+<b> 
+設問</b></a><b><a NAME="135">5</a>　</b>
+  <p>＜解答＞　エ<br>
+  &nbsp;</p>
+<HR WIDTH=100%> 
+  <a HREF="14F_P_E4.HTM#135">問題へ</a> 
+<HR WIDTH=100%> 
+  <b>　</b> 
+
+
+
+<p><a HREF="INDEX.HTM">メニューへ戻る</a>　</p>
+<HR WIDTH=100%>
+  　<BR>
+<BR>
+  <p>　</p>
+</blockquote>
+</BODY>
+</HTML>

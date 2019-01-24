@@ -1,0 +1,184 @@
+<html>
+
+<head>
+<title>平成18年度 秋期　基本情報技術者 午後 解説</title>
+<style type="text/css">
+body{line-height:150%;}
+code{font-size:12pt;}
+</style>
+</head>
+
+<body>
+
+<blockquote>
+<hr>
+<h3 align="center">平成18年度秋期試験　問題(問6～問9)</h3>
+<div align="center">
+<table borderColor="#000000" cellSpacing="0" cellPadding="4" border="1">
+<tr>
+<td>　次の<strong>問6</strong>から<strong>問9</strong>までの4問については、この中から1問を選択し、答案用紙の選択欄の（選）をマークして解答してください。<br>
+　なお、2問以上選択した場合には、はじめの1問について採点します。</td>
+</tr>
+</table>
+</div>
+<hr>
+<p><strong><a name="60">問6</a></strong></p>
+<hr>
+<p><strong><a name="61">設問</a></strong></p>
+<p>〈解答〉　a　ウ　　　b　ア　　　c　ウ　　　d　エ　　　e　エ</p>
+<p>〈解説〉</p>
+<blockquote>
+<p>空欄aについて</p>
+<blockquote>
+<p>
+推測数は，4けたがすべて異なる数字を入力する必要がある。空欄aの繰返条件が成り立つ間は，“入力が正しくありません。再度入力してください”のメッセージが出力されているので，空欄aの繰返条件は4けたともすべてが異なる数字ではないという条件になる。したがってウの<code>inValidNumber(num)
+== FALSE</code>が適切。</p>
+</blockquote>
+<p>空欄bについて</p>
+<blockquote>
+<p>空欄bは推測数<code>num</code>の入力を繰返す条件で，目標数<code>target</code>と推測数<code>num</code>が完全に一致しない間は繰返し入力する。したがって空欄bはアの<code>isMatch(target，num)</code>が適切。</p>
+</blockquote>
+<p>空欄cについて</p>
+<blockquote>
+<p>空欄cの条件が成り立つ場合に，空欄dの条件が成り立つか否かによりHit数もしくはBlow数をカウントアップしている。推測数の数字<code>num[j]</code>の中に目標数<code>target[i]</code>に一致するものがあれば，このカウントアップを行うので空欄cはウの<code>target[i]
+== num[j]</code>が適切。</p>
+</blockquote>
+<p>空欄dについて</p>
+<blockquote>
+<p>推測数の数字<code>num[j]</code>の中に目標数<code>target[i]</code>に一致するものがあれば，けたが一致していればHit数をカウントアップし，一致していなければBlow数をカウントアップする。空欄dはHit数<code>numHit</code>をカウントアップする条件になっているので，空欄dはけたが一致する条件<code>i
+== j</code>に該当し，エが適切。</p>
+</blockquote>
+<p>空欄eについて</p>
+<blockquote>
+<p>推測数の4けたとも完全に目標数に一致すれば正解なので，空欄eはHit数<code>numHit</code>けた数<code>DIGITS</code>に一致するという条件になり，エの<code>numHit
+== DIGITS</code>が適切。</p>
+</blockquote>
+</blockquote>
+<hr>
+<p><a href="18F_P_E3.HTM#61">問題へ</a></p>
+<hr>
+<p><a href="INDEX.HTM">■メニューへ戻る</a></p>
+<hr>
+<p><strong><a name="70">問7</a></strong></p>
+<hr>
+<p><strong><a name="71">設問1</a></strong></p>
+<p>〈解答〉　a　イ　　　b　イ　　　c　エ　　　d　カ</p>
+<p>〈解説〉</p>
+<blockquote>
+<p>空欄aについて</p>
+<blockquote>
+<p>空欄aを含む<code>PERFORM</code>命令のループ処理で，追加指示のあった氏名について重複番号を1から1ずつ順に増やしながら，氏名キーをもとに電話帳ファイルを読んでいる。このときその重複番号をもつ同じ氏名キーの人が登録されていなければ，その氏名キーのレコードに対して電話番号をセットして電話帳ファイルに書き込めばよい。したがって<code>READ</code>命令により電話帳ファイルを読んで<code>INVALID</code>になったときに書き込みを行えばよく，空欄aはイの<code>INVALID</code>が適切。</p>
+</blockquote>
+<p>空欄b，cについて</p>
+<blockquote>
+<p>空欄b，cを含む<code>PERFORM</code>命令のループ処理で，削除指示のあった氏名について重複番号を1から1ずつ順に増やしながら，氏名キーをもとに電話帳ファイルを読んでいる。このときその重複番号をもつ同じ氏名キーの人が登録されていなければ，削除が不可であり“<code>READ
+ERROR</code>”のメッセージを表示すればよく，空欄bはイの<code>INVALID</code>が適切。</p>
+<p>重複番号をもつ同じ氏名キーの人が登録されていれば，電話番号が一致する場合は削除を行う。したがって<code>READ</code>命令により電話帳ファイルを読んで<code>NOT　INVALID</code>になったときに電話番号が一致するかを判定すればよく，空欄c直後でこの判定を行っているので，空欄cはエの<samp>NOT
+INVALID</samp>が適切。</p>
+</blockquote>
+<p>空欄dについて</p>
+<blockquote>
+<p>
+削除処理では，電話帳ファイルから氏名と電話番号が一致するレコードを削除した後，同じ氏名の人がほかに登録されている場合は，それ以降の人の重複番号を1ずつ繰り上げる処理が必要である。空欄dを終了条件とする<code>PERFORM</code>命令で重複番号の繰り上げ処理を行っている。重複番号<code>W-BANGO</code>が9を超えれば，このループを終了すればよく，空欄dはカの<code>UNTIL　W-BANGO＞9</code>が適切。</p>
+</blockquote>
+</blockquote>
+<hr>
+<p><a href="18F_P_E3.HTM#71">問題へ</a></p>
+<hr>
+<p><strong><a name="72">設問2</a></strong></p>
+<p>〈解答〉　e　エ</p>
+<p>〈解説〉</p>
+<blockquote>
+<p>空欄eについて</p>
+<blockquote>
+<p>氏名キーをもとに電話帳ファイルを読み，<code>NOT INVALID</code>となった場合，つまり同じ氏名の人がほかに登録されている場合に空欄eの処理を行っているので，空欄eの処理でそれ以降の人の重複番号を1ずつ繰り上げる処理を行えばよい。重複番号は氏名キーの一部を構成しており，①→④の手順で重複番号を繰り上げると氏名キーが変わるため<code>REWRITE</code>命令により更新ができない。したがって③により重複番号を繰り上げる同じ氏名の人のレコードを削除した後，①により重複番号を繰り上げて，⑤により<code>WRITE</code>命令で書き込めばよく，エが適切。</p>
+</blockquote>
+</blockquote>
+<hr>
+<p><a href="18F_P_E3.HTM#72">問題へ</a></p>
+<hr>
+<p><a href="INDEX.HTM">■メニューへ戻る</a></p>
+<hr>
+<p><strong><a name="80">問8</a></strong></p>
+<hr>
+<p><strong><a name="81">設問</a></strong></p>
+<p>〈解答〉　a　ア　　　b　ウ　　　c　エ　　　d　イ</p>
+<p>〈解説〉</p>
+<blockquote>
+<p>空欄aについて</p>
+<blockquote>
+<p>メソッド<code>put</code>は，<code>key</code>又は<code>value</code>が<code>null</code>ならば，<code>NullPointerException</code>例外を投げる。空欄aはその条件になっているので，アの<code>key
+== null || value == null</code>が適切。</p>
+</blockquote>
+<p>空欄bについて</p>
+<blockquote>
+<p>メソッド<code>put</code>は，キー（<code>key</code>）と値（<code>value</code>）を1対1に対応付けて登録するメソッドである。<code>key</code>が既にほかの値と対応付けられていれば，その値を<code>value</code>で置き換え，置き換えられる前の値を返す。空欄bを含む処理の前後3行がこの処理に対応する。空欄b直前の<code>remove</code>メソッドにより<code>reverse</code>オブジェクトからキーに対応する値を削除し，空欄b直後の<code>return</code>文により置き換えられる前の値を返している。したがって空欄bを含む<code>put</code>メソッドにより<code>value</code>と<code>key</code>との対応を<code>reverse</code>オブジェクトに登録すればよく，空欄bはウの<code>value，key</code>が適切。</p>
+</blockquote>
+<p>空欄cについて</p>
+<blockquote>
+<p>①<code>value</code>がほかのキーと対応付けられていれば，<code>rermove</code>メソッドにより<code>reverse</code>オブジェクトから<code>value</code>と対応付けられていた<code>key</code>との対応付けを削除する。②<code>remove</code>メソッドの戻り値として，対応付けられていた<code>key</code>が返されるので，<code>remove</code>メソッドにより<code>map</code>オブジェクトからこの<code>key</code>に対応する<code>value</code>との対応付けを削除すればよい。したがって空欄cは①に該当する部分であり，エの<code>reverse．remove(value)</code>が適切。</p>
+</blockquote>
+<p>空欄dについて</p>
+<blockquote>
+<p>その他の仕様はメソッド<code>put</code>と同じなので，対応付けを削除した後，メソッド<code>put(key，value)</code>により<code>key</code>と<code>value</code>との対応を登録すればよく，イが適切。</p>
+</blockquote>
+</blockquote>
+<hr>
+<p><a href="18F_P_E3.HTM#81">問題へ</a></p>
+<hr>
+<p><a href="INDEX.HTM">■メニューへ戻る</a></p>
+<hr>
+<p><strong><a name="90">問9</a></strong></p>
+<hr>
+<p><strong><a name="91">設問1</a></strong></p>
+<p>〈解答〉　a　ウ　　　b　イ　　　c　オ　</p>
+<p>〈解説〉</p>
+<blockquote>
+<p>空欄aについて</p>
+<blockquote>
+<p>3行目の<code>LD</code>命令によりC1の転送元ビット列を<code>GR0</code>に格納した後，空欄a直前の<code>SUBL</code>命令により<code>GR5</code>に16－mを格納し，空欄a直後の<code>SLL</code>命令により<code>GR0</code>のビット列を(16－m)ビット左論理シフトしている。したがって転送先レジスタ<code>GR0</code>の左側mビット以外を0にするには，論理右シフト<code>SRL</code>により左側mビットのビット列を一旦右端に詰めて，左側mビット以外をオーバーフローにより削除した後，空欄a直後の<code>SLL</code>命令により(16－m)ビット左論理シフトして，元の左端に戻す必要がある。これより空欄aで論理右シフト<code>SRL</code>により<code>GR0</code>のビット列を(16－m)ビット右シフトし一旦右端に詰めればよく，ウの<code>SRL
+GR0,0,GR5</code>が適切。</p>
+</blockquote>
+<p>空欄bについて</p>
+<blockquote>
+<p>8行目の<code>LD</code>命令によりC2の転送元ビット列を<code>GR6</code>に格納した後，10行目の<code>SUBL</code>命令により<code>GR7</code>に16－nを格納し，次の11行目の論理右シフト<code>SRL</code>により<code>GR6</code>のビット列を(16－n)ビット右シフトし一旦右端に詰めて，左側nビット以外をオーバーフローにより削除している。さらに空欄b直前の<code>SUBL</code>命令により<code>GR5</code>に(16－m－n)を格納した後，空欄b直後の<code>OR</code>命令により<code>GR0</code>と<code>GR6</code>との論理和演算を行っている。したがって<code>GR6</code>のnビットのビット列部分を左からmビットの位置にシフトするため，空欄bで<code>GR6</code>のビット列を論理左シフト<code>SLL</code>命令により(16－m－n)ビット左シフトすればよい。これより空欄bはイの<code>SLL
+GR6,0,GR5</code>が適切。</p>
+<p><img src="img/pm-18f-an-1.png"></p>
+</blockquote>
+<p>空欄cについて</p>
+<blockquote>
+<p>3行目の<code>LD</code>命令により転送元の<code>GR0</code>のビット列が<code>GR5</code>に格納されている。空欄c直前の<code>SUBL</code>命令により<code>GR6</code>に(16－ｍ－n)を格納し，空欄c直後の3行の命令により<code>GR5</code>のビット列を(16－n)ビット左にシフトして，<code>GR5</code>のnビットのビット列部分を左端に詰めている。したがって<code>GR5</code>の左側(m＋n)ビット以外を0にするため，論理右シフト<code>SRL</code>により左側(m＋n)ビットのビット列を一旦右端に詰めて，左側(m＋n)ビット以外をオーバーフローにより削除すればよい。これより空欄cはオの<code>SRL
+GR5,0,GR6</code>が適切。</p>
+<p><img src="img/pm-18f-an-2.png"></p>
+</blockquote>
+</blockquote>
+<hr>
+<p><a href="18F_P_E3.HTM#91">問題へ</a></p>
+<hr>
+<p><strong><a name="92">設問2</a></strong></p>
+<p>〈解答〉　d　ウ　　　e　カ　</p>
+<p>〈解説〉</p>
+<blockquote>
+<p>空欄dについて</p>
+<blockquote>
+<p>空欄d直後の<code>OR</code>命令により，<code>GR0</code>に<code>GR7</code>との論理和演算が行われている。<code>GR0</code>には転送元の左側mビット部分以外を0としたビット列が格納されているので，<code>GR7</code>には<code>GR0</code>の元のビット列の右側(16－m)ビット部分以外を0としたビット列が格納されている必要がある。空欄d直前の<code>SRL</code>命令により<code>GR7</code>には左側mビットを0とするマスクビットがセットされているので，空欄dでD1の転送先アドレス<code>GR1</code>の元のビット列と<code>GR7</code>との論理積をとり<code>GR7</code>に格納すればよい。したがって空欄dはウの<code>AND
+GR7,0,GR1</code>が適切。</p>
+<p><img src="img/pm-18f-an-3.png"></p>
+</blockquote>
+<p>空欄eについて</p>
+<blockquote>
+<p><code>GR7</code>には左側nビットを0とするマスクビットが格納されており，空欄e直前の<code>AND</code>命令により転送先アドレス<code>GR3</code>の元のビット列と<code>GR7</code>との論理積の結果，<code>GR7</code>に転送先の元のビット列の右側(16－n)ビット部分以外を0としたビット列が格納される。<code>GR5</code>には左端nビットのビット列部分以外を0とした転送元ビット列が格納されているが，空欄e直後の<code>ST</code>命令により<code>GR5</code>の内容を転送先アドレス<code>GR3</code>に格納しているので，<code>GR5</code>に<code>GR5</code>と<code>GR7</code>との論理和が格納されている必要がある。したがって空欄eはカの<code>OR
+GR5,GR3</code>が適切。</p>
+<p><img src="img/pm-18f-an-4.png"></p>
+</blockquote>
+</blockquote>
+<hr>
+<p><a href="18F_P_E3.HTM#92">問題へ</a></p>
+<hr>
+<p><a href="INDEX.HTM">■メニューへ戻る</a></p>
+<hr>
+</blockquote>
+
+</body>
+
+</html>

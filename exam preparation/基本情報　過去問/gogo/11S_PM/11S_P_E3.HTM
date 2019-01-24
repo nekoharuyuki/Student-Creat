@@ -1,0 +1,904 @@
+<HTML>
+<HEAD>
+<TITLE>平成11年度春期試験　問題</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0">
+<blockquote>
+  <hr>
+  <H3 align="center">平成11年度春期試験　問題(問7～問10)</H3>
+<hr>
+<P>
+次の問７から問10までの4問については、この中から1問を選択し、答案用紙の選択欄の      
+選 をマークして解答してください。<br>     
+　なお、2問以上選択した場合には、はじめの1問について採点します。<br>
+<HR WIDTH=100%>
+<a NAME="70">　<BR>
+<b>
+問7</b></a><b>　</b><br>
+〔プログラムの説明〕<br>
+階層構造をもつファイルシステムにおいて、指定されたファイル又はディレクトリについての情報の一覧を表示する関数     
+flistがある。    
+<table border="0" cellpadding="3" cellspacing="0">    
+  <tr>    
+    <td valign="top">(1)</td>    
+    <td>ファイルシステムの構造は、次のとおりである。    
+      <table border="0" cellpadding="3" cellspacing="0">    
+        <tr>    
+          <td valign="top">①</td>    
+          <td>図 1のようなディレクトリとファイルからなる階層をもつ。階層の深さは最大     
+            32層である。    
+            <p><img border="0" src="image/A99s07f.gif" width="329" height="165"><br> 
+            　　　　　　　図１　階層構造の例<br>
+            　</p>  
+          </td> 
+        </tr> 
+        <tr> 
+          <td valign="top">②</td> 
+          <td>ファイルシステム内では、ディレクトリごとに、そのディレクトリの子のファイルと子のディレクトリをまとめて一つのファイルテーブルで管理する。ファイルテーブルの要素をファイルエントリと呼ぶ。ファイルエントリの内容を表に、ファイルテーブルの例を図２に示す。 
+            <table border="0" cellpadding="3" cellspacing="0"> 
+              <tr> 
+                <td>表　　　ファイルエントリの内容</td> 
+              </tr> 
+            </table> 
+            <table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolor="#FFFFFF" bordercolordark="#FFFFFF"> 
+              <tr> 
+                <td>要素</td> 
+                <td>内容</td> 
+              </tr> 
+              <tr> 
+                <td>タイプ</td> 
+                <td>“F”：ファイル　“D”：ディレクトリ<br>
+                  “X”：未使用　“E”：テーブル中の最後のエントリ</td>
+              </tr>
+              <tr>
+                <td>名前</td>
+                <td>ファイル名又はディレクトリ名<br>
+                  （同一階層内で一意な12文字以内の英数字列）</td>
+              </tr>
+              <tr>
+                <td>サイズ</td>
+                <td>タイプ＝“F”のとき、ファイルの大きさ(単位：バイト)<br>
+                  タイプ＝“D”のとき、値0</td>
+              </tr>
+              <tr>
+                <td>リンク</td>
+                <td>タイプ＝“F”のとき、ファイルへのポインタ<br>
+                  タイプ＝“D”のとき、子のディレクトリのファイルテーブルへのポインタ</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top"></td>
+          <td>
+            <p><img border="0" src="image/A99s07f3.gif" width="487" height="231"> 
+            <p>図２　ファイルテーブルの例（図１を表したもの）</td>
+        </tr>
+        <tr>
+          <td valign="top">③</td>
+          <td>パス名とは、ルートディレクトリから始まり、特定のファイルやディレクトリにたどり着くための一意な経路を示す名前である。各階層は“/”で区切る。例えば、図１の    
+            file4のパス名は“/sub1/file4”、sub2のパス名は“/sub2”である。<br>   
+          </td>   
+        </tr>   
+      </table>   
+    </td>   
+  </tr>   
+  <tr>   
+    <td valign="top">(2)</td>   
+    <td>関数 flistの引数は、ルートディレクトリのファイルテーブルへのポインタrootと、パス名を格納した文字列へのポインタ    
+      path_nameである。path_nameの内容は、パス名の書式としては正しいものとする。すなわち、“/”で始まり、ファイル又はディレクトリ名は    
+      12文字以内の英数字列となっている。</td>   
+  </tr>   
+  <tr>   
+    <td valign="top">(3)</td>   
+    <td>path_nameの内容に応じて、次のいずれかの処理を行う。   
+      <table border="0" cellpadding="3" cellspacing="0">   
+        <tr>   
+          <td>①</td>   
+          <td>ファイルの場合は、ファイル名とファイルの大きさを表示する。</td>   
+        </tr>   
+        <tr>   
+          <td>②</td>   
+          <td>ディレクトリの場合は子の情報を表示する。子がファイルのときはファイル名とファイルの大きさ、子がディレクトリのときはディレクトリ名と文字列“Directory”を表示する。子がないときは何も表示しない。</td>   
+        </tr>   
+        <tr>   
+          <td>③</td>   
+          <td>パス名に対応する経路が存在しない場合は、エラーメッセージを表示する。</td>   
+        </tr>   
+      </table>   
+    </td>   
+  </tr>   
+</table>   
+<p>　例：図１の構造を用いた例 
+            <table border="0" cellpadding="3" cellspacing="0"> 
+              <tr> 
+                <td>パス名が“/sub1/file4”の場合　　</td>
+                <td>パス名が“/”の場合</td>
+              </tr>
+              <tr>
+                <td>
+                  <table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolor="#FFFFFF" bordercolordark="#FFFFFF">
+                    <tr>
+                      <td>file　　423　bytes
+                        <p>　</p>
+                        <p>　</td>
+                    </tr>
+                  </table>
+                </td>
+                <td>
+                  <table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolor="#FFFFFF" bordercolordark="#FFFFFF">
+                    <tr>
+                      <td>file　　123bytes<br>
+                        sub1&nbsp; Directory<br>  
+                        file2&nbsp;&nbsp; 45bytes<br>  
+                        sub2&nbsp; Directory<br>  
+                      </td>  
+                    </tr>  
+                  </table>  
+                </td>  
+              </tr>  
+            </table>  
+<p>〔プログラム〕<br> 
+#include &lt;stdio.h&gt;<br>   
+#include &lt;string.h&gt;<br>   
+　<br>
+#define F_FILE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2<br>   
+#define F_DIRECTORY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1<br>   
+#define F_UNMATCH&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0<br>   
+　<br>
+struct fentry {<br>   
+&nbsp;&nbsp;&nbsp; char type;<br>   
+&nbsp;&nbsp;&nbsp; char name[13];<br>   
+&nbsp;&nbsp;&nbsp; long size;<br>   
+&nbsp;&nbsp;&nbsp; struct fentry *next;&nbsp;<br>   
+};<br>   
+　<br>
+void flist(struct fentry *root, char *path_name)<br>   
+{<br>   
+&nbsp;&nbsp;&nbsp; struct fentry *fptr;<br>   
+&nbsp;&nbsp;&nbsp; char path[512], *name_tbl[32], *cptr;<br>   
+&nbsp;&nbsp;&nbsp; int&nbsp; idx, max, flag;<br>   
+　<br>
+&nbsp;&nbsp;&nbsp; strcpy(path, path_name);<br>   
+　<br>
+&nbsp;&nbsp;&nbsp; if (strcmp(path, &quot;/&quot;) == 0) {<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; flag = F_DIRECTORY;<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fptr = root;<br>   
+&nbsp;&nbsp;&nbsp; }<br>   
+&nbsp;&nbsp;&nbsp; else {<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    
+/* パス名の分解 */<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; idx = 0;<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cptr = path;<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; while (*cptr != '＼0') {<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (*cptr ==    
+'/') {<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    
+*cptr = '＼0';<br>   
+　　　　　　　　<b>[　　　a　　　]</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    
+idx++;<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cptr++;<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; max = idx - 1;<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    
+/* パス名の検索 */<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fptr = root;<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for (idx = 0; idx &lt;= max; idx++) {<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; flag =    
+F_UNMATCH;<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; while    
+(fptr-&gt;type != 'E') {<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    
+if (　<b>[　　　b　　　]</b>　&amp;&amp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    
+strcmp(fptr-&gt;name, name_tbl[idx]) == 0) {<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    
+if (fptr-&gt;type == 'D') {&nbsp; /* ディレクトリ */<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    
+flag = F_DIRECTORY;<br>   
+　　　　　　　　　　　<b> [　　　c　　　]</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    
+break;<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    
+} else if (idx == max) {&nbsp;&nbsp;&nbsp; /* ファイル */<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    
+flag = F_FILE;<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    
+break;<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    
+} else<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    
+break;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /*    
+パス名の途中がファイルだった */<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    
+}<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    
+fptr++;<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    
+}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (flag ==    
+F_UNMATCH)<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    
+break;<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>   
+&nbsp;&nbsp;&nbsp; }<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    
+/* ファイル・ディレクトリの表示 */<br>   
+&nbsp;&nbsp;&nbsp; switch (flag) {<br>   
+&nbsp;&nbsp;&nbsp; case F_DIRECTORY:<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; while (<b> [　　　d　　　]</b>    
+) {<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if    
+(fptr-&gt;type == 'D')<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    
+printf(&quot;%s ＼tDirectory＼n&quot;, fptr-&gt;name);<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else if    
+(fptr-&gt;type == 'F')<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    
+printf(&quot;%s ＼t%ld bytes＼n&quot;, fptr-&gt;name, fptr-&gt;size);<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fptr++;<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; break;<br>   
+&nbsp;&nbsp;&nbsp; case F_FILE:<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; printf(&quot;%s ＼t%ld bytes＼n&quot;,    
+fptr-&gt;name, fptr-&gt;size);<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; break;<br>   
+&nbsp;&nbsp;&nbsp; default:<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; printf(&quot;File or directory not    
+found !!＼n&quot;);<br>   
+&nbsp;&nbsp;&nbsp; }<br>   
+}<br>   
+<hr>   
+<a NAME="71">　<BR>
+<b>
+設問</b></a><b>　</b>
+<p>プログラム中の<b>[　　　　　]</b>に入れる正しい答えを、解答群の中から選べ。
+<p>aに関する解答群</p>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">ア</td>
+    <td>name_tbl[idx] = cptr;</td>   
+  </tr>   
+  <tr>   
+    <td valign="top">イ</td>   
+    <td>name_tbl[idx] = cptr + 1;</td>   
+  </tr>   
+  <tr>   
+    <td valign="top">ウ</td>   
+    <td>name_tbl[idx] = *cptr;</td>   
+  </tr>   
+  <tr>   
+    <td valign="top">エ</td>   
+    <td>name_tbl[idx] = path + cptr;</td>   
+  </tr>   
+  <tr>   
+    <td valign="top">オ</td>   
+    <td>name_tbl[idx] = *(path + cptr);</td>   
+  </tr>   
+</table>   
+<p>b，dに関する解答群</p>   
+<table border="0" cellpadding="3" cellspacing="0">   
+  <tr>   
+    <td width="250">ア　fptr-&gt;type == 'D'</td>   
+    <td>イ　fptr-&gt;type == 'E'</td>   
+  </tr>   
+  <tr>   
+    <td>ウ　fptr-&gt;type == 'F'</td>   
+    <td>エ　fptr-&gt;type == 'X'</td>   
+  </tr>   
+  <tr>   
+    <td>オ　fptr-&gt;type != 'D'</td>   
+    <td>カ　fptr-&gt;type != 'E'</td>   
+  </tr>   
+  <tr>   
+    <td>キ　fptr-&gt;type != 'F'</td>   
+    <td>ク　fptr-&gt;type != 'X'</td>   
+  </tr>   
+</table>   
+<p>　<br>
+cに関する解答群</p>
+<p>ア　fptr += fptr-&gt;next;<br>   
+イ　fptr = fptr-&gt;next;<br>   
+ウ　fptr = *(fptr-&gt;next);<br>   
+エ　*fptr += fptr-&gt;next;<br>   
+オ　*fptr = fptr-&gt;next;<br>   
+カ　*fptr = *(fptr-&gt;next);<br>   
+</p>   
+<A NAME="31">   
+<HR WIDTH=100%>   
+</a><a HREF="11s_p_a3.htm#71">設問の正解例と解説へ</a>   
+<HR WIDTH=100%>   
+<p><A HREF="index.htm">メニューへ戻る</A>　</p>   
+<HR WIDTH=100%>   
+<a NAME="80">　<BR>  
+<b>  
+問8</b></a>　次の COBOLプログラムの説明及びプログラムを読んで、設問に答えよ。    
+<p>〔プログラムの説明〕<br>    
+　ある会社の支店ごとの月別売上目標ファイルと、商品売上記録ファイルを読んで、指定された月の支店別の目標と実績の売上比較リストを印字する。実績は、指定された月の売上金額を商品売上記録ファイルから取り出し、支店別に集計することによって求める。    
+<p>(1)　月別売上目標ファイルは、支店コードをキーとする索引ファイルで、そのレコード様式は次のとおりである。</p> 
+<table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolor="#FFFFFF" bordercolordark="#FFFFFF"> 
+  <tr> 
+    <td rowspan="2">支店コード<br> 
+      4けた</td> 
+    <td rowspan="2">支店名<br> 
+      20けた</td> 
+    <td colspan="4">目標金額</td> 
+  </tr> 
+  <tr> 
+    <td>1月<br> 
+      10けた</td> 
+    <td>2月<br> 
+      10けた</td> 
+    <td>･･･</td> 
+    <td>12月<br> 
+      10けた</td> 
+  </tr> 
+</table> 
+<p>(2)　商品売上記録ファイルは、支店コードの昇順に並べた順ファイルで、そのレコード様式は次のとおりである。 
+<table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolor="#FFFFFF" bordercolordark="#FFFFFF"> 
+  <tr> 
+    <td>月日<br> 
+      4けた</td> 
+    <td>支店コード<br> 
+      4けた</td> 
+    <td>商品コード<br> 
+      5けた</td> 
+    <td>個数<br> 
+      6けた</td> 
+    <td>売上金額<br> 
+      8けた</td> 
+  </tr> 
+</table> 
+<p>(3)　目標と実績の売上比較リストの印字様式は、次のとおりである。 
+<p><img border="0" src="image/A99s08f3.gif" width="459" height="156"> 
+<table border="0" cellpadding="3" cellspacing="0"> 
+  <tr> 
+    <td valign="top">①</td> 
+    <td>表題及びけい線は、あらかじめ用紙に印字されている。</td> 
+  </tr> 
+  <tr> 
+    <td valign="top">②</td> 
+    <td>目標達成率の計算方法は、実績の目標に対する百分率とする。</td> 
+  </tr> 
+  <tr> 
+    <td valign="top">③</td> 
+    <td>目標達成率が 1000％以上のときは、 999％と印字する。</td>   
+  </tr>   
+  <tr>   
+    <td valign="top">④</td>   
+    <td>指定された月に売上実績のない支店は、印字しない。</td>   
+  </tr>   
+  <tr>   
+    <td valign="top">⑤</td>   
+    <td>商品売上記録ファイルの支店コードが月別売上目標ファイルに存在しない場合は、エラーメッセージを表示する。</td>   
+  </tr>   
+</table>   
+<p>(4)　月の指定は、01～ 12のいずれかが正しく入力されるものとする。   
+<p>〔プログラム〕<br>   
+data division.<br>   
+file section.<br>   
+fd&nbsp; uriage-mokuhyou.<br>   
+01&nbsp; um-rec.<br>   
+&nbsp; <font size="3">05&nbsp; um-shiten.</font><br>   
+&nbsp;&nbsp;&nbsp; 10&nbsp; um-shiten-code&nbsp;&nbsp; pic x(4).<br>   
+&nbsp;&nbsp;&nbsp; 10&nbsp; um-shiten-mei&nbsp;&nbsp;&nbsp; pic x(20).<br>   
+&nbsp; 05&nbsp; um-kingaku&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pic    
+9(10)&nbsp; occurs 12.<br>   
+fd&nbsp; uriage-kiroku.<br>   
+01&nbsp; uk-rec.<br>   
+&nbsp; 05&nbsp; uk-date.<br>   
+&nbsp;&nbsp;&nbsp; 10&nbsp;    
+uk-tsuki&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pic 9(2).<br>   
+&nbsp;&nbsp;&nbsp; 10&nbsp;    
+uk-hi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pic    
+9(2).<br>   
+&nbsp; 05&nbsp; uk-shiten-code&nbsp;&nbsp;&nbsp;&nbsp; pic x(4).<br>   
+&nbsp; 05&nbsp; uk-shouhin-code&nbsp;&nbsp;&nbsp; pic x(5).<br>   
+&nbsp; 05&nbsp;    
+uk-kosuu&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pic 9(6).<br>   
+&nbsp; 05&nbsp; uk-kingaku&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pic    
+9(8).&nbsp;<br>   
+fd&nbsp; uriage-hikaku.<br>   
+01&nbsp;    
+uh-rec&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    
+pic x(80).<br>   
+working-storage section.<br>   
+01&nbsp;    
+tsuki&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    
+pic 9(2).<br>   
+01&nbsp; print-rec.<br>   
+&nbsp;    
+05&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    
+pic x&nbsp; value space.<br>   
+&nbsp; 05&nbsp; pr-shiten-mei&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pic x(20).<br>   
+&nbsp;    
+05&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    
+pic x&nbsp; value space.<br>   
+&nbsp; 05&nbsp; pr-mokuhyou&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pic    
+z,zzz,zzz,zz9.<br>   
+&nbsp;    
+05&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    
+pic x&nbsp; value space.<br>   
+&nbsp; 05&nbsp; pr-jisseki&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pic    
+z,zzz,zzz,zz9.<br>   
+&nbsp;    
+05&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    
+pic x(6)&nbsp; value space.<br>   
+&nbsp; 05&nbsp; pr-tassei&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    
+pic zz9.&nbsp;<br>   
+&nbsp;    
+05&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    
+pic x(2)&nbsp; value &quot;% &quot;.<br>   
+01&nbsp; uk-eof-ind&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    
+pic x&nbsp; value space.<br>   
+&nbsp; 88&nbsp;    
+uk-eof&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    
+value &quot;e&quot;.<br>   
+01&nbsp;    
+loop-ind&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    
+pic x&nbsp; value space.<br>   
+&nbsp; 88&nbsp; loop　　　　　　　value space.<br>   
+&nbsp; 88&nbsp;    
+loop-exit&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    
+value &quot;e&quot;.<br>   
+01&nbsp; wk-rec.<br>   
+&nbsp; 05&nbsp; wk-shiten-code&nbsp;&nbsp;&nbsp;&nbsp; pic x(4).<br>   
+&nbsp; 05&nbsp; wk-kingaku&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pic    
+9(10).<br>   
+01&nbsp; wk-mokuhyou&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pic    
+9(10).<br>   
+<br>   
+procedure division.<br>   
+main.<br>   
+&nbsp;&nbsp;&nbsp; display &quot;input tsuki(2keta)&quot;<br>   
+&nbsp;&nbsp;&nbsp; accept tsuki<br>   
+&nbsp;&nbsp;&nbsp; open input uriage-mokuhyou uriage-kiroku output uriage-hikaku<br>   
+&nbsp;&nbsp;&nbsp; perform yomu　　　　　　　　　　　<br> 
+&nbsp;&nbsp;&nbsp; if <b>[　　　a　　　]</b><br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; move uk-shiten-code to wk-shiten-code<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; move uk-kingaku to wk-kingaku<br>   
+&nbsp;&nbsp;&nbsp; end-if<br>   
+&nbsp;&nbsp;&nbsp; perform until uk-eof<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; perform yomu<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if uk-eof<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; perform print<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if <b>[　　　b　　　]</b><br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; compute wk-kingaku =    
+wk-kingaku + uk-kingaku<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else&nbsp;<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; perform print<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; move uk-shiten-code to    
+wk-shiten-code<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; move uk-kingaku to    
+wk-kingaku<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end-if<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end-if<br>   
+&nbsp;&nbsp;&nbsp; end-perform<br>   
+&nbsp;&nbsp;&nbsp; close&nbsp; uriage-mokuhyou uriage-kiroku uriage-hikaku<br>   
+&nbsp;&nbsp;&nbsp; stop run.<br>   
+yomu.<br>   
+&nbsp;&nbsp;&nbsp; <b>[　　　c　　　]</b><br>   
+&nbsp;&nbsp;&nbsp; perform until loop-exit<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; read uriage-kiroku at end<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; set uk-eof to true<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; set loop-exit to true<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; not at end<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if uk-tsuki = tsuki<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; set loop-exit to true<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end-if<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end-read<br>   
+&nbsp;&nbsp;&nbsp; end-perform.&nbsp;<br>   
+print.<br>   
+&nbsp;&nbsp;&nbsp; move wk-shiten-code to um-shiten-code<br>   
+&nbsp;&nbsp;&nbsp; read uriage-mokuhyou invalid key<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; display &quot;error; shiten-code = &quot;    
+wk-shiten-code<br>   
+&nbsp;&nbsp;&nbsp; not invalid key<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; move um-shiten-mei to pr-shiten-mei<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; move um-kingaku (tsuki) to pr-mokuhyou    
+wk-mokuhyou<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; move wk-kingaku to pr-jisseki<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; compute pr-tassei =<b> [　　　d　　　]</b>    
+on size error<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; move 999 to pr-tassei<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end-compute<br>   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; write uh-rec from print-rec<br>   
+&nbsp;&nbsp;&nbsp; end-read.<br>   
+<A NAME="40">   
+<HR WIDTH=100%>   
+</a><a NAME="81"><b>　<BR>  
+設問</b></a><b>　</b>  
+<p>プログラム中の[　　　　　]に入れる正しい答えを、解答群の中から選べ。  
+<p>a，bに関する解答群<br>  
+ア　not uk-eof<br>   
+イ　uk-eof<br>  
+ウ　uk-eof = space<br>   
+エ　uk-eof not = space<br>   
+オ　uk-shiten-code = wk-shiten-code<br>   
+カ　uk-shiten-code not = wk-shiten-code<br>   
+<br>   
+cに関する解答群<br>   
+ア　move loop-exit to loop<br>   
+イ　set loop to false<br>   
+ウ　set loop to true<br>   
+エ　set loop-exit to false<br>   
+オ　set space to loop<br>   
+<br>   
+dに関する解答群<br>   
+ア　uk-kingaku * 100 / wk-mokuhyou<br>   
+イ　uk-kingaku / wk-mokuhyou<br>   
+ウ　wk-kingaku * 100 / pr-mokuhyou<br>   
+エ　wk-kingaku * 100 / wk-mokuhyou<br>   
+オ　wk-kingaku / pr-mokuhyou<br>   
+カ　wk-kingaku / wk-mokuhyou<br>   
+</p>   
+<A NAME="41">   
+<HR WIDTH=100%>   
+</a><a HREF="11s_p_a3.htm#81">設問の正解例と解説へ</a>   
+<HR WIDTH=100%>   
+<A HREF="index.htm"><br>   
+メニューへ戻る<br>   
+</A>   
+<HR WIDTH=100%>   
+<p>   
+<a NAME="90">   
+<b>問9</b></a><b>　</b>次の Fortranプログラムの説明及びプログラムを読んで、設問に答えよ。</p>   
+<p>〔プログラムの説明〕<br>   
+　４次の魔方陣を作るプログラムである。N次の魔方陣とは、N×Nの目（方陣）に１から    
+N2までの整数を重複のないように埋めてゆき、縦、横、対角線に並んだどのN個の整数の和もある値    
+Sと等しくなるようにしたものである。値 Sは、N2    
+個の整数の総和 N2 (N2＋1)／2を列数 Nで割った値 N (N2＋1)／2である。図は    
+3次の魔方陣の<br>   
+例で、Sは15である。</p>   
+<table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolor="#FFFFFF" bordercolordark="#FFFFFF">   
+  <tr>   
+    <td width="20" align="center">2</td>   
+    <td width="20" align="center">9</td>   
+    <td width="20" align="center">4</td>   
+  </tr>   
+  <tr>   
+    <td width="20" align="center">7</td>   
+    <td width="20" align="center">5</td>   
+    <td width="20" align="center">3</td>   
+  </tr>   
+  <tr>   
+    <td width="20" align="center">6</td>   
+    <td width="20" align="center">1</td>   
+    <td width="20" align="center">8</td>   
+  </tr>   
+</table>   
+<table border="0" cellpadding="3" cellspacing="0">   
+  <tr>   
+    <td>図　3次の魔方陣の例</td>  
+  </tr>  
+</table>  
+<table border="0" cellpadding="3" cellspacing="0">  
+  <tr>  
+    <td valign="top"></td>  
+    <td></td>  
+  </tr>  
+  <tr>  
+    <td valign="top">(1)</td>  
+    <td>主プログラムでは、魔方陣のための配列    
+      pを１次元配列として扱う。配列    
+      pの要素数は、方陣用の    
+      N2個に順列生成のために必要となる１個を加えた、合計    
+      N2＋1個である。この配列    
+      pの各要素を昇順の数列で初期化する。</td>   
+  </tr>   
+  <tr>   
+    <td valign="top">(2)</td>   
+    <td>主プログラムの行番号 8～    
+      20のループ部では、Fischer-Krauseのアルゴリズムに従い、配列    
+      pの要素を並べ替えることで、順列を次々に生成している。このループでは関数    
+      hanteiと、サブルーチン    
+      swap及びreverseを呼び出している。</td>   
+  </tr>   
+  <tr>   
+    <td valign="top">(3)</td>   
+    <td>関数 reshape(p,(/N,N/))は、配列 pの最初の N2 個の要素を N×Nの２次元配列に変換する。この２次元配列を引数とした関数    
+      hanteiでは、縦、横、対角線についてそれぞれの数の和を計算し、それが    
+      Sと一致しているかどうかを判定している。N通りの縦の和、N通りの横の和、２通りの対角線の和のすべてが    
+      Sと一致した場合にこの方陣は魔方陣であると判定し、値１を返す。それ以外の場合には、値    
+      0を返す。</td>   
+  </tr>   
+  <tr>   
+    <td valign="top">(4)</td>   
+    <td>サブルーチン swap(i,j)は、二つの変数    
+      i，jの値を交換する。</td>   
+  </tr>   
+  <tr>   
+    <td valign="top">(5)</td>   
+    <td>サブルーチン reverse(p,i)は、配列 pの最初の    
+      i個の要素を逆順に並べ替える。</td>   
+  </tr>   
+  <tr>   
+    <td valign="top">(6)</td>   
+    <td>主プログラムでは、関数    
+      hanteiの戻り値が１のときに配列 pを出力して終了する。</td>   
+  </tr>   
+</table>   
+<p>〔プログラム〕   
+<p>（行番号）<br>   
+01&nbsp; program mahoujin<br>   
+02&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; integer, parameter :: N=4, N2=N*N,    
+NP=N2+1, S=N*(N2+1)/2<br>   
+03&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; integer, dimension (NP) :: p<br>   
+04&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; integer :: i, j, k<br>   
+05&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; do i=1,NP<br>   
+06&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; p(i)=i<br>   
+07&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; enddo<br>   
+08&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; do    
+while(hantei(N,reshape(p,(/N,N/)),S) /= 1)<br>   
+09&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; i=2<br>   
+10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; do while(p(i) &lt;    
+p(i-1))<br>   
+11&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; i=i+1<br>   
+12&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; enddo<br>   
+13&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(i &gt; N2) stop<br>   
+14&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; j=1<br>   
+15&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; do while(p(j) &gt;    
+p(i))<br>   
+16&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; j=j+1<br>   
+17&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; enddo<br>   
+18&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; call swap(p(i),p(j))<br>   
+19&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; call reverse(p,i-1)<br>   
+20&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; enddo<br>   
+21&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; write(*,'(4i5)') (p(k),k=1,N2)<br>   
+22&nbsp; contains<br>   
+23&nbsp; !<br>   
+24&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; function hantei(N, q, S)<br>   
+25&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; integer :: hantei, N, S<br>   
+26&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; integer, dimension (:, :) ::&nbsp;    
+q<br>   
+27&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; integer :: sum1, sum2, sum3, sum4,    
+i, j<br>   
+28&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; hantei=0&nbsp;<br>   
+29&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sum1=0<br>   
+30&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sum2=0<br>   
+31&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; do i=1,N<br>   
+32&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sum3=0<br>   
+33&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sum4=0<br>   
+34&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; do j=1,N<br>   
+35&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    
+sum3=sum3+q(i,j)<br>   
+36&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sum4=sum4+ <b>[　　　a　　　]</b>&nbsp;<br>   
+37&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; enddo<br>   
+38&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if((sum3 /= S) .or.    
+(sum4 /= S)) return<br>   
+39&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sum1=sum1+ <b>[　　　b　　　]</b><br>   
+40&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; j= <b>[　　　c　　　]</b><br>   
+41&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sum2=sum2+q(i,j)<br>   
+42&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; enddo<br>   
+43&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if((sum1 /= S) .or. (sum2 /= S))    
+return<br>   
+44&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; hantei=1<br>   
+45&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end function hantei<br>   
+46&nbsp; !<br>   
+47&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; subroutine reverse(p,i)<br>   
+48&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; integer :: i, k<br>   
+49&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; integer, dimension (i) :: p<br>   
+50&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; do k=1,i/2<br>   
+51&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; call swap(p(k),<b>    
+[　　　d　　　] </b>)<br>   
+52&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; enddo<br>   
+53&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end subroutine reverse<br>   
+54&nbsp; !<br>   
+55&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; subroutine swap(i,j)<br>   
+56&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; integer :: i,j,tmp<br>   
+57&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tmp=i<br>   
+58&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; i=j<br>   
+59&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; j=tmp<br>   
+60&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end subroutine swap<br>   
+61&nbsp; !&nbsp;<br>   
+62&nbsp; end program mahoujin<br>   
+</p>   
+<HR WIDTH=100%>   
+<a NAME="91">　<BR>   
+<b>   
+設問</b></a>&nbsp;　プログラム中の[　　　　　]に入れる正しい答えを、解答群の中から選べ。
+<p>a，bに関する解答群</p>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td width="120">ア　q(1,j)</td>
+    <td width="120">イ　q(i,1)</td>
+    <td width="120">ウ　q(i,i)</td>
+  </tr>
+  <tr>
+    <td>エ　q(i,j)</td>
+    <td>オ　q(j,1)</td>
+    <td>カ　q(j,i)</td>
+  </tr>
+</table>
+<p>cに関する解答群</p>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td width="120">ア　1</td>
+    <td width="120">イ　i　</td>
+    <td width="120">ウ　N</td>
+  </tr>
+  <tr>
+    <td>エ　N+1</td>
+    <td>オ　N+1-i</td>
+    <td>カ　N+i</td>
+  </tr>
+</table>
+<p>dに関する解答群</p>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td width="120">ア　p(1)</td>
+    <td width="120">イ　p(i)</td>
+    <td width="120">ウ　p(i-k)</td>
+  </tr>
+  <tr>
+    <td>エ　p(i-k+1)</td>
+    <td>オ　p(k+i/2)</td>
+    <td>カ　p(k*2)</td>
+  </tr>
+</table>
+<p>　</p>
+<A NAME="43">
+<HR WIDTH=100%>
+</a><a HREF="11s_p_a3.htm#91">設問の正解例と解説へ</a>
+<HR WIDTH=100%>
+　<BR>
+<b><a name="100">問10</a>　</b>次のアセンブラプログラムの説明及びプログラムを読んで、設問に答えよ。
+<p>〔プログラムの説明〕<br>
+二つの整数の乗算を行う副プログラム MULTである。</p> 
+<table border="0" cellpadding="3" cellspacing="0"> 
+  <tr> 
+    <td valign="top">(1)</td> 
+    <td>主プログラムは、被乗数を GR1に、乗数を GR2に設定して、MULTを呼ぶ。</td> 
+  </tr> 
+  <tr> 
+    <td valign="top">(2)</td> 
+    <td>MULTは、乗算結果を GR0に設定して、処理を終える。</td> 
+  </tr> 
+  <tr> 
+    <td valign="top">(3)</td> 
+    <td>MULTは、主プログラムに戻るとき、汎用レジスタ GR1～GR3を元に戻す。</td> 
+  </tr> 
+  <tr> 
+    <td valign="top">(4)</td> 
+    <td>被乗数、乗数、乗算結果ともに  
+      １語とし、けたあふれは考慮しない。</td> 
+  </tr> 
+</table> 
+<p>〔プログラム〕<br> 
+MULT&nbsp;&nbsp;&nbsp; START<br> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PUSH&nbsp;&nbsp; 0,GR1<br> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PUSH&nbsp;&nbsp; 0,GR2<br> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PUSH&nbsp;&nbsp; 0,GR3<br> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; LEA&nbsp;&nbsp;&nbsp;  
+GR0,0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 　　　　 ;乗算結果の初期化<br> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ST&nbsp;&nbsp;&nbsp;&nbsp; GR0,SGN<br> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b> [　　　　a　　　　]</b>　　　　　　　;乗数の符号チェック<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; JPZ&nbsp;&nbsp;&nbsp; MUL<br> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; LEA&nbsp;&nbsp;&nbsp; GR3,1<br> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ST&nbsp;&nbsp;&nbsp;&nbsp; GR3,SGN<br> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; EOR&nbsp;&nbsp;&nbsp; GR2,CFF<br> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; LEA&nbsp;&nbsp;&nbsp; GR2,1,GR2&nbsp;<br> 
+MUL&nbsp;&nbsp;&nbsp; ST&nbsp;&nbsp;&nbsp;&nbsp;  
+GR1,SAVE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 　　　　;被乗数の退避<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; LEA&nbsp;&nbsp;&nbsp; GR3,14<br> 
+LP&nbsp;&nbsp;&nbsp; 　SLL&nbsp;&nbsp;&nbsp; GR2,1<br> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; JZE&nbsp;&nbsp;&nbsp; ADJ<br> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>[　　　　b　　　　]</b><br> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SLA&nbsp;&nbsp;&nbsp; GR1,0,GR3<br> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ST&nbsp;&nbsp;&nbsp;&nbsp; GR1,WORK<br> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ADD&nbsp;&nbsp;&nbsp; GR0,WORK<br> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>[　　　　c　　　　]</b><br> 
+LP2&nbsp;&nbsp;&nbsp;&nbsp; LEA&nbsp;&nbsp;&nbsp; GR3,-1,GR3<br> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; JMP&nbsp;&nbsp;&nbsp; LP<br> 
+ADJ&nbsp;&nbsp;&nbsp;&nbsp; LD&nbsp;&nbsp;&nbsp;&nbsp;  
+GR3,SGN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 　　　;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; LEA&nbsp;&nbsp;&nbsp;  
+GR3,0,GR3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 　　　;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; JZE&nbsp;&nbsp;&nbsp;  
+FIN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 　　　  
+;乗算結果の符号調整<br> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>[　　　　d　　　　]</b>;<br> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ADD&nbsp;&nbsp;&nbsp;  
+GR0,C1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+;<br> 
+FIN&nbsp;&nbsp;&nbsp;&nbsp; POP&nbsp;&nbsp;&nbsp; GR3&nbsp;<br> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; POP&nbsp;&nbsp;&nbsp; GR2&nbsp;<br> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; POP&nbsp;&nbsp;&nbsp; GR1&nbsp;<br> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RET<br> 
+<br> 
+SAVE&nbsp;&nbsp;&nbsp; DS&nbsp;&nbsp;&nbsp;&nbsp; 1<br> 
+WORK&nbsp;&nbsp;&nbsp; DS&nbsp;&nbsp;&nbsp;&nbsp; 1<br> 
+SGN&nbsp;&nbsp;&nbsp;&nbsp; DS&nbsp;&nbsp;&nbsp;&nbsp; 1<br> 
+CFF&nbsp;&nbsp;&nbsp;&nbsp; DC&nbsp;&nbsp;&nbsp;&nbsp; #FFFF<br> 
+C1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DC&nbsp;&nbsp;&nbsp;&nbsp; 1<br> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; END 
+<p>　</p>
+<hr>
+<p><b><a name="101">設問</a>　</b>プログラム中の[　　　　　]に入れる正しい答えを、解答群の中から選べ。</p>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>aに関する解答群</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td width="150">ア　AND GR1,C1</td> 
+    <td width="150">イ　AND GR2,C1</td> 
+    <td width="150">ウ　CPA GR1,CFF</td> 
+  </tr> 
+  <tr> 
+    <td>エ　CPA GR2,CFF</td> 
+    <td>オ　LEA GR1,0,GR1</td> 
+    <td>カ　LEA GR2,0,GR2</td> 
+  </tr> 
+</table> 
+<table border="0" cellpadding="3" cellspacing="0"> 
+  <tr> 
+    <td><br> 
+      bに関する解答群</td> 
+  </tr> 
+</table> 
+<table border="0" cellpadding="3" cellspacing="0"> 
+  <tr> 
+    <td width="150">ア　JMI ADJ</td> 
+    <td width="150">イ　JMI FIN</td> 
+    <td width="150">ウ　JMI LP</td> 
+  </tr> 
+  <tr> 
+    <td>エ　JMI LP2</td> 
+    <td>オ　JPZ LP</td> 
+    <td>カ JPZ LP2</td> 
+  </tr> 
+</table> 
+<table border="0" cellpadding="3" cellspacing="0"> 
+  <tr> 
+    <td><br> 
+      cに関する解答群</td> 
+  </tr> 
+</table> 
+<table border="0" cellpadding="3" cellspacing="0"> 
+  <tr> 
+    <td width="150">ア　LD GR1,CFF</td> 
+    <td width="150">イ　LD GR1,SAVE</td> 
+    <td width="150">ウ　LD GR2,CFF</td> 
+  </tr> 
+  <tr> 
+    <td>エ　LD GR2,SAVE</td> 
+    <td>オ　ST GR1,SAVE</td> 
+    <td>カ　ST GR2,SAVE</td> 
+  </tr> 
+</table> 
+<table border="0" cellpadding="3" cellspacing="0"> 
+  <tr> 
+    <td><br> 
+      dに関する解答群</td> 
+  </tr> 
+</table> 
+<table border="0" cellpadding="3" cellspacing="0"> 
+  <tr> 
+    <td width="150">ア　AND GR0,C1</td> 
+    <td width="150">イ　AND GR0,CFF</td> 
+    <td width="150">ウ　EOR GR0,C1</td> 
+  </tr> 
+  <tr> 
+    <td>エ　EOR GR0,CFF</td> 
+    <td>オ　OR GR0,C1</td> 
+    <td>カ　OR GR0,CFF</td> 
+  </tr> 
+</table> 
+<p>　</p>
+<A NAME="44">
+<HR WIDTH=100%>
+</a><a HREF="11s_p_a3.htm#101">設問の正解例と解説へ</a>
+<HR WIDTH=100%>
+<p align="center"><a HREF="11s_p_e4.htm">■問11へ進む</a>　　　　　　　<a href="index.htm">■メニューへ戻る</a></p>
+<HR WIDTH=100%>
+<p><BR>
+</p>
+<p>　</p>
+</blockquote>
+</BODY>
+</HTML>

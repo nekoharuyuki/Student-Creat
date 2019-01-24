@@ -1,0 +1,367 @@
+<html>
+
+<head>
+<title>平成20年度春期試験　解答例と解説（午前問1～問20）</title>
+<style>
+<!--
+p { line-height: 175% }
+-->
+</style>
+</head>
+
+<body>
+
+<blockquote>
+	<form>
+		<hr>
+		<div align="center">
+			<h3>平成20年度春期試験　解答例と解説（午前問1～問20）</h3>
+		</div>
+		<hr>
+		<!-- 問の開始 -->
+		<p><strong><a name="01">問1</a></strong></p>
+		<p><select name="20SA01" size="1">
+		<option selected>解答例</option>
+		<option>イ</option>
+		</select></p>
+		<p>〈解説〉</p>
+		<p>
+		16ビットの固定小数点の2進数を，16進数の各けたに分けて下位けたから順にスタックに格納するには，2進数の4ビットが16進数の1けたに対応するので，下位けたから順に4ビットずつ取り出してスタックに格納すればよい。</p>
+		<p>　下位4ビットを取り出すには000F<sub>16</sub>との論理積（AND演算）をとる。順に取り出すには，2進数を右に4ビットずつ論理シフトしながら，これを繰り返して下位4ビットずつ取り出す。したがって</p>
+		<p>（1）<em>n</em> AND 000F<sub>16</sub>を<em>x</em>に代入する<br>
+		（2）<em>x</em>をスタックにプッシュ<br>
+		（3）<em>n</em>を右に4ビット論理シフト</p>
+		<hr>
+		<p><a href="20S_A_E1.HTM#01">問題へ</a></p>
+		<hr>
+		<p><strong><a name="02">問2</a></strong></p>
+		<p><select name="20SA02" size="1">
+		<option selected>解答例</option>
+		<option>エ</option>
+		</select></p>
+		<p>〈解説〉</p>
+		<p><img src="img/20sama01.png" /></p>
+		<hr>
+		<p><a href="20S_A_E1.HTM#02">問題へ</a></p>
+		<hr>
+		<p><strong><a name="03">問3</a></strong></p>
+		<p><select name="20SA03" size="1">
+		<option selected>解答例</option>
+		<option>イ</option>
+		</select></p>
+		<p>〈解説〉</p>
+		<p>
+		2の補数で表された2進数1111…11の符号は－で，その絶対値は元の2進数のビットを反転して求まる1の補数0000…00に1を加えた0000…01になる。したがって1111…11は－1を表す。</p>
+		<hr>
+		<p><a href="20S_A_E1.HTM#03">問題へ</a></p>
+		<hr>
+		<p><strong><a name="04">問4</a></strong></p>
+		<p><select name="20SA04" size="1">
+		<option selected>解答例</option>
+		<option>ア</option>
+		</select></p>
+		<p>〈解説〉</p>
+		<p><em>x</em>×10は，以下のように表せる。 </p>
+		<p><em>x</em>×10 ＝<em>x</em>×8＋<em>x</em>×2<br>
+		　＝（<em>x</em>×4＋<em>x</em>）×2<br>
+		　＝（<em>x</em>×2<sup>2</sup>＋<em>x</em>）×2<sup>1</sup></p>
+		<p>（<em>x</em>×2<sup>2</sup>＋<em>x</em>）は，<em>x</em>を2ビット左シフトした値に<em>x</em>を加算した値を表す。さらに（<em>x</em>×2<sup>2</sup>＋<em>x</em>）×2<sup>1</sup>は，（<em>x</em>×2<sup>2</sup>＋<em>x</em>）を1ビット左シフトした値を表す。したがって整数<em>x</em>を10倍するには，整数<em>x</em>を2ビット左にシフトした値に<em>x</em>を加算し，さらに1ビット左シフトすればよい。</p>
+		<hr>
+		<p><a href="20S_A_E1.HTM#04">問題へ</a></p>
+		<hr>
+		<p><strong><a name="05">問5</a></strong></p>
+		<p><select name="20SA05" size="1">
+		<option selected>解答例</option>
+		<option>ウ</option>
+		</select></p>
+		<p>〈解説〉</p>
+		<p>情報落ちは，絶対値の大きな数に絶対値の小さな数を加算や減算を行った場合，絶対値の小さな数が演算結果に反映しないこと。</p>
+		<p>ア　×　（10.101－10.01）<sub>2</sub>×2<sup>－16</sup>に変形できるので，仮数部5ビットあれば情報落ちしない<br>
+		イ　×　（10.101－1.001）<sub>2</sub>×2<sup>16</sup>に変形できるので，仮数部5ビットあれば情報落ちしない<br>
+		ウ　○　（1.01×2<sup>23</sup>＋1.01）<sub>2</sub>×2<sup>－5</sup>＝（2<sup>23</sup>＋2<sup>21</sup>＋2<sup>0</sup>＋2<sup>－2</sup>)<sub>2</sub>×2<sup>－5</sup>に変形できるので，仮数部26ビットが必要になり，仮数部23ビットでは最後の3ビット2<sup>0</sup>＋2<sup>－2</sup>が情報落ちする<br>
+		エ　×　（1.001＋11.111）<sub>2</sub>×2<sup>20</sup>に変形できるので，仮数部5ビットあれば情報落ちしない</p>
+		<hr>
+		<p><a href="20S_A_E1.HTM#05">問題へ</a></p>
+		<hr>
+		<p><strong><a name="06">問6</a></strong></p>
+		<p><select name="20SA06" size="1">
+		<option selected>解答例</option>
+		<option>ア</option>
+		</select></p>
+		<p>〈解説〉</p>
+		<p><img src="img/20sama02.png" /></p>
+		<p>上記のようにニュートン法では，<em>f</em>(<em>X</em>)の微分<em>f</em>'(<em>X</em>)を用いて|<em>X</em><sub><em>n</em>＋1</sub>－<em>X</em><sub><em>n</em></sub>｜＝|<em>f</em>(<em>X</em><sub><em>n</em></sub>)／<em>f</em>'(<em>X</em><sub><em>n</em></sub>)|により，計算を行う。したがって微分可能である必要がある。また初期値を含め<em>f</em>'(<em>X</em><sub><em>n</em></sub>)＝0となるような<em>X</em><sub><em>n</em></sub>の場合収束しなくなる。これよりイとエは不適切。また一つの解を求めるには一つの初期値があればよいのでウも不適切。</p>
+		<hr>
+		<p><a href="20S_A_E1.HTM#06">問題へ</a></p>
+		<hr>
+		<p><strong><a name="07">問7</a></strong></p>
+		<p><select name="20SA07" size="1">
+		<option selected>解答例</option>
+		<option>イ</option>
+		</select></p>
+		<p>〈解説〉</p>
+		<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber1">
+			<tr>
+				<td>長さ1の文字列</td>
+				<td>A，B</td>
+				<td>2<sup>1</sup>通り</td>
+			</tr>
+			<tr>
+				<td>長さ2の文字列</td>
+				<td>AA，AB，BA，BB</td>
+				<td>2<sup>2</sup>通り</td>
+			</tr>
+			<tr>
+				<td>長さ3の文字列</td>
+				<td>AAA，AAB，ABA，BAA，ABB，BAB，BBA，BBB</td>
+				<td>2<sup>3</sup>通り</td>
+			</tr>
+			<tr>
+				<td>長さ4の文字列</td>
+				<td align="center">：</td>
+				<td>2<sup>4</sup>通り</td>
+			</tr>
+			<tr>
+				<td>長さ5の文字列</td>
+				<td align="center">：</td>
+				<td>2<sup>5</sup>通り</td>
+			</tr>
+			<tr>
+				<td>長さ6の文字列</td>
+				<td align="center">：</td>
+				<td>2<sup>6</sup>通り</td>
+			</tr>
+			<tr>
+				<td>長さ7の文字列</td>
+				<td align="center">：</td>
+				<td>2<sup>7</sup>通り</td>
+			</tr>
+		</table>
+		<p>したがって全部で，2<sup>1</sup>＋2<sup>2</sup>＋2<sup>3</sup>＋2<sup>4</sup>＋2<sup>5</sup>＋2<sup>6</sup>＋2<sup>7</sup>＝2＋4＋8＋16＋32＋64＋128＝254通りある。</p>
+		<hr>
+		<p><a href="20S_A_E1.HTM#07">問題へ</a></p>
+		<hr>
+		<p><strong><a name="08">問8</a></strong></p>
+		<p><select name="20SA08" size="1">
+		<option selected>解答例</option>
+		<option>ウ</option>
+		</select></p>
+		<p>〈解説〉</p>
+		<p>
+		相関係数が正の値の場合には回帰直線は右上がりになり，負の値の場合には回帰直線は右下がりになる。また相関係数の値が1に近いほうが回帰直線に近い分布となり，相関係数の値が0に近づくに従い回帰直線から離れた分布となる。</p>
+		<p>ア　×　回帰直線が右上がりで，回帰直線に近い分布なので，相関係数は正の値で1に近い値となり0.9に該当する<br>
+		イ　×　回帰直線が右上がりで，回帰直線から離れた分布なので，相関係数は正の値でアの場合よりも0に近い値となり0.7に該当する<br>
+		ウ　○　回帰直線が右下がりで，回帰直線に近い分布なので，相関係数は負の値で1に近い値となり－0.9に該当する<br>
+		エ　×　回帰直線が右下がりで，回帰直線から離れた分布なので，相関係数は正の値でウの場合よりも0に近い値となり－0.7に該当する</p>
+		<hr>
+		<p><a href="20S_A_E1.HTM#08">問題へ</a></p>
+		<hr>
+		<p><strong><a name="09">問9</a></strong></p>
+		<p><select name="20SA09" size="1">
+		<option selected>解答例</option>
+		<option>イ</option>
+		</select></p>
+		<p>〈解説〉</p>
+		<p>真理値表で関数<em>f</em>(<em>x</em>，<em>y</em>，<em>z</em>)の真理値がTである行について，論理変数<em>x</em>，<em>y</em>，<em>z</em>が表す論理式は以下のようになる。</p>
+		<p><img src="img/20sama03.png" /></p>
+		<p>これらすべての論理和をとったものが，関数<em>f</em>(<em>x</em>，<em>y</em>，<em>z</em>)の論理式と等価になる。</p>
+		<p><em>f</em>(<em>x</em>，<em>y</em>，<em>z</em>) ＝(<em>x</em>∧<em>y</em>∧<em>z</em>)∨(<em>x</em>∧<em>y</em>∧<span style="text-decoration: overline"><em>z</em></span>)∨(<em>x</em>∧<span style="text-decoration: overline"><em>y</em></span>∧<em>z</em>)∨(<span style="text-decoration: overline"><em>x</em></span>∧<span style="text-decoration: overline"><em>y</em></span>∧<em>z</em>)<br>
+		　＝((<em>x</em>∧<em>y</em>)∧(<em>z</em>∨<span style="text-decoration: overline"><em>z</em></span>))∨((<em>x</em>∨<span style="text-decoration: overline"><em>x</em></span>)∧(<span style="text-decoration: overline"><em>y</em></span>∧<em>z</em>))<br>
+		　＝((x∧y)∧1)∨(1∧<span style="text-decoration: overline">y</span>∧z))<br>
+		　＝(<em>x</em>∧<em>y</em>)∨(<span style="text-decoration: overline"><em>y</em></span>∧<em>z</em>)</p>
+		<hr>
+		<p><a href="20S_A_E1.HTM#09">問題へ</a></p>
+		<hr>
+		<p><strong><a name="10">問10</a></strong></p>
+		<p><select name="20SA10" size="1">
+		<option selected>解答例</option>
+		<option>イ</option>
+		</select></p>
+		<p>〈解説〉</p>
+		<p>
+		偶数パリティなので，全体の１の個数が偶数になるように先頭のパリティビットを決めればよい。したがって先頭に1ビットの偶数パリティを付加すると文字コードは以下のようになる。</p>
+		<p>30 → <font color="#FF0000">0</font>011 0000 → 30<br>
+		3F → <font color="#FF0000">0</font>011 1111 → 3F<br>
+		7A → <font color="#FF0000">1</font>111 1010 → FA<br>
+		（<font color="#FF0000">色文字</font>がパリティビット）</p>
+		<hr>
+		<p><a href="20S_A_E1.HTM#10">問題へ</a></p>
+		<hr>
+		<p><strong><a name="11">問11</a></strong></p>
+		<p><select name="20SA11" size="1">
+		<option selected>解答例</option>
+		<option>ア</option>
+		</select></p>
+		<p>〈解説〉</p>
+		<p>＜S＞は01か0＜S＞1なので，<br>
+		①右端は1になる<br>
+		②0の個数と1の個数は同じになる<br>
+		③01以外は0の右には0が続き，1の左には1が続く</p>
+		<p>ア　○<br>
+		イ　×　右端が1でなく，また0の右が0でなく，1の左が1でない<br>
+		ウ　×　0の右が0でなく，1の左が1でない<br>
+		エ　×　0の個数と1の個数が同じでない</p>
+		<hr>
+		<p><a href="20S_A_E1.HTM#11">問題へ</a></p>
+		<hr>
+		<p><strong><a name="12">問12</a></strong></p>
+		<p><select name="20SA12" size="1">
+		<option selected>解答例</option>
+		<option>イ</option>
+		</select></p>
+		<p>〈解説〉</p>
+		<p>
+		節点の総数が15個の場合，最下位の節点以外が左右の子を必ずもつ2分探索木は，以下の図のようになる。先ず根から比較を開始し，最下層の4層目で目的のデータが見つかるか否かに依らず，根→2層目→3層目→4層目の順に最大で4層目まで比較を行うので，最大比較回数は4回になる。</p>
+		<p><img src="img/20sama04.png" /></p>
+		<hr>
+		<p><a href="20S_A_E1.HTM#12">問題へ</a></p>
+		<hr>
+		<p><strong><a name="13">問13</a></strong></p>
+		<p><select name="20SA13" size="1">
+		<option selected>解答例</option>
+		<option>エ</option>
+		</select></p>
+		<p>〈解説〉</p>
+		<p>ア　×　説明はシェルソートに該当する<br>
+		イ　×　説明はバブルソートに該当する<br>
+		ウ　×　説明はクイックソートに該当する<br>
+		エ　○</p>
+		<hr>
+		<p><a href="20S_A_E1.HTM#13">問題へ</a></p>
+		<hr>
+		<p><strong><a name="14">問14</a></strong></p>
+		<p><select name="20SA14" size="1">
+		<option selected>解答例</option>
+		<option>ウ</option>
+		</select></p>
+		<p>〈解説〉</p>
+		<p>
+		キー1094のハッシュ値はh(1094)＝mod(1094，97)＝27になる。したがって同じハッシュ値27をもつキーが1～1000の中にいくつあるかを求めればよい。<em>n</em>を0以上の整数とすると，同じ27をハッシュ値としてもつキーは97<em>n</em>＋27と書ける。つまり1≦97<em>n</em>＋27≦1000を満たす<em>n</em>の個数を求めればよい。これを満たす<em>n</em>の範囲は0≦<em>n</em>≦10となり，<em>n</em>の個数は11個になる。</p>
+		<hr>
+		<p><a href="20S_A_E1.HTM#14">問題へ</a></p>
+		<hr>
+		<p><strong><a name="15">問15</a></strong></p>
+		<p><select name="20SA15" size="1">
+		<option selected>解答例</option>
+		<option>エ</option>
+		</select></p>
+		<p>〈解説〉</p>
+		<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber2">
+			<tr>
+				<td>1回目</td>
+				<td>876＞204</td>
+			</tr>
+			<tr>
+				<td>2回目</td>
+				<td>876－204＝672＞204</td>
+			</tr>
+			<tr>
+				<td>3回目</td>
+				<td>672－204＝468＞204</td>
+			</tr>
+			<tr>
+				<td>4回目</td>
+				<td>468－204＝264＞204</td>
+			</tr>
+			<tr>
+				<td>5回目</td>
+				<td>264－204＝60＜204</td>
+			</tr>
+			<tr>
+				<td>6回目</td>
+				<td>204－60＝144＞60</td>
+			</tr>
+			<tr>
+				<td>7回目</td>
+				<td>144－60＝84＞60</td>
+			</tr>
+			<tr>
+				<td>8回目</td>
+				<td>84－60＝24＜60</td>
+			</tr>
+			<tr>
+				<td>9回目</td>
+				<td>60－24＝36＞24</td>
+			</tr>
+			<tr>
+				<td>10回目</td>
+				<td>36－24＝12＜24</td>
+			</tr>
+			<tr>
+				<td>11回目</td>
+				<td>24－12＝12　この比較でL＝Sとなる</td>
+			</tr>
+		</table>
+		<hr>
+		<p><a href="20S_A_E1.HTM#15">問題へ</a></p>
+		<hr>
+		<p><strong><a name="16">問16</a></strong></p>
+		<p><select name="20SA16" size="1">
+		<option selected>解答例</option>
+		<option>ア</option>
+		</select></p>
+		<p>〈解説〉</p>
+		<p>DRAMは電荷を蓄えた状態か否かにより1ビットの情報を記憶し，主記憶として用いられる素子。</p>
+		<p>ア　○<br>
+		イ　×　マスクROM<br>
+		ウ　×　EPROM<br>
+		エ　×　SRAM</p>
+		<hr>
+		<p><a href="20S_A_E1.HTM#16">問題へ</a></p>
+		<hr>
+		<p><strong><a name="17">問17</a></strong></p>
+		<p><select name="20SA17" size="1">
+		<option selected>解答例</option>
+		<option>ウ</option>
+		</select></p>
+		<p>〈解説〉</p>
+		<p>ア　×　ベクトルアレイ方式の説明<br>
+		イ　×　スーパーパイプラインの説明<br>
+		ウ　○<br>
+		エ　×　VLIW方式の説明</p>
+		<hr>
+		<p><a href="20S_A_E1.HTM#17">問題へ</a></p>
+		<hr>
+		<p><strong><a name="18">問18</a></strong></p>
+		<p><select name="20SA18" size="1">
+		<option selected>解答例</option>
+		<option>ア</option>
+		</select></p>
+		<p>〈解説〉</p>
+		<p>
+		オペランドは，命令コードが演算で参照するデータ。したがってオペランド読出しの前に有効アドレス計算を行い，データの格納先であるオペランドアドレスを生成する必要がある。</p>
+		<hr>
+		<p><a href="20S_A_E1.HTM#18">問題へ</a></p>
+		<hr>
+		<p><strong><a name="19">問19</a></strong></p>
+		<p><select name="20SA19" size="1">
+		<option selected>解答例</option>
+		<option>ウ</option>
+		</select></p>
+		<p>〈解説〉</p>
+		<p>平均命令実行時間＝10クロック×0.6＋5クロック×0.4＝8クロック<br>
+		クロック周波数が1 GHzなので，1クロックの時間は10<sup>－9</sup>秒になる。 <br>
+		したがって1命令の平均実行時間は8クロック×10<sup>－9</sup>秒／命令になるので，1秒当たりの平均命令実行数は1÷（8×10<sup>－9</sup>）＝125×10<sup>6</sup>命令／秒＝125 
+		MIPSになる。</p>
+		<hr>
+		<p><a href="20S_A_E1.HTM#19">問題へ</a></p>
+		<hr>
+		<p><strong><a name="20">問20</a></strong></p>
+		<p><select name="20SA20" size="1">
+		<option selected>解答例</option>
+		<option>ウ</option>
+		</select></p>
+		<p>〈解説〉</p>
+		<p>
+		キャッシュメモリは，CPUと主記憶間のアクセスにおける速度ギャップを緩衝する緩衝記憶装置。CPUから主記憶へのアクセス時に，使用頻度の高い命令やデータを，上位階層のより高速なキャッシュメモリにコピーしておき，再度アクセスがあったときに，このキャッシュメモリにアクセスすることで，より高速にアクセスする。</p>
+		<hr>
+		<p><a href="20S_A_E1.HTM#20">問題へ</a></p>
+		<hr>
+		<p><a href="INDEX.HTM">メニューへ戻る</a></p>
+		<hr>
+	</form>
+</blockquote>
+
+</body>
+
+</html>

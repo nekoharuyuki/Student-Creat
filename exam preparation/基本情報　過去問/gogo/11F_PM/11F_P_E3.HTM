@@ -1,0 +1,743 @@
+<HTML>
+<HEAD><meta http-equiv="content-type" content="text/html; charset=Shift_JIS">
+<TITLE>平成11年度秋期試験　問題(問7～問10)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0">
+<blockquote>
+<hr>
+  <H3 align="center">平成11年度秋期試験　問題(問7～問10)</H3>
+<hr>
+<P>
+次の問７から問10までの4問については、この中から1問を選択し、答案用紙の選択欄の        
+選 をマークして解答してください。<br>       
+　なお、2問以上選択した場合には、はじめの1問について採点します。<br>
+<HR WIDTH=100%>
+<a NAME="70">　<BR>
+<b>
+問7</b></a><b>　</b>次のCプログラムの説明及びプログラムを読んで、設問に答えよ。<br>
+<br>
+〔プログラムの説明〕<br>
+　次のSTUDENT構造体の配列Stuを、身長Heightをキーとして昇順に整列して出力する。
+<p>typedef struct {<br>     
+                       char      Name[64] ;  /*  名前      */<br>     
+                       int       Age ;       /*  年齢      */<br>     
+                       float     Height ;    /*  身長      */<br>     
+                       float     Weight ;    /*  体重      */<br>     
+                       } STUDENT ;<br>     
+                    STUDENT Stu[MAXNUM] ;</p>     
+<p>　配列のデータを入れ替えずに、順番を表す2分木を作成する。2分木を表すため、次の配列変数を定義する。</p>
+<p>int Lower[MAXNUM], Upper[MAXNUM] ;</p>     
+<p>　図1は、要素を昇順に整列したとき、要素番号が3，1，0，5，2，4の順番になる場合を示す。このとき、配列Lower、Upperの内容は図2のようになる。値が－1のときは、次に接続する要素がないことを示す。</p>
+<p><img border="0" src="image/A99a07f1.gif" width="462" height="183"></p>
+<p>　最初に、構造体配列Stuの定義に現れた順に要素をUpper側に接続し、図3に示す2分木を作成する。</p>
+<p><img border="0" src="image/A99a07f2.gif" width="383" height="115"></p>
+<p>　次に、再帰的な関数BinTreeSortを呼び出して2分木の要素を身長の昇順に整列する。引数は、ルートの要素番号である。関数BinTreeSortの原型（プロトタイプ）は、次のとおりである。</p>
+<p>void BinTreeSort( int Root ) ;</p>     
+<p>　最後に、再帰的な関数DisplayDataを呼び出し、2 分木をたどって構造体配列の内容を身長の昇順に出力する。引数は、ルートの要素番号である。関数DisplayDataの原型は、次のとおりである。</p>     
+<p>void DisplayData( int Root ) ;&nbsp;</p>    
+<p>〔プログラム〕<br>    
+       #include      &lt;stdio.h><br>     
+　<br>
+       void      BinTreeSort( int  Root ) ;<br>     
+       void      DisplayData( int  Root ) ;<br>     
+　<br>
+       #define MAXNUM    5<br>     
+　<br>
+       typedef struct {<br>     
+           char      Name[64] ;  /*  名前      */<br>     
+           int       Age ;       /*  年齢      */<br>     
+           float     Height ;    /*  身長      */<br>     
+           float     Weight ;    /*  体重      */<br>     
+           } STUDENT ;<br>     
+　<br>
+       STUDENT Stu[MAXNUM] = {<br>     
+           { "相川 太郎", 19, 162.5, 65.4 },<br>     
+           { "伊藤 四郎", 14, 158.0, 48.4 },<br>     
+           { "加藤 五郎", 18, 182.0, 82.5 },<br>     
+           { "田中 三郎", 12, 148.0, 46.8 },<br>     
+           { "山中 次郎", 16, 178.5, 70.0 } } ;<br>     
+       int Upper[MAXNUM], Lower [MAXNUM] ;<br>     
+       main( )<br>     
+       {<br>     
+            int Index ;<br>     
+            for( Index = 0 ; Index &lt; MAXNUM ;  Index++ ) {<br>     
+                 Upper[Index] = Index + 1 ;<br>     
+                 Lower[Index] = -1 ;<br>     
+            }<br>     
+            Upper[MAXNUM - 1] = -1 ;<br>     
+            BinTreeSort( 0 );<br>     
+            DisplayData( 0 );<br>     
+       }<br>     
+　<br>
+       void  BinTreeSort( int  Root )<br>     
+       {<br>     
+            int Data, Next ;<br>     
+　<br>
+            Data = Upper[Root] ;<br>     
+            if ( Data == -1 )  return ;<br>     
+            Upper[Root] = -1 ;<br>     
+            while( Data != -1 ) {<br>     
+                Next = <b>[　　　a　　　]</b>;<br>    
+                if ( Stu[Data].Height >=  Stu[Root].Height ) {<br>     
+                       Upper[Data] = <b>[　　　b　　　]</b>;<br>    
+                       Upper[Root] = Data ;<br>     
+                }<br>     
+                else    {<br>     
+                       Upper[Data] = Lower[Root];<br>     
+                       Lower[Root] = <b>[　　　c　　　]</b>;　<br>
+                }<br>
+                Data = Next;<br>     
+             }<br>     
+             Data = Upper[Root] ;<br>     
+             if ( Data != -1 )  BinTreeSort( Data );<br>     
+             Data = Lower[Root] ;<br>     
+             if ( Data != -1 )  BinTreeSort( Data );<br>     
+       }<br>     
+　<br>
+       void  DisplayData( int  Root )<br>     
+       {<br>     
+            if ( Root == -1 ) return ;<br>     
+            DisplayData( <b>[　　　d　　　]</b>);<br>    
+            printf(" 名前:%s  年齢:%d  身長:%f 体重:%f\n" ,<br>     
+               Stu[Root].Name, Stu[Root].Age,<br>     
+               Stu[Root].Height, Stu[Root].Weight ) ;<br>     
+            DisplayData( Upper[Root] );<br>     
+       }<br>      
+</p>     
+<hr>      
+<a NAME="71">　<BR>    
+<b>    
+設問</b></a><b>　</b>プログラム中の<b>[　　　　　　]</b>に入れる正しい答えを、解答群の中から選べ。<br>    
+<br>    
+解答群    
+<table border="0" cellpadding="3" cellspacing="0">    
+  <tr>    
+    <td width="150">ア　-1</td>
+    <td width="150">イ　Data</td>
+    <td>ウ　Lower[Data]</td>
+  </tr>
+  <tr>
+    <td>エ　Lower[Root]</td>
+    <td>オ　Next</td>
+    <td>カ　Root</td>
+  </tr>
+  <tr>
+    <td>キ　Upper[Data]</td>
+    <td>ク　Upper[Root]</td>
+    <td></td>
+  </tr>
+</table>
+<p>　</p>
+<A NAME="31"> 
+<HR WIDTH=100%> 
+</a><a HREF="11f_p_a3.htm#71">設問の正解例と解説へ</a> 
+<HR WIDTH=100%> 
+<p><A HREF="index.htm">メニューへ戻る</A>　</p> 
+<HR WIDTH=100%> 
+<a NAME="80">　<BR> 
+<b> 
+問8</b></a>　次のCOBOLプログラムの説明及びプログラムを読んで、設問に答えよ。<br>
+<br>
+〔プログラムの説明〕<br>
+　店舗別、部門別に部門販売額を登録した販売ファイルから、部門ごとに部門販売額の<br>
+大きい順に順位を付け、販売成績ファイルを作成する。
+<p>(1)　販売ファイルのレコード様式は、次のとおりである。</p>
+<table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+  <tr>
+    <td rowspan="2" valign="bottom" align="center">店舗コード<br>
+      <p>５けた</td>
+    <td colspan="5" valign="bottom" align="center">部門販売額</td>
+  </tr>
+  <tr>
+    <td valign="bottom" align="center" width="70">部門A
+      <p>9けた</td>
+    <td valign="bottom" align="center" width="70">部門B
+      <p>9けた</td>
+    <td valign="bottom" align="center" width="70">部門C
+      <p>9けた</td>
+    <td valign="bottom" align="center" width="70">部門D
+      <p>9けた</td>
+    <td valign="bottom" align="center" width="70">部門E
+      <p>9けた</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>　</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0" width="500">
+  <tr>
+    <td valign="top">①</td>
+    <td width="468">各店舗には、部門 A～E の 5 部門がある。</td>     
+  </tr>     
+  <tr>     
+    <td valign="top">②</td>    
+    <td width="468">販売ファイル中に同一の店舗コードをもつレコードは、ないものとする。</td>    
+  </tr>    
+  <tr>    
+    <td valign="top">③</td>    
+    <td width="468">部門販売額は、9けたを超えないものとする。</td>    
+  </tr>    
+  <tr>    
+    <td valign="top">④</td>    
+    <td width="468">販売ファイルのレコード数は、9,999件以下とする。</td>    
+  </tr>    
+</table>    
+<p>(2)　販売成績ファイルのレコード様式は、次のとおりである。<br>
+<br>
+<img border="0" src="image/A99a08f2.gif" width="474" height="88"></p>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">①</td>
+    <td>各部門の部門順位は、各店舗の同一部門の部門販売額の大きい順に１から付ける。</td>
+  </tr>
+  <tr>
+    <td valign="top">②</td>
+    <td>部門販売額が同一の店舗が複数ある場合は、同じ部門順位とする。同じ部門順位を付けた後の順位は、それまでに順位をつけた店舗数より１だけ大きい数とする。</td>
+  </tr>
+</table>
+<p><br>
+(3)　部門別の部門販売額の順位を求めるため、作業用のファイルを用いる。<br>
+<br>
+〔プログラム〕<br>
+       DATA DIVISION.<br>     
+       FILE SECTION.<br>     
+       FD  HANBAI-FILE.<br>     
+       01  HANBAI-REC.<br>     
+           02  TENPO-HAN                PIC  X(05).<br>     
+           02  GAKU-HAN OCCURS 5 TIMES  PIC  9(09).<br>     
+　<br>
+       FD  SEISEKI-FILE.<br>     
+       01  SEISEKI-REC.<br>     
+           02  TENPO-SEI                PIC  X(05).<br>     
+           02  BUMON-SEI OCCURS 5 TIMES.<br>     
+               03  BANGO-SEI            PIC  9(04).<br>     
+               03  GAKU-SEI             PIC  9(09).<br>     
+       FD  BANGO-FILE.<br>     
+       01  BANGO-REC.<br>     
+           02  TENPO-BAN                PIC  X(05).<br>     
+           02  BUMON-BAN                PIC  9(01).<br>     
+           02  BANGO-BAN                PIC  9(04).<br>     
+           02  GAKU-BAN                 PIC  9(09).<br>     
+       SD  SORT-FILE.<br>     
+       01  SORT-REC.<br>     
+           02  TENPO-SOR                PIC  X(05).<br>     
+           02  BUMON-SOR                PIC  9(01).<br>     
+           02  BANGO-SOR                PIC  9(04).<br>     
+           02  GAKU-SOR                 PIC  9(09).<br>     
+       WORKING-STORAGE SECTION.<br>     
+       01  FILE-END                     PIC  9(01) VALUE ZERO.<br>     
+       01  LCN                          PIC  9(01).<br>     
+       01  X                            PIC  9(04).<br>     
+       01  Y                            PIC  9(04).<br>     
+       01  GAKU-WRK                     PIC  9(09).<br>     
+       PROCEDURE DIVISION.<br>     
+       SORT-RTN.<br>     
+           SORT SORT-FILE<br>     
+              ON ASCENDING KEY BUMON-SOR<br>     
+                 DESCENDING KEY GAKU-SOR<br>     
+                 INPUT  PROCEDURE IS BUNKAI-RTN<br>     
+                 OUTPUT PROCEDURE IS BANGO-RTN.<br>     
+           SORT SORT-FILE<br>     
+              ON ASCENDING KEY<b> [　　　ａ　　　]</b><br>    
+                 USING  BANGO-FILE<br>     
+                 OUTPUT PROCEDURE IS MATOME-RTN.<br>     
+           STOP RUN.<br>     
+       BUNKAI-RTN.<br>     
+           OPEN INPUT HANBAI-FILE.<br>     
+           PERFORM UNTIL FILE-END = 1<br>     
+              READ HANBAI-FILE AT END<br>     
+                 MOVE 1 TO FILE-END<br>     
+              NOT AT END<br>     
+                 PERFORM VARYING LCN FROM 1 BY 1 UNTIL LCN > 5<br>     
+                    MOVE TENPO-HAN TO TENPO-SOR<br>     
+                    MOVE LCN TO BUMON-SOR<br>     
+                    MOVE GAKU-HAN (LCN) TO GAKU-SOR&nbsp;<br>    
+                                       ｂ<br>    
+                 END-PERFORM<br>    
+              END-READ<br>    
+           END-PERFORM.<br>    
+           CLOSE HANBAI-FILE.<br>     
+　<br>
+       BANGO-RTN.<br>
+           OPEN OUTPUT BANGO-FILE.<br>     
+           MOVE ZERO TO FILE-END LCN.<br>     
+           PERFORM UNTIL FILE-END = 1<br>     
+              RETURN SORT-FILE AT END<br>     
+                 MOVE 1 TO FILE-END<br>     
+              NOT AT END<br>     
+                 MOVE SORT-REC TO BANGO-REC<br>     
+                 IF LCN = BUMON-SOR THEN<br>     
+                    COMPUTE X = X + 1<br>     
+                    IF GAKU-WRK > GAKU-SOR THEN<br>     
+                       MOVE GAKU-SOR TO GAKU-WRK&nbsp;<br>    
+<b>[　　　ｃ　　　]</b>　<br>
+                    END-IF<br>
+                    MOVE Y TO BANGO-BAN<br>     
+                 ELSE<br>     
+                    MOVE GAKU-SOR TO GAKU-WRK<br>     
+                    MOVE BUMON-SOR TO LCN<br>     
+                    MOVE 1 TO X Y BANGO-BAN<br>     
+                 END-IF<br>     
+                 WRITE BANGO-REC<br>     
+              END-RETURN<br>     
+           END-PERFORM.<br>     
+           CLOSE BANGO-FILE.<br>     
+       MATOME-RTN.<br>     
+           OPEN OUTPUT SEISEKI-FILE.<br>     
+           MOVE ZERO TO FILE-END.<br>     
+           RETURN SORT-FILE AT END<br>     
+              MOVE 1 TO FILE-END<br>     
+           NOT AT END<br>     
+              MOVE TENPO-SOR TO TENPO-SEI<br>     
+           END-RETURN.<br>     
+           PERFORM UNTIL FILE-END = 1<br>     
+              MOVE BANGO-SOR TO BANGO-SEI (　<b>[　　　ｄ　　　]</b> )&nbsp;<br>    
+              MOVE GAKU-SOR TO GAKU-SEI (　<b>[　　　ｄ　　　]</b> )<br>     
+              RETURN SORT-FILE AT END<br>     
+                 WRITE SEISEKI-REC<br>     
+                 MOVE 1 TO FILE-END<br>     
+              NOT AT END<br>     
+                 IF<b> [　　　　　ｅ　　　　　]</b>　THEN<br>
+                    WRITE SEISEKI-REC<br>     
+                    MOVE TENPO-SOR TO TENPO-SEI<br>     
+                 END-IF<br>     
+              END-RETURN<br>     
+           END-PERFORM.<br>     
+           CLOSE SEISEKI-FILE.</p>     
+<p><br>      
+<A NAME="40">      
+</p>     
+<HR WIDTH=100%>      
+</a><a NAME="81"><b>　<BR>     
+設問</b></a><b>　</b>プログラム中の<b>[　　　　　　]</b>に入れる正しい答えを、解答群の中から選べ。<br>    
+<br>    
+a、d に関する解答群     
+<table border="0" cellpadding="3" cellspacing="0">    
+  <tr>    
+    <td width="150">ア　BANGO-BAN</td>
+    <td width="150">イ　BANGO-SOR</td>
+    <td>ウ　BUMON-BAN</td>
+  </tr>
+  <tr>
+    <td>エ　BUMON-SOR</td>
+    <td>オ　GAKU-BAN</td>
+    <td>カ　GAKU-SOR</td>
+  </tr>
+  <tr>
+    <td>キ　TENPO-BAN</td>
+    <td>ク　TENPO-SOR</td>
+    <td></td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>　<br>
+      b に関する解答群</td>     
+  </tr>     
+</table>     
+<table border="0" cellpadding="3" cellspacing="0">    
+  <tr>    
+    <td>ア</td>    
+    <td>MOVE BANGO-REC TO SORT-REC</td>     
+  </tr>     
+  <tr>     
+    <td>イ</td>     
+    <td>MOVE GAKU-WRK TO GAKU-SOR</td>     
+  </tr>     
+  <tr>     
+    <td>ウ</td>     
+    <td>READ SORT-FILE</td>     
+  </tr>     
+  <tr>     
+    <td>エ</td>     
+    <td>RELEASE SORT-REC</td>     
+  </tr>     
+  <tr>     
+    <td>オ</td>     
+    <td>RETURN SORT-FILE</td>     
+  </tr>     
+  <tr>     
+    <td>カ</td>     
+    <td>WRITE SORT-REC</td>     
+  </tr>     
+</table>     
+<table border="0" cellpadding="3" cellspacing="0">    
+  <tr>    
+    <td>　<br>
+      c に関する解答群</td>     
+  </tr>     
+</table>     
+<table border="0" cellpadding="3" cellspacing="0">    
+  <tr>    
+    <td width="250">ア　MOVE BUMON-SOR TO LCN</td>     
+    <td>イ　MOVE LCN TO BUMON-SOR</td>     
+  </tr>     
+  <tr>     
+    <td>ウ　MOVE X TO BANGO-BAN</td>     
+    <td>エ　MOVE X TO Y</td>     
+  </tr>     
+  <tr>     
+    <td>オ　MOVE Y TO BANGO-BAN</td>     
+    <td>カ　MOVE Y TO X</td>     
+  </tr>     
+</table>     
+<table border="0" cellpadding="3" cellspacing="0">    
+  <tr>    
+    <td>　<br>
+      e に関する解答群</td>     
+  </tr>     
+</table>     
+<table border="0" cellpadding="3" cellspacing="0">    
+  <tr>    
+    <td width="250">ア　TENPO-SEI = TENPO-BAN</td>     
+    <td>イ　TENPO-SEI NOT = TENPO-BAN</td>     
+  </tr>     
+  <tr>     
+    <td>ウ　TENPO-SEI = TENPO-SOR</td>     
+    <td>エ　TENPO-SEI NOT = TENPO-SOR</td>     
+  </tr>     
+  <tr>     
+    <td>オ　TENPO-SOR = TENPO-BAN</td>     
+    <td>カ　TENPO-SOR NOT = TENPO-BAN</td>     
+  </tr>     
+</table>     
+<p>　</p>
+<A NAME="41"> 
+<HR WIDTH=100%> 
+</a><a HREF="11f_p_a3.htm#81">設問の正解例と解説へ</a> 
+<HR WIDTH=100%> 
+<A HREF="index.htm"><br> 
+メニューへ戻る<br> 
+</A> 
+<HR WIDTH=100%> 
+<p> 
+<a NAME="90"> 
+<b>問9</b></a><b>　</b></p> 
+<p>次のFortranプログラムの説明及びプログラムを読んで、設問に答えよ。<br>
+<p>〔プログラムの説明〕<br>
+　数値計算の分野で行列を扱う問題においては、計算量及び主記憶使用量は行列の大きさに依存して増大する。ここでは、ゼロの要素が多い疎行列の一つである帯行列に対して、値がゼロの要素を省略して記憶する方法を考える。<br>
+<br>
+　このプログラムは、帯行列の帯幅を求め、各行ごとに帯幅部分のデータを配列に格納し、<br>
+その内容を出力する。ここで、帯行列とは、図1のように対角要素付近に非ゼロ要素が分<br>
+布している正方行列である。<br>
+<img border="0" src="image/a99a09f1.gif" width="440" height="150">
+<p>　　　　　　　　　図１ 入力データ例<br>  
+</p>  
+<p>(1)　非ゼロ要素が対角要素付近に分布している帯行列を、配列waに入力する。プログラムでは、絶対値が10－6以上の要素を非ゼロ要素と判定する。<br>
+<p>(2)　行列の帯幅を求める。<br>
+　　row 番目の行に対して、    
+<table border="0" cellpadding="3" cellspacing="0">    
+  <tr>    
+    <td valign="top" align="right">　　①</td>
+    <td>左端から第row－1列までを調べて、最初の非ゼロ要素の列番号をklとする。</td>
+  </tr>
+  <tr>
+    <td valign="top" align="right">②</td>
+    <td>右端から第row＋1列までを調べて、最初の非ゼロ要素の列番号をkrとする。</td>
+  </tr>
+  <tr>
+    <td valign="top" align="right">③</td>
+    <td>row－klとkr－rowの大きい方をlengthとする。</td>
+  </tr>
+</table>
+<p>　こうして得られたすべての行におけるlengthの中の最大値を2倍して１を加えた値が帯幅である。例えば、図1に示す帯行列の3行目は、row＝3、kl＝1、kr＝5であり、row－kl＝2、kr－row＝2となる。この帯行列の場合、すべての行におけるlengthの中の最大値は2なので、帯幅は5となる。<br>
+
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">(3)</td>
+    <td>帯幅分の要素を格納する配列wb(行数，帯幅)の領域を確保する。</td>
+  </tr>
+  <tr>
+    <td valign="top">(4)</td>
+    <td>waの対角要素がwbの中央の列に並ぶように、帯幅分の要素をwbに格納する。wbの要素で、waに対応する要素がない箇所にはゼロを格納する。</td>
+  </tr>
+  <tr>
+    <td valign="top">(5)</td>
+    <td>図1の入力データに対する出力結果を図2に示す。</td>
+  </tr>
+</table>
+<p><img border="0" src="image/a99a09f2.gif" width="479" height="190"><br>
+図２　出力結果例
+<p>〔プログラム〕<br>
+&nbsp;real,dimension(:,:),allocatable::wa,wb<br>
+&nbsp;integer::na,width,wmax,index,row,k,left,right,length<br>
+&nbsp;real,parameter::eps=1.0e-06<br>
+&nbsp;read(*,*) na<br>    
+&nbsp;allocate(wa(na,na))<br>    
+&nbsp;read(*,*) ((wa(row,k),k=1,na),row=1,na)<br>    
+&nbsp;wmax = 0<br>    
+&nbsp;do row=1,na<br>    
+&nbsp;&nbsp; k = 1<br>    
+&nbsp;&nbsp; left = 0<br>    
+&nbsp;&nbsp; do while (<b>[　　　a　　　]</b> )&nbsp;<br>    
+&nbsp;&nbsp;&nbsp;&nbsp; if(abs(wa(row,k)) &gt;= eps) then<br>    
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; left = row - k<br>    
+&nbsp;&nbsp;&nbsp;&nbsp; end if<br>    
+&nbsp;&nbsp;&nbsp;&nbsp; k = k + 1<br>    
+&nbsp;&nbsp; end do<br>    
+&nbsp;&nbsp; k = na<br>    
+&nbsp;&nbsp; right = 0<br>    
+&nbsp;&nbsp; do while ( <b>[　　　b　　　]</b> )&nbsp;<br>    
+&nbsp;&nbsp;&nbsp;&nbsp; if(abs(wa(row,k)) &gt;= eps) then<br>    
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; right = k - row<br>    
+&nbsp;&nbsp;&nbsp;&nbsp; end if<br>    
+&nbsp;&nbsp;&nbsp;&nbsp; k = k - 1<br>    
+&nbsp;&nbsp; end do<br>    
+&nbsp;&nbsp; length = max(left,right)<br>    
+&nbsp;&nbsp; wmax = max(wmax,length)<br>    
+&nbsp;end do<br>    
+&nbsp;width = wmax * 2 + 1<br>    
+&nbsp;allocate(wb(na,width))<br>    
+&nbsp;do row=1,na<br>    
+&nbsp;&nbsp; index = 0<br>    
+&nbsp;&nbsp; left = <b>[　　　c　　　]</b><br>    
+&nbsp;&nbsp; right = left + width - 1<br>    
+　<br>
+&nbsp;&nbsp; do k=left,right<br>    
+&nbsp;&nbsp;&nbsp;&nbsp; index = index + 1<br>    
+&nbsp;&nbsp;&nbsp;&nbsp; if( <b>[　　　d　　　]</b> ) then<br>    
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; wb(row,index) = 0.0<br>    
+&nbsp;&nbsp;&nbsp;&nbsp; else<br>    
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; wb(row,index) = wa(row,k)<br>    
+&nbsp;&nbsp;&nbsp;&nbsp; end if<br>    
+&nbsp;&nbsp; end do<br>    
+&nbsp;end do<br>    
+&nbsp;deallocate(wa)<br>    
+&nbsp;write(*,100) width,width*na<br>    
+&nbsp;write(*,200) ((wb(row,k),k=1,width),row=1,na)<br>    
+100 format('&nbsp;&nbsp;&nbsp; band width=',i5,'&nbsp;&nbsp; data size=',i5)<br>    
+200 format('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; data'/('&nbsp;&nbsp;&nbsp;&nbsp;     
+',5f14.6/))<br>    
+&nbsp;end<br>    
+</p>    
+<p>     
+　</p> 
+<HR WIDTH=100%> 
+<a NAME="91">　<BR> 
+<b> 
+設問</b></a>　
+<p>プログラム中の<b>[　　　　　]</b>に入れる正しい答えを、解答群の中から選べ。<br>
+<p>a，b に関する解答群    
+<table border="0" cellpadding="3" cellspacing="0">    
+  <tr>    
+    <td width="200">ア　k &lt; row .and. left == 0</td>    
+    <td>イ　k &lt; row .and. right == 0</td>    
+  </tr>    
+  <tr>    
+    <td>ウ　k &lt; row .or. left == 0</td>    
+    <td>エ　k &lt; row .or. right == 0</td>    
+  </tr>    
+  <tr>    
+    <td>オ　k &gt; row .and. left == 0</td>    
+    <td>カ　k &gt; row .and. right == 0</td>    
+  </tr>    
+  <tr>    
+    <td>キ　k &gt; row .or. left == 0</td>    
+    <td>ク　k &gt; row .or. right == 0</td>    
+  </tr>    
+</table>    
+<table border="0" cellpadding="3" cellspacing="0">    
+  <tr>    
+    <td>　<br>
+      c に関する解答群</td>    
+  </tr>    
+</table>    
+<table border="0" cellpadding="3" cellspacing="0">    
+  <tr>    
+    <td>ア　row</td>
+    <td>イ　row + wmax</td>    
+  </tr>    
+  <tr>    
+    <td>ウ　row + wmax - 1</td>    
+    <td>エ　row - wmax</td>    
+  </tr>    
+  <tr>    
+    <td>オ　row - wmax + 1</td>    
+    <td>カ　row - wmax - 1</td>    
+  </tr>    
+</table>    
+<table border="0" cellpadding="3" cellspacing="0">    
+  <tr>    
+    <td>　<br>
+      d に関する解答群</td>    
+  </tr>    
+</table>    
+<table border="0" cellpadding="3" cellspacing="0">    
+  <tr>    
+    <td width="200">ア　index &lt; 1 .and. index &gt; na</td>    
+    <td>イ　index &lt; 1 .or. index &gt; na</td>    
+  </tr>    
+  <tr>    
+    <td>ウ　index &gt; 1 .and. index &lt; na</td>    
+    <td>エ　index &gt; 1 .or. index &lt; na</td>    
+  </tr>    
+  <tr>    
+    <td>オ　k &lt; 1 .and. k &gt; na</td>    
+    <td>カ　k &lt; 1 .or. k &gt; na</td>    
+  </tr>    
+  <tr>    
+    <td>キ　k &gt; 1 .and. k &lt; na</td>    
+    <td>ク　k &gt; 1 .or. k &lt; na</td>    
+  </tr>    
+</table>    
+<p>　　&nbsp;<br>
+<A NAME="43">
+<HR WIDTH=100%>
+</a><a HREF="11f_p_a3.htm#91">設問の正解例と解説へ</a>
+<HR WIDTH=100%>
+　<BR>
+<b><a name="100">問10</a>　</b>次のアセンブラプログラムの説明及びプログラムを読んで、設問に答えよ。<br>
+<p>〔プログラムの説明〕<br>
+連続する16語に格納されたデータを16×16ビットの図形とみなす。副プログラムROTATEは、そのビットの図形を90度回転する。<br>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">(1)</td>
+    <td>ビットの図形の先頭アドレスはGR1に格納されて、主プログラムから渡される。</td>
+  </tr>
+  <tr>
+    <td valign="top">(2)</td>
+    <td>GR3には１又は－1が格納されて、主プログラムから渡される。GR3の内容が１のときは右に90度、－1のときは左に90度回転する。</td>
+  </tr>
+  <tr>
+    <td valign="top">(3)</td>
+    <td>回転した図形を、GR2で指定する領域に格納する。</td>
+  </tr>
+  <tr>
+    <td valign="top">(4)</td>
+    <td>GR1とGR2で指定する領域は、重なっていないものとする。</td>
+  </tr>
+  <tr>
+    <td valign="top">(5)</td>
+    <td>副プログラムROTATEの実行例を図１に示す。</td>
+  </tr>
+</table>
+<p align="left"><img border="0" src="image/a99a10f1.gif" width="504" height="397">
+<p align="center">
+図１　副プログラムROTATEの実行例
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">(6)&nbsp;<br>
+    </td>
+    <td>　右に90度回転する場合は、図2に示すように、元の図形の先頭語①のビット列を矢印の方向に１ビットずつ     
+      a（結果の図形の右端）のビット列に移す。次に②をｂに、③をｃに、…     
+      と順に処理する。左に90度回転する場合は、図3に示すように、元の図形の最終語から順に、①をａに、②をｂに、③をｃに、…     
+      と順に処理する。    
+      <p><img border="0" src="image/a99a10f2.gif" width="568" height="126"></p>   
+      <p>　</td>  
+  </tr>  
+  <tr>  
+    <td valign="top">(7)</td>  
+    <td>　主プログラムに戻るとき、汎用レジスタGR1～GR3の内容を元に戻す。</td>
+  </tr>
+</table>
+<pre><font size="3">〔プログラム〕
+ ROTATE  START                        ;
+         PUSH      0,GR1              ;
+         PUSH      0,GR2              ;  レジスタの退避
+         PUSH      0,GR3              ;
+         ST        GR3,INCR           ;
+         LEA       GR3,0,GR3          ;
+         JPZ       RIGHT              ;
+         LEA       GR1,15,GR1         ;
+         LEA       GR2,15,GR2         ;
+ RIGHT   ST        GR1,SOURCE         ;
+         ST        GR2,TARGET         ;
+         LEA       GR0,1              ;  ビット位置の初期化
+         ST        GR0,BITPOS         ;
+         LEA       GR3,16             ;  語数カウンタ
+ LOOP1   ST        GR3,COUNTR         ;
+         LD        GR1,0,GR1          ;元の図形の１語→GR1
+         LD        GR0,0,GR2          ;結果の図形の１語→GR0
+         OR        GR0,BITPOS         ;結果の１語内のビットをオン
+         LEA       GR3,16             ;ビット数カウンタ
+         LEA       GR1,0,GR1          ;  元の図形のビット検査
+ LOOP2   JMI       RESTOR             ;
+                　    </font><b><font size="3">[　　　a　　　]</font></b><font size="3">;オンにしたビットをオフ
+ RESTOR  ST        GR0,0,GR2          ;結果の図形に格納
+         LEA       GR3,-1,GR3         ;
+         JZE       NWORD              ;
+         ADD       GR2,INCR           ;  結果の図形の次語→GR0
+         LD        GR0,0,GR2          ;
+         OR        GR0,BITPOS         ;結果の１語内のビットをオン
+         SLL       GR1,1              ;  元の図形のビット検査
+            　　　　　<b>[　　　b　　　]</b>;
+ NWORD   LD        GR1,SOURCE         ;
+         ADD       GR1,INCR           ;  元の図形の次語アドレス→GR1
+         ST        GR1,SOURCE         ;
+         LD        GR2,TARGET         ;結果の図形のアドレス→GR2
+         LD        GR0,BITPOS         ;
+            　　　　　<b>[　　　c　　　]</b>;  ビット位置の更新
+         ST        GR0,BITPOS         ;
+         LD        GR3,COUNTR         ;
+         LEA       GR3,-1,GR3         ;
+            　　　　　<b>[　　　d　　　]</b>;
+         POP       GR3                ;
+         POP       GR2                ;  レジスタの復元
+         POP       GR1                ;
+         RET                          ;
+ SOURCE  DS        1                  ;
+ TARGET  DS        1                  ;
+ BITPOS  DS        1                  ;
+ INCR    DS        1                  ;増分(+1又は-1)
+ COUNTR  DS        1                  ;
+         END                          ;</font>
+</pre>
+<p>　</p>
+<hr>
+<p><b><a name="101">設問</a>　</b>プログラム中の    
+[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ]    
+に入れる正しい答えを，解答群の中から選べ。</p>   
+<dir>   
+</dir>   
+<p>a，c に関する解答群   
+<table border="0" cellpadding="3" cellspacing="0">   
+  <tr>   
+    <td>ア　AND GR0,0,GR2</td>   
+    <td>イ　AND GR0,BITPOS</td>   
+  </tr>   
+  <tr>   
+    <td>ウ　EOR GR0,0,GR2</td>   
+    <td>エ　EOR GR0,BITPOS</td>   
+  </tr>   
+  <tr>   
+    <td>オ　LEA GR0,0</td>   
+    <td>カ　LEA GR0,32768</td>   
+  </tr>   
+  <tr>   
+    <td>キ　SLL GR0,1</td>   
+    <td>ク　SRL GR0,1</td>   
+  </tr>   
+</table>   
+<p>b，d に関する解答群   
+<table border="0" cellpadding="3" cellspacing="0">   
+  <tr>   
+    <td>ア　JMI LOOP1</td>   
+    <td>イ　JMI LOOP2</td>   
+  </tr>   
+  <tr>   
+    <td>ウ　JMP LOOP1</td>   
+    <td>エ　JMP LOOP2</td>   
+  </tr>   
+  <tr>   
+    <td>オ　JNZ LOOP1</td>   
+    <td>カ　JPZ LOOP2</td>   
+  </tr>   
+  <tr>   
+    <td>キ　JZE LOOP1</td>   
+    <td>ク　JZE LOOP2</td>   
+  </tr>   
+</table>   
+<p>&nbsp;</p>   
+<HR WIDTH=100%>   
+<a HREF="11f_p_a3.htm#101">設問の正解例と解説へ</a>   
+<HR WIDTH=100%>   
+<p align="center"><a HREF="11f_p_e4.htm">■問11へ進む</a>　　　　<a href="index.htm">■メニューへ戻る</a></p>
+<HR WIDTH=100%>
+<p><BR>
+</p>
+<p>　</p>
+</blockquote>
+</BODY>
+</HTML>

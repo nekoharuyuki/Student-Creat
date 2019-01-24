@@ -1,0 +1,103 @@
+<HTML>
+<HEAD>
+<TITLE>平成14年度春期試験　(問1～2)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0" style="font-size: 12pt">
+<BLOCKQUOTE>
+<hr>
+<H3 align="center">平成14年度春期試験　正解例と解説(問1～問2)</H3>
+<basefont size="3">
+<HR WIDTH=100%>
+<font size="3">
+<A NAME="10">
+<b>
+問1</b></a>
+</font>
+<A NAME="10">
+<HR WIDTH=100%>
+</a><font size="3"><A NAME="11">
+<b>
+設問</b></a><b><A NAME="11">1</a>　</b></font>
+<br><br>＜解答＞　ウ<br>
+<br><br>＜解説＞入力A<SUB>k</SUB>＝1，B<SUB>k</SUB>＝0で，k－1けた目からのけた上がりC<SUB>k－1</SUB>＝1なので，A<SUB>k</SUB>＝1とC<SUB>k－1</SUB>＝1の加算により，k＋1けた目へのけた上がりが発生しC<SUB>k＋1</SUB>＝1，出力Z<SUB>k</SUB>＝0となる。<br>
+<br>
+<HR WIDTH=100%>
+<A HREF="14S_P_E1.HTM#11"><font size="3">問題へ</font></A>
+<HR WIDTH=100%>
+<font size="3">
+<b><a name="12">設問2</a></b>　</font>
+<br><br>＜解答＞　ア<br>
+<br><br>＜解説＞空欄の論理演算の入力は，A<SUB>k</SUB>とB<SUB>k</SUB>との排他的論理和とC<SUB>k</SUB>である。この空欄の論理演算が論理積，論理和，排他的論理和としたときの真理値表はそれぞれ以下のようになる。<br>
+        <p><img border="0" src="image/P_A01-21.gif"></p>
+        <p>
+C<SUB>k＋1</SUB>は，と空欄の論理演算の出力との論理和になっている。したがって上記における論理積A<SUB>k</SUB>・B<SUB>k</SUB>の真理値と(A<SUB>k</SUB><img border="0" src="image/MaruPlus.gif">B<SUB>k</SUB>）・C<SUB>k</SUB>，(A<SUB>k</SUB><img border="0" src="image/MaruPlus.gif">B<SUB>k</SUB>) ＋C<SUB>k</SUB>，(A<SUB>k</SUB><img border="0" src="image/MaruPlus.gif">B<SUB>k</SUB>) <img border="0" src="image/MaruPlus.gif">C<SUB>k</SUB>の真理値のそれぞれと論理和をとったとき，C<SUB>k＋1</SUB>の真理値と一致したものが空欄に該当する論理回路の演算になる。そこで真理値表を作成すると以下のようになる。<br>
+<br>
+空欄を論理積として(A<SUB>k</SUB>・B<SUB>k</SUB>)と((A<SUB>k</SUB><img border="0" src="image/MaruPlus.gif">B<SUB>k</SUB>) ・C<SUB>k</SUB>)との論理和をとった場合<br>
+
+        <p><img border="0" src="image/P_A01-22.gif"></p>
+この場合，C<SUB>k＋1</SUB>との真理値が一致する。したがって空欄の論理回路は論理積である。<br>
+<br>
+空欄を論理和として(A<SUB>k</SUB>・B<SUB>k</SUB>)と((A<SUB>k</SUB><img border="0" src="image/MaruPlus.gif">B<SUB>k</SUB>) ＋C<SUB>k</SUB>)との論理和をとった場合<br>
+
+        <p><img border="0" src="image/P_A01-23.gif"></p>
+この場合，C<SUB>k＋1</SUB>とは真理値が一致しない。<br>
+空欄を排他的論理和として(A<SUB>k</SUB>・B<SUB>k</SUB>)と((A<SUB>k</Sub><img border="0" src="image/MaruPlus.gif">B<SUB>k</SUB>)<img border="0" src="image/MaruPlus.gif">C<SUB>k</SUB>)との論理和をとった場合<br>
+        <p><img border="0" src="image/P_A01-24.gif"></p>
+        <p>
+この場合，C<SUB>k＋1</SUB>とは真理値が一致しない。<br><br>
+
+<HR WIDTH=100%>
+<a HREF="14S_P_E1.HTM#12"><font size="3">問題へ</font></a>
+<HR WIDTH=100%>
+<font size="3"><b><a name="13">設問3</a></b>　</font>
+<br><br>＜解答＞　エ<br>
+<br><br>＜解説＞最上位けたの加算で，網掛け部分で桁あふれが起こるが，これをXOR回路1つを用いた論理回路で検出できる。XOR回路は2つの入力値が異なれば出力値1を返し，同じであれば出力値0を返す。したがってC<SUB>k</SUB>，A<SUB>k</SUB>，B<SUB>k</SUB>，C<SUB>k＋1</SUB>，Z<SUB>k</SUB>のうちのいずれか2つを入力としたXOR演算に対して，<img border="0" src="image/01_maru.GIF">網掛け部分だけが1となり，他が0となるか，<img border="0" src="image/02_maru.GIF">網掛け部分だけが0となり，他が1となる入力の組み合わせにより検出できることになる。
+        <p><img border="0" src="image/P_A01-31.GIF"></p>
+        <p><img border="0" src="image/P_A01-32.GIF"></p>
+        <p><img border="0" src="image/P_A01-33.GIF"></p>
+以上より排他的論理和XORの結果，網掛け部分のみ1となる2つの入力X，YはC<SUB>n</SUB>とC<SUB>n＋1</SUB>である。<br>
+<br>
+<hr>   
+<a HREF="14S_P_E1.HTM#13"><font size="3">問題へ</font></a>
+<hr>   
+<p>   
+<font size="3">   
+<a NAME="20">   
+<b>問2</b></a><b>　</b>
+</font>
+</p>
+<hr> 
+<font size="3"> 
+<b><a name="21">設問1</a></b>　</font>
+<p> 
+<br>＜解答＞　a　ウ　　　b　イ<br>
+<br>＜解説＞<br>
+空欄aについて<br>
+空欄aは，日当が1,000円支給に宿泊費10,000円支給される場合，または日当1,000円のみが支給される場合の条件に該当する。日当1,000円が支給されるのは，(2)より片道20Km以上120km未満で，現地での業務時間が8時間未満の場合である。これより空欄aはウ。<br>
+空欄bについて<br>
+１番目の条件は，片道20Km以上120km未満で，現地での業務時間が8時間以上，かつ宿泊を伴う場合であるので，日当1,000円支給，食事代補助500円支給，宿泊費10,000円支給となる。<br>
+２番目の条件は，片道20Km以上120km未満で，現地での業務時間が8時間以上，かつ宿泊を伴わない場合であるので，日当1,000円支給，食事代補助500円支給となる。<br>
+３番目の条件は，片道120Km以上で，現地での業務時間が8時間未満，かつ宿泊を伴う場合であるので，日当2,000円支給，宿泊費10,000円支給となる。<br>
+４番目の条件は，片道120Km以上で，現地での業務時間が8時間未満，かつ宿泊を伴わない場合であるので，日当2,000円のみの支給となる。これより空欄bはイとなる。<br>
+<HR WIDTH=100%>   
+<a HREF="14S_P_E1.HTM#21"><font size="3">問題へ</font></a>  
+<HR WIDTH=100%>  
+
+
+<b><a name="22">設問2</a></b>　</font>
+<br><br>＜解答＞　エ<br>
+<br>＜解説＞片道120Km以上で，現地での業務時間が8時間以上，かつ宿泊を伴わない場合は日当2,000円支給，で，食事代補助が500円支給から1,000円支給になるので，“食事代補助500円支給”の動作指定部を変更する必要がある。これに対し片道120Km以上で，現地での業務時間が8時間以上，かつ宿泊を伴う場合は日当2,000円支給，食事代補助500円支給，宿泊費10,000円支給となり，“食事代補助500円支給”の動作指定部の変更はない。<br>
+<br>
+<HR WIDTH=100%>   
+<a HREF="14S_P_E1.HTM#22"><font size="3">問題へ</font></a>  
+<HR WIDTH=100%>  
+
+<p><font size="3"> 
+<A HREF="index.htm">メニューへ戻る</A> 
+</font> 
+</p> 
+<HR WIDTH=100%> 
+</BLOCKQUOTE> 
+<p>　 
+</BODY> 
+</HTML> 

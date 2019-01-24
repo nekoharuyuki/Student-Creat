@@ -1,0 +1,99 @@
+<HTML>
+<HEAD>
+<TITLE>平成14年度春期試験　</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0">
+<blockquote>
+  <hr>
+  <H3 align="center">平成14年度春期試験　正解例と解説(問6～問8)</H3>
+<hr>
+<p><b><a name="60">問6</a>　</b></p>
+<hr> 
+<p><b><a name="61">設問</a>　</b> 
+</p> 
+＜解答＞　a　オ　　　b　エ　　　c　イ<br>
+<br>＜解説＞<br>
+空欄aについて<br>
+関数GetMax( x1, x2, x3 )は，x1, x2, x3のうちで最大の値を返す。また関数GetMin( x1, x2, x3 )は，x1, x2, x3のうちで最小の値を返す。dx = GetMax( x1, x2, x3 )－GetMin( x1, x2, x3 )は，3点P1，P2，P3のx座標の最大値と最小値の差を求めている。空欄aを含むdyの計算式は，dy = GetMax( y1, y2, y3 )－GetMin( y1, y2, y3 )により三点P1，P2，P3のy座標の最大値と最小値の差を求めている。座標差がdx≦1.0 かつ dy≦1.0となり3点P1，P2，P3が隣接している場合，関数gSetPixel関数により画素を点灯している。<br>
+<br>
+空欄bについて<br>
+辺P1P2，P2P3，P3P1の長さの2乗値Len1，Len2，Len3を計算したのち，空欄bを判定条件とするif文により判定を行なっている。空欄bの条件が成り立つとき，辺P1P2の中点で三角形P1P2P3を分割し，分割した2つの三角形に対して再帰的に関数DrawTrg( x1, y1, (x1+x2)/2, (y1+y2)/2, x3, y3 )とDrawTrg( x3, y3, (x1+x2)/2, (y1+y2)/2, x2, y2 )を呼び出している。関数DrawTrgによる三角形の分割処理では，最も長い辺で分割を行うので，空欄bは辺P1P2が最も長い辺である条件になる。したがって空欄bは( Len1≧Len2) && (Len1≧Len3)。<br>
+<br>
+空欄cについて<br>
+Len2は辺P2P3の長さの2乗値で，if文の条件Len2≧Len3が成り立つとき辺P2P3が最長となり，このとき辺P2P3の中点で三角形P1P2P3を分割し，分割した2つの三角形に対して空欄cで再帰的に関数DrawTrg( x1, y1, (x2+x3)/2, (y2+y3)/2, x3, y3 )とDrawTrg( x2, y2, (x2+x3)/2, (y2+y3)/2, x1, y1 )を呼び出せばよい。<br>
+        <p><img border="0" src="image/P_A06-01.gif"></p>
+<hr WIDTH="100%">
+  <a HREF="14S_P_E3.HTM#61">問題へ</a>
+<hr WIDTH="100%">
+<br>
+<a HREF="index.htm">メニューへ戻る</a><br>
+<HR WIDTH=100%>
+<a NAME="70">　<BR>
+<b>
+問7</b></a><b>　</b>
+<hr> 
+<a NAME="71">　<BR>
+<b>
+設問</b></a><b></b>
+<br><br>＜解答＞　a　ア　　　b　ア　　　c　イ　　　d　エ<br>
+<br>＜解説＞このプログラムの処理では，最初のSORT命令により入力手続のNYURYOKU-SHORIでソート用のWORK-FILEに書出し，商品コードW-CODEの昇順にソートしたのち，SHUKEI-FILEに出力している。2つ目のSORT命令により入力手続きSHUKEI-SHORIでソート用のWORK-FILEに書出し，WORK-FILEを金額W-KINGAKUの降順に，商品コードの昇順にソートしたのち，出力手続きPRINT-SHORIに引き渡している。<br>
+空欄aについて<br>
+空欄aを含む入力手続きNYURYOKU-SHORIでは，URIAGE-FILEを読みRELEASE命令によりソート用のWORK-FILEに書出している。URIAGE-FILEの商品コードU-SCODEをWORK-FILEのW-CODEに転送した後の処理が空欄aである。したがって空欄aで，W-KINGAKUに売上金額を転送する処理COMPUTE　W-KINGAKU ＝ U-TANKA ＊ U-KOSUが必要である。<br>
+空欄bについて<br>
+2つ目のSORT命令の入力手続きNYURYOKU-SHORIでは，SHUKEI-FILEを読んでコントロールブレークによりS-CODEごとに金額を作業エリアWK-KINGAKUを用いて集計している。読込まれたS-CODEがWK-CODEに保存されたキーと同じ間はWK-KINGAKUにS-KINGAKUを足しこんでいるが，S-CODEが異なればWK-AREAの内容をWORK-FILEに書出し，S-CODEをWK-CODEに保存する必要がある。したがって空欄bでMOVE SHUKEI-REC TO WK-AREAとしてキーの保存とWK-KINGAKUの初期値設定をすればよい。<br>
+空欄c，dについて<br>
+出力手続きPRINT-SHORIでは，合計売上金額の上位10製品を印字している。空欄cの直前でWK-NUM2をカウントアップしているので，WK-NUM2により順位をカウントアップしているのが分かる。合計売上金額が等しい製品の順位は同じとするので，空欄cで合計売上金額が異なれば，空欄dでWK-NUM1の順位をカウントアップされたWK-NUM2の順位で更新し，合計売上金額が同じであればそのままWK-NUM1の順位を印字すればよい。したがって空欄cはW-KINGAKU NOT ＝ P-KINGAKUで，空欄dはMOVE WK-NUM2 TO WK-NUM1。<br>
+<br>
+
+<HR WIDTH=100%>  
+  <a HREF="14S_P_E3.HTM#71">問題へ</a>  
+<HR WIDTH=100%>  
+<p><a HREF="index.htm">メニューへ戻る</a>　</p> 
+<HR WIDTH=100%> 
+<a NAME="80">　<BR> 
+<b> 
+問8</b></a>
+<A NAME="80">  
+<HR WIDTH=100%>  
+</a><a NAME="81">
+<br><br>＜解答＞　a　ウ　　　b　オ　　　c　ウ　　　d　エ<br>
+<br>＜解説＞空欄aについて<br>
+このプログラム1では，スタックを配列contentにより実現している。クラスIntStackのコンストラクタ中で，content = new int[ capacity ]により要素数capacityの配列オブジェクトcontentを生成している。メソッドpush( int value )は，スタックに値valueを格納する処理を行う。スタックの容量capacityは必要に応じて動的に拡張され，データを格納する時点でスタック容量が不足していれば，所定の増分INCREMENTだけ容量を拡張する。メソッドpushの最初の処理で，スタックを構成している配列の拡張を行っている。配列の要素番号n_elementsが配列の要素数content.lengthに達していれば，要素数capacityを増分INCREMENTだけ増やした配列newContentを生成している。空欄aを含むforループでは，iの値を0からcapacity－1まで1ずつ増やして空欄aの処理を行っているが，これは拡張した配列の要素newContent[0]～newContent[capacity－1]に拡張前の要素content[0]～content[capacity－1]を転送する処理に該当する。したがって空欄aはnewContent[i] = content[i]に該当する。<br>
+<br>
+空欄b，cについて<br>
+空欄bはスタックを構成する配列contentの要素に値valueを格納している処理で，配列の要素番号n_elementsを＋1だけカウントアップした次の要素に格納する必要がある。したがって空欄bはcontent[ n_elements++ ] = valueに該当する。<br>
+空欄cはメソッドpeek( )の戻り値である。メソッドpeek( )は直前にスタックに格納したデータを戻り値として返すメソッドであるので，content[ n_elements－1]を戻り値として返せばよい。<br>
+<br>
+空欄dについて<br>
+スタックを構成する配列の要素番号n_elementsが0以上の間，メソッドpop( )によりスタックのデータを取り出し，表示すればよいので，空欄dは!stack.empty( )となる。<br>
+<br>
+<A NAME="81">  
+<HR WIDTH=100%>  
+</a><a HREF="14S_P_E3.HTM#81">問題へ</a> 
+<HR WIDTH=100%> 
+  <a HREF="index.htm"><br>
+メニューへ戻る<br> 
+  </a> 
+<HR WIDTH=100%> 
+<a NAME="90">　<BR> 
+<b> 
+問9</b></a>
+<A NAME="90">  
+<HR WIDTH=100%>  
+</a><a NAME="91"><a NAME="92"><a NAME="93">
+<br><br>＜解答＞　設問1　ア　　　設問2　ウ　　　設問3　a　カ　　b　ウ
+<br>
+<br>＜解説＞<br>
+(省略)
+<A NAME="91">  
+<HR WIDTH=100%>  
+</a><a HREF="14S_P_E3.HTM#91">問題へ</a> 
+<HR WIDTH=100%> 
+  <a HREF="index.htm"><br>
+メニューへ戻る<br> 
+  </a> 
+<HR WIDTH=100%> 
+<p>　</p>
+</blockquote>
+</BODY>
+</HTML>

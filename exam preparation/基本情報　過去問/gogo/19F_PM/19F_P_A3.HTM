@@ -1,0 +1,114 @@
+<html>
+
+<head>
+<title>平成19年度 秋期　基本情報技術者 午後 解説</title>
+<style type="text/css">
+body{line-height:150%;}
+code{font-size:12pt;}
+</style>
+</head>
+
+<body>
+
+<blockquote>
+	<hr>
+	<h3 align="center">平成19年度秋期試験　問題(問6～問9)</h3>
+	<div align="center">
+		<table borderColor="#000000" cellSpacing="0" cellPadding="4" border="1">
+			<tr>
+				<td>　次の<strong>問6</strong>から<strong>問9</strong>までの4問については、この中から1問を選択し、答案用紙の選択欄の（選）をマークして解答してください。<br>
+				　なお、2問以上選択した場合には、はじめの1問について採点します。</td>
+			</tr>
+		</table>
+	</div>
+	<hr>
+	<p><a name="60"><strong>問6</strong></a></p>
+	<hr>
+	<p><strong><a name="61">設問</a></strong>　a：オ，b：カ，c：エ</p>
+	<p>●空欄aについて<br>
+	　行数と列数が入れ替わるのは，90度右回転と90度左回転の場合，つまり<code>invtype</code>の値が1または2の場合なので，空欄aは<code>(invtype == 1) || (invtype == 2)</code>とすればよく，オが適切。</p>
+	<p>●空欄bについて<br>
+	　90度左回転は，8行6列の配列<code>src[CSZ][RSZ]</code>を元の文字パターンとして，関数<code>main()</code>の中の関数呼出し<code>invert(2, src)</code>により実行される。<br>
+	　また，<code>CSZ</code>の値は8，<code>RSZ</code>の値は6であるため，90度左回転の場合，空欄aの<code>if</code>文による行数と列数の入替え処理により<code>row</code>の値が8（<code>CSZ</code>），<code>col</code>の値が6（<code>RSZ</code>）となる。したがって，外側の<code>for</code>ループの変数<code>i</code>は0～5まで変化し，内側の<code>for</code>ループの変数<code>j</code>は0～7まで変化する。<br>
+	　90度左回転後の<code>i</code>行<code>j</code>列の要素は，元のパターンの<code>j</code>行<code>(RSZ - i - 1)</code>列となる。</p>
+	<p><img src="ansimg/fig2.png" /></p>
+	<p>　90度左回転の場合，内側の<code>for</code>ループにより，元のパターンの<code>(RSZ - i - 1)</code>列目の<code>in[0][RSZ - i - 1]</code>から<code>in[CSZ - 1][RSZ - i - 1]</code>までを，90度左回転後のパターンとして<code>i</code>行目に左から右に出力した後に改行し，外側の<code>for</code>ループによりこれを繰返せばよい。したがって，空欄bは<code>in[j][RSZ - i - 1]</code>とすればよく，カが適切。</p>
+	<p>●空欄cについて<br>
+	　左右反転は，8行6列の配列<code>src[CSZ][RSZ]</code>を元の文字パターンとして関数<code>main()</code>の中の関数<code>invert(4, src)</code>により実行される。<br>
+	　また，<code>CSZ</code>の値は8，<code>RSZ</code>の値は6であり，左右反転の場合，空欄aの<code>if</code>文による行数と列数の入替え処理を行わないので，<code>row</code>の値は6（<code>RSZ</code>），<code>col</code>の値は8（<code>CSZ</code>）となる。したがって，外側の<code>for</code>ループの変数<code>i</code>は0～7まで変化し，内側の<code>for</code>ループの変数<code>j</code>は0～5まで変化することになる。<br>
+	　左右反転後の<code>i</code>行<code>j</code>列の要素は，元のパターンの<code>i</code>行<code>(RSZ - j - 1)</code>列となる。左右反転の場合，内側の<code>for</code>ループにより，元のパターンの<code>i</code>行目の<code>in[i][RSZ - 1]</code>から<code>in[i][0]</code>までを左右反転後のパターンとして，<code>i</code>行目に左から右に出力した後に改行し，外側の<code>for</code>ループによりこれを繰り返せばよい。したがって，空欄cは<code>in[i][RSZ - j - 1]</code>とすればよく，エが適切。</p>
+	<p><img src="ansimg/fig3.png" /></p>
+	<hr>
+	<p><a href="19F_P_E3.HTM#61">問題へ</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a> </p>
+	<hr>
+	<p><a name="70"><strong>問7</strong></a></p>
+	<hr>
+	<p><a name="71"><strong>設問1</strong></a>　a：オ，b：ウ</p>
+	<p>●空欄aについて<br>
+	　<code>MAIN-PROC</code>の<code>PERFORM</code>ループ中の<code>READ</code>命令で，今年度の診断結果を記録した<code>YEAR-FILE</code>を読み，<code>AT END</code>でなければ手続き<code>READ-MAST-PROC</code>を実行している。<code>READ-MAST-PROC</code>の最初の処理が空欄aで，その直後の<code>READ</code>命令で索引ファイル<code>MAST-FILE</code>を読み，<code>INVALID KEY</code>でない場合に<code>UPDT-PROC</code>で<code>MAST-FILE</code>の更新処理を実行している。したがって，空欄aでは索引ファイル<code>MAST-FILE</code>の索引キーの設定が必要で，オの<code>MOVE YEAR-ENO TO MAST-ENO</code>が適切。</p>
+	<p>●空欄bについて<br>
+	　<code>MAST-FILE</code>の<code>MAST-HEALTH</code>テーブルには過去5年分の診断結果を記録するが，<code>YEAR-FILE</code>の今年度の診断結果を反映し，<code>MAST-FILE</code>を更新する処理を<code>UPDT-PROC</code>で行っている。<code>PERFORM</code>ループ直後の<code>MOVE</code>命令において，今年の診断結果のデータ<code>YEAR-HEALTH</code>を，<code>MAST-FILE</code>のテーブル要素<code>MAST-HEALTH(1)</code>に転送しているので，<code>PERFORM</code>ループにおいて診断結果（1年前）～診断結果（4年前）を，診断結果（2年前）～診断結果（5年前）に転送する必要がある。<code>PERFORM</code>ループの変数<code>CNT</code>の初期値が4なので，テーブルの末尾から<br>
+	　　<code>MAST-HEALTH(4) </code>→<code> MAST-HEALTH(5)</code><br>
+	　　<code>MAST-HEALTH(3) </code>→<code> MAST-HEALTH(4)</code><br>
+	　　<code>MAST-HEALTH(2) </code>→<code> MAST-HEALTH(3)</code><br>
+	　　<code>MAST-HEALTH(1) </code>→<code> MAST-HEALTH(2)</code><br>
+	の順に転送すればよく，ウの<code>MOVE MAST-HEALTH(CNT) TO MAST-HEALTH(CNT + 1)</code>が適切。</p>
+	<hr>
+	<p><a href="19F_P_E3.HTM#71">問題へ</a></p>
+	<hr>
+	<p><a name="72"><strong>設問2</strong></a>　c：エ，d：ウ</p>
+	<p>●空欄cについて<br>
+	　この処理は，今年の診断結果をマスタファイル<code>MAST-FILE</code>に反映するときに行うので，<code>UPDT-PROC</code>の最初の行番号39と49の間で行えばよい。したがってエが適切。</p>
+	<p>●空欄dについて<br>
+	　昨年の体重と比較して5 kg以上増減がある従業員をチェックして，対象者の従業員番号を表示する。空欄d直前で5 
+	kg以上増えている従業員をチェックしているので，空欄dにおいて5 kg以上減っている従業員をチェックすればよく，ウの<code>YEAR-WEIGHT &gt;= MAST-WEIGHT(1) － 5</code>が適切。</p>
+	<hr>
+	<p><a href="19F_P_E3.HTM#72">問題へ</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a> </p>
+	<hr>
+	<p><a name="80"><strong>問8</strong></a></p>
+	<hr>
+	<p><a name="81"><strong>設問1</strong></a>　a：イ，b：エ，c：イ</p>
+	<p>●空欄aについて<br>
+	　クラス<code>WeightedQueue</code>のメソッド<code>offer()</code>の処理では，重み<code>weight</code>をもつ要素<code>element</code>を待ち行列<code>queue</code>に挿入する処理を行っている。このメソッド中の<code>for</code>ループにおいて，待ち行列の末尾の要素からの重みの合計が<code>weight</code>以上になるか，先頭に達するまで前方に向かって走査し，要素<code>element</code>の挿入位置<code>pos</code>を探索している。<code>for</code>ループ直後の空欄cを含むメソッド<code>add()</code>により，待ち行列の挿入位置<code>pos</code>に要素のオブジェクトを挿入している。<code>for</code>ループの中では，末尾の要素から先頭に向かって，待ち行列の<code>pos</code>番目の要素の重み<code>weight</code>を変数<code>sum</code>に加算している。待ち行列の先頭位置を0としているので，<code>pos</code>番目の要素の位置（インデックス）は<code>pos - 1</code>になる。したがって，空欄aを含む命令文で，メソッド<code>get()</code>により待ち行列<code>queue</code>の<code>pos</code>番目の要素の重み<code>weight</code>を取得する際に，空欄aで位置<code>pos - 1</code>を指定する必要がある。したがって空欄aはイが適切。</p>
+	<p>●空欄bについて<br>
+	　待ち行列の末尾の要素からの重みの合計が<code>weight</code>以上になったときに，<code>break</code>文により<code>for</code>ループを抜ければよいので，空欄bはエの<code>&gt;=</code>が適切。</p>
+	<p>●空欄cについて<br>
+	　メソッド<code>add()</code>により待ち行列の挿入位置<code>pos</code>に，重み<code>weight</code>をもつ要素<code>element</code>を挿入するため，コンストラクタ<code>QueueElement()</code>を呼び出し，挿入する要素のオブジェクトを生成し，これを空欄cで指定する必要がある。したがって空欄cはイの<code>new QueueElement(element, weight)</code>が適切。</p>
+	<hr>
+	<p><a href="19F_P_E3.HTM#81">問題へ</a></p>
+	<hr>
+	<p><a name="82"><strong>設問2</strong></a>　ア</p>
+	<p>　「<a href="java.htm" target="_blank">Javaプログラムで使用するAPI</a>」の<code>LinkedList&lt;E&gt;</code>のメソッド<code>poll()</code>の説明によると，クラス<code>WeightedQueue</code>のメソッド<code>poll()</code>の処理では，待ち行列<code>queue</code>より先頭要素eを取得し，取得した要素を削除している。さらに，<code>if</code>文の条件判定で取得した要素<code>e</code>が<code>null</code>であれば，<code>return</code>文により戻り値として<code>null</code>を返している。</p>
+	<hr>
+	<p><a href="19F_P_E3.HTM#82">問題へ</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a> </p>
+	<hr>
+	<p><a name="90"><strong>問9</strong></a></p>
+	<hr>
+	<p><a name="91"><strong>設問1</strong></a>　a：カ，b：カ</p>
+	<p>●空欄aについて<br>
+	　<code>GR2</code>にはブロックの開始アドレスが設定されているので，行番号6の<code>LD</code>命令により<code>GR1</code>にブロックから取り出した1語がセットされる。続く行番号7の<code>LAD</code>命令により<code>GR7</code>に初期値0が設定された後，行番号8の<code>SLL</code>命令により<code>GR1</code>の語が1ビット左シフトされる。左シフトの結果<code>GR1</code>が0になれば，残りのビットがすべて0なので，<code>JZE</code>命令により<code>CONT</code>に零分岐する。左シフトの結果<code>GR1</code>の第15ビットにはじめて1が出現したとき，行番号11の<code>XOR</code>命令による<code>#8000</code>との排他的論理和によって<code>GR7</code>のパリティビット（第15ビット）を0から1に反転し，パリティビットを調整する必要がある。これに対して左シフトの結果<code>GR1</code>の第15ビットに0が出現したときは，<code>GR7</code>のパリティビット（第15ビット）を反転する必要がないので，<code>LP2</code>に戻り<code>SLL</code>命令による左シフトを繰り返せばよい。左シフトの結果<code>GR1</code>の第15ビットに0が出現したとき<code>FR</code>の値が0になる。したがって，空欄aで<code>JPL</code>命令により<code>LP2</code>に分岐すればよく，カが適切。</p>
+	<p>●空欄bについて<br>
+	　行番号8の<code>SLL</code>命令による左シフトの結果，<code>GR1</code>が0になれば残りのビットがすべて0なので，<code>JZE</code>命令により<code>CONT</code>に零分岐する。分岐先の行番号13の<code>OR</code>命令による<code>GR7</code>とアドレス<code>GR2</code>の元の語との論理和の結果，<code>GR7</code>にパリティビットをセットした語が格納される。次の行番号14の<code>ST</code>命令により<code>GR7</code>の語を元のメモリアドレス<code>GR2</code>の領域に格納している。<br>
+	　その直後において水平パリティを調整している処理が空欄bである。行番号19の<code>ST</code>命令により<code>GR4</code>の内容をメモリアドレス<code>GR6</code>の領域に格納しているが，<code>GR6</code>には，行番号3，4によりブロックの開始アドレス＋ブロックの語数N，つまり水平パリティを設定する語Nのアドレスが設定されているので，語Nに設定すべき水平パリティが<code>GR4</code>に格納されている必要がある。したがって，空欄bにおいて，<code>GR7</code>に格納されたパリティビットをセットした語の各ビットに1が出現すれば，<code>GR4</code>の水平パリティの対応するビットを反転し，水平パリティを調整すればよい。<code>GR7</code>の各ビットに対応した<code>GR4</code>のビットを反転するには，<code>GR4</code>と<code>GR7</code>との排他的論理和をとればよく，空欄bはカの<code>XOR GR4,GR7</code>が適切。</p>
+	<hr>
+	<p><a href="19F_P_E3.HTM#91">問題へ</a></p>
+	<hr>
+	<p><a name="92"><strong>設問2</strong></a>　ウ</p>
+	<p>　変更前のように行番号7の<code>LAD</code>命令により<code>GR7</code>に初期値として0がセットされていると，行番号8の<code>SLL</code>命令による左シフトの結果<code>GR1</code>の第15ビットにはじめて1が出現したとき，行番号11の<code>XOR</code>命令による<code>#8000</code>との排他的論理和によって<code>GR7</code>のパリティビット（第15ビット）が0から1に反転するので，ビット番号0～14中の1であるビットの個数が奇数のとき1が，偶数のとき0がパリティビットに設定され，偶数パリティになる。<br>
+	　これに対してビット番号0～14中の1であるビットの個数が奇数のとき0が，偶数のとき1がパリティビットに設定され，奇数パリティになるようにするには，行番号8の<code>SLL</code>命令による左シフトの結果，<code>GR1</code>の第15ビットにはじめて1が出現したとき，行番号11の<code>XOR</code>命令による<code>#8000</code>との排他的論理和によって，<code>GR7</code>のパリティビット（第15ビット）が1から0に反転する必要がある。そのためには，行番号7で初期値として<code>GR7</code>に<code>#8000</code>を設定しておく必要があり，ウが適切。</p>
+	<hr>
+	<p><a href="19F_P_E3.HTM#92">問題へ</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a></p>
+	<hr>
+</blockquote>
+
+</body>
+
+</html>

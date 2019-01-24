@@ -1,0 +1,173 @@
+<html>
+
+<head>
+<title>平成19年度 春期　基本情報技術者 午後 解説</title>
+<style type="text/css">
+body{line-height:150%;}
+code{font-size:12pt;}
+</style>
+</head>
+
+<body>
+
+<blockquote>
+<hr>
+<h3 align="center">平成19年度春期試験　問題(問6～問9)</h3>
+<div align="center">
+<table borderColor="#000000" cellSpacing="0" cellPadding="4" border="1">
+<tr>
+<td>　次の<strong>問6</strong>から<strong>問9</strong>までの4問については、この中から1問を選択し、答案用紙の選択欄の（選）をマークして解答してください。<br>
+　なお、2問以上選択した場合には、はじめの1問について採点します。</td>
+</tr>
+</table>
+</div>
+<hr>
+<p><strong><a name="60">問6</a></strong></p>
+<hr>
+<p><strong><a name="61">設問1</a></strong></p>
+<p>〈解答〉　a　ア　　　b　エ　　　c　ウ</p>
+<p>〈解説〉</p>
+<p>空欄aについて</p>
+<blockquote>
+<p>“双六を開始します”のメッセージを表示した後，forループの処理でプレーヤの駒の升の位置curpos[playerid]を“ふりだし”の0の升に初期設定する処理とplaymode[playerid]をPLAYモードに初期設定する処理を行っている。playerid＝0のプレーヤから開始し，gamestatus == 1の間はwhileループの処理を繰返す。</p>
+<p>最初のif文の条件でプレーヤのplaymode[playerid]がPLAYモードであれば，</p>
+<p>①サイコロの目の和の数だけcurpos[pleyid]に加算して駒を進める処理<br>
+②升番号と升の指示を表示する処理prtpiece[playerid]</p>
+<p>を行った後，空欄aを含むwhileループの処理に入る。</p>
+<p>
+このwhileループ中のswitch文で指示先の升へ飛ぶ処理または1回休みの処理を行っていることから，升の指示により駒を進める処理を繰返すwhileループの繰返し条件の1つに，空欄aがなっていることが分かる。whileループ中のswitch文で升の指示actype[curpos[playerid]]が0でなく，1（指示先の升へ飛ぶ）または2（1回休み）の指示である場合には，break文でswitch文を終了してwhileループの処理を繰返すので，空欄aの繰返し条件をactype[curpos[playerid]] != 0とする必要がある。したがって空欄aはアが適切。</p>
+</blockquote>
+<p>空欄bについて</p>
+<blockquote>
+<p>空欄bの条件は，“上がり”（ゴール）になりgamestatus＝0にセットしてゲームを終了する条件である。いずれかのプレーヤが升番号23の“上がり”の升に到達するか，その升を超えればゲームが終了するので，空欄bでcurpos[playerid]＞＝CELLS－1とすればよく，エが適切。</p>
+</blockquote>
+<p>空欄cについて</p>
+<blockquote>
+<p>空欄aを含むwhileループの升の指示により駒を進める処理で，升の指示actype[curpos[playerid]]が0になるか，1回休みの指示がでた場合の処理に該当する。空欄c直前でplaymode[playerid]をPLAYモードにリセットしているので，空欄cで次のプレーヤにplayeridを進めればよい。したがってplayeridは0～3の範囲で0→1→2→3→0→…と順に切り替わればよいので，ウのplayerid=(playerid＋1)%PLAYERSが適切。</p>
+<p>ア　×　playerid＝3のときplayerid＝3％4＋1＝4と計算されてしまう<br>
+イ　×　playeridをPLYERS＋1＝5で割った剰余をplayeridにセットしているので，例えばplayerid＝0であれば常にplayerid＝0が算出されてしまう<br>
+ウ　○<br>
+エ　×　1ずつインクリメントされるので3を超えて増え続ける<br>
+オ　×　playeridが0～2のときplayerid＝0となり，順に切り替わらない</p>
+</blockquote>
+<hr>
+<p><a href="19S_P_E3.HTM#61">問題へ</a></p>
+<hr>
+<p><strong><a name="62">設問2</a></strong></p>
+<p>〈解答〉　d　エ</p>
+<p>〈解説〉</p>
+<p>この場合，case 3の処理として</p>
+<p>①サイコロの目の和の数だけcurpos[pleyid]に加算して駒を進める処理<br>
+②升番号と升の指示を表示する処理prtpiece[playerid]</p>
+<p>
+を行い，break文でswitch文を終了して，switch文を含むwhileループの先頭に戻り繰返せばよい。したがって空欄dで①の処理を行えばよく，エが適切。</p>
+<hr>
+<p><a href="19S_P_E3.HTM#62">問題へ</a></p>
+<hr>
+<p><strong><a name="70">問7</a></strong></p>
+<hr>
+<p><strong><a name="71">設問1</a></strong></p>
+<p>〈解答〉　a　ウ　　　b　ア　　　c　オ</p>
+<p>〈解説〉</p>
+<p>空欄aについて</p>
+<p>空欄aは，SEARCH命令により集計用テーブルS-TBLをテーブルサーチし，AT ENDになった場合の処理の1つである。つまりテーブルS-TBLの要素にない候補者名K-KOHOSHA-MEIが出現した場合の処理に該当し，テーブルの要素数S-MAXを1だけインクリメントした後，空欄a直前のMOVE命令により新たに出現した候補者名をS-KOUHOSYA-MEI(S-MAX)に転送しているので，空欄aでその候補者の得票数K-TOKUHYO-SUをS-TOKUHYO-SU(S-MAX)に転送すればよく，ウが適切。</p>
+<p>空欄bについて</p>
+<p>空欄bは，SEARCH命令により集計用テーブルS-TBLをテーブルサーチし，候補者名K-KOHOSHA-MEIがS-TBLの要素S-KOUHOSYA-MEI(S-IDX)に一致した場合の処理に該当する。この場合，その候補者の得票数K-TOKUHYO-SUをS-TOKUHYO-SU(S-IDX)に加算すればよく，空欄bはアが適切。</p>
+<p>空欄cについて</p>
+<p>得票数の降順に表示するため，空欄cを含むPERFORM命令の処理で，隣接交換法により降順にソートが行われている。空欄cを含むIF文でS-TOKUHYO-SU(W-I)＜S-TOKUHYO-SU(W-J)の場合，降順にソートするにはS-TBL(W-I)とS-TBL(W-J)の内容を入替える必要がある。空欄c直前の命令でS-TBL(W-I)の内容をW-TBLに退避し，空欄c直後の命令で退避したW-TBLの内容をS-TBL(W-J)に格納しているので，空欄cでS-TBL(W-J)の内容をS-TBL(W-I)に転送すれば入れ替えが出来る。したがって空欄cはオが適切。</p>
+<hr>
+<p><a href="19S_P_E3.HTM#71">問題へ</a></p>
+<hr>
+<p><strong><a name="72">設問2</a></strong></p>
+<p>〈解答〉　オ</p>
+<p>〈解説〉</p>
+<p>ア　×　テーブルサーチによる集計処理直後のS-TBLのデータが以下のように既に得票数の降順になっているため，空欄cを含む降順ソートに関する命令がテストされない</p>
+<table border="1" cellpadding="4" cellspacing="0" id="AutoNumber1" bordercolor="#000000" style="border-collapse: collapse">
+<tr>
+<td><code>WWWWWW</code></td>
+<td>6,000</td>
+</tr>
+<tr>
+<td><code>XXXXXX</code></td>
+<td>5,000</td>
+</tr>
+<tr>
+<td><code>ZZZZZZ</code></td>
+<td>4,000</td>
+</tr>
+<tr>
+<td><code>VVVVVV</code></td>
+<td>3,000</td>
+</tr>
+</table>
+<p>イ　×　候補者名がすべて同じUUUUUUなので，空欄cを含む降順ソートに関する命令がテストされない<br>
+ウ　×　候補者名がすべて異なるため，空欄bに関する命令がテストされない<br>
+エ　×　候補者名がすべて異なるため，空欄bに関する命令がテストされない</p>
+<hr>
+<p><a href="19S_P_E3.HTM#72">問題へ</a></p>
+<hr>
+<p><strong><a name="80">問8</a></strong></p>
+<hr>
+<p><strong><a name="81">設問</a></strong></p>
+<p>〈解答〉　a　エ　　　b　ア　　　c　イ　　　d　ウ</p>
+<p>〈解説〉</p>
+<p>空欄aについて</p>
+<blockquote>
+<p>ValueComparatorはインタフェースComparatorを実装したクラスなので，空欄aでインタフェースComparatorの実装を行えばよい。クラスValueComparatorはSiring型の2つのオブジェクトを月の値で比較した結果を返すメソッドcompareを実装している。したがって空欄aでインタフェースComparator&lt;String&gt;を実装すればよく，エが適切。</p>
+</blockquote>
+<p>空欄bについて</p>
+<blockquote>
+<p>Mapのインタフェースを用いて，月の名前のオブジェクト配列monthNames[i]に月の値i＋1を対応付けて登録するforループの繰返処理における変数iの終了条件に該当する。変数iは初期値を0として配列の最後の要素番号monthNames.length－1まで繰返せばよいので，空欄bの終了条件はアのi＜monthNames.lengthになる。</p>
+</blockquote>
+<p>空欄cについて</p>
+<blockquote>
+<p>クラスValueComparatorが実装するメソッドcompareは，Siring型の2つのオブジェクトを月の値で比較した結果を返す。2つのString型オブジェクトls1，ls2に対応付けられたMapの月の値をgetメソッドにより取得し，比較した値map.get(ls1)－map.get(ls2)を戻値として返せばよく，イが適切。</p>
+</blockquote>
+<p>空欄dについて</p>
+<blockquote>
+<p>空欄dの3行前のArrays.sort(names2 , new NameComparator( 
+))のsortメソッドで，String型の月名の配列names2をNamesComparatorの規定する辞書順に並べ替えている。それに対して空欄dを含むsortメソッドでは，String型の月名の配列names3をValueComparatorの規定する月の値で比較した順序に並べ替えている。したがって空欄dはウのnew 
+ValueComparatorが適切。</p>
+</blockquote>
+<hr>
+<p><a href="19S_P_E3.HTM#81">問題へ</a></p>
+<hr>
+<p><strong><a name="90">問9</a></strong></p>
+<hr>
+<p><strong><a name="91">設問1</a></strong></p>
+<p>〈解答〉　a　エ　　　b　オ</p>
+<p>〈解説〉</p>
+<p>空欄aについて</p>
+<blockquote>
+<p>GR1のビット列の左端ビットが1である場合，行5のSLL命令によりオーバフローするので，次のオーバフロー分岐命令JOVにより，OFLOWに分岐してSRL命令により1ビット右シフトする。左右対称なビット列であった場合，右端ビットが1であるため，このときオーバフローする。左右対称でないビット列であった場合，右端ビットが0であるため，このときオーバフローしない。したがって空欄aでオーバフロー分岐命令JOVによりOKに分岐すればよく，エが適切。</p>
+</blockquote>
+<p>空欄bについて</p>
+<blockquote>
+<p>左右対称なビットが出現し空欄b直前のSUBA命令が1回実行されるごとに，GR3の内容が1ずつデクリメントされる。GR3の初期値が行3で8にセットされているので，GR3＞0の間はLOOPに戻り繰返せばよい。したがって空欄bはオのJPL 
+LOOPが適切。</p>
+</blockquote>
+<hr>
+<p><a href="19S_P_E3.HTM#91">問題へ</a></p>
+<hr>
+<p><strong><a name="92">設問2</a></strong></p>
+<p>〈解答〉　イ</p>
+<p>〈解説〉</p>
+<p>行7または行10のSRL GR2, 1命令が合計8回実行されるので，その結果GR2の内容が8ビット右にシフトされた状態になる。したがってイが適切。</p>
+<hr>
+<p><a href="19S_P_E3.HTM#92">問題へ</a></p>
+<hr>
+<p><strong><a name="93">設問3</a></strong></p>
+<p>〈解答〉　ウ</p>
+<p>〈解説〉</p>
+<p>
+行10のSRL命令は，行5のSLL命令により1のビットがオーバフローする場合に実行される。したがって▲で示される左右対称でないビットが出現するまでに，3つの1のビットがオーバフローするので，SRL命令は3回実行される。</p>
+<hr>
+<p><a href="19S_P_E3.HTM#93">問題へ</a></p>
+<hr>
+<p><a href="INDEX.HTM">■メニューへ戻る</a></p>
+<hr>
+</blockquote>
+
+</body>
+
+</html>

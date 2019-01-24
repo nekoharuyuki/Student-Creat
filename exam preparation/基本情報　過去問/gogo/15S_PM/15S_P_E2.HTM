@@ -1,0 +1,337 @@
+<HTML>
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<meta http-equiv="Content-Language" content="ja">
+<TITLE>平成15年度春期試験　問題(問3～問5)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0">
+<blockquote>
+  <hr>
+  <H3 align="center">平成15年度春期試験　問題(問3～問5)</H3>
+<HR WIDTH=100%>
+<A NAME="30">　<BR>
+<b>
+問3</b></a><b>　</b>LANのアクセス制御に関する次の記述を読んで，設問に答えよ。<br>
+<br>
+CSMA/CD（キャリア検知多重アクセス衝突検出）は，同軸ケーブルを用いたバス型LANやツイストペアケーブルとハブを用いたスター型LANに用いられるアクセス制御方式である。<br>
+CSMA/CDでは，フレーム送出時に伝送路に接続されている複数の機器間のキャリア検知と衝突検出を，次のとおりに行っている。<br>
+<br>
+〔フレーム送出手順の説明〕<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td width="90" valign="top">ステップ0：</td>
+            <td>送出するフレームが発生するまで待つ。送出するフレームが発生したとき，ステップ1へ移る。</td>
+          </tr>
+          <tr>
+            <td valign="top">ステップ1：</td>
+            <td>伝送路に他の接続機器からのキャリアを検知したらステップ2へ，そうでなければ，ステップ3へ移る。</td>
+          </tr>
+          <tr>
+            <td valign="top">ステップ2：</td>
+            <td>乱数を用いて決めた時間が経過したら，ステップ1へ戻る。</td>
+          </tr>
+          <tr>
+            <td valign="top">ステップ3：</td>
+            <td>フレーム送出を開始し，直ちにステップ4へ移る。</td>
+          </tr>
+          <tr>
+            <td valign="top">ステップ4：</td>
+            <td>フレーム送出中に衝突がなければ，送信成功としてステップ0へ戻る。フレーム送出中に衝突を検出したときは，ステップ5へ移る。ここで，フレーム送出中に衝突の有無を調べる理由は，伝送路の信号伝搬遅延によって，他の接続機器からのフレーム送出開始をステップ1で検知できない可能性があるからである。</td>
+          </tr>
+          <tr>
+            <td valign="top">ステップ5：</td>
+            <td>送出中のフレームを，衝突の発生を他に知らせる信号に切り替えて，一定時間送出し，ステップ2へ戻る。<BR>この信号によって，他の接続機器は，衝突の発生を知ることができる。</td>
+          </tr>
+        </table>
+<br>
+</a><A NAME="31">　<BR>
+<b>
+設問</b></a><b>　</b>次の記述中の［　　　　］に入れる正しい答えを，解答群の中から選べ。<br><br>
+図のとおりに接続されているLANがある。接続機器Xと接続機器Yとの間の伝送路の距離は，230mである。また，この伝送路の信号伝搬速度は，230m/マイクロ秒である。<br>
+今，接続機器Xからのフレームの送出が開始された。この送出開始から，［　　a　　］マイクロ秒経過する前に，接続機器Yから送出するフレームが発生したとき，接続機器Yは，ステップ1を経て［　　b　　］に移る。その後，接続機器Yは，衝突を検出する。<br>
+接続機器Xが，衝突を検出するまでにかかる時間は，後から送出を開始した接続機器Yからの送出開始との時間差によって，最も長い場合，接続機器Xからのフレーム送出開始から［　　c　　］マイクロ秒経過後となる。<br>
+この時間が経過するより前に，接続機器Xからの送出を終えてしまうと，接続機器Xは，［　　d　　］から［　　e　　］に移り，衝突を検出できないことになる。ここで，接続機器は両端のターミネータ間の任意の位置に取り付けることができるとすると，この検出方法では，1フレームの送出にかかる時間は，伝送路のターミネータ間の信号の往復時間以上でなければならないことが分かる。<br>
+<br>
+        <p><img border="0" src="image/P_03.gif"></p>
+        <p>
+図　CSMA/CD方式によるLAN接続<br>
+<br><br>
+a，cに関する解答群<br>
+        <table border="0" cellpadding="3" cellspacing="1">
+          <tr>
+            <td width="130">ア　0.043</td>
+            <td width="130">イ　0.2</td>
+            <td width="130">ウ　1</td>
+          </tr>
+          <tr>
+            <td>	エ　2</td>
+            <td>	オ　10</td>
+            <td>	カ　4300</td>
+	</tr>
+	</table>
+<br>
+
+b，d，eに関する解答群<br>
+        <table border="0" cellpadding="3" cellspacing="1">
+          <tr>
+            <td width="130">ア　ステップ0</td>
+            <td width="130">イ　ステップ1</td>
+            <td width="130">ウ　ステップ2</td>
+          </tr>
+          <tr>
+            <td>	エ　ステップ3</td>
+            <td>	オ　ステップ4</td>
+            <td>	カ　ステップ5</td>
+	</tr>
+	</table>
+<br>
+<A NAME="31">
+<HR WIDTH=100%>
+</a>
+<A HREF="15S_P_A2.HTM#31">設問の正解例と解説へ</A>
+<HR WIDTH=100%>
+<p><A HREF="index.htm">メニューへ戻る</A>　</p>
+<HR WIDTH=100%>
+<A NAME="40">　<BR>
+<b>
+問4</b></a>　次のプログラムの説明，擬似言語の記述形式の説明及びプログラムを読んで，設問に答えよ。<br><br>
+[プログラムの説明]<br>
+逆ポーランド表記法で表された数式を，スタックを用いて計算する副プログラムCalcである。<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">（1）</td>
+            <td>逆ポーランド表記法で表された数式は，文字型の1次元配列Exの各要素Ex[0]，･･･，Ex[Lp]（LP≧3）に1文字ずつ格納されている。</td>
+          </tr>
+          <tr>
+            <td valign="top">（2）</td>
+            <td>数式は，正負の整数及び一つ以上の四則演算記号からなる。ただし，正の整数の場合はプラス記号を付けない。</td>
+          </tr>
+          <tr>
+            <td valign="top">（3）</td>
+            <td>先頭の整数を除き，整数の前には一つの空白文字を置く。</td>
+          </tr>
+          <tr>
+            <td valign="top">（4）</td>
+            <td>計算は実数で行う。計算の途中で次の状態になった場合は，副プログラムAbort()を呼び出してプログラムを終了する。<br>
+<img border="0" src="image/01_maru.GIF">　ゼロ除算が行われた。<br>
+<img border="0" src="image/02_maru.GIF">　スタックの範囲外を参照した。</td>
+          </tr>
+          <tr>
+            <td valign="top">（5）</td>
+            <td>Calcは，実数をスタックに積む副プログラムPushと，スタックから実数を取り出す副プログラムPopを使用する。各副プログラムの引数の仕様を表1～3に示す。また，数字1文字を実数に変換する関数ToRealも使用する。</td>
+          </tr>
+          <tr>
+            <td valign="top">（6）</td>
+            <td>実数型の1次元配列Stack，Stackの最大要素番号を示す定数MAX，スタックの操作位置を示す変数Spが，大域変数として定義されている。Spの初期値は0である。</td>
+          </tr>
+          <tr>
+            <td valign="top">（7）</td>
+            <td>逆ポーランド表記法で表された数式は，正しいものとする。</td>
+          </tr>
+        </table>
+        <p><img border="0" src="image/P_04-1.gif"></p>
+        <p><br>
+表1　Calcの引数の仕様<br>
+        <img border="0" src="image/P_04-2.gif"></p>
+        <p><br>
+表2　Pushの引数の仕様<br>
+        <img border="0" src="image/P_04-3.gif"></p>
+        <p><br>
+表3　Popの引数の仕様<br>
+        <img border="0" src="image/P_04-4.gif"></p>
+        <p><br>
+
+〔擬似言語の記述形式の説明〕<br>
+        <p><img border="0" src="image/P_02-5.gif"></p>
+        <p><br>
+
+        <p><img border="0" src="image/P_02-6.gif"></p>
+        <p><br>
+
+<HR WIDTH=100%>
+<A NAME="41">
+<b>　<BR>
+設問</b></a><b>　</b>プログラム中の［　　　　］に入れる正しい答えを，解答群の中から選べ。<br>      
+<br>
+aに関する解答群	<br>
+        <table border="0" cellpadding="3" cellspacing="1">
+          <tr>
+            <td width="150">ア　Ex[Cp] = " "</td>
+            <td width="150">イ　NumF = false</td>
+            <td width="150">ウ　NumF = true</td>
+          </tr>
+          <tr>
+            <td>	エ　T = 0</td>
+            <td>	オ　T ≠0</td>
+	</tr>
+	</table>
+<br>
+b，cに関する解答群<br>
+        <table border="0" cellpadding="3" cellspacing="1">
+          <tr>
+            <td width="150">ア　NegF ← false</td>
+            <td width="150">イ　NegF ← true</td>
+            <td width="150">ウ　NumF ← false</td>
+          </tr>
+          <tr>
+            <td>	エ　NumF ← true</td>
+            <td>	オ　T ← 0</td>
+	</tr>
+	</table>
+<br>
+d，eに関する解答群<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">ア</td>
+            <td>・Sp ← Sp + 1<br>
+            ・Stack[Sp] ← T</td>
+          </tr>
+          <tr>
+            <td valign="top">イ</td>
+            <td>・Sp ← Sp + 1<br>
+            ・T ← Stack[Sp]</td>
+          </tr>
+            <td valign="top">ウ</td>
+            <td>・Sp ← Sp－1<br>
+            ・Stack[Sp] ← T</td>
+          </tr>
+            <td valign="top">エ</td>
+            <td>・Sp ← Sp－1<br>
+            ・T ← Stack[Sp]</td>
+          </tr>
+            <td valign="top">オ</td>
+            <td>・Stack[Sp] ← T<br>
+            ・Sp ← Sp + 1</td>
+          </tr>
+            <td valign="top">カ</td>
+            <td>・Stack[Sp] ← T<br>
+            ・Sp ← Sp－1</td>
+          </tr>
+            <td valign="top">キ</td>
+            <td>・T ← Stack[Sp]<br>
+            ・Sp ← Sp + 1</td>
+          </tr>
+            <td valign="top">ク</td>
+            <td>・T ← Stack[Sp]<br>
+            ・Sp ← Sp－1</td>
+          </tr>
+        </table>
+<HR WIDTH=100%>  
+<A HREF="15S_P_A2.HTM#41">設問の正解例と解説へ</A>  
+<HR WIDTH=100%>
+<p><A HREF="index.htm">メニューへ戻る</A>　</p>
+<HR WIDTH=100%>
+  　<BR>
+<b><a name="50">問5</a>　</b>プログラム設計に関する次の記述を読んで，設問1，2に答えよ。<br>
+<br>
+商品輸入販売企業の海外発注部門における輸入割当てシステムを設計する。このシステムの概要は，次のとおりである。<br>
+<br>
+〔システムの概要説明〕<br>
+        <img border="0" src="image/P_05-1.gif"><br>
+<br>
+（1）販売部門から，受注した商品の商品コード，受注数及び販売部門が希望する納期の情報を，オンラインで受け取る。受注情報の様式を次に示す。<br>
+<br>
+<img border="0" src="image/P_05-2.gif"><br>
+<br>
+（2）海外発注部門の輸入割当てシステムは，受注情報のうち商品コードを基に，その商品を扱っている海外輸入拠点に商品コードを送信し，在庫数を問い合わせる。輸入拠点は世界各地に50か所あり，海外発注部門とオンラインで接続されている。輸入拠点によって取り扱う商品が異なり，同一商品を複数の輸入拠点が取り扱う場合もある。<br>
+<br>
+（3）輸入拠点は，問合せを受けた商品の在庫情報を，即時に海外発注部門へ返信する。在庫がない場合は，在庫数を0として返信する。海外発注部門は，返信された在庫情報をいったん在庫情報ファイルへ書き出す。在庫情報の様式を次に示す。<br>
+<br>
+<img border="0" src="image/P_05-3.gif"><br>
+<br>
+（4）輸入拠点から販売部門への商品配送手段として，船便と航空便の2種類がある。同じ輸入拠点でも，船便と航空便とでは，販売部門へ到着するまでに要する日数（配送日数という）が異なる。また，輸入拠点によっても配送日数が異なる。<br>
+　輸入拠点ごとの配送日数は，拠点マスタファイルに格納されている。拠点マスタファイルの様式を次に示す。<br>
+<br>
+<img border="0" src="image/P_05-4.gif"><br>
+<br>
+（5）輸入拠点からの在庫情報と，そこからの船便及び航空便の配送日数を基に，輸入の可否を判断し，各輸入拠点からの輸入数量を決定する。すなわち，まず該当する商品の在庫があり，かつ希望納期に間に合う輸入拠点を調べる。次に，発注する輸入拠点を割り当てる。1か所の拠点だけでは輸入数量に満たない場合には，複数の輸入拠点を割り当てる。その処理手順を図に示す。<br>
+　輸入拠点の割当ては，<img border="0" src="image/01_maru.GIF">～<img border="0" src="image/03_maru.GIF">の優先順位に従って行う。<br>
+　　<img border="0" src="image/01_maru.GIF">　航空便よりも船便で間に合う輸入拠点を優先する。<br>
+　　<img border="0" src="image/02_maru.GIF">　該当商品の在庫数が多い輸入拠点を優先する。<br>
+　　<img border="0" src="image/03_maru.GIF">　拠点コードが小さい値の輸入拠点を優先する。<br>
+　希望納期までに必要な輸入数量を確保できない場合には，その旨のエラーメッセージを出力する。<br>
+<br>
+（6）輸入拠点と，そこへの発注数及び配送手段が決定したら，該当輸入拠点へ発注情報を送信する。発注情報の様式を次に示す。様式中の配送手段には，船便か航空便かの区分が格納される。<br>
+<br>
+<img border="0" src="image/P_05-5.gif"><br>
+<br>
+<img border="0" src="image/P_05-61.gif"><br>
+　　　　　　　図　発注拠点を割り当てる手順<br>
+<br>
+<br>
+<hr>
+<p><b><a name="51">設問1</a>　</b>図中に示された一時ファイルAに含まれていなければならないデータ項目として正しい答えを，解答群の中から三つ選べ。<br>
+<br>
+解答群<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">ア</td>
+            <td>　希望納期</td>
+          </tr>
+          <tr>
+            <td valign="top">イ</td>
+            <td>　拠点コード</td>
+          </tr>
+          <tr>
+            <td valign="top">ウ</td>
+            <td>　在庫数</td>
+          </tr>
+          <tr>
+            <td valign="top">エ</td>
+            <td>　商品コード</td>
+          </tr>
+          <tr>
+            <td valign="top">オ</td>
+            <td>　配送手段</td>
+          </tr>
+          <tr>
+            <td valign="top">カ</td>
+            <td>　配送日数</td>
+          </tr>
+          <tr>
+            <td valign="top">キ</td>
+            <td>　発注数</td>
+          </tr>
+        </table>
+<br>
+<A NAME="44">
+<HR WIDTH=100%>
+</a><a HREF="15S_P_A2.HTM#51">設問1の正解例と解説へ</a>
+<HR WIDTH=100%>
+  　<BR>
+<b><a name="52">設問2</a>　</b>このシステムをテストしたい。まず，受注情報として，次のテストデータを考える。<br>
+<br>
+<img border="0" src="image/P_05-7.gif"></p>
+<br>
+このテストデータの希望納期と受注日とを比較して，配送日数の余裕は20日間あるとする。この商品を扱う輸入拠点の在庫数と配送日数のテストデータとして，7種類のパターンを次の表のとおりに設定した。表中の予想される結果を満足するために，［　　　　　］に入れる正しい答えを，解答群の中から選べ。<br>
+<br>
+<img border="0" src="image/P_05-8.gif"></p>
+<br>
+解答群<br>
+        <table border="0" cellpadding="3" cellspacing="1">
+          <tr>
+            <td width="90">ア　20</td>
+            <td width="90">イ　30</td>
+            <td width="90">ウ　50</td>
+          </tr>
+          <tr>
+            <td>	エ　70</td>
+            <td>	オ　100</td>
+            <td>	カ　120</td>
+	</tr>
+          <tr>
+            <td>	キ　160</td>
+	</tr>
+	</table>
+  　<BR>
+<A NAME="44">
+<HR WIDTH=100%>
+</a><a HREF="15S_P_A2.HTM#52">設問2の正解例と解説へ</a>
+<HR WIDTH=100%>
+<p align="center"> 
+<a href="15S_P_E3.HTM">■問6へ進む</a>　　　　　　<font size="3"><a HREF="INDEX.HTM">■メニューへ戻る</a></font></p>
+<HR WIDTH=100%>
+  <br>
+</blockquote>
+</BODY>
+</HTML>

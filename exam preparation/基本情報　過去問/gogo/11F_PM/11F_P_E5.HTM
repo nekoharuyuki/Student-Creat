@@ -1,0 +1,1185 @@
+<HTML>
+<HEAD>
+<TITLE>平成11年度秋期試験　問題</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0">
+<BLOCKQUOTE>
+<hr>
+<H3 align="center">平成11年度秋期試験　問題(問15～問17)</H3>
+<hr>
+<P>次の問15から問17までの3問については、この中から1問を選択し、答案用紙の選択欄の　選　をマークして解答してください。なお、2問以上選択した場合には、はじめの1問について採点します。<br>
+<HR WIDTH=100%>
+<a NAME="150">　<BR>
+<b>
+問15</b></a>　内部設計に関する次の記述を読んで、設問 1 ～ 3 に答えよ。<br>     
+<br>     
+　関係データベースの論理設計の過程で正規化されたデータ構造は、データの分析から論理的に導かれたデータ構造であり、ユーザやアプリケーションプログラムからのデータベース使用状況は考慮されていない。そのため、実際のデータベースの使用条件を考慮して、処理効率の良い実用的なデータベースを構築するには、正規化されたデータ構造を見直す必要がある。<br>
+<br>
+　例えば、表を統合した場合、検索時には表の結合処理がなくなるので、処理量は減るが、<br>
+更新時には重複したデータ間の一貫性を保つための処理量が増えるという特徴がある。<br>
+データ構造を見直す場合、検索処理が頻繁に行われる表であるか、更新処理が頻繁に行わ<br>
+れる表であるかを確認し、検索処理の頻度の高い表に着目して正規化を崩していくことが<br>
+ある。<br>
+<br>
+　Ｍ社では、受注業務システムを開発し、受注業務の効率を良くしようとしている。<br>
+Ｍ社には他の業務システムもあり、共用できるデータベースの表は、利用することにし<br>
+た。次の各表は、受注業務にかかわるデータベースの論理設計の結果である。<br>
+<br>
+〔データベースの論理設計の結果〕
+<p>1.顧客表
+<table border="1" bordercolorlight="#000000" cellspacing="0" cellpadding="3" bordercolor="#FFFFFF" bordercolordark="#FFFFFF" class="ｓ">
+  <tbody>
+    <tr>
+      <td height="29" vAlign="center">
+        <p align="center">顧客コード</p>
+      </td>
+      <td height="29" vAlign="center">
+        <p align="center">顧客名</p>
+      </td>
+      <td height="29" vAlign="center">
+        <p align="center">住所</p>
+      </td>
+      <td height="29" vAlign="center">
+        <p align="center">電話番号</p>
+      </td>
+      <td height="29" vAlign="center">
+        <p align="center">都道府県コード</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+　<br>
+2.受注表
+<table border="1" bordercolorlight="#000000" cellspacing="0" cellpadding="3" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+  <tbody>
+    <tr>
+      <td height="29" vAlign="center">
+        <p align="center">受注番号</p>
+      </td>
+      <td height="29" vAlign="center">
+        <p align="center">顧客コード</p>
+      </td>
+      <td height="29" vAlign="center">
+        <p align="center">受注年月日</p>
+      </td>
+      <td height="29" vAlign="center">
+        <p align="center">納期</p>
+      </td>
+      <td height="29" vAlign="center">
+        <p align="center">担当部署コード</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+　<br>
+3.受注明細表
+<table border="1" bordercolorlight="#000000" cellspacing="0" cellpadding="3" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+  <tbody>
+    <tr>
+      <td height="29" vAlign="center">
+        <p align="center">受注番号</p>
+      </td>
+      <td height="29" vAlign="center">
+        <p align="center">商品コード</p>
+      </td>
+      <td height="29" vAlign="center">
+        <p align="center">受注個数</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+　<br>
+4.商品表
+<table border="1" bordercolorlight="#000000" cellspacing="0" cellpadding="3" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+  <tbody>
+    <tr>
+      <td height="29" vAlign="center">
+        <p align="center">商品コード</p>
+      </td>
+      <td height="29" vAlign="center">
+        <p align="center">商品名</p>
+      </td>
+      <td height="29" vAlign="center">
+        <p align="center">単価</p>
+      </td>
+      <td height="29" vAlign="center">
+        <p align="center">取扱終了年月日</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+　<br>
+5.担当部署表
+<table border="1" bordercolorlight="#000000" cellspacing="0" cellpadding="3" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+  <tbody>
+    <tr>
+      <td height="29" vAlign="center">
+        <p align="center">担当部署コード</p>
+      </td>
+      <td height="29" vAlign="center">
+        <p align="center">担当部署名</p>
+      </td>
+      <td height="29" vAlign="center">
+        <p align="center">人数</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+　<br>
+6.地方コード表
+<table border="1" bordercolorlight="#000000" cellspacing="0" cellpadding="3" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+  <tbody>
+    <tr>
+      <td height="29" vAlign="center">
+        <p align="center">地方コード</p>
+      </td>
+      <td height="29" vAlign="center">
+        <p align="center">地方名</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+　<br>
+7.都道府県コード表
+<table border="1" bordercolorlight="#000000" cellspacing="0" cellpadding="3" bordercolordark="#FFFFFF" bgcolor="#FFFFFF">
+  <tbody>
+    <tr>
+      <td height="29" vAlign="center">
+        <p align="center">都道府県コード</p>
+      </td>
+      <td height="29" vAlign="center">
+        <p align="center">都道府県名</p>
+      </td>
+      <td height="29" vAlign="center">
+        <p align="center">地方コード</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+　<br>
+8.在庫表
+<table border="1" bordercolorlight="#000000" cellspacing="0" cellpadding="3" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+  <tbody>
+    <tr>
+      <td height="29" vAlign="center">
+        <p align="center">商品コード</p>
+      </td>
+      <td height="29" vAlign="center">
+        <p align="center">在庫個数</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p><br>
+　ここで、受注業務システムでしか使わない表は、顧客表、受注表、受注明細表、地方コード表及び都道府県コード表である。受注業務では、九つの地方とこれを細分化した47の都道府県に分けて、管理単位を設定している。<br>
+<br>
+商品表は、営業業務システムによって、週 1 回程度更新される。<br>     
+<br>     
+担当部署表は、人事業務システムによって、年 1 回程度更新される。<br>     
+<br>     
+在庫表は、在庫管理業務システムによって、頻繁に更新される。<br>     
+<br>     
+受注業務に関する処理と各表の使用状況を把握するため、処理と各表の関係を示す表を作成した。</p>    
+<table border="0" cellpadding="3" cellspacing="0">    
+  <tr>    
+    <td>表　処理と各表の関係</td>    
+  </tr>    
+</table>    
+<center>    
+<div align="left">    
+  <table border="1" bordercolorlight="#000000" cellspacing="0" cellpadding="3" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">    
+    <tbody>    
+      <tr>    
+        <td rowSpan="2" vAlign="center">    
+          <p align="center"><font size="2">処理名</font></p>    
+        </td>    
+        <td rowSpan="2" vAlign="center">    
+          <p align="center"><font size="2">処理形態</font></p>    
+        </td>    
+        <td rowSpan="2" vAlign="center">    
+          <p align="center"><font size="2">処理件数</font></p>    
+        </td>    
+        <td colSpan="8" vAlign="center">    
+          <p align="center"><font size="2">表　名</font></p>    
+        </td>    
+      </tr>    
+      <tr>    
+        <td vAlign="center">    
+          <p><font size="2">顧客</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p><font size="2">受注</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p><font size="2">受注明細</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p><font size="2">商品</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p><font size="2">担当部署</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p><font size="2">地方コード</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p><font size="2">都道府県<br>    
+          コード</font></td>    
+        <td vAlign="center">    
+          <p><font size="2">在庫</font></p>    
+        </td>    
+      </tr>    
+      <tr>    
+        <td vAlign="center">    
+          <p><font size="2">受注</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p><font size="2">オンライン</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p align="right"><font size="2">100件/日</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p align="center"><font size="2">参</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p align="center"><font size="2">追</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p align="center"><font size="2">追</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p align="center"><font size="2">参</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p align="center"><font size="2">参</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p align="center"><font size="2">参</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p align="center"><font size="2">参</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p align="center"><font size="2">更</font></p>    
+        </td>    
+      </tr>    
+      <tr>    
+        <td vAlign="center">    
+          <p><font size="2">受注検索</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p><font size="2">オンライン</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p align="right"><font size="2">200件/日</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p align="center"><font size="2">参</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p align="center"><font size="2">参</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p align="center"><font size="2">参</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p align="center"><font size="2">参</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p align="center"><font size="2">参</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p align="center"><font size="2">参</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p align="center"><font size="2">参</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p align="center"><font size="2">－</font></p>    
+        </td>    
+      </tr>    
+      <tr>    
+        <td vAlign="center">    
+          <p><font size="2">顧客検索</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p><font size="2">オンライン</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p align="right"><font size="2">130件/日</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p align="center"><font size="2">参</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p align="center"><font size="2">参</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p align="center"><font size="2">－</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p align="center"><font size="2">－</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p align="center"><font size="2">参</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p align="center"><font size="2">参</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p align="center"><font size="2">参</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p align="center"><font size="2">－</font></p>    
+        </td>    
+      </tr>    
+      <tr>    
+        <td vAlign="center">    
+          <p><font size="2">在庫検索</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p><font size="2">オンライン</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p align="right"><font size="2">150件/日</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p align="center"><font size="2">－</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p align="center"><font size="2">－</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p align="center"><font size="2">－</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p align="center"><font size="2">参</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p align="center"><font size="2">－</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p align="center"><font size="2">－</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p align="center"><font size="2">－</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p align="center"><font size="2">参</font></p>    
+        </td>    
+      </tr>    
+      <tr>    
+        <td vAlign="center">    
+          <p><font size="2">顧客リスト出力</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p><font size="2">バッチ</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p align="right"><font size="2">2回/週</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p align="center"><font size="2">参</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p align="center"><font size="2">－</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p align="center"><font size="2">－</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p align="center"><font size="2">－</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p align="center"><font size="2">－</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p align="center"><font size="2">参</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p align="center"><font size="2">参</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p align="center"><font size="2">－</font></p>    
+        </td>    
+      </tr>    
+      <tr>    
+        <td vAlign="center">    
+          <p><font size="2">顧客表保守</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p><font size="2">オンライン</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p align="right"><font size="2">20件/日</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p><font size="2">追,更,削</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p align="center"><font size="2">－</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p align="center"><font size="2">－</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p align="center"><font size="2">－</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p align="center"><font size="2">－</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p align="center"><font size="2">参</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p align="center"><font size="2">参</font></p>    
+        </td>    
+        <td vAlign="center">    
+          <p align="center"><font size="2">－</font></p>    
+        </td>    
+      </tr>    
+    </tbody>    
+  </table>    
+</div>    
+</center>     
+<table border="0" cellpadding="3" cellspacing="0"> 
+  <tr> 
+    <td><font size="2">参：参照，　追：追加，　更：更新，　削：削除&nbsp;</font></td>
+  </tr>
+</table>
+<p>　</p>   
+<hr>   
+<a NAME="151">　<BR>   
+<b>   
+設問</b></a><b><a NAME="151">1</a>　</b>受注業務システムの範囲において、データ量の増加を少なくおさえることを考慮しつつ、結合処理を減らすために正規化をあえて崩し、二つの表を統合して一つの表とするとき、統合の対象となる候補として適切な二つの表はどれか。 解答群の中から二つ選べ。<br>     
+<br>     
+解答群     
+<table border="0" cellpadding="3" cellspacing="0">    
+  <tr>    
+    <td width="140">ア　顧客表</td>    
+    <td>イ　在庫表</td>    
+    <td>ウ　受注表</td>    
+  </tr>    
+  <tr>    
+    <td>エ　受注明細表</td>    
+    <td>オ　商品表</td>    
+    <td>カ　担当部署表</td>    
+  </tr>    
+  <tr>    
+    <td>キ　地方コード表</td>    
+    <td>ク　都道府県コード表</td>    
+    <td></td>    
+  </tr>    
+</table>    
+<p><b>　</b></p>    
+<A NAME="31">     
+<HR WIDTH=100%>     
+</a><a HREF="11f_p_a5.htm#151">設問の正解例と解説へ</a>     
+<HR WIDTH=100%>     
+<a NAME="152">     
+<b>     
+設問</b></a><b><a NAME="151">2</a>　</b>受注検索処理は、1 日の処理件数が最も多く、速い応答が要求される。受注検索結果画面を図 1 に示す。この画面は、受注番号を与えると表示される。<br>     
+　応答を速くするためにデータ構造を見直す候補として適切なものを、解答群の中から選べ。<br>
+<br>
+<br>
+<img border="0" src="image/A99a15f2.gif" width="368" height="297"><br>
+図１　受注検索結果画面&nbsp;
+<p>　</p>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>解答群</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">ア</td>
+    <td>顧客表のデータ項目に、都道府県名を追加する。</td>
+  </tr>
+  <tr>
+    <td valign="top">イ</td>
+    <td>顧客表のデータ項目に、都道府県名，地方名を追加する。</td>
+  </tr>
+  <tr>
+    <td valign="top">ウ</td>
+    <td>受注表のデータ項目に、顧客名を追加する。</td>
+  </tr>
+  <tr>
+    <td valign="top">エ</td>
+    <td>受注表のデータ項目に、顧客名，担当部署名を追加する。</td>
+  </tr>
+  <tr>
+    <td valign="top">オ</td>
+    <td>受注明細表のデータ項目に、商品名を追加する。</td>
+  </tr>
+  <tr>
+    <td valign="top">カ</td>
+    <td>受注明細表のデータ項目に、商品名、単価、取扱終了年月日を追加する。</td>
+  </tr>
+</table>
+<A NAME="31">
+<p>　</p>
+<HR WIDTH=100%>
+</a><a HREF="11f_p_a5.htm#152">設問2の正解例と解説へ</a>
+<HR WIDTH=100%>
+<p><a NAME="153"><b> 
+設問</b></a><b>3　　</b>次の記述中の　　　　　　に入れる適切な答えを、解答群の中から選べ。<br>
+　顧客検索処理のために、図 2 に示す顧客検索結果画面を設計した。この画面は、顧客コードを与えると表示される。<br>     
+　ここで、前月受注件数及び顧客現在数には、この顧客の都道府県名と同じ都道府県の前月の受注件数と現在の顧客数を表示する。</p>
+<p><img border="0" src="image/A99a15f3.gif" width="368" height="297"><br>
+図２　顧客検索結果画面</p>
+<p>　導出関係によって引き出されるデータ項目の計算方法を検討し、オンライン照会の応答を速くしたい。<br>
+　導出データ項目の計算方法として、次の三つを検討した。</p>
+<p>(1)　参照時計算<br>
+導出データ項目の参照時にその都度計算する。<br>
+計算結果は、データベースに格納しない。<br>
+(2)　更新時計算<br>
+導出元データ項目を更新したときに、導出データ項目を計算する。<br>
+計算結果をデータベースに格納する。<br>
+(3)　非同期計算<br>
+ある決まった時点で導出データ項目を計算し、データベースに格納する。<br>
+導出元データ項目が更新されても，導出データ項目を計算しない。<br>
+<br>
+　　導出データ項目“前月受注件数”は、<b>[　　ａ　　]</b>によって行う 。<br>     
+　　導出データ項目“顧客現在数”は、<b>[　　ｂ　　　]</b>によって行う 。</p>     
+<p>　<br>    
+解答群<br>    
+ア　更新時計算　　　　イ　参照時計算　　　　ウ　非同期計算<br>    
+</p>    
+<A NAME="41">     
+<HR WIDTH=100%>     
+</a><a HREF="11f_p_a5.htm#153">設問3の正解例と解説へ</a>    
+<A NAME="40">    
+<HR WIDTH=100%>    
+</a>   
+<p><A HREF="index.htm">メニューへ戻る</A>　</p>   
+<HR WIDTH=100%>   
+<a NAME="160">　<BR>   
+<b>   
+問16</b></a>　プログラム設計に関する次の記述を読んで、設問 1、2 に答えよ。<br>     
+　Ｎ社では、オンラインリアルタイムでトランザクション処理を行う業務Ｘプログラムの開発を行っている。業務Ｘプログラムにかかわるシステム構成は、図 1 のとおりである。<br>     
+<br>     
+<br>     
+<img border="0" src="image/A99a16f1.gif" width="538" height="238"><br>   
+<br>   
+　　　　　　図１　業務 X プログラムにかかわるシステム構成<br>     
+<br>     
+〔トランザクション処理の流れの説明〕     
+<table border="0" cellpadding="3" cellspacing="0">    
+  <tr>    
+    <td valign="top">(1)</td>    
+    <td>端末からのメッセージを、通信制御プログラムを介して、オンライン制御プログラムが受信する。</td>    
+  </tr>    
+  <tr>    
+    <td valign="top">(2)</td>    
+    <td>オンライン制御プログラムは、受信したメッセージを解析し、要求されている処理に必要な業務プログラムを起動する。</td>    
+  </tr>    
+  <tr>    
+    <td valign="top">(3)</td>    
+    <td>当該業務プログラムは、データベースとの入出力が必要な場合、データベース管理プログラムを介して、必要なデータの格納場所を探し、読込み・書出し処理を行う。</td>    
+  </tr>    
+  <tr>    
+    <td valign="top">(4)</td>    
+    <td>当該業務プログラムでの処理が終了すると、オンライン制御プログラムは、業務プログラムからの応答メッセージを、通信制御プログラムを介して、端末へ送信する。</td>    
+  </tr>    
+</table>    
+<p>業務Ｘプログラムにかかわるデータベースとファイルには、次のものがある。</p>    
+<table border="0" cellpadding="3" cellspacing="0">    
+  <tr>    
+    <td valign="top">(1)</td>    
+    <td>データベース<br>    
+      ①顧客属性データベース<br>    
+      ②顧客元帳データベース<br>    
+      ③特別顧客データベース</td>    
+  </tr>    
+  <tr>    
+    <td valign="top">(2)</td>    
+    <td>ログファイル<br>    
+      　顧客属性データベースのデータディレクトリは、データベース管理プログラムが主記憶に常駐させている。顧客元帳データベースと特別顧客データベースのレコードを読み込む前に、データディレクトリを読み込むためにディスクから 1 回の入力を必要とする。ログファイルは順ファイルであり、トランザクションごとにディスクに対して 1 回の出力を必要とする。</td>     
+  </tr>     
+</table>     
+<table border="0" cellpadding="3" cellspacing="0">    
+  <tr>    
+    <td>　<br> 
+      　<br>   
+      〔業務Ｘプログラムの概要〕</td>   
+  </tr>   
+</table>   
+<table border="0" cellpadding="3" cellspacing="0">   
+  <tr>   
+    <td valign="top">(1)</td>   
+    <td>メッセージに含まれる顧客コードをキーにして、顧客属性データベースを読む。</td>   
+  </tr>   
+  <tr>   
+    <td valign="top">(2)</td>   
+    <td>当該顧客のレコードが顧客属性データベースに存在しない場合、エラーメッセージを作成し、終了する。</td>   
+  </tr>   
+  <tr>   
+    <td valign="top">(3)</td>   
+    <td>当該顧客のレコードが存在する場合、顧客属性データベースの項目を使って、メッセージを編集する。</td>   
+  </tr>   
+  <tr>   
+    <td valign="top">(4)</td>   
+    <td>編集済みメッセージを用いて、当該顧客の顧客元帳データベースのレコードを更新する。</td>   
+  </tr>   
+  <tr>   
+    <td valign="top">(5)</td>   
+    <td>顧客属性データベースの項目に、当該顧客が特別顧客である旨の印がある場合、編集済みメッセージを用いて、当該顧客の特別顧客データベースのレコードも更新する。</td>   
+  </tr>   
+  <tr>   
+    <td valign="top">(6)</td>   
+    <td>ログ情報をログファイルに書く。</td>   
+  </tr>   
+  <tr>   
+    <td valign="top">(7)</td>   
+    <td>応答メッセージを作成し、終了する。</td>   
+  </tr>   
+</table>   
+<A NAME="40">    
+<p>　</p>   
+<HR WIDTH=100%>    
+</a><a NAME="161"><b>　<BR>    
+設問</b></a><b>1　</b>図 2 は、業務 X プログラムの流れを示したものである。この流れ図を完成したとき、図 2 中の<img border="0" src="image/box.gif" width="58" height="17">に入れる正しい答えを、解答群の中から選べ。<br>   
+<br>   
+<img border="0" src="image/A99a16f2.gif" width="477" height="591"><br>   
+<br>   
+図 2　業務 X プログラムの流れ<br>     
+<br>     
+a、c に関する解答群     
+<table border="0" cellpadding="3" cellspacing="0">    
+  <tr>    
+    <td valign="top">ア</td>    
+    <td>エラーメッセージを作成する。</td>    
+  </tr>    
+  <tr>    
+    <td valign="top">イ</td>    
+    <td>顧客コードをキーにして、顧客属性データベースを読む。</td>    
+  </tr>    
+  <tr>    
+    <td valign="top">ウ</td>    
+    <td>顧客コードをキーにして、顧客元帳データベースを読む。</td>    
+  </tr>    
+  <tr>    
+    <td valign="top">エ</td>    
+    <td>顧客属性データベースの項目を使って，メッセージを編集する。</td>    
+  </tr>    
+  <tr>    
+    <td valign="top">オ</td>    
+    <td>特別顧客データベースに書く。</td>    
+  </tr>    
+  <tr>    
+    <td valign="top">カ</td>    
+    <td>特別顧客データベースを読む。</td>    
+  </tr>    
+  <tr>    
+    <td valign="top">キ</td>    
+    <td>メッセージを用いて、顧客元帳レコードを編集する。</td>    
+  </tr>    
+  <tr>    
+    <td valign="top">ク</td>    
+    <td>メッセージを用いて、特別顧客レコードを編集する。</td>    
+  </tr>    
+  <tr>    
+    <td valign="top">ケ</td>    
+    <td>ログ情報を作成する。</td>    
+  </tr>    
+  <tr>    
+    <td valign="top">コ</td>    
+    <td>ログ情報をログファイルに書く。</td>    
+  </tr>    
+</table>    
+<p>　</p>    
+<table border="0" cellpadding="3" cellspacing="0">    
+  <tr>    
+    <td>b に関する解答群</td>     
+  </tr>     
+</table>     
+<table border="0" cellpadding="3" cellspacing="0">    
+  <tr>    
+    <td width="200">ア　顧客属性データベース</td>    
+    <td>イ　顧客元帳データベース</td>    
+  </tr>    
+  <tr>    
+    <td>ウ　特別顧客データベース</td>    
+    <td>エ　ログファイル</td>    
+  </tr>    
+</table>    
+<p>　</p>    
+<A NAME="41">     
+<HR WIDTH=100%>     
+</a><a HREF="11f_p_a5.htm#161">設問1の正解例と解説へ</a>     
+<A NAME="40">     
+<HR WIDTH=100%>     
+</a><a NAME="162"><b>　<BR>     
+設問</b></a><b>2　</b>メッセージが特別顧客のものであり、かつエラーとならなかった場合、次の各データベース及びファイルに対するディスク入出力回数表のすべての空欄に数値を埋めて、表を完成したとき、表中の<b>[　　　　]</b>に入れる正しい答えを、解答群の中から選べ。<br>  
+<br>  
+表　各データベース及びファイルのディスク入出力回数表<center>
+<div align="left">
+  <table border="1" bordercolorlight="#000000" cellspacing="0" cellpadding="3" bordercolor="#FFFFFF" bordercolordark="#FFFFFF">
+    <tbody>
+      <tr>
+        <td vAlign="center">
+          <p align="center">データベース及び<br>
+          ファイル名</td>
+        <td vAlign="center">
+          <p align="center">データディレクトリ<br>
+          入力</td>
+        <td vAlign="center">
+          <p align="center">データベース<br>
+          及び<br>
+          ファイル入力</td>
+        <td vAlign="center">
+          <p align="center">データベース<br>
+          及び<br>
+          ファイル出力</td>
+        <td vAlign="center">
+          <p align="center">合計</p>
+        </td>
+      </tr>
+      <tr>
+        <td vAlign="center">
+          <p align="center">顧客属性データベース</p>
+        </td>
+        <td vAlign="center">　</td>
+        <td vAlign="center">　</td>
+        <td vAlign="center">
+          <p align="center">0</p>
+        </td>
+        <td vAlign="center">　</td>
+      </tr>
+      <tr>
+        <td vAlign="center">
+          <p align="center">顧客元帳データベース</p>
+        </td>
+        <td vAlign="center">　</td>
+        <td vAlign="center">
+          <p align="center">1</p>
+        </td>
+        <td vAlign="center">　</td>
+        <td vAlign="center">　</td>
+      </tr>
+      <tr>
+        <td vAlign="center">
+          <p align="center">特別顧客データベース</p>
+        </td>
+        <td vAlign="center">　</td>
+        <td vAlign="center">　</td>
+        <td vAlign="center">　</td>
+        <td vAlign="center">
+          <p align="center"><b>[　　d　　]</b></p>
+        </td>
+      </tr>
+    </center>
+    <tr>
+      <td vAlign="center">
+        <p align="left">ログファイル</p>
+      </td>
+      <center>
+      <td vAlign="center">　</td>
+      <td vAlign="center">　</td>
+      <td vAlign="center">　</td>
+      <td vAlign="center">　</td>
+      </tr>
+    </center>
+    <tr>
+      <td vAlign="center">
+        <p align="left">合計</p>
+      </td>
+      <center>
+      <td vAlign="center">　</td>
+      <td vAlign="center">　</td>
+      <td vAlign="center">　</td>
+      <td vAlign="center">
+        <p align="center"><b>[　　e　　]</b></p>
+      </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</center>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>　<br>
+      　<br>
+      解答群</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td width="60">ア　1</td>
+    <td width="60">イ　2</td>
+    <td width="60">ウ　3</td>
+    <td width="60">エ　4</td>
+    <td width="60">オ　5</td>
+  </tr>
+  <tr>
+    <td>カ　6</td>
+    <td>キ　7</td>
+    <td>ク　8</td>
+    <td>ケ　9</td>
+    <td></td>
+  </tr>
+</table>
+<p>　</p>
+<HR WIDTH=100%>
+<a HREF="11f_p_a5.htm#162">設問2の正解例と解説へ</a>
+<A NAME="40">
+<HR WIDTH=100%>
+</a>
+<p><a NAME="170">
+<b>問17</b></a><b>　</b>マイコンを用いた扇風機に関する次の記述を読んで，設問  
+1 ～ 3 に答えよ。</p> 
+<p>　扇風機のシステム構成を図 1 に，キーの機能を表 1  
+に示す。表 2  
+は扇風機の運転状態遷移を表したものであり，現在の状態からそれぞれの条件が成立した場合にどの状態へ遷移するかを示す。例えば，連続状態において入／切キーを押下した場合，停止状態に遷移する。表  
+3 に各運転状態時の LED 点灯状態を示す。 
+<p align="left"><img border="0" src="image/a99a17f1.gif" width="570" height="188">
+<p align="center">図１　扇風機のシステム構成
+<p align="left">表１　キーの機能<center>
+<div align="left">
+  <table border="1" bordercolorlight="#000000" bordercolordark="#FFFFFF" bordercolor="#FFFFFF" cellspacing="0" cellpadding="3">
+    <tbody>
+      <tr>
+        <td vAlign="center">
+          <p align="center">キーの名称</p>
+        </td>
+        <td vAlign="center">
+          <p align="center">機　　　　能</p>
+        </td>
+      </tr>
+      <tr>
+        <td vAlign="center">
+          <p>入／切</p>
+        </td>
+        <td vAlign="center">
+          <p>連続と停止を切り換える。</p>
+        </td>
+      </tr>
+      <tr>
+        <td vAlign="center">
+          <p align="center">お休みタイマ</p>
+        </td>
+        <td vAlign="center">
+          <p>お休みタイマの 30 分モード，又は 60  
+          分モードの設定，解除を行う。</p> 
+        </td> 
+      </tr> 
+    </tbody> 
+  </table> 
+</div> 
+</center> 
+<p align="left">表２　扇風機の運転状態遷移表<center>
+<div align="left">
+  <table border="1" bordercolorlight="#000000" bordercolordark="#FFFFFF" bordercolor="#FFFFFF" cellspacing="0" cellpadding="3">
+    <tbody>
+      <tr>
+        <td vAlign="center">
+          <p align="right">運転状態
+          <p>条件</p>
+        </td>
+        <td vAlign="center">
+          <p align="center">停止</p>
+        </td>
+        <td vAlign="center">
+          <p align="center">連続</p>
+        </td>
+        <td vAlign="center">
+          <p align="center">30 分モード</p> 
+        </td> 
+        <td vAlign="center"> 
+          <p align="center">60 分モード</p> 
+        </td> 
+      </tr> 
+      <tr> 
+        <td vAlign="center"> 
+          <p>“入／切”キー押下</p> 
+        </td> 
+        <td vAlign="center"> 
+          <p align="center">連続</p> 
+        </td> 
+        <td vAlign="center"> 
+          <p align="center">停止</p> 
+        </td> 
+        <td vAlign="center"> 
+          <p align="center">停止</p> 
+        </td> 
+        <td vAlign="center"> 
+          <p align="center">停止</p> 
+        </td> 
+      </tr> 
+      <tr> 
+        <td vAlign="center"> 
+          <p>“お休みタイマ”キー押下</p> 
+        </td> 
+        <td vAlign="center">　</td> 
+        <td vAlign="center"> 
+          <p align="center">30 分モード</p> 
+        </td> 
+        <td vAlign="center"> 
+          <p align="center">60 分モード</p> 
+        </td> 
+        <td vAlign="center"> 
+          <p align="center">連続</p> 
+        </td> 
+      </tr> 
+      <tr> 
+        <td vAlign="center"> 
+          <p>お休みタイマ残り時間 ＝ 0 分</p> 
+        </td> 
+        <td vAlign="center">　</td> 
+        <td vAlign="center">　</td> 
+        <td vAlign="center"> 
+          <p align="center">停止</p> 
+        </td> 
+        <td vAlign="center">　</td> 
+      </tr> 
+      <tr> 
+        <td vAlign="center"> 
+          <p>お休みタイマ残り時間 ＝ 30 分</p> 
+        </td> 
+        <td vAlign="center">　</td> 
+        <td vAlign="center">　</td> 
+        <td vAlign="center">　</td> 
+        <td vAlign="center"> 
+          <p align="center">30 分モード</p> 
+        </td> 
+      </tr> 
+    </tbody> 
+  </table> 
+</div> 
+</center> 
+<p>注　空欄はありえない場合やそのままの運転状態を維持することを意味する。 
+<p align="left">表３　各運転状態時の LED 点灯状態<center> 
+<div align="left"> 
+  <table border="1" bordercolorlight="#000000" cellspacing="0" cellpadding="3" bordercolor="#FFFFFF" bordercolordark="#FFFFFF"> 
+    <tbody> 
+      <tr> 
+        <td vAlign="center"> 
+          <p align="right">　　　　　運転状態 
+          <p>LED</p> 
+        </td> 
+        <td vAlign="center"> 
+          <p align="center">停止</p> 
+        </td> 
+        <td vAlign="center"> 
+          <p align="center">連続</p> 
+        </td> 
+        <td vAlign="center"> 
+          <p align="center">30 分モード</p> 
+        </td> 
+        <td vAlign="center"> 
+          <p align="center">60 分モード</p> 
+        </td> 
+      </tr> 
+      <tr> 
+        <td vAlign="center"> 
+          <p>ON - LED</p> 
+        </td> 
+        <td vAlign="center">　</td>
+        <td vAlign="center">
+          <p align="center">点灯</p>
+        </td>
+        <td vAlign="center">
+          <p align="center">点灯</p>
+        </td>
+        <td vAlign="center">
+          <p align="center">点灯</p>
+        </td>
+      </tr>
+      <tr>
+        <td vAlign="center">
+          <p>30 - LED</p> 
+        </td> 
+        <td vAlign="center">　</td>
+        <td vAlign="center">　</td>
+        <td vAlign="center">
+          <p align="center">点灯</p>
+        </td>
+        <td vAlign="center">　</td>
+      </tr>
+      <tr>
+        <td vAlign="center">
+          <p>60 - LED</p> 
+        </td> 
+        <td vAlign="center">　</td>
+        <td vAlign="center">　</td>
+        <td vAlign="center">　</td>
+        <td vAlign="center">
+          <p align="center">点灯</p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</center>
+<p>注　空欄は消灯を意味する。</p>
+<p>　
+<HR WIDTH=100%>
+<a NAME="171">　<BR>
+<b>
+設問</b></a><b>1</b>　
+<p>入出力ポートの説明を表 4  
+に示す。このシステムでは入出力ポートに書き込んだデータを読み取ることができる。次の記述中の<b>  
+[　　　　] </b>に入れる正しい答えを，解答群の中から選べ。<br> 
+　なお，拡張 COMET の場合，ビット番号 0 が MSB（most  
+significant bit）であることに注意して解答せよ。 
+<p>表４　入出力ポートの説明<center>
+<div align="left">
+  <table border="1" bordercolorlight="#000000" cellspacing="0" cellpadding="3" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+    <tbody>
+      <tr>
+        <td vAlign="center">
+          <p align="center">ビット番号</p>
+        </td>
+        <td vAlign="center">
+          <p align="center">接続先名</p>
+        </td>
+        <td vAlign="center">
+          <p align="center">備　　考</p>
+        </td>
+      </tr>
+      <tr>
+        <td vAlign="center">
+          <p align="center">0</p>
+        </td>
+        <td vAlign="center">
+          <p align="center">ON - LED</p>
+        </td>
+        <td rowSpan="3" vAlign="center">
+          <p>0：消灯
+          <p>1：点灯</p>
+        </td>
+      </tr>
+      <tr>
+        <td vAlign="center">
+          <p align="center">1</p>
+        </td>
+        <td vAlign="center">
+          <p align="center">30 - LED</p>
+        </td>
+      </tr>
+      <tr>
+        <td vAlign="center">
+          <p align="center">2</p>
+        </td>
+        <td vAlign="center">
+          <p align="center">60 - LED</p>
+        </td>
+      </tr>
+      <tr>
+        <td vAlign="center">
+          <p align="center">3</p>
+        </td>
+        <td vAlign="center">
+          <p align="center">モータ制御回路</p>
+        </td>
+        <td vAlign="center">
+          <p>0：停止 1：回転</p> 
+        </td> 
+      </tr> 
+      <tr> 
+        <td vAlign="center"> 
+          <p align="center">4 ～ 15</p> 
+        </td> 
+        <td vAlign="center"> 
+          <p align="center">未使用</p> 
+        </td> 
+        <td vAlign="center"> 
+          <p>常に 0</p> 
+        </td> 
+      </tr> 
+    </tbody> 
+  </table> 
+</div> 
+</center> 
+<p>入出力ポートのビットを操作するため，入出力ポートのデータを読み取り，対象ビットだけを変更して入出力ポートに書き込むプログラムを作成した。<br> 
+　例えば，このプログラムで 30 - LED を消灯し 60 - LED  
+を点灯する場合は，入出力ポートのデータを 16 進数 <b>[　　a　　]</b>  
+と AND 演算し， 16 進数<b> [　　b　　] </b>と OR  
+演算した結果を入出力ポートに書き込むことになる。</p> 
+<p>a に関する解答群 
+<p>　ア　7000　　イ　B000　　ウ　D000　　エ　E000　　オ　F000
+<p>　
+<p>b に関する解答群 
+<p>ア　1000　　　イ　2000　　　ウ　4000　　エ　6000　　オ　8000
+<p>　</p>
+<A NAME="43">
+<HR WIDTH=100%>
+</a><a HREF="11f_p_a5.htm#171">設問1の正解例と解説へ</a>
+<HR WIDTH=100%>
+　<BR>
+<b><a name="172">設問</a>2　</b>
+<p>主プログラムの流れ図を図 2  
+に示す。割込み処理の影響はないものとして図 2 中の <img border="0" src="image/box.gif" width="58" height="17"> に入れる正しい答えを，解答群の中から選べ。
+<p><img border="0" src="image/a99a17f6.gif" width="721" height="531">
+<p align="left">図２　主プログラムの流れ図</p>
+<p>c に関する解答群 
+<table border="0" cellpadding="3" cellspacing="0"> 
+  <tr> 
+    <td>ア</td> 
+    <td>いずれかのキーが押下された。</td> 
+  </tr> 
+  <tr> 
+    <td>イ</td> 
+    <td>いずれのキーも押下されなかった。</td> 
+  </tr> 
+  <tr> 
+    <td>ウ</td> 
+    <td>両方のキーが押下された。</td> 
+  </tr> 
+  <tr> 
+    <td>エ</td> 
+    <td>“入／切”キーが押下された。</td> 
+  </tr> 
+  <tr> 
+    <td>オ</td> 
+    <td>“入／切”キーが押下されなかった。</td> 
+  </tr> 
+</table> 
+<p>d ～ f に関する解答群 
+<p>ア　30 分モード　　　　イ　60  
+分モード　　　　ウ　停止　　　　エ　連続
+<p>　</p>
+<A NAME="44">
+<HR WIDTH=100%>
+</a><a HREF="11f_p_a5.htm#172">設問2の正解例と解説へ</a>
+<HR WIDTH=100%>
+<p><b><a name="173">設問</a>3　</b></p>
+<p>タイマ割込み処理の流れ図を図 3  
+に示す。タイマ割込みは 100 ミリ秒ごとに発生する。図 3  
+中の <img border="0" src="image/box.gif" width="58" height="17"> に入れる正しい答えを，解答群の中から選べ。</p>
+<p align="left"><img border="0" src="image/a99a17f7.gif" width="416" height="567">
+<p align="left">図３　タイマ割込み処理の流れ図
+<p>g に関する解答群<br>
+ア　6　　　　イ　10　　　　ウ　60　　　　エ　100　　　　オ　1000
+<p>h に関する解答群<br>
+ア　30　　　　イ　60　　　　ウ　180　　　　エ　1800　　　　オ　3600</p>
+<p>i に関する解答群
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td width="200">ア　30 - LED</td>
+    <td>イ　30 - LED 及び 60 - LED</td>
+  </tr>
+  <tr>
+    <td>ウ　30 - LED 及び ON - LED</td>
+    <td>エ　60 - LED</td>
+  </tr>
+  <tr>
+    <td>オ　60 - LED 及び ON - LED</td>
+    <td></td>
+  </tr>
+</table>
+<p>　</p>
+<A NAME="44">
+<HR WIDTH=100%>
+</a><a HREF="11f_p_a5.htm#173">設問3の正解例と解説へ</a>
+<hr>
+<p>
+<A HREF="index.htm">メニューへ戻る</A></p>
+<HR WIDTH=100%>
+<p><BR>
+</p>
+</BLOCKQUOTE>
+      <p>　
+</BODY>
+</HTML>

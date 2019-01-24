@@ -1,0 +1,114 @@
+<html>
+
+<head>
+<title>平成20年度 秋期　基本情報技術者 午後 正解例と解説（問1～問2）</title>
+<style type="text/css">
+body{line-height:150%;}
+code{font-size:12pt;}
+</style>
+</head>
+
+<body>
+
+<blockquote>
+	<hr>
+	<h3 align="center">平成20年度秋期試験　正解例と解説(問1～問2)</h3>
+	<hr>
+	<p><strong><a name="10">問1</a></strong></p>
+	<hr>
+	<p><strong><a name="11">設問</a>1</strong></p>
+	<p>〈解答〉　a：ウ，b：イ<br>
+	<br>
+	〈解説〉</p>
+	<p>空欄aについて</p>
+	<blockquote>
+		<p>
+		　支店間の通信は本社に設置されたルータを必ず経由するので，これらの通信は本社のアクセスポイントとルータとの間wを往復する。したがって支店Xから支店Yに向かう通話について，支店Xから本社ルータに向かう際にwを経由し，本社ルータから支店Yに向かう際に再びwを経由するが，xについては1回だけ経由する。支店Yから支店Xに向かう通信についても同じである。したがって支店X，Y間の通話について，wのトラフィックはxのトラフィックの2倍になり，空欄aはウが適切。</p>
+	</blockquote>
+	<p>空欄bについて</p>
+	<blockquote>
+		<p>　wにおけるIP電話のピーク時の同時通話数は以下の①～④<br>
+		　　①　本社と各支店X，Y，Z間 20＋20＋20＝60通話<br>
+		　　②　支店Xと支店Y間 10×2＝20通話<br>
+		　　③　支店Xと支店Z間 10×2＝20通話<br>
+		　　④　支店Yと支店Z間 10×2＝20通話<br>
+		の合計で，60＋20＋20＋20＝120通話になる。1通話が使用するビット速度は20 
+		kビット／秒なので，IP電話のピーク時のトラフィックは120通話×20 kビット／秒＝2,400 kビット／秒になる。<br>
+		　これに対してxにおけるIP電話のピーク時の同時通話数は以下の⑤～⑦<br>
+		　　⑤　本社と支店X間 20通話<br>
+		　　⑥　支店Xと支店Y間 10通話<br>
+		　　⑦　支店Xと支店Z間 10通話<br>
+		の合計で，20＋10＋10＝40通話になる。1通話が使用するビット速度は20 
+		kビット／秒なので，IP電話のピーク時のトラフィックは40通話×20 kビット／秒＝800 kビット／秒になる。したがって空欄bはイが適切。</p>
+	</blockquote>
+	<hr>
+	<p><a href="20F_P_E1.HTM#11">問題へ</a> </p>
+	<hr>
+	<p><strong><a name="12">設問2</a></strong></p>
+	<p>〈解答〉　c：イ，d：ウ</p>
+	<p>〈解説〉</p>
+	<p>空欄cについて</p>
+	<blockquote>
+		<p>　通信形態の見直しによって，以下のように支店同士が直接通信できるようにする。<br>
+		<br>
+		<img border="0" src="img/ans10.png" width="330" height="212"><br>
+		<br>
+		　通信形態の見直しにより，本社とアクセスポイントとの間wにおけるIP電話のピーク時の同時通話数は，以下の①～③<br>
+		　　①　本社と支店X間 20通話<br>
+		　　②　本社と支店Y間 20通話<br>
+		　　③　本社と支店Z間 20通話<br>
+		の合計で，20＋20＋20＝60通話になる。1通話が使用するビット速度は20 
+		kビット／秒なので，IP電話のピーク時のトラフィックは60通話×20 kビット／秒＝1,200 kビット／秒になる。したがって空欄cはイが適切。</p>
+	</blockquote>
+	<p>空欄dについて</p>
+	<blockquote>
+		<p>　通信形態の見直しにより，支店Xとアクセスポイントとの間xにおけるIP電話のピーク時の同時通話数は，以下の④～⑥<br>
+		　　④　本社と支店X間 20通話<br>
+		　　⑤　支店Xと支店Y間 10通話<br>
+		　　⑥　支店Xと支店Z間 10通話<br>
+		の合計で，20＋10＋10＝40通話になる。1通話が使用するビット速度は20 
+		kビット／秒なので，IP電話のピーク時のトラフィックは40通話×20 kビット／秒＝800 
+		kビット／秒になる。y，zについても同じである。したがって各支店とアクセスポイントとの間（x，y，z）のトラフィックは見直し前と同じで，空欄dはウが適切。</p>
+	</blockquote>
+	<hr>
+	<p><a href="20F_P_E1.HTM#12">問題へ</a> </p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a> </p>
+	<hr>
+	<p><strong><a name="20">問2</a></strong></p>
+	<hr>
+	<p><strong><a name="21">設問</a></strong></p>
+	<p>〈解答〉　a：エ，b：イ，c：ア，d：ウ</p>
+	<p>〈解説〉</p>
+	<p>空欄aについて</p>
+	<blockquote>
+		<p>　空欄aを繰返条件とするループ処理では，整形対象の文字列<code>Str</code>の文字<code>Str[StartP]</code>を1文字ずつ，出力用文字配列<code>Line[CurrentP]</code>に行末まで1行分を格納している。行末位置は空欄aの直前の副プログラム<code>GetPosition</code>により検索され，戻値<code>EndP</code>にセットされる。したがって出力用文字配列の<code>Line[Margin]</code>から<code>Line[EndP
+		</code>－ <code>1]</code>までに<code>Str[StartP]</code>の文字を格納すればよいので，空欄aの<code>CurrentP</code>に関する繰返条件は<code>CurrentP: 
+		Margin, StartP </code>＜ <code>EndP, 1</code>とすればよく，エが適切。</p>
+	</blockquote>
+	<p>空欄bについて</p>
+	<blockquote>
+		<p>　空欄bを条件とする処理は，改行または改頁後に行われている処理で，文字配列<code>Str</code>の文字位置<code>StartP</code>をインクリメントしている処理である。1行の行末には改行文字<code>NL</code>がセットされているので，次の行の先頭文字を取り出すには，改行文字NLが出現した場合，<code>StartP</code>を1文字分インクリメントする必要がある。したがって空欄bの条件は<code>Str[StartP]
+		</code>＝<code> NL</code>とすればよく，イが適切。</p>
+	</blockquote>
+	<p>空欄cについて</p>
+	<blockquote>
+		<p>　副プログラム<code>GetPosition</code>では，文字列の指定した位置から行末となる文字位置を探索し，引数<code>EndP</code>に返す。行末の条件は，①<code>EOS</code>が見つかったとき，②改行文字<code>NL</code>が見つかったとき，③<code>MaxC
+		</code>＋<code> 1</code>文字に達したときのいずれかである。空欄cは，この探索処理の繰返条件の1つになっており，③の条件に該当する。<code>EndP</code>に<code>StartP</code>をセットした後，この探索ループに入っているので，1行の最大文字数<code>MaxC</code>に達するまでの<code>EndP</code>に関する③の繰返条件は，<code>EndP
+		</code>＜<code> (StartP </code>＋<code> MaxC)</code>となり，アが適切。</p>
+	</blockquote>
+	<p>空欄dについて</p>
+	<blockquote>
+		<p>　空欄aを繰返条件とする繰返ループを終了後，出力用文字配列の行末<code>Line[CurrentP]</code>に<code>EOS</code>をセットし，副プログラム<code>PutLine[Line[]]</code>により1行分の文字列<code>Line[]</code>を出力している。空欄dは，副プログラム<code>PutLine[Line[]]</code>中の繰返ループの繰返条件になっている。この繰返ループでは，システム関数<code>PutChr</code>により<code>Line[CurrentP]</code>の文字を，1文字ずつ先頭から行末まで1行分を出力し，繰返ループ終了後，<code>PutChr[NL]</code>により改行している。1行分の文字列<code>Line[]</code>の行末には<code>EOS</code>がセットされているので，<code>EOS</code>が出現するまでの間，先頭から1文字ずつ出力すればよい。したがって空欄dの繰返条件は，<code>CurrentP: 
+		0, Line[CurrentP] </code>≠<code> EOS, 1</code>とすればよく，ウが適切。</p>
+	</blockquote>
+	<hr>
+	<p><a href="20F_P_E1.HTM#21">問題へ</a> </p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a> </p>
+	<hr>
+</blockquote>
+
+</body>
+
+</html>

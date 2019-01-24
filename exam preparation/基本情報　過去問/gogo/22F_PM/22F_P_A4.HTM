@@ -1,0 +1,150 @@
+<html>
+<head>
+<title>平成22年度 秋期 基本情報技術者 午後 正解例と解説（問10～問13）</title>
+<style type="text/css"><!--
+body{line-height:150%;}
+code{font-size:12pt;}
+h3{text-align:center;}
+div.caution{border:solid 1px #000000; padding:0.5em;}
+--></style>
+</head>
+<body>
+<blockquote>
+<hr>
+<h3>平成22年度　秋期　基本情報技術者<br>
+午後　正解例と解説（問10～問13）</h3>
+<hr>
+<p><strong><a name="100">問10</a></strong></p>
+<hr>
+<p><strong><a name="101">設問1</a></strong></p>
+<p>〈解答〉　a：ウ，b：オ，c：キ，d：イ</p>
+<p>〈解説〉</p>
+<p>●空欄aについて</p>
+<p>このプログラムでは，売上ファイル<code>SALES-FILE</code>を読み，各インターチェンジの売上，及び利用区間とその利用台数を集計して表示する。空欄a直前の処理では，<code>SALES-FILE</code>の出車ICの売上<code>SAL-TOLL</code>をICの売上集計用テーブル<code>IC-TOTAL(SAL-OUT)</code>を用いてテーブル集計している。この処理を含む手続<code>CTR-PROC</code>で各利用区間の利用台数の集計が必要で，空欄aでこれを行う必要がある。<code>SECT-NUM</code>は2次元テーブルで，このテーブルを各利用区間の利用台数の集計用テーブルとして用いて，入車ICと出車ICを要素番号として利用台数のテーブル集計を行えばよい。したがって空欄aはウの<code>ADD 1 TO SECT-NUM(SAL-IN SAL-OUT)</code>が適切。</p>
+<p>●空欄bについて</p>
+<p>空欄bの直前3行の処理では，<code>PERFORM</code>ループの繰返処理の中でテーブル<code>IC-TOTAL</code>に集計したA～Jの各インターチェンジの売上を表示している。この<code>PERFORM</code>ループ直後の処理で，<code>TOTAL</code>の内容を<code>TOTAL-SALES</code>に転送したのち表示しているので，<code>PREFORM</code>ループ中の空欄cにおいてインターチェンジA～Jの売上を集計しておく必要がり，空欄bはオの<code>ADD IC-TOTAL(CNT1) TO TOTAL</code>が適切。</p>
+<p>●空欄cについて</p>
+<p>入車IC及び出車ICには01～10の番号が格納され，インターチェンジA～Jは01～10の番号に対応する。空欄cを含む手続<code>IN-PROC</code>は，<code>SORT-DATA</code>を整列キーとして<code>SORT-FILE</code>を降順に整列する処理における入力手続である。この手続中の<code>PERFORM</code>ループの繰返処理でループの制御変数<code>CNT1</code>，<code>CNT2</code>をそれぞれ<code>SORT-IN</code>，<code>SORT-OUT</code>に転送し，空欄c直後の処理で<code>SORT-FILE</code>に書き出している。したがって空欄cは2次元集計用テーブル<code>SECT-NUM</code>の利用区間の利用台数を<code>SORT-REC</code>の<code>SORT-DATA</code>に転送する処理に該当し，キの<code>MOVE SECT-NUM(CNT1 CNT2) TO SORT-DATA</code>が適切。</p>
+<p>●空欄dについて</p>
+<p>空欄dを含む<code>PERFORM</code>ループでは，<code>SORT-FILE</code>を読んで利用区間の利用台数を表示する処理を行っている。利用台数の多い順に10区間までを表示する際，10区間目と台数が同じ利用区間が複数ある場合は，それらの利用区間もすべて表示する。また利用台数がゼロになった場合は，表示が10区間に満たなくても終了する。空欄dの条件が成り立つ場合に<code>LOOP-END</code>に<code>TRUE</code>をセットしているので，空欄dはその<code>PERFORM</code>ループの表示処理を終了する条件である。利用台数がゼロになった場合の条件は空欄dの直前にあるので，空欄dの条件で，10区間の表示を超え，かつ<code>SORT-FILE</code>から読み込んだ利用台数<code>SORT-DATA</code>が直前に表示した利用台数<code>PREV-NUM</code>よりも小さくなれば<code>PERFORM</code>ループの表示処理を終了すればよい。したがって空欄dはイの<code>CNT1 > 10 AND SORT-DATA < PREV-NUM</code>が適切。</p>
+<hr>
+<a href="22F_P_E4.HTM#101">問題へ</a>
+<hr>
+<p><strong><a name="102">設問2</a></strong></p>
+<p>〈解答〉　e：イ，f：ウ，g：カ，h：ケ</p>
+<p>〈解説〉</p>
+<p>●空欄eについて</p>
+<p>空欄eの間に追加する処理では，<code>SALES-FILE</code>から読み込んだ<code>SAL-IN</code>と<code>SAL-OUT</code>の差，つまり利用区間数を<code>CNT1</code>に格納し，<code>EVALUATE</code>文により利用区間数に応じてプランXとプランYの割引率を設定した後，利用区間の通行料<code>SAL-TOLL</code>に対する割引後の売上額を<code>TOTAL-PLANX</code>，<code>TOTAL-PLANY</code>に集計している。したがって空欄a直後の行番号53と54の間に追加すればよく，イが適切。</p>
+<p>●空欄f，g，hについて</p>
+<p>空欄f，g，hは，<code>EVALUATE</code>文により利用区間数に応じてプランXとプランYの割引率を設定する処理における<code>EVALUATE</code>文の分岐条件である。プランX，Yの利用区間数に対する割引率を整理すると表のようになる。</p>
+<p><img src="img/h22f_pm_a_018.png"></p>
+<p>空欄fは<code>DISCOUNT-X</code>に1.0，<code>DISCOUNT-Y</code>に0.9をセットする条件なので，ウの<code>3 THRU 4</code>が適切。空欄gは<code>DISCOUNT-X</code>に0.8，<code>DISCOUNT-Y</code>に0.9をセットする条件なので，カの<code>5 THRU 6</code>が適切。空欄hは<code>DISCOUNT-X</code>，<code>DISCOUNT-Y</code>にいずれにも0.8をセットする条件なので，ケの<code>7 THRU 9</code>が適切。</p>
+<hr>
+<a href="22F_P_E4.HTM#102">問題へ</a>
+<hr>
+<a href="INDEX.HTM">■メニューへ戻る</a>
+<hr>
+<p><strong><a name="110">問11</a></strong></p>
+<hr>
+<p><strong><a name="111">設問1</a></strong></p>
+<p>〈解答〉　a：イ，b：カ，c：オ，d：イ，e：イ</p>
+<p>〈解説〉</p>
+<p>●空欄aについて</p>
+<p>クラス<code>MessageQueue</code>はクライアントからのメッセージを格納するための待ち行列である。<code>queue</code>はインタフェース<code>List</code>に基づく連結リストの実装である<code>LinkedList</code>のインスタンスとして生成されている。したがってそのメソッドである<code>add()</code>，<code>removeFirst()</code>，<code>isEmpty()</code>が利用できる。<code>add()</code>はリストの最後に要素を追加するメソッド，<code>removeFirst</code>はリストの最初の要素を取り除くメソッドであり，これを利用することで<code>LinkedList</code>をキューとして利用している。<code>put()</code>はクラス<code>MessageQueue</code>のメソッドで，メソッド<code>add()</code>を利用して引数<code>message</code>で指定されたメッセージをメッセージキューに追加する。<code>take()</code>はクラス<code>MessageQueue</code>のメソッドで，メソッド<code>removeFirst()</code>を利用してメッセージキューからメッセージを取り出す。メッセージキューが空のときは，メッセージが追加されるまで待つ。空欄aはメソッド<code>take()</code>における処理で，メッセージが追加されるまで待つ<code>while</code>ループの繰返条件に該当する。したがって空欄aは，<code>LinkedList</code>のメソッド<code>isEmpty()</code>を利用し，<code>queue.isEmpty()</code>とするのが適切。</p>
+<p>●空欄bについて</p>
+<p>クラス<code>ConfServer</code>はサーバを定義する。クライアントとのログイン状態を管理し，メッセージの受信と配信を行う。クラス<code>ConfServer</code>は，インタフェース<code>Runnable</code>を実装したクラスとして定義しており，クラスが初期化されるときにインスタンスが作成され，単独のスレッドとして動作する。このクラスにおいて，型<code>Session</code>のキーに型<code>ConfClient</code>の値を対応付けて保持するインタフェース<code>Map</code>を実装したクラス<code>HashMap</code>のインスタンス<code>sessionsTable</code>を生成している。クラス<code>ConfServer</code>のメソッド<code>login()</code>は，メソッド<code>loginImpl()</code>の処理で入れ子クラスの<code>ConfServer.Session</code>のインスタンス<code>session</code>を生成し，その<code>session</code>をキーとして型<code>ConfClient</code>の値<code>client</code>をクライアント管理テーブル<code>sessionsTable</code>に登録し，そのインスタンス<code>session</code>を返す。クラス<code>ConfClient</code>は，サーバが必要とするクライアントの機能を定義する抽象クラスで，<code>displayMessage()</code>はそのメソッドである。サーバはクラス<code>ConfServer</code>のメソッド<code>deliverMessage()</code>の空欄bの処理で，抽象クラスのメソッド<code>displayMessage()</code>を呼び出してクライアントにメッセージを配信する。クライアント管理テーブル<code>sessionsTable</code>はインタフェース<code>Map</code>のインスタンスなので，そのメソッド<code>get()</code>を利用してクライアント管理テーブル<code>sessionsTable</code>からキー<code>session</code>に対応付けられたクライアント<code>client</code>を取得できる。したがってこのクライアントに対して配信を行えばよいので，空欄bはカの<code>sessionsTable.get(session)</code>が適切。</p>
+<p>●空欄cについて</p>
+<p>クラス<code>Session</code>はクラス<code>ConfServer</code>の入れ子クラスで，<code>logout()</code>はそのメソッドである。<code>logout()</code>は<code>ConfServer</code>のメソッド<code>logoutImp()</code>を呼び出し，インタフェース<code>Map</code>のメソッド<code>remove()</code>を利用してクライアント管理テーブル<code>sessionsTable</code>からキー<code>session</code>に対応するクライアントを削除することでログアウトを行う。メソッド<code>logoutImp()</code>の引数には自分自身の<code>session</code>を指定して呼び出せばよいので，空欄cはオの<code>this</code>が適切。</p>
+<p>●空欄dについて</p>
+<p>クラス<code>TestClient</code>はクラス<code>ConfClient</code>で定義されたメソッドを実装したクラスなので，クラス<code>ConfClient</code>を継承したサブクラスとして定義すればよい。したがって空欄dはイの<code>extends</code>が適切。</p>
+<p>●空欄eについて</p>
+<p>空欄eはクラス<code>TestClient</code>のコンストラクタの定義に該当し，そのスーパークラスのコンストラクタを呼び出して定義すればよく，引数に<code>name</code>を指定して呼び出しを行っているので空欄eは<code>super(name)</code>が適切。</p>
+<hr>
+<a href="22F_P_E4.HTM#111">問題へ</a>
+<hr>
+<p><strong><a name="112">設問2</a></strong></p>
+<p>〈解答〉　ウ</p>
+<p>〈解説〉　フィールド<code>queue</code>で参照される<code>LinkedList</code>のインスタンスに対して操作が同時に実行されたとき，共有しているインスタンス<code>queue</code>に複数のスレッドがアクセスして更新を行うと，データの更新に矛盾が起こる。そのため共有しているインスタンスに対して一つのスレッドが処理を行っている間，他のスレッドがそのインスタンスに対して処理が出来ないようにロックをかけ，排他的に同期させて実行させる必要がある。インスタンスのロックが解放されるまで他のスレッドは待機し，インスタンスのロックが解放された後，そのインスタンスのロックを取得する。したがってウが適切。</p>
+<hr>
+<a href="22F_P_E4.HTM#112">問題へ</a>
+<hr>
+<a href="INDEX.HTM">■メニューへ戻る</a>
+<hr>
+<p><strong><a name="120">問12</a></strong></p>
+<hr>
+<p><strong><a name="121">設問1</a></strong></p>
+<p>〈解答〉　　a：ウ，b：イ</p>
+<p>〈解説〉</p>
+<p>●空欄aについて</p>
+<p><code>GR3</code>のビット列を<code>SRL</code>命令により論理右シフトした結果，オーバフローした最下位ビットの値が1であれば，<code>OR</code>命令により<code>GR4</code>と<code>#0001</code>との論理和をとることで<code>GR4</code>の最下位ビットに1を格納した後，ループカウンタ<code>GR2</code>をデクリメントして<code>JUMP</code>命令により<code>LOOP</code>に戻り繰り返せばよい。したがって空欄aで<code>JOV</code>命令により<code>ON</code>へオーバフロー分岐を行えばよく，ウの<code>JOV   ON</code>が適切。</p>
+<p>●空欄bについて</p>
+<p><code>GR3</code>のビット列を<code>SRL</code>命令により論理右シフトした結果，元のビット列の残りのビットがすべてゼロとなった場合に<code>JZE</code>命令により<code>FIN1</code>へゼロ分岐し，空欄bを実行する。空欄bは結果のビット列<code>GR4</code>を残りのビット数<code>GR2</code>だけ左論理シフトする命令で，イの<code>SLL   GR4,0,GR2</code>が適切。</p>
+<hr>
+<a href="22F_P_E4.HTM#121">問題へ</a>
+<hr>
+<p><strong><a name="122">設問2</a></strong></p>
+<p>〈解答〉　c：ア，d：ウ</p>
+<p>〈解説〉</p>
+<p>●空欄cについて</p>
+<p>最初の<code>LD</code>命令により<code>GR3</code>には第1語の先頭アドレスが格納され，次の<code>LD</code>命令により<code>GR4</code>にはnが格納される．<code>SUBA</code>命令により<code>GR4</code>から1差し引き，<code>GR4</code>の内容はn－1となるが，次の<code>ADDA</code>命令により<code>GR1</code>が加算されるので，<code>GR4</code>の内容は第n語の先頭アドレスを指し示すことになる。<code>LOOP1</code>以降の二つの<code>LD</code>命令と二つの<code>ST</code>命令により，先ず第1語と第n語の内容を入れ替えている。次の二つの<code>LAD</code>命令により<code>GR3</code>の内容をインクリメントし<code>GR4</code>の内容をデクリメントするので，<code>GR3</code>は第2語を，<code>GR4</code>は第n－1語を指し示すことになる。次の<code>CPA</code>命令により<code>GR3</code>と<code>GR4</code>を比較した後，空欄cを実行する。したがって<code>GR3</code>＜<code>GR4</code>の間は<code>LOOP1</code>に戻り繰り返せばよく，空欄cはアの<code>JMI   LOOP1</code>が適切。</p>
+<p>●空欄dについて</p>
+<p><code>CPA</code>命令で<code>GR3</code>≧<code>GR4</code>になれば<code>CALL</code>命令によりプログラム<code>REVRS</code>を呼び出し，先ず<code>GR1</code>の第1語についてビット列を逆転する。次の<code>LAD</code>命令により<code>GR1</code>のアドレスを第2語目に更新し，<code>GR2</code>のループカウンタをデクリメントした後，ループカウンタ<code>GR2</code>の値が0でない間は<code>LOOP2</code>に戻り繰り返せばよい。したがって空欄dはウの<code>JNZ   LOOP2</code>が適切。</p>
+<hr>
+<a href="22F_P_E4.HTM#122">問題へ</a>
+<hr>
+<p><strong><a name="123">設問3</a></strong></p>
+<p>〈解答〉　e：ウ，f：ア</p>
+<p>〈解説〉</p>
+<p>●空欄eについて</p>
+<p><code>CALL</code>命令によりプログラム<code>REVRS</code>を呼び出してアドレス<code>GR1</code>の語のビット列を逆転した後，次の<code>LD</code>命令で逆転したビット列を<code>GR5</code>に格納している。空欄e直前の<code>SRL</code>命令によりpビット論理右シフトし，<code>GR5</code>の逆転した部分ビット列αが右端に移動する。この移動の結果，qビットの部分ビット列αを除いた左の部分ビット列の長さは16－qビットになる。したがって逆転した部分ビット列αを左端に移動するには，空欄eで<code>GR5</code>のビット列を16－qビット論理左シフトすればよい。<code>GR6</code>には16－qが格納されているので，空欄eはウの<code>SLL   GR5,0,GR6</code>が適切。</p>
+<p>●空欄fについて</p>
+<p>空欄e直後の<code>SRL</code>命令により<code>GR5</code>の逆転した部分ビット列αがpビット右に移動し，<code>GR5</code>の内容は部分ビット列α以外に0が設定されたビット列になる。次の<code>LD</code>命令で<code>GR6</code>にビット列<code>#8000</code>をセットした後，<code>SRL</code>命令により<code>GR6</code>をq－1ビット算術右シフトしてqビット連続した1の並びを作成する。次の<code>SRL</code>命令により<code>GR6</code>の連続した1の並びをpビット右に論理シフトすることにより，<code>GR6</code>の内容は部分ビット列αに対応する位置のqビットに1，それ以外に0が設定されたビット列になる。次の<code>XOR</code>命令により<code>GR6</code>と<code>#FFFF</code>との排他的論理和をとることにより，<code>GR6</code>には，逆転した部分ビット列αに対応する位置のqビットを0に，それ以外に1が設定されたマスクビット列が作成される。空欄f直前の<code>AND</code>命令でこのマスクビット列<code>GR6</code>と元のビット列<code>GR4</code>との論理積をとることにより，<code>GR6</code>の元のビット列中の部分ビット列αに対応するqビット部分をゼロに設定する。したがって直後の空欄fで<code>GR6</code>と<code>GR5</code>との論理和をとり合成すればよく，アが適切。</p>
+<hr>
+<a href="22F_P_E4.HTM#123">問題へ</a>
+<hr>
+<a href="INDEX.HTM">■メニューへ戻る</a>
+<hr>
+<p><strong><a name="130">問13</a></strong></p>
+<hr>
+<p><strong><a name="131">設問1</a></strong></p>
+<p>〈解答〉　　a：エ，b：カ，c：ウ
+</p>
+<p>〈解説〉</p>
+<p>●空欄aについて</p>
+<p>空欄aは価格弾力性の計算において分母の価格の変化率が0となる条件である。価格弾力性の計算式をセルD7に入力した後，セルD7～E15に複写する。セルD7に入力する計算式についてのIF関数の条件は，セルA7の価格がセルB2の価格と一致するかという条件になる。列Aの価格については列Aを絶対参照とし，現行価格については行2を絶対参照としてセル参照する必要がある。したがって空欄aはエの$A7＝B$2が適切。</p>
+<p>●空欄bについて</p>
+<p>空欄bは価格弾力性の計算式の分子で，購入意向率の変化率の計算式に該当する。セルD7に入力する計算式についての購入意向率の計算式は，－（（セルB7の購入意向率－セルB3の購入意向率）／セルB3の購入意向率）であるが，セルD7～E15に複写するので，現行価格に対する行3の購入意向率については行3を絶対参照としてセル参照する必要がある。したがって空欄bはカの－（（B7－B$3）／B$3）が適切。</p>
+<p>●空欄cについて</p>
+<p>空欄cは価格弾力性の計算式の分母で，価格の変化率の計算式に該当する。セルD7に入力する計算式についての価格の変化率の計算式は，（（セルA7の価格－セルB2の現行価格）／セルB2の現行価格）であるが，セルD7～E15に複写するので，列Aの価格については列Aを絶対参照とし，現行価格については行2を絶対参照としてセル参照する必要がある。したがって空欄cはウの－（（$A7－B$2）／B$2）が適切。</p>
+<hr>
+<a href="22F_P_E4.HTM#131">問題へ</a>
+<hr>
+<p><strong><a name="132">設問2</a></strong></p>
+<p>〈解答〉</p>
+<p>〈解説〉</p>
+<p>●空欄dについて</p>
+<p>セルB11に入力したセルをセルB11～I11に複写することによりブランドごと案ごとの容量を計算し，セルB12～I12に複写することによりブランドごと案ごとの価格を計算する。IF関数の条件B$9＝$B$1は行9のブランドが普及品であるかを判定している。例えばセルB11～I11に複写したとき，条件B$9＝$B$1が真の場合は，$B2＋垂直照合（［　　d　　］）により普及品について案1～4ごとの容量を計算している。セルB11に入力する式については，空欄dを引数とする垂直照合関数によりセルB10の案を照合値，$E$2～$G$5を照合範囲として垂直照合し，セルI2の列位置2の容量差を参照すればよい。照合値のセルB10の参照については行10を絶対参照としてセル参照する必要がある。また列位置のセルI2の参照については列Iを絶対参照としてセル参照する必要がある。したがって空欄dはエのB$10, $E$2～$G$5, $I2が適切。</p>
+<p>●空欄eについて</p>
+<p>セルB14に入力する計算式は，売上数量を計算している。IF関数の条件B$9＝$B$1が真の場合，つまり普及品である場合，空欄eで案1～4ごとの売上数量を計算している。セルB14に入力する計算式では，普及品の案1の売上数量を計算しており，セルB4の市場規模×セルB13の購入意向率により計算できる。セルB14の計算式をセルC14～I14に列方向に複写するので，市場規模については列Bを絶対参照としてセル参照する必要がある。したがって空欄eはイの$B4＊B13が適切。</p>
+<p>●空欄fについて</p>
+<p>セルB16に入力する計算式は，製造変動費を計算している。IF関数の条件B$9＝$B$1が偽の場合，つまり高級品である場合，空欄fで案1～4ごとの製造変動費を計算している。セルB16に入力する計算式では，高級品の案1の製造変動費を計算しており，（セルC6の原料単価×セルB11の容量＋セルC7の容器単価）×セルB14の売上数量により計算できる。セルB16の計算式をセルC16～I16に列方向に複写するので，列Cの原料単価と容器単価については列Cを絶対参照としてセル参照する必要がある。したがって空欄fはオの（$C6＊B11＋$C7）＊B14が適切。</p>
+<p>●空欄gについて</p>
+<p>セルB17に入力する計算式は，利益を計算している。IF関数の条件B$9＝$B$1が真の場合，つまり普及品である場合，空欄gで案1～4ごとの利益を計算している。セルB17に入力する計算式では，普及品の案1の利益を計算しており，セルB15の売上金額－セルB16の製造変動費－セルB5の製造固定費－セルB15の売上金額×セルB8の販売管理費比率により計算できる。セルB17の計算式をセルC17～I17に列方向に複写するので，列Bの製造固定費と販売管理費比率については列Bを絶対参照としてセル参照する必要がある。したがって空欄gはウのB15－B16－$B5－B15＊$B8が適切。</p>
+<hr>
+<a href="22F_P_E4.HTM#132">問題へ</a>
+<hr>
+<p><strong><a name="133">設問3</a></strong></p>
+<p>〈解答〉　h：ケ，i：エ</p>
+<p>〈解説〉</p>
+<p>●空欄hについて</p>
+<p>広告実施後の購入意向率は，（1＋広告効果率）とワークシート“値上”の行13の購入意向率との積として算出できる。ワークシート“値上”の購入意向率については，ワークシート“広告”のセルB1に入力されたブランドが普及品の場合，ワークシート“広告”のセルB2に入力された案を照合値として，ワークシート“値上”の照合範囲$B$10～$E$13に対して水平照合を行い，行13の購入意向率を参照する必要がある。ワークシート“広告”のセルB1に入力されたブランドが高級品の場合，ワークシート“広告”のセルB2に入力された案を照合値として，ワークシート“値上”の照合範囲$F$10～$I$13に対して水平照合を行い，行13の購入意向率を参照する必要がある。セルB5に入力する広告実施後の購入意向率の計算式については，広告効果率はセルB4を参照する。また行13の購入意向率は照合範囲の4行目なので，行位置に4を指定すればよい。したがってセルB2の広告実施後の購入意向率は，（1＋B4）＊IF（B1＝値上!B1, 水平照合（B2, 値上! $B$10～$E$13, 4）, 水平照合（B2, 値上! $F$10～$I$13, 4））により算出できるが，セルC5～G5に複写するので，セルB1のブランドとセルB2の案については列Bを絶対参照としてセル参照する必要があり，空欄hはケが適切。</p>
+<p>●空欄iについて</p>
+<p>IF関数の条件$B1＝値上!$B1が真の場合，つまりブランドが普及品の場合に，空欄iで製造変動費を算出している。製造変動費は（原料単価×容量＋容器単価）×売上数量により計算できる。セルB8に入力する計算式に関して，売上数量については，ワークシート“広告”の広告費ごとの行6の売上数量を参照して計算すればよい。原料単価についてはワークシート“値上”のセルB6を，容器単価についてはワークシート“値上”のセルB7を参照すればよい。容量については案により異なるので，ワークシート“広告”のセルB2の案を照合値として，ワークシート“値上”の照合範囲$B10～$E11を水平照合して行位置2の容量を参照すればよい。セルB8に入力する計算式をセルC8～G8に列方向に複写するので，ワークシート“値上”のセルB6の原料単価とセルB7の容器単価，及びワークシート“広告”のセルB2の案については，列番号Bを絶対参照としてセル参照する必要がある。したがって空欄iはエの（値上!$B6＊水平照合（$B2, 値上!$B10～$E11, 2）＋値上!$B7）＊B6が適切。</p>
+<hr>
+<a href="22F_P_E4.HTM#133">問題へ</a>
+<hr>
+<a href="INDEX.HTM">■メニューへ戻る</a>
+<hr>
+</blockquote>
+</body>
+</html>

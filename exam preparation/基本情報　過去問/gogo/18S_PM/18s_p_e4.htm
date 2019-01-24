@@ -1,0 +1,362 @@
+<html>
+
+<head>
+<title>平成18年度春期試験　問題(問10～問13)</title>
+</head>
+
+<body bgcolor="#FFFFFF" topmargin="0" leftmargin="0">
+
+<blockquote>
+<hr>
+<h3 align="center">平成18年度春期試験　問題(問10～問13)</h3>
+<hr>
+<div align="center">
+<table border="1" cellpadding="4" cellspacing="0" bordercolor="#000000">
+<tr>
+<td>　次の<strong>問10</strong>から<strong>問13</strong>までの4問については、この中から1問を選択し、答案用紙の選択欄の<img align="top" border="0" src="IMAGE/select.gif" width="29" height="18">（選）をマークして解答してください。<br>
+　なお、2問以上選択した場合には、はじめの1問について採点します。</td>
+</tr>
+</table>
+</div>
+<hr>
+<p><b><a name="100">問10</a>　</b>次のCプログラムの説明及びプログラムを読んで，設問1，2に答えよ。</p>
+<p>〔プログラムの説明〕</p>
+<p>　入力された英単語を検索し，訳語を表示するプログラムである。</p>
+<div>
+<table>
+<tr>
+<td valign="top">（1）</td>
+<td>　データは，木構造で登録されている。英単語を構成するそれぞれの文字を構造体LETTERで表現する。構造体LETTERのメンバcには英小文字の文字符号が，メンバfollowにはその文字に続く文字を示す構造体LETTERへのボインタが，メンバotherにはその文字に代わる文字を示す構造体LETTERへのボインタが格納されている。メンバtransには，p_rootが指す根から順にたどってできる英単語に対する訳語の文字列へのポインタが格納されている。メンバfollow，other，transには，該当するものがなければ空ボインタ定数（NULL）が格納されている。<br>
+　例えば，五つの英単語“man”，“main”，“mail”，“mailer”，“name”が登録されている場合の構造は，図1のとおりとなる。</td>
+</tr>
+</table>
+</div>
+<p align="center"><img border="0" src="IMAGE/pm06s038.gif" width="496" height="311"></p>
+<p align="center"><b>図1　英単語の登録例</b></p>
+<div>
+<table>
+<tr>
+<td valign="top">（2）</td>
+<td>　ユーザインタフェースは，図2に示すように，入力された英単語を表示するための検索語入力領域と，訳語を表示するための訳語表示領域からなる（以後，検索語入力領域に表示されている文字列を，入力文字列と呼ぶ）。</td>
+</tr>
+</table>
+</div>
+<p align="center"><img border="0" src="IMAGE/pm06s039.gif" width="409" height="156"></p>
+<p align="center"><b>図2　ユーザインタフェースの例</b></p>
+<div>
+<table>
+<tr>
+<td valign="top">（3）</td>
+<td>　入力文字列で始まる単語の候補がなくなった場合は，検索語入力の途中でも訳語表示額域上に“単語が見つかりません”を表示し，検索を終了する。</td>
+</tr>
+<tr>
+<td valign="top">（4）</td>
+<td>　ユーザインタフェースに関する次の関数が用意されているものとする。<br>
+void displayArea（char *s）<br>
+　機能：訳語表示嶺域をクリアした後，文字列sを表示する。<br>
+void clearField（）<br>
+　機能：検索語入力領域をクリアする。<br>
+void appendToField（char c）<br>
+　機能：検索語入力領域に文字cを追加表示する。<br>
+char inputChar（）<br>
+　機能：キーボードから1文字を読み込む。返却値は，入力された文字が英小文字の場合は文字符号，それ以外の場合は0となる。
+</td>
+</tr>
+</table>
+</div>
+<p>〔プログラム〕</p>
+<p align="center"><img border="0" src="IMAGE/pm06s040.gif" width="535" height="651"></p>
+<hr>
+<p><b><a name="101">設問1</a>　</b>プログラム中の［　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p>a，cに関する解答群<br>
+　ア　p != NULL　　　　　イ　p == NULL<br>
+　ウ　p->follow != NULL　エ　p->follow == NULL<br>
+　オ　p->other != NULL　 カ　p->other == NULL<br>
+　キ　p->trans != NULL　 ク　p->trans == NULL</p>
+<br>
+<p>b，dに関する解答群<br>
+　ア　p->follow　　　　　イ　p->follow->other<br>
+　ウ　p->other　　　　　 エ　p->other->follow</p>
+<hr>
+<a href="18S_P_A4.HTM#101">設問1の正解例と解説へ</a>
+<hr>
+<p><a name="102"><b>設問2</b></a>　入力補完機能を追加することにした。例えば図1の登録例で，図3に示すように，初めに“m”を入力した場合は，それに一意に続く“a”を補完して検索語入力領域に追加表示する。また，初めに“n”を入力した場合は，“ame”を追加表示する。関数searchWordの修正は，次の表のとおりである。表中の［　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p align="center"><img border="0" src="IMAGE/pm06s041a.gif" width="480" height="60"></p>
+<p align="center"><b>図3　補完例</b></p>
+<p align="center"><img border="0" src="IMAGE/pm06s041b.gif" width="503" height="108"></p>
+<p>解答群<br>
+　ア　p->follow != NULL　　　　　イ　p->follow == NULL<br>
+　ウ　p->follow->other != NULL　 エ　p->follow->other == NULL<br>
+　オ　p->other != NULL　　　　　 カ　p->other == NULL</p>
+<hr>
+<a href="18S_P_A4.HTM#102">設問2の正解例と解説へ</a>
+<hr>
+<a href="INDEX.HTM">■メニューへ戻る</a>
+<hr>
+<p><a name="110"><b>問11</b></a>　次のCOBOLプログラムの説明及びプログラムを読んで，設問1，2に答えよ。</p>
+<p>〔プログラムの説明〕<br>
+　A～Jの10駅を結ぶ路線をもつ鉄道において，利用者の入場駅，出場駅及び入場時刻が1日分記録された乗客ファイルを読み込み，各駅間の区間利用者数を集計して印字するプログラムである。</p>
+<div>
+<table>
+<tr>
+<td valign="top">（1）</td>
+<td>乗客ファイル（IN-FILE）は，次のレコード様式の順ファイルであり，乗客1人の1回の利用に対して一つのレコードが作成される。</td>
+</tr>
+</table>
+</div>
+<p align="left"><img border="0" src="IMAGE/pm06s042a.gif" width="190" height="50"></p>
+<div>
+<table>
+<tr>
+<td valign="top">　①</td>
+<td>上り及び下り列車の利用者が順不同で格納されている。</td>
+</tr>
+<tr>
+<td valign="top">　②</td>
+<td>入場時刻は，HHMMの形式で格納されている。ここで，HHは24時間表現の時を表し，MMは分を表す。<br>
+なお，各駅は午前6時に開場し，午前0時に閉鎖する。閉鎖中，乗客は駅及び列車内にとどまることはできない。</td>
+</tr>
+<tr>
+<td valign="top">　③</td>
+<td>入場駅及び出場駅は，次のとおり，それぞれの駅に対応する番号01～10として格納されている。入場駅と出場駅は異なるものとする。<br>
+　　A駅は01，B駅は02，C駅は03，D駅は04，…，J駅は10<br>
+例：6時55分にB駅から入場し，D駅で出場した場合は，次のとおり記録される。</td>
+</tr>
+</table>
+</div>
+<p align="left"><img border="0" src="IMAGE/pm06s042b.gif" width="190" height="33"></p>
+<div>
+<table>
+<tr>
+<td valign="top">（2）</td>
+<td>印字様式は，次のとおりとする。</td>
+</tr>
+</table>
+</div>
+<p align="center"><img border="0" src="IMAGE/pm06s042.gif" width="563" height="143"></p>
+<div>
+<table>
+<tr>
+<td valign="top">　①</td>
+<td>TIMEは，印字された時間帯の利用であることを表す。例えば，07時00分～07時59分における利用ならば，07：00の行に集計される。</td>
+</tr>
+<tr>
+<td valign="top">　②</td>
+<td>A-BからI-Jの各列は区間を表す。例えば，A-BはA駅からB駅までの区間を表す。</td>
+</tr>
+<tr>
+<td valign="top">　③</td>
+<td>UPは上り（A駅からJ駅の方向）を，DOWNは下り（J駅からA駅の方向）を表す。</td>
+</tr>
+<tr>
+<td valign="top">　④</td>
+<td>利用者数は，入場時刻を基にした経過時間及び乗車区間で集計する。<br>
+　なお，各駅間の区間所要時間は10分とし，待ち時間や乗換えなどは考慮しない。例えば，（1）の例の“6時55分にB駅から入場し，D駅で出場した場合”であれば，次の網掛け部分を1名が利用したとみなし，各要素にカウントする。人数は999,999以下とする。</td>
+</tr>
+</table>
+</div>
+<p align="center"><img border="0" src="IMAGE/pm06s043.gif" width="562" height="144"></p>
+
+
+
+<p align="left">〔プログラム〕</p>
+<p align="left">（行番号）</p>
+<p align="left"><img border="0" src="IMAGE/pm06s044.gif" width="495" height="1535"></p>
+<hr>
+<p><a name="111"><b>設問1</b></a>　プログラム中の［　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p>a，cに関する解答群<br>
+　ア　IN-STATION < 5　　　　　イ　IN-STATION < OUT-STATION<br>
+　ウ　IN-STATION > 5　　　　　エ　IN-STATION > OUT-STATION<br>
+　オ　TIME-CNT = 60　　　　　 カ　TIME-CNT >= 60<br>
+　キ　TIME-IDX = 0　　　　　　ク　TIME-IDX NOT = 0</p>
+<p>b，dに関する解答群<br>
+　ア　SECT-IDX　　　　　　　　　　　イ　SECT-IDX, TIME-IDX<br>
+　ウ　TIME-IDX - 1, SECT-IDX　　　　エ　TIME-IDX + 1, SECT-IDX<br>
+　オ　TIME-IDX　　　　　　　　　　　カ　TIME-IDX, SECT-IDX - 1<br>
+　キ　TIME-IDX, SECT-IDX + 1　　　　ク　TIME-IDX, SECT-IDX</p>
+<hr>
+<a href="18S_P_A4.HTM#111">設問1の正解例と解説へ</a>
+<hr>
+<p><a name="112"><b>設問2</b></a>　区間利用者数をより正確に集計するため，各駅間の所要時間を分単位で保持するテーブルを用意し，そのテーブルから経過時間を求めるよう，プログラムを変更したい。次の表中の［　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p align="center"><img border="0" src="IMAGE/pm06s046.gif" width="576" height="201"></p>
+<p>解答群<br>
+　ア　60 - SECT-MM(SECT-IDX)<br>
+　イ　60 - SECT-MM(TIME-IDX)<br>
+　ウ　TIME-CNT + SECT-MM(SECT-IDX)<br>
+　エ　TIME-CNT + SECT-MM(SECT-IDX + 1)<br>
+　オ　TIME-CNT + SECT-MM(SECT-IDX - 1)<br>
+　カ　TIME-CNT + SECT-MM(TIME-IDX)<br>
+　キ　TIME-CNT + SECT-MM(TIME-IDX + 1)<br>
+　ク　TIME-CNT + SECT-MM(TIME-IDX - 1)</p>
+<hr>
+<a href="18S_P_A4.HTM#112">設問2の正解例と解説へ</a>
+<hr>
+<a href="INDEX.HTM">■メニューへ戻る</a>
+<hr>
+<p><b><a name="120">問12</a>　</b>次のJavaプログラムの説明及びプログラムを読んで，設問1，2に答えよ。</p>
+<p>〔プログラムの説明〕<br>
+　トランプを用いた一人遊びのゲームを実行するプログラムである。ゲームのルールは，次のとおりである。</p>
+<div>
+<table>
+<tr>
+<td valign="top">（1）</td>
+<td>トランプは，スペード，ハート，ダイヤ及びクラブの4種類のスートがあり，各スートはA（エース），2～10，J（ジャック），Q（クイーン）及びK（キング）の1～13の位（ランク）を表す13枚のカードからなる。このゲームでは合計52枚のカードを使用し，スートは区別しない。</td>
+</tr>
+<tr>
+<td valign="top">（2）</td>
+<td>52枚のカードを，1枚ずつ表を向けて横に並べていく。4枚並べたら，その下の列に移り，再び左端から横に並べる。カードを並べていくところを場と呼び，横の並びを列と呼ぶ。</td>
+</tr>
+<tr>
+<td valign="top">（3）</td>
+<td>図に示すとおり，（2）で1枚並べるごとに，縦，横，斜めに隣り合ったカードが同じ位であるかどうかを調べ，同じ位のカードの組み（ペア）ができた場合は，そのペア（図中の<img align="top" border="0" src="IMAGE/7.gif" width="14" height="21">）を取り除き，空いたスぺ－スを詰める。列の最後のカードと次の列の最初のカードは隣り合ったカードとはみなさない。ペアが複数できた場合（<img align="top" border="0" src="IMAGE/8.gif" width="14" height="21">と<img align="top" border="0" src="IMAGE/3.gif" width="14" height="21">の各2枚）は，最も長く場にあるカードを含むペア（<img align="top" border="0" src="IMAGE/8.gif" width="14" height="21">）を取り除く。最も長く場にあるカードを含むペアが複数ある場合は，最も長く場にあるカードとペアを作るカードのうちで，最も長く場にあるカードとのペア（<img align="top" border="0" src="IMAGE/3-negative.gif" width="14" height="21">）を取り除く。</td>
+</tr>
+<tr>
+<td>（4）</td>
+<td>（3）の操作を隣り合うカードの位が全部異なるようになるまで繰り返す。</td>
+</tr>
+</table>
+</div>
+<p align="center"><img border="0" src="IMAGE/pm06s047.gif" width="504" height="207"></p>
+<div>
+<table>
+<tr>
+<td>（5）</td>
+<td>（2）～（4）の操作を手持ちのカードがなくなるまで繰り返す。</td>
+</tr>
+<tr>
+<td>（6）</td>
+<td>手持ちのカードがなくなったときに，すべてのカードが場から取り除かれると上がりである。</td>
+</tr>
+</table>
+</div>
+<br>
+<p>　クラスCardは，トランプのカードを表す。クラスの初期化のとき，A（エース）～K（キング）の位に相当するCardのインスタンスを4種類のスート分生成してCardの配列cardsに格納する。Cardのインスタンスは不変であり，1枚のカードに必ず同一のインスタンスが対応する。例えば，ハートのエースを表すCardのインスタンスは一つしか存在しない。クラスメソッドnewDeckは，cardsをランダムな順番に並べ替えたCardの配列をトランプの一山として返す。<br>
+　クラスGameは，ゲームを実行するプログラムである。Listのインスタンスlistがトランプを並べていく場を表し，トランプの山を表すdeckから1枚ずつlistに追加し，その都度メソッドcheckAndRemoveを呼び出して同じ位の隣り合うカードのペアを取り除く。<br>
+　クラスjava.util.Randomは，乱数を生成するためのクラスである。メソッドnextInt（int n）は，範囲0～n－1の乱数をint型で返す。<br>
+　インタフェースjava.util.Listは，リスト構造を表し，各要素はインデックスで指定される。リストの最初の要素は，インデックスの値0で指定される。メソッドadd（Object obj）は，リストの最後にオブジェクトobjを追加する。メソッドget（int index）は，indexで指定された要素のオブジェクトを返す。メソッドremove（int index）は，indexで指定された要素のオブジェクトを削除し，index＋1以降にオブジェクトがあれば，それらをシフトして空きを詰める。メソッドsize（）は，リストにあるオブジェクトの個数をint型で返す。<br>
+　クラスjava.util.ArrayListは，配列を用いてインタフェースListを実装する。</p>
+<p>〔プログラム1〕</p>
+<p align="center"><img border="0" src="IMAGE/pm06s049.gif" width="509" height="641"></p>
+<p>〔プログラム2〕</p>
+<p align="center"><img border="0" src="IMAGE/pm06s050.gif" width="510" height="836"></p>
+<hr>
+<p><a name="121"><b>設問</b></a>　プログラム中の［　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p>aに関する解答群<br>
+　ア　private Card() {　　　　　イ　private static void init() {<br>
+　ウ　private void init() (　　 エ　static {<br>
+　オ　synchronized {　　　　　　カ　{</p>
+<p>bに関する解答群<br>
+　ア　i * 13 + j　　　　　　　　イ　i * 13 + j - 1<br>
+　ウ　i * 4 + j - 1　　　　　　 エ　j * 13 + i<br>
+　オ　j * 13 + i - 1　　　　　　カ　j * 4 + i - 1</p>
+<p>cに関する解答群<br>
+　ア　currentlndex * diffList[i]　　イ　currentlndex + diffList[i]<br>
+　ウ　currentlndex - diffList[i]　　エ　i * diffList[currentlndex]<br>
+　オ　i + diffList[currentlndex]　　カ　i - diffList[currentlndex]</p>
+<p>dに関する解答群<br>
+　ア　adjacentlndex != list.size()<br>
+　イ　adjacentlndex < list.size()<br>
+　ウ　adjacentlndex <= list.size()<br>
+　エ　adjacentlndex == list.size()<br>
+　オ　adjacentlndex > list.size()<br>
+　カ　adjacentlndex >= list.size()</p>
+<p>eに関する解答群<br>
+　ア　0　　　　　　　　　イ　adjacentlndex<br>
+　ウ　adjacentlndex - 1　エ　currentlndex<br>
+　オ　currentlndex - 1　 カ　list.size() - 1</p>
+<hr>
+<a href="18S_P_A4.HTM#121">設問の正解例と解説へ</a>
+<hr>
+<a href="INDEX.HTM">■メニューへ戻る</a>
+<hr>
+
+<p><a name="130"><b>問13</b></a>　次のアセンブラプログラムの説明及びプログラムを読んで，設問1～3に答えよ。</p>
+<p>〔プログラムの説明〕</p>
+<p>　32ビット符号なし2進整数と15ビット符号なし2進整数の乗算を行う副プログラムMULT32と，32ビット符号なし2進整数同士の加算を行う副プログラムADD32である。</p>
+<div>
+<table>
+<tr>
+<td valign="top">（1）</td>
+<td>MULT32は，32ビットの被乗数が格納されている領域の先頭番地をGR2に，15ビットの乗数をGR1に設定して呼び出される。MULT32は，32ビットの乗算結果を被乗数の格納領域に上書きして呼出し元に戻る。乗算結果のうち，格納領域からはみ出した部分は無視する。MULT32は，その処理の過程でADD32を利用する。</td>
+</tr>
+<tr>
+<td valign="top">（2）</td>
+<td>ADD32は，被加数の格納されている領域の先頭番地をGR2に，加数の上位語と下位語をそれぞれGR1とGR0に設定して呼び出される。ADD32は，32ビットの加算結果を被加数の格納領域に上書きして呼出し元に戻る。加算結果のうち，格納領域からはみ出した部分は無視する。</td>
+</tr>
+<tr>
+<td valign="top">（3）</td>
+<td>被乗数と被加数の格納形式を，次に示す。</td>
+</tr>
+</table>
+</div>
+<p align="center"><img border="0" src="IMAGE/pm06s052a.gif" width="172" height="53"></p>
+<div>
+<table>
+<tr>
+<td valign="top">（4）</td>
+<td>副プログラムから戻るとき，汎用レジスタGR1～GR7の内容は元に戻す。</td>
+</tr>
+</table>
+</div>
+<p>〔プログラム〕</p>
+<p>（行番号</p>
+<p align="left"><img border="0" src="IMAGE/pm06s053.gif" width="536" height="817"></p>
+<hr>
+<p><a name="131"><b>設問1</b></a>　プログラム中の［　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p>aに関する解答群<br>
+　ア　SLL  GR5,0,GR3　　　　イ　SLL  GR5,0,GR4　　　ウ　SRA  GR5,0,GR3<br>
+　エ　SRA  GR5,0,GR4　　　　オ　SRL  GR5,0,GR3　　　カ　SRL  GR5,0,GR4</p>
+<p>bに関する解答群<br>
+　ア　ADDL　GR0,GR4　　　　 イ　ADDL　GR1,GR4　　　ウ　OR  GR0,GR4<br>
+　エ　OR　　GR1,GR4　　　　 オ　SUBL　GR0,GR4　　　カ　SUBL  GR1,GR4</p>
+<hr>
+<a href="18S_P_A4.HTM#131">設問1の正解例へ</a>
+<hr>
+<p><a name="132"><b>設問2</b></a>　次の記述中の［　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p>　MULT32の受け取る乗数を16ビット符号なし2進整数とするため，行番号10，11を次のとおりに変更する。</p>
+<p align="left"><img border="0" src="IMAGE/pm06s054a.gif" width="445" height="33"></p>
+<p>　さらに，行番号16，17を次の命令群で置き換える。</p>
+<p align="left"><img border="0" src="IMAGE/pm06s054b.gif" width="199" height="73"></p>
+<p>解答群<br>
+　ア　JOV LP　　　　 イ　JOV ONBIT　　　　ウ　JPL FIN<br>
+　　　JPL ONBIT　　　 　 JZE FIN　　　　　　　JOV ONBIT<br>
+<br>
+　エ　JPL ONBIT　　　オ　JZE FIN　　　　　カ　JZE FIN<br>
+　　　JZE FIN　　　　　　JOV ONBIT　　　　　　JPL ONBIT</p>
+<hr>
+<a href="18S_P_A4.HTM#132">設問2の正解例へ</a>
+<hr>
+<p><a name="133"><b>設問3</b></a>　次の［　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p>　MULT32を使用して，再帰的に階乗計算を行う副プログラムFACTを作成した。</p>
+<div>
+<table>
+<tr>
+<td valign="top">（1）</td>
+<td>正の整数nの階乗F（n）は，次式で求められる。<br>
+　　F（n）＝n×F（n－1）　（ただし，F（0）＝1）<br>
+例：F（3）＝3×F（2）＝3×2×F（1）＝3×2×1×F（0）＝3×2×1×1＝6</td>
+</tr>
+<tr>
+<td valign="top">（2）</td>
+<td>FACTは，nをGR1に，計算結果を格納する領域の先頭番地をGR2に設定して呼び出される。nは，その階乗F（n）が32ビット符号なし2進整数の範囲に収まるように与えられる（1≦n≦12）。計算結果格納領域の形式は，MULT32の被乗数の格納形式と同じとする。</td>
+</tr>
+<tr>
+<td valign="top">（3）</td>
+<td>副プログラムから戻るとき，汎用レジスタGR1～GR7の内容は元に戻す。</td>
+</tr>
+</table>
+</div>
+<p>（行番号）</p>
+<p align="left"><img border="0" src="IMAGE/pm06s055.gif" width="532" height="317"></p>
+<p>　F（3）を計算するとき，行番号6のラベルRMAINの命令には［　c　］回制御が移る。また，行番号11のRET命令は［　d　］回実行される。</p>
+<p>解答群<br>
+　ア　1　　　イ　2　　　ウ　3<br>
+　エ　4　　　オ　5　　　カ　6</p>
+<hr>
+<a href="18S_P_A4.HTM#133">設問3の正解例へ</a>
+<hr>
+<a href="INDEX.HTM">■メニューへ戻る</a>
+<hr>
+</blockquote>
+</body>
+</html>

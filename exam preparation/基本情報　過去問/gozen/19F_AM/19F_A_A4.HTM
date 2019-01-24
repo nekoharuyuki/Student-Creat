@@ -1,0 +1,296 @@
+<html>
+
+<head>
+<title>平成19年度秋期試験　解答例と解説（午前問61～問80）</title>
+<style>
+<!--
+p { line-height: 175% }
+-->
+</style>
+</head>
+
+<body>
+
+<blockquote>
+	<form>
+		<hr>
+		<div align="center">
+			<h3>平成19年度秋期試験　解答例と解説（午前問61～問80）</h3>
+		</div>
+		<hr>
+		<!-- 問の開始 -->
+		<p><strong><a name="61">問61</a></strong></p>
+		<p><select name="19FA61" size="1">
+		<option selected>解答例</option>
+		<option>ア</option>
+		</select></p>
+		<p>〈解説〉　更新を行う前は，商品コードS001とS005の2行が“収益商品”表に抽出される。</p>
+		<p>
+		ア　○　商品コードS001の行について売値を130,000に更新すると，売値－仕入値＝130,000－100,000＝30,000になり抽出条件を満たさなくなり，商品コードS001の行が抽出されなくなるので，更新前より減少する<br>
+		イ　×　商品コードS003の行について仕入値を150,000に更新すると，売値－仕入値＝200,000－150,000＝50,000になり抽出条件を満たし，商品コードS003の行が抽出され，3行とも抽出されることになるので，更新前より増える<br>
+		ウ　×　商品コードS005の行について売値を130,000に更新しても，売値－仕入値＝130,000－80,000＝50,000になり抽出条件を満たし，更新前と同様に抽出されるので，更新前と変わらない<br>
+		エ　×　商品コードS005の行について仕入値を90,000に更新しても，売値－仕入値＝140,000－90,000＝50,000になり抽出条件を満たし，更新前と同様に抽出されるので，更新前と変わらない</p>
+		<hr>
+		<p><a href="19F_A_E4.HTM#61">問題へ</a></p>
+		<hr>
+		<p><strong><a name="62">問62</a></strong></p>
+		<p><select name="19FA62" size="1">
+		<option selected>解答例</option>
+		<option>エ</option>
+		</select></p>
+		<p>
+		〈解説〉　「ロールフォワード」は，記録媒体に障害が発生した場合に，バックアップファイルを用いてバックアップ開始時点の状態にデータベースを復元した後，ジャーナルファイルの更新後のログを用いて，正しく完了した更新結果だけを反映させてデータベースを前進復帰する回復操作のこと。</p>
+		<p>ア　×　アーカイブは複数のファイルをまとめて圧縮・解凍する処理のこと<br>
+		イ　×　コミットは，トランザクションによる更新の整合性をとるため，更新可能かどうか問合せる応答のこと<br>
+		ウ　×　チェックポイントは，データベースの状態，記憶装置やレジスタの内容がチェックポイントファイルに書き出される時点のこと<br>
+		エ　○</p>
+		<hr>
+		<p><a href="19F_A_E4.HTM#62">問題へ</a></p>
+		<hr>
+		<p><strong><a name="63">問63</a></strong></p>
+		<p><select name="19FA63" size="1">
+		<option selected>解答例</option>
+		<option>イ</option>
+		</select></p>
+		<p>
+		〈解説〉　関係データベースは，行と列からなる表の構造にデータ構造を定義したデータベース。複数の表に共通する列項目の値により，表相互間を関連付けて操作を行う。</p>
+		<p>ア　×　索引編成ファイルの説明<br>
+		イ　○<br>
+		ウ　×　階層型データベースの説明<br>
+		エ　×　ネットワーク型データベースの説明</p>
+		<hr>
+		<p><a href="19F_A_E4.HTM#63">問題へ</a></p>
+		<hr>
+		<p><strong><a name="64">問64</a></strong></p>
+		<p><select name="19FA64" size="1">
+		<option selected>解答例</option>
+		<option>イ</option>
+		</select></p>
+		<p>〈解説〉</p>
+		<p>ア　×　AESは共通鍵暗号方式の一つで，技術進歩によるDESの安全性の低下に伴い，米国のNISTにより公募された次世代標準方式として規格化された。<br>
+		イ　○<br>
+		ウ　×　利用者の数が増えると鍵の配送が煩雑になるのは，共通鍵暗号方式。<br>
+		エ　×　公開鍵暗号方式では，受信者だけが保持する秘密鍵でしか復号できないようにするため，受信者の公開鍵で暗号化する。したがって受信者の復号鍵は秘密にし，送信者が暗号化に用いる暗号化鍵（受信者の公開鍵）は公開する。</p>
+		<hr>
+		<p><a href="19F_A_E4.HTM#64">問題へ</a></p>
+		<hr>
+		<p><strong><a name="65">問65</a></strong></p>
+		<p><select name="19FA65" size="1">
+		<option selected>解答例</option>
+		<option>ウ</option>
+		</select></p>
+		<p>
+		〈解説〉　注文を行う際に，A氏は自分の秘密かぎを用いて電子署名を行い，B商店はA氏の公開かぎを用いて署名を確認しているが，この電子署名によって注文がA氏からのものであることが保証される（A氏の公開かぎにより電子署名を開くことができるのは，A氏以外に使用できないA氏の秘密かぎにより電子署名されたものだけであるため）。</p>
+		<hr>
+		<p><a href="19F_A_E4.HTM#65">問題へ</a></p>
+		<hr>
+		<p><strong><a name="66">問66</a></strong></p>
+		<p><select name="19FA66" size="1">
+		<option selected>解答例</option>
+		<option>イ</option>
+		</select></p>
+		<p>
+		〈解説〉　ウイルスのシグネチャコードは，特定のウイルスに固有なコードで，既知ウイルスのシグネチャコードを分類し，これらのコード列を記録したファイルがウイルス定義ファイル。ウイルス対策ソフトのパターンマッチング方式では，このウイルス定義ファイルに記録されたシグネチャコードに一致するコード列があるか否かをチェックすることにより，ウイルス感染をチェックする。</p>
+		<hr>
+		<p><a href="19F_A_E4.HTM#66">問題へ</a></p>
+		<hr>
+		<p><strong><a name="67">問67</a></strong></p>
+		<p><select name="19FA67" size="1">
+		<option selected>解答例</option>
+		<option>イ</option>
+		</select></p>
+		<p>〈解説〉　SSL/TLSは，クライアントサーバ間の通信データを暗号化する技術。公開かぎ暗号方式でディジタル署名による認証と共通かぎの暗号化をを行い，共通かぎ暗号方式によりデータを暗号化する。SSLとTLSに互換性はないが，TLS（Transport 
+		Layer Security）はSSL 3.0に近い仕様で標準化され，マイナーバージョンアップしたもの。</p>
+		<hr>
+		<p><a href="19F_A_E4.HTM#67">問題へ</a></p>
+		<hr>
+		<p><strong><a name="68">問68</a></strong></p>
+		<p><select name="19FA68" size="1">
+		<option selected>解答例</option>
+		<option>ア</option>
+		</select></p>
+		<p>〈解説〉　ソーシャルエンジニアリングは，組織内部の人間を装ってパスワードや機密情報などを聞き出す行為。</p>
+		<p>ア　○<br>
+		イ　×　トロイの木馬は，特定の条件下で実行される不正な命令をプログラムに密かに仕組んだコンピュータウイルスの一種<br>
+		ウ　×　文字の組合せを総当りで試して行く「ブルートフォース（Brute 
+		Force）攻撃」や，英単語や人名などがからなる辞書ファイルの単語を入力してパスワードを破る「辞書攻撃」などの方法で，パスワード解析してパスワードを見破ること<br>
+		エ　×　他人のコンピュータから，あるサーバに対してその処理能力を超える大量のパケットを送るなどのサーバのサービス停止攻撃を，他人のコンピュータを踏み台として行うこと</p>
+		<hr>
+		<p><a href="19F_A_E4.HTM#68">問題へ</a></p>
+		<hr>
+		<p><strong><a name="69">問69</a></strong></p>
+		<p><select name="19FA69" size="1">
+		<option selected>解答例</option>
+		<option>エ</option>
+		</select></p>
+		<p>〈解説〉</p>
+		<p>ア　×　運用状況の管理は，策定計画に基づき実際に運用した状況についての管理で「DO」に該当<br>
+		イ　×　改善策の実施は，検証に基づく改善策の実行で「ACTION」に該当<br>
+		ウ　×　実施状況に対するレビューは運用結果に対する検証で「CHECK」に該当<br>
+		エ　○　リスクアセスメントはリスクの洗い出しと策定計画で「PLAN」に該当</p>
+		<hr>
+		<p><a href="19F_A_E4.HTM#69">問題へ</a></p>
+		<hr>
+		<p><strong><a name="70">問70</a></strong></p>
+		<p><select name="19FA70" size="1">
+		<option selected>解答例</option>
+		<option>ア</option>
+		</select></p>
+		<p>〈解説〉　QRコードは二次元コードシンボルの一つで，小さな面積に多くの情報を詰め込むことができ，一部が読み出せなかったときのエラー訂正機能をもつコード。数字以外にもかなや漢字などの情報も格納可能。3個の検出用シンボルにより，回転角度と読取り方向を認識し，360度全方向からの読取りが可能。</p>
+		<hr>
+		<p><a href="19F_A_E4.HTM#70">問題へ</a></p>
+		<hr>
+		<p><strong><a name="71">問71</a></strong></p>
+		<p><select name="19FA71" size="1">
+		<option selected>解答例</option>
+		<option>エ</option>
+		</select></p>
+		<p>〈解説〉　SCM（Supply Chain 
+		Management）は資材調達から生産，流通，販売までのモノの供給の連鎖を最適計画し，効率化するための情報システム。</p>
+		<p>ア　×　CRM（Customer Relationship Management）<br>
+		イ　×　RSS（Retail Support System）：小売店支援システム<br>
+		ウ　×　ERP（Enterprise Resource Planning）<br>
+		エ　○</p>
+		<hr>
+		<p><a href="19F_A_E4.HTM#71">問題へ</a></p>
+		<hr>
+		<p><strong><a name="72">問72</a></strong></p>
+		<p><select name="19FA72" size="1">
+		<option selected>解答例</option>
+		<option>イ</option>
+		</select></p>
+		<p>〈解説〉</p>
+		<p>ア　×　売上総利益<br>
+		イ　○<br>
+		ウ　×　経常利益<br>
+		エ　×　税引き前当期利益</p>
+		<hr>
+		<p><a href="19F_A_E4.HTM#72">問題へ</a></p>
+		<hr>
+		<p><strong><a name="73">問73</a></strong></p>
+		<p><select name="19FA73" size="1">
+		<option selected>解答例</option>
+		<option>イ</option>
+		</select></p>
+		<p>〈解説〉</p>
+		<p>　月当たりの利益は，販売単価×販売数量－（固定費＋変動費単価×販売数量）により計算できる。<br>
+		　A案，B案について月当たりの利益を求めると，以下のようになる。</p>
+		<p>　A案の月当たりの利益<br>
+		　　＝14万円×500個－（1,500万円＋9万円×500個）<br>
+		　　＝7,000万円－6,000万円<br>
+		　　＝1,000万円<br>
+		　B案の月当たりの利益<br>
+		　　＝14万円×500個－（2,500万円＋7万円×500個）<br>
+		　　＝7,000万円－6,000万円<br>
+		　　＝1,000万円</p>
+		<p>　したがって，A案とB案の利益は等しい。</p>
+		<hr>
+		<p><a href="19F_A_E4.HTM#73">問題へ</a></p>
+		<hr>
+		<p><strong><a name="74">問74</a></strong></p>
+		<p><select name="19FA74" size="1">
+		<option selected>解答例</option>
+		<option>イ</option>
+		</select></p>
+		<p>
+		〈解説〉　ABC分析では，先ず販売額または粗利益金額などが大きなものから順に並べる。次に累計額，又は累計比率が全体に占める割合が大きく，影響の大きな商品グループの順にA，B，Cの階層に分け分析し，売上比率の大きなAグループの商品を売れ筋商品として評価することができる。</p>
+		<hr>
+		<p><a href="19F_A_E4.HTM#74">問題へ</a></p>
+		<hr>
+		<p><strong><a name="75">問75</a></strong></p>
+		<p><select name="19FA75" size="1">
+		<option selected>解答例</option>
+		<option>エ</option>
+		</select></p>
+		<p>〈解説〉　パレート図は，各項目の値の大きい順に棒グラフとし，その累積値を表す折れ線グラフを重ねて表示した図で，ABC分析などに用いる。</p>
+		<p>ア　×　特性要因図<br>
+		イ　×　管理図<br>
+		ウ　×　ヒストグラム<br>
+		エ　○</p>
+		<hr>
+		<p><a href="19F_A_E4.HTM#75">問題へ</a></p>
+		<hr>
+		<p><strong><a name="76">問76</a></strong></p>
+		<p><select name="19FA76" size="1">
+		<option selected>解答例</option>
+		<option>ウ</option>
+		</select></p>
+		<p>〈解説〉　回帰直線の傾きが1.1で<em>y</em>切片が10であることより，今年度の得点が，<br>
+		　　今年度の得点＝昨年度の得点×1.1＋10<br>
+		という式で表せる傾向があることを示している。<br>
+		　したがって，今年度の問題は，昨年度の問題に比べて得点しやすい傾向にあることが分かる。</p>
+		<hr>
+		<p><a href="19F_A_E4.HTM#76">問題へ</a></p>
+		<hr>
+		<p><strong><a name="77">問77</a></strong></p>
+		<p><select name="19FA77" size="1">
+		<option selected>解答例</option>
+		<option>ウ</option>
+		</select></p>
+		<p>〈解説〉</p>
+		<p>　各営業担当者は顧客を1人しか担当できないので，売上高は以下の組合せの場合に，最大18百万円となる。<br>
+		<img src="ansimg/fig24.png" /><br>
+		　以下の場合は，16百万円で18百万円より少なくなる。<br>
+		<img src="ansimg/fig25.png" /><br>
+		　以下の場合は，17百万円で18百万円より少なくなる。<br>
+		<img src="ansimg/fig26.png" /></p>
+		<hr>
+		<p><a href="19F_A_E4.HTM#77">問題へ</a></p>
+		<hr>
+		<p><strong><a name="78">問78</a></strong></p>
+		<p><select name="19FA78" size="1">
+		<option selected>解答例</option>
+		<option>ア</option>
+		</select></p>
+		<p>〈解説〉　先ず以下のように（2），（3），（4）を式で表す。<br>
+		　（2）より，<br>
+		　　在庫補充量＝翌週の販売予測量－現在の在庫量＋安全在庫量<br>
+		　（3）より，<br>
+		　　翌週の販売予測量＝先週の販売量と今週の販売量の平均値<br>
+		　　　　　　　　　　＝（C[<em>n</em>－1]＋C[<em>n</em>]）／2<br>
+		　最初の問題文より，<br>
+		　　現在の在庫量＝B[<em>n</em>]<br>
+		　（4）より，<br>
+		　　安全在庫量＝翌週の販売予測量の10％<br>
+		　　　　　　　＝（C[<em>n</em>－1]＋C[<em>n</em>]）／2×0.1<br>
+		　したがって，<br>
+		　　在庫補充量＝（C[<em>n</em>－1]＋C[<em>n</em>]）／2－B[<em>n</em>]＋（C[<em>n</em>－1]＋C[<em>n</em>]）／2×0.1<br>
+		　　　　　　　＝（C[<em>n</em>－1]＋C[<em>n</em>]）／2×1.1－B[<em>n</em>]</p>
+		<hr>
+		<p><a href="19F_A_E4.HTM#78">問題へ</a></p>
+		<hr>
+		<p><strong><a name="79">問79</a></strong></p>
+		<p><select name="19FA79" size="1">
+		<option selected>解答例</option>
+		<option>エ</option>
+		</select></p>
+		<p>〈解説〉</p>
+		<p>　「取引基本規約」は，EDIにより行う取引業務や双方の取引契約などの基本的な取決めを定めたもの。<br>
+		　「業務運用規約」は，システムの運用時間，障害対策などを定めたもの。<br>
+		　「情報表現規約」は，データフォーマットを定めたもの。<br>
+		　「情報伝達規約」は，通信回線を介した通信手順などの接続方法を定めたもの。<br>
+　</p>
+		<hr>
+		<p><a href="19F_A_E4.HTM#79">問題へ</a></p>
+		<hr>
+		<p><strong><a name="80">問80</a></strong></p>
+		<p><select name="19FA80" size="1">
+		<option selected>解答例</option>
+		<option>ウ</option>
+		</select></p>
+		<p>〈解説〉</p>
+		<p>ア　×　指揮命令関係<br>
+		イ　×<br>
+		ウ　○　労働者派遣契約関係<br>
+		エ　×　雇用関係</p>
+		<hr>
+		<p><a href="19F_A_E4.HTM#80">問題へ</a></p>
+		<hr>
+		<p><a href="INDEX.HTM">メニューへ戻る</a></p>
+		<hr>
+	</form>
+</blockquote>
+
+</body>
+
+</html>

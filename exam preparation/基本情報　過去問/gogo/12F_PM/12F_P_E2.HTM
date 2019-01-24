@@ -1,0 +1,623 @@
+<HTML>
+<HEAD>
+<TITLE>平成12年度秋期試験　問題(問3～問6)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0">
+<BLOCKQUOTE>
+<hr>
+<H3 align="center">平成12年度秋期試験　問題(問3～問6)</H3>
+<hr>
+<P>
+次の問３から問６までの4問については、この中から2問を選択し、答案用紙の選択欄の選をマークして解答してください。<br>
+なお、3問以上選択した場合には、はじめの2問について採点します。<br>
+<HR WIDTH=100%>
+<A NAME="30">　<BR>
+<b>
+問3</b></a><b>　</b>手続呼出しに関する次の説明を読んで、設問 1、2 に答えよ。<br>       
+<br>       
+〔手続呼出しの説明〕       
+<table border="0" cellpadding="3" cellspacing="0">      
+  <tr>      
+    <td valign="top">(1)</td>      
+    <td> ある言語で書かれた原始プログラム 1（図 1 ）と、原始プログラム 2（図 2 ）がある。       
+      <table border="0" cellpadding="3" cellspacing="0">      
+        <tr>      
+          <td valign="top">①</td>      
+          <td> 原始プログラム中の変数 S は、整数型の大域変数である。整数型はキーワード Int で表す。</td>       
+        </tr>       
+        <tr>       
+          <td valign="top">②</td>      
+          <td> キーワード External は外部参照を示す。 External Int S は整数型の大域変数 S への外部参照を、External Proc B は 手続 B への外部参照を示す。</td>       
+        </tr>       
+        <tr>       
+          <td valign="top">③</td>      
+          <td> 変数 X1 は、整数型の局所変数である。</td>       
+        </tr>       
+        <tr>       
+          <td valign="top">④</td>      
+          <td> X1＝100 は、変数 X1 に 100 を代入する。</td>       
+        </tr>       
+        <tr>       
+          <td valign="top">⑤</td>      
+          <td> Call B(X1) は、変数 X1 を実引数として、手続 B を呼び出す。引数は参照渡し（call by reference）である。</td>       
+        </tr>       
+        <tr>       
+          <td valign="top">⑥</td>      
+          <td> Proc B(Int X2) ～ End B は、整数型の仮引数 X2 をもつ手続 B の範囲を示す。</td>       
+        </tr>       
+      </table>       
+    </td>       
+  </tr>       
+</table>       
+<p><img border="0" src="image/A00a03f1.gif" width="438" height="221"><br>  
+　　　　図1  
+原始プログラム1　　　　　　　　図2　原始プログラム2</p>   
+<table border="0" cellpadding="3" cellspacing="0">   
+  <tr>   
+    <td valign="top">(2)</td>   
+    <td> 原始プログラム 1、2 を、それぞれコンパイル後リンクし、実行ファイルを作成した。コンパイラは、局所変数をスタック領域に割り当て、リンカは、プログラムコードをコード領域に、大域変数をデータ領域に割り当てる。</td>       
+  </tr>       
+  <tr>       
+    <td valign="top">(3)</td>      
+    <td> プログラムを実行したとき、αで示す場所から手続 B が呼び出される直前のスタックの内容は、図 3 のとおりである。ここで、スタックは上位アドレス（番地の大きい方）から下位に向かって使用される。<br>       
+    </td>       
+  </tr>       
+</table>       
+<p><img border="0" src="image/A00a03f2.gif"><br>     
+<br>     
+                 図３　手続Bが呼び出される直前のスタックの内容<br>
+</p>
+<p>　</p>
+<A NAME="30">
+<HR>
+</a><A NAME="31">　<BR>
+<b>
+設問1</b></a><b>　</b>図 4 は、βで示す場所から手続 C が呼び出される直前のスタックの内容である。 図 4 中の<b>[　　　　]</b>に入れる正しい答えを、解答群の中から選べ。ただし、アドレスは 1 語、整数型の変数も 1 語を使用するものとする。       
+<p><img border="0" src="image/A00a03f3.gif"><br>     
+<br>     
+                 図４　手続Cが呼び出される直前のスタックの内容</p>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>解答群</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td width="90">ア
+      <table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolor="#FFFFFF" bordercolordark="#FFFFFF" width="60">
+        <tr>
+          <td align="center">100</td>
+        </tr>
+        <tr>
+          <td align="center">γ</td>
+        </tr>
+      </table>
+    </td>
+    <td width="90">イ
+      <table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolor="#FFFFFF" bordercolordark="#FFFFFF" width="60">
+        <tr>
+          <td align="center">100</td>
+        </tr>
+        <tr>
+          <td align="center">γ-3</td>
+        </tr>
+      </table>
+    </td>
+    <td width="90">ウ
+      <table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" width="60" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+        <tr>
+          <td align="center">200</td>
+        </tr>
+        <tr>
+          <td align="center">γ</td>
+        </tr>
+      </table>
+    </td>
+    <td>エ
+      <table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" width="60" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+        <tr>
+          <td align="center">200</td>
+        </tr>
+        <tr>
+          <td align="center">γ-3</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>オ
+      <table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" width="60" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+        <tr>
+          <td align="center">γ</td>
+        </tr>
+        <tr>
+          <td align="center">100</td>
+        </tr>
+      </table>
+    </td>
+    <td>カ
+      <table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolordark="#FFFFFF" bordercolor="#FFFFFF" width="60">
+        <tr>
+          <td align="center">γ</td>
+        </tr>
+        <tr>
+          <td align="center">200</td>
+        </tr>
+      </table>
+    </td>
+    <td>キ
+      <table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" width="60" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+        <tr>
+          <td align="center">γ-3</td>
+        </tr>
+        <tr>
+          <td align="center">100</td>
+        </tr>
+      </table>
+    </td>
+    <td>ク
+      <table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" width="60" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+        <tr>
+          <td align="center">γ-3</td>
+        </tr>
+        <tr>
+          <td align="center">200</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<p>　</p>
+<A NAME="31">
+<HR WIDTH=100%>
+</a>
+<A HREF="12f_p_a2.htm#31">設問1の正解例と解説へ</A>
+<HR WIDTH=100%>
+<A NAME="32">　<BR>
+<b>
+設問2</b></a>　リンク時に外部参照が解決されるものを、解答群の中から三つ選べ。<br>
+<br>
+<br>
+解答群
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td width="280">ア　手続 A における手続 B の参照</td>       
+    <td>イ　手続 A における変数 X1 の参照</td>       
+  </tr>       
+  <tr>       
+    <td>  ウ　手続 B における手続 C の参照</td>       
+    <td>エ　手続 B における変数 S の参照</td>       
+  </tr>       
+  <tr>       
+    <td>  オ　手続 B における変数 X1 の参照</td>       
+    <td> カ　手続 B における変数 X2 の参照</td>       
+  </tr>       
+  <tr>       
+    <td>  キ　手続 C における変数 S の参照</td>       
+    <td></td>       
+  </tr>       
+</table>       
+<p>　</p>       
+<HR WIDTH=100%>       
+<A HREF="12f_p_a2.htm#32">設問2の正解例と解説へ</A>       
+<HR WIDTH=100%>       
+<p><A HREF="index.htm">メニューへ戻る</A>　</p>       
+<HR WIDTH=100%>       
+<A NAME="40"><BR>      
+<b>      
+問4</b></a>　次のプログラムの説明、擬似言語の記述形式の説明及びプログラムを読んで、設問に答えよ。&nbsp;<br>
+<br>
+〔プログラムの説明〕<br>
+成績表ファイルを読んで、個人ごとの合計点を計算し、成績の良い順に印字する。ただし、合計点が同じ場合は、国語の点の良い順に印字する。<br>
+(1)　成績表ファイルの様式は、次のとおりで、レコード数は 99 以下である。       
+<table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">      
+  <tr>      
+    <td>       氏名</td>      
+    <td>国語</td>      
+    <td>数学</td>      
+    <td>英語</td>      
+  </tr>      
+</table>      
+<p>(2)　成績表の印字様式は、次のとおりである。</p>
+<table border="1" cellpadding="6" cellspacing="0" bordercolorlight="#000000" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+  <tr>
+    <td>
+      <pre>　　　　　　　　　　　成績表
+氏名　　　　　　　国語　　数学　　英語　　合計
+山田一郎　　　　　100　　　96　　　95　　 291
+鈴木千代子　　　　 96　　　91　　 100　　 287
+林幸之助　　　　　 95　　　98　　　94　　 287
+佐藤昭夫　　　　　 93　　　90　　　95　　 278
+　　　　　　　　　 ： 　　　：　　　：　　　：</pre>
+    </td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>　<br>
+      　<br>
+      〔擬似言語の記述形式の説明〕</td>
+  </tr>
+</table>
+<pre><img border="0" src="image/4a2.gif" width="480" height="340"></pre>
+<pre><img border="0" src="image/4b.gif" width="449" height="694"></pre>
+<p><A NAME="40">
+</p>
+<HR WIDTH=100%>
+</a>
+<A NAME="41">
+<b>　<BR>
+設問1</b></a><b>　</b>プログラム中の<b>[　　　　　]</b>に入れる正しい答えを、解答群の中から選べ。解答は、重複して選んでもよい。<br>
+<br>
+a，b，e に関する解答群       
+<table border="0" cellpadding="3" cellspacing="0">      
+  <tr>      
+    <td width="130">ア　（j－1）</td>
+    <td width="140">イ　（j＋1）</td>
+    <td width="130">ウ　1</td>
+    <td>  エ　　2</td>
+  </tr>
+  <tr>
+    <td> オ　 99</td>       
+    <td>カ　100</td>
+    <td>  キ　101</td>
+    <td> ク　（入力件数－1）</td>
+  </tr>
+  <tr>
+    <td>ケ　入力件数</td>
+    <td>  コ　（入力件数＋1）</td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+<p><br>
+c，d に関する解答群<br>       
+  ア　＝　　　　イ　≠　　　　ウ　＞　　　　エ　＜</p>
+<p>　</p>
+<HR WIDTH=100%>
+<A HREF="12f_p_a2.htm#41">設問の正解例と解説へ</A>
+<HR WIDTH=100%>
+<p>
+<A HREF="index.htm">メニューへ戻る
+</A></p>
+<HR WIDTH=100%>
+　<BR>
+<b><a name="50">問5</a>　</b>関係データベースに関する次の記述を読んで、設問 1、2 に答えよ。<br>       
+<br>       
+顧客表、注文表、受注明細表及び商品表からなる関係データベースがある。<br>       
+<table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#FFFFFF" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">      
+  <tr>      
+    <td>顧客表</td>      
+    <td>　</td>      
+    <td>　</td>      
+    <td>　</td>      
+    <td>注文表</td>      
+    <td>　</td>      
+    <td>　</td>      
+  </tr>      
+  <tr>      
+    <td bordercolor="#000000">顧客コード</td>      
+    <td bordercolor="#000000">顧客名</td>      
+    <td bordercolor="#000000">住所</td>      
+    <td>　　　　　　</td>      
+    <td bordercolor="#000000">顧客コード</td>      
+    <td bordercolor="#000000">受注番号</td>      
+    <td bordercolor="#000000">受注日</td>      
+  </tr>      
+</table>      
+<table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#FFFFFF" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">      
+  <tr>      
+    <td>　<br>      
+      受注明細票</td>      
+    <td>　</td>      
+    <td>　</td>      
+    <td>　</td>      
+    <td>　<br>      
+      商品表</td>      
+    <td>　</td>      
+    <td>　</td>      
+    <td>　</td>      
+  </tr>      
+  <tr>      
+    <td bordercolor="#000000">受注番号</td>      
+    <td bordercolor="#000000">商品番号</td>      
+    <td bordercolor="#000000">注文数量</td>      
+    <td>　</td>      
+    <td bordercolor="#000000">商品番号</td>      
+    <td bordercolor="#000000">商品名</td>      
+    <td bordercolor="#000000">品種</td>      
+    <td bordercolor="#000000">単価</td>      
+  </tr>      
+</table>      
+<hr>      
+<p><b><a name="51">設問1</a>　</b>次のデータを得るための SQL 文を例のように考えたところ、数人の先輩から指摘があった。 指摘として適切な記述を解答群の中から選べ。<br>       
+</p>       
+<table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">      
+  <tr>      
+    <td>       受注番号</td>      
+    <td>顧客名</td>      
+    <td>    受注金額</td>      
+  </tr>      
+</table>      
+<pre>　
+例　SELECT 受注明細表.受注番号, 顧客名, SUM(注文数量*単価) 
+　 FROM 受注明細表, 顧客表, 商品表, 注文表
+　 WHERE 顧客表.顧客コード = 注文表.顧客コード 
+　 AND 受注明細表.商品番号 = 商品表.商品番号
+　 AND 受注明細表.受注番号 = 注文表.受注番号
+
+　
+解答群</pre>      
+<table border="0" cellpadding="3" cellspacing="0">      
+  <tr>      
+    <td valign="top">ア</td>      
+    <td>一つの SELECT 文で結合できる表は三つまでである。</td>       
+  </tr>       
+  <tr>       
+    <td valign="top">イ</td>      
+    <td>複数の表を結合した場合に SUM 関数を使って集計はできない。</td>       
+  </tr>       
+  <tr>       
+    <td valign="top">ウ</td>      
+    <td>“GROUP BY 受注明細表.受注番号”を加える必要がある。</td>       
+  </tr>       
+  <tr>       
+    <td valign="top">エ</td>      
+    <td>“GROUP BY 受注明細表.受注番号, 顧客名”を加える必要がある。</td>       
+  </tr>       
+  <tr>       
+    <td valign="top">オ</td>      
+    <td>“ORDER BY 受注明細表.受注番号”を加える必要がある。</td>       
+  </tr>       
+</table>       
+<p>　       
+</p>       
+<A NAME="44">       
+<HR WIDTH=100%>       
+</a><a HREF="12f_p_a2.htm#51">設問1の正解例と解説へ</a>       
+<HR WIDTH=100%>       
+　<BR>
+<b><a name="52">設問2</a>　</b>顧客コード A156 の顧客からの商品の注文について、その品種を調べたい。次の記述中の<b>[　　　　]</b>に入れる正しい答えを、解答群の中から選べ。<br>      
+<br>      
+(1) 商品番号を抽出する次の SQL 文を実行した結果は、表 1 のとおりになった。       
+<p>SELECT   商品番号 FROM 注文表, 受注明細表<br>       
+         WHERE 顧客コード = 'A156' AND 注文表.受注番号 = 受注明細表.受注番号</p>       
+<p>品種を出力するために、更に商品表を結合した SQL 文 を実行したところ、出力件数は<b>[　　ａ　　]</b>であった。 SQL 文 ① を副問合せを使った SQL 文 ② に変更して実行したところ、出力件数は<b>[　　ｂ　　]</b>　であった。ここで、商品番号と品種は表 2 に示すとおりである。</p>       
+<p>  SQL 文 ①<br>       
+SELECT 品種 FROM 注文表, 受注明細表, 商品表<br>       
+　　WHERE 顧客コード = 'A156' AND 注文表.受注番号 = 受注明細表.受注番号<br>       
+　　　　AND 商品表.商品番号 = 受注明細表.商品番号</p>       
+<table border="0" cellpadding="3" cellspacing="0">      
+  <tr>      
+    <td> SQL 文 ②</td>       
+  </tr>       
+</table>       
+<table border="0" cellpadding="3" cellspacing="0">      
+  <tr>      
+    <td>　　　　　　　α<br>  
+      　　　　　　　↓</td>  
+  </tr>  
+  <tr>  
+    <td>     SELECT 　　　　品種 FROM 商品表 WHERE 商品表.商品番号 IN<br>       
+      　　(SELECT 受注明細表.商品番号 FROM 受注明細表, 注文表<br>       
+      　　WHERE 顧客コード = 'A156' AND 受注明細表.受注番号 = 注文表.受注番号)</td>       
+  </tr>       
+</table>       
+<p>　　　　&nbsp;<br>   
+<br>   
+(2) SQL 文 のαの位置に DISTINCT を 挿入したとき、出力件数は<b>[　　ｃ　　]</b>になった。</p>      
+<table border="0" cellpadding="3" cellspacing="0">      
+  <tr>      
+    <td>      
+      <p align="right"><font size="2">表１　顧客コードA156が<br>   
+      注文した商品番号</font></p>   
+      <div align="center">   
+        <center>   
+        <table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolor="#FFFFFF" bordercolordark="#FFFFFF">   
+          <tr>   
+            <td>商品番号   
+              <p style="line-height: 150%" align="center">400<br>   
+              401<br>   
+              500<br>   
+              300<br>   
+              301<br>   
+              302<br>   
+              700<br>   
+              300<br>   
+              300<br>   
+              301</td>   
+          </tr>   
+        </table>   
+        </center>   
+      </div>   
+    </td>   
+    <td></td>   
+    <td><font size="2">表２　商品表の商品番号と品種<br>   
+      　</font>   
+      <table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolor="#FFFFFF" bordercolordark="#FFFFFF">   
+        <tr>   
+          <td>   
+            <table border="0" cellpadding="3" cellspacing="0">   
+              <tr>   
+                <td>   
+                  <p style="line-height: 150%"><font size="2">商品番号<br>   
+                  300<br>   
+                  301<br>   
+                  302<br>   
+                  400<br>   
+                  401<br>   
+                  500<br>   
+                  501<br>   
+                  600<br>   
+                  601<br>   
+                  700</font></td>   
+                <td>   
+                  <p style="line-height: 150%"><font size="2">品種<br>   
+                  テレビ<br>   
+                  テレビ<br>   
+                  テレビ<br>   
+                  VTR<br>   
+                  VTR<br>   
+                  DVDプレーヤ<br>   
+                  DVDプレーヤ<br>   
+                  CDラジカセ<br>   
+                  CDラジカセ<br>   
+                  MDコンポ</font></td>   
+              </tr>   
+            </table>   
+          </td>   
+        </tr>   
+      </table>   
+    </td>   
+  </tr>   
+</table>   
+<p>　<br>   
+<br>   
+解答群<br>   
+　ア　4　　　イ　5　　　ウ　6　　　エ　7　　　オ　8　　　カ　9　　　キ　10&nbsp;</p>   
+<p>　</p>   
+<A NAME="44">   
+<HR WIDTH=100%>   
+</a><a HREF="12f_p_a2.htm#52">設問2の正解例と解説へ</a>   
+<hr>   
+<p>   
+<A HREF="index.htm">メニューへ戻る</A></p>   
+<HR WIDTH=100%>   
+<p><b><a name="60">問6</a>　</b>コンピュータネットワークのアクセス制御に関する次の記述を読んで、設問に答えよ。<br>   
+<br>   
+　X 社では、社内及び関連会社との通信にネットワークを使用している。X 社の LAN 構成を図に示す。 通信プロトコルは TCP/IP を用いており、図中の数字は、IP アドレスを表している。この IP アドレスは、架空のものとする。<br>       
+<br>       
+関連会社との接続に際して、セキュリティ上の配慮から、関門ルータを設置してある。関門ルータは、ルータを通過するすべてのパケットの内容を検査し、設定された条件に合わないものを破棄する機能をもつ。関門ルータに設定する条件は、設定テーブルにあらかじめ登録しておく。<br>       
+<br>       
+<img border="0" src="image/A00a06f1.gif" width="679" height="301"><br>     
+                   図　X 社の LAN 構成<br>       
+<br>       
+　関門ルータ内の設定テーブルの例を表 1 に示す。条件設定は、IP 層での識別番号である IP アドレスと、TCP 層での識別番号であるポート番号を組み合わせて行う。すなわち、設定テーブルの一つの行に IP アドレスとポート番号を指定すると、その IPアドレス及びポート番号に該当するパケットだけが関門ルータを通過することができる。設定テーブルの IP アドレス欄に 0.0.0.0 又はポート番号欄に 0 を指定すると、その欄に関しては制限しないことを意味する。また、“：”を挟んで範囲を指定したときには、その範囲内の IP アドレス又はポート番号のパケットを通過させることを意味する。 関門ルータを通過しようとするパケットの検査は、設定テーブルの最初の条件から順に行われ、どの条件にも適合しないパケットは破棄される。<br>       
+</p>       
+<p align="left">　      
+<table border="0" cellpadding="3" cellspacing="0">      
+  <tr>      
+    <td>表１　関門ルータ内の設定テーブルの例（telnet       
+      対応）</td>      
+  </tr>      
+</table>      
+<center>      
+<div align="left">      
+  <table border="1" cellPadding="3" bordercolorlight="#000000" cellspacing="0" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">      
+    <tbody>      
+      <tr>      
+        <td rowSpan="2" vAlign="top">　</td>      
+        <td colSpan="2" vAlign="top">      
+          <p align="center">IP 層</p>      
+        </td>      
+        <td colSpan="2" vAlign="top">      
+          <p align="center">TCP 層</p>      
+        </td>      
+      </tr>      
+      <tr align="middle" vAlign="top">      
+        <td>送信元 IP アドレス</td>      
+        <td>あて先 IP アドレス</td>      
+        <td>送信元ポート番号</td>      
+        <td>あて先ポート番号</td>      
+      </tr>      
+      <tr>      
+        <td>条件 1</td>      
+        <td>100.1.1.1：100.1.1.5</td>      
+        <td>0.0.0.0</td>      
+        <td>0</td>      
+        <td>23</td>      
+      </tr>      
+      <tr>      
+        <td>条件 2</td>      
+        <td>0.0.0.0</td>      
+        <td>100.1.1.1：100.1.1.5</td>      
+        <td>23</td>      
+        <td>1026：65535</td>      
+      </tr>      
+    </tbody>      
+  </table>      
+</div>      
+</center>      
+<p>　表 1 の設定例では、社内から社外への仮想端末機能（telnet）サービスのパケット及びその返信である社外から社内への telnet サービスのパケットだけが通過できるように設定している。その結果、ネットワーク運用管理課の PC-NA ～ PC-NE（IPアドレスは100.1.1.1～100.1.1.5）から X 社外のサーバが提供している telnet サービス（ポート番号は23 で固定）が利用できる。 社外からのパケットは、ポート番号が 1026 以上のパケットだけを通すように設定している。<br>       
+</p>       
+<hr>       
+<p><b><a name="61">設問</a>　</b>X 社の関連会社である Y 社から、X 社の LAN に対する次の接続要請があった。</p>       
+<table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">      
+  <tr>      
+    <td>　Y 社の 2 台のパソコン（IP アドレスは 101.1.1.1 と 101.1.1.2）から、X 社のネットワーク運用管理課のデータ転送用サーバ（IP アドレスは 100.1.1.12）へ接続して、データ転送機能サービスを利用したい。</td>       
+  </tr>       
+</table>       
+<p>　この要請を満たすために、関門ルータの設定テーブルには、どのような条件を指定すればよいか。次の設定テーブルの<b>[　　　　]</b>　に 入れるべき値を解答群の中から選べ。ここで、データ転送にあたって、X 社のサーバはポート番号 1024 と 1025 の二つを同時に利用するものとする。<br>       
+解答は、重複して選んでもよい。</p>       
+<p align="left">表２　関門ルータ内の設定テーブル（データ転送対応）<center>    
+<div align="left">    
+  <table border="1" cellPadding="3" bordercolorlight="#000000" cellspacing="0" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">    
+    <tbody>    
+      <tr align="middle" vAlign="center">    
+        <td colSpan="2">IP 層</td>      
+        <td colSpan="2">TCP 層</td>      
+      </tr>      
+      <tr align="middle" vAlign="center">      
+        <td align="center">送信元 IP アドレス</td>      
+        <td align="center">あて先 IP アドレス</td>      
+        <td align="center">送信元ポート番号</td>      
+        <td align="center">あて先ポート番号</td>      
+      </tr>      
+      <tr align="middle" vAlign="center">      
+        <td align="center"><b>[　　a 　]</b></td>    
+        <td align="center"><b>[　　b 　]</b></td>    
+        <td align="center">0</td>    
+        <td align="center"><b>[　　c 　]</b></td>    
+      </tr>    
+      <tr align="middle" vAlign="center">    
+        <td align="center"><b>[　　b 　]</b></td>    
+        <td align="center"><b>[　　a 　]</b></td>    
+        <td align="center"><b>[　　d 　]</b></td>    
+        <td align="center">1026：65535</td>    
+      </tr>    
+    </tbody>    
+  </table>    
+</div>    
+</center>    
+<table border="0" cellpadding="3" cellspacing="0">    
+  <tr>    
+    <td>　<br>    
+      　<br>    
+      解答群</td>    
+  </tr>    
+</table>    
+<table border="0" cellpadding="3" cellspacing="0">    
+  <tr>    
+    <td width="200">ア　0</td>    
+    <td width="200">イ　0.0.0.0</td>    
+    <td>ウ　100.1.1.12</td>    
+  </tr>    
+  <tr>    
+    <td>  エ　100.1.1.12：101.1.1.1</td>    
+    <td>オ　100.1.1.12：101.1.1.2</td>    
+    <td>カ　101.1.1.1</td>    
+  </tr>    
+  <tr>    
+    <td>  キ　101.1.1.1：101.1.1.2</td>    
+    <td> ク　1024</td>    
+    <td> ケ　1024：1025</td>    
+  </tr>    
+  <tr>    
+    <td>  コ　1025</td>    
+    <td></td>    
+    <td></td>    
+  </tr>    
+</table>    
+<p>　</p>    
+<A NAME="44">    
+<HR WIDTH=100%>    
+</a><a HREF="12f_p_a2.htm#61">設問の正解例と解説へ</a>    
+<HR WIDTH=100%>    
+<p align="center">    
+<a HREF="12f_p_e3.htm">■問7へ進む</a>　　　　　　　<a href="index.htm">■メニューへ戻る</a></p>    
+<HR WIDTH=100%>    
+</BLOCKQUOTE>    
+      <p>　    
+<p>　</p>    
+</BODY>    
+</HTML>    

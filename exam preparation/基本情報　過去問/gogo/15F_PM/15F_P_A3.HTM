@@ -1,0 +1,133 @@
+<HTML>
+<HEAD>
+<TITLE>平成15年度秋期試験　</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0">
+<blockquote>
+<hr>
+<H3 align="center">平成15年度秋期試験　正解例と解説(問6～問8)</H3>
+<hr>
+<b><a name="60">問6</a></b>
+<hr> 
+<br>
+<b><a name="61">設問</a></b> 
+<br>
+<br>＜解答＞　a　カ　　　b　オ　　　c　エ　　　d　イ<br>
+<br>＜解説＞<br>
+<br>空欄aについて<br>
+空欄aを含むif文の条件status[ridx][cidx] = = ‘ ‘ は，座席の予約状況status[ridx][cidx]が空席であるかを判定する条件になっている。つまり列ridxのcidx番目の座席が空席であるかを判定する条件になっている。この空欄aを含むforループの繰返処理で，最前列左端より座席の予約状況をチェックし，空席が出現すれば空欄aの処理を行っている。<br>
+この空欄aの直後にあるforループでは，status[ridx][cidx] が ‘R‘ である予約済みの座席があればflg=0にセットし，forループをbreakして終了し，返却値NULLを返している。flgが0になればforループを抜けて返却値NULLを返すが，flgが1の場合は，空欄c、dの処理を行い，確保できた座席の列名と，確保できた座席の中で最も左端の座席の番号を構造体emptyへのポインタ&emptyを返却値として返している。したがって初めて空席が出現したとき空欄aの処理でflg=1にセットしておく必要がある。<br>
+<br>
+空欄bについて<br>
+最前列左端より座席の予約状況をチェックし，空席が出現すれば空欄aの処理でflg=1にセットするが，その後同一列に希望座席数の入る連続した空席があるかをチェックする必要がある。この処理を行っているのが，空欄bを含むforループである。このforループでstatus[ridx][cidx] が ‘R‘ である予約済みの座席があればflg=0にセットしている。列rdixに希望座席数の入る連続した空席があるかは，列ridxの(cidx＋1)番～(cidx＋number－1)番までの席に予約済み席があるかをチェックすればよい。<br>
+空欄bをforループの繰返しの初期値，cidx < eidxを終了条件とし，eidxをデクレメントして繰返しているので，空欄bはcidx＋number－1となる。<br>
+<br>
+空欄c，dについて<br>
+空欄c直前のforループでは，確保できたnumber個の座席に対して，座席の予約状況を表す配列status[ridx][eidx]に’R’をセットし予約済みにする処理を行っている。空欄c，dの直後で確保できた座席の列名と，確保できた座席の中で最も左端の席の番号を格納した構造体emptyへのポインタ&emptyを，返却値として返している。したがって空欄cを含む処理で，確保できた座席の列名rnum[ridx]を構造体の要素empty.rowにセットすればよい。また空欄dを含む処理で，確保できた座席の中で最も左端に位置する座席の番号cidx+1を構造体の要素empty.noにセットすればよい。（座席番号1～nに対応する添字が0～n－1になるので，確保できた座席の中で最も左端に位置する座席の番号は添字cidxより1だけ大きいcidx+1になる）<br>
+<br>
+<hr WIDTH="100%">
+<a HREF="15F_P_E3.HTM#61">問題へ</a>
+<hr WIDTH="100%">
+<br>
+<p><a HREF="INDEX.HTM">メニューへ戻る</a></p>
+<HR WIDTH=100%>
+<a NAME="70"><b>問7</b></a>
+<hr> 
+<br>
+<a NAME="71"><b>設問</b></a>
+<BR>
+<br>＜解答＞　a　イ　　　b　オ　　　c　ア　　　d　ア<br>
+<br>
+＜解説＞<br>
+空欄aについて<br>
+空欄aを含むSORT命令は，入力手続と出力手続をもち，空欄aはソートキーの指定に関する部分である。ソートファイルVACANCY-FILEは，施設コード，部屋名称，宿泊料金からなる空室情報を格納し，宿泊料金VCHARGEの安い順に並べ替えるためのソートファイルである。したがって宿泊料金VCHARGEの昇順に並べ替えればよいので，空欄aは「ON ASCENDING KEY VCHARGE」となる。<br>
+<br>
+空欄bについて<br>
+検索条件の施設コードSCODEが“000”であるか，または読込んだ予約状況ファイルのレコードの施設コードBCODEが検索条件の施設コードSCODEに一致したときは<br>
+<br>
+<img border="0" src="image/01_maru.GIF">宿泊開始日CHECKIN-DATEを通算日に変換しDAYSにセット<br>
+<img border="0" src="image/02_maru.GIF">BOOKING-FLAGを0にセット<br>
+<img border="0" src="image/03_maru.GIF">PERFORM文の繰返処理で，予約状況のI番目の要素BOOKING-INFO(Ｉ)が1，つまり“予約済み”であればBOOKING-FLAGに1をセットしている<br>
+<br>
+空欄bはこのPERFORM文の繰返処理における変数Iの初期値，増分，終了条件を指定している部分に該当する。このPERFORM文の処理では，宿泊開始日から宿泊日数分の連続した空室があるかをチェックしている。宿泊開始日から宿泊日数分が連続して空室になっている場合は，BOOKING-FLAGは初期設定の0のままであるが，“予約済み”の日があり，宿泊開始日から宿泊日数分が連続して空室になっていない場合，PERFORM文を終了したときBOOKING-FLAGが1にセットされる。したがって変数Iの初期値は宿泊開始日を通算日数に変換したDAYSとし，<br>
+終了条件は「UNTIL I ＞＝ DATS ＋ STAY-DAYS OR BOOKING-FLAG ＝ 1」とすればよい。<br>
+<br>
+空欄cについて<br>
+途中で“予約済み”の日があり，宿泊開始日から宿泊日数分が連続して空室になっていない場合は，予約状況ファイルの次のレコードを読込んで，再び繰返せばよい。空欄cの条件が成立つ場合，部屋タイプBTYPEをもとに料金ファイルCHARGE-FILEの該当レコードを読んで，検索条件SEARCH-INFOに合致するかをチェックし，合致した場合は空室情報としてソートファイルVACANCY-FILEに書出している。したがって空欄cを含むIF文は，宿泊開始日から宿泊日数分の連続した空室があった場合の処理に相当するので，空欄cの条件はBOOKING-FLAG＝1とすればよい。<br>
+<br>
+空欄dについて<br>
+空欄dの条件が成立つ場合，空室情報をソートファイルVACANCY-FILEに書出している。したがってこの空欄dは，宿泊開始日から宿泊日数分の連続した空室があった部屋について，その部屋の宿泊料金が検索条件の1泊の予算の上限と下限の範囲にあるかをチェックする条件になっている。これより空欄dは，<br>
+(GUEST-NO(J) ＝ SGUEST-NO AND<br>
+(SCHARGE-RANGE = ZERO OR<br>
+(CHARGE(J) ＞＝ LOWER-LIMIT AND CHARGE(J) ＜＝ UPPER-LIMIT)))<br>
+とすればよい。<br>
+<br>
+
+<HR WIDTH=100%>  
+<a HREF="15F_P_E3.HTM#71">問題へ</a>
+<hr WIDTH="100%">
+<p><a HREF="INDEX.HTM">メニューへ戻る</a></p> 
+<HR WIDTH=100%> 
+<a NAME="80"><b>問8</b></a>
+<hr> 
+<br>
+<a NAME="81"><b>設問</b></a>
+<BR>
+<br>
+＜解答＞　a　イ　　　b　ア　　　c　イ<br>
+<br>
+＜解説＞<br>
+空欄aについて<br>
+末尾に’=’をいくつか付加して，変換後の文字数が，変換前のバイト列binのバイト数bin.lengthの4/3以上で最も小さい4の倍数になるようにする。変換前のバイト列binのバイト数に対する変換後文字列の文字数の関係は以下の表のようになる。
+
+        <p><img border="0" src="image/PA8-0-1.GIF"></p>
+        <p><br>
+1≦bin.length≦3のとき　(bin.length + 2) / 3＝1となり　(bin.length + 2) / 3 ＊ 4＝4<br>
+4≦bin.length≦6のとき　(bin.length + 2) / 3＝2となり　(bin.length + 2) / 3 ＊ 4＝8<br>
+7≦bin.length≦9のとき　(bin.length + 2) / 3＝3となり　(bin.length + 2) / 3 ＊ 4＝12<br>
+　　　　　　　　　　　　　　　　　　…<br>
+したがって上記より変換後の文字数は(bin.length + 2) / 3 ＊ 4となる。<br>
+変数nは，次にnextが呼ばれたときに返すべき文字が何番目の文字であるかを保持する変数である。先頭を0番目とするので最後の文字は((bin.length + 2) / 3 ＊ 4 － 1)番目となる。<br>
+次のnextの呼出しの際に返すべき文字が文字がないと例外が発生するので，hasNextが次のnextの呼出しの際に例外を発生しないためにはn＜(bin.length + 2) / 3 ＊ 4である必要がある。hasNext( )は，boolean型のメソッドで次のnextの呼出しの際に例外を発生せずに文字を返すことができるとき真となるメソッドであり，hasNext( )はn＜空欄aが成立つとき戻り値として真を返す。したがって空欄aは(bin.length + 2) / 3 ＊ 4となる。<br>
+<br>
+空欄bについて<br>
+空欄bを含むif文は，空欄bが真となる場合例外を発生し，java.util.NosuchElementExceptionを投げる。返す文字がなくなり例外が発生したときhasNext( )は偽となる。したがって空欄bの条件はhasNext( )の否定条件である! hasNext( )となる。<br>
+<br>
+空欄cについて<br>
+バイト列の最後のバイトを変換したあと，変換後の文字数が4の倍数になるように，変換後の文字列の後に’=’を付加する処理に相当するので，空欄cは’=’となる。<br>
+<br>
+
+<HR WIDTH=100%>  
+<A NAME="81"></a>
+<a HREF="15F_P_E3.HTM#81">問題へ</a> 
+<HR WIDTH=100%> 
+<p><a HREF="INDEX.HTM">メニューへ戻る</a> </p>
+<HR WIDTH=100%> 
+<a NAME="90"><b>問9</b></a>
+<hr> 
+<br>
+<a NAME="91"><b>設問1</b></a>
+<br>
+＜解答＞　a　オ　　b　エ<br>
+<br>
+＜解説＞<br>
+（省略）
+<br>
+<HR WIDTH=100%>
+<A NAME="91"></a><a HREF="15F_P_E3.HTM#91">問題へ</a> 
+<HR WIDTH=100%>
+<a NAME="92"><b>設問2</b></a><BR>
+<br>
+＜解答＞　c　ウ　　d　エ<br>
+<br>
+＜解説＞<br>
+（省略）<br>
+<A NAME="92"></a>
+<HR WIDTH=100%>
+<a HREF="15F_P_E3.HTM#92">問題へ</a>
+<HR WIDTH=100%> 
+<p><a HREF="INDEX.HTM">メニューへ戻る</a></p>
+<HR WIDTH=100%>
+</blockquote>
+</BODY>
+</HTML>

@@ -1,0 +1,838 @@
+<HTML>
+<HEAD>
+<TITLE>平成12年度試験　問題(午後問7～問10)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0">
+
+
+
+<BLOCKQUOTE>
+<hr>
+<H3 align="center">平成12年度春期試験　問題(午後問7～問10)</H3>
+<hr>
+<P>
+次の問７から問10までの4問については、この中から1問を選択し、答案用紙の選択欄の           
+選 をマークして解答してください。<br>          
+　なお、2問以上選択した場合には、はじめの1問について採点します。<br>
+<HR WIDTH=100%>
+<a NAME="70">　<BR>
+<b>
+問7</b></a><b>　</b>次のＣプログラムの説明及びプログラムを読んで、設問に答えよ。<br>
+〔プログラムの説明〕&nbsp;<br>
+水平及び垂直方向に 512 ピクセル（画素）からなるビットマップ画面がある。 水平方向を X 座標、垂直方向を Y 座標とする。座標の割当てを図に示す。この画面上に、指定した時刻の時計を描画する関数 DisplayClock を作成した。       
+<p><img border="0" src="image/A00s07f1.gif" width="497" height="189"><br>     
+　　　　　　　<font size="2">図　ビットマップ画面の座標の割当て</font>      
+</p>      
+<p>目盛りは 1 周に 60 個描画する。5 個ごとに半径 6 ピクセルの大型円形マーカを、それ以外は半径 2 ピクセルの小型円形マーカを描画する。時計の針の仕様は表のとおりである。<br>       
+</p>       
+<p align="left">表　時計の針の仕様<center>
+<div align="left">
+  <table border="1" cellPadding="3" bordercolorlight="#000000" cellspacing="0" bordercolor="#FFFFFF" bordercolordark="#FFFFFF">
+    <tbody>
+      <tr align="middle">
+        <td>　</td>
+        <td>長さ</td>
+        <td>　　太さ　　</td>
+        <td>描画精度</td>
+      </tr>
+      <tr align="middle">
+        <td>　秒針　</td>
+        <td>中心と目盛りを結んだ長さ</td>
+        <td>1 ピクセル</td>      
+        <td>6 度（ 1 秒きざみ）</td>      
+      </tr>      
+      <tr align="middle">      
+        <td>　分針　</td>      
+        <td>秒針と同じ</td>      
+        <td>3 ピクセル</td>      
+        <td>1 度（10 秒きざみ）</td>      
+      </tr>      
+      <tr align="middle">      
+        <td>　時針　</td>      
+        <td>分針の 75％ の長さ</td>      
+        <td>7 ピクセル</td>      
+        <td>1 度（ 2 分きざみ）</td>      
+      </tr>      
+    </tbody>      
+  </table>      
+</div>      
+</center>      
+<p>関数 DisplayClock は、次に示す ACLOCK 構造体へのポインタを引数とする。</p>       
+<p>typedef   struct  {<br>       
+　　int Ready;           /* TRUE のとき目盛りの座標値を再計算しない*/<br>       
+　　int Hour, Minute, Second;     /* 描画する時刻               */<br>       
+　　int Cx, Cy;                   /* 時計の針の回転軸の座標値     */<br>       
+　　int Radius;                   /* 目盛りの半径               */<br>       
+　　int PlateX[360], PlateY[360]; /* １度単位の目盛り座標値       */<br>       
+} ACLOCK;</p>       
+<p>ACLOCK 構造体変数は、時計の中心の座標値、目盛り円の半径や座標値を記憶する。初めて時計を描画する場合や時計の位置や大きさが変わった場合、引数である ACLOCK 構造体のメンバ変数 Ready の値を FALSE にして実行すると、目盛りの座標値を計算して時計を描画する。<br>       
+<br>       
+描画する時刻は、ACLOCK 構造体のメンバ変数 Hour，Minute，Second で指定する。 それぞれの値の範囲は次のとおりである。</p>       
+<p>0 ≦ Hour ≦ 23<br>       
+      0 ≦ Minute ≦ 59<br>       
+      0 ≦ Second ≦ 59</p>       
+<p>この範囲を超えた値が設定された場合は、時計は正しく描画されない。<br>
+<br>
+2 点（sx, sy）と（ex, ey）を結ぶ太さ Width 
+ピクセルの線分を描画する関数 DrawLineと、中心（x, y），半径 
+r ピクセルの塗りつぶした円を描く関数 DrawCircle 
+が用意されている。それぞれの関数の原型（プロトタイプ）は、次のとおりである。<br>
+<br>
+void DrawLine( int sx, int sy, int ex, int ey, int Width );&nbsp;<br>
+<br>
+void DrawCircle( int x, int y, int r );&nbsp;
+
+</p>      
+<pre>
+
+〔プログラム〕
+#include &lt;math.h&gt;&nbsp;
+#define TRUE 1
+#define FALSE 0
+　
+typedef struct {
+　int Ready;
+　int Hour, Minute, Second;　
+　int Cx, Cy;
+　int Radius;
+　int PlateX[ 360 ], PlateY[ 360 ];
+} ACLOCK;
+　
+void DrawLine( int sx, int sy, int ex, int ey, int Width );
+void DrawCircle( int x, int y, int r );
+　
+void DisplayClock( ACLOCK *pt )
+{
+　const double Rad = 3.14159265359 / 180.0;
+　const int LargeMark = 6;
+　const int SmallMark = 2;
+　const int HourHand = 7;
+　const int MinuteHand = 3;
+　const int SecondHand = 1;
+　int angle, Size, Hx, Hy, w, x, y;
+　　　　　　　
+if ( pt-&gt;Ready == FALSE ) { /* 座標を計算する */
+　for ( w = -90, x = y = 0; w &lt; 270; <b>[　　ａ　　]</b>　) {
+　　pt-&gt;PlateX[x] = pt-&gt;Cx + (int)(pt-&gt;Radius*cos(w*Rad));
+　　pt-&gt;PlateY[y] = pt-&gt;Cy + (int)(pt-&gt;Radius*sin(w*Rad));
+　}
+　pt-&gt;Ready = TRUE;
+}
+　
+for ( angle = 0; angle &lt; 360; angle += 6 ){ /* 目盛りを描画する */
+　　if ( <b>[　　ｂ　　]</b> ) Size = LargeMark;
+　　else Size = SmallMark;
+　　DrawCircle( pt-&gt;PlateX[angle], pt-&gt;PlateY[angle], Size);
+}
+　
+angle = pt-&gt;Second*6;　　　　　　　　　　　　　 /* 秒針を描く */
+DrawLine( pt-&gt;Cx, pt-&gt;Cy,&nbsp;
+　　　　　 pt-&gt;PlateX[angle], pt-&gt;PlateY[angle], SecondHand );
+　
+angle = <b>[　　ｃ　　]</b>　;　　　　　　　　　　　　 /* 分針を描く */
+DrawLine( pt-&gt;Cx, pt-&gt;Cy,&nbsp;
+　　　　　 pt-&gt;PlateX[angle], pt-&gt;PlateY[angle], MinuteHand );
+　
+if ( pt-&gt;Hour &gt;= 12 ) pt-&gt;Hour -= 12;
+angle = <b>[　　ｄ　　]</b>　; 　　　　　　　　　　　　/* 時針を描く */
+Hx = ( pt-&gt;Cx + pt-&gt;PlateX[angle] ) / 2;
+Hx = ( Hx +　<b>[　　ｅ　　]</b> ) / 2;
+Hy = ( pt-&gt;Cy + pt-&gt;PlateY[angle] ) / 2;
+Hy = ( Hy + pt-&gt;PlateY[angle] ) / 2;
+DrawLine( pt-&gt;Cx, pt-&gt;Cy, Hx, Hy, HourHand );
+DrawCircle( pt-&gt;Cx, pt-&gt;Cy, pt-&gt;Radius / 10 ); /* 中心軸を描く * /
+}
+
+</pre>      
+<hr>       
+<a NAME="71">　<BR>     
+<b>     
+設問</b></a><b>　</b>プログラム中の<b>[　　　　]</b>  に入れる正しい答えを、解答群の中から選べ。<br>       
+<br>       
+a に関する解答群       
+<table border="0" cellpadding="3" cellspacing="0">      
+  <tr>      
+    <td width="150">ア　w++</td>
+    <td>イ　w++, x++, y++&nbsp;</td>      
+  </tr>      
+  <tr>      
+    <td>  ウ　w++, x++, y--</td>       
+    <td>エ　w++, x+=6, y+=6</td>       
+  </tr>       
+  <tr>       
+    <td>  オ　w+=6, x++, y++</td>       
+    <td>カ　w+=6, x+=6, y+=6&nbsp;</td>      
+  </tr>      
+</table>      
+<table border="0" cellpadding="3" cellspacing="0">      
+  <tr>      
+    <td>　<br>
+      b に関する解答群</td>       
+  </tr>       
+</table>       
+<table border="0" cellpadding="3" cellspacing="0">      
+  <tr>      
+    <td width="150">  ア　angle % 30 >= 0</td>       
+    <td>イ　angle % 30 != 0</td>       
+  </tr>       
+  <tr>       
+    <td>ウ　angle % 30 &lt;= 30</td>       
+    <td>エ　angle % 30 == 0</td>       
+  </tr>       
+  <tr>       
+    <td>  オ　angle / 30 == 0</td>       
+    <td>カ　angle / 30 != 0</td>       
+  </tr>       
+</table>       
+<table border="0" cellpadding="3" cellspacing="0">      
+  <tr>      
+    <td>　<br>
+      c に関する解答群&nbsp;</td>      
+  </tr>      
+</table>      
+<table border="0" cellpadding="3" cellspacing="0">      
+  <tr>      
+    <td valign="top">ア</td>      
+    <td>pt->Minute</td>      
+  </tr>      
+  <tr>      
+    <td valign="top">  イ</td>      
+    <td>pt->Minute*6</td>      
+  </tr>      
+  <tr>      
+    <td valign="top">  ウ</td>      
+    <td>pt->Minute*6 + pt->Second</td>       
+  </tr>       
+  <tr>       
+    <td valign="top">  エ</td>      
+    <td>pt->Minute*6 + pt->Second/10&nbsp;</td>      
+  </tr>      
+  <tr>      
+    <td valign="top">  オ</td>      
+    <td>pt->Minute*6 + pt->Second/60</td>       
+  </tr>       
+</table>       
+<table border="0" cellpadding="3" cellspacing="0">      
+  <tr>      
+    <td>　<br>
+      d に関する解答群</td>       
+  </tr>       
+</table>       
+<table border="0" cellpadding="3" cellspacing="0">      
+  <tr>      
+    <td>  ア</td>      
+    <td>pt->Hour</td>      
+  </tr>      
+  <tr>      
+    <td>  イ</td>      
+    <td>pt->Hour*30</td>      
+  </tr>      
+  <tr>      
+    <td>  ウ</td>      
+    <td>pt->Hour + pt->Minute</td>       
+  </tr>       
+  <tr>       
+    <td>  エ</td>       
+    <td>pt->Hour + pt->Minute/2</td>       
+  </tr>       
+  <tr>       
+    <td>  オ</td>       
+    <td>pt->Hour*30 + pt->Minute/2</td>       
+  </tr>       
+  <tr>       
+    <td>  カ</td>       
+    <td>pt->Hour*30 + pt->Minute/60</td>       
+  </tr>       
+</table>       
+<table border="0" cellpadding="3" cellspacing="0">      
+  <tr>      
+    <td>　<br>
+      e に関する解答群&nbsp;</td>      
+  </tr>      
+</table>      
+<table border="0" cellpadding="3" cellspacing="0">      
+  <tr>      
+    <td width="180">  ア　pt->Cx</td>
+    <td>イ　pt->Cy</td>
+  </tr>
+  <tr>
+    <td>  ウ　pt->PlateX[angle]　</td>
+    <td>エ　pt->PlateY[angle]</td>
+  </tr>
+  <tr>
+    <td>オ　pt->PlateX[pt->Hour]</td>
+    <td>カ　pt->PlateY[pt->Hour]&nbsp;</td>
+  </tr>
+</table>
+<p>　</p>
+<A NAME="31"> 
+<HR WIDTH=100%> 
+</a><a HREF="12s_p_a3.htm#71">設問の正解例と解説へ</a> 
+<HR WIDTH=100%> 
+<p><A HREF="index.htm">メニューへ戻る</A>　</p> 
+<HR WIDTH=100%> 
+<a NAME="80">　<BR> 
+<b> 
+問</b><b>8</b></a>　次の COBOL プログラムの説明及びプログラムを読んで、設問に答えよ。       
+<p>〔プログラムの説明〕&nbsp;<br>      
+人材登録ファイルから必要な技能をもつ人材を検索し、表示する副プログラムである。<br>      
+<br>   
+(1)　人材登録ファイルには、10 種類の技能によって人材の能力を表すデータが格納されている。各技能は、4 段階の習熟度 （3：上級、2：中級、1：初級、0：なし）で評価されている。<br>       
+            人材登録ファイルのレコード様式</p>       
+<table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+  <tr>
+    <td width="70" align="center">登録番号<br>
+      6けた</td>
+    <td width="100" align="center">氏名<br>
+      10けた</td>
+    <td width="50" align="center">技能1<br>
+      1けた</td>
+    <td width="50" align="center">技能2<br>
+      1けた</td>
+    <td width="50" align="center">・・・</td>
+    <td width="50" align="center">技能10<br>
+      1けた</td>
+  </tr>
+</table>
+<p>技能 1～10 には、技能の習熟度が格納されている。<br>       
+<br>       
+(2)　必要な技能（検索条件）は、副プログラムにパラメタとして渡され、10 種類すべてに対して指定される。<br>       
+</p>       
+<table border="0" cellpadding="3" cellspacing="0">      
+  <tr>      
+    <td>            検索条件のパラメタ様式</td>      
+  </tr>      
+</table>      
+<table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">      
+  <tr>      
+    <td>条件1</td>      
+    <td>条件2</td>      
+    <td>条件3</td>      
+    <td>条件4</td>      
+    <td>条件5</td>      
+    <td>条件6</td>      
+    <td>条件7</td>      
+    <td>条件8</td>      
+    <td>条件9</td>      
+    <td>条件10</td>      
+  </tr>      
+  <tr>      
+    <td>1けた</td>      
+    <td>1けた</td>      
+    <td>1けた</td>      
+    <td>1けた</td>      
+    <td>1けた</td>      
+    <td>1けた</td>      
+    <td>1けた</td>      
+    <td>1けた</td>      
+    <td>1けた</td>      
+    <td>1けた</td>      
+  </tr>      
+</table>      
+<p><br>      
+<br>      
+条件 1～10 には、それぞれ人材登録ファイル中の技能 1～10 に対応する必要な技能の要求条件（3：上級，2：中級以上、1：初級以上，0：不要）が格納されている。条件の値がすべて 0 であることはない。<br>       
+<br>       
+(3)　必要な技能をすべてもった人材を必要な技能の習熟度の合計が大きい順に表示する。“必要な技能をもつ人材”とは、例えば、パラメタで渡される技能の要求条件が“中級以上”ならば、技能の習熟度が“上級”又は“中級”の人材である。</p>
+<pre>〔プログラム〕&nbsp;
+DATA              DIVISION.
+FILE              SECTION.
+FD  JINZAI-FILE.
+01  JINZAI-REC.
+    03  FILLER          PIC X(16).
+    03  J-SKILL-INFO.
+        05  J-SKILL     PIC 9(01)  OCCURS 10.
+SD  GAITO-FILE.
+01  GAITO-REC.
+    03  G-POINT         PIC 9(02).
+    03  G-JINZAI        PIC X(26).
+WORKING-STORAGE   SECTION.
+01  EOF-FLAG            PIC X(01)  VALUE SPACE.
+01  MATCH               PIC 9(01).
+01  K                   PIC 9(02).
+LINKAGE           SECTION.
+01  KENSAKU.
+    03  JOKEN           PIC 9(01)  OCCURS 10.
+PROCEDURE         DIVISION  USING KENSAKU.
+MAIN-SHORI.
+    SORT GAITO-FILE
+        <b>[　　　　　a　　　　　]</b>
+        INPUT PROCEDURE KENSAKU-SHORI
+        OUTPUT PROCEDURE HYOJI-SHORI.
+    EXIT PROGRAM.
+KENSAKU-SHORI.
+    OPEN INPUT JINZAI-FILE.
+    READ JINZAI-FILE AT END MOVE &quot;E&quot; TO EOF-FLAG END-READ.
+    PERFORM UNTIL EOF-FLAG = &quot;E&quot;
+       MOVE 0 TO G-POINT
+       <b>[　　　　　b　　　　　]</b> 
+       PERFORM VARYING K FROM 1 BY 1 UNTIL K &gt; 10 OR MATCH = 0
+          IF  <b>[　　　　　c　　　　　]</b>
+             MOVE 0 TO MATCH
+          ELSE
+             IF <b>[　　　　　d　　　　　]</b>
+                <b>[　　　　　e　　　　　]</b>
+             END-IF
+          END-IF
+       END-PERFORM
+       IF MATCH = 1
+          MOVE JINZAI-REC TO G-JINZAI
+          RELEASE  GAITO-REC
+       END-IF
+       READ JINZAI-FILE AT END MOVE &quot;E&quot; TO EOF-FLAG END-READ
+    END-PERFORM. 
+    CLOSE JINZAI-FILE.
+　
+HYOJI-SHORI.
+    MOVE SPACE TO EOF-FLAG.
+    RETURN GAITO-FILE AT END MOVE &quot;E&quot; TO EOF-FLAG END-RETURN.
+    PERFORM UNTIL EOF-FLAG = &quot;E&quot;
+       DISPLAY G-JINZAI
+       RETURN GAITO-FILE AT END MOVE &quot;E&quot; TO EOF-FLAG END-RETURN
+    END-PERFORM.
+</pre>
+<A NAME="40">     
+<HR WIDTH=100%>     
+</a><a NAME="81"><b>　<BR>     
+設問</b></a><b>　</b>プログラム中の<b>[ 　　　　]</b>に入れる正しい答えを、解答群の中から選べ。<br>   
+<br>   
+a に関する解答群       
+<table border="0" cellpadding="3" cellspacing="0">      
+  <tr>      
+    <td valign="top">ア</td>      
+    <td>OCCURS KEY G-POINT</td>       
+  </tr>       
+  <tr>       
+    <td valign="top">  イ</td>      
+    <td>ON ASCENDING KEY G-POINT</td>       
+  </tr>       
+  <tr>       
+    <td valign="top">  ウ</td>      
+    <td>ON DESCENDING KEY G-POINT</td>       
+  </tr>       
+  <tr>       
+    <td valign="top">エ</td>      
+    <td>USING JINZAI-FILE</td>       
+  </tr>       
+  <tr>       
+    <td valign="top">  オ</td>      
+    <td>USING KEY G-POINT</td>       
+  </tr>       
+</table>       
+<table border="0" cellpadding="3" cellspacing="0">      
+  <tr>      
+    <td>　<br>
+      b，e に関する解答群</td>       
+  </tr>       
+</table>       
+<table border="0" cellpadding="3" cellspacing="0">      
+  <tr>      
+    <td valign="top">ア</td>      
+    <td>COMPUTE G-POINT = G-POINT + J-SKILL(K)</td>       
+  </tr>       
+  <tr>       
+    <td valign="top">イ</td>      
+    <td>COMPUTE G-POINT = G-POINT + JOKEN(K)</td>       
+  </tr>       
+  <tr>       
+    <td valign="top">ウ</td>      
+    <td>INITIALIZE GAITO-REC</td>       
+  </tr>       
+  <tr>       
+    <td valign="top">エ</td>      
+    <td>MOVE 0 TO G-POINT</td>       
+  </tr>       
+  <tr>       
+    <td valign="top">オ</td>      
+    <td>MOVE 0 TO MATCH</td>       
+  </tr>       
+  <tr>       
+    <td valign="top">カ</td>      
+    <td>MOVE 1 TO MATCH</td>       
+  </tr>       
+  <tr>       
+    <td valign="top">キ</td>      
+    <td>MOVE J-SKILL(K) TO G-POINT</td>       
+  </tr>       
+  <tr>       
+    <td valign="top">ク</td>      
+    <td>MOVE JOKEN(K) TO G-POINT</td>       
+  </tr>       
+  <tr>       
+    <td valign="top">ケ</td>      
+    <td>MOVE ZERO TO GAITO-REC</td>       
+  </tr>       
+</table>       
+<table border="0" cellpadding="3" cellspacing="0">      
+  <tr>      
+    <td>　<br>
+      c，d に関する解答群</td>       
+  </tr>       
+</table>       
+<table border="0" cellpadding="3" cellspacing="0">      
+  <tr>      
+    <td width="200">ア　J-SKILL(K) = 0</td>       
+    <td>イ　J-SKILL(K) > 0</td>       
+  </tr>       
+  <tr>       
+    <td>ウ　J-SKILL(K) >= 0</td>       
+    <td>エ　J-SKILL(K) &lt; JOKEN(K)</td>       
+  </tr>       
+  <tr>       
+    <td>オ　J-SKILL(K) = JOKEN(K)</td>       
+    <td>カ　J-SKILL(K) > JOKEN(K)</td>       
+  </tr>       
+  <tr>       
+    <td>キ　JOKEN(K) = 0</td>       
+    <td>ク　JOKEN(K) > 0</td>       
+  </tr>       
+  <tr>       
+    <td>ケ　JOKEN(K) >= 0</td>       
+    <td></td>       
+  </tr>       
+</table>       
+<p>　　　　　　　<br>
+</p>
+<A NAME="41"> 
+<HR WIDTH=100%> 
+</a><a HREF="12s_p_a3.htm#81">設問の正解例と解説へ</a> 
+<HR WIDTH=100%> 
+<A HREF="index.htm"><br> 
+メニューへ戻る<br> 
+</A> 
+<HR WIDTH=100%> 
+<p> 
+<a NAME="90"> 
+<b>問9</b></a><b>　</b></p> 
+<p>次の Fortran       
+プログラムの説明及びプログラムを読んで，設問に答えよ。      
+<p>〔プログラムの説明〕<br>      
+ある 2       
+種類の金属を組み合わせて熱を加えると起電力が生じる。基準温度を       
+0 ℃に設定し，測定温度を 0 ℃から 1,760 ℃まで 10 ℃刻みに変化させて発生した電圧を測定したところ，温度に対する電圧は       
+0 ℃のとき 0       
+ボルトで，常に単調に増加することが分かった。この実験結果を基にして，10       
+℃刻みの温度から電圧を求める表と，0.1       
+ボルト刻みの電圧から温度を求める表を作成するプログラムである。</p>      
+<p>(1)　入力データは，温度 0 ℃から 1,760 ℃まで 10 ℃刻みの温度と電圧を示す       
+177 対のデータである（図 1）。      
+<p><img border="0" src="image/09a.gif" width="134" height="125"></p>     
+<p align="left">　　図１　入力データ
+<p align="left">(2)　温度から電圧を求める表は，図 2       
+のように温度を 10 ℃刻みで出力する。      
+<p align="left"><img border="0" src="image/09b.gif" width="510" height="147"><br>     
+　　　　図２　温度から電圧を求める表の出力</p>
+<p>(3)　電圧から温度を求める表は，0.0 ボルトから 0.1       
+ボルト刻みで 18.6 ボルトまでの 電圧について，対応する 187       
+個の温度値を 0.1 ボルト刻みで図 3 のように出力する。      
+<p><img border="0" src="image/09c.gif" width="514" height="139"><br>     
+　　　　図３　電圧から温度を求める表の出力
+<p>(4)　ある電圧 v が，実験結果のうち u 番目と（u－1）番目の温度に対応する電圧の間にあるとき，電圧       
+v に対応する温度の近似値 t は次の式で求める。</p>      
+<pre><font size="3">                           （u 番目の電圧 － v）×（実験時の温度刻み）
+      t = u 番目の温度 － ――――――――――――――――――――――
+                             u 番目の電圧 －（u－1）番目の電圧</font>
+</pre>      
+<p>〔プログラム〕      
+<p>program netsu_kiden_ryoku<br>      
+&nbsp;&nbsp; real :: gyaku_den(0:200),       
+gyaku_on(0:200),&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &amp;<br>      
+&nbsp;&nbsp;&nbsp;&nbsp; &amp;&nbsp;&nbsp;&nbsp;&nbsp; sokutei_den(0:200),       
+sokutei_on(0:200)<br>      
+&nbsp;&nbsp; real,parameter :: gyaku_den_kizami =       
+0.1,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &amp;<br>      
+&nbsp;&nbsp;&nbsp;&nbsp; &amp;&nbsp;&nbsp;&nbsp;&nbsp; sokutei_on_kizami = 10.0,       
+saidai_on = 1760.0<br>      
+&nbsp;&nbsp; integer :: m, m_saidai, k, n, n_saidai<br>      
+&nbsp;&nbsp; n_saidai = <b>[　　a　　]</b><br>      
+&nbsp;&nbsp; do n = 0, n_saidai<br>      
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; read(*,*) sokutei_on(n), sokutei_den(n)<br>      
+&nbsp;&nbsp; end do<br>      
+&nbsp;&nbsp; m_saidai = int(sokutei_den(n_saidai) / gyaku_den_kizami)<br>      
+&nbsp;&nbsp;       
+write(*,'(t13,10(i3,tr4))')&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       
+&amp;<br>      
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &amp; (nint(n * sokutei_on_kizami), n=0,9)<br>      
+&nbsp;&nbsp; do n = 0, n_saidai, 10&nbsp;&nbsp;<br>      
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; write(*,'(t2,i5,tr2,10f7.3)')&nbsp; <b>[　　b　　]</b><br>      
+&nbsp;&nbsp; end do<br>      
+&nbsp;&nbsp; call gyakubiki(sokutei_on, sokutei_den, gyaku_on, gyaku_den)<br>      
+&nbsp;&nbsp; write(*,'(////)')<br>      
+&nbsp;&nbsp;       
+write(*,'(t9,10f7.1)')&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       
+&amp;<br>      
+&nbsp;&nbsp;&nbsp;&nbsp; &amp; (real(n * gyaku_den_kizami), n=0,9)<br>      
+&nbsp;&nbsp; do m = 0, m_saidai, 10<br>      
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       
+write(*,'(t2,i5,tr2,10f7.1)')&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       
+&amp;<br>      
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &amp; nint(gyaku_den(m)), (gyaku_on(k),       
+k=m,min(m+9,m_saidai))<br>      
+&nbsp;&nbsp; end do<br>      
+　<br>
+contains<br>
+　<br>
+&nbsp;&nbsp; subroutine gyakubiki(x1, y1, x2, y2)<br>      
+&nbsp;&nbsp; integer :: k, m, u<br>      
+&nbsp;&nbsp; real :: v, x1(0:200), x2(0:200), y1(0:200), y2(0:200)<br>      
+&nbsp;&nbsp; x2(0) = 0.0<br>      
+&nbsp;&nbsp; y2(0) = 0.0<br>      
+&nbsp;&nbsp; u = 1<br>      
+&nbsp;&nbsp; do m = 1, m_saidai<br>      
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; v = m * gyaku_den_kizami&nbsp;<br>      
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; y2(m) = v<br>      
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; do k = u, n_saidai<br>      
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(v &lt;= y1(k)) then<br>      
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>[　　　c　　　]</b><br>      
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; exit<br>      
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; endif<br>      
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end do<br>      
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>[　　　d　　　]</b><br>      
+&nbsp;&nbsp; end do<br>      
+&nbsp;&nbsp; end subroutine gyakubiki<br>      
+end program netsu_kiden_ryoku<br>      
+</p>      
+<p>　 
+<HR WIDTH=100%> 
+<a NAME="91">　<BR> 
+<b> 
+設問</b></a>&nbsp;　プログラム中の <b>[　　　　] </b>に入れる正しい答えを，解答群の中から選べ。      
+<dir>      
+</dir>      
+<p>a に関する解答群      
+<table border="0" cellpadding="3" cellspacing="0">      
+  <tr>      
+    <td valign="top">ア</td>      
+    <td>int(saidai_on)</td>      
+  </tr>      
+  <tr>      
+    <td valign="top">イ</td>      
+    <td>int(saidai_on) + 1</td>      
+  </tr>      
+  <tr>      
+    <td valign="top">ウ</td>      
+    <td>int(saidai_on/sokutei_on_kizami)</td>      
+  </tr>      
+  <tr>      
+    <td valign="top">エ</td>      
+    <td>int(saidai_on/sokutei_on_kizami) + 1</td>      
+  </tr>      
+</table>      
+<table border="0" cellpadding="3" cellspacing="0">      
+  <tr>      
+    <td>　<br>
+      b に関する解答群</td>      
+  </tr>      
+</table>      
+<table border="0" cellpadding="3" cellspacing="0">      
+  <tr>      
+    <td valign="top">ア</td>      
+    <td>n,(sokutei_den(k), k=n, min(n+9,n_saidai))</td>      
+  </tr>      
+  <tr>      
+    <td valign="top">イ</td>      
+    <td>n,(sokutei_den(k), k=n*10, min(n*10+9,n_saidai))</td>      
+  </tr>      
+  <tr>      
+    <td valign="top">ウ</td>      
+    <td>nint(sokutei_on(n)),(sokutei_den(k), k=n, min(n+9,n_saidai))</td>      
+  </tr>      
+  <tr>      
+    <td valign="top">エ</td>      
+    <td>nint(sokutei_on(n)),(sokutei_den(k), k=n*10, min(n*10+9,n_saidai))</td>      
+  </tr>      
+</table>      
+<table border="0" cellpadding="3" cellspacing="0">      
+  <tr>      
+    <td>　<br>
+      c に関する解答群</td>      
+  </tr>      
+</table>      
+<table border="0" cellpadding="3" cellspacing="0">      
+  <tr>      
+    <td width="180">ア　u = k</td>      
+    <td>イ　u = k + 1</td>      
+  </tr>      
+  <tr>      
+    <td>ウ　u = k * 10</td>      
+    <td>エ　u = (k + 1) * 10</td>      
+  </tr>      
+</table>      
+<table border="0" cellpadding="3" cellspacing="0">      
+  <tr>      
+    <td>　<br>
+      d に関する解答群</td>      
+  </tr>      
+</table>      
+<table border="0" cellpadding="3" cellspacing="0">      
+  <tr>      
+    <td valign="top">ア</td>      
+    <td>x2(m) = u - (u-v)*sokutei_on_kizami</td>      
+  </tr>      
+  <tr>      
+    <td valign="top">イ</td>      
+    <td>x2(m) = x1(u) - (y1(u)-v)*sokutei_on_kizami/(y1(u)-y1(u-1))</td>      
+  </tr>      
+  <tr>      
+    <td valign="top">ウ</td>      
+    <td>x2(m) = y1(u) - (x1(u)-v)*sokutei_on_kizami/(x1(u)-x1(u-1))</td>      
+  </tr>      
+  <tr>      
+    <td valign="top">エ</td>      
+    <td>y2(m) = u - (u-v)*sokutei_on_kizami</td>      
+  </tr>      
+  <tr>      
+    <td valign="top">オ</td>      
+    <td>y2(m) = x1(u) - (y1(u)-v)*sokutei_on_kizami/(y1(u)-y1(u-1))</td>      
+  </tr>      
+  <tr>      
+    <td valign="top">カ</td>      
+    <td>y2(m) = y1(u) - (x1(u)-v)*sokutei_on_kizami/(x1(u)-x1(u-1))</td>      
+  </tr>      
+</table>      
+<A NAME="43">      
+<p>　</p>
+<HR WIDTH=100%>
+</a><a HREF="12s_p_a3.htm#91">設問の正解例と解説へ</a>
+<HR WIDTH=100%>
+　<BR>
+<b><a name="100">問10</a>　</b>
+<p>次のアセンブラプログラムの説明及びプログラムを読んで，設問に答えよ。
+<p>〔プログラムの説明〕<br>
+入力装置からデータを読み取り，一つの文ごとにその中に含まれる語数を出力するプログラムである。
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">(1)</td>
+    <td>一つの文は，全く語を含まない空文，1 語だけ，又は       
+      1       
+      個以上の空白で区切られた複数の語から構成される。文の終わりは“．”（ピリオド）で示す。</td>      
+  </tr>      
+  <tr>      
+    <td valign="top">(2)</td>      
+    <td>語は，空白又はピリオド以外の文字の並びである。</td>      
+  </tr>      
+  <tr>      
+    <td valign="top">(3)</td>      
+    <td>入力データはレコード単位に読み取られる。一つの文又は語が複数のレコードにまたがることもあるし，複数の文が一つのレコードに含まれることもある。また，全く文字を含まないレコードもあり得る。</td>      
+  </tr>      
+  <tr>      
+    <td valign="top">(4)</td>      
+    <td>プログラム中で使用される副プログラム DECPRN は，GR1       
+      で渡された 2 進数を10 進数に変換して出力する。</td>      
+  </tr>      
+</table>      
+<p>〔プログラム〕      
+<pre><font size="3">WCNT   START
+       LEA   GR2,0          ;入力ポインタ初期化
+       ST    GR2,INLENG
+LP1    LEA   GR1,0          ;語数カウンタ初期化
+LP2    CALL  GETCHR         ;1文字取得
+       JZE   FIN
+       CPL   GR0,WDELM      ;語の区切り文字？
+      <b> [　　　a　　　]</b>
+       CPL   GR0,SDELM      ;文の区切り文字？
+       JZE   SEND
+LP3    CALL  GETCHR
+       JZE   FIN
+       CPL   GR0,WDELM
+       JZE   WEND
+       CPL   GR0,SDELM
+       JNZ   LP3            ;区切り文字でなければLP3へ
+WEND   LEA   GR1,1,GR1      ;語数のカウントアップ
+       CPL   GR0,SDELM
+       <b>[　　　b　　　]</b>
+SEND   CALL  DECPRN         ;語数の出力
+       JMP   LP1
+FIN    EXIT
+　
+GETCHR CPA   GR2,INLENG     ;1文字取得処理
+       JZE   GETREC
+       LD    GR0,INBUFF,GR2
+       <b>[　　　c　　　]</b>
+       RET
+GETREC LEA   GR2,0
+       IN    INBUFF,INLENG  ;入力装置から1レコード読取り
+       <b>[　　　d　　　]</b>
+       CPA   GR0,EOF         ;入力データの終了？
+       JNZ   GETCHR 
+       RET
+　
+WDELM  DC    ' '
+SDELM  DC    '.'
+EOF    DC    -1
+INBUFF DS    80
+INLENG DS    1
+       END</font></pre>      
+<p>　
+<hr>
+<p><b><a name="101">設問</a>　</b></p>
+<p>プログラム中の<b> [　　　　] </b>に入れる正しい答えを，解答群の中から選べ。      
+<p>a に関する解答群      
+<table border="0" cellpadding="3" cellspacing="0">      
+  <tr>      
+    <td>ア　JNZ LP2</td>      
+    <td>イ　JNZ LP3</td>      
+    <td>ウ　JZE LP2</td>      
+  </tr>      
+  <tr>      
+    <td>エ　JZE LP3</td>      
+    <td>オ　JZE WEND</td>      
+    <td></td>      
+  </tr>      
+</table>      
+<p>b に関する解答群      
+<table border="0" cellpadding="3" cellspacing="0">      
+  <tr>      
+    <td width="180">ア　JNZ LP2</td>      
+    <td>イ　JNZ LP3</td>      
+  </tr>      
+  <tr>      
+    <td>ウ　JZE LP2</td>      
+    <td>エ　JZE LP3</td>      
+  </tr>      
+  <tr>      
+    <td>オ　JNZ WEND</td>      
+    <td></td>      
+  </tr>      
+</table>      
+<p>c に関する解答群      
+<table border="0" cellpadding="3" cellspacing="0">      
+  <tr>      
+    <td width="180">ア　LEA GR1,1,GR1</td>      
+    <td>イ　LEA GR2,-1,GR2</td>      
+  </tr>      
+  <tr>      
+    <td>ウ　LEA GR2,1,GR2</td>      
+    <td>エ　ST GR0,INLENG</td>      
+  </tr>      
+  <tr>      
+    <td>オ　ST GR2,INLENG</td>      
+    <td></td>      
+  </tr>      
+</table>      
+<p>d に関する解答群      
+<table border="0" cellpadding="3" cellspacing="0">      
+  <tr>      
+    <td width="180">ア　LD GR0,0,GR2</td>      
+    <td>イ　LD GR0,INBUFF,GR2</td>      
+  </tr>      
+  <tr>      
+    <td>ウ　LD GR0,INBUFF</td>      
+    <td>エ　LD GR0,INLENG</td>      
+  </tr>      
+</table>      
+<p>　</p>    
+<A NAME="44">    
+<HR WIDTH=100%>    
+</a><a HREF="12s_p_a3.htm#101">設問の正解例と解説へ</a>    
+<HR WIDTH=100%>    
+<p align="center">    
+<a href="12s_p_e4.htm">■問11へ進む　</a>　　　　　　　　<a HREF="index.htm">■メニューへ戻る</a>    
+<HR WIDTH=100%>    
+<p><BR>    
+</p>    
+</BLOCKQUOTE>    
+    <p>    
+    
+    
+</BODY>    

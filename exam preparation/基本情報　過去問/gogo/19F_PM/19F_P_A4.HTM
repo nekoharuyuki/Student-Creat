@@ -1,0 +1,176 @@
+<html>
+
+<head>
+<title>平成19年度 秋期　基本情報技術者 午後 解説</title>
+<style type="text/css">
+body{line-height:150%;}
+code{font-size:12pt;}
+</style>
+</head>
+
+<body>
+
+<blockquote>
+	<hr>
+	<h3 align="center">平成19年度秋期試験　正解例と解説(問10～問13)</h3>
+	<hr>
+	<p><strong><a name="100">問10</a></strong></p>
+	<hr>
+	<p><strong><a name="101">設問1</a></strong>　a：エ</p>
+	<p>●空欄aについて<br>
+	　重量がweight＞Weight_tbl2[NUM2－1]でweight≦Max_weight，大きさが60＜size≦Size_tbl[1]，距離区分dist_mode＝1の配送物に該当する。したがって，配送料金＝（Base_price＋dist_mode×Ext_price）×Mag_tbl[1]により計算することになる。Base_price＝600，Ext_price＝100，Mag_tbl[1]＝3なので，配送料金＝（600＋1×100）×3＝2,100円になり，エが適切。</p>
+	<hr>
+	<p><a href="19F_P_E4.HTM#101">問題へ</a></p>
+	<hr>
+	<p><strong><a name="102">設問2</a></strong>　b：エ，c：イ，d：ア，e：イ，f：オ</p>
+	<p>　プログラムを分析すると，配送種別と配送料金は以下のようになる。<br>
+	（1）weight≦1,000の場合</p>
+	<blockquote>
+		<p>①20≦size≦40 and weight≦100の場合<br>
+		　配送種別は1<br>
+		　・weight≦25のとき<br>
+		　　　price＝Price_tbl[0]＝50<br>
+		　・25＜weight≦60のとき<br>
+		　　　price＝Price_tbl[1]＝80<br>
+		　・60＜weight≦100のとき<br>
+		　　　price＝Price_tbl[2]＝150</p>
+		<p>②size＜20 or 40＜size or 100＜weight≦1,000の場合<br>
+		　配送種別は2<br>
+		　・weight≦50のとき<br>
+		　　　price＝Weight_tbl2[0]×Unit_price＝50×2＝100<br>
+		　・50＜weight≦100のとき<br>
+		　　　price＝Weight_tbl2[1]×Unit_price＝100×2＝200<br>
+		　・100＜weight≦500<br>
+		　　　price＝Weight_tbl2[2]×Unit_price＝500×2＝1,000<br>
+		　・500＜weight≦1,000<br>
+		　　　price＝Weight_tbl2[3]×Unit_price＝1,000×2＝2,000</p>
+	</blockquote>
+	<p>（2）1,000＜weight≦10,000の場合</p>
+	<blockquote>
+		<p>①size≦150の場合<br>
+		　配送種別は3<br>
+		　・size≦60のとき<br>
+		　　　price＝（Base_price＋dist_mode×Ext_price）×Mag_tbl[0]＝（600＋dist_mode×100）×1<br>
+		　・60＜size≦100のとき<br>
+		　　　price＝（Base_price＋dist_mode×Ext_price）×Mag_tbl[1]＝(600＋dist_mode×100)×3<br>
+		　・100＜size≦150のとき<br>
+		　　　price＝（Base_price＋dist_mode×Ext_price××Mag_tbl[2]＝（600＋dist_mode×100）×4</p>
+		<p>②150＜sizeの場合<br>
+		　配送種別は－1<br>
+		　配送料金は0</p>
+	</blockquote>
+	<p>（3）10,000＜weightの場合</p>
+	<blockquote>
+		<p>　配送種別は－2<br>
+		　配送料金は0</p>
+	</blockquote>
+	<p>●空欄bについて<br>
+	　（1）②の場合に該当し，配送種別は2になり，エが適切。</p>
+	<p>●空欄cについて<br>
+	　（2）②の場合に該当し，配送種別は－1になり，イが適切。</p>
+	<p>●空欄dについて<br>
+	　（3）の場合に該当し，配送種別は－2になり，アが適切。</p>
+	<p>●空欄eについて<br>
+	　（1）①の60＜weight≦100のときに該当し，price＝150で配送料金は150円になり，イが適切。</p>
+	<p>●空欄fについて<br>
+	　（1）②の100＜weight≦500のときに該当し，price＝Weight_tbl2[2]×Unit_price＝500×2＝1000で配送料金は1,000円になり，オが適切。</p>
+	<hr>
+	<p><a href="19F_P_E4.htm#102">問題へ</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a> </p>
+	<hr>
+	<p><strong><a name="110">問11</a></strong></p>
+	<hr>
+	<p><strong><a name="111">設問1</a></strong>　a：イ，b：イ，c：ウ，d：ア，e：オ</p>
+	<p>●空欄aについて<br>
+	　突合せキーは請求書コードである。請求書コードを突合せキーとしてファイルの突合せ処理を行うには，両ファイルが請求書コードの順に整列済みである必要がある。請求データ<code>ACCOUNT-F</code>は請求書コードの昇順に整列済みであるが，振込データ<code>BANK-F</code>は請求書コードの昇順に整列されていないので，<code>BANK-F</code>をソート用の<code>SORT-F</code>に読み込み，<code>BANK-BILL-CD</code>を整列キーとして昇順に整列する必要がある。空欄aは<code>SORT-F</code>の整列キーの指定に該当し，イの<code>BANK-BILL-CD</code>が適切。</p>
+	<p>●空欄bについて<br>
+	　空欄bは<code>W-BANK-BILL-CD &gt; W-ACCOUNT-BILL-CD</code>となった場合の処理に該当する。これは<code>W-ACCOUNT-BILL-CD</code>に対する<code>W-BANK-BILL-CD</code>がない場合，つまり，請求データに対する振込データがない場合の処理に該当する。したがって，空欄bはイの<code>MOVE 	&quot;NOT PAID&quot; TO P-MESSAGE</code>が適切。</p>
+	<p>●空欄cについて<br>
+	　空欄cは<code>W-BANK-BILL-CD = W-ACCOUNT-BILL-CD</code>となった場合の処理に該当する。これは<code>W-ACCOUNT-BILL-CD</code>に対する<code>W-BANK-BILL-CD</code>がある場合，つまり，請求データに対する振込データがある場合の処理に該当する。空欄cは，行番号61の<code>IF</code>文で振込金額<code>BANK-AMOUNT</code>と請求金額<code>ACCOUNT-AMOUNT</code>の差額が0でない場合の処理に該当する。したがって，空欄cはウの<code>MOVE &quot;UNMATCH&quot; TO P-MESSAGE</code>が適切。</p>
+	<p>●空欄d，eについて<br>
+	　空欄d，eは<code>W-BANK-BILL-CD &lt; W-ACCOUNT-BILL-CD</code>となった場合の処理に該当する。これは<code>W-BANK-BILL-CD</code>に対する<code>W-ACCOUNT-BILL-CD</code>がない場合，つまり振込データに対する請求データがない場合の処理に該当する。したがって，空欄dはアの<code>MOVE &quot;NO BILL&quot; TO P-MESSAGE</code>が適切。また<code>W-BANK-BILL-CD &lt; W-ACCOUNT-BILL-CD</code>となった場合，キー値の小さい方のファイルの読込みが必要で，空欄eにおいて<code>SORT-F</code>の読込みが必要になる。したがって，空欄eはオの<code>PERFORM RETURN-BANK</code>が適切。</p>
+	<hr>
+	<p><a href="19F_P_E4.htm#111">問題へ</a></p>
+	<hr>
+	<p><strong><a name="112">設問2</a></strong>　f：イ，g：ウ（f，gは順不同）</p>
+	<p>●空欄f，gについて<br>
+	　請求金額<code>ACCOUNT-AMOUNTをP-ACCOUNT-AMOUNT</code>に転送する前に，手数料計算プログラムを呼び出して計算を行う必要がある。<br>
+	　<code>W-BANK-BILL-CD &gt; W-ACCOUNT-BILL-CD</code>の場合，行番号52で請求金額を転送しているので，行番号49と50の間が適切。<br>
+	　<code>W-BANK-BILL-CD = W-ACCOUNT-BILL-CD</code>の場合，行番号59で請求金額を転送しているので，行番号56と57の間が適切。<br>
+	　したがって空欄f，gはイ，ウが適切。</p>
+	<hr>
+	<p><a href="19F_P_E4.HTM#112">問題へ</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a> </p>
+	<hr>
+	<p><strong><a name="120">問12</a></strong></p>
+	<hr>
+	<p><strong><a name="121">設問1</a></strong>　a：イ，b：イ，c：ア，d：イ</p>
+	<p>
+	　クラス<code>Extraction&lt;E&gt;</code>はインタフェース<code>Iterable&lt;E&gt;</code>を実装したクラスで，条件に当てはまる型<code>E</code>の要素を抽出する。要素の並び<code>target</code>はインタフェース<code>Iterable&lt;E&gt;</code>型の変数，抽出条件<code>evaluator</code>はインタフェース<code>Evaluator&lt;E&gt;</code>型の変数である。そのコンストラクタ<code>Extraction()</code>は，要素の並び<code>target</code>と抽出条件<code>evaluator</code>を引数としている。<br>
+	　インタフェース<code>Iterator&lt;E&gt;</code>型のメソッド<code>iterator()</code>は，クラス<code>Extraction&lt;E&gt;</code>のメソッドで，クラス<code>ExtractionIterator</code>のコンストラクタ<code>ExtractionIterator()</code>を呼び出し，抽出結果を取得するための反復子<code>iterator</code>のインスタンスを戻り値として返す。<br>
+	　クラス<code>ExtractionIterator</code>は型<code>E</code>の要素を一つずつ参照する反復子のインタフェース<code>Iterator</code>を実装したクラスで，抽出結果を取得するための反復子のクラスである。<br>
+	　<code>boolean</code>型のメソッド<code>hasNext()</code>は，クラス<code>ExtractionIterator</code>のメソッドで，メソッド<code>next()</code>でまだ取得されていない，抽出すべき要素があれば<code>true</code>を返す。<br>
+	　<code>E</code>型のメソッド<code>next()</code>は，クラス<code>ExtractionIterator</code>のメソッドで，抽出された要素を一つずつ返し，返すべき要素がないときは，例外を投げる。</p>
+	<p>●空欄aについて<br>
+	　空欄aを含む<code>while</code>ループの繰返条件の一つは<code>!found</code>で，もう一つは<code>iterator.hasNext()</code>である。<code>while</code>ループ中で，インタフェース<code>Evaluator</code>のメソッド<code>evaluate()</code>により，<code>String</code>型の要素<code>element</code>が，抽出条件<code>evaluator</code>に合うか否かを検査しており，抽出条件に合えば<code>boolean</code>型変数<code>found</code>は<code>true</code>に，合わなければ<code>false</code>になる。<br>
+	　<code>boolean</code>型メソッド<code>hasNext()</code>は，インタフェース<code>Iterator&lt;E&gt;</code>を継承したクラス<code>ExtractionIterator</code>のメソッドであり，繰返条件<code>iterator.hasNext()</code>で用いられているメソッド<code>hasNext()</code>は，インタフェース<code>Iterator&lt;E&gt;</code>のメソッドである。したがって「Javaプログラムで使用するAPIの説明」より，繰返条件<code>iterator.hasNext()</code>は，インスタンス<code>iterator</code>に未参照の要素があれば<code>true</code>を，なければ<code>false</code>を返す。<br>
+	　要素が抽出条件に合わず，未参照の要素がある間は，<code>while</code>ループを繰り返す必要があるので，繰返条件は<code>!found &amp;&amp; iterator.hasNext()</code>になり，空欄aはイの<code>&amp;&amp;</code>が適切。</p>
+	<p>●空欄bについて<br>
+	　メソッド<code>evaluate()</code>は，インタフェース<code>Evaluator</code>のメソッドで，〔プログラム2〕で宣言されている。<code>evaluate()</code>の具体的な定義は，インタフェース<code>Evaluator</code>を実装したクラス<code>StringStartsEvaluator</code>の中で行われている。<code>evaluate(String s)</code>は，引数で指定された<code>String</code>型文字列<code>s</code>が，<code>null</code>ではなくコンストラクタで指定された文字列<code>prefix</code>で始まるならば<code>true</code>を，それ以外は<code>false</code>を返す。<br>
+	　空欄b直前の<code>while</code>ループ中で，インタフェース<code>Evaluator</code>のメソッド<code>evaluate()</code>により<code>String</code>型の要素<code>element</code>が抽出条件<code>evaluator</code>に合うか否かを検査している。抽出条件に合えば<code>boolean</code>型の変数<code>found</code>は<code>true</code>になり，<code>while</code>ループの繰返条件の一つ<code>!found</code>が<code>false</code>となるので，<code>while</code>ループを終了し，直後の<code>return</code>文により戻り値として空欄bを返す。<code>boolean</code>型のメソッド<code>hasNext()</code>は，メソッド<code>next()</code>でまだ取得されていない，抽出すべき要素があれば<code>true</code>を返す。この戻り値が空欄bに該当するので，<code>true</code>となった<code>found</code>を戻り値として返せばよく，空欄bはイの<code>found</code>が適切。</p>
+	<p>●空欄c，dについて<br>
+	　メソッド<code>hasNext()</code>は，<code>while</code>ループ中の命令文<code>element = iterator.next()</code>において，インタフェース<code>Iterator</code>のメソッド<code>next()</code>により抽出元の要素の並びのインスタンス<code>iteretor</code>から未参照の要素を取得し<code>element</code>に格納する（「Javaプログラムで使用するAPIの説明」より）。この要素<code>element</code>が抽出条件に合えば<code>hasNext()</code>は戻り値<code>found</code>に<code>true</code>をセットして返す。<br>
+	　クラス<code>ExtractionIterator</code>のメソッド<code>next()</code>は，抽出された要素を一つずつ返す。メソッド<code>hasNext()</code>において<code>iterator</code>から取得された要素<code>element</code>が抽出条件<code>evaluator</code>に合えば，<code>hasNext()</code>は<code>true</code>を返すので，<code>if</code>文の条件<code>!hasNext()</code>は<code>false</code>となり例外を投げず，<code>found</code>に空欄cをセットした後，<code>return</code>文により戻り値として空欄dを返す。したがって，空欄dで要素<code>element</code>を戻り値として返せばよく，空欄dはイが適切。また，メソッド<code>hasNext()</code>の次回の呼出しに備えるため，<code>boolean</code>型の変数<code>found</code>の初期値を<code>false</code>にリセットしておく必要があり，空欄cはアの<code>false</code>が適切。</p>
+	<hr>
+	<p><a href="19F_P_E4.HTM#121">問題へ</a></p>
+	<hr>
+	<p><strong><a name="122">設問2</a></strong>　ウ，キ</p>
+	<p>
+	　二重<code>for</code>ループ中で文字列<code>s</code>の中の文字を1文字ずつ比較し，同一文字が含まれる場合，<code>return</code>文により<code>true</code>を返す。したがって，同一文字を含む文字列<code>&quot;three&quot;</code>，<code>&quot;seven&quot;</code>が抽出され，ウ，キが適切。</p>
+	<hr>
+	<p><a href="19F_P_E4.HTM#122">問題へ</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a> </p>
+	<hr>
+	<p><strong><a name="130">問13</a></strong></p>
+	<hr>
+	<p><strong><a name="131">設問1</a></strong>　a：ウ，b：オ</p>
+	<p>●空欄aについて<br>
+	　行番号12の<code>CPL</code>命令による論理比較で，行のビットがすべて1であれば<code>GR6</code>の内容が<code>#FFFF</code>と一致するので，空欄aの次の<code>ADDA</code>命令により<code>GR0</code>を1だけインクリメントし，行のカウントを行う必要がある。行のビットに1でないビットがあれば<code>GR6</code>の内容が<code>#FFFF</code>と一致しないので，<code>JNZ</code>命令により行番号14の行のカウントをスキップして<code>NWORD</code>に分岐し，全語処理済みか否かの判定を行えばよい。したがって，空欄aはウの<code>JNZ NWORD</code>が適切。</p>
+	<p>●空欄bについて<br>
+	　<code>GR5</code>はループカウンタで，行番号7で初期値16が設定されている。全語処理済みになれば行番号15の<code>SUBA</code>命令の結果，<code>GR5</code>は0になるので，<code>JZE</code>命令により<code>CHECK</code>に分岐すればよい。したがって，空欄bはオの<code>JZE CHECK</code>が適切。</p>
+	<hr>
+	<p><a href="19F_P_E4.HTM#131">問題へ</a></p>
+	<hr>
+	<p><strong><a name="132">設問2</a></strong>　c：イ，d：ウ，e：ア，f：ア</p>
+	<p>●空欄cについて<br>
+	　行番号3の<code>LD</code>命令により<code>GR0</code>に初期値0がセットされる。<code>GR1</code>には語0のアドレスが設定されて副プログラム<code>BTEST</code>に渡されるので，行番号8の<code>LD</code>命令により<code>GR6</code>にアドレス<code>GR0</code>の語0が取り出される。行番号12の<code>CPL</code>命令による論理比較の結果，<code>GR6</code>のビットがすべて1であれば行のカウンタ<code>GR0</code>が1だけインクリメントされる。行番号19の<code>LAD</code>命令でポインタ<code>GR1</code>を1だけインクリメントし，直後の<code>JUMP</code>命令により<code>LOOP1</code>に戻り，次の語1を<code>GR6</code>に取り出して上記の処理を繰り返し，語15まで処理すれば行番号21の<code>CALL</code>命令を実行する。したがって，<code>CALL</code>命令実行直前において，行のビットがすべて1である行の本数が<code>GR0</code>に設定されている。図の配列では行のビットがすべて1である行の本数は1本なので，<code>GR0</code>には<code>#0001</code>が設定される。したがって，イが適切。</p>
+	<p>●空欄dについて<br>
+	　行番号4の<code>LD</code>命令により，<code>GR2</code>に初期値<code>#0001</code>がセットされる。この<code>GR2</code>に設定される検査用ビットは左下がりの対角線の検査用ビットである。行番号8の<code>LD</code>命令により<code>GR6</code>にアドレス<code>GR0</code>の語0が取り出されるが，直後の行番号9の<code>AND</code>命令による<code>GR2</code>と<code>GR6</code>との論理積の結果，検査用ビットに対応する<code>GR6</code>のビットが0であれば検査用ビットが0になる。行番号17の<code>SLL</code>命令により<code>GR2</code>の対角線の検査用ビットを1ビットずつ左シフトすることにより，行番号19でポインタ<code>GR1</code>を次の語に進め，<code>LOOP1</code>に戻り検査用ビットに対応する<code>GR6</code>のビットが0であれば検査用ビットを0とする処理を繰り返す。したがって，配列の左下がりの対角線上のビットに一つでも0のビットがあれば<code>GR2</code>は<code>#0000</code>となるが，すべて1であれば<code>GR2</code>の検査用ビットが左シフトの繰返しにより最終的に左端に移動するため，<code>GR2</code>の内容は<code>#8000</code>になる。図の配列にはビットがすべて1である左下がりの対角線が1本あるので，<code>GR2</code>には<code>#8000</code>が設定される。したがって，ウが適切。</p>
+	<p><img src="ansimg/fig4.png" /></p>
+	<p>●空欄eについて<br>
+	　行番号4のLD命令により，<code>GR3</code>に初期値<code>#8000</code>がセットされる。この<code>GR3</code>に設定される検査用ビットは右下がりの対角線の検査用ビットである。行番号8の<code>LD</code>命令により<code>GR6</code>にアドレス<code>GR0</code>の語0が取り出されるが，行番号10の<code>AND</code>命令による<code>GR3</code>と<code>GR6</code>との論理積の結果，検査用ビットに対応する<code>GR6</code>のビットが0であれば検査用ビットが0になる。行番号18の<code>SRL</code>命令で<code>GR3</code>の対角線の検査用ビットを1ビットずつ右シフトすることにより，行番号19でポインタ<code>GR1</code>を次の語に進め，<code>LOOP1</code>に戻り検査用ビットに対応する<code>GR6</code>のビットが0であれば検査用ビットを0とする処理を繰り返す。したがって，配列の右下がりの対角線上のビットに一つでも0のビットがあれば<code>GR3</code>は<code>#0000</code>となるが，すべて1であれば<code>GR3</code>の検査用ビットが右シフトの繰返しにより最終的に右端に移動するため，<code>GR3</code>の内容は<code>#0001</code>になる。図の配列にはビットがすべて1である右下がりの対角線がないので，<code>GR3</code>には<code>#0000</code>が設定される。したがって，アが適切。</p>
+	<p>●空欄fについて<br>
+	　行番号5の<code>LD</code>命令により，<code>GR4</code>に初期値<code>#FFFF</code>がセットされる。この<code>GR4</code>に設定される検査用ビットは，列の検査用ビットである。行番号8の<code>LD</code>命令により<code>GR6</code>にアドレス<code>GR0</code>の語0が取り出されるが，行番号11の<code>AND</code>命令による<code>GR4</code>と<code>GR6</code>との論理積の結果，<code>GR6</code>に0であるビットがあれば，そのビット位置に対応する検査用ビットが0になる。行番号19でポインタ<code>GR1</code>を次の語に進め，<code>LOOP1</code>に戻り<code>GR6</code>のビットに0であるビットがあれば，そのビット位置に対応する検査用ビットを0とする処理を繰り返す。したがって，配列の列のビットに一つでも0のビットがあれば，その列に対応する<code>GR4</code>のビットが0となるが，列のビットがすべて1である列に対応する<code>GR4</code>のビットは1になる。図の配列にはビットがすべて1である列が2本あり，その列の位置に対応して<code>GR4</code>には<code>0000 0010 0000 1000</code>，つまり<code>#0208</code>が設定される。したがって，アが適切。</p>
+	<p><img src="ansimg/fig5.png" /></p>
+	<hr>
+	<p><a href="19F_P_E4.HTM#132">問題へ</a></p>
+	<hr>
+	<p><strong><a name="133">設問3</a></strong>　g：イ，h：エ</p>
+	<p>●空欄gについて<br>
+	　行番号21の<code>CALL</code>命令により<code>SETGR0</code>が呼び出される。最初の<code>SLL</code>命令により列の検査用ビット<code>GR4</code>を1ビット左シフトした結果，最上位ビットが1である場合はオーバフローするので，オーバフローフラグ<code>OF</code>に1がセットされ，直後の<code>JOV</code>命令により<code>COUNT</code>にオーバフロー分岐する。分岐先の<code>ADDA</code>命令により列のカウンタ<code>GR0</code>を1だけインクリメントした後，<code>LOOP2</code>に戻り繰り返している。最上位ビットが0である場合は<code>JOV</code>命令によるオーバフロー分岐をせず，直後の空欄gの命令を実行する。<code>GR4</code>に1のビットがある間，つまり<code>GR4</code>≠0である間は<code>LOOP2</code>に戻り，列のカウンタ<code>GR0</code>をインクリメントする処理を繰り返す必要がある。したがって，空欄gで<code>JNZ</code>命令により<code>LOOP2</code>に分岐すればよく，イが適切。</p>
+	<p>●空欄hについて<br>
+	　空欄hの直後の2つの<code>ADDA</code>命令により，<code>GR0</code>に<code>GR2</code>，<code>GR3</code>をそれぞれ加算している。左下がり対角線が存在すれば，<code>SETGR0</code>を<code>CALL</code>する直前に<code>GR2</code>の内容は<code>#8000</code>になっている。したがって<code>GR2</code>の内容を15ビット右シフトし，<code>#0001</code>として<code>ADDA</code>命令により<code>GR0</code>に加算する必要がある。これより空欄hはエの<code>SRL GR2,15</code>が適切。</p>
+	<hr>
+	<p><a href="19F_P_E4.HTM#133">問題へ</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a></p>
+	<hr>
+	<p>　</p>
+</blockquote>
+
+</body>
+
+</html>

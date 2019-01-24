@@ -1,0 +1,249 @@
+<HTML>
+<HEAD>
+<TITLE>平成14年度春期試験　正解例と解説(問21～問40)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<BLOCKQUOTE>
+<hr>
+<H3 align="center">平成14年度春期試験　正解例と解説(問21～問40)</H3>
+<HR WIDTH=100%>
+<A NAME="21">　<BR>
+<b>
+問21</b></a>
+<select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select><br><br>
+＜解説＞1命令の平均命令実行時間＝（3×0.18＋5×0.1＋20×0.05＋2×0.67）×1クロックの時間<br>
+　　　　　　　　　　　　　　　　＝（3×0.18＋5×0.1＋20×0.05＋2×0.67）×10<sup>－8</sup><br>
+　　　　　　　　　　　　　　　　＝3.38×10<sup>－8</sup>秒<br>
+　　　　プログラムAの実行時間＝100,000命令×1命令の平均実行時間<br>
+　　　　　　　　　　　　　　　＝100,000×3.38×10<sup>－8</sup>秒<br>
+　　　　　　　　　　　　　　　＝3.38×10<sup>－3</sup>秒<br>
+　　　　　　　　　　　　　　　＝3.38ミリ秒<br>
+<br>
+<HR WIDTH=100%>
+<A HREF="14S_A_E2.htm#21">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="22">　<BR>
+<b>
+問22</b></a>
+<select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select><br><br>
+＜解説＞割込みが発生すると，割込みによって実行を中断された処理プログラムについて，割込み時に実行されていた命令の次の命令のアドレスが戻り先アドレスとしてＰＳＷ（プログラム状態語）に保存される。割込みルーチン終了後，ＰＳＷに保存されている戻り先アドレスがプログラムカウンタにセットされ，元のプログラムに制御が戻る。<br>
+<br>
+<A NAME="22">
+<HR WIDTH=100%>
+<A HREF="14S_A_E2.htm#22">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="23">　<BR>
+<b>
+問23</b></a>
+<select name="17FA01" size="1"><option selected>解答例</option><option>エ</option></select><br><br>
+＜解説＞キャッシュメモリは，CＰＵと主記憶間のアクセスにおける速度ギャップを緩衝する緩衝記憶装置。CPUから主記憶へのアクセス時に，使用頻度の高い命令やデータを，上位階層のより高速なキャッシュメモリにコピーしておき，再度アクセスがあったときに，このキャッシュメモリにアクセスすることで，より高速にアクセスする。CPUは一次キャッシュになければ，二次キャッシュに，二次キャッシュになければ三次キャッシュにというようにアクセスしていき，多段階にキャッシュメモリを構成することによりメモリアクセスを高速化している。<br>
+<br>
+<HR WIDTH=100%>
+<A HREF="14S_A_E2.htm#23">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="24">　<BR>
+<b>
+問24</b></a>
+<select name="17FA01" size="1"><option selected>解答例</option><option>ウ</option></select><br><br>
+＜解説＞主記憶のアクセス時間をSとすると<br>
+　　　　主記憶の実効アクセス時間＝(1－0.8)×S＋S／10×0.8<br>
+　　　　　　　　　　　　　　　　＝0.28S<br>
+　　　　したがってキャッシュメモリを使用しない場合の28％になる。<br>
+<A NAME="24"></a>
+<HR WIDTH=100%>
+<A HREF="14S_A_E2.htm#24">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="25">　<BR>
+<b>
+問25</b></a>
+<select name="17FA01" size="1"><option selected>解答例</option><option>ウ</option></select><br><br>
+＜解説＞コンピュータの記憶装置のアクセス速度は，速いものから順に並べると<br>
+　　　　(1)CPU（レジスタ）<br>
+　　　　(2)主記憶<br>
+　　　　(3)補助記憶と主記憶間のディスクキャッシュ（半導体ディスクなど）<br>
+　　　　(4)補助記憶が最も遅い（ハードディスク→MO→CD-ROM→FDの順に遅くなる）<br>
+　　　　したがって速いものから順に並べると<br>
+　　　　レジスタ＞主記憶＞ディスクキャッシュ＞ハードディスクの順になる。<br>
+<br>
+<A NAME="25"></a>
+<HR WIDTH=100%>
+<A HREF="14S_A_E2.htm#25">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="26">　<BR>
+<b>
+問26</b></a>
+<select name="17FA01" size="1"><option selected>解答例</option><option>エ</option></select><br><br>
+＜解説＞　＜解説＞エが適切。1枚のCD-ROMは，データやプログラムなどのディジタルデータを格納するCD-ROMトラックと，オーディオデータを格納するCD-DAトラックからなり，セクタを単位とするディジタルデータを含む領域と音楽用ＣＤと同様のオーディオ情報を含む領域を混在できる。
+アは不適切。磁気ディスクよりアクセスは遅い。 <BR>
+イは不適切。シリンダ，トラック，セクタで管理するのは磁気ディスク。CD-ROMの場合はトラック，小フレーム，セクタからなる。<BR>
+ウは不適切。ISO9660はCD-ROM用論理フォーマットとして利用されており，ディスクの先頭部に(1) ルートディレクトリの位置を管理するボリュームディスクリプタ，(2) サブディレクトリの位置を管理するパステーブル，(3) ルートディレクトリ領域をもちディレクトリに関する情報を保持できる。<BR>ISO9660は様々な環境で利用できるようファイル名に制約を設けており，レベル1では英大文字と数字8文字以内とアンダースコアしか使えず，レベル2では漢字や31文字までのロングファイル名が許されるが，ファイル名に￥などの記号を含めることはできない。<BR>
+<A NAME="26"><BR></a>
+　</p>
+<HR WIDTH=100%>
+<A HREF="14S_A_E2.htm#26">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="27">　<BR>
+<b>
+問27</b></a>
+<select name="17FA01" size="1"><option selected>解答例</option><option>ウ</option></select><br><br>
+＜解説＞IEEE1394は，ディジタルビデオやDVDなどを接続する高速転送のシリアルインタフェースで，ディジーチェーン方式だけでなくツリー接続方式による接続も可能であり，USBと同様起動中にプラグの着脱ができるホットプラグインや周辺装置を自動認識するPlug＆Playにも対応している。機器ごとのIDの設定やターミネータの接続の必要なのはSCSIインタフェースである。<br>
+<br>
+<HR WIDTH=100%>
+<A HREF="14S_A_E2.htm#27">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="28">　<BR>
+<b>
+問28</b></a>
+<select name="17FA01" size="1"><option selected>解答例</option><option>ウ</option></select><br><br>
+＜解説＞液晶自身は発光せず，表示にはバックライトなどによる背後からの照射が必要である。<br>
+CRTのほうが消費電力が大きく，アは不適切。TFTのほうがSTNより表示速度が速く，イは不適切。CRTディスプレイは同じ表示画面のまま放置すると焼付きを起こす可能性があり，エは不適切。<br>
+<br>
+<A NAME="28"></a>
+<HR WIDTH=100%>
+<A HREF="14S_A_E2.htm#28">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="29">　<BR>
+<b>
+問29</b></a>
+<select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select><br><br>
+＜解説＞画面表示に必要なメモリ容量＝1024×768×24÷8<br>
+　　　　　　　　　　　　　　　　　＝2.36×10<sup>6</sup>バイト<br>
+　　　　　　　　　　　　　　　　　＝2.36Mバイト<br>
+
+<A NAME="29"><BR></a>
+<HR WIDTH=100%>
+<A HREF="14S_A_E2.htm#29">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="30">　<BR>
+<b>
+問30</b></a>
+<select name="17FA01" size="1"><option selected>解答例</option><option>ウ</option></select><br><br>
+＜解説＞仮想記憶で一定サイズで入れ替えるときの単位に，ページという固定長の単位と，セグメントという複数ページからなる可変長の単位とがあります。ページ単位での入れ替えをページング，セグメント単位での入れ替えをスワッピングといいます。<br>
+<br>
+<HR WIDTH=100%>
+<A HREF="14S_A_E2.htm#30">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="31">　<BR>
+<b>
+問31</b></a>
+<select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select><br><br>
+＜解説＞アの場合は，a1→a2→b1→b2の順に先ず実行されるので，更新前にｘの値3が参照され，e＝3，f＝3，h＝3，i＝3にセットされる。その後a3→a4→b3→b4の順実行されるので，ｇ＝e＋f＝6，j＝h×i＝9となる。<br>
+イの場合は，先ずa1の実行でｘの値3を参照しe＝3にセットされる。その後b1→b2→b3→b4の順に実行されるので，ｘの値3が先ず参照されてh＝3，i＝3にセットされ，b3の処理でj＝h×i＝9にセットされた値9によりｘの値が9に更新される。この後a2→a3→a4と実行され，ｘの値9が参照されてf＝9にセットされるので，a3の処理でg＝e＋f＝3＋9＝12となって，続くa4の処理でxの値が12に更新される。<br>
+ウの場合は，先ずb1の実行でxの値3を参照しh＝3にセットされる。その後a1→a2→a3→a4の順に実行されるので，xの値が先ず参照されてe＝3，f＝3にセットされ，a3の処理でg＝e＋f＝6にセットされた値6によりxの値が6に更新される。この後b2→b3→b4と実行され，xの値6が参照されてi＝6にセットされるので，b3の処理でj＝h×i＝3×6＝18となって，続くb4の処理でxの値が18に更新される。<br>
+エの場合は，b1→b2→b3→a1→a2→a3の順に実行されるので，更新前にxの値3が参照され，h＝3，i＝3，j＝9，e＝3，f＝3，g＝6にセットされる。その後a4の実行によりxの値がgの値6により更新され，b4の実行によりxの値がjの値9により更新される。<br>
+<br>
+<HR WIDTH=100%>
+<A HREF="14S_A_E2.htm#31">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="32">　<BR>
+<b>
+問32</b></a>
+<select name="17FA01" size="1"><option selected>解答例</option><option>ウ</option></select><br><br>
+＜解説＞ターンアラウンドタイムは，ジョブの入力を開始してからCPUで処理された結果がすべて出力されるまでの時間なので，<br>
+ターンアラウンドタイム＝入出力時間＋CPU時間＋処理待ち時間<br>
+したがって処理待ち時間＝ターンアラウンドタイム－CPU時間－入出力時間<br>
+<br>
+<HR WIDTH=100%>
+<A HREF="14S_A_E2.htm#32">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="33">　<BR>
+<b>
+問33</b></a>
+<select name="17FA01" size="1"><option selected>解答例</option><option>ウ</option></select><br><br>
+<p>＜解説＞
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">Ｉ</td>
+            <td>A部を検査部とすると，読み書きが可能なデータベース1がA部の所属する部のデータベースであることになる。そしてこのデータベース1は，B部とC部に対して読出しだけが可能となる。</td>
+          </tr>
+          <tr>
+            <td valign="top">II</td>
+            <td>B部を検査部とすると，読み書きが可能なデータベース2がB部の所属する部のデータベースであることになる。そしてこのデータベース2は，A部，B部に対してアクセス不可となる。</td>
+          </tr>
+          <tr>
+            <td valign="top">III</td>
+            <td>C部を検査部とすると，読み書きが可能なデータベース3がC部の所属する部のデータベースであることになる。そしてこのデータベース3は，A部に対してアクセス不可となる。</td>
+          </tr>
+        </table>
+したがってアクセス制御設定（3）より，A部が検査部であることになる。<br>
+B部が技術部とすると，読み書きが可能なデータベース2がB部の所属する部のデータベースであることになるが，このデータベース2はA部とC部に対してアクセス不可となり，アクセス制御設定(2)と適合しなくなる。<br>
+C部が技術部とすると，読み書きが可能なデータベース3がC部の所属する部のデータベースであることになるが，このデータベース3はA部に対してアクセス不可となり，B部に対して読出しだけが可能となる。したがってアクセス制御設定(2)より，C部が技術部，B部が開発部に該当することになる。<br>
+<A NAME="33"><BR></a>
+<HR WIDTH=100%>
+<A HREF="14S_A_E2.htm#33">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="34">　<BR>
+<b>
+問34</b></a>
+<select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select><br><br>
+＜解説＞API(Aplication Programing Interface)は，様々なアプリケーションソフトで共通に使われるような汎用的な機能をそれぞれ部品プログラムにして集めたものです。これらはOSに用意された機能で，アプリケーションソフトからこれらの機能を呼出して利用できます。またアプリケーションを開発する場合も，これらのAPIの呼出しを組合わせて作成します。<br>
+
+<A NAME="34"><BR></a>
+<HR WIDTH=100%>
+<A HREF="14S_A_E2.htm#34">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="35">　<BR>
+<b>
+問35</b></a>
+<select name="17FA01" size="1"><option selected>解答例</option><option>ア</option></select><br><br>
+＜解説＞区分編成ファイルは複数のメンバという順編成ファイルからなり，登録簿でメンバ名を検索してメンバに直接アクセスし，メンバ内は順次アクセスする。区分編成ファイルはプログラムライブラリとして利用される。<br>
+<br>
+<HR WIDTH=100%>
+<A HREF="14S_A_E2.htm#35">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="36">　<BR>
+<b>
+問36</b></a>
+<select name="17FA01" size="1"><option selected>解答例</option><option>ウ</option></select><br><br>
+＜解説＞同じシステムを予備系として並行稼動しておき，障害発生時に予備系に切り替える方式をホットスタンバイという。コールドスタンバイは，障害発生後に待機系を起動して切替える方式。デュアルシステムは，装置を二重化し2台の処理装置が同じ処理を行い，障害時に故障した装置を切り離す方式。マルチプロセッサ方式は，複数の処理装置が主記憶を共用し，処理装置を多重化することで処理効率を上げる方式。<br>
+<A NAME="36"><BR></a>
+<HR WIDTH=100%>
+<A HREF="14S_A_E2.htm#36">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="37">　<BR>
+<b>
+問37</b></a>
+<select name="17FA01" size="1"><option selected>解答例</option><option>エ</option></select><br><br>
+＜解説＞SPECintは，SPEC（Standard Performance Evaluation Corporation）が規定する性能評価指標で，整数演算を実行させてスループットを測定するベンチマークテスト。<br>
+アはMFLOPS（Million Floatingpoint Operations Per second）。イはギブソンミックス。ウはオンライントランザクション処理を対象としたTCPベンチマークテスト。<br>
+<br>
+<HR WIDTH=100%>
+<A HREF="14S_A_E2.htm#37">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="38">　<BR>
+<b>
+問38</b></a>
+<select name="17FA01" size="1"><option selected>解答例</option><option>エ</option></select><br><br>
+＜解説＞オペレータの介入によりシステムに遊休時間が生じるとスループットが向上するので，アは不適切。スループットは単位時間あたりの処理量を表す性能指標で，入出力速度やオーバヘッド時間などの影響を受けるので，イは不適切。多重プログラミングはCPUの遊休時間を減少させ，スループットを向上させるので，ウは不適切。<br>
+<br>
+<HR WIDTH=100%>
+<A HREF="14S_A_E2.htm#38">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="39">　<BR>
+<b>
+問39</b></a>
+<select name="17FA01" size="1"><option selected>解答例</option><option>ウ</option></select><br><br>
+＜解説＞東京～福岡間の稼働率＝1－(1－0.9)(1－0.9×0.9)＝1－0.1×0.19＝1－0.019＝0.981<br>
+<A NAME="39"><BR></a>
+<HR WIDTH=100%>
+<A HREF="14S_A_E2.htm#39">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="40">　<BR>
+<b>
+問40</b></a>
+<select name="17FA01" size="1"><option selected>解答例</option><option>ア</option></select><br><br>
+＜解説＞メールが受信者に届くまでの間にいくつものメールサーバを経由し，暗号化などの対策を施さないと，メールサーバの管理者などで悪意があれば途中で読まれる可能性があり，イ，ウ，エは誤り。<br>
+<br>
+<HR WIDTH=100%>
+<a HREF="14S_A_E2.htm#40">問題へ</a>
+<HR WIDTH=100%>
+　<BR>
+<A HREF="index.htm">メニューへ戻る</A><BR>
+　<BR>
+<HR WIDTH=100%>
+<ADDRESS>
+<BR>
+</ADDRESS>
+</BLOCKQUOTE>
+</BODY>
+</HTML>

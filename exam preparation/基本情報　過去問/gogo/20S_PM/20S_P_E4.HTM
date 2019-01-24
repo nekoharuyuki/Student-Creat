@@ -1,0 +1,287 @@
+<html>
+
+<head>
+<title>平成20年度 春期 基本情報技術者試験 午後 問題</title>
+<style type="text/css">
+body{line-height:150%;}
+code{font-size:12pt;}
+</style>
+</head>
+
+<body>
+
+<blockquote>
+	<hr>
+	<h3 align="center">平成20年度春期試験　問題(問10～問13)</h3>
+	<hr>
+	<div align="center">
+		<table borderColor="#000000" cellSpacing="0" cellPadding="4" border="1">
+			<tr>
+				<td>　次の<strong>問10</strong>から<strong>問13</strong>までの4問については、この中から1問を選択し、答案用紙の選択欄の（選）をマークして解答してください。<br>
+				　なお、2問以上選択した場合には、はじめの1問について採点します。</td>
+			</tr>
+		</table>
+	</div>
+	<hr>
+	<p><strong><a name="100">問10</a></strong>　次のCプログラムの説明及びプログラムを読んで，設問に答えよ。</p>
+	<p>〔プログラムの説明〕</p>
+	<p>（1）正の有限小数又は循環小数を既約分数（分子と分母がともに整数で共通の約数をもたない分数）に変換するプログラムである。</p>
+	<p>
+	（2）有限小数とは，小数点以下のけた数が有限けたである小数をいう。一方，循環小数とは，小数部の特定の位置以降は，同じ数字列が無限に繰り返される小数をいう。<br>
+	　例えば，<img border="0" src="img/20spmq31.png" align="middle" width="30" height="45">は0.2142857142857…と表記され，142857が繰り返されるので循環小数である。この小数部における繰返しの部分を循環節と呼ぶ。</p>
+	<p>（3）プログラムでは，循環節を除く小数部のけた数が<em>n</em>，循環節のけた数が<em>k</em> の場合，その小数を10<sup>（<em>n</em>＋<em>k</em>）</sup>倍したものから10<sup><em>n</em></sup>倍したものを引くと，整数となることを用いて既約分数への変換を行う。 
+	<br>
+	　<img border="0" src="img/20spmq31.png" align="middle" width="30" height="45">の小数表記を図に示す。</p>
+	<p><img border="0" src="img/20spmq32.png" width="325" height="151"></p>
+	<p>　この場合，<em>n</em>＝1，<em>k</em>＝6なので，10<sup>（1＋6）</sup><em>X</em>－10<sup>1</sup><em>X</em> 
+	を計算すると次のとおりになる。</p>
+	<p><img border="0" src="img/20spmq33.png" width="310" height="74"></p>
+	<p>　　したがって，<em>X</em>＝<img border="0" src="img/20spmq34.png" align="middle" width="68" height="48">となる。さらに，分子と分母の最大公約数で約分すると，既約分数である<em>X</em>＝<img border="0" src="img/20spmq31.png" align="middle" width="30" height="45">を得る。</p>
+	<p>（4）プログラムヘの入力では，循環節は“<code>{</code>”と“<code>}</code>”で囲んで表す。例えば，0.2142857142857…は<code>0.2{142857}</code>と入力する。</p>
+	<p>（5）プログラムヘは，整数（小数点を含まない）を入力することもできる。</p>
+	<p>（6）プログラムの実行例を表に示す。</p>
+	<p><img border="0" src="img/20spmq35.png" width="260" height="209"></p>
+	<p>（7）プログラム中で定義されている関数の仕様は，次のとおりである。<br>
+	<code>void tofraction(char *str);</code><br>
+	引数：整数，有限小数，循環小数のいずれかを表現した文字列<code>str<br>
+	</code>機能：<code>str</code>を既約分数に変換して表示する。<code>str</code>に含まれる数字は9個以下とする。また，誤った文字列が与えられることはない。</p>
+	<p>（8）次の関数があらかじめ定義されているものとする。<br>
+	①　<code>long gcd(long a, long b);</code><br>
+	引数：自然数<code>a</code>，<code>b</code><br>
+	返却値：<code>a</code>と<code>b</code>の最大公約数<br>
+	②　<code>long power10(int num);</code><br>
+	引数：0～9の整数<code>num</code><br>
+	返却値：10の<code>num</code>乗</p>
+	<p>（9）次のライブラリ関数を用いる。<code><br>
+	int isdigit(int c);<br>
+	</code>返却値：文字<code>c</code>が10進数字であれば0以外，そうでなければ0</p>
+	<p>〔プログラム〕</p>
+	<p><img border="0" src="img/20spmq36.png" width="565" height="877"></p>
+	<hr>
+	<p><strong><a name="101">設問</a></strong>　プログラム中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+	<p>aに関する解答群<br>
+	ア　<code>*str != '\0'</code><br>
+	イ　<code>*str != '0'<br>
+	</code>ウ　<code>str != '\0'<br>
+	</code>エ　<code>str != '0'</code> </p>
+	<p>bに関する解答群<br>
+	ア　<code>*= 10</code><br>
+	イ　<code>+= 10<br>
+	</code>ウ　<code>/= 10<br>
+	</code>エ　<code>-= 10</code><br>
+	オ　<code>%= 10</code></p>
+	<p>cに関する解答群<br>
+	ア　<code>(*str)++</code><br>
+	イ　<code>(*str)--</code><br>
+	ウ　<code>str++<br>
+	</code>エ　<code>str--</code></p>
+	<p>dに関する解答群<br>
+	ア　<code>!= 0</code><br>
+	イ　<code>!= 1</code><br>
+	ウ　<code>!= 2<br>
+	</code>エ　<code>== 0</code><br>
+	オ　<code>== 1<br>
+	</code>カ　<code>== 2</code> </p>
+	<p>eに関する解答群<br>
+	ア　<code>power10(k)</code><br>
+	イ　<code>power10(n) * power10(k)</code><br>
+	ウ　<code>(power10(n) - 1) * power10(k)<br>
+	</code>エ　<code>power10(n) * (power10(k) - 1)</code> </p>
+	<p>fに関する解答群<br>
+	ア　<code>denominator / power10(n)</code><br>
+	イ　<code>denominator / power10(k)<br>
+	</code>ウ　<code>numerator / power10(n)<br>
+	</code>エ　<code>numerator / power10(k)</code> </p>
+	<hr>
+	<p><a href="20S_P_A4.HTM#101">設問の正解例と解説へ</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a></p>
+	<hr>
+	<p><strong><a name="110">問11</a></strong> 
+	　次のCOBOLプログラムの説明及びプログラムを読んで，設問1，2に答えよ。</p>
+	<p>〔プログラムの説明〕</p>
+	<p>
+	　比例代表選挙において，得票ファイルを入力し，ドント式で各政党の当選者数を決定して，政党別獲得議席数リストを出力するプログラムである。ドント式とは，各政党の得票数を整数1，2，3，…で割ってゆき，その商の大きい順に議席定数に達するまで議席を各政党に配分する方式である。議席定数15名の場合の例を表1に示す。</p>
+	<p><img border="0" src="img/20spmq37.png" width="412" height="384"></p>
+	<p>（1）得票ファイル<code>VOTE-F</code>は順ファイルで，レコード様式は図1のとおりである。</p>
+	<p><img border="0" src="img/20spmq38.png" width="530" height="79"></p>
+	<p>①　政党数は最大50とする。<br>
+	②　得票ファイルのデータに誤りはないものとする。</p>
+	<p>（2）議席定数は，このプログラムへのパラメタとして渡され，数字3けたで値は1以上とする。</p>
+	<p>（3）政党別獲得議席数リストファイル<code>PRINT-F</code>の印字様式は，図2のとおりである。</p>
+	<p><img border="0" src="img/20spmq39.png" width="491" height="136"></p>
+	<p>①　政党別獲得議席数リストの見出しは印刷済とする。<br>
+	②　獲得議席数の多い順に印字する。</p>
+	<p>〔プログラム〕</p>
+	<p><img border="0" src="img/20spmq40.png" width="642" height="1621"></p>
+	<hr>
+	<p><strong><a name="111">設問1</a></strong>　プログラム中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+	<p>aに関する解答群<br>
+	ア　<code>ASCENDING KEY S-PARTY-NAME<br>
+	</code>イ　<code>ASCENDING KEY S-VPOINT</code><br>
+	ウ　<code>DESCENDING KEY S-PARTY-NAME</code><br>
+	エ　<code>DESCENDING KEY S-VPOINT</code></p>
+	<p>bに関する解答群<br>
+	ア　<code>UNTIL EOF-SW = 1</code><br>
+	イ　<code>UNTIL SEAT-CNT &gt;= NUM-SEATS</code><br>
+	ウ　<code>UNTIL SEAT-CNT &gt; NUM-SEATS OR EOF-SW = 1</code><br>
+	エ　<code>UNTIL SEAT-CNT &lt;= NUM-SEATS</code></p>
+	<p>c，dに関する解答群<br>
+	ア　<code>ADD 1 TO R-SEATS(R-CNT)</code><br>
+	イ　<code>ADD 1 TO R-SEATS(WK-I)</code><br>
+	ウ　<code>MOVE 1 TO R-SEATS(R-CNT)</code><br>
+	エ　<code>MOVE 1 TO R-SEATS(WK-I + 1)<br>
+	</code>オ　<code>MOVE 1 TO R-SEATS(WK-I - 1)</code></p>
+	<hr>
+	<p><a href="20S_P_A4.HTM#111">設問1の正解例と解説へ</a></p>
+	<hr>
+	<p><strong><a name="112">設問2</a></strong>　この方式では，最終当選順位と次点以降の順位の商が等しい場合が起こりうる。また，最終当選順位の前にも等しい商での当選が並んでいる可能性がある。</p>
+	<p>　このため，最終当選順位と次点の順位の商が同じ場合は，次のメッセージ“<em>m</em><code>-WAY TIE FOR </code>
+	<em>n</em><code>-th PLACE</code>”（第<em>n</em>位から<em>m</em>名が同点である）を表示するようにプログラムを変更する。次の表2中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+	<p><img border="0" src="img/20spmq41.png" width="657" height="851"></p>
+	<p>解答群<br>
+	ア　行番号34と35の間<br>
+	イ　行番号50と51の間<br>
+	ウ　行番号52と53の間<br>
+	エ　行番号56と57の間<br>
+	オ　行番号58と59の間</p>
+	<hr>
+	<p><a href="20S_P_A4.HTM#112">設問2の正解例と解説へ</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a></p>
+	<hr>
+	<p><strong><a name="120">問12</a></strong> 
+	　次のJavaプログラムの説明及びプログラムを読んで，設問1，2に答えよ。</p>
+	<p>〔プログラムの説明〕</p>
+	<p>　キーとそのキーに関連付けられた値をある形式に従って出力するプログラムである。</p>
+	<p>
+	　　プログラム1-1は，与えられた二つの文字列をキー及びそのキーに関連付けられた値として“キー＝値”の形式（以下，プロパティ形式という）で出力する。クラス<code>ToProperties</code>のメソッド<code>write</code>の引数<code>key</code>はキー，引数<code>value</code>は値である。キー及び値は英数字からなる文字列である。</p>
+	<p>　プログラム1-2は，クラス<code>ToProperties</code>のテストプログラムである。メソッド<code>main</code>を実行すると，図1に示す結果が得られる。</p>
+	<p><img border="0" src="img/20spmq42.png" width="401" height="87"></p>
+	<p>　このプロパティ形式に加えて，“<code>&lt;</code>”と“<code>&gt;</code>”で囲まれたタグを使用する形式（以下，タグ形式という）で出力できるようにする。タグ形式では，キーと値の組を図2に示す形式で表し，その組をエントリという。</p>
+	<p><img border="0" src="img/20spmq43.png" width="349" height="79"></p>
+	<p>　エントリの並びを，タグ<code>&lt;data&gt;</code>及び<code>&lt;/data&gt;</code>で囲んで出力する。</p>
+	<p>　これを実現するために，次のプログラムを新たに作成し，プログラム1-1に変更を加えた。</p>
+	<p>（1）プログラム2-1は，プロパティ形式とタグ形式の出力を統一して扱うインタフェース<code>KeyValueWriter</code>を定義する。メソッド<code>initialize</code>は，必要な前処理を行い，メソッド<code>write</code>は，引数で与えられたキ一と値を出力し，メソッド<code>complete</code>は，後処理を行う。出力形式は，これらのメソッドの実装で決まる。</p>
+	<p>（2）プログラム2-2は，インタフェース<code>KeyValueWriter</code>を実装するクラス<code>ToTags</code>である。</p>
+	<p>（3）プログラム2-3は，インタフェース<code>KeyValueWriter</code>で定義されている全メソッドの省略時の実装を与えるクラス<code>KeyValueWriterAdapter</code>である。各メソッドの実装は，必ず空である。</p>
+	<p>（4）プログラム2-4は，プログラム1-1をクラス<code>KeyValueWriterAdapter</code>に適用できるように変更したものである。</p>
+	<p>（5）プログラム2-5は，変更されたクラス<code>ToProperties</code>及びクラス<code>ToTags</code>の出力を検査するテストプログラムである。</p>
+	<p>　全プログラムの変更後，プログラム2-5のメソッド<code>main</code>を実行すると，図3に示す実行結果が得られる。</p>
+	<p><img border="0" src="img/20spmq44.png" width="590" height="205"></p>
+	<p><img border="0" src="img/20spmq45.png" width="532" height="974"></p>
+	<p><img border="0" src="img/20spmq46.png" width="605" height="523"></p>
+	<hr>
+	<p><strong><a name="121">設問1</a></strong>　プログラム中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+	<p>aに関する解答群<br>
+	ア　<code>K key, V value<br>
+	</code>イ　<code>Object key, Object value</code><br>
+	ウ　<code>String key, String value<br>
+	</code>エ　<code>String[] key, String[] value</code></p>
+	<p>bに関する解答群<br>
+	ア　<code>abstract class ToProperties extends KeyValueWriterAdapter<br>
+	</code>イ　<code>class ToProperties extends KeyValueWriterAdapter<br>
+	</code>ウ　<code>class ToProperties extends ToTags<br>
+	</code>エ　<code>class ToProperties implements KeyValueWriter</code><br>
+	オ　<code>class ToProperties implements ToTags</code></p>
+	<p>cに関する解答群<br>
+	ア　<code>KeyValueWriter<br>
+	</code>イ　<code>KeyValueWriterAdapter<br>
+	</code>ウ　<code>Test2<br>
+	</code>エ　<code>ToProperties<br>
+	</code>オ　<code>ToTags</code></p>
+	<p>dに関する解答群<br>
+	ア　<code>pair[0], pair[1]<br>
+	</code>イ　<code>pair[1], pair[0]<br>
+	</code>ウ　<code>pair[i], pair[i + 1]<br>
+	</code>エ　<code>pairs[][0], pairs[][1]<br>
+	</code>オ　<code>pairs[][1], pairs[][0]</code></p>
+	<hr>
+	<p><a href="20S_P_A4.HTM#121">設問1の正解例と解説へ</a></p>
+	<hr>
+	<p><strong><a name="122">設問2</a></strong>　プログラムを更に拡張して，与えられた文字列をコメントとして出力できるようにする。すなわち，プロパティ形式では与えられた文字列の先頭に“<code>#</code>”を付加して出力し，タグ形式では与えられた文字列を“<code><!-- </code>”及び“<code> --></code>”で囲んで出力する。例えば，与えられた文字列が“<code>This 
+	is a comment.</code>”のとき，プロパティ形式では図4のとおりに，タグ形式では図5のとおりに出力する。ただし，コメントとして与えられた文字列は，改行文字及び文字列“<code>--</code>”を含まないものとする。</p>
+	<p><img border="0" src="img/20spmq47.png" width="351" height="182"></p>
+	<p>
+	　この拡張のために，次の表に示す各コードをプログラムに追加した。各コードの追加先のプログラムとして，表中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+	<p><img border="0" src="img/20spmq48.png" width="599" height="258"></p>
+	<p>解答群<br>
+	ア　プログラム2-1<br>
+	イ　プログラム2-2<br>
+	ウ　プログラム2-3<br>
+	エ　プログラム2-4</p>
+	<hr>
+	<p><a href="20S_P_A4.HTM#122">設問2の正解例と解説へ</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a></p>
+	<hr>
+	<p><strong><a name="130">問13</a></strong> 
+	　次のアセンブラプログラムの説明及びプログラムを読んで，設問に答えよ。</p>
+	<p>〔プログラムの説明〕</p>
+	<p>（1）プログラム<code>MAIN</code>は，入力ファイル中の1～3けたの数字列からなるレコードを入力し，入力した数字列を10進数値とみなしたときの最大値，最小値及び平均値を10進数の数字列で出力する。入力ファイルの例を図1に，このときの出力の例を図2に示す。</p>
+	<p><img border="0" src="img/20spmq49.png" width="204" height="347"></p>
+	<p>①　0≦入力レコードの数値≦100とする。<br>
+	②　1≦レコード数≦100とする。<br>
+	③　平均値は小数点以下を切り捨てる。</p>
+	<p>（2）プログラム<code>MAIN</code>は，三つの副プログラム<code>INPUT</code>，<code>DIVIDE</code>及び<code>PRINT</code>を使用する。</p>
+	<p>（3）副プログラム<code>INPUT</code>は，入力ファイルからレコードを入力する。<br>
+	①　入力したレコードの数字列を2進数に変換し，<code>GR0</code>に設定して，主プログラムに戻る。<br>
+	②　ファイルの終わりを検出した場合は，<code>GR0</code>に－1を設定して，主プログラムに戻る。<br>
+	③　副プログラムから戻るとき，汎用レジスタ<code>GR1</code>～<code>GR7</code>の内容は元に戻す。</p>
+	<p>（4）副プログラム<code>DIVIDE</code>は，除算を行う。<br>
+	①　被除数は<code>GR2</code>に，除数は<code>GR1</code>に設定されて，主プログラムから渡される。<br>
+	　　<code>GR1</code>＞0，<code>GR2</code>≧0とする。<br>
+	②　商を<code>GR3</code>に，剰余を<code>GR2</code>に設定して，主プログラムに戻る。<br>
+	③　副プログラムは，<code>GR2</code>，<code>GR3</code>以外の汎用レジスタの内容は変更しない。</p>
+	<p>（5）副プログラム<code>PRINT</code>は，2進数<em>n</em>を3けたの10進数の数字列に変換して出力する。<br>
+	①　<em>n</em>は<code>GR1</code>に設定されて，主プログラムから渡される。<br>
+	②　出力する数字列は右詰めにし，全体で3文字になるように左端から空白文字を補う。<br>
+	③　副プログラムから戻るとき，汎用レジスタ<code>GR1</code>～<code>GR7</code>の内容は元に戻す。</p>
+	<p><img border="0" src="img/20spmq50.png" width="481" height="1073"></p>
+	<p><img border="0" src="img/20spmq51.png" width="568" height="666"></p>
+	<hr>
+	<p><strong><a name="131">設問</a></strong>　プログラム中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+	<p>aに関する解答群<br>
+	ア　<code>LD GR1,GR0</code><br>
+	イ　<code>LD GR1,GR2</code><br>
+	ウ　<code>LD GR1,GR3</code><br>
+	エ　<code>LD GR2,GR0</code><br>
+	オ　<code>LD GR2,GR1</code><br>
+	カ　<code>LD GR2,GR3</code></p>
+	<p>bに関する解答群<br>
+	ア　<code>SLL GR5,1<br>
+	</code>イ　<code>SLL GR5,2<br>
+	</code>ウ　<code>SLL GR5,3<br>
+	</code>エ　<code>SRL GR5,1</code><br>
+	オ　<code>SRL GR5,2</code><br>
+	カ　<code>SRL GR5,3</code></p>
+	<p>cに関する解答群<br>
+	ア　<code>JMI FIN2<br>
+	</code>イ　<code>JMI LOOP2<br>
+	</code>ウ　<code>JPL FIN2<br>
+	</code>エ　<code>JPL LOOP2</code><br>
+	オ　<code>JZE FIN2</code><br>
+	カ　<code>JZE LOOP2</code></p>
+	<p>dに関する解答群<br>
+	ア　<code>JMI FIN3</code><br>
+	イ　<code>JNZ FIN3</code><br>
+	ウ　<code>JPL FIN3</code><br>
+	エ　<code>JZE FIN3</code></p>
+	<p>e，fに関する解答群<br>
+	ア　<code>JMI FIN4<br>
+	</code>イ　<code>JMI LOOP4<br>
+	</code>ウ　<code>JNZ FIN4<br>
+	</code>エ　<code>JNZ LOOP4<br>
+	</code>オ　<code>JPL FIN4<br>
+	</code>カ　<code>JZE LOOP4</code></p>
+	<hr>
+	<p><a href="20S_P_A4.HTM#131">設問の正解例と解説へ</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a></p>
+	<hr>
+	<p>　</p>
+</blockquote>
+
+</body>
+
+</html>

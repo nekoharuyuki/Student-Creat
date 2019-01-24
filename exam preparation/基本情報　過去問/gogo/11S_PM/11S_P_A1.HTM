@@ -1,0 +1,167 @@
+<HTML>
+<HEAD>
+<TITLE>平成11年度春期試験　(問1～2)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0">
+<blockquote>
+  <hr>
+  <H3 align="center">平成年11度春期試験　正解例と解説(問1～問2)</H3>
+<basefont size="3">
+<hr>
+<p><a NAME="10"><b>問1</b></a></p>
+<HR WIDTH=100%>
+<A NAME="11">
+<b>
+設問1</b></a><b>　<br>
+</b>＜解答＞ａ　ア　　　　ｂ　オ　　　　ｃ　エ
+<p>＜解説＞</p>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">
+(1)</td>
+    <td>最上位の桁より順に配列A[1]、A[2]、・・・に格納されるので、A[1]には符号または数字が格納されていることになる。これが最初の判定で行われている。<br>
+      　“－"の場合は、符号フラグSIGNに－１がセットされる。<br>
+      　“＋”の場合は、符号フラグSIGNは初期値の１がセットされる。</td>
+  </tr>
+  <tr>
+    <td valign="top">
+(2)</td>
+    <td>次の文字位置LPと文字長ALとの比較の判定は、数字が格納されていない場合の終了判定である。つまり文字配列Aが次の場合、変換できないので終了する。
+      <table border="0" cellpadding="3" cellspacing="0">
+        <tr>
+          <td valign="top">1)</td>
+          <td>文字長AL＝0で、何も格納されてない場合</td>
+        </tr>
+        <tr>
+          <td valign="top">2)</td>
+          <td>文字長AL＝1で、"＋"または"－"の符号1文字だけが格納されている場合
+            <p><img border="0" src="image/A11s01f1.gif" width="472" height="74"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">
+(3)</td>
+    <td>整数への変換ループ
+      <table border="0" cellpadding="3" cellspacing="0">
+        <tr>
+          <td valign="top">①</td>
+          <td>10進数の文字配列Aに格納されているA[LP]の内容が数字コードの"0"から"9"の範囲にあるかをチェックしている。</td>
+        </tr>
+        <tr>
+          <td valign="top">②</td>
+          <td>10進数の文字配列Aに格納されている数字A[LP]を、上位桁より１文字ずつ取り出して整数に変換。</td>
+        </tr>
+        <tr>
+          <td valign="top">③</td>
+          <td>位取りを考慮して、10進数の数値に変換する処理である。<br>
+            　　空欄ａは各位の数字を上位桁より10進数の各位の桁としてDECに加算している処理に該当する。つまりアのDEC×10＋INT→DECが正解。</td>
+        </tr>
+        <tr>
+          <td valign="top">④</td>
+          <td>最終的に10進数の数値が DECに格納される。</td>  
+        </tr>  
+      </table>  
+      <p><img border="0" src="image/A11s01f2.gif" width="504" height="252"></td> 
+  </tr> 
+  <tr> 
+    <td valign="top">(4)</td> 
+    <td>DECに格納された10進数の数値に対して、BASEを基数とする数字列に変換するループ 
+      <table border="0" cellpadding="3" cellspacing="0"> 
+        <tr> 
+          <td valign="top">①</td> 
+          <td>10進数値DECを基数BASEで割った剰余を求めて、基数変換されたBASE進数の下位桁より順に算出している。</td> 
+        </tr> 
+        <tr> 
+          <td valign="top">②</td> 
+          <td>空欄ｂは、DECを基数BASEで割ったときの商を求める処理に該当する。<br> 
+            つまりオのDEC÷BASE→DECが正解。</td> 
+        </tr> 
+      </table> 
+    </td> 
+  </tr> 
+  <tr> 
+    <td valign="top">(5)</td> 
+    <td>SIGN=－１の場合は、負数の場合の符号を格納する配列要素の確保である。</td> 
+  </tr> 
+  <tr> 
+    <td valign="top"> 
+(6)</td> 
+    <td>最後の文字列の反転ループで、配列Bの要素を逆順に並べ替えている。<br> 
+      　空欄ｃはその終了条件で、エのLC≧UIが正解となる。<br>
+      　　先ずB[1]とB[BL]を交換<br>
+      　　　 B[2]とB[BL－1]を交換<br>   
+      　　　　　　　・<br>
+      　　　　　　　・<br>
+      　　　　　　　・<br>
+      　　　　　　　LI＋1 → LI　　　　　　　　　　UI－1 → UI</td>  
+  </tr>  
+</table>  
+<p>※ BLが奇数の場合はLI＝UIとなり終了し、BLが偶数の場合はLI＞UIとなって終了する。<br>  
+　</p>
+
+
+<HR WIDTH=100%>
+
+<A HREF="11s_p_e1.htm#11">問題へ</A>
+<HR WIDTH=100%>
+<a NAME="20">　<br>
+<b>問2</b></a><b>　</b>
+<hr>
+<p>
+<b><a name="21">設問1</a></b>　
+</p>
+<p>＜解答＞　　　イ
+</p>
+<p>＜解説＞<br>
+A(x,y)：A(y,x)の比較処理が行われる回数は<br>
+x＝1に対して　　A(1,y)：A(y,1)の比較が　y＝2,・・・・,N　　の（N－1）回<br>
+x＝2に対して　　A(2,y)：A(y,2)の比較が　y＝　3,・・・,N　　の（N－2）回<br>
+　　　　　・　　　　　　　　　　　　　　・<br>
+　　　　　・　　　　　　　　　　　　　　・<br>
+x＝N－1に対して A(N－1,y)：A(y,N－1)の比較が　　y＝N　　の　　　1回<br>
+合計で　(N－1)＋(N－2)＋・・・・＋1＝N(N－1)／2<br>
+</p>
+<HR WIDTH=100%>
+<a HREF="11s_p_e1.htm#21">問題へ</a>
+<HR WIDTH=100%>
+
+<p><b><a name="22">設問2</a></b></p>
+
+<p>＜解答＞　(1)　イ　　　(2)　エ</p>
+
+<p>
+＜解説＞</p>
+
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">(1)</td>
+    <td>N＝4の場合、4行4列の配列となる。<br>
+      　yesが出力されるためには、A(x,y)＝A(y,x)となる必要がある。つまりx＝1に対して先ず　A(1,y)＝A(y,1)　y＝2,3,4　でなければならない。<br>
+      　従って解答群で該当するものはイである。</td>
+  </tr>
+  <tr>
+    <td valign="top">
+ (2)</td>
+    <td>比較処理αの条件が　A(x,N－y＋1)：A(y,N－x＋1)に変更された場合は、先ずx＝1に対して　A(1,4－y＋1)＝A(y,4－1＋1)　→　A(1,5－y)＝A(y,4)　y＝2,3,4<br>
+      つまり　　A(1,3)＝A(2,4)<br>
+      　　　　　　A(1,2)＝A(3,4)でなければならない。<br>
+      　　　　　　A(1,1)＝A(4,4)　　<br>
+      従って該当するのはエである。<img border="0" src="image/A11s02f1.gif" width="74" height="72"></td>
+  </tr>
+</table>
+
+<p>　</p>
+
+<hr>
+<p><a HREF="11s_p_e1.htm#22">問題へ</a></p>
+<hr>
+<p>
+<A HREF="index.htm">メニューへ戻る</A>
+</p>
+<HR WIDTH=100%>
+<p>　</p>
+  </blockquote>
+</BODY>
+</HTML>

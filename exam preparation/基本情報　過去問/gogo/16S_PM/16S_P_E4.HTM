@@ -1,0 +1,737 @@
+<HTML>
+<HEAD>
+<TITLE>平成16年度春期試験　問題(午後問10～問13)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0">
+<blockquote>
+  <hr>
+  <H3 align="center">平成16年度春期試験　問題(問10～問13)</H3>
+<hr>
+<P>次の問10から問13までの4問については、この中から1問を選択し、答案用紙の選択欄の             
+選 をマークして解答してください。なお、2問以上選択した場合には、はじめの1問について採点します。<br>            
+<hr>         
+<b><a name="100">問10</a>　</b>次のCプログラムの説明及びプログラムを読んで，設問1，2に答えよ。<br>
+<br>
+〔プログラム1の説明〕<br>
+C言語の仕様で記述された空でないソースプログラムを標準入力から読み込んで，注釈を除去して標準出力へ出力するプログラムである。<br>
+<br>
+（1）ソースプログラムの表記に関する説明<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">①</td>
+            <td>　このプログラムで扱う注釈は，文字定数，文字列リテラル又は注釈の中を除いて，“/*”で始まり“*/”で終わる文字の列である。</td>
+          </tr>
+          <tr>
+            <td valign="top">②</td>
+            <td>　使用可能文字の種類は，JIS X 0201（7ビット及び8ビットの情報交換用符号化文字集合）である。ただし，“\”は，“<img border="0" src="image/Back.JPG">”と表記する。</td>
+          </tr>
+          <tr>
+            <td valign="top">③</td>
+            <td>　次のような記述はない。<br>
+（i）注釈の入れ子記述<br>
+　　例/*   aaaaa   /*   bbbbbb   */   ccccc   */<br>
+（ii）図形文字の3文字表記<br>
+　　??= ??(  ??/  ??’  ??<  ??>  ??)  ??!  ??-</td>
+          </tr>
+          <tr>
+            <td valign="top">④</td>
+            <td>　文法上の誤りはない。</td>
+          </tr>
+        </table>
+<br>
+（2）プログラム1では，次の手順で注釈除去を行っている。ただし，文字定数，文字列リテラル及び注釈の解析を単純に処理しているので，ソースプログラムの記述によっては，これらを正しく認識できずに誤った動作を起こす場合がある。<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">①</td>
+            <td>　一重引用符又は二重引用符を検出すると，文字定数又は文字列リテラルの開始と解釈し，関数quoteを使用して，対応する一重引用符又は二重引用符を検出するまで，文字の列を読み込んでそのまま出力する。</td>
+          </tr>
+          <tr>
+            <td valign="top">②</td>
+            <td>　“/*”を検出すると，注釈の開始と解釈し，最初に現れる“*/”までの文字の列を読み飛ばす。</td>
+          </tr>
+        </table>
+（3）プログラム1による注釈除去の実行例を図に示す。<br>
+<br>
+<img border="0" src="image/P_10_1.gif" width="550" height="330"><br>
+<br>
+<img border="0" src="image/P_10_2.gif" width="550" height="330"><br>
+<br>
+<br>
+〔プログラム1〕<br><pre>
+#include &lt;stdio.h&gt;
+void quote( char );
+
+main( )
+{
+  int c1, c2;
+
+  while ( (c1 =getchar( )) ! = EOF ) {
+    /* 一重引用符の検出 */
+    if ( c1 == '<img border="0" src="image/Back.JPG">’' ) quote( '<img border="0" src="image/Back.JPG">’’ );
+    /*  二重引用符の検出  */
+    else if ( c1== '<img border="0" src="image/Back.JPG">"’ ) quote( '<img border="0" src="image/Back.JPG">"’ );
+    /*  斜線の検出       */
+    elseif ( c1== '/' ) {
+       c2 = getchar( );
+       /*  次の文字がアステリスクのとき     */
+       if ( c2 == '*’ ) {
+         /*  注釈文字列の除去              */
+         while ( 1 ) {
+           while ( (c1 = getchar( )) != '*' );
+           c2 = getchar();
+           if ( c2 == '/' ) break;
+         }
+       }
+       /* その他の場合 */
+       else {
+           putchar( c1) ;
+           putchar( c2) ;
+       }
+    }
+    else putchar(c1); /* 読み込んだ1文字をそのまま出力  */
+  }
+}
+
+void quote ( char c )
+{   /* 文字定数及び文字列リテラルの抽出   */
+    char cc;
+
+    putchar (c);
+    while (  ( cc = getchar( )) != c ) putchar(cc);
+    putchar (cc);
+}</pre>
+<br>
+<hr> 
+<p><b><a name="101">設問1</a>　</b>プログラム1に入力すると誤った動作を起こす記述を，解答群の中から選べ。</p> 
+<br>
+解答群<br>
+<br>
+ア　/*  “aaaaaaa”  */<br>
+イ　/*  aaa   ‘a’   */<br>
+ウ　if  ( c == ‘<img border="0" src="image/Back.JPG">’‘ ) {<br>
+エ　print ( “ <img border="0" src="image/Back.JPG">’       “ );<br>
+オ　print (  “aaa  /*  comment  */  <img border="0" src="image/Back.JPG">n” );<br>
+<br> 
+<HR WIDTH=100%>  
+  <a HREF="16S_P_A4.HTM#101">設問1の正解例と解説へ</a>  
+<HR WIDTH=100%>  
+
+〔プログラム2の説明〕<br> 
+プログラム2は，プログラム1の説明（2）で指摘した問題点を解決するために，次のように書き換えたものである。<br> 
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">（1）</td>
+            <td>文字定数，文字列リテラル，注釈の三つのモードに分けて処理する。</td>
+          </tr>
+          <tr>
+            <td valign="top">（2）</td>
+            <td>“文字定数モード”は，一重引用符の出現によって，モードのオンとオフが切り替わる。ただし，“<img border="0" src="image/Back.JPG">”による拡張表記として記述されたもの，文字列リテラル内及び注釈内に記述されたものは該当しない。</td>
+          </tr>
+          <tr>
+            <td valign="top">（3）</td>
+            <td>“文字列リテラルモード”は，二重引用符の出現によって，モードのオンとオフが切り替わる。ただし，“<img border="0" src="image/Back.JPG">”による拡張表記として記述されたもの，文字定数内及び注釈内に記述されたものは該当しない。</td>
+          </tr>
+          <tr>
+            <td valign="top">（4）</td>
+            <td>“注釈モード”は，“/*”及び“*/”の出現によって，モードのオンとオフが切り替わる。ただし，文字定数内及び文字列リテラル内に記述されたものは該当しない。</td>
+          </tr>
+        </table>
+<br>
+〔プログラム2〕<br><pre>
+#include &lt;stdio.h&gt;
+main( )
+{
+  int c1, c2;
+  int c_mode = 0;     /* 注釈モードをオフに初期化            */
+  int quote1 = 0;      /* 文字定数モードをオフに初期化        */
+  int quote2 = 0;     /* 文字列リテラルモードをオフに初期化  */
+
+  for ( c1=getchar( ); ( c2 = getchar( ) ) ! = EOF ; c1 = c2 ) {
+
+    if ( !c_mode ) { /*  注釈モードがオフのとき                */
+        /*  文字定数又は文字列リテラルの中で文字<img border="0" src="image/Back.JPG">検出    */
+        if (［　　a　　］&& c1 == '<img border="0" src="image/Back.JPG"><img border="0" src="image/Back.JPG">' ) {
+           putchar(c1) ;
+           putchar(c2) ;
+           c2 = getchar( );
+           continue ;
+        }
+        /*  文字列リテラル以外のところで一重引用符を検出   *./
+       else if ( !quote2 && c1 == '<img border="0" src="image/Back.JPG">'' )
+         ［　　b　　］;
+       /*  文字定数以外のところで二重引用符を検出         */
+        else if ( !quote1 &&c1== ‘<img border="0" src="image/Back.JPG">"' )
+         ［　　c　　］;
+       /*文字定数及び文字列リテラル以外で/と*を検出       */
+     else if (［　　d　　］&& c1== '/' && c2 == '*') {
+         ［　　e　　］;
+          c2 = getchar( );
+          continue ;
+         }
+         putchar(c1) ;
+      }
+      else {
+         if ( c1 == '*’ && c2 == '/' ) { /*  注釈の終端か？   */
+         ［　　e　　］;
+          c2 = getchar( );
+         }
+      }
+   }
+   putchar(c1) ;
+}</pre>
+<hr>
+<p><b><a name="102">設問2</a>　</b>プログラム2中の［　　　　］に入れる正しい答えを，解答群の中から選べ。</p> 
+a，dに関する解答群<br>
+<br>
+ア　!quote1<br>
+イ　!quote2<br>
+ウ　(!quote1 | | !quote2 )<br>
+エ　(!quote1 && !quote2)<br>
+オ　(quote1 | | quote2)<br>
+カ　(quote1 && quote2)<br>
+<br>
+b，c，eに関する解答群<br>
+<br>
+ア　c_mode = !c_mode<br>
+イ　c_mode = quote1 && quote2<br>
+ウ　quote1 = !quote1<br>
+エ　quote1 = !quote2<br>
+オ　quote1 = quote2<br>
+カ　quote2 = !quote1<br>
+キ　quote2 = !quote2<br>
+ク　quote2 = quote1<br>
+<br>
+<HR WIDTH=100%>  
+  <a HREF="16S_P_A4.HTM#102">設問2の正解例と解説へ</a>  
+<HR WIDTH=100%>  
+<A HREF="INDEX.HTM">メニューへ戻る</A>
+<HR WIDTH=100%>   
+<a NAME="110">　<BR>
+<b>  
+問11</b></a>　次のCOBOLプログラムの説明及びプログラムを読んで，設問に答えよ。<BR>
+<BR>
+〔プログラムの説明〕<BR>
+社員別業務別の1か月分の作業日報ファイルを読み込み，社員別業務別の作業時間月計ファイルと社員別の超過時間月計ファイルを作成するプログラムである。<BR>
+（1）作業日報ファイルNIPPO-FILEのレコード様式は，次のとおりである。<BR>
+<BR>
+<img border="0" src="image/P_11_1.gif" width="320" height="55"><br>
+<BR>
+①　作業日種別の値は，0のときは平日出勤日を示し，1のときは休日出勤日を示す。<BR>
+②　作業時間は1時間単位とする。<BR>
+③　平日出勤日1日の作業時間の合計は8時間以上である。<BR>
+④　平日出勤日1日の作業時間のうち8時間を超えた分と，休日出勤日の作業時間を超過時間とみなす。<BR>
+⑤　各作業日の作業時間の合計は24時間以内である。<BR>
+⑥　同一社員コードのレコードに現れる業務コードは，100種類以下である。<BR>
+⑦　1人の社員が1日の間に複数の業務を行ったときは，行った業務ごとにレコードがある。<BR>
+⑧　1人の社員が連続して複数日にまたがって同一業務を行ったときは，作業日ごとにレコードがある。<BR>
+⑨　作業日報ファイルは，社員コード及び作業日の昇順に整列された順ファイルである。<BR>
+⑩　ファイルの内容は，すべて正しいものとする。<BR>
+<BR>
+（2）作業時間月計ファイルSAGYO-FILEのレコード様式は，次のとおりである。<BR>
+<BR>
+<img border="0" src="image/P_11_2.gif" width="270" height="55"><br>
+<BR>
+社員ごとに業務ごとの作業時間を集計した順ファイルである。<BR>
+<BR>
+（3）超過時間月計ファイルCHOKA-FILEのレコード様式は，次のとおりである。<BR>
+<BR>
+<img border="0" src="image/P_11_3.gif" width="200" height="55"><br>
+<BR>
+①　社員ごとに各作業日の超過時間を求め，1か月分を集計した順ファイルである。<BR>
+②　集計した超過時間が0の場合でも，超過時間月計ファイルに書き出す。<BR>
+<BR>
+（4）処理の手順は，次のとおりである。<BR>
+①　社員ごとに1日分の作業時間を求める。<BR>
+②　社員ごとに業務ごとの作業時間を集計する。<BR>
+③　社員ごとに①で求めた1日分の作業時間のうち，平日出勤日のときは8時間を超えた分を超過時間とし，休日出勤日のときはすべての作業時間を超過時間として合計する。<BR>
+④　社員ごとに②で求めた業務ごとの作業時間を，作業時間月計ファイルに書き出す。<BR>
+⑤　社員ごとに③で求めた超過時間の合計を，超過時間月計ファイルに書き出す。<BR>
+<BR>
+（5）このプログラムは未完成で，幾つかの文を挿入したり，条件式を修正したりする必要がある。<BR>
+<BR>
+<pre>
+〔プログラム〕
+（行番号）
+    1      DATA            DIVISION.
+    2      FILE            SECTION.
+    3      FD    NIPPO-FILE.
+    4      01    NIPPO-REC.
+    5            03  N-SHAIN-CODE   PIC  X(06).
+    6            03  N-SAGYO-BI     PIC  9(02).
+    7            03  N-SHUBETSU     PIC  9(01).
+    8            03  N-GYOMU-CODE   PIC  X(03).
+    9            03  N-SAGYO-JIKAN  PIC  9(02).
+   10      FD   SAGYO-FILE.
+   11      01   SAGYO-REC.
+   12            03  S-SHAIN-CODE  PIC  X(06).
+   13            03  S-GYOMU-CODE  PIC  X(03).
+   14            03  S-SAGYO-JIKAN  PIC  9(03).
+   15      FD   CHOKA-FILE.
+   16      01   CHOKA-REC.
+   17            03 C-SHAIN-CODE  PIC  X(06).
+   18            03 C-CHOKA-JIKAN  PIC  9(03).
+   19      WORKING-STORAGE   SECTION.
+   20      01   EOF                 PIC  X(01).
+   21      01   SHAIN-CODE        PIC  X(06).
+   22      01   SAGYO-BI           PIC  9(02).
+   23      01   SHUBETSU           PIC  9(01).
+   24      01   SAGYO-JIKAN-KEI  PIC  9(03).
+   25      01   GYOMU-SU          PIC  9(03).
+   26      01   GYOMU.
+   27            03   FILLER   OCCURS 100 INDEXED BY N.
+   28                 05 GYOMU-CODE   PIC  X(03).
+   29                 05 SAGYO-JIKAN  PIC  9(03).
+   30      PROCEDURE        DIVISION.
+   31      MAIN-RTN.
+   32            OPEN INPUT NIPPO-FILE
+   33                  OUTPUT CHOKA-FILE SAGYO-FILE.
+   34            MOVE SPACE TO EOF.
+   35            PERFORM READ-RTN.
+   36            PERFORM UNTIL EOF = "E"
+   37               INITIALIZE CHOKA-REC
+   38               INITIALIZE GYOMU
+   39               MOVE N-SHAIN-CODE TO SHAIN-CODE
+   40               PERFORM UNTIL EOF = "E" OR
+   41                               N-SHAIN-CODE NOT = SHAIN-CODE
+   42                  MOVE N-SAGYO-BI TO SAGYO-BI
+   43                  MOVE N-SHUBETSU TO SHUBETSU
+   44                  PERFORM UNTIL N-SAGYO-BI NOT = SAGYO-BI
+   45                     COMPUTE SAGYO-JIKAN-KEI =
+   46                               SAGYO-JIKAN-KEI + N-SAGYO-JIKAN
+   47                     PERFORM VARYING N FROM 1 BY 1
+   48                               UNTIL GYOMU-CODE(N) = N-GYOMU-CODE
+   49                        CONTINUE
+   50                     END-PERFORM
+   51                     IF N > GYOMU-SU THEN
+   52                        MOVE N-GYOMU-CODE TO GYOMU-CODE(N)
+   53                        SET GYOMU-SU TO N
+   54                     END-IF
+   55                     COMPUTE SAGYO-JIKAN(N) =
+   56                               SAGYO-JIKAN(N) + N-SAGYO-JIKAN
+   57                  END-PERFORM
+   58                  IF SHUBETSU = 0 THEN
+   59                     COMPUTE C-CHOKA-JIKAN =
+   60                               C-CHOKA-JIKAN + SAGYO-JIKAN-KEI - 8
+   61                  ELSE
+   62                     COMPUTE C-CHOKA-JIKAN =
+   63                               C-CHOKA-JIKAN + SAGYO-JIKAN-KEI
+   64                  END-IF
+   65               END-PERFORM
+   66               PERFORM WRITE-RTN
+   67            END-PERFORM.
+   68            CLOSE NIPPO-FILE CHOKA-FILE SAGYO-FILE.
+   69            STOP RUN.
+   70            READ-RTN.
+   71               READ NIPPO-FILE AT END
+   72                  MOVE "E" TO EOF
+   73               END-READ.
+   74            WRITE-RTN.
+   75               MOVE SHAIN-CODE TO C-SHAIN-CODE S-SHAIN-CODE.
+   76               PERFORM VARYING N FROM 1 BY 1
+   77                         UNTIL N = GYOMU-SU
+   78                  MOVE GYOMU-CODE(N) TO S-GYOMU-CODE
+   79                  MOVE SAGYO-JIKAN(N) TO S-SAGYO-JIKAN
+   80                  WRITE SAGYO-REC
+   81               END-PERFORM.
+   82               WRITE CHOKA-REC.
+</pre>
+<hr>  
+<a NAME="111">
+<b>  <br>
+設問</b></a><b><a NAME="111"></a>　</b>プログラムを完成させるためには，プログラム中の条件式を表1に示す三つの条件式で置き換えるとともに，表2に示す三つの文をプログラムに挿入する必要がある。表1，表2の［　　　　］に入れる置換位置及び挿入位置を，解答群の中から選べ。ただし，挿入した場合でも，プログラムの行番号は付け直さないものとする。<br>
+<br>
+<img border="0" src="image/P11_01_1.gif" width="480" height="180"><br>
+<br>
+<img border="0" src="image/P11_01_2.gif" width="480" height="180"><br>
+<br>
+a～cに関する解答群<br>
+<br>
+ア　行番号36　　　　　イ　行番号40，41　　　　　ウ　行番号44<br>
+エ　行番号48　　　　　オ　行番号51　　　　　　　カ　行番号58<br>
+キ　行番号77<br>
+<br>
+d～fに関する解答群<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td width="300">ア　行番号36と37の間</td>
+            <td>	イ　行番号41と42の間</td>
+          </tr>
+          <tr>
+            <td>	ウ　行番号44と45の間</td>
+            <td>	エ　行番号48と49の間</td>
+          </tr>
+          <tr>
+            <td>	オ　行番号49と50の間</td>
+            <td>	カ　行番号56と57の間</td>
+          </tr>
+          <tr>
+            <td>	キ　行番号64と65の間</td>
+            <td>	ク　行番号66と67の間</td>
+          </tr>
+          <tr>
+            <td>	ケ　行番号77と78の間</td>
+            <td>	コ　行番号80と81の間</td>
+          </tr>
+        </table>
+<br> 
+<HR WIDTH=100%> 
+  <a HREF="16S_P_A4.HTM#111">設問の正解例と解説へ</a> 
+
+<HR WIDTH=100%>
+<A HREF="INDEX.HTM">メニューへ戻る</A>
+<HR WIDTH=100%>
+  　<BR>
+<b><a name="120">問12</a>　</b>次のJavaプログラムの説明及びプログラムを読んで，設問に答えよ。<br>
+<br>
+〔プログラムの説明〕<br>
+インタフェースCharIteratorは，データ構造に依存せずにそのインスタンスから文字（char）を順番に取り出すための操作を定義する。CharIteratorには，次のメソッドが定義されている。<br>
+<br>
+<FONT face="Courier New">public char next()</FONT face="Courier New"><br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">　</td>
+            <td>次の文字があればそれを返し，なければjava.util.NoSuchElementExceptionを投げる。例えば，このCharIteratorインスタンスが文字をn個もっているとき，最初の呼出しで1番目の文字を返し，2回目の呼出しで2番目の文字を返し，・・・というように，n回目の呼出しまで文字を順番に返していく。n+1回目以降の呼出しでは，NoSuchElementExceptionを投げる。<br>
+なお，NoSuchElementExceptionはjava.lang.RuntimeExceptionのサブクラスである。</td>
+          </tr>
+        </table>
+<FONT face="Courier New">public boolean hasNext()</FONT face="Courier New"><br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">　</td>
+            <td>次の文字があればtrueを返し，なければfalseを返す。</td>
+          </tr>
+        </table>
+<br>
+クラスCharIteratorFactoryは，引数に指定したデータ型に一致したCharIteratorを返すメソッドを定義する。<br>
+CharIteratorFactoryには，次のクラスメソッドが定義されている。<br>
+<FONT face="Courier New">　public static CharIterator getCharIterator(String data)</FONT face="Courier New"><br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td width="30"></td>
+            <td>引数に指定したStringから文字を順番に取り出すCharIteratorを返す。引数にnullが指定されたときは，NullPointerExceptionを投げる。
+</td>
+          </tr>
+        </table>
+<FONT face="Courier New">　public static CharIterator getCharIterator(char[][] data)</FONT face="Courier New"><br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td width="30"></td>
+            <td>引数に指定したcharを要素型とする配列の配列（2次元の文字配列）から文字を順番に取り出すCharIteratorを返す。引数にnullが指定されたときは，NullPointerExceptionを投げる。文字を取り出す順序は，文字配列とその配列のそれぞれのインデックス値の小さい順とする。すなわち，char[][]型のmに対し，その要素m[i][j]をiの小さい順，同じiに対してはjの小さい順に取り出す。</td>
+          </tr>
+        </table>
+<br>
+クラスCharIteratorTestは，CharIteratorFactoryで定義されたメソッドをテストするためのプログラムである。メソッドmainを実行すると，図の実行結果が得られる。<br>
+<br>
+<img border="0" src="image/P_12_1.gif" width="280" height="70"><br>
+<br>
+<pre>
+〔プログラム1〕
+
+public interface CharIterator {
+   public boolean hasNext( );
+   public char next();
+}
+
+
+〔プログラム2〕
+
+import java.util.NoSuchElementException;
+
+public class CharIteratorFactory {
+  public static CharIterator getCharIterator(String data) {
+    if (data == null)
+      throw new NullPointerException( );
+    // Stringデータから文字を順番に返すCharIteratorのインスタンス
+    // を生成して返す。
+    return［　　　　　　　a　　　　　　　］;
+   }
+
+  public static CharIterator getCharIterator(char[ ] [ ] data) {
+    if (data == null)
+        throw new NullPointerException( ) ;
+    // 2次元の文字配列から文字を順番に返すCharIteratorのインスタンス
+    // を生成して返す。
+    return［　　　　　　　b　　　　　　　］;
+  }
+}
+
+class StringCharIterator implements CharIterator {
+  private String data;
+  private int index = 0;
+
+  StringCharIterator(String data) {
+     this.data = data;
+   }
+  // dataに次の文字があるかどうかをチェックする
+  public boolean hasNext(){
+    return［　　　　　　　c　　　　　　　］;
+  }
+
+  public char next(){
+    // 次の文字がないときは，NoSuchElementExceptionを投げる。
+     if (index >= data.length())
+       throw new NoSuchElementException( ) ;
+    // dataの次の文字を返し，インデックス値を更新する。
+    return［　　　　　　　d　　　　　　　］;
+  }
+}
+class Char2DArrayCharIterator implements CharIterator {
+  private char[][] data;
+  private int index1 = 0, index2 = 0;
+
+  Char2DArrayCharIterator(char[ ] [ ] data) {
+     this.data = data;
+  }
+  public boolean hasNext() {
+    // data[index1] [index2]の要素があればtrueを返し，なければ次
+    // に定義されている要素を探す。次の要素がなければfalseを返す。
+    for (; index1 < data.length; index1++) {
+       if (data[index1] != null
+              && index2 < data[index1].length) {
+            return true;
+       }
+     ［　　　　　　　e　　　　　　　］;
+     }
+     return false;
+  }
+  public char next() {
+    // メソッドhasNextを呼び出して次の要素があるかどうかを調べ，
+    // あればその要素を返し，インデックス値を更新する。なければ，
+    // NoSuchElementExceptionを投げる。
+    if (hasNext()){
+      return［　　　　　　　f　　　　　　　］;
+     }
+     throw new NoSuchElementException( );
+  }
+}
+
+
+〔プログラム3〕
+
+public class CharIteratorTest {
+  public static void main(String[] args) {
+    CharIterator itr =
+          CharIteratorFactory.getCharIterator("H16");
+   printIterator(itr) ;
+
+   itr = CharIteratorFactory.getCharIterator(
+            new char[][] {{ '2' },
+                     { '0' },
+                     null,
+                     { '0','4' }});
+    printIterator( itr) ;
+  }
+  private static void printIterator(CharIterator itr) {
+     while (itr.hasNext()) {
+       System.out.print("'" + itr.next() + "'");
+       }
+       System.out.println( ) ;
+  }
+}</pre>
+<br>
+<p><b><a name="121">設問</a>　</b>プログラム中の［　　　　］に入れる正しい答えを，解答群の中から選べ。</p> 
+a，bに関する解答群<BR>
+<BR>
+ア　getCharIterator((char[ ] [ ] ) data)<BR>
+イ　getCharIterator((String) data)<BR>
+ウ　new Char2DArrayCharIterator( )<BR>
+エ　new Char2DArrayCharIterator (data)<BR>
+オ　new StringCharIterator( )<BR>
+カ　new StringCharIterator(data)<BR>
+<BR>
+cに関する解答群<BR>
+<BR>
+ア　index < data.length()<BR>
+イ　index <= data.length()<BR>
+ウ　index >= data.length()<BR>
+エ　index++ < data.length()<BR>
+オ　index++ <= data.length()<BR>
+カ　index++ >= data.length()<BR>
+<BR>
+dに関する解答群<BR>
+<BR>
+ア　data.charAt(++index)<BR>
+イ　data.charAt(--index)<BR>
+ウ　data.charAt(index+1)<BR>
+エ　data.charAt(index++)<BR>
+オ　data.charAt(index--)<BR>
+カ　data.charAt(index)<BR>
+<BR>
+eに関する解答群<BR>
+<BR>
+ア　index1 = 0<BR>
+イ　index1 = data.length<BR>
+ウ　index1 = index2<BR>
+エ　index2 = 0<BR>
+オ　index2 = data.length<BR>
+カ　index2 = index1<BR>
+<BR>
+fに関する解答群<BR>
+<BR>
+ア　data[index1++][index2++]<BR>
+イ　data[index1++][index2]<BR>
+ウ　data[index1][++index2]<BR>
+エ　data[index1][--index2]<BR>
+オ　data[index1][index2 + 1]<BR>
+カ　data[index1][index2++]<BR>
+<BR>
+<HR WIDTH=100%>  
+  <a HREF="16S_P_A4.HTM#121">設問の正解例と解説へ</a>  
+<HR WIDTH=100%>
+<A HREF="INDEX.HTM">メニューへ戻る</A>
+<HR WIDTH=100%>   
+<a NAME="130">　<BR>
+<b> 
+問13</b></a>　次のアセンブラプログラムの説明及びプログラムを読んで，設問1，2に答えよ。<BR>
+<br>
+〔プログラムの説明〕<br>
+10進数の文字列を，編集して出力する副プログラムEDOUTである。<br>
+<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">（1）</td>
+            <td>主プログラムは，GR1にパラメタの先頭番地を格納してEDOUTを呼び出す。パラメタの内容は，次のとおりである。</td>
+          </tr>
+        </table>
+<br>
+<img border="0" src="image/P_13_1.gif" width="280" height="70"><br>
+<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">（2）</td>
+            <td>文字列は，“0”～“9”の数字だけからなる。</td>
+          </tr>
+          <tr>
+            <td valign="top">（3）</td>
+            <td>文字列中の各文字は，連続する語の下位8ビットに格納され，上位8ビットにはすべて0が格納されている。</td>
+          </tr>
+          <tr>
+            <td valign="top">（4）</td>
+            <td>EDOUTは文字列に対して次の編集を行い，18語の連続する領域OUTBに右詰めで格納する。<br>
+①　文字列の右端から3文字ごとに，“，”を挿入する。<br>
+②　①の結果を，1文字ずつOUTBの各語の下位8ビットに格納する（上位8ビットには，すべて0を格納する）。<br>
+③　①の結果が18文字未満の場合，OUTBの残りの語には，間隔文字を格納する。</td>
+          </tr>
+          <tr>
+        </table>
+<br>
+<img border="0" src="image/P_13_2.gif" width="580" height="90"><br>
+<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td width="20"></td>
+            <td>④　①の結果が19文字以上の場合は，右から18文字分だけを格納する。</td>
+          </tr>
+          <tr>
+        </table>
+<br>
+<img border="0" src="image/P_13_3.gif" width="480" height="75"><br>
+<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">（5）</td>
+            <td>副プログラムから戻るとき，GR1～GR7の内容は元に戻す。</td>
+          </tr>
+        </table>
+<pre>
+〔プログラム〕
+（行番号）
+   1  EDOUT   START
+   2           RPUSH
+   3           LD      GR0,0,GR1      ; 先頭の数字のアドレスをGR0へ
+   4           ST      GR0,ADDRS
+   5           LD      GR1,1,GR1      ; 文字列の長さをGR1へ
+   6           ADDL    GR1,ADDRS
+   7           LAD     GR1,-1,GR1     ; 最後の数字のアドレス
+   8           LD      GR2,OUTLNG    ; 出力領域の添字
+   9           LAD     GR3,3           ; 位取りカウンタ初期化
+  10  LOOP    SUBA    GR2,=1         ; 出力領域の最後か？
+  11          ［　　　　　a　　　　　］
+  12           CPL     GR1,ADDRS      ; 先頭の数字か？
+  13           JMI     SPACIN
+  14           SUBA    GR3,=1        ; 位取りの判断
+  15          ［　　　　　b　　　　　］
+  16           LD      GR0,0,GRl
+  17           LAD     GR1,-1,GR1
+  18           JUMP    MOVCHR
+  19  RANK   ［　　　　　c　　　　　］
+  20           LAD     GR3,3        ; 位取りカウンタ再初期化
+  21           JUMP    MOVCHR
+  22  SPACIN  LD      GR0,SPACE
+  23  MOVCHR ［　　　　　d　　　　　］
+  24           JUMP    LOOP
+  25  OUTPUT  OUT     OUTB,OUTLNG
+  26           RPOP
+  27           RET
+  28  OUTB    DS     18
+  29  ADDRS   DS     1
+  30  COMMA   DC    ','
+  31  SPACE   DC    ' '
+  32  OUTLNG  DC    18
+  33          END
+</pre>
+<hr>  
+<a NAME="131">　<BR> 
+<b>  
+設問</b></a><b><a NAME="131">1</a>　</b>プログラム中の［　　　　］に入れる正しい答えを，解答群の中から選べ。<BR>
+<BR>
+a，bに関する解答群<BR>
+<BR>
+ア　JMI  MOVCHR　　　　 　イ　JMI  OUTPUT　　　　　ウ　JMI  RANK<BR>
+エ　JNZ  MOVCHR　　　　　オ　JNZ  OUTPUT　　　　　カ　JNZ  RANK<BR>
+キ　JZE  MOVCHR　　　　　ク　JZE  OUTPUT　　　　　ケ　JZE  RANK<BR>
+<BR>
+c，dに関する解答群<BR>
+<BR>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td width="300">ア　LAD    GR0,0,GR1</td>
+            <td>	イ　LD     GR0,COMMA</td>
+          </tr>
+          <tr>
+            <td>	ウ　LD     GR0,SPACE</td>
+            <td>	エ　ST     GR0,OUTB,GR1</td>
+          </tr>
+          <tr>
+            <td>	オ　ST     GR0,OUTB,GR2</td>
+            <td>	カ　ST     GR1,OUTLNG</td>
+          </tr>
+          <tr>
+            <td>	キ　ST     GR2,OUTLNG</td>
+          </tr>
+        </table>
+<BR>
+<HR WIDTH=100%> 
+  <a HREF="16S_P_A4.HTM#131">設問1の正解例へ</a> 
+<HR WIDTH=100%> 
+<a NAME="132"> 
+<BR>
+<b> 
+設問</b></a><b>2　</b>次の記述中の［　　　　］に入れる正しい答えを，解答群の中から選べ。<br>
+<BR>
+入力文字列を“1234567890”とし，プログラムの行番号16の命令を実行する直前のGR1が指すメモリの内容が“6”のとき，GR0の値は［　　e　　］，GR2の値は［　　f　　］，GR3の値は［　　g　　］である。<br>  
+<br>  
+eに関する解答群<br>  
+<br>  
+ア　#0030　　　イ　#0031　　　ウ　#0032　　　エ　#0033　　　オ　#0034<br>  
+カ　#0035　　　キ　#0036　　　ク　#0037　　　ケ　#0038　　　コ　#0039<br>  
+<br>  
+fに関する解答群<br>  
+<br>  
+ア　#0009　　　イ　#000A　　　ウ　#000B　　　エ　#000C　　　オ　#000D<br>  
+カ　#000E　　　キ　#000F　　　ク　#0010　　　ケ　#0011　　　コ　#0012<br>  
+<br>  
+gに関する解答群<br>  
+<br>  
+ア　#0000　　　イ　#0001　　　ウ　#0002　　　エ　#0003　　　オ　#FFFF<br>  
+<br>  
+<HR WIDTH=100%> 
+  <a HREF="16S_P_A4.HTM#132">設問2の正解例へ</a> 
+<HR WIDTH=100%> 
+<p><A HREF="INDEX.HTM">メニューへ戻る</A>　</p>
+<HR WIDTH=100%>
+<BR>
+  <br>
+</blockquote>
+</BODY>
+</HTML>

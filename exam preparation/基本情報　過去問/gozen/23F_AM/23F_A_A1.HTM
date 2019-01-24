@@ -1,0 +1,283 @@
+<html>
+<head>
+<title>平成23年度 秋期 基本情報技術者 午前 解答例と解説（問1～問20）</title>
+<style type="text/css"><!--
+body{line-height:150%;}
+code{font-size:12pt;}
+h3{text-align:center;}
+div.caution{border:solid 1px #000000; padding:0.5em;}
+--></style>
+</head>
+<body>
+<form>
+<blockquote>
+<hr>
+<h3>平成23年度　秋期　基本情報技術者<br/>
+午前　解答例と解説（問1～問20）</h3>
+<hr>
+<p><strong><a name="01">問1</a></strong></p>
+<p><select name="23FA01" size="1">
+<option selected>解答例</option>
+<option>イ</option>
+</select></p>
+<p>〈解説〉</p>
+<p>16ビットの固定小数点の2進数を，16進数の各けたに分けて下位けたから順にスタックに格納するには，2進数の4ビットが16進数の1けたに対応するので，下位けたから順に4ビットずつ取り出してスタックに格納すればよい。<br/>
+下位から4ビットを取り出すには000F<sub>16</sub>との論理積（AND演算）をとる。順に取り出すには，2進数を右に4ビットずつ論理シフトしながら，これを繰り返して下位4ビットずつ取り出す。<br/>
+したがって<br/>
+（1）　n AND 000F<sub>16</sub>をxに代入する<br/>
+（2）　xをスタックにプッシュ<br/>
+（3）　nを右に4ビット論理シフト</p>
+<hr>
+<p><a href="23F_A_E1.HTM#01">問題へ</a></p>
+<hr>
+<p><strong><a name="02">問2</a></strong></p>
+<p><select name="23FA02" size="1">
+<option selected>解答例</option>
+<option>ウ</option>
+</select></p>
+<p>〈解説〉</p>
+<p>10進数の負数－5.625を「2の補数」で表すため，まず10進数の5.625を2進数で表し，その2の補数を求める。</p>
+
+<p><img src="img/h23f_am_a2_1.png"/></p>
+<p>これを8ビットの固定小数点表示で表すと次図のようになる。</p>
+<p><img src="img/h23f_am_a2_2.png"/></p>
+<p>さらに，ビット反転（①）し，1を加算して2の補数を求める（②）と，<br/>
+2の補数表示による（－5.625）<sub>10</sub>の8ビット固定小数点表示が求まる（③）。</p>
+<p><img src="img/h23f_am_a2_3.png"/></p>
+<hr>
+<p><a href="23F_A_E1.HTM#02">問題へ</a></p>
+<hr>
+<p><strong><a name="03">問3</a></strong></p>
+<p><select name="23FA03" size="1">
+<option selected>解答例</option>
+<option>ウ</option>
+</select></p>
+<p>〈解説〉</p>
+<p>あるコンピュータで100元連立方程式の解を求めるのに2秒かかったとすると，その4倍の計算速度をもつコンピュータでは2秒÷4＝0.5秒かかることになる。<br/>
+1000元連立方程式の解を求めるときの計算時間をxとすると，<br/>
+100<sup>3</sup>：1000<sup>3</sup>＝0.5：x<br/>
+x＝0.5×1000<sup>3</sup>÷100<sup>3</sup><br/>
+＝0.5×1000＝500秒</p>
+<hr>
+<p><a href="23F_A_E1.HTM#03">問題へ</a></p>
+<hr>
+<p><strong><a name="04">問4</a></strong></p>
+<p><select name="23FA04" size="1">
+<option selected>解答例</option>
+<option>ウ</option>
+</select></p>
+<p>〈解説〉</p>
+<p>〔規則〕では，演算子＋が出現するのは括弧で囲まれた内側なので，括弧の外側に演算子＋があるア，イ，エは生成できない。（A＋B）や（C＋D）は（＜式＞＋＜式＞）により生成でき，（A＋B）＊（C＋D）は＜式＞＊＜式＞により生成できるので，ウは生成できる。</p>
+<hr>
+<p><a href="23F_A_E1.HTM#04">問題へ</a></p>
+<hr>
+<p><strong><a name="05">問5</a></strong></p>
+<p><select name="23FA05" size="1">
+<option selected>解答例</option>
+<option>イ</option>
+</select></p>
+<p>〈解説〉</p>
+<p>b，c，d，aの順に出力するには，次のように行えばよい。</p>
+<p><br/>
+・先ずf→fの操作によりa，bをスタック2にプッシュし，gの操作によりスタック2からbをポップして出力する。<br/>
+・次にcを出力するには，fの操作によりスタック1からcをスタック2にプッシュし，gの操作によりスタック2からcをポップして出力する。<br/>
+・次にdを出力するには，fの操作によりスタック1からdをスタック2にプッシュし，gの操作によりスタック2からdをポップして出力する。<br/>
+・最後のaを出力するには，スタック2に残っているaを，gの操作によりスタック2からポップして出力すればよい。
+</p>
+<p>したがって，イのf，f，g，f，g，f，g，gが適切。</p>
+<hr>
+<p><a href="23F_A_E1.HTM#05">問題へ</a></p>
+<hr>
+<p><strong><a name="06">問6</a></strong></p>
+<p><select name="23FA06" size="1">
+<option selected>解答例</option>
+<option>エ</option>
+</select></p>
+<p>〈解説〉</p>
+<p>・初期値はすべて0であり，16→43→73→24→85の順に格納する<br/>
+・ｋ＝16のときA[16 mod 10]＝A[6]＝0となり16→A[6]に格納<br/>
+・ｋ＝43のときA[43 mod 10]＝A[3]＝0となり43→A[3]に格納<br/>
+・ｋ＝73のときA[73 mod 10]＝A[3]＝43となるが，〔規則〕（2）によりA[（73＋1） mod 10]＝A[4]＝0となるので73→A[4]に格納<br/>
+・ｋ＝24のときA[24 mod 10]＝A[4]＝74となるが，〔規則〕（2）によりA[（24＋1） mod 10]＝A[5]＝0となるので24→A[5]に格納<br/>
+・ｋ＝85のときA[85 mod 10]＝A[5]＝24となるが，〔規則〕（2）によりA[（85＋1） mod 10]＝A[6]＝16<br/>
+　そこで〔規則〕（3）によりA[（85＋4） mod 10]＝A[9]＝0となるので85→A[9]に格納</p>
+<p><img src="img/h23f_am_a6_1.png"/></p>
+<hr>
+<p><a href="23F_A_E1.HTM#06">問題へ</a></p>
+<hr>
+<p><strong><a name="07">問7</a></strong></p>
+<p><select name="23FA07" size="1">
+<option selected>解答例</option>
+<option>ア</option>
+</select></p>
+<p>〈解説〉</p>
+<p>最初に最後尾のTANGO（n）をワークエリアTANGO（0）に保存しておき，後方から前方に向かって順次<br/>
+　　　TANGO（n－1）をTANGO（n）に格納<br/>
+　　　TANGO（n－2）をTANGO（n－1）に格納<br/>
+　　　　　　　　　　　…<br/>
+　　　TANGO（1）をTANGO（2）に格納<br/>
+というように，TANGO（i）をその直後のTANGO（i＋1）に格納すればよいので，アが適切。</p>
+<hr>
+<p><a href="23F_A_E1.HTM#07">問題へ</a></p>
+<hr>
+<p><strong><a name="08">問8</a></strong></p>
+<p><select name="23FA08" size="1">
+<option selected>解答例</option>
+<option>エ</option>
+</select></p>
+<p>〈解説〉</p>
+<p>XMLは拡張可能なマークアップ言語で，文書の論理構造や属性情報だけでなく，タグを用いてデータ構造を記述できる。ユーザが独自にタグを定義できる。タグに文書の論理構造や意味情報を表すような要素名を独自に定義できる。</p>
+<hr>
+<p><a href="23F_A_E1.HTM#08">問題へ</a></p>
+<hr>
+<p><strong><a name="09">問9</a></strong></p>
+<p><select name="23FA09" size="1">
+<option selected>解答例</option>
+<option>ア</option>
+</select></p>
+<p>〈解説〉</p>
+<p>アドレス部がポイントするメモリアドレスに，データの格納先アドレスが格納されているので，間接アドレス指定である。</p>
+<hr>
+<p><a href="23F_A_E1.HTM#09">問題へ</a></p>
+<hr>
+<p><strong><a name="10">問10</a></strong></p>
+<p><select name="23FA10" size="1">
+<option selected>解答例</option>
+<option>エ</option>
+</select></p>
+<p>〈解説〉</p>
+<p>プログラムカウンタは，実行する命令語が格納されているメモリのアドレスを指し示すレジスタ。1命令実行ごとに命令語長だけ加算され，次の命令語のアドレスを示す。</p>
+<p>ア　×　メモリデータレジスタの役割<br/>
+イ　×　PSW（プログラム状態語）の役割<br/>
+ウ　×　命令レジスタの役割<br/>
+エ　〇</p>
+<hr>
+<p><a href="23F_A_E1.HTM#10">問題へ</a></p>
+<hr>
+<p><strong><a name="11">問11</a></strong></p>
+<p><select name="23FA11" size="1">
+<option selected>解答例</option>
+<option>イ</option>
+</select></p>
+<p>〈解説〉</p>
+<p>Aの実効アクセス時間は，キャッシュメモリがないので，主記憶のアクセス時間と同じ15ナノ秒。<br/>
+Bの実効アクセス時間は，キャッシュメモリがないので，主記憶のアクセス時間と同じ30ナノ秒。<br/>
+Cの実効アクセス時間は，20×0.6＋70×（1－0.6）＝12＋28＝40ナノ秒<br/>
+Dの実効アクセス時間は，10×0.9＋80×（1－0.9）＝9＋8＝17ナノ秒<br/>
+したがってA，D，B，Cの順で，イが適切。</p>
+<hr>
+<p><a href="23F_A_E1.HTM#11">問題へ</a></p>
+<hr>
+<p><strong><a name="12">問12</a></strong></p>
+<p><select name="23FA12" size="1">
+<option selected>解答例</option>
+<option>イ</option>
+</select></p>
+<p>〈解説〉</p>
+<p>マスクROMは，製造時に書き込まれた内容を読み出す読出し専用メモリで，ユーザの書込みができないROM。これにより出荷後のプログラムの不正な書換えを防げる。</p>
+<hr>
+<p><a href="23F_A_E1.HTM#12">問題へ</a></p>
+<hr>
+<p><strong><a name="13">問13</a></strong></p>
+<p><select name="23FA13" size="1">
+<option selected>解答例</option>
+<option>イ</option>
+</select></p>
+<p>〈解説〉</p>
+<p>静電容量方式タッチパネルは，パネル表面の保護膜下のコンデンサ電極と，センサーに接触した指の指紋の凹凸との距離に相応して蓄積される電荷を読み取り，位置を検出する。</p>
+<hr>
+<p><a href="23F_A_E1.HTM#13">問題へ</a></p>
+<hr>
+<p><strong><a name="14">問14</a></strong></p>
+<p><select name="23FA14" size="1">
+<option selected>解答例</option>
+<option>イ</option>
+</select></p>
+<p>〈解説〉</p>
+<p>〔条件〕（2）より，現在のヘッダの移動方向は，シリンダ番号が増加する方向にある。
+〔条件〕（1）より，入出力要求を並べ替えて，できるだけヘッドを一方向に動かし，シリンダ番号順に処理するので，<br/>
+　　100→110→120→140<br/>
+のようにヘッドが移動する。<br/>
+移動方向に要求がなくなるので〔条件〕（3）より，ヘッドの移動方向が変わり，さらに<br/>
+　　90→80→70→60<br/>
+のようにヘッドが移動する。よって，ヘッドが移動するシリンダ総数は，以下となる。<br/>
+　　10＋10＋20＋50＋10＋10＋10＝120</p>
+<hr>
+<p><a href="23F_A_E1.HTM#14">問題へ</a></p>
+<hr>
+<p><strong><a name="15">問15</a></strong></p>
+<p><select name="23FA15" size="1">
+<option selected>解答例</option>
+<option>エ</option>
+</select></p>
+<p>〈解説〉</p>
+<p>デュアルシステムは，装置を二重化し，2台の処理装置が同じ処理を行い，障害時に故障した装置を切り離すシステムであり，最も稼働率が高い。コールドスタンバイシステムは，障害発生後に待機系を切り離すシステム。シンプレックスシステムは，処理装置は二重化されず1系統のみのシステムのため，故障時にシステム全体がダウンする。<br/>
+したがって，デュアルシステムの稼働率が最も高く，次いでコールドスタンバイシステム，シンプレックスシステムの順になる。</p>
+<hr>
+<p><a href="23F_A_E1.HTM#15">問題へ</a></p>
+<hr>
+<p><strong><a name="16">問16</a></strong></p>
+<p><select name="23FA16" size="1">
+<option selected>解答例</option>
+<option>ウ</option>
+</select></p>
+<p>〈解説〉</p>
+<p>シンクライアントシステムは，サーバ側でアプリケーションソフトやデータ，サービス機能を管理し，クライアント機能を最小化してクライアントからそれらを利用する方式。</p>
+<hr>
+<p><a href="23F_A_E1.HTM#16">問題へ</a></p>
+<hr>
+<p><strong><a name="17">問17</a></strong></p>
+<p><select name="23FA17" size="1">
+<option selected>解答例</option>
+<option>ウ</option>
+</select></p>
+<p>〈解説〉</p>
+<p>フェールソフトは，機能低下を許しても，システムを停止させずに機能を維持した状態で続行する設計。</p>
+<hr>
+<p><a href="23F_A_E1.HTM#17">問題へ</a></p>
+<hr>
+<p><strong><a name="18">問18</a></strong></p>
+<p><select name="23FA18" size="1">
+<option selected>解答例</option>
+<option>エ</option>
+</select></p>
+<p>〈解説〉</p>
+<p>ア　×　MTTRは平均修理時間で，エラーログや命令トレースの機能により短くなる。<br/>
+イ　×　遠隔保守により故障発生時に即時に対処できるので，MTTRは短くなるが，MTBFは変わらない。<br/>
+ウ　×　装置の種類が多いほど，故障する確率は高くなり，MTBFは短くなる。<br/>
+エ　〇　予防保守により未然に故障を防げるので，MTBFは長くなる。</p>
+<hr>
+<p><a href="23F_A_E1.HTM#18">問題へ</a></p>
+<hr>
+<p><strong><a name="19">問19</a></strong></p>
+<p><select name="23FA19" size="1">
+<option selected>解答例</option>
+<option>ウ</option>
+</select></p>
+<p>〈解説〉</p>
+<p>東京～福岡の直通回線と，東京～大阪～福岡の迂回回線の両方ともが稼動しない場合以外は，東京～福岡間の回線は稼動するので，その稼働率は次のようになる。<br/>
+稼働率＝1－（1－0.9）×（1－0.9×0.9）<br/>
+　　　＝1－0.1×0.19<br/>
+　　　＝0.981</p>
+<hr>
+<p><a href="23F_A_E1.HTM#19">問題へ</a></p>
+<hr>
+<p><strong><a name="20">問20</a></strong></p>
+<p><select name="23FA20" size="1">
+<option selected>解答例</option>
+<option>ア</option>
+</select></p>
+<p>〈解説〉</p>
+<p>ア　○<br/>
+イ　×　実行可能状態になる<br/>
+ウ　×　待ち状態から実行可能状態に遷移する<br/>
+エ　×　実行状態から待機状態に遷移する</p>
+<hr>
+<p><a href="23F_A_E1.HTM#20">問題へ</a></p>
+<hr>
+<p><a href="INDEX.HTM">メニューへ戻る</a></p>
+<hr>
+</form>
+</blockquote>
+</body>
+</html>

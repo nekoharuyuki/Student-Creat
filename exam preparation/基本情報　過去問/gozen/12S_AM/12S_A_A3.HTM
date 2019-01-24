@@ -1,0 +1,229 @@
+<HTML>
+<HEAD>
+<TITLE>平成12年度試験　正解例と解説(午前問41～問60)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<BLOCKQUOTE>
+<hr>
+<H3 align="center">平成12年度春期試験　正解例と解説(問41～問60)</H3>
+<HR WIDTH=100%>
+<A NAME="41">　<BR>
+<b>
+問41</b></a>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>エ</option></select></p>
+<p>＜解説＞HDLC手順では，情報フィールドのデータとフラグシクエンス（01111110）とを区別するため，送信データに1が5個連続して現れた場合，次に0を挿入して送信します。したがって受信側では5個連続した1の直後の0を削除すると元の送信データに復元できます。受信データの8ビット目から12ビット目まで1が5個連続しているので，その直後の0を削除すると元の送信データに復元できます。<br>
+　</p>
+<HR WIDTH=100%>
+<A HREF="12s_a_e3.htm#41">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="42">　<BR>
+<b>
+問42</b></a>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>エ</option></select></p>
+<p>＜解説＞セッション層は同期を取り，順序正しいデータ交換を支援します。アはトランスポート層，イはアプリケーション層，ウはトランスポート層です。
+<A NAME="42"><BR></a>
+　　</p>
+<HR WIDTH=100%>
+<A HREF="12s_a_e3.htm#42">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="43">　<BR>
+<b>
+問43</b></a>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select></p>
+<p>＜解説＞生成多項式により検査用ビット列を作成し，送信データに付加して送る方式を巡回冗長チェック（CRC：Cycle Redandancy Check）といいます。連続的なビット誤りが検出できます。　<BR>
+　</p>
+<HR WIDTH=100%>
+<A HREF="12s_a_e3.htm#43">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="44">　<BR>
+<b>
+問44</b></a>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>ウ</option></select></p>
+<p>＜解説＞8ビットの各文字にスタート信号とストップ信号をそれぞれ1ビットずつ付加して送信するので，伝送する電文のビット数＝（1＋8＋1）×90＝900ビットです。1分間に送信できる電文の個数をN個とすると　900ビット×N÷（14,400ビット／秒×60秒）＝0.8　　N＝768個<BR>
+　</p>
+<HR WIDTH=100%>
+<A HREF="12s_a_e3.htm#44">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="45">　<BR>
+<b>
+問45</b></a>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>エ</option></select></p>
+<p>＜解説＞CSMA/CD方式は衝突検知方式とも呼ばれ，送出した信号の衝突を検知すれば，ランダム時間経過後，信号を再送する方式です。CSMA/CD方式の場合，各端末は対等で制御局はなく，通信量が増えると信号の衝突が増加し接続に時間がかります。またフリートークンを受け取る方式はトークンパッシング方式です。<br>
+　</p>
+<HR WIDTH=100%>
+<A HREF="12s_a_e3.htm#45">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="46">　<BR>
+<b>
+問46</b></a>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>ア</option></select></p>
+<p>＜解説＞ゲートウェイは，トランスポート層以上のプロトコルやアーキテクチュアが異なるLAN相互間でプロトコル変換を行いLAN相互を接続する装置です。ルータはネットワーク層，ブリッジはデータリンク層，リピータは物理層での接続装置です。　<br>
+　</p>
+<HR WIDTH=100%>
+<A HREF="12s_a_e3.htm#46">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="47">　<BR>
+<b>
+問47</b></a>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select></p>
+<p>＜解説＞B1の親ディレクトリA1に属するディレクトリB2に格納されているファイルC2を指定する相対パスになるので，親ディレクトリA1を“..”で表し“../B/C2”になります。<br>
+　　</p>
+<HR WIDTH=100%>
+<A HREF="12s_a_e3.htm#47">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="48">　<BR>
+<b>
+問48</b></a>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>ア</option></select></p>
+<p>＜解説＞表１と表2の共通項目である番号をキーにして2つの表を結合し，表3を作成する操作です。
+<A NAME="48"><BR></a>
+</p>
+<HR WIDTH=100%>
+<A HREF="12s_a_e3.htm#48">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="49">　<BR>
+<b>
+問49</b></a>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>エ</option></select></p>
+<p>＜解説＞複数トランザクションによる同一データベースに対する同時更新を回避し，論理的な矛盾を起こさないようにする手法を排他制御といいます。整合性制約は，データベースの整合性を保つために，各データの更新処理ごとに行われる更新処理の正当性チェックに用いる制約定義のこと。
+<A NAME="49"><BR></a>
+　</p>
+<HR WIDTH=100%>
+<A HREF="12s_a_e3.htm#49">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="50">　<BR>
+<b>
+問50</b></a>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>エ</option></select></p>
+<p>＜解説＞媒体障害など物理的障害によりデータベースが異常終了した場合はロールフォワードにより回復を行います。物理的障害以外により異常終了した場合はロールバック処理で，トランザクションによる更新を取り消し，更新前の状態に遡ります。<BR>
+</p>
+<HR WIDTH=100%>
+<A HREF="12s_a_e3.htm#50">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="51">　<BR>
+<b>
+問51</b></a>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select></p>
+<p>＜解説＞ア，イ、ウのような入力データチェックやGUIのグラフィック表示に関わるような処理はクライアントで行います。それに対しデータベースの更新処理や計算処理などはサーバで行います。<br>
+<br>
+</p>
+<HR WIDTH=100%>
+<A HREF="12s_a_e3.htm#51">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="52">　<BR>
+<b>
+問52</b></a>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select></p>
+<p>＜解説＞デュプレックスシステムは，オンライン処理を行う主系と故障に備えた待機系からなる2系統のシステムで構成されています。故障時に主計から待機系に切替え処理を続行します。デュアルシステム，マルチプロセッシング，ロードシェアシステムでは，同時稼動し待機状態のコンピュータはありません。
+<A NAME="52"><BR></a>
+　</p>
+<HR WIDTH=100%>
+<A HREF="12s_a_e3.htm#52">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="53">　<BR>
+<b>
+問53</b></a>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>ウ</option></select></p>
+<p>＜解説＞業務処理においては，トランザクションによるファイル更新処理などに対する応答性能が問題になります。これらを評価するにはトランザクション応答時間が適切です。<BR>
+</p>
+<HR WIDTH=100%>
+<A HREF="12s_a_e3.htm#53">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="54">　<BR>
+<b>
+問54</b></a>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>エ</option></select></p>
+<table border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td>＜解説＞</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">①</td>
+    <td>サーバの稼働率＝ａ</td>
+  </tr>
+  <tr>
+    <td valign="top">②</td>
+    <td>クライアント3台のどれかが稼動している稼働率<br>
+      ＝1－（クライアント3台すべてが稼動しない確率）<br>
+      ＝1－（1－ｂ）×（1－ｂ）×（1－ｂ）＝1－（1－ｂ）<sup>3</sup></td>
+  </tr>
+  <tr>
+    <td valign="top">③</td>
+    <td>プリンタ2台のどれかが稼動している稼働率<br>
+      ＝1－（プリンタ2台とも稼動しない確率）<br>
+      ＝1－（1－ｃ）×（1－ｃ）＝1－（1－ｃ）<sup>2</sup></td>
+  </tr>
+</table>
+<p>このシステムの稼働率＝①×②×③＝ａ（1－（1－ｂ）3）（1－（1－ｃ）2）
+</p>
+<HR WIDTH=100%>
+<A HREF="12s_a_e3.htm#54">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="55">　<BR>
+<b>
+問55</b></a>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select></p>
+<p>＜解説＞ハードウェアの故障の発生頻度は，図のようなバスタブ曲線になります。導入時点では初期的な不良や運用面などで初期故障が多発しますが，初期故障が出尽くし，偶発故障が一定確率で発生し故障率がほぼ一定で安定するようになります。ある期間を経過すると老朽化や磨耗，疲労などにより故障率が高くなります。<br>
+　</p>
+<HR WIDTH=100%>
+<A HREF="12s_a_e3.htm#55">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="56">　<BR>
+<b>
+問56</b></a>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select></p>
+<p>＜解説＞ウォータフォールモデルでは，システム開発をトップダウンで段階的に詳細化して開発を進めます。したがって後戻りすると開発効率が低下します。アはスパイラルモデル，ウはプロトタイプモデルです。
+<A NAME="56"><BR></a>
+</p>
+<HR WIDTH=100%>
+<A HREF="12s_a_e3.htm#56">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="57">　<BR>
+<b>
+問57</b></a>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select></p>
+<p>＜解説＞アはプロセス1へのデータフローが1つしかありません。ウはプロセス1とプロセス2が混在しています。エはプロセス1－2へのデータフローがありません。</p>
+<p>　</p>
+<HR WIDTH=100%>
+<A HREF="12s_a_e3.htm#57">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="58">　<BR>
+<b>
+問58</b></a>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select></p>
+<p>＜解説＞データに関連する処理手順をメソッドといいます。オブジェクト指向プログラムでは，データとメソッドをひとまとめにし，オブジェクトの実装の詳細をブラックボックス化しています。これをカプセル化といいます。<br>
+</p>
+<HR WIDTH=100%>
+<A HREF="12s_a_e3.htm#58">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="59">　<BR>
+<b>
+問59</b></a>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>ア</option></select></p>
+<p>＜解説＞STS分割では，プログラムを部分機能に分割し，部分機能による変換データの流れに沿って，最大抽象入力点と最大抽象出力点を境として入力処理機能，変換機能，出力処理機能をもつ3つのモジュールに分割するモジュール分割手法です。<BR>
+</p>
+<HR WIDTH=100%>
+<A HREF="12s_a_e3.htm#59">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="60">　<BR>
+<b>
+問60</b></a>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>ウ</option></select></p>
+<p>＜解説＞チェックディジットは，コード末尾にエラー検査用の数字を付加したもので，コードの入力誤りを発見するために付加します。数字以外のコードにも数字を割り当てることにより適用可能です。
+<A NAME="60"><BR></a>
+　</p>
+<HR WIDTH=100%>
+<a HREF="12s_a_e3.htm#60">問題へ</a>
+<HR WIDTH=100%>
+　<BR>
+<A HREF="index.htm">メニューへ戻る</A><BR>
+　<BR>
+<HR WIDTH=100%>
+<ADDRESS>
+<BR>
+</ADDRESS>
+</BLOCKQUOTE>
+</BODY>
+</HTML>

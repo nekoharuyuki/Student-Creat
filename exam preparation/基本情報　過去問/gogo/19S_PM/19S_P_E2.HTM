@@ -1,0 +1,364 @@
+<html>
+
+<head>
+<title>平成19年度春期試験　問題(問3～問5)</title>
+</head>
+
+<body>
+
+<blockquote>
+<hr>
+<h3 align="center">平成19年度春期試験　問題(問3～問5)</h3>
+<hr>
+<p><strong><a name=" 30">問3</a>　</strong>システム開発の計画立案に関する次の記述を読んで，設問1，2に答えよ。</p>
+<p>
+　X社では，業務システムを新規に構築することになった。この業務システムには，新たなハードウェアの導入とソフトウェアの開発が必要である。ソフトウェアの開発では，業務プログラム内で共通に利用するプログラム（以下，共通部品という）を業務プログラム本体と分離して，別チームで開発することにした。今回の開発に関する作業の一覧と必要な日数を表に示す。</p>
+<p><img border="0" src="IMAGE/pm-q3-1.png" width="587" height="320"></p>
+<p>　この作業の日程計画を立てるために，図のアローダイアグラムを作成した。図中の破線は，ダミー作業である。</p>
+<p><img border="0" src="IMAGE/pm-q3-2.png" width="587" height="197"></p>
+<hr>
+<p><a name="31"><strong>設問</strong><b>1</b></a>　作業日程はアローダイアグラムに従うものとして，作業の依存関係に関する記述として正しい答えを，解答群の中から<u>二つ</u>選べ。</p>
+<p>解答群</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber1">
+<tr>
+<td>ア</td>
+<td>業務プログラムの詳細設計（G3）は，共通部品のコーディング・単体テスト（C2）が終了しないと開始できない。</td>
+</tr>
+<tr>
+<td>イ</td>
+<td>業務プログラムのコーディング・単体テスト（G4）は，共通部品のコーディング・単体テスト（C2）が終了しないと開始できない。</td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>業務プログラムの詳細設計（G3）は，業務プログラムの機能設計（G2）が終了すると開始できる。</td>
+</tr>
+<tr>
+<td>エ</td>
+<td>共通部品は実機がなくてもコーディング・単体テスト（C2）を開始できるが，業務プログラムは実機がなくてはコーディング・単体テスト（G4）を開始できない。</td>
+</tr>
+<tr>
+<td>オ</td>
+<td>ハードウェアの調達（H1）は，システム方式設計（S1）の完了後に行う。</td>
+</tr>
+</table>
+<hr>
+<p><a href="19S_P_A2.HTM#31">設問1の正解例と解説へ</a> </p>
+<hr>
+<p><b><a name="32">設問2</a></b>　次の記述中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p>
+　この業務システムの開発におけるクリティカルパスは［　　a　　］，最短所要日数は［　　b　　］日である。また，全体の開発期間は，［　　c　　］を短縮することで短縮できる。</p>
+<p>aに関する解答群</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber2">
+<tr>
+<td>ア</td>
+<td>①→②→③→⑤→⑥→⑦→⑧→⑨→⑩</td>
+</tr>
+<tr>
+<td>イ</td>
+<td>①→②→③→⑤→⑦→⑧→⑨→⑩</td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>①→②→③→⑥→⑦→⑧→⑨→⑩</td>
+</tr>
+<tr>
+<td>エ</td>
+<td>①→②→④→⑨→⑩</td>
+</tr>
+</table>
+<p>bに関する解答群</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber3">
+<tr>
+<td>ア　31</td>
+<td>イ　32</td>
+<td>ウ　33</td>
+</tr>
+<tr>
+<td>エ　34</td>
+<td>オ　35</td>
+<td>カ　36</td>
+</tr>
+</table>
+<p>cに関する解答群</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber4">
+<tr>
+<td>ア</td>
+<td>共通部品の設計（C1）</td>
+</tr>
+<tr>
+<td>イ</td>
+<td>共通部品のコーディング・単体テスト（C2）</td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>業務プログラムの機能設計（G2）</td>
+</tr>
+<tr>
+<td>エ</td>
+<td>ハードウェアの調達（H1）</td>
+</tr>
+</table>
+<hr>
+<p><a href="19S_P_A2.HTM#32">設問2の正解例と解説へ </a></p>
+<hr>
+<p><a href="index.htm">■メニューへ戻る</a> </p>
+<hr>
+<p><a name=" 40"><strong>問4</strong></a>　次のプログラムの説明及びプログラムを読んで，設問1～3に答えよ。</p>
+<p>〔プログラムの説明〕<br>
+　整数型の1次元配列の要素<code>A[0]</code>，…，<code>A[N]</code>（<code>N</code>＞<code>0</code>）を，挿入ソートで昇順に整列する副プログラム<code>InsertSort</code>である。<br>
+（1）挿入ソートの手順は，次のとおりである。<br>
+①　まず，<code>A[0]</code>と<code>A[1]</code>を整列し，次に<code>A[0]</code>から<code>A[2]</code>までを整列し，その次に<code>A[0]</code>から<code>A[3]</code>までというように，整列する区間の要素を一つずつ増やしていき，最終的に<code>A[0]</code>から<code>A[N]</code>までを整列する。<br>
+②　整列する区間が<code>A[0]</code>から<code>A[M]</code>（<code>1</code>≦<code>M</code>≦<code>N</code>）までのとき，<code>A[M]</code>を既に整列された列<code>A[0]</code>，…，<code>A[M－1]</code>中の適切な位置に挿入する。その手順は次のとおりである。<br>
+　（a）<code>A[M]</code>の値を，作業領域<code>Tmp</code>に格納する。<br>
+　（b）<code>A[M－1]</code>から<code>A[0]</code>に向かって<code>Tmp</code>と比較し，<code>Tmp</code>よりも大きな値を順次隣（要素番号の大きい方）に移動する。<br>
+　（c）（b）で最後に移動した値の入っていた配列要素に<code>Tmp</code>の内容を格納する。（b）で移動がなかった場合には<code>A[M]</code>に格納する。<br>
+（2）副プログラム<code>InsertSort</code>の引数の仕様を表に示す。</p>
+<p><img border="0" src="IMAGE/pm-q4-1.png" width="587" height="116"></p>
+<p><img border="0" src="IMAGE/pm-q4-2.png" width="587" height="338"></p>
+<hr>
+<p><a name="41"><strong>設問1</strong></a>　プログラム中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p>aに関する解答群</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber5">
+<tr>
+<td>ア　<code>Idx1</code></td>
+<td>イ　<code>Idx1</code> ＋ <code>1</code></td>
+<td>ウ　<code>Idx1</code> － <code>1</code></td>
+</tr>
+</table>
+<p>b，cに関する解答群</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber6">
+<tr>
+<td>ア　<code>A[Idx2]</code> ← <code>A[Idx2＋1]</code></td>
+<td>イ　<code>A[Idx2]</code> ← <code>A[Idx2－1]</code></td>
+</tr>
+<tr>
+<td>ウ　<code>A[Idx2]</code> ← <code>Tmp</code></td>
+<td>エ　<code>A[Idx2＋1]</code> ← <code>A[Idx2]</code></td>
+</tr>
+<tr>
+<td>オ　<code>A[Idx2＋1]</code> ← <code>Tmp</code></td>
+<td>カ　<code>A[Idx2－1]</code> ← <code>A[Idx2]</code></td>
+</tr>
+<tr>
+<td>キ　<code>A[Idx2－1]</code> ← <code>Tmp</code></td>
+<td>　</td>
+</tr>
+</table>
+<hr>
+<p><a href="19S_P_A2.HTM#41">設問1の正解例と解説へ</a> </p>
+<hr>
+<p><a name="42"><strong>設問2</strong></a>　次の記述中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p>　1次元配列<code>A[ ]</code>の内容例を図に示す。<br>
+　　プログラム中のβの行が実行される回数は，図の例1では［　　d　　］回，例2では［　　e　　］回となる。<br>
+　また，プログラム中のαの条件式を<code>A[Idx2]</code> ≧ <code>Tmp</code>とした場合，例3のように配列要素の中に同じ値が複数含まれるときには［　　f　　］。</p>
+<p><img border="0" src="IMAGE/pm-q4-3.png" width="587" height="182"></p>
+<p>d，eに関する解答群</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber7">
+<tr>
+<td>ア　2</td>
+<td>イ　3</td>
+<td>ウ　4</td>
+</tr>
+<tr>
+<td>エ　19</td>
+<td>オ　20</td>
+<td>カ　21</td>
+</tr>
+</table>
+<p>fに関する解答群</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber8">
+<tr>
+<td>ア</td>
+<td>整列が正しく行われなくなる</td>
+</tr>
+<tr>
+<td>イ</td>
+<td>整列は正しく行われ，元の条件式の場合と比べて実行ステップ数は多くなる</td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>整列は正しく行われ，元の条件式の場合と比べて実行ステップ数は変わらない</td>
+</tr>
+<tr>
+<td>エ</td>
+<td>整列は正しく行われ，元の条件式の場合と比べて実行ステップ数は少なくなる</td>
+</tr>
+</table>
+<hr>
+<p><a href="19S_P_A2.HTM#42">設問2の正解例と解説へ</a> </p>
+<hr>
+<p><strong><a name="43">設問3</a></strong>　次の記述中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p>　<em>n</em>個のランダムなデータを整列する場合，挿入ソートの計算量は0（<em>n</em><sup>2</sup>），クイックソートの平均的な計算量は0（<em>n</em>log<sub>2</sub><em>n</em>）なので，<em>n</em>の値が大きくなるとクイックソートの計算量の方が総じて小さくなる。<br>
+　<code>InsertSort</code>のほかに，クイックソートで昇順に整列する副プログラム<code>QuickSort</code>を作成し，ランダムな1,000個のデータを何組か用意して，それぞれの組に対して<code>InsertSort</code>と<code>QuickSort</code>の実行時間を測定したところ，<code>QuickSort</code>の平均実行時間が<code>InsertSort</code>の 
+1／10 であった。この結果を基にして，1,000,000個のデータを整列したときの平均的な実行時間を計算すると，<code>QuickSort</code>が<code>InsertSort</code>の約1／［　　g　　］と推定できる。ここで，log<sub>2</sub>1000≒10，log<sub>2</sub>1000000≒20とする。</p>
+<p>解答群</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber9">
+<tr>
+<td>ア　500</td>
+<td>イ　1,000</td>
+<td>ウ　5,000</td>
+</tr>
+<tr>
+<td>エ　10,000</td>
+<td>オ　50,000</td>
+<td>カ　500,000</td>
+</tr>
+</table>
+<hr>
+<p><a href="19S_P_A2.HTM#43">設問3の正解例と解説へ </a></p>
+<hr>
+<p><a href="index.htm">■メニューへ戻る</a> </p>
+<hr>
+<p><a name=" 50"><strong>問5</strong></a>　プログラム設計に関する次の記述を読んで，設問1～3に答えよ。</p>
+<p>　ある会員情報が入ったマスタファイルの内容を，毎月末にトランザクションファイルの内容によって更新し，新マスタファイルに出力する更新プログラムを作成する。<br>
+<br>
+〔ファイルの説明〕</p>
+<p>（1）マスタファイル及びトランザクションファイルのレコード様式は同じで，次の項目からなる。</p>
+<p><img border="0" src="IMAGE/pm-q5-1.png" width="587" height="46"></p>
+<p>（2）会員番号は，5けたの数字であり，必須の項目である。最大値99999の会員番号をもつ会員は存在しない。</p>
+<p>（3）マスタファイル及びトランザクションファイルは，会員番号をキーとして，昇順に整列されている。</p>
+<p>
+（4）マスタファイルには，同一の会員番号をもつレコードが複数存在することはない。トランザクションファイルにも，同一の会員番号をもつレコードが複数存在することはない。</p>
+<p>（5）トランザクションファイルは，新規会員追加に用いるレコード及び既に登録されている会員の会員情報変更に用いるレコードからなる。</p>
+<p>（6）会員情報変更に用いるレコードは，変更する項目に空白以外のデータが格納され，変更しない項目には，空白が格納されている。</p>
+<p>〔処理の説明〕<br>
+　マスタファイルのレコードをM，トランザクションファイルのレコードをTとして，次のキー突合せ処理を行う。</p>
+<p>
+（1）Mと同一の会員番号をもつTがあるとき，Tの空白以外の項目でMの対応する項目を更新し，Tの空白の項目に対応したMの項目は更新せずに新マスタファイルに出力する。</p>
+<p>（2）Mと同一の会員番号をもつTがないとき，Mをそのまま新マスタファイルに出力する。</p>
+<p>（3）Tと同一の会員番号をもつMがないとき，Tを新マスタファイルに出力する。<br>
+　更新プログラムの流れを図1に示す。</p>
+<p>　突合せキーK<sub>M</sub>及びK<sub>T</sub>には，それぞれ，Mの会員番号の値及びTの会員番号の値，又はそれぞれのファイルを読み終わったことを表す最大値99999を格納する。</p>
+<p><img border="0" src="IMAGE/pm-q5-2.png" width="587" height="719"></p>
+<hr>
+<p><strong><a name="51">設問1</a></strong>　図1において，キー突合せによるマスタファイルの更新処理は，破線で囲んだ部分で実現している。<br>
+　　図1中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p>解答群</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber10">
+<tr>
+<td>ア　M’入力処理</td>
+<td>イ　M入力処理</td>
+<td>ウ　T入力処理</td>
+</tr>
+</table>
+<hr>
+<p><a href="19S_P_A2.HTM#51">設問1の正解例と解説へ</a> </p>
+<hr>
+<p><a name="52"><strong>設問2</strong></a>　次の記述中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p>　この更新プログラムに会員情報の削除処理を追加するため，次の（1）～（5）を行う。</p>
+<p>（1）トランザクションファイルのレコード様式に，更新区分という項目を追加する。<br>
+（2）更新区分が“U”の場合を新規登録及び変更とし，“D”の場合を削除とする。<br>
+（3）図1のαとβの処理を，（1）のレコード様式の変更に対応するように変更する。<br>
+（4）主処理を図2のとおりに変更する。<br>
+（5）T入力処理については，ファイルを読み終わったとき，更新区分に“U”を代入する処理を追加する。</p>
+<p>
+　ここで，図2のエラー処理1及び2は，エラーとなったレコードに関する情報を表示する。条件X2は，［　　c　　］である。エラー処理2は，［　　d　　］場合に実行される。</p>
+<p>cに関する解答群</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber11">
+<tr>
+<td>ア</td>
+<td>更新区分＝“D”</td>
+</tr>
+<tr>
+<td>イ</td>
+<td>更新区分＝“U”</td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>更新区分≠“D”</td>
+</tr>
+<tr>
+<td>エ</td>
+<td>更新区分≠“U”</td>
+</tr>
+<tr>
+<td>オ</td>
+<td>（更新区分≠“D”） AND （更新区分≠“U”）</td>
+</tr>
+<tr>
+<td>カ</td>
+<td>（更新区分≠“D”） OR （更新区分≠“U”）</td>
+</tr>
+</table>
+<p>dに関する解答群</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber12">
+<tr>
+<td>ア</td>
+<td>更新区分に誤りがある</td>
+</tr>
+<tr>
+<td>イ</td>
+<td>削除しようとする会員番号をもつレコードがマスタファイルに存在しない</td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>新規登録しようとする会員番号をもつレコードがマスタファイルに存在する</td>
+</tr>
+<tr>
+<td>エ</td>
+<td>変更しようとする会員番号をもつレコードがマスタファイルに存在しない</td>
+</tr>
+</table>
+<p><img border="0" src="IMAGE/pm-q5-3.png" width="587" height="529"></p>
+<hr>
+<p><a href="19S_P_A2.HTM#52">設問2の正解例と解説へ</a> </p>
+<hr>
+<p><strong><a name="53">設問3</a></strong>　次の記述中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p>
+　トランザクションファイル中に同一の会員番号をもつレコードが複数あってもよいようにする。複数ある場合，レコードの発生順に処理する。そのために，次の（1），（2）の変更を行うことにした。</p>
+<p>（1）トランザクションファイルのレコード様式に発生日時という項目を追加する。<br>
+（2）図2の更新プログラムとは別にトランザクションファイルの処理に，整列プログラムとレコード集約プログラムを追加して，新たにトランザクションファイルを生成する。</p>
+<p>　整列プログラムは，レコードを整列キーの昇順に並べ替える。ここで，第1整列キーは［　　e　　］，第2整列キーは［　　f　　］である。<br>
+　レコード集約プログラムの主な機能は，次の二つである。</p>
+<p>①　会員番号が同じ入力レコードで，更新区分がすべて“U”のときには，空白以外の変更項目の内容を作業領域に上書きし，最後の状態を出力する。<br>
+②　更新区分が“D”のレコードが見つかったときには，そのレコードを出力する。それ以降にも同一の会員番号のレコードが存在したときには，それらは処理せずエラーとする。</p>
+<p>　これらのプログラムの実行順序は，次のとおりである。</p>
+<p>　実行順序：［　　　　　　　　　　　　g　　　　　　　　　　　　］</p>
+<p>e，fに関する解答群</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber13">
+<tr>
+<td>ア　会員番号</td>
+<td>イ　更新区分</td>
+<td>ウ　サービス等級</td>
+<td>エ　発生日時</td>
+</tr>
+</table>
+<p>gに関する解答群</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber14">
+<tr>
+<td>ア</td>
+<td>更新プログラム　→　整列プログラム　→　レコード集約プログラム</td>
+</tr>
+<tr>
+<td>イ</td>
+<td>更新プログラム　→　レコード集約プログラム　→　整列プログラム</td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>整列プログラム　→　更新プログラム　→　レコード集約プログラム</td>
+</tr>
+<tr>
+<td>エ</td>
+<td>整列プログラム　→　レコード集約プログラム　→　更新プログラム</td>
+</tr>
+<tr>
+<td>オ</td>
+<td>レコード集約プログラム　→　更新プログラム　→　整列プログラム</td>
+</tr>
+<tr>
+<td>カ</td>
+<td>レコード集約プログラム　→　整列プログラム　→　更新プログラム</td>
+</tr>
+</table>
+<hr>
+<p><a href="19S_P_A2.HTM#53">設問3の正解例と解説へ</a> </p>
+<hr>
+<p><a href="19S_P_E3.HTM">■問6へ進む</a> </p>
+<hr>
+<p><a href="index.htm">■メニューへ戻る</a> </p>
+<hr>
+</blockquote>
+
+</body>
+
+</html>

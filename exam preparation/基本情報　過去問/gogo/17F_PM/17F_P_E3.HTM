@@ -1,0 +1,316 @@
+<html>
+
+<head>
+<title>平成17年度秋期試験　問題(問6～問9)</title>
+</head>
+
+<body bgcolor="#FFFFFF" topmargin="0" leftmargin="0">
+
+<blockquote>
+<hr>
+<h3 align="center">平成17年度秋期試験　問題(問6～問9)</h3>
+<hr>
+<p>次の問6から問9までの4問については、この中から1問を選択し、答案用紙の選択欄の<img border="0" src="IMAGE/select.gif">（選）をマークして解答してください。<br>
+なお、2問以上選択した場合には、はじめの1問について採点します。</p>
+<hr>
+<p><a name="60"><b>問6</b></a><b>　</b>次のCプログラムの説明及びプログラムを読んで，設問に答えよ。</p>
+<p>〔プログラムの説明〕</p>
+<p>　関数update_masterは，処理年月を与えて，月刊誌の定期購読者マスタファイルの更新を行うプログラムである。</p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td valign="top">（1）</td>
+<td>関数update_masterの引数は，次のとおりである。</td>
+</tr>
+<tr>
+<td></td>
+<td>　　omf_name　　旧定期購読者マスタファイル名</td>
+</tr>
+<tr>
+<td></td>
+<td>　　trf_name　　トランザクションファイル名</td>
+</tr>
+<tr>
+<td></td>
+<td>　　nmf_name　　新定期購読者マスタファイル名</td>
+</tr>
+<tr>
+<td></td>
+<td>　　b_year　　　処理年月の西暦年</td>
+</tr>
+<tr>
+<td></td>
+<td>　　b_month　　 処理年月の月</td>
+</tr>
+<tr>
+<td valign"top">（2）</td>
+<td>新旧の定期購読者マスタファイル及びトランザクションファイルのレコード様式は次のとおりである。</td>
+</tr>
+<tr>
+<td></td>
+<td><p align="left"><img border="0" src="./IMAGE/PM05F06-1.gif" width="406" height="42"></p></td>
+</tr>
+<tr>
+<td></td>
+<td>　①　購読者コード及び雑誌コードは，空白を含まない12文字の英数字列である。</td>
+</tr>
+<tr>
+<td></td>
+<td>　②　購読終了年月は，YYYYMMの形式で6けたの数字列である。</td>
+</tr>
+<tr>
+<td></td>
+<td>　③　レコードの終端には，改行文字‘＼n’が付いている。</td>
+</tr>
+<tr>
+<td></td>
+<td>　④　レコードは，購読者コードを第1キー，雑誌コードを第2キーとして昇順に整列されている。</td>
+</tr>
+<tr>
+<td></td>
+<td>　⑤　購読者は，複数の雑誌を購読することはあるが，同一の雑誌を重複して購読することはない。</td>
+</tr>
+<tr>
+<td valign="top">（3）</td>
+<td>旧定期購読者マスタファイル及びトランザクションファイルのレコードに誤りはないものとする。</td>
+</tr>
+<tr>
+<td valign="top">（4）</td>
+<td>トランザクションファイルには，旧定期購読者マスタファイルを更新するための，新規購読，購読期間延長及び購読打切りの3種類のレコードがある。<br>
+　①　新規購読及び購読期間延長レコードの購読終了年月は，与えられた処理年月以降になっている。<br>
+　②　購読打切りレコードの購読終了年月は，“999999”となっている。</td>
+<tr>
+<td valign="top">（5）</td>
+<td>次のどちらかの条件を満足するレコードを，抽出レコードとする。<br>
+　①　旧定期購読者マスタファイルのレコードのうち，購読者コードと雑誌コードの組合せがトランザクションファイルには含まれていないもの<br>
+　②　トランザクションファイルに含まれるレコード</td>
+</tr>
+<tr>
+<td valign="top">（6）</td>
+<td>抽出レコードのうち，購読終了年月が与えられた処理年月以降であり，かつ“999999”ではないものだけを，新定期購読者マスタファイルに出力する。</td>
+</tr>
+<tr>
+<td valign="top">（7）</td>
+<td>プログラム中で使用している関数strcmpの仕様は，次のとおりである。<br>
+　int strcmp（char *string1, char *string2）<br>
+　機能：引数で指定される二つの文字列string1とstring2を比較し，その大小関係を返す。<br>
+　返却値：負の数（string1がstring2より小さいとき）<br>
+　　　　　0　　 （string1がstring2に等しいとき）<br>
+　　　　　正の数（string1がstring2より大きいとき）</td>
+</table>
+</div>
+<p align="left"><img border="0" src="./IMAGE/PM05F06-2.gif" width="467" height="691"></p>
+<hr>
+<p><a name="61"><b>設問</b></a><b>　</b>プログラム中の［　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p>aに関する解答群<br>
+　ア　（m_sts＝＝EOF）&&（t_sts＝＝EOF）<br>
+　イ　（m_sts＝＝EOF）||（t_sts＝＝EOF）<br>
+　ウ　（m_sts！＝EOF）&&（t_sts！＝EOF）<br>
+　エ　（m_sts！＝EOF）||（t_sts！＝EOF）<br>
+　オ　m_sts＝＝EOF<br>
+　カ　m_sts！＝EOF<br>
+　キ　t_sts＝＝EOF<br>
+　ク　t_sts！＝EOF</p>
+<p>b，dに関する解答群<br>
+　ア　om_usrid, om_magid, om_ldate<br>
+　イ　om_usrid, om_magid, t_ldate<br>
+　ウ　om_usrid, t_magid, om_ldate<br>
+　エ　om_usrid, t_magid, t_ldate<br>
+　オ　t_usrid, om_magid, om_ldate<br>
+　カ　t_usrid, om_magid, t_ldate<br>
+　キ　t_usrid, t_magid, om_ldate<br>
+　ク　t_usrid, t_magid, t_ldate</p>
+<p>cに関する解答群<br>
+　ア　b_date＝＝999999　　　イ　b_date！＝999999<br>
+　ウ　om_ldate＝＝999999　　エ　om_ldatee！＝999999<br>
+　オ　t_ldate＝＝999999　　 カ　t_ldate！＝999999</p>
+<hr>
+<a href="17F_P_A3.HTM#61">設問の正解例と解説へ</a>
+<hr>
+<a href="index.htm">■メニューへ戻る</a>
+<hr>
+
+<p><a name="70"><b>問7</b></a><b>　</b>次のCOBOLプログラムの説明及びプログラムを読んで，設問1，2に答えよ。</p>
+<p>〔プログラムの説明〕</p>
+<p>　1学年における全生徒のテスト結果が格納されている入力ファイルを読み込み，5科目の合計点を求めるプログラムである。このプログラムは，学年内の総合順位が分かるよう，合計点の降順に整列して，出力ファイルに格納する。</p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td valign="top">（1）</td>
+<td>入力ファイルIN-FILEは，次のレコード様式の順ファイルであり，1学年分の各生徒の得点が格納されている。ここで，各科目は100点を満点とする。</td>
+</tr>
+<tr>
+<td></td>
+<td><p align="left"><img border="0" src="./IMAGE/PM05F07-1.gif" width="466" height="46"></p></td>
+</tr>
+<tr>
+<td valign="top">（2）</td>
+<td>出力ファイルOUT-FILEは，次のレコード様式の順ファイルであり，5科目の合計点の降順に格納する。</td>
+</tr>
+<tr>
+<td></td>
+<td><p align="left"><img border="0" src="./IMAGE/PM05F07-2.gif" width="284" height="45"></p></td>
+</tr>
+</table>
+</div>
+<p align="left"><img border="0" src="./IMAGE/PM05F07-3.gif" width="359" height="658"></p>
+<hr>
+<p><a name="71"><b>設問1</b></a><b>　</b>プログラム中の［　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p>解答群<br>
+　ア　INITIALIZE SORT-REC<br>
+　イ　MOVE SPACE TO READ-STATUS<br>
+　ウ　MOVE SPACE TO SORT-REC<br>
+　エ　MOVE STUDENT-ID TO SORT-REC<br>
+　オ　PERFORM RELEASE-DATA<br>
+　カ　SET AT-END TO TRUE</p>
+<hr>
+<a href="17F_P_A3.HTM#71">設問1の正解例と解説へ</a>
+<hr>
+<p><a name="72"><b>設問2</b></a><b>　</b>プログラムの最後で生徒数及び各科目の学年平均点を表示するようにプログラムを変更する。変更内容を示す次の表中の［　］に入れる正しい答えを，解答群の中から選べ。</br>
+なお，生徒の人数は1～9,999とし，平均点は小数第2位以下を切り捨てる。</p>
+<p align="left"><img border="0" src="./IMAGE/PM05F07-4.gif" width="466" height="256"></p>
+<p>解答群<br>
+　ア　COMPUTE STUDENT-TOTAL ＝ STUDENT-TOTAL＋1<br>
+　イ　COMPUTE STUDENT-TOTAL ＝ STUDENT-TOTAL＋K<br>
+　ウ　COMPUTE SUB-TOTAL（K）＝ SUB-TOTAL（K）＋SCORE（K）<br>
+　エ　MOVE K TO STUDENT-TOTAL<br>
+　オ　MOVE SCORE（K） TO SUB-TOTAL（K）<br>
+　カ　MOVE TOTAL TO SUB-TOTAL（K）</p>
+<hr>
+<a href="17F_P_A3.HTM#72">設問2の正解例と解説へ</a>
+<hr>
+<a href="index.htm">■メニューへ戻る</a>
+<hr>
+<p><a name="80"><b>問8</b></a><b>　</b>次のJavaプログラムの説明及びプログラムを読んで，設問に答えよ。</p>
+<p>〔プログラムの説明〕</p>
+<p>　英文のテキストを処理し，単語の出現回数を数えるプログラムの一部である。テキストは，単語，空白，コンマ及びピリオドで構成され，単語はアルファベットだけで構成される。単語中の大文字はすべて小文字に変換して取り扱う。さらに，単語の出現回数だけでなく，アルファベットの各文字が単語の先頭に現れた回数を数えられるようにする。</p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td valign="top">（1）</td>
+<td>WordTableは，与えられた文字列から単語を切り出し，出現回数を数えるクラスである。実際に単語を数える処理は，コンストラクタで指定する別のオブジェクトで行う。</td>
+</tr>
+<tr>
+<td valign="top">（2）</td>
+<td>Counterは，単語を数える処理のインタフェースである。</td>
+</tr>
+<tr>
+<td valign="top">（3）</td>
+<td>WordCounterは，単語の出現回数を数えるクラスである。</td>
+</tr>
+<tr>
+<td valign="top">（4）</td>
+<td>FirstLetterCounterは，アルファベットの各文字が単語の先頭に現れた回数を数えるクラスである。</td>
+</tr>
+<tr>
+<td valign="top">（5）</td>
+<td>Testは，テスト用のメインプログラムである。実行例を図に示す。</td>
+</tr>
+<tr>
+<td></td>
+<td><p align="left"><img border="0" src="./IMAGE/PM05F08-1.gif" width="169" height="205"></p></td>
+</tr>
+</table>
+</div>
+
+<p>　java.util.StringTokenizerは，指定された区切り文字で，文字列を字句単位（トークン）に分解するクラスである。次のメソッドをもつ。</p>
+<p align="left">public boolean hasMoreTokens（）<br>
+　　　　文字列に利用できるトークンがまだあるかどうかを判定し，結果を返す。</p>
+<p align="left">public String nextToken（）<br>
+　　　　次のトークンを返す。</p>
+<p>　java.util.Mapは，キーと値を関連付けて管理するインタフェースであり，java.util.HashMapは，そのインタフェースを実装したクラスである。キーを指定して，そのキーに値を関連付けたり，そのキーに関連付けられた値を取り出したりすることができる。次のメソッドをもつ。</p>
+<p align="left">public Object get（Object key）<br>
+　　　　keyに関連付けられた値を返す。</p>
+<p align="left">public Object put（Object key，Object value）<br>
+　　　　keyにvalueを関連付ける。</p>
+<p align="left">public boolean containsKey（Object key）<br>
+　　　　keyに関連付けられた値がある場合にtrueを返す。</p>
+<p align="left">public Set keySet（）<br>
+　　　　マップに含まれるキーの集合を返す。</p>
+<p>　java.util.Iteratorは，要素を順番に取り出すための操作を提供するインタフェースである。次のメソッドをもつ。</p>
+<p align="left">public boolean hasNext（）<br>
+　　　　次の要素がある場合にtrueを返す。</p>
+<p align="left">public Object next（）<br>
+　　　　次の要素を返す。</p>
+<p align="left"><img border="0" src="./IMAGE/PM05F08-2.gif" width="425" height="692"></p>
+<p align="left"><img border="0" src="./IMAGE/PM05F08-3.gif" width="447" height="485"></p>
+<hr>
+<p><a name="81"><b>設問</b></a><b>　</b>プログラム中の［　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p>aに関する解答群<br>
+　ア　Counter　　　イ　FirstLetterCounter<br>
+　ウ　Object　　　 エ　WordCounter<br>
+　オ　WordTable</p>
+<p>bに関する解答群<br>
+　ア　extends Counter　　　イ　extends Object<br>
+　ウ　extends WordTable　　エ　implements Counter<br>
+　オ　implements Object　　カ　implements WordTable</p>
+<p>cに関する解答群<br>
+　ア　-1<br>
+　イ　0<br>
+　ウ　1<br>
+　エ（（Integer）freq.get（str））intValue（）<br>
+　オ　str.length（）</p>
+<p>dに関する解答群</p>
+　ア　flFreq［'a'＋str.charAt（0）］<br>
+　イ　flFreq［'a'＋str.charAt（1）］<br>
+　ウ　flFreq［str.charAt（0）］<br>
+　エ　flFreq［str.charAt（1）］<br>
+　オ　flFreq［str.charAt（0）－'a'］<br>
+　カ　flFreq［str.charAt（1）－'a'］</p>
+<hr>
+<a href="17F_P_A3.HTM#81">設問の正解例と解説へ</a>
+<hr>
+<a href="index.htm">■メニューへ戻る</a>
+<hr>
+<p><a name"90"><d>問9</d></a><d>　</d>次のアセンブラプログラムの説明及びプログラムを読んで，設問1，2に答えよ。</p>
+<p>〔プログラム1の説明〕</p>
+<p>　プログラム1（SFT1）は，マスクを右にシフトしながら1語に格納されているデータの中の1であるビットの個数を数えて，GR0に設定する副プログラムである。</p>
+<p align="left"><img border="0" src="./IMAGE/PM05F09-1.gif" width="362" height="131">
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td valign="top">（1）</td>
+<td>主プログラムは，GR1に対象データを格納して副プログラムを呼ぶ。</td>
+</tr>
+<tr>
+<td valign="top">（2）</td>
+<td>対象データの第15ビットから第0ビットまでを順にマスクと照合し，1の個数を数えて，GR0に設定する。</td>
+</tr>
+<tr>
+<td valign="top">（3）</td>>
+<td>副プログラムから戻るとき，汎用レジスタGR1～GR7の内容は元に戻す。</td>
+</table>
+</div>
+<p align="left"><img border="0" src="./IMAGE/PM05F09-2.gif" width="232" height="208">
+<p>〔プログラム2の説明〕</p>
+<p>　プログラム2（SFT2）は，プログラム1と比べて，命令の実行回数が少なくなるように，対象データを右にシフトしながら常に最下位ビットをマスクと照合し，1の個数を数えて，GR0に設定する副プログラムである。</p>
+<p align="left"><img border="0" src="./IMAGE/PM05F09-3.gif" width="360" height="131">
+<p align="left"><img border="0" src="./IMAGE/PM05F09-4.gif" width="228" height="173">
+<hr>
+<p><a name="91"><b>設問1</b></a>　プログラム1，プログラム2中の［　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p>aに関する解答群<br>
+　ア　JMI　LOOP　　　イ　JNZ　LOOP<br>
+　ウ　JUMP LOOP　　　エ　JZE　LOOP</p>
+<p>bに関する解答群<br>
+　ア　AND　GR3,＝#0001　　　イ　OR　GR3,＝#0001<br>
+　ウ　AND　GR3,＝#1000　　　エ　OR　GR3,＝#1000<br>
+　オ　AND　GR3,＝#FFFF　　　カ　OR　GR3,＝#FFFE</p>
+
+<hr>
+<a href="17F_P_A3.HTM#91">設問1の正解例と解説へ</a>
+<hr>
+<p><a name="92"><b>設問2</b></a><b>　</b>次の記述中の［　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p>　主プログラムがGR1に#0555を格納して，プログラム1及びプログラム2を呼んだ場合，プログラム1の命令αの実行回数よりもプログラム2の命令βの実行回数の方が［　c　］回少なくなる。</p>
+<p>　プログラム1の命令αの実行回数とプログラム2の命令βの実行回数が等しくなるのは，主プログラムがGR1に格納したデータのビット番号［　d　］のビットの値が［　e　］のときである。</p>
+<p>解答群<br>
+　ア　0　　イ　1　　ウ　5　　エ　6　　オ　7<br>
+　カ　8　　キ　9　　ク　10　 ケ　14　 コ　15</p>
+<hr>
+<a href="17F_P_A3.HTM#92">設問2の正解例と解説へ</a>
+<hr>
+<a href="17F_P_E4.HTM">■問10へ進む</a>
+<hr>
+<a href="index.htm">■メニューへ戻る</a>
+</blockquote>
+</body>
+</html>

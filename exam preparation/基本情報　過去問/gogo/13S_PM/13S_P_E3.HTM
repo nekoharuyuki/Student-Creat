@@ -1,0 +1,466 @@
+<HTML>
+<HEAD>
+<TITLE>平成13年度春期試験　問題(午後問3～問6)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0">
+<blockquote>
+  <hr>
+  <H3 align="center">平成13年度春期試験　問題(問6～問8)</H3>
+<hr>
+<P>次の問6から問8までの3問については、この中から1問を選択し、答案用紙の選択欄の          
+選 をマークして解答してください。<br>         
+　なお、2問以上選択した場合には、はじめの1問について採点します。
+<hr>
+<p><b><a name="60">問6</a>　</b>次のCプログラムの説明及びプログラムを読んで，設問に答えよ。<br>
+<br>
+[プログラムの説明]<br>
+　関数CountColorsは，横が320画素，縦が240画素の画像データの，指定された長方形領域の中を走査して，実際に使用されている色を数えるプログラムである。1画素は，次のRGB構造体に格納される。</p>
+<pre>typedef struct {
+unsigned char Red ; /* 赤色の輝度 0～255の256段階 */
+unsigned char Green ; /* 緑色の輝度 0～255の256段階 */
+unsigned char Blue ; /* 青色の輝度 0～255の256段階 */
+} RGB ;</pre>
+<p>画像データは，RGB構造体の2次元配列に格納される。画像データは，次のように定義する。画像の座標系との関係を図に示す。</p>
+<p><img border="0" src="image/e6.gif" width="230" height="156"></p>
+<p>　　　図　画像データの座標系<br>
+　</p>
+<p>画像データを，配列Imageに読み込んだ後，画像内の色を数えたい長方形領域を示す引数を与えて関数CountColorsを呼び出すと，関数の戻り値として色数を返す。<br>
+関数CountColorsの原型(プロトタイプ)は</p>
+<p>long int  CountColors ( int sx, int sy, int dx, int dy ) ;</p>      
+<p>であり，引数と点の座標の関係は，図のとおりである。</p>      
+<pre>[プログラム]
+typedef struct {
+　unsigned char Red ;
+　unsigned char Green ;
+　unsigned char Blue ;
+} RGB ;
+
+#define Width 320
+#define Height 240
+#define TRUE 1
+#define FALSE 0
+
+RGB Image[ Height ][ Width ] ;
+
+long int CountColors( int sx, int sy, int dx, int dy )
+{
+　int w, h ;
+　int px, py ;
+　long int colors ;
+　int Conuted[ Height ][ Width ] ;
+
+　for( h = sy ; h &lt;= dy ; h++ )
+　　for( w = sx ; w &lt;= dx ; w++)
+　　　counted[h][w] = FALSE ;
+
+　colors = 0 ;
+　　for( py = sy ; py &lt;= dy ; py++ )
+　　　for( px = sx ; px &lt;= dx ; px++ ) {
+　　　　if ( Counted[py][px] == FALSE ) {
+　　　　　<b>[ 　　a　　]</b>；
+　　　　　Counted[py][px] =TRUE ;
+
+　　　　　for ( h = py ; h &lt;= dy ; h++ )
+　　　　　　for ( w = ( <b>[ 　　b　 　]</b> ) ; w &lt;= dx ; w++ ) {
+　　　　　　　if ( Counted[h][w] == FALSE ) {
+　　　　　　　　if (( Image[py][px].Red == Image[h][w].Red )
+　　　　　　　　&amp;&amp;( Image[py][px].Green == Image[h][w].Green )
+　　　　　　　　&amp;&amp;( Image[py][px].Blue == Image[h][w].Blue )
+　　　　　　　　　<b>[ 　　c 　　]</b> ;
+　　　　　　　}
+　　　　　　}
+　　　　}
+　　　}
+　　return Colors ;
+　}</pre>     
+<p></p>      
+<hr>      
+<p><b><a name="61">設問</a>　</b>プログラム中の<b>[　　        ]</b>に入れる正しい答えを，解答群の中から選べ。<br>      
+</p>      
+<table border="0" cellpadding="3" cellspacing="0">     
+  <tr>     
+    <td>aに関する解答群</td>     
+  </tr>     
+</table>     
+<table border="0" cellpadding="3" cellspacing="0">     
+  <tr>     
+    <td width="220">ア　Colors = Counted[py][px]</td>      
+    <td>	イ　	Colors = Counted[sy][sx]</td>      
+  </tr>      
+  <tr>      
+    <td>ウ　Colors++</td>
+    <td>	エ　	Colors--</td>      
+  </tr>      
+  <tr>      
+    <td>オ　Counted[h][w] = FALSE</td>      
+    <td>	カ　Counted[h][w] = TRUE</td>      
+  </tr>      
+</table>      
+<table border="0" cellpadding="3" cellspacing="0">     
+  <tr>     
+    <td>　<br>
+      bに関する解答群</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td width="200">ア　h == py ? 0 : dx</td>      
+    <td>	イ　h == py ? px + 1 : sx</td>      
+  </tr>      
+  <tr>      
+    <td>ウ　h == py ? sx : px + 1</td>      
+    <td>	エ　h == sy ? 0 : dx + 1</td>      
+  </tr>      
+  <tr>      
+    <td>オ　h == sy ? sx : px + 1</td>      
+    <td></td>      
+  </tr>      
+</table>      
+<table border="0" cellpadding="3" cellspacing="0">     
+  <tr>     
+    <td>　<br>
+      cに関する解答群</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td width="220">ア　Counted[dy][dx] = FALSE</td>      
+    <td>	イ　Counted[dy][dx] = TRUE</td>      
+  </tr>      
+  <tr>      
+    <td>ウ　Counted[h][w] = FALSE</td>      
+    <td>	エ　Counted[h][w] = TRUE</td>      
+  </tr>      
+  <tr>      
+    <td>オ　Counted[py][px] = FALSE</td>      
+    <td>	カ　Counted[py][px] = TRUE</td>      
+  </tr>      
+  <tr>      
+    <td>キ　Counted[sy][sx] = FALSE</td>      
+    <td>	ク　Counted[sy][sx] = TRUE</td>      
+  </tr>      
+</table>      
+<p>　</p>
+<hr WIDTH="100%">
+  <a HREF="13s_p_a3.htm#61">設問1の正解例と解説へ</a>
+<hr WIDTH="100%">
+<br>
+<a HREF="index.htm">メニューへ戻る</a><br>
+<HR WIDTH=100%>
+<a NAME="70">　<BR>
+<b>
+問7</b></a><b>　</b>次のCOBOLプログラムの説明及びプログラムを読んで，設問1，2に答えよ。<br>
+<br>
+[プログラムの説明]<br>
+  　ある製造会社では，生産に必要な材料の発注先を材料ごとに決めて，材料別発注先ファイルによって発注先を管理している。取引が停止された発注先を材料別発注先ファイルから削除する処理を考える。
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">(1)</td>
+    <td>材料別発注先ファイルのレコード様式は，次のとおりである。
+      <table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+        <tr>
+          <td rowspan="2" align="center">　材料コード　<br>
+            6けた</td>
+          <td rowspan="2" align="center">　発注先件数　<br>
+            1けた</td>
+          <td colspan="3" align="center">	発注先コード</td>
+        </tr>
+        <tr>
+          <td align="center">　4けた　</td>
+          <td align="center">　･･･　</td>
+          <td align="center">　4けた　</td>
+        </tr>
+      </table>
+      <table border="0" cellpadding="3" cellspacing="0">
+        <tr>
+          <td valign="top">①</td>
+          <td>材料コードをキーとする索引ファイルである。</td>
+        </tr>
+        <tr>
+          <td valign="top">②</td>
+          <td>発注先件数には，登録されている発注先の件数が記録されている。</td>
+        </tr>
+        <tr>
+          <td valign="top">③</td>
+          <td>材料コードごとに発注先コードが0～5件登録されている。</td>
+        </tr>
+        <tr>
+          <td valign="top">④</td>
+          <td>発注先コードは先頭の欄から登録され，登録されていない欄には空白が格納されている。</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">(2)</td>
+    <td>削除指示ファイルのレコード様式は，次のとおりである。<br>
+      材料コード	発注先コード<br>      
+      6けた	4けた<br>      
+      ①　材料コードに対応する材料別発注先ファイルのレコードを読み込み，該当する発注先コードを削除し，発注先件数を1減らす。<br>
+      ②　削除処理では，(1)の④を満たすように材料別発注先ファイルを変更する。<br>
+      ③　削除指示ファイルのデータは，すべて正しいものとする。</td>
+  </tr>
+</table>
+<pre>[プログラム]
+(行番号)
+1 　DATA DIVISION.
+2 　FILE SECTION.
+3 　FD HATCHUSAKI.
+4 　01 HATCHU-R
+5 　　　03 H-ZAIRYO PIC X(6).
+6 　　　03 H-KENSU PIC 9.
+7 　　　03 H-TABLE.
+8 　　　　　05 H-HATCHU OCCURS 5 PIC X(4)
+9 　FD SHIJI.
+10 01 SHIJI-R.
+11 　　03 S-ZAIRYO PIC X(6).
+12 　　03 S-HATCHU PIC X(4).
+13 WORKING-STORAGE SECTION.
+14 01 END-SW PIC X VALUE SPACE.
+15 01 CNT PIC 9.
+16 01 W-CNT PIC 9.
+17 PROCEDURE DIVISION.
+18 HAJIME.
+19 　　OPEN INPUT SHIJI I-O HATCHUSAKI.
+20 　　PERFORM UNTIL END-SW = &quot;Z&quot;
+21 　　　　READ SHIJI AT END MOVE &quot;Z&quot; TO END-SW END-READ
+22 　　　　IF END-SW = SPACE
+23 　　　　　　MOVE S-ZAIRYO TO H-ZAIRYO
+24 　　　　　　READ HATCHUSAKI
+25 　　　　　　　　INVALID DISPLAY &quot;READ-ERROR S-ZAIRYO = &quot;, S-ZAIRYO
+26 　　　　　　　　NOT INVALID PERFORM KENSAKU
+27 　　　　　　　　　　　　　　 PERFORM D-RTN
+28 　　　　　　END-READ
+29 　　　　　END-IF
+30 　　　　END-PERFORM.
+31 　　　CLOSE SHIJI HATCHUSAKI.
+32 　　　STOP RUN.
+33 KENSAKU.
+34 　　　PERFORM VARYING CNT FROM 1 BY 1 UNTIL <b>[ 　　　　　]</b>
+35 　　　　CONTINUE
+36 　　　END-PERFORM.
+37 D-RTN.
+38 　　PERFORM UNTIL CNT = H-KENSU
+39 　　　　COMPUTE W-CNT = CNT + 1
+40 　　　　MOVE H-HATCHU(W-CNT) TO H-HATCHU(CNT)
+41 　　　　COMPUTE CNT = CNT + 1
+42 　　END-PERFORM.
+43　　 MOVE SPACE TO H-HATCHU(H-KENSU).
+44 　　COMPUTE H-KENSU = H-KENSU - 1.
+45 　　REWRITE HATCHU-R
+46 　　　　INVALID DISPLAY &quot;REWRITE-ERROR&quot;, H-ZAIRYO, S-HATCHU.
+</pre>
+<hr> 
+<a NAME="71">　<BR>
+<b>
+設問</b></a><b>1　</b>プログラム中の<b>[　　　　]</b>に入れる正しい答えを，解答群の中から選べ。<br>
+<br>
+解答群
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">ア</td>
+    <td>S-HATCHU = H-HATCHU(CNT)</td>      
+  </tr>      
+  <tr>      
+    <td valign="top">イ</td>     
+    <td>S-HATCHU = H-HATCHU(H-KENSU)</td>      
+  </tr>      
+  <tr>      
+    <td valign="top">ウ</td>     
+    <td>S-ZAIRYO = H-ZAIRYO</td>      
+  </tr>      
+</table>      
+<p>　</p> 
+<HR WIDTH=100%>  
+  <a HREF="13s_p_a3.htm#71">設問の正解例と解説へ</a>  
+<HR WIDTH=100%>  
+<p><b><a name="72">設問2</a>　</b>繰返しを避けるために，プログラムの行番号38～42を変更する。<b>[ 
+　　　]</b>に入れる正しい答えを，解答群の中から選べ。<br>
+　なお，作業領域として，W1，W2及びW3をいずれも数字2けた，W-TABLEを英数字20けたの項目として定義する。</p>
+<pre>IF CNT NOT = H-KENSU
+　　MOVE H-TABLE TO W-TABLE
+　　COMPUTE W1 =<b> [ 　　a　　 ]</b>
+　　COMPUTE W2 = <b>[　　 b 　　]</b>
+　　COMPUTE W3 = <b>[ 　　c 　　]</b>
+　　MOVE W-TABLE(W1:W3) TO H-TABLE(W2:W3)
+END-IF.</pre>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>解答群</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td width="200">ア　CNT * 4 - 1</td>      
+    <td>	イ　CNT * 4 + 1</td>      
+  </tr>      
+  <tr>      
+    <td>ウ　(CNT - 1) * 4 - 1</td>      
+    <td>	エ　(CNT - 1) * 4 + 1</td>      
+  </tr>      
+  <tr>      
+    <td>オ　(CNT + 1) * 4 - 1</td>      
+    <td>カ　(CNT + 1) * 4 + 1</td>      
+  </tr>      
+  <tr>      
+    <td>キ　(H-KENSU - 1) * 4 + 1</td>      
+    <td>	ク　(H-KENSU - CNT) * 4 - 1</td>      
+  </tr>      
+  <tr>      
+    <td>ケ　(H-KENSU - CNT) * 4</td>      
+    <td>	コ　(H-KENSU - CNT) * 4 + 1</td>      
+  </tr>      
+</table>      
+  <p><br>     
+  &nbsp;</p>    
+<hr WIDTH="100%">    
+  <a HREF="13s_p_a3.htm#72">設問2の正解例と解説へ</a>    
+<hr WIDTH="100%">    
+<p><A HREF="index.htm">メニューへ戻る</A>　</p>     
+<HR WIDTH=100%>     
+<a NAME="80">　<BR> 
+<b> 
+問8</b></a>　次のアセンブラプログラムの説明及びプログラムを読んで，設問1，2に答えよ。
+<p>[プログラムの説明]<br>
+　連続するn語を16×nビットからなるビット列とみなす。副プログラムSHIFTは，このビット列を右へmビットシフトする。</p>
+<p><img border="0" src="image/e8.gif" width="350" height="153"></p>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">(1)</td>
+    <td>GR1～GR3には，それぞれ次の値が格納されて，主プログラムから渡される。<br>
+      　　　GR1：ビット列の先頭語のアドレス<br>
+      　　　GR2：m<br>
+      　　　GR3：n</td>
+  </tr>
+  <tr>
+    <td valign="top">(2)</td>
+    <td>1≦n≦32767，0≦m≦16とする。</td>
+  </tr>
+  <tr>
+    <td valign="top">(3)</td>
+    <td>シフトしたビット列は，元の領域に格納する。</td>
+  </tr>
+  <tr>
+    <td valign="top">(4)</td>
+    <td>左端の空いたビット位置には，0を格納する。右端のはみ出したビット列は捨てられる。</td>
+  </tr>
+  <tr>
+    <td valign="top">(5)</td>
+    <td>プログラムで使用しているマクロ命令RPUSH，RPOPの機能は，それぞれ次のとおりとする。<br>
+      　　　RPUSH：GR1～GR7の内容をスタックに退避する。<br>
+      　　　RPOP ：スタックの内容をGR1～GR7に復元する。</td>      
+  </tr>      
+</table>      
+<pre>
+[プログラム]
+
+1 SHIFT START 　　　　　  ;
+2　　　　PPUSH 　　　　　　　　　; レジスタを退避
+3 　　　<b>[ 　　a 　　]</b> 　　　　 ;
+4 　　　SUBA GR4, GR2 　　　　　; (16-m)→GR4
+5 　　　LAD GR5, 0 　　　　　　 ; 左端に格納する0のビットの列
+6 　　　LOOP SLL GR5, 0, GR4 　; 前の語の残りビット列を左端へ詰める
+7 　　　LD GR0, 0, GR1 　　　　 ; 現在の語のビット列→GR0
+8 　　　<b>[ 　　b 　　]</b> 　　　 　;
+9 　　　OR GR0, GR5 　　　　　　; はみ出したビット列を併合
+10 　　 LD GR5, 0, GR1 　　　　; 現在の語のビット列をGR5に保存
+11　　　ST GR0, 0, GR1 　　　　; 併合したビット列を現在の語に格納
+12　　　LAD GR1, 1, GR1 　　　 ; 次の語へ位置付け
+13　　　SUBA GR3, =1 　　　　　;
+14　　　<b>[ 　　c 　　]</b> 　　　  ;
+15　　　RPOP 　　　　　　　　　 ; レジスタを復元
+16　　　RET　　　　　　　　　　 ;
+17　　　END 　　　　　　　　　　;
+</pre>     
+<p>       
+<A NAME="40">       
+</p>      
+<HR WIDTH=100%>       
+</a><a NAME="81"><b>　<BR>  
+設問</b></a><b><a NAME="81">1</a>　</b>プログラム中の[        ]に入れる正しい答えを，解答群の中から選べ。<br>      
+<br>      
+aに関する解答群      
+<table border="0" cellpadding="3" cellspacing="0">     
+  <tr>     
+    <td width="180">ア　AND  GR4,=16</td>      
+    <td>	イ　LAD  GR4, 16</td>      
+  </tr>      
+  <tr>      
+    <td>ウ　LD  GR4, 16</td>      
+    <td>	エ　OR GR4, =16</td>      
+  </tr>      
+</table>      
+<table border="0" cellpadding="3" cellspacing="0">     
+  <tr>     
+    <td>&nbsp;<br>     
+      &nbsp;<br>     
+      bに関する解答群</td>     
+  </tr>     
+</table>     
+<table border="0" cellpadding="3" cellspacing="0">     
+  <tr>     
+    <td width="200">ア　SLL  GR0, 0, GR2</td>      
+    <td>	イ　SLL  GR0, 0, GR4</td>      
+  </tr>      
+  <tr>      
+    <td>ウ　SRL  GR0, 0, GR2</td>      
+    <td>	エ　SRL  GR0, 0, GR4</td>      
+  </tr>      
+</table>      
+<table border="0" cellpadding="3" cellspacing="0">     
+  <tr>     
+    <td>&nbsp;<br>     
+      &nbsp;<br>     
+      cに関する解答群</td>     
+  </tr>     
+</table>     
+<table border="0" cellpadding="3" cellspacing="0">     
+  <tr>     
+    <td width="180">ア　JMI     LOOP&nbsp;</td>     
+    <td>	イ　JOV     LOOP</td>      
+  </tr>      
+  <tr>      
+    <td>ウ　JPL     LOOP</td>      
+    <td>	エ　JZE     LOOP</td>      
+  </tr>      
+</table>      
+<p>　</p>    
+<A NAME="41">     
+<HR WIDTH=100%>     
+</a><a HREF="13s_p_a3.htm#81">設問1の正解例と解説へ</a>    
+<HR WIDTH=100%>    
+<p><b><a name="82">設問2</a>　</b>図2に示すように，右にはみ出したビット列を左端の空いたビット位置に格納するために，行番号5のLAD命令を次の三つの命令に置き換えた。プログラム中の<b>[    
+　　　]</b>に入れる正しい答えを，解答群の中から選べ。</p>   
+<p>LD　　　　GR5 , GR1<br>     
+ADDL　　GR5 , GR3<br>     
+<b>[　　　　　　　　　　]</b></p>   
+<p><img border="0" src="image/e8_2.gif" width="369" height="148"></p>   
+<table border="0" cellpadding="3" cellspacing="0">   
+  <tr>   
+    <td>解答群</td>   
+  </tr>   
+</table>   
+<table border="0" cellpadding="3" cellspacing="0">   
+  <tr>   
+    <td width="160">ア　LD   GR5, -1, GR5</td>     
+    <td width="160">	イ　LD   GR5, 0, GR5</td>     
+    <td>	ウ　LD   GR5, 1, GR5</td>     
+  </tr>     
+  <tr>     
+    <td>エ　ST   GR5, -1, GR1</td>     
+    <td>	オ　ST   GR5, 0, GR1</td>     
+    <td>	カ　ST   GR5, 1, GR1</td>     
+  </tr>     
+</table>     
+<p>　</p>   
+<a NAME="44">   
+<hr WIDTH="100%">   
+</a><a HREF="13s_p_a3.htm#82">設問2の正解例と解説へ</a>   
+<hr WIDTH="100%">   
+<p align="center"><a href="13s_p_e4.htm">■問9へ進む</a>　　　　　　<a HREF="index.htm">■メニューへ戻る</a><br>    
+    
+<HR WIDTH=100%>    
+<p>　</p>   
+</blockquote>   
+</BODY>   
+</HTML>   

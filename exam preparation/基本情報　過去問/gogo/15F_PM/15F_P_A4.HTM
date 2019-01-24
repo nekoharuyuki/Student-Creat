@@ -1,0 +1,149 @@
+<HTML>
+<HEAD>
+<TITLE>平成15年度秋期試験　</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0">
+<blockquote>
+<hr>
+<H3 align="center">平成15年度秋期試験　正解例と解説(問10～問13)</H3>
+<hr>
+<BR>
+<b><a name="100">問10</a></b>
+<hr>
+<br>
+<b><a name="101">設問1</a></b><br>
+<br>
+＜解答＞　a　ア　　b　エ　　c　エ　　d　ア　　e　イ<br>
+<br>
+＜解説＞<br>
+<br>
+このプログラムでは，256文字のchar型配列bufが宣言されている。最初のforループの繰返処理では，tbl[row][col] = NULLにより出力先の配列要素をNULLで初期化している。その直後のfopen命令により入力ファイルをオープンし，次のforループのfgets命令により配列bufに入力ファイルのCSV形式のテキストデータを1レコード読込んでいる。<br>
+<br>
+空欄aについて<br>
+空欄aは，データを区切る“,”が出現したときの処理に相当する。この場合，2次元配列の格納先要素を次に進めるため列番号colをインクリメントすればよいので，空欄aはcol++となる。<br>
+<br>
+空欄bについて<br>
+空欄bは，引用符で囲まれたデータの先頭部の引用符“””が出現した場合の処理の相当する。この場合には，引用符の直後の文字へのポインタを2次元配列の格納先要素へのポインタdpにセットすればよい。つまりdp = ++cpとすればよいので，空欄bは++cpとなる。<br>
+<br>
+空欄cについて<br>
+空欄cを含むforループは，引用符で囲まれたデータの長さlenをカウントするための繰返処理である。ポインタcpがポイントする文字が引用符“””でない間は，cpをインクリメントしながらlenをカウントアップすればよい。空欄cはそのcpのインクリメントに関する部分であり，空欄cは++cpとなる。<br>
+<br>
+空欄dについて<br>
+空欄dを含む処理は，*cpがレコード終端記号“＼n”，コンマ“,”，引用符“””のいずれでもない場合，つまり引用符で囲まれていないデータの先頭文字が出現した場合の処理に相当する。この場合には，データの先頭文字へのポインタcpを2次元配列の格納先要素へのポインタdpへセットすればよい。したがって空欄dはcpとなる。<br>
+<br>
+空欄eについて<br>
+空欄d直後のforループの繰返処理では，引用符で囲まれていないデータの長さlenをカウントしている。引用符で囲まれていないデータについては，文字列内に空白文字やコンマ“,”を含まない。したがって<img border="0" src="image/01_maru.GIF">コンマの前後の空白“ ”または<img border="0" src="image/02_maru.GIF">データを区切るコンマ“,”または<img border="0" src="image/03_maru.GIF">レコード終端の“＼n”が出現すれば，if文の条件によりbreakし途中でforループを終了する。この条件でforループをbreakし終了した場合には，buf内の文字列へのポインタcpは上記<img border="0" src="image/01_maru.GIF">，<img border="0" src="image/02_maru.GIF">，<img border="0" src="image/03_maru.GIF">のいずれかへのポインタになる。これに対してレコードの終端記号が出現した場合，forループの終了条件*cp = ’＼n’によりforループを終了するが，この場合ポインタcpはレコードの終端記号“＼n”をポイントすることになる。この後データが空でない場合は，malloc命令によりtbl[row][col]に対する領域を動的に確保した後，strncpy(tbl[row][col], dp, len)命令によりポインタdpのポイントする配列要素に長さlenのデータを複写し，*(tbl[row][col] + len) = ‘＼0’によりデータの末尾に‘＼0’を付加している。ここで再びfor(cp = buf ; *cp! = ‘＼n’ ; cp++)のforループ冒頭の繰返処理の判定に戻る。cp++によりインクリメントされるので，終了条件*cp! = ‘＼n’により終了するためには，直前の空欄eでcpをデクリメントしておかないと，cpが‘＼n’の次の文字をポイントすることになり終了条件*cp! = ‘＼n’を満たさなくなる。したがって空欄eでcp--としておく必要がある。<br>
+<HR WIDTH=100%>
+<a HREF="15F_P_E4.HTM#101">問題へ</a>
+<HR WIDTH=100%>
+<br>
+<b><a name="102">設問2</a></b><br>
+<br>
+＜解答＞　ア<br>
+<br>
+＜解説＞<br>
+<br>
+最初のCSV形式のレコードのようにレコードの最後のデータが引用符で囲まれたデータの場合，レコードの終端記号の直前に引用符が出現する。この場合には，空欄bでデータへのポインタ++cpを2次元配列の格納先要素へのポインタdpにセットし，次のforループでデータの長さlenをカウントした後，2次元配列の格納先要素tbl[row][col]にデータを複写して，次のレコードの処理に入る。この場合レコードの最後のデータ(” 550,000”)は550,000＼0として配列要素に格納される。<br>
+2つ目のCSV形式のレコードのようにレコードの最後のデータが引用符で囲まれていないデータで，コンマ“,”で終わる場合，レコードの終端記号の直前にコンマが出現する。この場合には，空欄dでデータへのポインタcpを2次元配列の格納先要素へのポインタdpにセットし，次のforループでデータの長さlenをカウントする。この後レコードの終端記号直前にあるコンマ“,”の出現によりif文の条件を満たしforループをbreakして，2次元配列の格納先要素tbl[row][col]にデータを複写し，次のレコードの処理に入る。この場合レコードの最後のデータ(F,)はコンマが除かれてF＼0として配列要素に格納される。<br>
+関数savecsv( )は，2次元配列の要素をCSV形式に戻してテキストファイルに出力する。savecsv( )の2つ目のforループ中のif文if( tbl[row][last] != NULL )break; により，2次元配列の各行のNULLでない一番右端のデータが出現すれば，forループをbreakして変数lastにNULLでない一番右端のデータの列の番号がセットされる。<br>
+savecsv( )の3つ目のforループ中の処理では，2次元配列の各行の列0から列lastまでの要素のデータを引用符“””で囲って，コンマで区切ってCSV形式で出力している。各行の最後のデータの直後にはレコード終端記号をfputs( “＼n”, fp )命令により付加している。コンマについてはif ( col < last ) fputs( “,”, fp );により出力するので，レコードの最後のデータの直前までは出力されるが，終端記号の直前にはコンマは付加されない。<br>
+各レコード内の出力データの個数はもとのデータの個数と同じであり，イは不適切。<br>
+すべてのデータは引用符で囲まれて出力され，またレコード末尾の不要なコンマは出力されないので，ウは不適切。<br>
+すべてのデータは引用符で囲まれて出力されるので，エは不適切。<br>
+したがってアのように出力される。<br>
+<br>
+<HR WIDTH=100%>    
+<a HREF="15F_P_E4.HTM#102">問題へ</a>
+<HR WIDTH=100%>   
+<p><A HREF="INDEX.HTM">メニューへ戻る</A></p>
+<HR WIDTH=100%>
+<b><a name="110">問11</a></b>
+<hr> 
+<br>
+<b><a name="111">設問</a></b>
+<p>＜解答＞　a　ア　　　b　ウ　　　c　イ　　　d　イ　　　e　オ<br>
+<br>
+＜解説＞<br>
+<br>
+空欄dについて<br>
+時差を格納するairpots-fileと飛行予定情報ファイルitinerary-fileをオープンし，変数の初期化処理をした後，飛行予定情報ファイルを読んでAT ENDでない間，以下の処理を繰返している。<br>
+(1)PERFORM文によるcalculate-flite-timeの処理<br>
+(2)transit-mimutesの値をaccumulated-trnsit-mimutesに加算する処理<br>
+(3)flight-mimutesの値をaccumulated-flight-mimutesに加算する処理<br>
+(4)PERFORM文によりdisplay-flight-mimutesの処理を実行する処理<br>
+最後にファイルがAT ENDになれば，PERFORM文によりdisplay-accumulated-timeの処理を実行している。<br>
+(1)のcalculate-flite-timeの処理<br>
+　arrivalは到着空港を表す変数でテーブルの添字の1が格納されており，これをthis-airportにセットして到着空港について処理normalize-timeを実行している。departureは出発空港を表す変数でテーブルの添字の2が格納されており，次にこれをthis-airportにセットして出発空港について処理normalize-timeを実行している。<br>
+到着空港について処理normalize-timeを実行する場合，先ず空欄dを3-letter-codeにセットして索引ファイルairports-fileを読み，世界標準時からの時差を分に変換したtime-diff-in-minutesを計算する処理を行っている。さらにこれに続く処理で，到着時刻をグレゴリオ暦で1600年12月31日からの通算日数を分換算した値から時差を分換算したtime-diff-in-minutesを差引いた値を空欄eの変数に算出している。出発空港についても同様に処理normalize-timeを実行している。到着空港について処理normalize-timeを実行する場合は，到着空港の空港コードairport-of-call(arrival)を3-letter-codeにセットし，出発空港について処理normalize-timeを実行する場合は，airport-of-call(arrival)を3-letter-codeにセットすればよい。したがって空欄dはairport-of-call(this-airport)とすればよい。<br>
+<br>
+空欄eについて<br>
+空欄eには，到着時刻または出発時刻をグレゴリオ暦で1600年12月31日からの通算日数を分換算した値から時差を分換算したtime-diff-in-minutesを差引いた値をそれぞれ格納する必要があるが，これを格納するのに作業用テーブルのnormalized-mimutesが使われている。時差を差引いた到着時刻の分換算値についてはnormalized-minutes(arrival)に，時差を差引いた出発時刻の分換算値についてはnormalized-minutes(departure)に格納すればよい。したがって空欄eはnormalized-minutes(this-airport)とすればよい。<br>
+<br>
+空欄cについて<br>
+空欄cは飛行時間の分換算値flight-minutesを算出している箇所に相当する。時差を差引いた到着時刻の分換算値normalized-minutes(arrival)から，時差を差引いた出発時刻の分換算値normalized-minutes(departure)を差引けば求まるので，空欄cはnormalized-minutes(arrival)－normalized-minutes(departure)となる。<br>
+<br>
+空欄bについて<br>
+空欄bは乗継時間の分換算値transit-minutesを算出している処理に相当し，空欄aの条件が成立つ場合にこの算出処理を行っている。空欄cの直後の処理では，時差を差引いた到着時刻の分換算値normalized-minutes(arrival)を作業用変数arrival-normalized-minutesに転送している。したがって時差を差引いた出発時刻の分換算値normalized-minutes(departure) からarrival-normalized-minutesを差引けば乗継時間の分換算値transit-minutesが求まり，空欄bはnormalized-minutes(departure)－arrival-normalized-minutesとなる。<br>
+<br>
+空欄aについて<br>
+最初の乗継時間transit-minutesの計算は，2番目に搭乗する航空便の出発時刻から1番目に搭乗する航空便の到着時刻を差引いて計算するので，飛行予定情報ファイルの最初の1件目のレコードが読込まれた時点では計算できない。空欄c直後の処理で，1番目に搭乗する航空便の到着時刻が作業用変数arrival-normalized-minutesにセットされ，2件目のレコードが読込まれ2番目に搭乗する航空便の出発時刻が算出された時点で最初の乗継時間の計算ができる。飛行予定情報ファイルの最初の1件目のレコードが読込まれた時点ではこの乗継時間transit-minutesの計算はスキップする必要がある。arrival-normalized-minutesとtransit-minutesは最初の初期化処理で0にセットされているので，空欄c直後の処理で1番目に搭乗する航空便の到着時刻が作業用変数arrival-normalized-minutesにセットされ，arrival-normalized-minutes＞0となった時点で乗継時間transit-minutesの計算を行えばよい。したがって空欄aのif文の条件は，arrival-normalized-minutes＞0とすればよい。<br>
+<HR WIDTH=100%>
+<a HREF="15F_P_E4.HTM#111">問題へ</a>   
+<HR WIDTH=100%>
+<BR>
+<p><A HREF="INDEX.HTM">メニューへ戻る</A></p>
+<HR WIDTH=100%>
+<b><a name="120">問12</a></b>
+<hr>
+<br>
+<b><a name="121">設問</a></b><br>
+<br>
+＜解答＞　a　カ　　　b　ウ　　　c　エ　　　d　エ<br>
+<br>
+＜解説＞<br>
+<br>
+空欄aについて<br>
+空欄aは，行列の和が定義できない場合の条件である。行列オブジェクトvaluesの行数と行列オブジェクトmの行数が等しく，かつ行列オブジェクトvaluesの列数と行列オブジェクトmの列数が等しい場合には行列の和が定義できる。したがって行列オブジェクトvaluesの行数と行列オブジェクトmの行数が等しないか，または行列オブジェクトvaluesの列数と行列オブジェクトmの列数が等しくない場合に行列の和が定義できない。行列オブジェクトvaluesの行数はvalues.lengthで，行列オブジェクトmの行数はm.values.lengthであるので，行数が等しない条件はvalues.length != m.values.lengthとなる。また行列オブジェクトvaluesの列数はvalues[0].lengthで，行列オブジェクトmの列数はm.values[0].lengthであるので，列数が等しくない条件はvalues[0].length != m.values[0].lengthとなる。したがって行数または列数のいずれかが等しくない空欄aの条件は，values.length != m.values.length || values[0].length != m.values[0].lengthとなる。<br>
+<br>
+空欄bについて<br>
+double型の2次元配列resultをクラスMatrixの引数に指定して行列オブジェクトを戻り値として返せばよいので，空欄bはreturn new Matrix(result)となる。<br>
+<br>
+空欄cについて<br>
+空欄cは，行列の積が定義できない場合の条件である。行列オブジェクトvaluesの列数と行列オブジェクトmの行数が等しくない場合に行列の積が定義できない。行列オブジェクトvaluesの列数はvalues[0].lengthで，行列オブジェクトmの行数はm.values.lengthとなる。空欄cの条件はvalues[0].length != m.values.lengthとなる。<br>
+<br>
+空欄dについて<br>
+メソッドtoString( )により，行列オブジェクトの文字列表現を返す必要があるので，空欄dはString型の文字列オブジェクトnew String(rep)を戻り値として返せばよい。したがって空欄dはreturn new String(rep)となる。<br>
+
+<HR WIDTH=100%>
+<a HREF="15F_P_E4.HTM#121">問題へ</a>
+<HR WIDTH=100%>
+<BR>
+<p><A HREF="INDEX.HTM">メニューへ戻る</A></p>
+<HR WIDTH=100%>
+<a NAME="130"><b>問13</b></a>　（解説は省略します。）
+<hr> 
+<br>
+<a NAME="131"><b>設問1</b></a><br>
+<br>
+＜解答＞　a　エ　　b　カ<br>
+<HR WIDTH=100%> 
+<a HREF="15F_P_E4.HTM#131">問題へ</a>
+<HR WIDTH=100%> 
+<a NAME="132"><b>設問2</b></a><br>
+<br>
+＜解答＞　c　オ　　d　ウ
+<HR WIDTH=100%>
+<a HREF="15F_P_E4.HTM#132">問題へ</a>
+<HR WIDTH=100%>
+<br>
+<a NAME="133"><b>設問3</b></a><br>
+<br>
+＜解答＞　e　ク　　f　オ
+<HR WIDTH=100%>
+<a HREF="15F_P_E4.HTM#133">問題へ</a>
+<HR WIDTH=100%>
+<p><a HREF="INDEX.HTM">メニューへ戻る</a></p>
+<HR WIDTH=100%>
+</blockquote>
+</BODY>
+</HTML>

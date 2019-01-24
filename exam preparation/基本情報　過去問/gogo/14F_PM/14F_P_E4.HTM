@@ -1,0 +1,692 @@
+<HTML>
+<HEAD>
+<TITLE>平成14年度秋期試験　問題(午後問10～問13)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0">
+<blockquote>
+  <hr>
+  <H3 align="center">平成14年度秋期試験　問題(問10～問13)</H3>
+<hr>
+<P>次の問10から問13までの4問については、この中から1問を選択し、答案用紙の選択欄の             
+選 をマークして解答してください。なお、2問以上選択した場合には、はじめの1問について採点します。<br>            
+<hr>         
+<b><a name="100">問10</a>　</b>次のCプログラムの説明及びプログラムを読んで，設問1，2に答えよ。<br>
+<br>
+〔プログラムの説明〕<br>
+画面上に凸四角形を描く関数DrawRectを作成した。関数DrawRectは，次の大域変数を参照して動作する。<br>
+<br>
+　　<b>int Vx[4], Vy[4]; /* 4 頂点の座標値配列(Vxはx座標，Vyはy座標) */</b><br>
+<br>
+ただし，第1頂点P1から第3頂点P3までは，画面上で時計回りになっており，その座標値は順番にVxとVyに格納されている。画面上の座標系と原点の位置を図1に示す。<br>
+<br>
+<img border="0" src="image/FP10-01.gif"><br>
+<br>
+図1　画面上の座標系と原点の位置<br>
+<br>
+第1頂点P1から第4頂点P4までは折れ線で結び，次に第4頂点P4の位置を検査し，凸四角形になる場合にはP4とP1を結ぶ線分を描画して，返却値0を返す。4頂点を結ぶ図形が，凸四角形ではなく，図2に示すような図形をとる場合には，P4とP1を結ぶ線分を描かずに，返却値－1を返す。<br>
+<br>
+<img border="0" src="image/FP10-02.gif"><br>
+<br>
+図2　凸四角形でない図形の例<br>
+<br>
+なお，線分を引くために，次の二つの関数が用意されている。<br>
+　void gMoveTo(int sx, int sy);<br>
+　機能：線分の始点座標（sx，sy）を設定する。この関数は描画を行わない。<br>
+　void gLineTo(int ex, int ey);<br>
+　機能：現在の始点から（ex，ey）までの線分を描き，次の描画のために始点を（ex，ey）に更新する。<br>
+
+<br>
+<pre>  〔プログラム〕<br>
+void qMoveTo(int, int);<br>
+void gLineTo(int, int);<br>
+<br>
+int　nCheck(double a)<br>
+{<br>
+　　 if　　　(a > 0.0)　return　1;<br>
+　　 else if (a < 0.0)　return　-1;<br>
+　　 return　0;<br>
+}<br>
+<br>
+int　DrawRect( )<br>
+{<br>
+　　 int　　 nCnt;<br>
+　　 double　dx, dy, k;<br>
+　　 int　　 nSide0, nSide1, nSide2;<br>
+<br>
+　　 for (nCnt = 0; nCnt < 4; nCnt++) {<br>
+　　　　 if　　　(nCnt == 0)　 gMoveTo(Vx[nCnt], Vy[nCnt]);<br>
+　　　　 else if (nCnt <　3)　 gLineTo(Vx[nCnt], Vy[nCnt]);<br>
+　　　　 else　　{<br>
+　　　　　　　　 gLineTo(Vx[nCnt], Vy[nCnt]);<br>
+<br>
+　　　　　　　　 /* P3とP4を通る直線の方程式を求める。　*/<br>
+　　　　　　　　 dx = Vx[3] - Vx[2];<br>
+　　　　　　　　 dy = Vy[3] - Vy[2];<br>
+　　　　　　　　 k = dx * Vy[2] - dy * Vx[2];<br>
+　　　　　　　　 /* 第1の判定 */<br>
+　　　　　　　　 nSide0 = nCheck(dy * Vx[0] - dx * Vy[0] + k);<br>
+　　　　　　　　 nSide1 = nCheck(dy * Vx[1] - dx * Vy[1] + k);<br>
+　　　　　　　　 if (nSide0 != nSide1) return -1;<br>
+　　　　　　　　 /* P4とP1を通る直線の方程式を求める。　*/<br>
+　　　　　　　　 dx = Vx[0] - Vx[3];<br>
+　　　　　　　　 dy = Vy[0] - Vy[3];<br>
+　　　　　　　　 k　= dx * Vy[3] - dy * Vx[3];<br>
+　　　　　　　　 /* 第2の判定 */<br>
+　　　　　　　　 nSide1 = nCheck(dy * Vx[1] - dx * Vy[1] + k);<br>
+　　　　　　　　 nSide2 = nCheck(dy * Vx[2] - dx * Vy[2] + k);<br>
+　　　　　　　　 if (nSide1 != nSide2) return -1;<br>
+　　　　　　　　 /* P3とP1を通る直線の方程式を求める。　*/<br>
+　　　　　　　　 dx = Vx[0] - Vx[2];<br>
+　　　　　　　　 dy = Vy[0] - Vy[2];<br>
+　　　　　　　　 k　= dx * Vy[2] - dy * Vx[2];<br>
+　　　　　　　　 /* 第3の判定 */<br>
+　　　　　　　　 nSide1 = nCheck(dy * Vx[1] - dx * Vy[1] + k);<br>
+　　　　　　　　 nSide2 = nCheck(dy * Vx[3] - dx * Vy[3] + k);<br>
+　　　　　　　　 if (nSide1 *= nSide2 != -1) return -1;<br>
+　　　　 }<br>
+　　 }<br>
+　　 gLineTo(Vx[0], Vy[0]);<br>
+　　 return 0;<br>
+}<br>
+</pre>  
+<hr> 
+<p><b><a name="101">設問1</a>　</b>関数DrawRectは，描く図形が凸四角形かどうか調べるため，直線の方程式を利用して辺の交差を判定している。この処理に関する次の記述中の［　　　　］に入れる正しい答えを，解答群の中から選べ。ただし，L12は，第1頂点P1と，第2頂点P2を結ぶ線分を表す。<br>
+<br>
+2点P3（x<sub>3</sub>, y<sub>3</sub>），P4（x<sub>4</sub>, y<sub>4</sub>）を通る直線の方程式を求める。この方程式は<br>
+　　(x<sub>4</sub>－x<sub>3</sub>)(y－y<sub>3</sub>) = (y<sub>4</sub>－y<sub>3</sub>)(x－x<sub>3</sub>)<br>
+と表すことができる。P4とP3のx座標の差をdx, y座標の差をdyとすると，<br>
+　　dx = Vx[3]－Vx[2]<br>
+　　dy = Vy[3]－Vy[2]<br>
+である。この値を方程式に代入すると，<br>
+　　dx(y－y<sub>3</sub>) = dy(x－x<sub>3</sub>)<br>
+となる。この式を展開すると<br>
+　　dx×y－dx×y<sub>3</sub> = dy×x－dy×x<sub>3</sub><br>
+となる。ここで，定数をまとめてkとすると，直線の方程式は，<br>
+　　dy×x－dx×y + k = 0<br>
+と表すことができる。<br>
+定数kは，xとyに［　　a　　］の座標値を代入すれば求めることができるので，求める直線の方程式は，［　　b　　］= 0となる。<br>
+凸四角形になるためには，P3とP4を通る直線と，線分L12が交差してはならない。この交差を判定するため，［　　b　　］のxとyに，P1とP2の座標値を代入し，計算結果の［　　c　　］を比較して判定する。<br>
+<br>
+a，cに関する解答群<br>
+ア　第1頂点P1　　　イ　第2頂点P2　　　ウ　第3頂点P3<br>
+エ　絶対値　　　　 オ　符号<br>
+<br>
+bに関する解答群<br>
+ア　dx×x－dy×y＋dx×Vy[2]－dy×Vx[2]<br>
+イ　dx×x－dy×y＋dy×Vy[2]－dx×Vx[2]<br>
+ウ　dy×x－dx×y＋dx×Vy[2]－dy×Vx[2]<br>
+エ　dy×x－dx×y＋dy×Vx[2]－dx×Vy[2]<br>
+オ　dy×x－dx×y＋dy×Vy[2]－dx×Vx[2]<br>
+<br>
+<HR WIDTH=100%>  
+  <a HREF="14F_P_A4.HTM#101">設問1の正解例と解説へ</a>  
+<HR WIDTH=100%>  
+  　<BR>
+<p><b><a name="102">設問2</a>　</b>このプログラムは，描く図形が凸四角形になるかどうかを判定するため，三つの判定を順番に行っている。この判定のアルゴリズムに関する次の記述中の［　　　　］に入れる正しい答えを，解答群の中から選べ。<br>
+<br>
+（第1の判定）<br>
+　　［　　d　　］のような図形を無効にするため，P3とP4を通る直線の方程式を求めて，P1とP2の位置を検査する。<br>
+<br>
+（第2の判定）<br>
+　　［　　e　　］や［　　f　　］のような図形を無効にするため，P4とP1を通る直線の方程式を求めて，P2とP3の位置を検査する。<br>
+<br>
+（第3の判定）<br>
+　　［　　g　　］のような図形を無効にするため，P3とP1を通る直線の方程式を求めて，P2とP4の位置を検査する。<br>
+<br>
+解答群<br>
+<br>
+<img border="0" src="image/FP10-21.gif">
+<br>
+
+<HR WIDTH=100%>  
+  <a HREF="14F_P_A4.HTM#102">設問2の正解例と解説へ</a>  
+<HR WIDTH=100%>  
+<A HREF="INDEX.HTM">メニューへ戻る</A>
+<HR WIDTH=100%>   
+<a NAME="110">　<BR>  
+<b>  
+問11</b></a>　次のCOBOLプログラムの説明及びプログラムを読んで，設問1，2に答えよ。<br>
+<br>
+〔プログラムの説明〕<br>
+企業の売上高などを記録した企業統計ファイルがある。企業統計ファイルのレコードを，各項目ごとにコンマで区切ったCSV（Comma Separated Value）形式に変換して，企業統計CSVファイルに出力するプログラムである。レコードの各項目は，項目ごとに指定された方法で変換する。<br>
+（1）企業統計ファイルのレコード様式は，次のとおりである。<br>
+<br>
+<img border="0" src="image/FP11-01.gif"><br>
+<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top"><img border="0" src="image/01_maru.GIF"></td>
+            <td>　企業コードは，6けたの英数字項目である。</td>
+          </tr>
+          <tr>
+            <td valign="top"><img border="0" src="image/02_maru.GIF"></td>
+            <td>　売上高，営業利益及び経常利益は，数字項目である。数字は，右詰めで，8けた未満の場合は，上位のけたに0が埋められている。</td>
+          </tr>
+          <tr>
+            <td valign="top"><img border="0" src="image/03_maru.GIF"></td>
+            <td>　社名は1文字以上の英字，数字，空白及びピリオドで構成され，コンマは含まない。社名は左詰めで，その文字列が項目の文字数に満たないところは，空白が埋められている。なお，空白だけからなる社名はない。</td>
+          </tr>
+        </table>
+<br>
+（2）企業統計CSVファイルのレコード様式は，次のとおりである。<br>
+<br>
+<img border="0" src="image/FP11-02.gif"><br>
+<br>
+<img border="0" src="image/01_maru.GIF">　項目と項目の区切りには，半角コンマを用いる。<br>
+<img border="0" src="image/02_maru.GIF">　このファイルのレコードは，可変長とする。<br>
+<br>
+（3）企業統計ファイルのデータ変換方法は，次のとおりである。<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top"><img border="0" src="image/01_maru.GIF"></td>
+            <td>　企業コードは変換しない。</td>
+          </tr>
+          <tr>
+            <td valign="top"><img border="0" src="image/02_maru.GIF"></td>
+            <td>　社名については，その文字列の末尾に連続する空白は削除する。</td>
+          </tr>
+          <tr>
+            <td valign="top"><img border="0" src="image/03_maru.GIF"></td>
+            <td>　売上高，営業利益及び経常利益については，先頭の一つ又は連続する0は削除する。ただし，これらの項目の全けたがゼロの場合は，1けたの0とする。</td>
+          </tr>
+        </table>
+<br>
+〔プログラム〕<br>
+<br>
+（行番号）<br>
+　 1　DATA DIVISION.<br>
+　 2　FILE SECTION.<br>
+　 3　FD　COMPANY-FILE.<br>
+　 4　01　COMPANY-REC.<br>
+　 5　　　02　COMP-CODE　　　　　　　　　　PIC　X(06).<br>
+　 6　　　02　COMP-NAME OCCURS 50　　　　PIC　X(01).<br>
+　 7　　　02　COMP-SUM OCCURS 3　　　　　PIC　9(08).<br>
+　 8　FD　CSV-FILE<br>
+　 9　　　RECORD IS VARYING IN SIZE<br>
+　10　　　　　　　　FROM 14 TO 84 DEPENDING ON P-CNT.<br>
+　11　01　CSV-REC　　　　　　　　　　　　 PIC　X(84).<br>
+　12　WORKING-STORAGE SECTION.<br>
+　13　01　EOF-FLG　　　　　　　　　　　　 PIC　X(01) VALUE SPACE.<br>
+　14　01　OUT-WRK.<br>
+　15　　　02　OUT-S-WRK OCCURS 84　　　 PIC　X(01).<br>
+　16　01　NUM-WRK.<br>
+　17　　　02　NUM9-WRK　　　　　　　　　　PIC　9(08).<br>
+　18　　　02　REDEFINES NUM9-WRK.<br>
+　19　　　　　03　NUMX-WRK OCCURS 8　　 PIC　X(01).<br>
+　20　01　L-CNT　　　　　　　　　　　　　　PIC　9(02).<br>
+　21　01　M-CNT　　　　　　　　　　　　　　PIC　9(02).<br>
+　22　01　P-CNT　　　　　　　　　　　　　　PIC　9(02).<br>
+　23　01　V-CNT　　　　　　　　　　　　　　PIC　9(01).<br>
+　24　01　W-CNT　　　　　　　　　　　　　　PIC　9(02).<br>
+　25　01　SEPARATOR-CHAR　　　　　 PIC　(801) VALUE ",".<br>
+　26　PROCEDURE DIVISION.<br>
+　27　PROC-RTN.<br>
+　28　　　 OPEN INPUT COMPANY-FILE OUTPUT CSV-FILE.<br>
+　29　　　 PERFORM UNTIL EOF-FLG = "E"<br>
+　30　　　　　 READ COMPANY-FILE AT END<br>
+　31　　　　　　　 MOVE "E" TO EOF-FLG<br>
+　32　　　　　 NOT AT END<br>
+　33　　　　　　　 PERFORM MOVE-RTN<br>
+　34　　　　　 END-READ<br>
+　35　　　 END-PERFORM.<br>
+　36　　　 CLOSE COMPANY-FILE CSV-FILE.<br>
+　37　　　 STOP RUN.<br>
+　38　MOVE-RTN.<br>
+　39　　　 MOVE COMP-CODE TO OUT-WRK.<br>
+　40　　　 MOVE SEPARATOR-CHAR TO OUT-S-WRK (7).<br>
+　41　　　 MOVE 7 TO P-CNT.<br>
+　42　　　 PERFORM VARYING L-CNT FROM 50 BY -1 UNTIL L-CNT < 2<br>
+　43　　　　　　　　　　　　　　　OR COMP-NAME (L-CNT) NOT = SPACE<br>
+　44　　　　　 CONTINUE<br>
+　45　　　 END-PERFORM.<br>
+　46　　　 PERFORM VARYING W-CNT FORM 1 BY 1 UNTIL ［　　　a　　　］<br>
+　47　　　　　 COMPUTE P-CNT = P-CNT + 1<br>
+　48　　　　　 MOVE COMP-NAME (［　　b　　］) TO OUT-S-WRK (［　　c　　］)<br>
+　49　　　 END-PERFORM.<br>
+　50　　　 PERFORM NUM-RTN VARYING V-CNT FROM 1 BY 1<br>
+　51　　　　　　　　　　　　　　　　　　　　　　　　　 UNTIL V-CNT > 3.<br>
+　52　　　 MOVE OUT-WRK TO CSV-REC.<br>
+　53　　　 WRITE CSV-REC.<br>
+　54　NUM-RTN.<br>
+　55　　　 COMPUTE P-CNT = P-CNT + 1.<br>
+　56　　　 MOVE SEPARATOR-CHAR TO OUT-S-WRK (P-CNT).<br>
+　57　　　 MOVE COMP-SUM(V-CNT) TO NUM9-WRK.<br>
+　58　　　 PERFORM VARYING W-CNT FROM 1 BY 1 UNTILL W-CNT > 7<br>
+　59　　　　　　　　　　　　　　　 OR NUMX-WRK (W-CNT) NOT = "0"<br>
+　60　　　　　 CONTINUE<br>
+　61　　　END-PERFORM.<br>
+　62　　　PERFORM VARYING M-CNT FROM ［　　d　　］<br>
+　63　　　　　 COMPUTER P-CNT = P-CNT + 1<br>
+　64　　　　　 MOVE NUMX-WRK (M-CNT) TO OUT-S-WRK (P-CNT)<br>
+　65　　　END-PERFORM.<br>
+<br>
+<hr>  
+<a NAME="111">　<BR>  
+<b>  
+設問</b></a><b><a NAME="111">1</a>　</b>プログラム中の［　　　　］に入れる正しい答えを，解答群に中から選べ。<br>
+<br>
+aに関する解答群<br>
+ア　W-CNT < 1　　　　　イ　W-CNT > 8<br>
+ウ　W-CNT > 50　　　　 エ　W-CNT > L-CNT<br>
+オ　W-CNT < L-CNT　　　カ　W-CNT > M-CNT<br>
+キ　W-CNT < M-CNT　　　ク　W-CNT > P-CNT<br>
+ケ　W-CNT < P-CNT<br>
+<br>
+b，cに関する解答群<br>
+ア　L-CNT　　　　イ　M-CNT　　　　ウ　P-CNT<br>
+エ　V-CNT　　　　オ　W-CNT<br>
+<br>
+dに関する解答群<br>
+ア　L-CNT BY 1 UNTIL M-CNT > 7<br>
+イ　L-CNT BY 1 UNTIL M-CNT > 8<br>
+ウ　P-CNT BY 1 UNTIL M-CNT > 7<br>
+エ　P-CNT BY 1 UNTIL M-CNT > 8<br>
+オ　W-CNT BY 1 UNTIL M-CNT > 7<br>
+カ　W-CNT BY 1 UNTIL M-CNT > 8<br>
+キ　V-CNT BY 1 UNTIL M-CNT > 7<br>
+ク　V-CNT BY 1 UNTIL M-CNT > 8<br>
+<br>
+<HR WIDTH=100%> 
+  <a HREF="14F_P_A4.HTM#111">設問1の正解例と解説へ</a> 
+<HR WIDTH=100%> 
+<a NAME="112"> 
+<b> 
+設問</b></a><b>2　</b>次の記述中の［　　　　］に入れる正しい答えを，解答群の中から選べ。<br>
+<br>
+金額が入る項目（売り上げ及び経常利益）が負になった場合に対応させることになった。金額が入る項目が負の場合は，項目の左端に“－”が付加されるように，次のとおりプログラムを変更する。<br>
+<br>
+<img border="0" src="image/FP11-21.gif"><br>
+<br>
+eに関する解答群<br>
+ア　49　　　イ　53　　　ウ　54　　　エ　56　　　オ　65<br>
+<br>
+fに関する解答群<br>
+ア　NUM9-WRK < 0<br>
+イ　NUM9-WRK > 0<br>
+ウ　COMP-SUM(L-CNT) < 0<br>
+エ　COMP-SUM(L-CNT) > 0<br>
+オ　COMP-SUM(M-CNT) < 0<br>
+カ　COMP-SUM(M-CNT) > 0<br>
+キ　COMP-SUM(V-CNT) < 0<br>
+ク　COMP-SUM(V-CNT) > 0<br>
+<br>
+<HR WIDTH=100%>
+  <a HREF="14F_P_A4.HTM#112">設問2の正解例と解説へ</a>
+<HR WIDTH=100%>
+<p><A HREF="INDEX.HTM">メニューへ戻る</A>　</p>
+<HR WIDTH=100%>
+<b><a name="120">問12</a>　</b>次のJavaプログラムの説明及びプログラムを読んで，設問に答えよ。<br>
+<br>
+〔プログラムの説明〕<br>
+　プログラム1は，コンマ区切り（CSV形式）のデータを解析するための汎用クラスCSVParserである。プログラム2は，クラスCSVParserを拡張して，コンマ区切り形式の入力データファイルをタグ付き形式の出力データに変換するプログラムである。<br>
+　クラスCSVParserは，コンストラクタに指定されたコンマ区切りのデータファイルをメソッドparseで解析し，次に示す状態に応じて各メソッドを呼び出す。<br>
+        <p><img border="0" src="image/FP12-01.gif"></p>
+        <p><br>
+プログラム2の入力データファイルtest.csvと出力結果を，それぞれ図1及び図2に示す。<br><br>
+<img border="0" src="image/FP12-02.gif"></p>
+        <p><br>
+<img border="0" src="image/FP12-03.gif"></p>
+        <p><br>
+　入力データの形式は次のとおりである。<br>
+（1）1レコードは，三つの項目からなり，各項目はコンマ（“,”）で区切られている。レコードの終端には改行文字がある。<br>
+（2）項目には，氏名，電子メールアドレス及び電話番号があり，1レコード中にこれらの項目が1個ずつ，この順に並ぶ。<br>
+　　<img border="0" src="image/01_maru.GIF">項目にコンマが含まれることはない。<br>
+　　<img border="0" src="image/02_maru.GIF">項目は省略できず，空白文字だけからなる項目はない。<br>
+<br>
+　出力データの形式は次のとおりである。<br>
+（1）値を開始タグと終了タグとで囲んだデータの単位を，要素と呼ぶ。<br>
+　　<img border="0" src="image/01_maru.GIF">開始タグは<b><タグ名></b>と記述し，終了タグは<b>&lt;/タグ名&gt;</b>と記述する。<br>
+　　<img border="0" src="image/02_maru.GIF">開始タグには，<b><タグ名 属性名="属性値"></b>という形式で，属性を記述できる。<br>
+　　<img border="0" src="image/03_maru.GIF">以降の説明では，この要素のことを，"要素<b>タグ名</b>"と呼ぶ。<br>
+（2）要素は入れ子にすることができる。すなわち，ある要素の中に他の要素を入れることができる。<br>
+（3）すべての開始タグと終了タグとは，対応がとれている必要がある。すなわち，ある開始タグで始まる要素は，同じタグ名をもつ終了タグによって閉じる。<br>
+<br>
+　入力データ形式から出力データ形式への変換手順は，次のとおりである。<br>
+（1）入力データ全体をまとめて，要素addressbookを作成する。<br>
+（2）入力データの1レコードごとに，要素personを作成する。要素personには，レコードを読み込んだ順番を属性idの値として付加する。<br>
+（3）1レコード中の各項目から，レコード中での項目の出現の順に，name，email及びphoneの各要素をそれぞれ作成する。<br>
+<br>
+　テキストファイルの内容を読み込むのに，クラスjava.io.FileReaderを用いる。動作は次のとおりである。<br>
+（1）コンストラクタにファイル名を示す文字列を与えると，当該ファイルからの入力ストリームを開く。<br>
+（2）メソッドreadは，入力ストリームから1文字を読み込んでint型として返す。<br>
+（3）入力ストリームの末尾に達した時点でメソッドreadを呼び出すと，－1を返す。<br>
+<br>
+〔プログラム1〕<br>
+<pre>
+import java.io.FileReader;<br>
+import java.io.IOException;<br>
+import java.io.FileNotFoundException;<br>
+<br>
+pulic class CSVParser {<br>
+  private FileReader reader;<br>
+<br>
+  public CSVParser(String fileName) throws FileNotFoundException {<br>
+    // テキスト入力ファイル用の reader を生成する。<br>
+    reader = new FileReader(fileName);<br>
+  }<br>
+<br>
+  public void startDocument(){}<br>
+  public void startRecord(int n){}<br>
+  <b>［　　　　　　　a　　　　　　　］</b><br>
+  public void endRecord(int n){}<br>
+  public void endDocument(){}<br>
+<br>
+  public void parse() throws IOException {<br>
+    int c;<br>
+    StringBuffer buf = new StringBuffer();<br>
+    boolean <b>［　　　　　　　b　　　　　　　］</b>;<br>
+    int fieldNumber = 0;<br>
+    int recordNumber = 0;<br>
+<br>
+    startDocument();<br>
+    while ((c = reader.read()) != -1){ // reader から1文字読み込む。<br>
+      //メソッド read は入力ストリームに利用可能な文字がない場合-1を返す。<br>
+      char ch = (char)c;<br>
+      switch (ch) {<br>
+        case ',':<br>
+         <b>［　　　　　　　c　　　　　　　］</b>;<br>
+          buf.delete(0, buf.length());<br>
+          break;<br>
+        case '\n':<br>
+          if (!endOfRecord) {<br>
+            endOfRecord = true;<br>
+           <b>［　　　　　　　c　　　　　　　］</b>;<br>
+             buf.delete(0, buf.length());<br>
+             fieldNumber = 0;<br>
+           <b>［　　　　　　　d　　　　　　　］</b>;<br>
+          }<br>
+          break;<br>
+        default:<br>
+          if (endOfRecord) {<br>
+            <b>［　　　　　　　e　　　　　　　］</b>;<br>
+          }<br>
+          endOfRecord = false;<br>
+         <b>［　　　　　　　f　　　　　　　］</b>;<br>
+      }<br>
+    }<br>
+    endDocument();<br>
+  }<br>
+}<br>
+</pre>　<br>
+〔プログラム2〕<br>
+  <pre>import java.io.FileNotFoundException;<br>
+<br>
+public class TaggedDataGenerator extends CSVParser {<br>
+  public TaggedDataGenerator(String fileName)<br>
+    throws FileNotFoundException {<br>
+    super(fileName);<br>
+  }<br>
+  public void startDocument() {<br>
+    System.out.println("&lt;addressbook&gt;");<br>
+  }<br>
+  public void startRecord(int n) {<br>
+    System.out.println("\t&lt;person id=\""+n+"\"&gt;");<br>
+  }<br>
+  public void value(String chars, int n) {<br>
+    String tag = (n == 1) ? "name" : (n == 2) ? "email" : "phone";<br>
+    System.out.println("\t\t<"+tag+">"+chars+"&lt;/"+tag+"&gt;");<br>
+  }<br>
+  public void endRecord(int n) {<br>
+    System.out.println("\t&glt;/person&gt;");<br>
+  }<br>
+  public void endDocument() {<br>
+    System.out.println("&lt;/addressbook&gt;");<br>
+  }<br>
+  public static void main (String [] args) {<br>
+    TaggedDataGenerator parser = null;<br>
+    try {<br>
+      parser = new TaggedDataGenerator("test.csv");<br>
+      parser.parse();<br>
+    } catch (Exception e) {<br>
+      e.printStackTrace();<br>
+    }<br>
+  }<br>
+}<br>
+</pre>
+
+        <p><br>
+
+<p><b><a name="121">設問</a>　</b>プログラム中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p> 
+aに関する解答群<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">ア</td>
+            <td>　public void value(StringBuffer chars, int n) {}</td>
+          </tr>
+          <tr>
+            <td valign="top">イ</td>
+            <td>　public void value(String chars, int n) {}</td>
+          </tr>
+          <tr>
+            <td valign="top">ウ</td>
+            <td>　abstract public void value(String chars, int n) {}</td>
+          </tr>
+          <tr>
+            <td valign="top">エ</td>
+            <td>　public void value(String chars, int n);</td>
+          </tr>
+        </table>
+<br>
+bに関する解答群<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td width="200">ア　endOfRecord = null</td>
+            <td>	イ　endOfRecord = false</td>
+          </tr>
+          <tr>
+            <td>	ウ　endOfRecord = true</td>
+            <td>	エ　endOfRecord</td>
+          </tr>
+        </table>
+<br>
+cに関する解答群<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">ア</td>
+            <td>　value(buf, fieldNumber)</td>
+          </tr>
+          <tr>
+            <td valign="top">イ</td>
+            <td>　value(buf.toString(), fieldNumber)</td>
+          </tr>
+          <tr>
+            <td valign="top">ウ</td>
+            <td>　value(buf, ++fieldNumber)</td>
+          </tr>
+          <tr>
+            <td valign="top">エ</td>
+            <td>　value(buf.toString(), ++fieldNumber)</td>
+          </tr>
+        </table>
+<br>
+d，eに関する解答群<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">ア</td>
+            <td>　startDocument()</td>
+          </tr>
+          <tr>
+            <td valign="top">イ</td>
+            <td>　startDocument(++recordNumber)</td>
+          </tr>
+          <tr>
+            <td valign="top">ウ</td>
+            <td>　startRecord(recordNumber)</td>
+          </tr>
+          <tr>
+            <td valign="top">エ</td>
+            <td>　startRecord(++recordNumber)</td>
+          </tr>
+          <tr>
+            <td valign="top">オ</td>
+            <td>　endDocument()</td>
+          </tr>
+          <tr>
+            <td valign="top">カ</td>
+            <td>　endDocument(recordNumber)</td>
+          </tr>
+          <tr>
+            <td valign="top">キ</td>
+            <td>　endRecord()</td>
+          </tr>
+          <tr>
+            <td valign="top">ク</td>
+            <td>　endRecord(recordNumber)</td>
+          </tr>        </table>
+<br>
+fに関する解答群<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td width="200">ア　buf += ch</td>
+            <td>	イ　buf[buf.length] = ch</td>
+          </tr>
+          <tr>
+            <td>	ウ　buf.append(ch)</td>
+            <td>	エ　buf.append(ch.toString())</td>
+          </tr>
+        </table>
+<br>
+<HR WIDTH=100%>  
+  <a HREF="14F_P_A4.HTM#121">設問の正解例と解説へ</a>  
+<HR WIDTH=100%>  
+ 
+<A HREF="INDEX.HTM">メニューへ戻る</A>
+<HR WIDTH=100%>   
+<a NAME="120">　<BR>  
+<b>  
+問13</b></a>　次のアセンブラプログラムの説明及びプログラムを読んで，設問1～5に答えよ。<BR>
+<BR>
+〔プログラムの説明〕<BR>
+除算を行う副プログラムDIVIDEである。<BR>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">（1）</td>
+            <td>GR1に被除数，GR2に除数が格納されて，主プログラムから渡される。被除数，除数ともに符号なしの正の整数（1～32767）とする。</td>
+          </tr>
+          <tr>
+            <td valign="top">（2）</td>
+            <td>副プログラムDIVIDEは，GR3に商，GR0に剰余を設定して，主プログラムに戻る。</td>
+          </tr>
+          <tr>
+            <td valign="top">（3）</td>
+            <td>副プログラムDIVIDEの実行において，GR1の内容は保存されない。</td>
+          </tr>
+        </table>
+<BR>
+<pre>〔プログラム〕<br>
+　（行番号）<br>
+　　1　　DIVIDE　　START<br>
+　　2　　　　　　　　　　LAD　　　　　　　　GR3,　0<br>
+　　3　　L1　　　　　　CPL　　　　　　　　GR1,　GR2<br>
+　　4　　　　　　　　　　JMI　　　　　　　　FIN<br>
+　　5　　　　　　　　　［　　　　　　　　　　　　］<br>
+　　6　　　　　　　　　　LAD　　　　　　　　GR3,　1,　GR3<br>
+　　7　　　　　　　　　　JUMP　　　　　　　L1<br>
+　　8　　FIN　　　　　LD　　　　　　　　　GR0,　GR1<br>
+　　9　　　　　　　　　　RET<br>
+　10　　　　　　　　　　END<br>
+</pre>
+<BR>
+<hr>
+<a NAME="131">　<BR>
+<b>  
+設問</b></a><b><a NAME="131">1</a>　</b>プログラム中の［　　　　　　　　］に入れる正しい答えを，解答群の中から選べ。<BR>
+<BR>
+<br>
+解答群<br>
+ア　ADDL　　GR1, GR2　　　　 イ　ADDL　　GR2, GR3<br>
+ウ　SLL　　 GR1, 0, GR3　　　エ　SLL　　 GR2, 0, GR3<br>
+オ　SUBL　　GR1, GR2　　　　 カ　SUBL　　GR2, GR3<br>
+<br>
+<HR WIDTH=100%> 
+  <a HREF="14F_P_A4.HTM#131">設問1の正解例と解説へ</a> 
+<HR WIDTH=100%> 
+<a NAME="132"> 
+<b> 
+設問</b></a><b>2　</b>GR1に32，GR2に1を格納して主プログラムから呼び出したとき，行番号3の命令を実行する回数として正しい答えを，解答群の中から選べ。<br>
+<br>
+ア　30　　　イ　31　　　ウ　32　　　エ　33　　　オ　34<br>
+<br>
+<HR WIDTH=100%>
+  <a HREF="14F_P_A4.HTM#132">設問2の正解例と解説へ</a>
+<hr>
+<a NAME="133">　<BR>
+<b>  
+設問</b></a><b><a NAME="133">3</a>　</b>元のプログラムと異なるアルゴリズムによって除算を行う副プログラムDIVIDE2を，新たに作成した。プログラム中の［　　　　］に入れる正しい答えを，解答群の中から選べ。このプログラムの動作は，次のとおりである。<BR>
+<BR>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">（1）</td>
+            <td>除数を倍々にしてゆき，被除数以下で最大の値m（除数×2<sup>n</sup>）を求め，このときの2<sup>n</sup>を商に加える。</td>
+          </tr>
+          <tr>
+            <td valign="top">（2）</td>
+            <td>被除数からmを引いたものを新しい被除数とする。</td>
+          </tr>
+          <tr>
+            <td valign="top">（3）</td>
+            <td>新しい被除数＜除数となるまで（1），（2）を繰り返す。繰返しが終了したときの被除数が，剰余となる。</td>
+          </tr>
+        </table>
+ここで，副プログラムDIVIDE2の実行において，GR1，GR4及びGR5の内容は保存されない。<BR>
+<br>
+（行番号）<br>
+　 1　DIVIDE2　START<br>
+　 2　　　　　 LAD　　 GR3,0<br>
+　 3　L1　　　 LAD　　 GR5,1<br>
+　 4　　　　　［　　　　a　　　　］<br>
+　 5　L2　　　 CPL　　 GR1,GR4　　; 被除数＜（除数×2<sup>n</sup>）？<br>
+　 6　　　　　 JMI　　 ADJ<br>
+　 7　　　　　 SLL　　 GR5,1　　　 ; GR5 ← 2<sup>n</sup><br>
+　 8　　　　　 SLL　　 GR4,1　　　 ; GR4 ← 除数×2<sup>n</sup><br>
+　 9　　　　　 JUMP　　L2<br>
+　10　ADJ　　 SRL　　 GR5,1<br>
+　11　　　　　 JZE　　 FIN<br>
+　12　　　　　 SRL　　 GR4,1　　　 ; GR4 ← m<br>
+　13　　　　　 ADDL　　GR3,GR5<br>
+　14　　　　　［　　　　b　　　　］ ; 新しい被除数を設定<br>
+　15　　　　　 JUMP　　L1<br>
+　16　FIN　　 LD　　　 GR0,GR1<br>
+　17　　　　　 RET<br>
+　18　　　　　 END<br>
+　<br>
+aに関する解答群<br>
+ア　LD　　　GR2,GR4　　　イ　LD　　　GR4,GR2　　　ウ　SLL　　 GR1,0,GR4<br>
+エ　SUBL　　GR1,GR2　　　オ　SUBL　　GR1,GR4<br>
+<br>
+bに関する解答群<br>
+ア　LD　　　GR1,GR4　　　イ　LD　　　GR4,GR1　　　ウ　SLL　　 GR1,0,GR4<br>
+エ　SUBL　　GR1,GR2　　　オ　SUBL　　GR1,GR4<br>
+<br>
+<HR WIDTH=100%> 
+  <a HREF="14F_P_A4.HTM#133">設問3の正解例と解説へ</a> 
+<hr>
+<a NAME="134">　<BR>
+<b>  
+設問</b></a><b><a NAME="134">4</a>　</b>設問3のDIVIDE2を，GR1に32，GR2に1を格納して主プログラムから呼び出したとき，行番号10の命令を最初に実行する直前のGR4の値として正しい答えを，解答群の中から選べ。<BR>
+<BR>
+解答群<BR>
+ア　16　　　イ　32　　　ウ　48　　　エ　64　　　オ　128<BR>
+
+<br>
+<HR WIDTH=100%> 
+  <a HREF="14F_P_A4.HTM#134">設問4の正解例と解説へ</a> 
+<hr>
+<a NAME="135">　<BR>
+<b>  
+設問</b></a><b><a NAME="135">5</a>　</b>GR1に32，GR2に1を格納して主プログラムから呼び出したとき，元のプログラムDIVIDEと設問3のDIVIDE2の実行される命令数の差に最も近い値を，解答群の中から選べ。<br>
+<br>
+解答群<br>
+ア　70　　　イ　85　　　ウ　100　　　エ　115　　　オ　130<br>
+<br>
+<HR WIDTH=100%> 
+  <a HREF="14F_P_A4.HTM#135">設問5の正解例と解説へ</a> 
+<HR WIDTH=100%>
+
+<p><A HREF="INDEX.HTM">メニューへ戻る</A>　</p>
+<HR WIDTH=100%>
+<BR>
+  <p>　</p>
+</blockquote>
+</BODY>
+</HTML>

@@ -1,0 +1,1178 @@
+<HTML>
+<HEAD>
+<TITLE>平成12年度秋期試験　問題</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0">
+<blockquote>
+  <hr>
+<H3 align="center">平成12年度秋期試験　問題(午後問15～問17)</H3>
+<hr>
+<P>次の問15から問17までの3問については、この中から1問を選択し、答案用紙の選択欄の　選　をマークして解答してください。なお、2問以上選択した場合には、はじめの1問について採点します。<br>
+<HR WIDTH=100%>
+<a NAME="150">　<BR>
+<b>
+問15</b></a>　内部設計に関する次の記述を読んで、設問 1 ～ 3 に答えよ。<br>       
+<br>       
+通信販売業の A 社では、受注管理システムを開発している。そのシステムを利用した受注業務の概要は、次のとおりである。       
+<table border="0" cellpadding="3" cellspacing="0">      
+  <tr>      
+    <td valign="top">(1)&nbsp;</td>      
+    <td> 顧客は、記入した商品申込書を A 社の顧客部門にあてて郵送する。代金の支払方法は、クレジットカードによる引落しだけであり、注文が初めての顧客は、商品申込書にクレジットカード情報を記入する。商品申込書の形式は、図のとおりであり、右上の申込番号の欄には、商品申込書ごとに固有の番号があらかじめ印字されている。1 枚の商品申込書に記入できる商品は 5 種類までで、6 種類以上注文する場合には、複数の商品申込書に分けて記入する。       
+      <p><img border="0" src="image/A00a15f1.gif" width="550" height="333">      
+      <p align="center">     
+                          図　商品申込書　　　　　　</td>
+  </tr>
+  <tr>
+    <td valign="top">(2)</td>
+    <td> 顧客部門は、商品申込書の記入内容について次の処理をする。
+      <table border="0" cellpadding="3" cellspacing="0">
+        <tr>
+          <td valign="top">①</td>
+          <td> 注文が初めてで、クレジットカード情報が記入されている場合には、クレジットカード会社に信用検査を依頼する。</td>
+        </tr>
+        <tr>
+          <td valign="top">②</td>
+          <td> 商品申込書にお客様番号 （以下、顧客番号という）が記入されている場合には、顧客番号をキーとして顧客検索を行い、顧客番号に間違いがないかどうかをチェックした後、クレジットカード会社に信用検査を依頼する。</td>       
+        </tr>       
+        <tr>       
+          <td valign="top">③</td>      
+          <td> 商品申込書に記入された商品番号をキーとして商品マスタファイルを検索し、記入された商品名、色、サイズ及び単価と合致していることをチェックする。なお、同じ商品名であっても、色やサイズが異なる場合には、異なる商品番号が付けられている。</td>      
+        </tr>      
+        <tr>      
+          <td valign="top">④</td>      
+          <td> 商品申込書に記入漏れがある場合、又は記入に問題がある場合には、電話で顧客に問い合わせる。 顧客から回答が得られた場合には、商品申込書の該当する項目に記入・修正するとともに、修正後の商品申込書のコピーを顧客に返送する。回答が得られなかった場合には、注文が受け付けられなかった旨の書面と、商品申込書を顧客に返送する。</td>       
+        </tr>       
+        <tr>       
+          <td valign="top">⑤</td>      
+          <td> 商品申込書のチェック後、その内容を受注管理システムに登録し、商品申込書を保管する。</td>      
+        </tr>      
+      </table>      
+    </td>      
+  </tr>      
+  <tr>      
+    <td valign="top">(3)</td>      
+    <td> 受注管理システムは、登録された商品申込書の内容の中に顧客番号がなければ、新規の顧客番号を自動的に付ける。顧客番号があれば、今回の申込商品の割引率を算出する。割引率は、過去に注文された商品の累積金額と、今回の申込商品の総額に応じて変わる。例えば、注文累積金額が 5 万円以上で、今回の申込商品の総額が 3 千円以上の場合には、2 ％の割引とする。</td>       
+  </tr>       
+  <tr>       
+    <td valign="top">(4)</td>      
+    <td> 商品管理部門では、毎日 1 回、受注管理システムに登録された商品申込書の内容と在庫マスタファイルを突き合わせて、配送計画を立てる。注文された商品が取扱中止の場合や、入荷までに日数を要する場合には、その旨をシステムに登録する。</td>       
+  </tr>       
+</table>       
+<hr>        
+<a NAME="151">　<BR>        
+<b>        
+設問</b></a><b><a NAME="151">1</a>　</b>次の記述中の<b>[　　　　　]</b>に入れる適切な答えを、解答群の中から選べ。ここで、解答群中の“○”は、レコードに格納する項目を表す。<br>     
+<br>     
+  　顧客部門では、商品申込書に記入された顧客情報を基にして顧客マスタファイルを作成・管理するとともに、商品の注文情報を基にして商品申込ファイルを作成する。商品申込書に記入された情報の中から、顧客マスタファイルのレコードに格納する必要最小限の項目は<b>[　　ａ　　]</b>であり、商品申込ファイルのレコードに格納する必要最小限の項目は<b>[　　ｂ　　]</b>である。
+<p>a に関する解答群      
+      
+  <table border="1" cellPadding="3" bordercolorlight="#000000" cellspacing="0" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">      
+    <tbody>      
+      <tr vAlign="center">      
+        <td>　</td>      
+        <td width="30" align="center">ア</td>      
+        <td width="30" align="center">イ</td>      
+        <td width="30" align="center">ウ</td>      
+        <td width="30" align="center">エ</td>      
+        <td width="30" align="center">オ</td>      
+        <td width="30" align="center">カ</td>      
+        <td width="30" align="center">キ</td>      
+        <td width="30" align="center">ク</td>      
+        <td width="30" align="center">ケ</td>      
+        <td width="30" align="center">コ</td>      
+      </tr>      
+      <tr vAlign="center">      
+        <td vAlign="top">氏名</td>      
+        <td align="center">○</td>      
+        <td align="center">○</td>      
+        <td align="center">○</td>      
+        <td align="center">○</td>      
+        <td align="center">○</td>      
+        <td align="center">○</td>      
+        <td align="center">○</td>      
+        <td align="center">○</td>      
+        <td align="center">○</td>      
+        <td align="center">○</td>      
+      </tr>      
+      <tr vAlign="center">      
+        <td vAlign="top">電話番号</td>      
+        <td align="center">○</td>      
+        <td align="center">○</td>      
+        <td align="center">○</td>      
+        <td align="center">○</td>      
+        <td align="center">○</td>      
+        <td align="center">○</td>      
+        <td align="center">○</td>      
+        <td align="center">○</td>      
+        <td align="center">○</td>      
+        <td align="center">○</td>      
+      </tr>      
+      <tr vAlign="center">      
+        <td vAlign="top">      
+          <p>住所</p>      
+        </td>      
+        <td align="center">○</td>      
+        <td align="center">○</td>      
+        <td align="center">○</td>      
+        <td align="center">○</td>      
+        <td align="center">○</td>      
+        <td align="center">○</td>      
+        <td align="center">○</td>      
+        <td align="center">○</td>      
+        <td align="center">○</td>      
+        <td align="center">○</td>      
+      </tr>      
+      <tr vAlign="center">      
+        <td vAlign="top">      
+          <p>顧客番号</p>      
+        </td>      
+        <td align="center">　</td>      
+        <td align="center">○</td>      
+        <td align="center">○</td>      
+        <td align="center">○</td>      
+        <td align="center">○</td>      
+        <td align="center">○</td>      
+        <td align="center">○</td>      
+        <td align="center">　</td>
+        <td align="center">○</td>
+        <td align="center">○</td>
+      </tr>
+      <tr vAlign="center">
+        <td vAlign="top">
+          <p>カード番号</p>
+        </td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+        <td align="center">○</td>
+        <td align="center">○</td>
+        <td align="center">○</td>
+        <td align="center">○</td>
+        <td align="center">○</td>
+        <td align="center">○</td>
+        <td align="center">○</td>
+        <td align="center">○</td>
+      </tr>
+      <tr vAlign="center">
+        <td vAlign="top">
+          <p>カード会社名</p>
+        </td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+        <td align="center">○</td>
+        <td align="center">○</td>
+        <td align="center">○</td>
+        <td align="center">○</td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+      </tr>
+      <tr vAlign="center">
+        <td vAlign="top">
+          <p>有効期限</p>
+        </td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+        <td align="center">○</td>
+        <td align="center">○</td>
+        <td align="center">○</td>
+        <td align="center">○</td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+      </tr>
+      <tr vAlign="center">
+        <td vAlign="top">
+          <p>申込番号</p>
+        </td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+        <td align="center">○</td>
+        <td align="center">○</td>
+        <td align="center">○</td>
+        <td align="center">○</td>
+        <td align="center">○</td>
+        <td align="center">○</td>
+      </tr>
+      <tr vAlign="center">
+        <td vAlign="top">
+          <p>商品番号</p>
+        </td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+        <td align="center">○</td>
+        <td align="center">○</td>
+        <td align="center">○</td>
+        <td align="center">　</td>
+        <td align="center">○</td>
+      </tr>
+      <tr vAlign="center">
+        <td vAlign="top">
+          <p>商品名</p>
+        </td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+        <td align="center">○</td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+      </tr>
+    </tbody>
+  </table>
+
+<p>b に関する解答群      
+      
+  <table border="1" cellPadding="3" bordercolorlight="#000000" cellspacing="0" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">      
+    <tbody>      
+      <tr vAlign="center">      
+        <td width="24%">　</td>      
+        <td width="30" align="center">ア</td>      
+        <td width="30" align="center">イ</td>      
+        <td width="30" align="center">ウ</td>      
+        <td width="30" align="center">エ</td>      
+        <td width="30" align="center">オ</td>      
+        <td width="30" align="center">カ</td>      
+        <td width="30" align="center">キ</td>      
+        <td width="30" align="center">ク</td>      
+        <td width="30" align="center">ケ</td>      
+      </tr>      
+      <tr vAlign="center">      
+        <td vAlign="top">      
+          <p>氏名</p>      
+        </td>      
+        <td align="center">○</td>      
+        <td align="center">○</td>      
+        <td align="center">　</td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+      </tr>
+      <tr>
+        <td vAlign="top">
+          <p>電話番号</p>
+        </td>
+        <td align="center">○</td>
+        <td align="center">○</td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+      </tr>
+      <tr vAlign="center">
+        <td vAlign="top">
+          <p>住所</p>
+        </td>
+        <td align="center">○</td>
+        <td align="center">○</td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+      </tr>
+      <tr vAlign="center">
+        <td vAlign="top">
+          <p>顧客番号</p>
+        </td>
+        <td align="center">　</td>
+        <td align="center">○</td>
+        <td align="center">○</td>
+        <td align="center">○</td>
+        <td align="center">○</td>
+        <td align="center">○</td>
+        <td align="center">○</td>
+        <td align="center">○</td>
+        <td align="center">○</td>
+      </tr>
+      <tr vAlign="center">
+        <td vAlign="top">
+          <p>カード番号</p>
+        </td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+        <td align="center">○</td>
+        <td align="center">○</td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+      </tr>
+      <tr vAlign="center">
+        <td vAlign="top">
+          <p>カード会社名</p>
+        </td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+        <td align="center">○</td>
+        <td align="center">○</td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+      </tr>
+      <tr vAlign="center">
+        <td vAlign="top">
+          <p>有効期限</p>
+        </td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+        <td align="center">○</td>
+        <td align="center">○</td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+      </tr>
+      <tr vAlign="center">
+        <td vAlign="top">
+          <p>申込番号</p>
+        </td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+        <td align="center">○</td>
+        <td align="center">○</td>
+        <td align="center">○</td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+      </tr>
+      <tr vAlign="center">
+        <td vAlign="top">
+          <p>商品番号</p>
+        </td>
+        <td align="center">○</td>
+        <td align="center">○</td>
+        <td align="center">○</td>
+        <td align="center">○</td>
+        <td align="center">○</td>
+        <td align="center">○</td>
+        <td align="center">○</td>
+        <td align="center">○</td>
+        <td align="center">○</td>
+      </tr>
+      <tr vAlign="center">
+        <td vAlign="top">
+          <p>商品名</p>
+        </td>
+        <td align="center">○</td>
+        <td align="center">○</td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+        <td align="center">○</td>
+      </tr>
+      <tr vAlign="center">
+        <td vAlign="top">
+          <p>個数</p>
+        </td>
+        <td align="center">○</td>
+        <td align="center">○</td>
+        <td align="center">○</td>
+        <td align="center">○</td>
+        <td align="center">○</td>
+        <td align="center">○</td>
+        <td align="center">○</td>
+        <td align="center">○</td>
+        <td align="center">○</td>
+      </tr>
+      <tr vAlign="center">
+        <td vAlign="top">
+          <p>単価</p>
+        </td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+        <td align="center">　</td>
+        <td align="center">○</td>
+        <td align="center">　</td>
+        <td align="center">○</td>
+        <td align="center">○</td>
+      </tr>
+    </tbody>
+  </table>
+
+<p></p>
+<HR WIDTH=100%> 
+  <a HREF="12f_p_a5.htm#151">設問の正解例と解説へ</a> 
+<HR WIDTH=100%> 
+<a NAME="152"> 
+<b> 
+設問</b></a><b><a NAME="151">2</a>　</b>商品申込書に記入された情報以外に、顧客マスタファイルに格納すべき項目を、解答群の中から選べ。<br>
+<br>
+解答群
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">ア</td>
+    <td>過去に注文された商品の累積金額</td>
+  </tr>
+  <tr>
+    <td valign="top">イ</td>
+    <td>顧客への問合せ回数</td>
+  </tr>
+  <tr>
+    <td valign="top">ウ</td>
+    <td>顧客への問合せ日付</td>
+  </tr>
+  <tr>
+    <td valign="top">  エ</td>
+    <td>今回の申込商品の取扱中止を示す区分</td>
+  </tr>
+  <tr>
+    <td valign="top">  オ</td>
+    <td>今回の申込商品の入荷日数</td>
+  </tr>
+  <tr>
+    <td valign="top">  カ</td>
+    <td>今回の申込商品の割引率</td>
+  </tr>
+  <tr>
+    <td valign="top">  キ</td>
+    <td>商品申込書の受付日付</td>
+  </tr>
+  <tr>
+    <td valign="top">  ク</td>
+    <td>前回の申込商品の割引率</td>  
+  </tr>  
+</table>  
+<p>　</p>  
+<HR WIDTH=100%>  
+  <a HREF="12f_p_a5.htm#152">設問の正解例と解説へ</a>  
+<HR WIDTH=100%>  
+<a NAME="153"><b>  
+設問</b></a><b>3　</b>A 社では、新規顧客の獲得を目指して、新しい割引サービスを開始することになった。まず、顧客番号が登録されている顧客（X 氏とする）に紹介書を送付する。X 氏は、新しい顧客（Y 氏とする）を紹介書に記入して返送する。紹介された Y 氏から一定期間以内に商品が申し込まれたときに、紹介した X 氏の割引率が増加する。紹介書には、新しい顧客を何人でも記入できる。ただし、複数人が同じ人を紹介することはないものとする。<br>      
+  このサービスをシステムで実現するために、X 氏が Y 氏を紹介した時点で、Y氏を仮の顧客として顧客マスタファイルに登録する。このため、顧客マスタファイルに登録した顧客が仮の顧客であるかどうかを示す項目を、顧客マスタファイルに追加する必要がある。このほかに、顧客マスタファイルに追加すべき項目を、解答群の中から三つ選べ。<br>      
+<br>      
+解答群      
+<table border="0" cellpadding="3" cellspacing="0">     
+  <tr>     
+    <td valign="top">ア</td>     
+    <td>X 氏のレコードに Y 氏の名前を格納するための項目</td>      
+  </tr>      
+  <tr>      
+    <td valign="top">イ</td>     
+    <td>X 氏のレコードに Y 氏の顧客番号を格納するための項目</td>      
+  </tr>      
+  <tr>      
+    <td valign="top">ウ</td>     
+    <td>Y 氏のレコードに X 氏の名前を格納するための項目</td>      
+  </tr>      
+  <tr>      
+    <td valign="top">エ</td>     
+    <td>Y 氏のレコードに X 氏の顧客番号を格納するための項目</td>      
+  </tr>      
+  <tr>      
+    <td valign="top">オ</td>     
+    <td>増加した割引率を格納するための項目</td>     
+  </tr>     
+  <tr>     
+    <td valign="top">カ</td>     
+    <td>登録した日付を格納するための項目</td>     
+  </tr>     
+</table>     
+<p>　</p>     
+<HR WIDTH=100%>     
+  <a HREF="12f_p_a5.htm#153">設問の正解例と解説へ</a>     
+<HR WIDTH=100%>     
+<p><A HREF="index.htm">メニューへ戻る</A>　</p>     
+<HR WIDTH=100%>     
+<a NAME="160">　<BR>     
+<b>     
+問16</b></a>　プログラム設計に関する次の記述を読んで、設問 1 ～ 3 に答えよ。<br>      
+<br>      
+  　A 社では、月次の支払処理前に、支払先ごとに集計した支払予定の金額を印字し、目視で検査を行ってきた。この業務をコンピュータシステムで行うことになり、サーバ側での条件による支払データの抽出と、クライアント端末側での承認入力を行うプログラムを作成することになった。<br>      
+<br>      
+〔支払検査・承認システムの説明〕      
+<table border="0" cellpadding="3" cellspacing="0">     
+  <tr>     
+    <td valign="top">(1)</td>     
+    <td> システムを起動すると、アカウント名とパスワードの入力画面がクライアント端末に表示される。 アカウント名とパスワードが登録されている承認権限をもつ管理者だけが、このシステムを利用できる。また、この画面で、支払対象年月を入力する。</td>      
+  </tr>      
+  <tr>      
+    <td valign="top">(2)</td>     
+    <td> サーバプログラムは、支払先ごとに 1 レコードにまとめた支払集計ファイルを読み、指定された支払対象年月のレコードの中で、次の検査条件に一つでも当てはまるものがあれば、そのレコードを承認処理の対象とする。対象となるレコードは毎月 20 件程度である。それぞれの検査条件で参照される値は、検査条件テーブルとしてプログラムに与えられる。      
+      <table border="0" cellpadding="3" cellspacing="0">     
+        <tr>     
+          <td valign="top">①</td>     
+          <td>&nbsp;検査条件 1 ：当月の支払金額が、支払先ごとにあらかじめ設定されている上限金額を超える。</td>      
+        </tr>      
+        <tr>      
+          <td valign="top">②</td>     
+          <td> 検査条件 2 ：当月の支払金額の算入によって、当年度支払累計 （当年度のその支払先への支払金額の累計）が、2,000 万円を超える、又は既に超えている。</td>      
+        </tr>      
+        <tr>      
+          <td valign="top">③</td>     
+          <td> 検査条件 3 ：当月の支払金額が、当月支払総額（当月支払対象のすべての支払金額の合計）の 3 ％を超える。</td>      
+        </tr>      
+        <tr>      
+          <td valign="top">④</td>     
+          <td> 検査条件 4 ：当月の支払金額が、当月支払対象のすべての支払集計レコードの中で、金額の降順に並べたときの上位 5 ％に入る。</td>      
+        </tr>      
+      </table>      
+    </td>      
+  </tr>      
+  <tr>      
+    <td valign="top">(3)</td>     
+    <td> サーバプログラムは、承認処理の対象となった支払集計レコードと検査条件テーブル、及び各ファイルから得られる内容を基に、送信データを編集し、クライアントプログラムに送信する。このとき、承認項目 1 ～ 4 については、次の編集を行う。<br>      
+      なお，承認項目 1 ～ 4 は、同じ番号の検査条件に対応している。      
+      <table border="0" cellpadding="3" cellspacing="0">     
+        <tr>     
+          <td valign="top">①</td>     
+          <td> (2)の各検査条件に当てはまる場合、支払集計レコードの承認項目の値（初期値は空白）を、送信データの対応する承認項目に転記する。</td>     
+        </tr>     
+        <tr>     
+          <td valign="top">②</td>     
+          <td> (2)の各検査条件に当てはまらない場合、“非該当”の文字列を送信データの対応する承認項目に転記する。</td>     
+        </tr>     
+      </table>     
+    </td>     
+  </tr>     
+  <tr>     
+    <td valign="top">(4)</td>     
+    <td> クライアントプログラムは、受け取った送信データから支払承認画面を作成して表示する（図 1）。 このとき、承認入力に関する表示は、承認項目 1 ～ 4 のそれぞれの値に応じて、次のように作成する。      
+      <table border="0" cellpadding="3" cellspacing="0">     
+        <tr>     
+          <td valign="top">①</td>     
+          <td> 承認項目の値が空白の場合は、対応する説明文と、承認入力のための“承認”ボタンを表示する。</td>     
+        </tr>     
+        <tr>     
+          <td valign="top">②</td>     
+          <td>&nbsp;承認項目の値が空白でない場合は、対応する説明文の後に、その内容を編集して表示する。</td>     
+        </tr>     
+      </table>     
+    </td>     
+  </tr>     
+  <tr>     
+    <td valign="top">(5)</td>     
+    <td> 支払承認画面の“承認”ボタンが押されると、サーバプログラムは、支払集計レコードの対応する承認項目に、承認日時と承認者名を書き込む。</td>     
+  </tr>     
+  <tr>     
+    <td valign="top">(6)</td>     
+    <td> 支払承認画面の“次のレコード”ボタンが押されると、サーバプログラムは、(2) 以降の処理を繰り返す。 “終了”ボタンが押されると、処理を終了する。</td>      
+  </tr>      
+  <tr>      
+    <td valign="top">(7)</td>     
+    <td> 支払承認画面の例を図 1 に、システムの構成を図 2 に、プログラムの構造を 図 3 に示す。</td>      
+  </tr>      
+  <tr>      
+    <td valign="top">(8)</td>     
+    <td> 各ファイルの様式及び検査条件テーブルの内容を次に示す。<br>     
+      　<br>
+      支払集計ファイルの様式
+      <table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+        <tr>
+          <td rowspan="2">支払<br>
+            対象年月</td>
+          <td rowspan="2">支払先<br>
+            コード</td>
+          <td rowspan="2">支払金額</td>
+          <td colspan="2">承認項目１</td>
+          <td rowspan="2">･･･</td>
+          <td colspan="2">承認項目４</td>
+        </tr>
+        <tr>
+          <td>承認日時</td>
+          <td>承認者名</td>
+          <td>承認日時</td>
+          <td>承認者名</td>
+        </tr>
+      </table>
+      <table border="0" cellpadding="3" cellspacing="0">
+        <tr>
+          <td>注　支払集計ファイルは、過去12か月分が存在する。レコードは、支払対象年月、支払先コードごとに１件だけ存在する。承認項目１～４の初期値は空白である。</td>
+        </tr>
+      </table>
+      <table border="0" cellpadding="3" cellspacing="0">
+        <tr>
+          <td>　<br>
+            比較基準ファイルの様式</td>
+        </tr>
+      </table>
+      <table border="1" cellpadding="5" cellspacing="0" bordercolorlight="#000000" bordercolor="#FFFFFF" bordercolordark="#FFFFFF">
+        <tr>
+          <td align="center">支払<br>
+            対象年月</td>
+          <td align="center">支払先<br>
+            コード</td>
+          <td align="center">支払上限金額</td>
+          <td align="center">当年度<br>
+ 支払累計</td>
+          <td align="center">当月支払順位<br>
+            パーセント</td>
+        </tr>
+      </table>
+      <table border="0" cellpadding="3" cellspacing="0">
+        <tr>
+          <td>注　支払上限金額はあらかじめ決められ、設定されている。当年度支払累計及び当月支払順位パーセントは、支払検査・承認システムの利用前に既に計算されている。</td>
+        </tr>
+      </table>
+      <table border="0" cellpadding="3" cellspacing="0">
+        <tr>
+          <td><br>
+            支払先ファイルの様式</td>
+        </tr>
+      </table>
+      <table border="1" cellpadding="5" cellspacing="0" bordercolorlight="#000000" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+        <tr>
+          <td>支払先コード</td>
+          <td>支払先名称</td>
+        </tr>
+      </table>
+      <table border="0" cellpadding="3" cellspacing="0">
+        <tr>
+          <td>　<br>
+            支払総額ファイルの様式</td>
+        </tr>
+      </table>
+      <table border="1" cellpadding="5" cellspacing="0" bordercolorlight="#000000" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+        <tr>
+          <td>支払対象年月</td>
+          <td>当月支払総額</td>
+        </tr>
+      </table>
+      <table border="0" cellpadding="3" cellspacing="0">
+        <tr>
+          <td>　<br>
+            利用者ファイルの様式&nbsp;</td>
+        </tr>
+      </table>
+      <table border="1" bordercolorlight="#000000" cellspacing="0" cellpadding="5" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+        <tbody>
+          <tr vAlign="center">
+            <td align="center">アカウント名</td>
+            <td align="center">パスワード</td>
+            <td align="center">氏名</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>　
+      <table border="0" cellpadding="3" cellspacing="0">
+        <tr>
+          <td>検査条件テーブル</td>
+        </tr>
+      </table>
+      <table border="1" bordercolorlight="#000000" cellspacing="0" cellpadding="3" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+        <tbody>
+          <tr>
+            <td vAlign="top">
+              <p align="center">検査条件番号</p>
+            </td>
+            <td vAlign="top">
+              <p align="center">検査の<br>
+              境界値</p>
+            </td>
+            <td vAlign="center">
+              <p align="center">表示用説明文（固定部分）</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p align="center">1</p>
+            </td>
+            <td>
+              <p align="center">―――</p>
+            </td>
+            <td>
+              <p>支払額が，この支払先に対する上限額を超えています。</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p align="center">2</p>
+            </td>
+            <td>
+              <p align="center">20,000,000</p>
+            </td>
+            <td>
+              <p>当年度支払累計が，2,000      
+              万円を超えるか，既に超えています。</p>     
+            </td>     
+          </tr>     
+          <tr>     
+            <td>     
+              <p align="center">3</p>     
+            </td>     
+            <td>     
+              <p align="center">3</p>     
+            </td>     
+            <td>     
+              <p>当月支払総額に対し，3 ％を超えています。</p>     
+            </td>     
+          </tr>     
+          <tr>     
+            <td>     
+              <p align="center">4</p>     
+            </td>     
+            <td>     
+              <p align="center">5</p>     
+            </td>     
+            <td>     
+              <p>当月のすべての支払の中で，上位 5      
+              ％に入っています。</p>     
+            </td>     
+          </tr>     
+        </tbody>     
+      </table>     
+      <p>　</p>     
+      <table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">     
+        <tr>     
+          <td>　　　2000年9月分　支払承認画面　　2000-10-16　承認者氏名：田中　真　　　</td>
+        </tr>
+        <tr>
+          <td>
+            <table border="0" cellpadding="3" cellspacing="0">
+              <tr>
+                <td><font size="2">支払先：情報処理開発協会　　　　　　　　　　　　　　支払金額：￥1,234,567-</font></td>
+              </tr>
+              <tr>
+                <td>
+                  <table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#FFFFFF" bordercolordark="#FFFFFF" bordercolor="#FFFFFF" width="500" bgcolor="#C0C0C0">
+                    <tr>
+                      <td><font size="2">条件1：支払額が、この支払先に対する上限額を越えています。　　</font></td>
+                      <td bordercolorlight="#000000" bordercolor="#000000" bordercolordark="#808080" bgcolor="#FFFFFF"><font size="2">承認</font></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <table border="0" cellpadding="3" cellspacing="0" width="500">
+                    <tr>
+                      <td><font size="2">条件2：当年度支払累計が、2,000万円を越えるか、既に越えています。</font></td>
+                      <td bgcolor="#C0C0C0"><font size="2">［非該当］</font></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <table border="1" cellpadding="3" cellspacing="0" bgcolor="#C0C0C0" width="500" bordercolorlight="#FFFFFF" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+                    <tr>
+                      <td><font size="2">条件3：当月支払総額 ￥12,345,678- に対し、3 ％を越えています。　</font></td>
+                      <td bgcolor="#FFFFFF" bordercolor="#000000" bordercolorlight="#000000" bordercolordark="#808080"><font size="2"> 承認</font></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td><font size="2">条件4：当月のすべての支払の中で、上位 5      
+                  ％に入っています。<span style="background-color: #C0C0C0">承認済(2000-10-10 16:10田中真)</span></font></td>      
+              </tr>      
+              <tr>      
+                <td>      
+                  <table border="1" cellpadding="3" cellspacing="0" width="500" bordercolorlight="#FFFFFF" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">     
+                    <tr>     
+                      <td>　</td>
+                      <td align="right" bordercolor="#000000" bordercolorlight="#000000" bordercolordark="#808080" width="70"><font size="2">次のレコード</font></td>
+                      <td align="right" width="20">　</td>
+                      <td align="right" bordercolor="#000000" bordercolorlight="#000000" bordercolordark="#808080" width="30"><font size="2">終了</font></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <p>　　　　　　　　　　図１　クライアント端末の表示画面の例&nbsp;</p>
+      <p>　</p>
+      <p><img border="0" src="image/A00a16f7.gif" width="398" height="97"><br>
+      　　　　　　　　　　図２　システムの構成</p>
+      <p>　</p>
+      <p><img border="0" src="image/A00a16f8.gif" width="379" height="163">
+      <p><br>
+      　　　　　　　　　　図３　サーバプログラムの構造　　　　<br>
+      　<br>
+    </td>
+  </tr>
+</table>
+<HR WIDTH=100%> 
+  <a NAME="161"><b>　<BR> 
+設問</b></a><b>1　</b>次に示すクライアント端末へ送る送信データの様式の中の      
+<b>[　　　] </b>に入れる正しい答えを，解答群の中から選べ。     
+     
+  <table border="0" cellpadding="3" cellspacing="0">     
+    <tr>     
+      <td>&nbsp;<br>   
+        送信データの様式</td>    
+    </tr>    
+  </table>    
+  <table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">    
+    <tr>    
+      <td>    
+        <table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">    
+          <tr>    
+            <td width="40">　　　　</td>    
+          </tr>    
+        </table>    
+      </td>    
+      <td>支払先<br>    
+ 名称</td>    
+      <td>支払<br>    
+ 金額</td>    
+      <td>検査条件１<br>    
+        の説明文</td>    
+      <td>承認項目１</td>    
+      <td>･･･</td>    
+      <td>検査条件４<br>    
+        の説明文</td>    
+      <td>承認項目４</td>    
+    </tr>    
+  </table>    
+    
+<p>解答群    
+    
+<table border="0" cellpadding="3" cellspacing="0">   
+  <tr>   
+    <td width="160">ア　検査条件番号</td>   
+    <td width="160">イ　検査の境界値</td>   
+    <td>ウ　支払先コード</td>   
+  </tr>   
+  <tr>   
+    <td>エ　支払対象年月</td>   
+    <td>オ　承認者氏名</td>   
+    <td>カ　当月支払総額</td>   
+  </tr>   
+</table>   
+<p>　</p>   
+<HR WIDTH=100%>    
+<a HREF="12f_p_a5.htm#161">設問の正解例と解説へ</a>    
+<HR WIDTH=100%>    
+  <a NAME="162"><b>　<BR>    
+設問</b></a><b>2　</b>支払承認要求処理では、1 度だけ値を設定すればよい項目は、基本処理で設定し、支払先ごとに値の異なる項目は、初期処理で設定する。このとき、表 1 の中の<b>[　　ａ     
+　]</b>，<b>[　 ｂ　] </b> に入れる正しい答えを、解答群の中から選べ。<br>    
+  　検査 1 ～ 4 は、同じ番号の検査条件に対応している。また、検査 1 ～ 4 では、ファイルの読込みは行わない。<br>     
+<br>     
+      表１　検査処理で使用する項目と項目を設定するモジュール
+<table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolor="#FFFFFF" bordercolordark="#FFFFFF">
+  <tr>
+    <td>
+      項目を設定するモジュール名</td>
+    <td>     基本処理</td>
+    <td>      初期処理</td>
+  </tr>
+  <tr>
+    <td> 
+      検査 2 で使用する項目</td>    
+    <td><b>[ 　 ａ　　]</b></td>
+    <td><b>[　　ｂ&nbsp;&nbsp;&nbsp;&nbsp; ]</b></td>   
+  </tr>   
+</table>   
+<table border="0" cellpadding="3" cellspacing="0">   
+  <tr>   
+    <td>&nbsp;<br>   
+      &nbsp;<br>   
+      解答群</td>   
+  </tr>   
+</table>   
+<table border="0" cellpadding="3" cellspacing="0">   
+  <tr>   
+    <td width="150">   
+ア　アカウント名</td>   
+    <td width="150">イ　検査の境界値</td>   
+    <td>ウ　当月支払順位パーセント</td>   
+  </tr>   
+  <tr>   
+    <td>   
+エ　当月支払総額</td>   
+    <td>オ　当年度支払累計</td>   
+    <td>カ　パスワード</td>   
+  </tr>   
+</table>   
+<p>　</p>   
+<HR WIDTH=100%>   
+  <a HREF="12f_p_a5.htm#162">設問の正解例と解説へ</a>   
+<HR WIDTH=100%>   
+  <a NAME="163"><b>　<BR>   
+設問</b></a><b>3　</b>図 3 中の初期処理で行う処理のうち、表 2 に示す P1 ～ P4 の処理順序として適切な答えを、解答群の中から選べ。<br>    
+<br>    
+表２　初期処理で行う処理の内容
+<table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+  <tr>
+    <td>処理名</td>
+    <td>処理内容</td>
+  </tr>
+  <tr>
+    <td>          P1</td>
+    <td>支払集計ファイルのレコードを読む。</td>
+  </tr>
+  <tr>
+    <td>          P2</td>
+    <td>       支払先ファイルのレコードを読む。</td>
+  </tr>
+  <tr>
+    <td>          P3</td>
+    <td>     送信データの各項目に、対応する値を転記する。</td>
+  </tr>
+  <tr>
+    <td>          P4</td>
+    <td>       送信データのすべての項目に、空白を転記する。</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td><br>
+      解答群</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td width="200">ア　P1 → P2 → P4 → P3</td>    
+    <td>イ　P1 → P3 → P4 → P2</td>    
+  </tr>    
+  <tr>    
+    <td>ウ　P2 → P1 → P4 → P3</td>    
+    <td>エ　P4 → P3 → P1 → P2</td>    
+  </tr>    
+  <tr>    
+    <td>オ　P4 → P3 → P2 → P1</td>    
+    <td></td>    
+  </tr>    
+</table>    
+<p>　</p> 
+<HR WIDTH=100%> 
+  <a HREF="12f_p_a5.htm#163">設問の正解例と解説へ</a> 
+<HR WIDTH=100%> 
+<p> 
+<A HREF="index.htm">メニューへ戻る</A></p> 
+<HR WIDTH=100%> 
+<p><a NAME="170"> 
+<b>問17</b></a><b>　</b>マイコンを用いた電子アイロンに関する次の記述を読んで，設問   
+1 ～ 3   
+に答えよ。電子アイロン（以下，アイロンと呼ぶ）の温度制御部のシステム構成を図   
+1 に示す。拡張 COMET は，1   
+秒ごとに発生するタイマ割込み（割込み 0）の処理で，アイロン底部の温度（アイロン温度）を制御する。</p>  
+<p>　  
+<table border="0" cellpadding="3" cellspacing="0">  
+  <tr>  
+    <td>[アイロン温度制御の説明]</td>  
+  </tr>  
+</table>  
+<table border="0" cellPadding="3" cellspacing="0">  
+  <tbody>  
+    <tr>  
+      <td noWrap vAlign="top">(1)</td>  
+      <td>  
+        <p>ヒータを ON   
+        にすることによってアイロン温度が上昇する。</p>  
+      </td>  
+    </tr>  
+    <tr>  
+      <td noWrap vAlign="top">(2)</td>  
+      <td>  
+        <p>温度センサの値を A／D   
+        変換器を介して読み込むことによって，アイロン温度が計測できる。</p>  
+      </td>  
+    </tr>  
+    <tr>  
+      <td noWrap vAlign="top">(3)</td>  
+      <td>  
+        <p>キー SW で設定した温度と計測したアイロン温度を   
+        10 秒ごとに比較し，その結果に応じて表 1   
+        の中から一つの制御番号を選択する。</p>  
+      </td>  
+    </tr>  
+    <tr>  
+      <td noWrap vAlign="top">(4)</td>  
+      <td>  
+        <p>(3) で選択した制御番号に従って，ヒータを ON 又は   
+        OFF にする。</p>  
+      </td>  
+    </tr>  
+  </tbody>  
+</table>  
+<p align="left"><img border="0" src="image/17a.gif" width="494" height="72"><br> 
+図１　システム構成
+<p>　
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>表１　設定温度と制御番号との関係</td>
+  </tr>
+</table>
+<center>
+<div align="left">
+  <table border="1" cellPadding="3" cellspacing="0" bordercolorlight="#000000" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+    <tbody>
+      <tr align="middle">
+        <td>設定温度との差<br>
+          (設定温度－アイロン温度)</td>
+        <td>制御番号</td>
+        <td>10 秒間でのヒータ<br>  
+          ON 時間 (秒)</td>  
+        <td>アイロン温度変化率</td>  
+      </tr>  
+      <tr align="middle">  
+        <td>50℃以上</td>  
+        <td align="center">1</td>  
+        <td align="center">10</td>  
+        <td>10℃／10 秒で上昇</td>  
+      </tr>  
+      <tr align="middle">  
+        <td>30℃以上 50℃未満</td>  
+        <td align="center">2</td>  
+        <td align="center">8</td>  
+        <td>8℃／10 秒で上昇</td>  
+      </tr>  
+      <tr align="middle">  
+        <td>20℃以上 30℃未満</td>  
+        <td align="center">3</td>  
+        <td align="center">6</td>  
+        <td>6℃／10 秒で上昇</td>  
+      </tr>  
+      <tr align="middle">  
+        <td>10℃以上 20℃未満</td>  
+        <td align="center">4</td>  
+        <td align="center">4</td>  
+        <td>4℃／10 秒で上昇</td>  
+      </tr>  
+      <tr align="middle">  
+        <td>－10℃以上 10℃未満　</td>
+        <td align="center">5</td>
+        <td align="center">2</td>
+        <td>2℃／10 秒で上昇</td>  
+      </tr>  
+      <tr align="middle">  
+        <td>－10℃未満　</td>
+        <td align="center">6</td>
+        <td align="center">0</td>
+        <td>5℃／10 秒で下降</td>  
+      </tr>  
+    </tbody>  
+  </table>  
+</div>  
+</center>  
+<p>　</p>  
+<HR WIDTH=100%>  
+<a NAME="171">　<BR>  
+<b>  
+設問</b></a><b>1</b>　設定温度を変化させながらアイロン温度を制御したところ，図    
+2 のように変化した。図 2 中の <b>[　　　]</b>    
+に入れる正しい答えを，解答群の中から選べ。   
+<p align="left"><img border="0" src="image/17b.gif" width="479" height="426"></p> 
+<p align="left">図２　アイロン温度の変化</p> 
+<p>　 
+<p>a に関する解答群  
+<p>ア　143　　　イ　144　　　　ウ　145　　　エ　146　　　オ　147</p> 
+<p>　<br> 
+b，c に関する解答群  
+<p>ア　1　　　イ　2　　　　ウ　3　　　エ　4　　　オ　5　　　カ　6</p> 
+<p>&nbsp;</p> 
+<HR WIDTH=100%> 
+<a HREF="12f_p_a5.htm#171">設問1の正解例と解説へ</a> 
+<HR WIDTH=100%> 
+  　<BR>
+<b><a name="172">設問</a>2　</b>図 3    
+に示すタイマ割込み処理の流れ図中の <b>[　　　　] </b>に入れる正しい答えを，解答群の中から選べ。   
+<p align="left"><img border="0" src="image/17c.gif" width="488" height="437"><br>  
+図３　タイマ割込み処理の流れ図  
+<p>d に関する解答群   
+<table border="0" cellpadding="3" cellspacing="0">   
+  <tr>   
+    <td width="150">ア　0 → HEATON</td>   
+    <td width="150">イ　0 → TIME</td>   
+    <td>ウ　1 → HEATON</td>   
+  </tr>   
+  <tr>   
+    <td>エ　1 → TIME</td>   
+    <td>オ　2 → HEATON</td>   
+    <td>カ　2 → TIME</td>   
+  </tr>   
+  <tr>   
+    <td>キ　4 → HEATON</td>   
+    <td>ク　4 → TIME</td>   
+    <td></td>   
+  </tr>   
+</table>   
+<p>　</p>  
+<p>e に関する解答群   
+<table border="0" cellpadding="3" cellspacing="0">   
+  <tr>   
+    <td width="180">ア　HEATON ＜ TIME</td>   
+    <td width="180">イ　HEATON ＞ TIME</td>   
+    <td>ウ　HEATON ≠ TIME</td>   
+  </tr>   
+  <tr>   
+    <td>エ　HEATON ≦ TIME</td>   
+    <td>オ　HEATON ≧ TIME</td>   
+    <td></td>   
+  </tr>   
+</table>   
+<p>　</p>  
+<HR WIDTH=100%>  
+<a HREF="12f_p_a5.htm#172">設問2の正解例と解説へ</a>  
+<HR WIDTH=100%>  
+<p><b><a name="173">設問</a>3　</b>次の記述中の <b>[　　　　]</b>    
+に入れる正しい答えを，解答群の中から選べ。   
+</p>   
+<p>アイロンの温度制御部を構成する要素の異常又は故障を検出し，アイロンの安全性を向上させるために，次の機能を追加した（図    
+4 参照）。   
+</p>   
+<table border="0" cellpadding="3" cellspacing="0" width="696">   
+  <tr>   
+    <td width="100" valign="top">ハードウェア：</td>   
+    <td width="579">1.5 秒以内に 1    
+      が書き込まれないと，ヒータを OFF    
+      にするヒータ制御装置を追加した。</td>   
+  </tr>   
+  <tr>   
+    <td width="100" valign="top">ソフトウェア：</td>   
+    <td width="579">1    
+      秒ごとのタイマ割込み処理の先頭で，追加したヒータ制御装置に一定時間    
+      1 を出力する。</td>   
+  </tr>   
+</table>   
+<p align="left"><img border="0" src="image/17d.gif" width="569" height="121"><br>  
+図４　ヒータ制御装置追加後のシステム構成  
+<p>この機能の追加で検出できる異常又は故障は<b>   
+[　　ｆ　　] </b>と <b>[　　g　　]</b> である。  
+<p>解答群  
+<table border="0" cellpadding="3" cellspacing="0">  
+  <tr>  
+    <td width="210">ア　A／D 変換器の精度悪化</td>  
+    <td>イ　温度センサの故障</td>  
+  </tr>  
+  <tr>  
+    <td>ウ　拡張 COMET の停止</td>  
+    <td>エ　キーSWの故障</td>  
+  </tr>  
+  <tr>  
+    <td>オ　タイマの停止</td>  
+    <td>カ　ヒータの故障</td>  
+  </tr>  
+</table>  
+<p>　</p>  
+<HR WIDTH=100%>  
+<a HREF="12f_p_a5.htm#173">設問3の正解例と解説へ</a>  
+<hr>  
+<p>  
+<A HREF="index.htm">メニューへ戻る</A></p>  
+<HR WIDTH=100%>  
+  <p>　</p>  
+</blockquote>  
+</BODY>  
+</HTML>  

@@ -1,0 +1,346 @@
+<html>
+
+<head>
+<title>平成19年度 秋期 基本情報技術者試験 午後 問題</title>
+<style type="text/css">
+body{line-height:150%;}
+code{font-size:12pt;}
+</style>
+</head>
+
+<body>
+
+<blockquote>
+	<hr>
+	<h3 align="center">平成19年度秋期試験　問題(問6～問9)</h3>
+	<div align="center">
+		<table borderColor="#000000" cellSpacing="0" cellPadding="4" border="1">
+			<tr>
+				<td>　次の<strong>問6</strong>から<strong>問9</strong>までの4問については、この中から1問を選択し、答案用紙の選択欄の（選）をマークして解答してください。<br>
+				　なお、2問以上選択した場合には、はじめの1問について採点します。</td>
+			</tr>
+		</table>
+	</div>
+	<hr>
+	<p><strong><a name="60">問6</a></strong>　次のCプログラムの説明及びプログラムを読んで，設問に答えよ。</p>
+	<p>〔プログラムの説明〕<br>
+	　引数の配列<code>in</code>に格納された8文字×6文字の文字パターンを，引数<code>invtype</code>の値（1～4）に従って，回転又は反転して標準出力に出力する関数<code>invert</code>である。</p>
+	<p>（1）引数<code>invtype</code>の値と文字パターンの回転又は反転種別の関係は，表のとおりである。</p>
+	<p><img src="img/fig20.png" /></p>
+	<p>（2）関数<code>main</code>の実行結果をまとめた文字パターンの印字例を図に示す。</p>
+	<p><img src="img/fig21.png" /></p>
+	<p>（3）回転及び反転操作の手順を，8行6列の配列<code>dat[8][6]</code>を例として説明する。<br>
+	　　 90度回転では，回転後は行と列の数が入れ替わることになる。<br>
+	　　 
+	90度右回転の場合には，次に示すように先頭の行データ群は，右端の列データ群に移る。次の行データ群が右から二つ目の列に移り，同様の手順で移動が進み，最後に最下段の行データ群が左端の列データ群に移る。</p>
+	<p><img src="img/fig22.png" /></p>
+	<p>
+	　90度左回転の場合には，先頭の行データ群は，左端の列データ群<code>dat[5][0]</code>，<code>dat[4][0]</code>，…，<code>dat[1][0]</code>，<code>dat[0][0]</code>に移る。次の行データ群が左から二つ目の列に移り，同様の手順で移動が進み，最後に最下段の行データ群が右端の列データ群に移る。<br>
+	　上下反転では，先頭の行データ群は，最下段の行データ群<code>dat[7][0]</code>，<code>dat［7][1]</code>，…，<code>dat[7][4]</code>，<code>dat[7][5]</code>に移る。次の行データ群が下から二つ目の行に移り，同様の手順で移動が進み，最後に最下段の行データ群が先頭の行データ群に移る。<br>
+	　左右反転では，行内で入れ替わるので，先頭の行データ群は，<code>dat[0][5]</code>，<code>dat[0][4]</code>，…，<code>dat[0][1]</code>，<code>dat[0][0]</code>に移る。以降の行データ群も同様の手順で行内で順序が入れ替わる。</p>
+	<p><img src="img/fig23.png" /></p>
+	<p><strong><a name="61">設問</a></strong>　プログラム中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+	<p>aに関する解答群</p>
+	<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber1">
+		<tr>
+			<td>ア</td>
+			<td><code>invtype == 1</code></td>
+		</tr>
+		<tr>
+			<td>イ</td>
+			<td><code>invtype == 2</code></td>
+		</tr>
+		<tr>
+			<td>ウ</td>
+			<td><code>invtype == 3</code></td>
+		</tr>
+		<tr>
+			<td>エ</td>
+			<td><code>invtype == 4</code></td>
+		</tr>
+		<tr>
+			<td>オ</td>
+			<td><code>(invtype == 1) || (invtype == 2)</code></td>
+		</tr>
+		<tr>
+			<td>カ</td>
+			<td><code>(invtype == 3) || (invtype == 4)</code></td>
+		</tr>
+	</table>
+	<p>b，cに関する解答群</p>
+	<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber2">
+		<tr>
+			<td>ア</td>
+			<td><code>in[RSZ - i - 1][j]</code></td>
+		</tr>
+		<tr>
+			<td>イ</td>
+			<td><code>in[RSZ - j - 1][i]</code></td>
+		</tr>
+		<tr>
+			<td>ウ</td>
+			<td><code>in[i][CSZ - j - 1]</code></td>
+		</tr>
+		<tr>
+			<td>エ</td>
+			<td><code>in[i][RSZ - j - 1]</code></td>
+		</tr>
+		<tr>
+			<td>オ</td>
+			<td><code>in[j][CSZ - i - 1]</code></td>
+		</tr>
+		<tr>
+			<td>カ</td>
+			<td><code>in[j][RSZ - i - 1]</code></td>
+		</tr>
+	</table>
+	<hr>
+	<p><a href="19F_P_A3.HTM#61">設問の正解例と解説へ</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a></p>
+	<hr>
+	<p><strong><a name="70">問7</a></strong> 
+	　次のCOBOLプログラムの説明及びプログラムを読んで，設問1，2に答えよ。</p>
+	<p>〔プログラムの説明〕<br>
+	　ある会社では，1年に1回，従業員の定期健康診断を実施し，過去5年分の診断結果をマスタファイルに保管している。<br>
+	　このプログラムは，別のファイルに記録された今年度の診断結果を，マスタファイルに反映する。</p>
+	<p>（1）マスタファイルは，次のレコード様式の索引ファイルであり，主レコードキーは従業員番号である。</p>
+	<p><img src="img/fig24.png" /></p>
+	<blockquote>
+		<p>①　従業員1人に対して1レコードとする。従業員番号が重複することはない。</p>
+		<p>
+		②　レコードには，過去5年分の診断結果が左から受診年の新しい順で格納されている。各レコードには少なくとも過去1年分の診断結果が格納されており，就業年数が5年に満たない場合は残りの領域に空白が詰められている。</p>
+		<p>
+		③　診断結果の各項目はいずれも数字で，身長はcm単位，体重はkg単位で，それぞれ小数点以下1けたまで記録され，血圧はmmHg単位の整数として記録されている。</p>
+	</blockquote>
+	<p>
+	（2）今年度の診断結果は，次のレコード様式の順ファイルであり，すべての従業員の情報が順不同で記録されている。同じ従業員番号のレコードが重複して存在することはない。</p>
+	<p><img src="img/fig25.png" /></p>
+	<p><img src="img/fig26.png" /></p>
+	<p><strong><a name="71">設問1</a></strong>　プログラム中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+	<p>解答群</p>
+	<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber3">
+		<tr>
+			<td>ア</td>
+			<td><code>MOVE MAST-HEALTH(CNT + 1) TO MAST-HEALTH(CNT)</code></td>
+		</tr>
+		<tr>
+			<td>イ</td>
+			<td><code>MOVE MAST-HEALTH(CNT - 1) TO MAST-HEALTH(CNT)</code></td>
+		</tr>
+		<tr>
+			<td>ウ</td>
+			<td><code>MOVE MAST-HEALTH(CNT) TO MAST-HEALTH(CNT + 1)</code></td>
+		</tr>
+		<tr>
+			<td>エ</td>
+			<td><code>MOVE MAST-HEALTH(CNT) TO MAST-HEALTH(CNT - 1)</code></td>
+		</tr>
+		<tr>
+			<td>オ</td>
+			<td><code>MOVE YEAR-ENO TO MAST-ENO</code></td>
+		</tr>
+		<tr>
+			<td>カ</td>
+			<td><code>MOVE YEAR-HEALTH TO MAST-HEALTH</code></td>
+		</tr>
+		<tr>
+			<td>キ</td>
+			<td><code>MOVE YEAR-HEALTH TO MAST-HEALTH(CNT)</code></td>
+		</tr>
+	</table>
+	<hr>
+	<p><code><a href="19F_P_A3.HTM#71">設問1の正解例と解説へ</a></code></p>
+	<hr>
+	<p><strong><a name="72">設問2</a></strong>　今年度の診断結果をマスタファイルに反映するときに，昨年の体重と比較して5kg以上の増減がある従業員をチェックし，対象者の従業員番号を表示するように，プログラムを変更したい。次の表中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+	<p><img src="img/fig27.png" /></p>
+	<p>cに関する解答群</p>
+	<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber4">
+		<tr>
+			<td>ア　行番号26と27の間</td>
+			<td>イ　行番号30と31の間</td>
+		</tr>
+		<tr>
+			<td>ウ　行番号37と38の間</td>
+			<td>エ　行番号39と40の間</td>
+		</tr>
+	</table>
+	<p>dに関する解答群</p>
+	<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber5">
+		<tr>
+			<td>ア</td>
+			<td><code>MAST-WEIGHT(1) &lt;= MAST-WEIGHT(2) - 5</code></td>
+		</tr>
+		<tr>
+			<td>イ</td>
+			<td><code>MAST-WEIGHT(1) &gt;= MAST-WEIGHT(2) - 5</code></td>
+		</tr>
+		<tr>
+			<td>ウ</td>
+			<td><code>YEAR-WEIGHT &lt;= MAST-WEIGHT(1) - 5</code></td>
+		</tr>
+		<tr>
+			<td>エ</td>
+			<td><code>YEAR-WEIGHT &gt;= MAST-WEIGHT(1) - 5</code></td>
+		</tr>
+	</table>
+	<hr>
+	<p><a href="19F_P_A3.HTM#72">設問2の正解例と解説へ</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a></p>
+	<hr>
+	<p><strong><a name="80">問8</a></strong>　次のJavaプログラムの説明及びプログラムを読んで，設問1，2に答えよ。<br>
+	（<a href="java.htm" target="_blank">Javaプログラムで使用するAPIの説明は，この冊子の末尾を参照してください。</a>）</p>
+	<p>〔プログラムの説明〕<br>
+	　クラス<code>WeightedQueue</code>は，次の規則に従う待ち行列を実現するプログラムである。</p>
+	<p>（1）待ち行列に入る要素には，重みが付けられる。重みは正の整数とする。ただし，この待ち行列に<code>null</code>を挿入することはできない。</p>
+	<p>（2）要素の挿入位置は，末尾の要素からの重みの合計が，挿入する要素の重み未満で，最も先頭寄りとする。ただし，重みの合計が<code>Long.MAX＿VALUE</code>を超えたときの動作は保証しない。要素を挿入する例を図1に示す。</p>
+	<p><img src="img/fig28.png" /></p>
+	<p>（3）要素を取り出すときは，その時点で先頭にある要素が取り出される。</p>
+	<p>〔待ち行列の使用例〕<br>
+	　この待ち行列に，優先度の高いタスク（重みの値が大きい要素）を挿入すると，このタスクは先に挿入されていた幾つかの優先度の低いタスクよりも，先に取り出されるようになる。この性質を利用して，この待ち行列を，優先度に応じたタスクのスケジューリングに使うことができる。<br>
+	　テスト用クラス<code>WeightedQueueTester</code>の実行結果を図2に示す。</p>
+	<p><img src="img/fig29.png" /></p>
+	<p><img src="img/fig30.png" /></p>
+	<p><strong><a name="81">設問1</a></strong>　プログラム1中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+	<p>aに関する解答群</p>
+	<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber6">
+		<tr>
+			<td>ア　<code>pos</code></td>
+			<td>イ　<code>pos - 1</code></td>
+			<td>ウ　<code>pos + 1</code></td>
+		</tr>
+		<tr>
+			<td>エ　<code>sum</code></td>
+			<td>オ　<code>sum - 1</code></td>
+			<td>カ　<code>sum + 1</code></td>
+		</tr>
+	</table>
+	<p>bに関する解答群</p>
+	<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber7">
+		<tr>
+			<td>ア　<code>!=</code></td>
+			<td>イ　<code>&lt;=</code></td>
+			<td>ウ　<code>==</code></td>
+			<td>エ　<code>&gt;=</code></td>
+		</tr>
+	</table>
+	<p>cに関する解答群</p>
+	<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber8">
+		<tr>
+			<td>ア</td>
+			<td><code>new QueueElement(element, sum)</code></td>
+		</tr>
+		<tr>
+			<td>イ</td>
+			<td><code>new QueueElement(element, weight)</code></td>
+		</tr>
+		<tr>
+			<td>ウ</td>
+			<td><code>QueueElement(element, sum)</code></td>
+		</tr>
+		<tr>
+			<td>エ</td>
+			<td><code>QueueElement(element, weight)</code></td>
+		</tr>
+	</table>
+	<hr>
+	<p><a href="19F_P_A3.HTM#81">設問1の正解例と解説へ</a></p>
+	<hr>
+	<p><strong><a name="82">設問2</a></strong>　クラス<code>WeightedQueue</code>のメソッド<code>poll</code>に関する記述として正しいものを，解答群の中から選べ。</p>
+	<p>解答群</p>
+	<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber9">
+		<tr>
+			<td valign="top">ア</td>
+			<td>待ち行列の先頭要素の取得及び削除をする。ただし，待ち行列に要素がないときは<code>null</code>を返す。</td>
+		</tr>
+		<tr>
+			<td valign="top">イ</td>
+			<td>待ち行列の先頭要素の取得及び削除をする。ただし，待ち行列に要素がないときは例外を投げる。</td>
+		</tr>
+		<tr>
+			<td valign="top">ウ</td>
+			<td>待ち行列の先頭要素を取得する。要素の削除はしない。ただし，待ち行列に要素がないときは<code>null</code>を返す。</td>
+		</tr>
+		<tr>
+			<td valign="top">エ</td>
+			<td>待ち行列の先頭要素を取得する。要素の削除はしない。ただし，待ち行列に要素がないときは例外を投げる。</td>
+		</tr>
+	</table>
+	<hr>
+	<p><a href="19F_P_A3.HTM#82">設問2の正解例と解説へ</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a></p>
+	<hr>
+	<p><strong><a name="90">問9</a></strong> 
+	　次のアセンブラプログラムの説明及びプログラムを読んで，設問1，2に答えよ。</p>
+	<p>〔プログラムの説明〕<br>
+	　連続する<em>N</em> 語のブロックに格納されている各語にパリティビットを設定するとともに，ブロックの直後に1語の水平パリティを設定する副プログラム<code>SETPAR</code>である。</p>
+	<p>
+	（1）各語のビット番号15（図の破線で囲まれた左端ビット）をパリティビットとして使用する。パリティビットの値は偶数パリティとし，各語のビット番号0～14中の1であるビットの個数が奇数のときは1，偶数のときは0とする。<br>
+	　水平パリティの各ビットの値も偶数パリティとし，各語の対応するビット番号中の1であるビットの個数が奇数のときは1，偶数のときは0とする。つまり，図の網掛け部分において，1であるビットの個数が偶数となるように，水平パリティ中のビットを設定する。</p>
+	<p><img src="img/fig31.png" /></p>
+	<p>（2）主プログラムは，ブロックの語数<em>N</em> を<code>GR1</code>に，ブロックの開始アドレスを<code>GR2</code>に設定し，ブロックの各語のパリティビットに0を格納して副プログラム<code>SETPAR</code>を呼ぶ。</p>
+	<p>（3）副プログラムから戻るとき，汎用レジスタ<code>GR1</code>～<code>GR7</code>の内容は元に戻す。</p>
+	<p><img src="img/fig32.png" /></p>
+	<p><strong><a name="91">設問1</a></strong>　プログラム中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+	<p>aに関する解答群</p>
+	<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber10">
+		<tr>
+			<td>ア　<code>JMI&nbsp;&nbsp;&nbsp;CONT</code></td>
+			<td>イ　<code>JMI&nbsp;&nbsp;&nbsp;LP2</code></td>
+			<td>ウ　<code>JOV&nbsp;&nbsp;&nbsp;CONT</code></td>
+		</tr>
+		<tr>
+			<td>エ　<code>JOV&nbsp;&nbsp;&nbsp;LP2</code></td>
+			<td>オ　<code>JPL&nbsp;&nbsp;&nbsp;CONT</code></td>
+			<td>カ　<code>JPL&nbsp;&nbsp;&nbsp;LP2</code></td>
+		</tr>
+	</table>
+	<p>bに関する解答群</p>
+	<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber11">
+		<tr>
+			<td>ア　<code>OR&nbsp;&nbsp;&nbsp;&nbsp;GR4,0,GR6</code></td>
+			<td>イ　<code>OR&nbsp;&nbsp;&nbsp;&nbsp;GR4,GR7</code></td>
+		</tr>
+		<tr>
+			<td>ウ　<code>OR&nbsp;&nbsp;&nbsp;&nbsp;GR7,0,GR6</code></td>
+			<td>エ　<code>OR&nbsp;&nbsp;&nbsp;&nbsp;GR7,GR4</code></td>
+		</tr>
+		<tr>
+			<td>オ　<code>XOR&nbsp;&nbsp;&nbsp;GR4,0,GR6</code></td>
+			<td>カ　<code>XOR&nbsp;&nbsp;&nbsp;GR4,GR7</code></td>
+		</tr>
+		<tr>
+			<td>キ　<code>XOR&nbsp;&nbsp;&nbsp;GR7,0,GR6</code></td>
+			<td>ク　<code>XOR&nbsp;&nbsp;&nbsp;GR7,GR4</code></td>
+		</tr>
+	</table>
+	<hr>
+	<p><a href="19F_P_A3.HTM#91">設問1の正解例と解説へ</a></p>
+	<hr>
+	<p><strong><a name="92">設問2</a></strong>　パリティビットの値として，各語のビット番号0～14中の1であるビットの個数が奇数のときは0を，偶数のときは1を設定するようにプログラムを変更する。これは，プログラム中の行番号7で<code>GR7</code>に設定する値を変更すれば可能である。<code>GR7</code>に設定する値として正しい答えを，解答群の中から選べ。</p>
+	<p>解答群</p>
+	<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber12">
+		<tr>
+			<td>ア　<code>#0001</code></td>
+			<td>イ　<code>#7FFF</code></td>
+			<td>ウ　<code>#8000</code></td>
+		</tr>
+		<tr>
+			<td>エ　<code>#8001</code></td>
+			<td>オ　<code>#FFFE</code></td>
+			<td>カ　<code>#FFFF</code></td>
+		</tr>
+	</table>
+	<hr>
+	<p><a href="19F_P_A3.HTM#92">設問2の正解例と解説へ</a></p>
+	<hr>
+	<p><a href="19F_P_E4.htm#100">問10へ進む</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a></p>
+</blockquote>
+
+</body>
+
+</html>

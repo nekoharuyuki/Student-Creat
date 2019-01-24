@@ -1,0 +1,256 @@
+<HTML>
+<HEAD>
+<TITLE>平成12年度秋期試験　問題(問1～2)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0" style="font-size: 12pt">
+<BLOCKQUOTE>
+<hr>
+<H3 align="center"><font size="4">平成年12度秋期試験　問題(問1～問2)</font></H3>
+<basefont size="4">
+<hr>
+<br>
+<b><font size="3">次の問1、問2は必須問題です。全問解答してください。</font></b><font size="3"><br>
+</font>
+<HR WIDTH=100%>
+<font size="3">
+<A NAME="10">
+<b>
+問1</b></a><b>　</b>次の流れ図の説明及び流れ図を読んで、設問に答えよ。<br>
+〔流れ図の説明〕<br>
+濃度が 256 階調のグレイスケール画像を拡大する処理の流れ図である。   
+</font>   
+<table border="0" cellpadding="3" cellspacing="0">  
+  <tr>  
+    <td valign="top">  
+<font size="3">  
+ (1)  
+</font>  
+    </td>  
+    <td>  
+<font size="3">  
+ 拡大前の画像は、横が m 個、縦が n 個の画素からなる長方形で構成されている。各画素の濃度値（0～255）が m 列 n 行の配列 A に格納されており、w 倍に拡大後の画素の濃度値を m × w 列 n × w 行の配列 B に格納する。 m 及び n は 2 以上の整数であり、w は 1 以上の整数である。<br>   
+ <img border="0" src="image/A00a01f1.gif"> 
+</font> 
+    </td> 
+  </tr> 
+  <tr> 
+    <td valign="top"> 
+<font size="3"> 
+ (2) 
+</font> 
+    </td> 
+    <td> 
+<font size="3"> 
+ この流れ図では、拡大後の各画素の濃度値（配列 B）を、対応する拡大前の画素の濃度値（配列 A）から求めている。拡大後の座標からの逆変換によって得られる拡大前の座標 (x, y) の x 又は y は、 整数値とならないことがある。そこで、図 2 に示すように、座標 (x, y)の近傍にある 4 個の画素（座標は整数値）の濃度値と横方向及び縦方向の距離（ p 及び q ）から、次式によって濃度値を計算する。&nbsp;<br>  
+    濃度値＝(1－q)×{(1－p)×A(ix, iy)＋p×A(ix＋1, iy)}<br>   
+    ＋q×{(1－p)×A(ix, iy＋1)＋p×A(ix＋1, iy＋1)}<br>   
+<br>   
+p、q は共に 0 以上 1 未満の実数であり、ix、iy はそれぞれ実数 x、 y 以下で最大の整数である。   
+</font>   
+      <p><img border="0" src="image/A00a01f2.gif"></td> 
+  </tr> 
+  <tr> 
+    <td valign="top"> 
+<font size="3"> 
+ (3) 
+</font> 
+    </td> 
+    <td> 
+<font size="3"> 
+ 逆変換によって求めた座標 (x, y) の近傍画素のいずれかが拡大前の画像上に存在しない場合には、拡大前の画像上に存在する隣接画素の濃度値を使用する。 例えば、座標 (ix, iy) 及び (ix, iy＋1) が拡大前の画像の右端列上にある場合は、A(ix＋1, iy) として A(ix, iy) を使用し、A(ix＋1, iy＋1) として A(ix, iy＋1) を 使用する。 また、座標 (ix, iy) 及び (ix＋1, iy) が拡大前の画像の下端行上にある場合は、 A(ix, iy＋1) として A(ix, iy) を使用し、A(ix＋1, iy＋1) として A(ix＋1, iy) を使用する。<br>   
+〔流れ図〕   
+</font>   
+      <p><img border="0" src="image/A00a01f3.gif"></td> 
+  </tr> 
+</table> 
+<p> 
+<A NAME="10"> 
+</p> 
+<HR WIDTH=100%> 
+</a> 
+<table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#FFFFFF" bordercolordark="#FFFFFF" bordercolor="#FFFFFF" width="513"> 
+  <tr> 
+    <td width="126"><font size="3"><A NAME="11"> 
+<b> 
+設問</b></a><b>　</b>流れ図中の 
+</font> 
+    </td> 
+    <td bordercolor="#000000" width="30">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td> 
+    <td width="331"><font size="3">に入れる正しい答えを、解答群の中から選べ。 
+</font> 
+    </td> 
+  </tr> 
+</table> 
+<font size="3">　　　　　<br>
+a に関する解答群   
+</font>   
+<table border="0" cellpadding="3" cellspacing="0">  
+  <tr>  
+    <td width="150"><font size="3">ア　j×w → x<br>  
+      &nbsp;&nbsp;&nbsp;&nbsp; I×w → y  
+</font>  
+    </td>  
+    <td width="150"><font size="3">イ　j×w÷n → x　<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; I×w÷m → y   
+</font>   
+    </td>   
+    <td><font size="3">ウ　j×n÷w → x<br>   
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; I×m÷w → y   
+</font>   
+    </td>   
+  </tr>   
+  <tr>   
+    <td><font size="3">  エ　j÷w → x<br>   
+      &nbsp;&nbsp;&nbsp;&nbsp; I÷w → y   
+</font>   
+    </td>   
+    <td><font size="3">オ　n×w÷j → x<br>   
+      &nbsp;&nbsp;&nbsp;&nbsp; m×w÷i → y   
+</font>   
+    </td>   
+    <td><font size="3">カ　w÷j → x<br>   
+      &nbsp;&nbsp;&nbsp;&nbsp; w÷i → y   
+</font>   
+    </td>   
+  </tr>   
+</table>   
+<table border="0" cellpadding="3" cellspacing="0">  
+  <tr>  
+    <td><font size="3">&nbsp;<br>  
+      b、c に関する解答群   
+</font>   
+    </td>   
+  </tr>   
+</table>   
+<table border="0" cellpadding="3" cellspacing="0">  
+  <tr>  
+    <td width="120"><font size="3">ア　iy－I÷w
+</font>
+    </td>
+    <td width="120"><font size="3"> イ　j－ix÷w
+</font>
+    </td>
+    <td><font size="3"> ウ　x－ix
+</font>
+    </td>
+  </tr>
+  <tr>
+    <td><font size="3">  エ　y－iy
+</font>
+    </td>
+    <td><font size="3">オ　(I－iy)÷n
+</font>
+    </td>
+    <td><font size="3">カ　(ix－j)÷m
+</font>
+    </td>
+  </tr>
+  <tr>
+    <td><font size="3">  キ　(x－ix)÷w
+</font>
+    </td>
+    <td><font size="3"> ク　(y－iy)÷w
+</font>
+    </td>
+    <td></td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>&nbsp;<br>
+      <font size="3">d に関する解答群   
+</font>   
+    </td>   
+  </tr>   
+</table>   
+<table border="0" cellpadding="3" cellspacing="0">  
+  <tr>  
+    <td><font size="3">  ア　i, j   
+</font>   
+    </td>   
+    <td><font size="3">イ　ix, iy   
+</font>   
+    </td>   
+    <td><font size="3">ウ　ix×w, i   
+</font>   
+    </td>   
+  </tr>   
+  <tr>   
+    <td><font size="3">  エ　ix×w, iy×w   
+</font>   
+    </td>   
+    <td><font size="3">オ　j, i   
+</font>   
+    </td>   
+    <td><font size="3">カ　j, iy   
+</font>   
+    </td>   
+  </tr>   
+  <tr>   
+    <td><font size="3">  キ　j, iy×w   
+</font>   
+    </td>   
+    <td><font size="3">ク　j×w, i×w   
+</font>   
+    </td>   
+    <td></td>   
+  </tr>   
+</table>   
+<p>　</p> 
+<A NAME="11"> 
+<HR WIDTH=100%> 
+</a> 
+<A HREF="12f_p_a1.htm#11"><font size="3">設問の正解例と解説へ</font></A> 
+<HR WIDTH=100%> 
+<font size="3"> 
+<a NAME="20">　<br>
+<b>問2</b></a><b>　</b>次の流れ図の説明及び流れ図を読んで、設問 1、2 に答えよ。<br>   
+<br>   
+〔流れ図の説明〕<br>   
+図の左側に示す 3 行 3 列の配列 A に格納された数値を、図の右側に示す方向に降順に並べ替える流れ図である。<br>   
+<br>   
+<img border="0" src="image/A00a02f1.gif"><br> 
+第 j 行、第 k 列の配列要素は A( j, k ) で参照する（1≦j≦3，1≦k≦3）。<br>   
+<br>   
+〔流れ図〕<br>   
+<img border="0" src="image/A00a02f2.gif"><br> 
+<br> 
+</font> 
+<hr> 
+<p> 
+<font size="3"> 
+<b><a name="21">設問1</a></b>　</font>図の左側に示すデータを用いて流れ図を実行する。流れ図のαが実行される回数として正しい答えを，解答群の中から選べ。<br> 
+　
+</p>
+<p>解答群<br>
+ア　8　　　イ　9　　　ウ　28　　　エ　36　　　オ　45
+<p>　</p>
+<HR WIDTH=100%>
+<a HREF="12f_p_a1.htm#21"><font size="3">設問1の正解例と解説へ</font></a>
+<HR WIDTH=100%>
+<p><font size="3"><b><a name="22">設問2</a></b>　流れ図のαとβを変更し、図の左側に示したデータを処理する。 次の記述中の<b>[　　　　]</b>に入れる正しい答えを、解答群の中から選べ。<br>  
+<br>  
+<br>  
+(1) αとβをそれぞれ次のとおりに変更したときの実行結果は<b>[　　ａ　　]</b>となる。<br>  
+<br>  
+<img border="0" src="image/A00a02f3.gif"><br> 
+<br> 
+(2) αとβをそれぞれ次のとおりに変更したときの実行結果は<b>[　　ｂ　　]</b>となる。&nbsp;<br>  
+<img border="0" src="image/A00a02f4.gif"><br> 
+<br> 
+<br> 
+解答群<br> 
+</font><img border="0" src="image/A00a02f5.gif"></p> 
+<hr> 
+<p><a HREF="12f_p_a1.htm#22"><font size="3">設問2の正解例と解説へ</font></a></p> 
+<hr> 
+<p align="center"><font size="3"> 
+<a HREF="12f_p_e2.htm">■問3へ進む</a>　　　　　　　<a href="index.htm">■メニューへ戻る</a><br>
+</font>
+</p>
+<HR WIDTH=100%>
+</BLOCKQUOTE>
+<p>　
+<p>　</p>
+</BODY>
+</HTML>

@@ -1,0 +1,303 @@
+<HTML>
+<HEAD>
+<TITLE>平成15年度秋期試験　正解例と解説(午前問01～問20)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<BLOCKQUOTE>
+<hr>
+<H3 align="center">平成15年度秋期試験　正解例と解説(問01～問20)</H3>
+<HR WIDTH=100%>
+<A NAME="01">　<BR>
+<b>
+問1</b></a><br><br>
+<select name="17FA01" size="1"><option selected>解答例</option><option>エ</option></select><br>
+<br>＜解説＞0.5＝1/2＝2<sup>－1</sup>なので0.5は2進数で0.1と表せる。<br>
+ア，イ，ウの場合は循環小数となる。<br>
+アの場合<br>
+
+        <p><img border="0" src="image/AM_A01-1.GIF"></p>
+        <p>
+
+　　　　a<sub>1</sub>＝0.2×2の整数部＝0.4の整数部＝0<br>
+　　　　a<sub>2</sub>＝0.4×2の整数部＝0.8の整数部＝0<br>
+　　　　a<sub>3</sub>＝0.8×2の整数部＝1.6の整数部＝1<br>
+　　　　a<sub>4</sub>＝0.6×2の整数部＝1.2の整数部＝1<br>
+　　　　a<sub>5</sub>＝0.2×2の整数部＝0.4の整数部＝0<br>
+　　　　　　以下繰り返しとなり　　（0.2）<sub>10</sub>＝（0.0011・・・）<sub>2</sub><br>
+イの場合<br>
+
+        <p><img border="0" src="image/AM_A01-2.GIF"></p>
+        <p>
+
+　　　　a<sub>1</sub>＝0.3×2の整数部＝0.6の整数部＝0<br>
+　　　　a<sub>2</sub>＝0.6×2の整数部＝1.2の整数部＝1<br>
+　　　　a<sub>3</sub>＝0.2×2の整数部＝0.4の整数部＝0<br>
+　　　　　　以下アの場合と同じ繰り返しとなるので<br>
+　　　　　　　　（0.2）<sub>10</sub>＝（0.010011・・・）<sub>2</sub><br>
+ウの場合<br>
+
+        <p><img border="0" src="image/AM_A01-3.GIF"></p>
+        <p>
+
+　　　　　　以下アの場合と同様な繰り返しとなるので<br>
+　　　　　　　　（0.4）<sub>10</sub>＝（0.011・・・）<sub>2</sub><br>
+<HR WIDTH=100%>
+<A HREF="15F_A_E1.HTM#01">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="02">　<BR>
+<b>
+問2</b></a><br><br>
+<select name="17FA01" size="1"><option selected>解答例</option><option>エ</option></select><br>
+<br>＜解説＞ゼロでない整数をＮとすると<br>
+　　　　　10<sup>D－1</sup>≦Ｎ＜10<sup>D</sup>　　　　…　(1)<br>
+　　　　　2<sup>B－1</sup>≦Ｎ＜2<sup>B</sup>　　　　　　…　(2)<br>
+　　　　(1)より　D－1≦log<sub>10</sub>Ｎ＜D<br>
+　　　　　　　　log<sub>10</sub>Ｎ＜D≦log<sub>10</sub>Ｎ＋1<br>
+　　　　したがってけた数Dが大きい場合D≒log<sub>10</sub>Ｎ　　…　(3)<br>
+　　　　(2)より　B－1≦log<sub>2</sub>Ｎ＜B<br>
+　　　　　　　　log<sub>2</sub>Ｎ＜B≦log<sub>2</sub>Ｎ＋1<br>
+　　　　したがってけた数Bが大きい場合B≒log<sub>2</sub>Ｎ　　 …　(4)<br>
+ 　　　 (4)の対数の底を10に変換すると<br>
+　　　　　　B≒log<sub>2</sub>Ｎ＝log<sub>10</sub>Ｎ／log<sub>10</sub>2<br>
+　　　　したがってlog<sub>10</sub>Ｎ＝Blog<sub>10</sub>2<br>
+　　　　これを(3)に代入すると　　D≒Blog<sub>10</sub>2<br>
+
+<br>
+<A NAME="02"><BR></a>
+<HR WIDTH=100%>
+<A HREF="15F_A_E1.HTM#02">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="03">　<BR>
+<b>
+問3</b></a><br>
+<br>
+<select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select><br>
+<br>＜解説＞負数を2の補数で表すと左端の先頭ビットが1となる。その絶対値は各ビットを反転したビット列0000…00に1を加算した0000…01となる。したがって2進数1111…11は－1を表す。<br>
+
+<A NAME="03"><BR></a>
+<BR>
+</p>
+<HR WIDTH=100%>
+<A HREF="15F_A_E1.HTM#03">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="04">　<BR>
+<b>
+問4</b></a>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>ア</option></select></p>
+<p>＜解説＞a，b，c，dの場合はオペランドxとオペランドyとの加算演算なので，xとyが同符号のa，dの場合に加算による桁あふれの可能性が発生します。e，f，g，hの場合はオペランドxとオペランドyとの減算演算なので、xとyが異符号のf，gの場合に同符号の加算となり、桁あふれの可能性が発生します。したがってアが正解。<br>
+　</p>
+<HR WIDTH=100%>
+<A HREF="15F_A_E1.HTM#04">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="05">　<BR>
+<b>
+問5</b><br>
+<br><select name="17FA01" size="1"><option selected>解答例</option><option>ウ</option></select><br>
+<br>＜解説＞100元連立一次方程式の解を2秒で解くコンピュータの4倍の演算速度をもつコンピュータはそれを1/2秒で解くので，1000元連立方程式を解く場合の計算時間をn秒とすると<br>
+　　　　　　　100<sup>3</sup>：1000<sup>3</sup>＝1/2：n<br>
+　　　　　　 　10<sup>６</sup>：10<sup>９</sup>＝1/2：n<br>
+　　　　　　　　n＝500（秒）<br>
+<br>
+<HR WIDTH=100%>
+<A HREF="15F_A_E1.HTM#05">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="06">　<BR>
+<b>
+問6</b><br>
+<br><select name="17FA01" size="1"><option selected>解答例</option><option>ウ</option></select><br>
+<br>＜解説＞ビット列01111111とのAND演算を行えばよい。01111111を16進数に変換すると7Fになるので，7FとのAND演算を行えばよいことになる。<br>
+　</p>
+<HR WIDTH=100%>
+<A HREF="15F_A_E1.HTM#06">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="07">　<BR>
+<b>
+問7</b><br>
+<br><select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select><br>
+<br>＜解説＞異常Aだけが検出された部品＝11－3－2＝6個<br>
+　　　　異常Bだけが検出された部品＝7－3＝4個<br>
+　　　　異常Cだけが検出された部品＝4－2＝2個<br>
+　　　　異常A，B，Cのうちいずれか1つ以上検出された部品＝6＋4＋2＋3＋2＝17個<br>
+　　　　したがって異常が検出されなかった部品＝100－17＝83個<br>
+        <p><img border="0" src="image/AM_A07-1.GIF"></p>
+
+<HR WIDTH=100%>
+<A HREF="15F_A_E1.HTM#07">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="08">　<BR>
+<b>
+問8</b><br>
+<br><select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select><br>
+<br>＜解説＞ZはXとYとの排他的論理和で，排他的論理和は互いに論理値が異なる値のときだけ1となる。<br>
+<A NAME="08"><BR></a>
+</p>
+<HR WIDTH=100%>
+<A HREF="15F_A_E1.HTM#08">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="09">　<BR>
+<b>
+問9</b><br>
+<br><select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select><br>
+<br>＜解説＞英大文字（A～Z）26文字と数字（0～9）10文字の合計36文字を一意に表現するには，36種のコードが必要。36種のコードを表すのに必要なビット数を求めればよい。<br>
+　　　2<sup>n</sup>≦36　　n≦6<br>
+したがって最低 6ビットは必要となる。<br>
+
+　</p>
+<HR WIDTH=100%>
+<A HREF="15F_A_E1.HTM#09">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="10">　<BR>
+<b>
+問10</b><br>
+<br><select name="17FA01" size="1"><option selected>解答例</option><option>ウ</option></select><br>
+<br>＜解説＞<br>
+        <p><img border="0" src="image/AM_A10-1.GIF"></p>
+        <p><br>
+アの場合　　入力信号　　0　 1　 0　 1　 1<br>
+　　　　　　状態遷移　A→A→B→A→B→C　　受理されない<br>
+イの場合　　入力信号　　0　 1 　1　 1 　1<br>
+　　　　　　状態遷移　A→A→B→C→D→E　　受理されない<br>
+ウの場合　　入力信号　　1　 0 　1　 1 　1<br>
+　　　　　　状態遷移　A→B→A→B→C→D　　受理される<br>
+エの場合　　入力信号　　1　 1 　1　 1 　0<br>
+　　　　　　状態遷移　A→B→C→D→E→E　　受理されない<br>
+<br>
+<HR WIDTH=100%>
+<A HREF="15F_A_E1.HTM#10">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="11">　<BR>
+<b>
+問11</b><br>
+<br><select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select><br>
+<br>＜解説＞アは符号”－”の次に数字がないので不適切。<br>
+イは構文図に合致する。<br>
+　　　　ウは指数Eの次に符号または数字がないので不適切。<br>
+　　　　エは小数点”．”の次に数字がないので，不適切。<br>
+        <p><img border="0" src="image/AM_A11-1.GIF"></p>
+        <p>
+＜参考＞構文図の記述法に合致するには以下の条件が必要なことが分かる。<br>
+(1)小数点”．”がある場合，その前後は数字でなくてはならない。<br>
+(2)また指数Eがある場合，その直後は符号または数字でなくてはならない。<br>
+(3)小数点”．”の直後は数字でなくてはならないが，それ以外の数字の直前には符号があってもよい。<br>
+<br>
+</p>
+<HR WIDTH=100%>
+<A HREF="15F_A_E1.HTM#11">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="12">　<BR>
+<b>
+問12</b><br>
+<br><select name="17FA01" size="1"><option selected>解答例</option><option>ア</option></select><br>
+<br>＜解説＞前順，間順，後順で走査したとき，以下の図のようになる。したがってアは前順，イは該当なし，ウは間順，エが後順となる。<br>
+        <p><img border="0" src="image/AM_A12-1.GIF"><img border="0" src="image/AM_A12-2.GIF"><img border="0" src="image/AM_A12-3.GIF"></p>
+        <p>
+</p>
+<HR WIDTH=100%>
+<A HREF="15F_A_E1.HTM#12">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="13">　<BR>
+<b>
+問13</b><br>
+<br><select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select><br>
+<br>＜解説＞スタックは後入先出しLIFO(Last In First Out)のデータ構造。<br>
+　</p>
+<HR WIDTH=100%>
+<A HREF="15F_A_E1.HTM#13">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="14">　<BR>
+<b>
+問14</b><br>
+<br><select name="17FA01" size="1"><option selected>解答例</option><option>ウ</option></select><br>
+<br>＜解説＞ハッシュ法による探索では，キーの値をもとにハッシュ関数により格納先アドレスを算出し，そのアドレスにあるデータを検索する。この方法では，格納場所の衝突が発生することがある。<br>
+</p>
+<HR WIDTH=100%>
+<A HREF="15F_A_E1.HTM#14">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="15">　<BR>
+<b>
+問15</b><br>
+<br><select name="17FA01" size="1"><option selected>解答例</option><option>エ</option></select><br>
+<br>＜解説＞
+        <p><img border="0" src="image/AM_A15.GIF"><p>
+<A NAME="15"></a>
+　<BR>
+</p>
+<HR WIDTH=100%>
+<A HREF="15F_A_E1.HTM#15">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="16">　<BR>
+<b>
+問16</b><br>
+<br><select name="17FA01" size="1"><option selected>解答例</option><option>ア</option></select><br>
+<br>＜解説＞アがフラッシュメモリで正解。電気的に消去ができ大容量なメモリ。<br>
+イはEPROM（Erasable PROM）。<br>
+ウはSRAM（スタティックRAM）。フリップフロップ回路にビット列を記憶するためデータ保持のためのリフレッシュが不要。<br>
+エはDRAM（ダイナミックRAM）。電荷の有無によりビット列を記憶。時間がたつと電荷を失うため，リフレッシュによる再書き込みが必要。<br>
+<A NAME="16"></a>
+</p>
+<HR WIDTH=100%>
+<A HREF="15F_A_E1.HTM#16">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="17">　<BR>
+<b>
+問17</b><br>
+<br><select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select><br>
+<br>＜解説＞AND回路は，二つの入力A，Bがともに1のときだけ出力Xが1となる。したがってAND回路の否定演算を行うNAND回路により，二つの入力A，Bがともに1のときだけ出力Xを0とすることができる。<br>
+<A NAME="17"></a>
+</p>
+<HR WIDTH=100%>
+<A HREF="15F_A_E1.HTM#17">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="18">　<BR>
+<b>
+問18</b><br>
+<br><select name="17FA01" size="1"><option selected>解答例</option><option>ウ</option></select><br>
+<br>＜解説＞<br>
+        <p><img border="0" src="image/AM_A18.GIF"></p>
+        <p>
+　　　　　６命令の実行時間＝10×6＋10×5<br>
+　　　　　　　　　　　　　＝110ナノ秒<br>
+＜参考＞n命令を実行した場合，n命令の実行時間＝10×6＋10×(n－1)<br>
+したがって1命令当たりの実行時間＝n命令の実行時間÷n<br>
+　　　　　　　　　　　　　　　 ＝10＋50÷n<br>
+パイプライン処理における1命令当たりの命令実行時間は，nが大きくなるとはぼ1ステップの実行時間となり，高速化される。<br>
+<A NAME="18"></a>
+</p>
+<HR WIDTH=100%>
+<A HREF="15F_A_E1.HTM#18">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="19">　<BR>
+<b>
+問19</b><br>
+<br><select name="17FA01" size="1"><option selected>解答例</option><option>ウ</option></select><br>
+<br>＜解説＞SIMDでは，同一命令を複数の実行ユニットに送り，複数のデータに対して同じ1つの命令による処理を同時並列に実行する。SISDでは，1つの命令を1つの実行ユニットに送り，1つのデータに対して1つの命令による処理を実行する。MISDでは，複数の命令を複数の実行ユニットに送り，同一データに対して複数の異なる命令による処理を同時並列に実行する。MIMDでは，複数の命令を複数の実行ユニットに送り，複数のデータに対して複数の異なる命令による処理を同時並列に実行する。<br>
+SIMD(Single Instruction stream Multiple Data)<br>
+SISD(Single Instruction stream Single Data)<br>
+MISD(Multiple Instruction stream Single Data)<br>
+MIMD(Multiple Instruction stream Multiple Data)<br>
+<A NAME="19"></a>
+　<BR>
+</p>
+<HR WIDTH=100%>
+<A HREF="15F_A_E1.HTM#19">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="20">　<BR>
+<b>
+問20</b><br>
+<br><select name="17FA01" size="1"><option selected>解答例</option><option>エ</option></select><br>
+<br>＜解説＞1÷(0.2×10<sup>－6</sup>)＝5×10<sup>6</sup>命令／秒＝5MIPS<br>
+<A NAME="20"></a>
+　</p>
+<HR WIDTH=100%>
+<a HREF="15F_A_E1.HTM#20">問題へ</a>
+<HR WIDTH=100%>
+　<BR>
+<A HREF="INDEX.HTM">メニューへ戻る</A><BR>
+　<BR>
+<HR WIDTH=100%>
+<ADDRESS>
+<BR>
+</ADDRESS>
+</BLOCKQUOTE>
+</BODY>
+</HTML>

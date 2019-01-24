@@ -1,0 +1,616 @@
+<HTML>
+<HEAD>
+<TITLE>平成16年度春期試験　問題(午後問6～問9)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0">
+<blockquote>
+  <hr>
+  <H3 align="center">平成16年度春期試験　問題(問6～問9)</H3>
+<hr>
+<P>次の問6から問9までの4問については、この中から1問を選択し、答案用紙の選択欄の 
+選 をマークして解答してください。<br>         
+　なお、2問以上選択した場合には、はじめの1問について採点します。
+<hr>
+<p><b><a name="60">問6</a>　</b>次のCプログラムの説明及びプログラムを読んで，設問に答えよ。<br>
+<br>
+〔プログラムの説明〕<br>
+図に示すように，2次元平面の中にn個（3≦n≦20）の点が与えられたときに，これらの点すべてを含む円のうち，半径が最小である円の中心座標と半径を求めるプログラムである。<br>
+<br>
+<img border="0" src="image/P_06_1.gif" width="490" height="400"><br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">（1）</td>
+            <td>各点の位置は，x座標とy座標で与えられる。各座標値はともに10<sup>4</sup>を超えない正の値である。</td>
+          </tr>
+          <tr>
+            <td valign="top">（2）</td>
+            <td>ここでは，次のアルゴリズムによって，求める円の中心を探し出している。<br>
+①　仮中心点を原点（0.0，0.0）に，移動係数を0.5に設定する。<br>
+②　n個の点の中で，仮中心点から最も遠い位置にある点（最遠点）の方向に向かって，一定の距離（以下，移動距離と呼ぶ）だけ仮中心点を移動する。このときの移動距離は，移動前の仮中心点から最遠点までの距離に移動係数を乗じた値とする。これを一定回数（ここでは100回）繰り返した後に③へ移る。<br>
+なお，繰返しの途中で，仮中心点の移動距離が一定の値（10<sup>－9</sup>）以下になった場合には，移動前の仮中心点を円の中心座標とみなし，処理を終了する。<br>
+③　移動係数を1／2倍にして，②へ戻る。</td><br>
+          </tr>
+          <tr>
+            <td valign="top">（3）</td>
+            <td>関数solvcircleの仕様は，次のとおりである。<br>
+void solvcircle ( double pt_x[ ], double pt_y[ ],<br>
+　　　　　　　　　　double *cx, double *cy, double *r );<br>
+・機能：引数で受け取った点の座標値を基に，これらの点を内包する最小円の中心座標（x座標とy座標）と半径を求める。<br>
+・引数：pt_x　対象となる各点のx座標を格納した配列変数<br>
+　　　　　　　（終端には－1.0が格納されている。）<br>
+　　　　pt_y　対象となる各点のy座標を格納した配列変数<br>
+　　　　　　　（終端には－1.0が格納されている。）<br>
+　　　　cx　　求まった円の中心点のx座標を格納する変数へのポインタ<br>
+　　　　cy　　求まった円の中心点のy座標を格納する変数へのポインタ<br>
+　　　　r 　　求まった円の半径を格納する変数へのポインタ</td>
+          </tr>
+          <tr>
+            <td valign="top">（4）</td>
+            <td>関数distanceの仕様は，次のとおりである。<br>
+　　double distance ( double x1, double y1,<br>
+　　　　　　　　　　　　double x2, double y2 );<br>
+・機能：引数で指定された2点間の距離を求める。<br>
+・引数：x1, y1　一方の点のx座標（x1）とy座標（y1）<br>
+　　　　x2, y2　他方の点のx座標（x2）とy座標（y2）<br>
+・返却値：2点（x1, y1）と（x2, y2）の距離</td><br>
+          </tr>
+          <tr>
+            <td valign="top">（5）</td>
+            <td>関数mainは，4個の点座標が与えられたときの関数solvcircleの使用例を示している。</td>
+          </tr>
+          <tr>
+            <td valign="top">（6）</td>
+            <td>プログラムでは，解を10<sup>－8<sup>までの精度で求める。</td>
+          </tr>
+        </table>
+
+<br>
+〔プログラム〕<br><pre>
+#include　&lt;stdio.h>
+#include　&lt;math.h>
+
+#define CONVRGV  1.0e－9
+#define EOD       －1.0
+#define LOOPMAX  100
+#define ON         1
+#define OFF        0
+
+void solvcircle( double[ ], double[ ], double*, double*, double* );
+double distance( double, double, double, double );
+
+main( )
+{
+    double pos_x[ ] = { 10.0, 50.0, 50.0, 100.0, EOD };
+    double pos_y[ ] = { 50.0, 10.0, 100.0, 50.0, EOD };
+    double x, y, r;
+
+    solvcircle( pos_x, pos_y, &x, &y, &r );
+    printf( "     円の中心座標( %12.8f , %12.8f ) 半径 = %12.8f\n",
+          x, y, r );
+}
+
+void solvcircle( double pt_x[ ], double pt_y[ ],
+              double *cx, double *cy, double *r )
+{
+    double mvrate=0.5, maxdist, dist;
+    double xsv=0.0, ysv=0.0;
+    int k, i, t, cvgflg;
+
+    *cx = *cy = 0.0;  /*  仮中心点の初期座標  */
+    cvgflg = OFF;
+    while ( cvgflg == OFF ) {
+      for ( t=0; t < LOOPMAX; t++ ) {
+        maxdist = 0.0;
+        for ( i=0; pt_x[i] != EOD; i++ ) {
+           dist = distance( *cx, *cy, pt_x[i], pt_y[i] );
+           if ( dist > maxdist ) {
+               maxdist = dist;
+               k = i;
+           }
+        }
+        *cx += ( pt_x[k]－［　　a　　］) * mvrate;
+        *cy += (pt_y[k]－［　　b　　］) * mvrate;
+        if (［　　c　　］<=CONVRGV) {
+           *cx = xsv;
+           *cy = ysv;
+           cvgflg = ON;
+           break;
+        }
+           xsv = *cx;
+           ysv = *cy;
+        }
+        mvrate /= 2.0;
+    }
+    *r=［　　d　　］;
+}
+
+double distance( double x1, double y1, double x2, double y2 )
+{
+    return sqrt( (x2－x1)*(x2－x1) + (y2－y1)*(y2－y1) );
+}
+</pre>     
+<p></p>      
+<hr>
+<p><b><a name="61">設問</a>　</b>プログラム中の［　　　　］に入れる正しい答えを，解答群の中から選べ。<br>
+</p>
+a，b，dに関する解答群<br>
+<br>
+ア　*cx<br>
+イ　*cy<br>
+ウ　dist<br>
+エ　distance( pt_x[0], pt_y[0], *cx, *cy )<br>
+オ　distance( pt_x[0], pt_y[0], xsv, ysv )<br>
+カ　maxdist<br>
+キ　pt_x[0]<br>
+ク　pt_y[0]<br>
+<br>
+cに関する解答群<br>
+<br>
+ア　distance ( pt_x[k], pt_y[k], *cx, *cy )<br>
+イ　distance ( pt_x[k], pt_y[k], xsv, ysv )<br>
+ウ　distance ( xsv, ysv, *cx, *cy )<br>
+エ　maxdist<br>
+オ　maxdist－dist<br>
+<br>
+<hr WIDTH="100%">
+  <a HREF="16S_P_A3.HTM#61">設問の正解例と解説へ</a>
+<hr WIDTH="100%">
+<a HREF="index.htm">メニューへ戻る</a><br>
+<HR WIDTH=100%>
+<a NAME="70">　<BR>
+<b>
+問7</b></a><b>　</b>次のCOBOLプログラムの説明及びプログラムを読んで，設問に答えよ。<br>
+<br>
+〔プログラムの説明〕
+ある会社では，社員が英語と情報処理技術についてどのような能力を保有しているかを，資格技能ファイルで管理している。年に一度，英語テストの最新の点数及び過去1年間に取得した情報処理技術の資格情報を資格技能ファイルに反映させる更新処理を行う。更新処理では，まず，英語テストの最新の点数を英語点数ファイルに記録し，資格情報を情報処理技術認定ファイルに記録する。その上で，旧資格技能ファイルに英語点数ファイルと情報処理技術認定ファイルとを突き合わせ，新資格技能ファイルを作成する。<br>
+
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">（1）</td>
+            <td>新旧の資格技能ファイルN-SHIKAKUF，O-SHIKAKUFのレコード様式は，次のとおりである。</td>
+          </tr>
+        </table>
+<br>
+<img border="0" src="image/P_07_1.gif" width="550" height="80"><br>
+<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">①</td>
+            <td>　全社員のレコードが存在し，社員番号の昇順に整列された順ファイルである。</td>
+          </tr>
+          <tr>
+            <td valign="top">②</td>
+            <td>　英語テストは入社時に全員受験しており，英語の点数は必ず記録されている。情報処理技術資格情報は，資格を取得している場合に記録され，取得していない場合は空白が記録されている。</td>
+          </tr>
+          <tr>
+            <td valign="top">③</td>
+            <td>　英語点数ファイルにデータがあれば，英語の点数を更新する。点数は0～999点の範囲である。</td>
+          </tr>
+          <tr>
+            <td valign="top">④</td>
+            <td>　情報処理技術資格は，全部で13区分あり，合格した区分を2けたのコードで区分領域1～13の先頭から記録する。区分が記録されていない区分領域は空白である。</td>
+          </tr>
+          <tr>
+            <td valign="top">⑤</td>
+            <td>　情報処理技術認定ファイルにデータがあれば，新資格技能ファイルの最初の空白の区分領域に追加する。</td>
+          </tr>
+        </table>
+<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">（2）</td>
+            <td>英語点数ファイルEIGOFのレコード様式は，次のとおりである。</td>
+          </tr>
+        </table>
+<br>
+<img border="0" src="image/P_07_2.gif" width="220" height="60"><br>
+<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">①</td>
+            <td>　社員番号の昇順に整列された順ファイルである。</td>
+          </tr>
+          <tr>
+            <td valign="top">②</td>
+            <td>　受験した社員のレコードだけが存在する。また，1年間に複数回受験していても，過去のデータを無条件で置き換えているので，最後に受験したときの点数を記録したレコードだけが存在する。</td>
+          </tr>
+          <tr>
+            <td valign="top">③</td>
+            <td>　旧資格技能ファイルに存在しない社員番号のレコードがあったときは，エラーメッセージを出力する。</td>
+          </tr>
+        </table>
+<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">（3）</td>
+            <td>情報処理技術認定ファイルJOHOFのレコード様式は，次のとおりである。</td>
+          </tr>
+        </table>
+<br>
+<img border="0" src="image/P_07_3.gif" width="260" height="60"><br>
+<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">①</td>
+            <td>　社員番号の昇順に整列された順ファイルである。</td>
+          </tr>
+          <tr>
+            <td valign="top">②</td>
+            <td>　1年間に新たに資格を取得した社員のレコードだけが存在する。また，1人につき複数のレコードが存在することがあるが，区分は異なる。</td>
+          </tr>
+          <tr>
+            <td valign="top">③</td>
+            <td>　旧資格技能ファイルに存在しない社員番号のレコードがあったときは，エラーメッセージを出力する。</td>
+          </tr>
+          <tr>
+            <td valign="top">④</td>
+            <td>　旧資格技能ファイルに，同一区分が記録済みであったときは，エラーメッセージを出力する。</td>
+          </tr>
+        </table>
+
+
+<pre>〔プログラム〕
+DATA DIVISION.
+FILE SECTION.
+FD    O-SHIKAKUF.
+01    O-R                  PIC X(35).
+FD   N-SHIKAKUF.
+01    N-R                  PIC X(35).
+FD   EIGOF.
+01   E-R.
+     03  E-SBANGO        PIC X(6).
+     03  E-TEN            PIC 9(3).
+FD  JOHOF.
+01   J-R.
+     03 J-SBANGO           PIC X(6).
+     03 J-KUBUN            PIC X(2).
+WORKING-STORAGE SECTION.
+01   W-R.
+     03 W-SBANGO           PIC X(6).
+     03 W-EIGO              PIC 9(3).
+     03 W-JOHO.
+        05   W-KUBUN-A    PIC X(2)  OCCURS 13 INDEXED BY N.
+01   W-E-SBANGO           PIC X(6).
+01   W-J-SBANGO           PIC X(6).
+PROCEDURE DIVISION.
+HAJIME.
+     OPEN INPUT O-SHIKAKUF EIGOF JOHOF OUTPUT N-SHIKAKUF.
+     PERFORM READ-O-SHIKAKUF.
+     PERFORM READ-EIGOF.
+     PERFORM READ-JOHOF.
+     PERFORM UNTIL［　　a　　］
+        EVALUATE TRUE
+           WHEN W-SBANGO = W-E-SBANGO AND NOT = HIGH-VALUE
+               ［　　b　　］
+           WHEN W-SBANGO < W-E-SBANGO
+               ［　　c　　］
+           WHEN W-SBANGO > W-E-SBANGO
+               ［　　d　　］
+        END- EVALUATE
+        EVALUATE TRUE
+           WHEN W-SBANGO = W-J-SBANGO AND NOT = HIGH-VALUE
+               PERFORM J-RTN
+           WHEN W-SBANGO < W-J-SBANGO
+               CONTINUE
+           WHEN W-SBANGO > W-J-SBANGO
+               DISPLAY "ERROR JOHO ", W-J-SBANGO
+               PERFORM READ-JOHOF
+        END-EVALUATE
+        IF W-SBANGO < W-E-SBANGO AND W-J-SBANGO
+           WRITE N-R FROM W-R
+           PERFORM READ-O-SHIKAKUF
+        END-IF
+     END-PERFORM.
+     CLOSE O-SHIKAKUF EIGOF JOHOF N-SHIKAKUF.
+     STOP RUN.
+E-RTN.
+     MOVE E-TEN TO W-EIGO.
+J-RTN.
+     PERFORM UNTIL［　　e　　］
+        PERFORM VARYING N FROM 1 BY 1
+                 UNTIL N > 13 OR J-KUBUN = W-KUBUN-A(N)
+                 OR W-KUBUN-A(N) = SPACE
+           CONTINUE
+        END-PERFORM
+        IF N < 14 AND W-KUBUN-A(N) = SPACE
+           MOVE J-KUBUN TO W-KUBUN-A(N)
+        ELSE
+           DISPLAY "ERROR KUBUN  ", J-R
+        END-IF
+        PERFORM READ-JOHOF
+     END-PERFORM.
+READ-O-SHIKAKUF.
+     READ O-SHIKAKUF
+       AT END MOVE HIGH-VALUE TO W-SBANGO
+       NOT AT END MOVE O-R TO W-R
+     END-READ.
+READ-EIGOF.
+     READ EIGOF
+       AT END MOVE HIGH-VALUE TO W-E-SBANGO
+       NOT AT END MOVE E-SBANGO TO W-E-SBANGO
+     END-READ.
+READ-JOHOF.
+     READ JOHOF
+       AT END MOVE HIGH-VALUE TO W-J-SBANGO
+       NOT AT END MOVE J-SBANGO TO W-J-SBANGO
+     END-READ.</b>.
+</pre>
+<hr> 
+<a NAME="71">　<BR>
+<b>
+設問</b></a><b>　</b>プログラムの［　　　　］に入れる正しい答えを，解答群の中から選べ。<br>
+<br>
+aに関する解答群<BR>
+<BR>
+ア　W-SBANGO = HIGH-VALUE<BR>
+イ　W-SBANGO = HIGH-VALUE AND W-E-SBANGO = HIGH-VALUE<BR>
+　　AND W-J-SBANGO = HIGH-VALUE<BR>
+ウ　W-SBANGO = HIGH-VALUE OR W-E-SBANGO = HIGH-VALUE<BR>
+　　AND W-J-SBANGO = HIGH-VALUE<BR>
+エ　W-SBANGO = HIGH-VALUE OR W-E-SBANGO = HIGH-VALUE<BR>
+　　OR W-J-SBANGO = HIGH-VALUE<BR>
+<BR>
+b～dに関する解答群<BR>
+<BR>
+ア　CONTINUE<BR>
+イ　DISPLAY "ERROR EIGO ", W-E-SBANGO<BR>
+ウ　DISPLAY "ERROR EIGO ", W-E-SBANGO<BR>
+　　PERFORM READ-EIGOF<BR>
+エ　DISPLAY "ERROR EIGO ", W-E-SBANGO<BR>
+　　PERFORM READ-JOHOF<BR>
+オ　PERFORM E-RTN<BR>
+カ　PERFORM E-RTN<BR>
+　　PERFORM READ-EIGOF<BR>
+キ　PERFORM E-RTN<BR>
+　　PERFORM READ-EIGOF<BR>
+　　PERFORM READ-JOHOF<BR>
+ク　PERFORM E-RTN<BR>
+　　PERFORM READ-JOHOF<BR>
+ケ　PERFORM READ-EIGOF<BR>
+コ　PERFORM READ-EIGOF<BR>
+　　PERFORM READ-JOHOF<BR>
+<BR>
+eに関する解答群<BR>
+<BR>
+ア　W-J-SBANGO = E-SBANGO<BR>
+イ　W-J-SBANGO = J-SBANGO<BR>
+ウ　W-J-SBANGO = W-SBANGO<BR>
+エ　W-J-SBANGO NOT = W-SBANGO<BR>
+<BR>
+<HR WIDTH=100%>  
+  <a HREF="16S_P_A3.HTM#71">設問の正解例と解説へ</a>  
+<hr WIDTH="100%">    
+<p><A HREF="index.htm">メニューへ戻る</A>
+<HR WIDTH=100%>     
+<a NAME="80">　<BR>
+<b> 
+問8</b></a>　次のJavaプログラムの説明及びプログラムを読んで，設問に答えよ。<br>
+[プログラムの説明]<br>
+<BR>
+このプログラムは，数量の単位変換を行う共通機能を提供するクラス群と，それらのテストプログラムからなる。テストプログラムでは，セルシウス温度（セ氏温度，℃）及びカ氏温度（°F）の変換を行うクラスを利用する。<br>
+<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">（1）</td>
+            <td>インタフェースConverterは，単位変換を行うクラスが実装すべきインタフェースを定義する。</td>
+          </tr>
+          <tr>
+            <td valign="top">（2）</td>
+            <td>クラスConverterRunnerは，単位変換クラスを利用するプログラムからアクセスするためのクラスである。<br>
+①　メソッドsetConverterは，単位変換クラスのインスタンスを設定する。<br>
+②　メソッドrunは，単位変換クラスのメソッドconvertを呼び出す。</td>
+          </tr>
+          <tr>
+            <td valign="top">（3）</td>
+            <td>クラスCtoFは，セ氏温度の値を，カ氏温度に変換する処理を実装するクラスである。</td>
+          </tr>
+          <tr>
+            <td valign="top">（4）</td>
+            <td>クラスFtoCは，カ氏温度の値を，セ氏温度に変換する処理を実装するクラスである。</td>
+          </tr>
+          <tr>
+            <td valign="top">（5）</td>
+            <td>クラスTestConverterは，単位変換クラスを利用するテストプログラムである。メソッドmainは，実行すべき単位変換処理（1：カ氏－セ氏変換，2：セ氏－カ氏変換，q：終了）の選択を促してから，入力された値を指定された処理に従って変換する。実行例を図に示す。</td>
+          </tr>
+        </table>
+<br>
+<img border="0" src="image/P_08_1.gif" width="370" height="80"><br>
+<br>
+<FONT face="Courier New"><pre>
+〔プログラム1〕
+public interface Converter {
+   ［　　　　　　　a　　　　　　　］
+}
+
+
+〔プログラム2〕
+public class ConverterRunner {
+  private［　　b　　］conv;
+
+  public void setConverter(［　　b　　］conv) {
+    this.conv = conv;
+  }
+
+  public void run(String input) {
+    if (conv == null) return;
+    try {
+      double in = Double.parseDouble(input) ;
+      double out = conv.convert(in);
+      System.out.println(out) ;
+    } catch (NumberFormatException e) {
+      System.err.println("invalid input " + input);
+    }
+  }
+}
+
+〔プログラム3〕
+public class CtoF［　　c　　］{
+  public double convert(double input) {
+    return 9.0 / 5.0 * input + 32.0;
+  }
+ }
+
+
+〔プログラム4〕
+public class FtoC［　　c　　］{
+  public double convert(double input) {
+    return 5.0 / 9.0 * (input － 32.0);
+  }
+}
+
+〔プログラム5〕
+import java.io.BufferedReader;
+import java. io.InputStreamReader;
+import java. io.IOException;
+
+public class TestConverter {
+  public static void main(String[ ] args) {
+    // 標準入力から入力を受け取る reader を作成する
+    BufferedReader reader =
+      new BufferedReader( new InputStreamReader(System.in) ) ;
+    ConverterRunner runner = new ConverterRunner( ) ;
+     try {
+       while (true) {
+         System.out.print("Type l(FtoC), 2(CtoF), " +
+                    "or q(Quit): ");
+         // 標準入力から1行読み込む
+         String choice = reader.readLine( );
+         if ("1".equals(choice)) {
+           runner.setConverter( new FtoC( ) ) ;
+         } else if ("2".equals(choice) ) {
+           runner.setConverter(new CtoF( ) ) ;
+         } else if ("q".equals(choice) ) {
+           break;
+         } else continue;
+
+         System.out.print("Type input value: ");
+         // 標準入力から1行読み込む
+         String value = reader.readLine( ) ;
+        ［　　　　　　d　　　　　　］
+         }
+     } catch (IOException e) {
+       e.printStackTrace( ) ;
+     }
+  }
+}
+</pre></FONT>
+<HR WIDTH=100%>       
+</a><a NAME="81"><b>　<BR>  
+設問</b></a><b><a NAME="81"></a>　</b>プログラム中の［　　　　］に入れる正しい答えを，解答群の中から選べ。<br>      
+<br>
+aに関する解答群<br>
+ア　abstract public void convert( ) ;<br>
+イ　public double convert(double input) { }<br>
+ウ　public double convert(double input) ;<br>
+エ　public double convert(String input) ;<br>
+<br>
+bに関する解答群<br>
+ア　Converter<br>
+イ　ConverterRunner<br>
+ウ　CtoF<br>
+エ　FtoC<br>
+<br>
+cに関する解答群<br>
+ア　extends Converter<br>
+イ　extends ConverterRunner<br>
+ウ　implements Converter<br>
+エ　implements ConverterRunner<br>
+<br>
+dに関する解答群<br>
+ア　runner.conv.convert(Double.parseDouble (value) ) ;<br>
+イ　runner.conv.run(value) ;<br>
+ウ　runner.convert(Double.parseDouble (value) ) ;<br>
+エ　runner.run(value) ;<br>
+<br>
+<HR WIDTH=100%>     
+</a><a HREF="16S_P_A3.HTM#81">設問の正解例と解説へ</a>    
+<HR WIDTH=100%>    
+<br>
+<a HREF="index.htm">メニューへ戻る</a><br>
+<HR WIDTH=100%>
+<p>          
+<a NAME="90">          
+<b>問9</b></a><b>　</b>次のアセンブラプログラムの説明及びプログラムを読んで，設問1，2に答えよ。<br>
+<br>      
+[プログラムの説明]<br>
+偶数パリティを設定する副プログラムEPARである。<br>
+<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">（1）</td>
+            <td>EPARは，GR1中の1であるビットの個数が全体として偶数となるように，GR1のビット番号15にパリティビットを設定する。
+すなわち，GR1のビット番号0～14の中で1であるビットの個数が奇数ならば1を，偶数ならば0をビット番号15に設定する。</td>
+          </tr>
+          <tr>
+            <td valign="top">（2）</td>
+            <td>主プログラムは，GR1のビット番号0～14にビットデータ列を，ビット番号15に0を設定してEPARを呼ぶ。</td>
+          </tr>
+          <tr>
+            <td valign="top">（3）</td>
+            <td>副プログラムから戻るとき，GR2の内容は元に戻す。</td>
+          </tr>
+        </table>
+<br>
+〔プログラム〕<pre>
+EPAR    START
+        PUSH      0,GR2
+        ST        GR1,TMP
+        LAD       GR2,0             ; カウンタの初期化
+LP1     PUSH      0,GR1
+        AND       GR1,=1
+        JZE       NCNT
+        ADDL      GR2,=1
+NCNT    POP       GR1
+        SRL       GR1,1
+        JNZ       LP1
+        LD        GR1, TMP
+       ［　　　　　　　　　　　　　］
+        JZE       FIN
+        OR        GR1,=#8000       ; ←α
+FIN     POP       GR2
+        RET
+TMP     DS        1
+        END
+</pre>
+<HR WIDTH=100%>         
+<a NAME="91"><BR>
+<b>         
+設問1</b></a>プログラム中の［　　　　］に入れる正しい答えを，解答群の中から選べ。<br>
+<br>
+解答群<br>
+<br>
+ア　AND     GR1,=1　　　イ　AND   GR2,=1　　　　ウ　SLL     GR1,1<br>
+エ　SLL     GR2,1　　　　オ　SRL     GR1,1　　　　カ　SRL     GR2,1<br>
+<br>
+<HR WIDTH=100%>
+  <a HREF="16S_P_A3.HTM#91">設問1の正解例へ</a>
+<hr>
+<b>　</b><a NAME="92">
+<b>
+<br>
+設問</b></a><b>2　</b>次の記述中の［　　　　］に入れる正しい答えを，解答群の中から選べ。<br>
+<br>
+誤ってGR1のビット番号15が1に設定されて主プログラムから呼ばれたとき，この副プログラムは正しい結果を返さない場合がある。GR1に#A010が設定されて呼ばれた場合，主プログラムに戻るときのGR1の内容は［　　a　　］となる。<br>
+GR1のビット番号15が1に設定されて主プログラムから呼ばれた場合でも，ビット番号15にパリティビットが正しく設定されるようにしたい。このためには，αで示される1行を［　　b　　］と修正すればよい。<br>
+<br>
+aに関する解答群<br>
+<br>
+ア　#2010　　　イ　#4020　　　ウ　#5008　　　エ　#A010　　　オ　#C020　　　　カ　#D008<br>
+<br>
+bに関する解答群<br>
+<br>
+ア　AND    GR1,=#8000<br>
+イ　OR    GR1,=#4000<br>
+ウ　XOR    GR1,=#8000<br>
+エ　SLL    GR1,1<br>
+オ　SRL    GR1,1<br>
+<br>
+<HR WIDTH=100%>
+</a><a HREF="16S_P_A3.HTM#92">設問2の正解例へ</a>
+<HR WIDTH=100%>
+<p align="center"><a href="16S_P_E4.HTM">■問10へ進む</a>
+<a HREF="INDEX.HTM">■メニューへ戻る</a><br>    
+<br>   
+</blockquote>   
+</BODY>   
+</HTML>   

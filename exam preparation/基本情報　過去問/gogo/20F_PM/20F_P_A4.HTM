@@ -1,0 +1,195 @@
+<html>
+
+<head>
+<title>平成20年度 秋期　基本情報技術者 午後 解説</title>
+<style type="text/css">
+body{line-height:150%;}
+code{font-size:12pt;}
+</style>
+</head>
+
+<body>
+
+<blockquote>
+	<hr>
+	<h3 align="center">平成20年度秋期試験　正解例と解説(問10～問13)</h3>
+	<hr>
+	<p><strong><a name="100">問10</a></strong></p>
+	<hr>
+	<p><strong><a name="101">設問1</a></strong></p>
+	<p>〈解答〉　a：カ，b：カ，c：エ，d：エ</p>
+	<p>〈解説〉</p>
+	<p>空欄aについて</p>
+	<blockquote>
+		<p>　関数<code>encrypt_text</code>は，平文が格納されたファイル<code>in_fileneme</code>の先頭から2文字ずつを取り出し，2次元文字型配列の換字表<code>ctbl</code>を用いて暗号文に変換し，<code>out_filename</code>に出力する。平文のファイルから読み込まれた2文字は配列要素<code>ch[0]</code>，<code>ch[1]</code>に格納される。平文の文字数が奇数の場合は，最後の1文字について，<code>ch[1]</code>に空白文字を追加して2文字として扱う。<code>do_while</code>ループの最初の処理で，平文のファイルより1文字を読み込み変数<code>sts</code>にセットし，<code>EOF</code>でなければ1文字目を<code>ch[0]</code>に格納する。さらに平文のファイルより2文字目を<code>sts</code>に読み込み，空欄aの条件が成立てば，<code>ch[1]</code>に空白文字を，成立たなければ<code>ch[1]</code>に2文字目を格納する。したがって空欄aは2文字目に空白文字を格納する場合の条件，つまり平文の文字数が奇数で，1文字目に平文の最後の文字を格納し，平文のファイルが<code>EOF</code>となる場合に該当する。したがって空欄aは<code>sts 
+		== EOF</code>で，カが適切。</p>
+	</blockquote>
+	<p>空欄b，cについて</p>
+	<blockquote>
+		<p>　空欄aを条件とする<code>if</code>文の処理で，平文から2文字が<code>ch[0]</code>，<code>ch[1]</code>に読み込まれる。次の<code>for</code>ループの繰返処理で，この2文字について換字表の2次元配列の要素を検索し，一致する配列要素の行番号<code>row[i]</code>と列番号<code>col[i]</code>を検索している。この直後の空欄b，c，dを含む<code>if</code>文の処理で，換字表<code>ctbl</code>により暗号文に変換している。空欄bと空欄cの条件が成立つ場合は，2文字<code>ch[0]</code>，<code>ch[1]</code>が同一の場合に該当し，換字表<code>ctbl</code>で検索された配列要素の要素番号の行と列が2文字について一致する。空欄cの条件が成立つ場合は，2文字が同じ列にある場合に該当し，換字表<code>ctbl</code>で検索された配列要素の要素番号の列が2文字について一致する。したがって空欄cの条件は<code>col[0] 
+		== col[1]</code>でエが適切。<br>
+		　空欄bの条件は，換字表<code>ctbl</code>で検索された配列要素の要素番号の行が2文字について一致する条件で，カの<code>row[0] 
+		== row[1]</code>が適切。</p>
+	</blockquote>
+	<p>空欄dについて</p>
+	<blockquote>
+		<p>　空欄dは，2文字が同一の場合に換字表<code>ctbl</code>により変換している処理で，この場合，換字表で一致した位置の1行下で1列右の文字に換字する。ただし換字表の最下行（行3）の下には最下行（行0）が，最右列（列22）の右には最左列（列0）があるものとして処理を行うので，行番号，列番号について，それぞれ行数<code>ROWS</code>，列数<code>COLS</code>で割った剰余としてサイクリックに処理する必要がある。したがって空欄dは<code>ctbl[(row[0]+1) 
+		% ROWS][(col[0]+1) % COLS]</code>でエが適切。</p>
+	</blockquote>
+	<hr>
+	<p><a href="20F_P_E4.HTM#101">問題へ</a></p>
+	<hr>
+	<p><strong><a name="102">設問2</a></strong></p>
+	<p>〈解答〉　e：イ</p>
+	<p>〈解説〉</p>
+	<p>
+	　行番号19に関する変更は，平文の先頭から2文字ずつ取り出した場合に，1文字目の前に挿入されている改行文字を，平文と同じ位置に挿入して暗号文のファイル<code>out_filename</code>に出力するための変更である。行番号22に関する変更は，1文字目と2文字目の間に挿入されている改行文字の個数を変数<code>cnt2</code>にカウントするための変更である。<br>
+	　空欄eの間に追加する処理は，1文字目と2文字目の間に挿入されている<code>cnt2</code>個の改行文字を，<code>for</code>ループの処理により暗号文のファイル<code>out_filename</code>に出力するための変更である。換字した1文字目<code>ch[0]</code>を行番号54の処理で暗号文のファイル<code>out_filename</code>に出力し，換字した2文字目<code>ch[1]</code>を行番号55の処理で暗号文のファイル<code>out_filename</code>に出力しているので，平文と同じ位置に挿入して出力するには，空欄eに関する処理を行番号54と55の間に追加すればよく，イが適切。</p>
+	<hr>
+	<p><a href="20F_P_E4.HTM#102">問題へ</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a> </p>
+	<hr>
+	<p><strong><a name="110">問11</a></strong></p>
+	<hr>
+	<p><strong><a name="111">設問1</a></strong></p>
+	<p>〈解答〉　a：ウ，b：カ，c：ア</p>
+	<p>〈解説〉</p>
+	<p>空欄aについて</p>
+	<blockquote>
+		<p>　プログラム<code>GEN-EXP</code>は，1文字から7文字までの論理式の文字列を自動生成し，論理式評価プログラム<code>EVAL-EXP</code>を呼出して，論理式の評価結果を印字する。行22の<code>PERFORM</code>命令の繰返処理により手続<code>GENERATE-EXP</code>を変数<code>EXP-L</code>を1から7まで変えて繰り返している。変数<code>EXP-L</code>は数字列の長さを保持する変数で，数字1～6からなる長さ1～7の数字列を，作業領域<code>NUM-TBL</code>に生成し，数字1～6に論理式を構成する6種類の文字<code>T</code>，<code>F</code>，<code>(</code>，<code>&amp;</code>，<code>|</code>，<code>)</code>を対応させて，論理式を構成するすべてのパターンの文字列を生成している。空欄aに関する<code>PERFORM</code>命令の直前で<code>EXP-REC(1：EXP-L)</code>に文字<code>&quot;T&quot;</code>からなる長さ<code>EXP-L</code>の論理式のパターンの文字列を格納している。これに対応して空欄aで数字列の作業領域<code>NUM-TBL</code>を，<code>EXP-L</code>けたの数字1により初期化しておく必要がある。したがって空欄aはウの<code>MOVE 
+		1 TO NUM-TBL(WK-I)</code>が適切。</p>
+	</blockquote>
+	<p>空欄bについて</p>
+	<blockquote>
+		<p>　空欄bを終了条件とする行41の<code>PERFORM</code>命令の繰返処理により，数字列の生成と論理式の文字列への変換を行っている。この<code>PERFORM</code>命令の直前で，生成する数字列の長さ<code>EXP-L</code>を変数<code>WK-I</code>に転送した後，<code>PERFORM</code>命令の繰返処理に入り，行48の<code>IF</code>文によるけた上がりのチェックで，作業領域のけた<code>NUM-TBL(WK-I)</code>の数字が6を超えれば，けた<code>NUM-TBL(WK-I)</code>の数字を1に，論理式の対応する文字を<code>&quot;T&quot;</code>にリセットした後，変数<code>WK-I</code>をデクリメントしている。したがって空欄bを終了条件とする<code>PERFORM</code>命令の繰返処理では，長さ<code>EXP-L</code>の数字列と論理式の文字列を生成しており，その終了条件に該当する。上位けたから下位けたに向けて変換し，論理式の文字列を<code>EXP-F</code>に出力しているので，<code>WK-I 
+		&lt; 1</code>となれば終了すればよい。したがって空欄bはカの<code>UNTIL WK-I &lt; 1</code>が適切。</p>
+	</blockquote>
+	<p>空欄cについて</p>
+	<blockquote>
+		<p>　空欄cに関する<code>PERFORM</code>命令の繰返処理で，数字列の各けたの数字の生成と，1～6の数字に対応させて論理式を構成する6種類の文字への変換を行っている。1～6の各けたの数字を順に生成するために，各けたの数字をインクリメントする処理が必要で，<code>NUM-TBL(WK-I)</code>のけた上がりのチェック直前の空欄cで行う必要がある。したがって空欄aはアの<code>ADD 
+		1 TO NUM-TBL(WK-I)</code>が適切。</p>
+	</blockquote>
+	<hr>
+	<p><a href="20F_P_E4.htm#111">問題へ</a></p>
+	<hr>
+	<p><strong><a name="112">設問2</a></strong></p>
+	<p>〈解答〉　d：イ，e：エ</p>
+	<p>〈解説〉</p>
+	<p>空欄dについて</p>
+	<blockquote>
+		<p>　空欄dに関する条件は，記述順序のチェックで左側が<code>&quot;&amp;&quot; OR &quot;|&quot; OR &quot;(&quot;</code>でない場合に構文エラーとなるケースである。表1の記述順序より，左側が<code>&quot;&amp;&quot; 
+		OR &quot;|&quot; OR &quot;(&quot;</code>でない場合，右側が<code>&quot;T&quot; OR &quot;F&quot; OR &quot;(&quot;</code>となる記述順序は許されない。したがって空欄dはイの<code>&quot;T&quot; 
+		OR &quot;F&quot; OR &quot;(&quot;</code>が適切。</p>
+	</blockquote>
+	<table border="1" cellspacing="0" id="AutoNumber1" cellpadding="4">
+		<tr>
+			<td bgcolor="#C0C0C0">〈参考〉<br>
+			　表1の記述順序より，左側が<code>&quot;&amp;&quot; OR &quot;|&quot; OR &quot;(&quot;</code>である場合，右側が<code>&quot;&amp;&quot; OR 
+			&quot;|&quot; OR &quot;)&quot;</code>となる記述順序も許されない。このケースが空欄d直前の<code>IF</code>文の条件に該当する。</td>
+		</tr>
+	</table>
+	<p>空欄eについて</p>
+	<blockquote>
+		<p>　空欄e直後の<code>EVALUATE</code>文で論理式の文字<code>EXP-REC(WK-R:1)</code>に<code>&quot;)&quot;</code>が出現した場合，変数<code>NEST-LEVEL</code>より1を差し引き，<code>NEST-LEVEL</code>＜0となれば<code>CHECK-ERROR</code>に1を転送し構文エラーとしている。したがって空欄eで論理式の文字<code>EXP-REC(WK-R:1)</code>に<code>&quot;(&quot;</code>が出現した場合，変数<code>NEST-LEVEL</code>に1を加算する必要があり，エの<code>ADD 
+		1 TO NEST-LEVEL</code>が適切。</p>
+	</blockquote>
+	<hr>
+	<p><a href="20F_P_E4.HTM#112">問題へ</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a> </p>
+	<hr>
+	<p><strong><a name="120">問12</a></strong></p>
+	<hr>
+	<p><strong><a name="121">設問1</a></strong></p>
+	<p>〈解答〉　a：ウ，b：ウ，c：イ，d：キ，e：エ</p>
+	<p>〈解説〉</p>
+	<p>空欄aについて</p>
+	<blockquote>
+		<p>　クラス<code>OneChar</code>はインタフェース<code>PatternElement</code>を実装したクラスで，通常文字1文字を表すパターン要素である。与えられた文字列<code>str</code>の位置<code>index</code>の文字とこのパターン要素が表す1文字<code>ch</code>が一致すれば<code>true</code>を，それ以外は<code>false</code>を返す。空欄aはその戻値に関する部分である。したがって空欄aはウの<code>str.charAt(index) 
+		== ch</code>が適切。</p>
+	</blockquote>
+	<p>空欄bについて</p>
+	<blockquote>
+		<p>　クラス<code>AnyChar</code>はインタフェース<code>PatternElement</code>を実装したクラスで，任意の1文字を表すパターン要素である。与えられた文字列<code>str</code>に，位置<code>index</code>から文字が1つ以上あれば<code>true</code>を，それ以外は<code>false</code>を返す。空欄bはその戻値に関する部分である。したがって空欄bはウの<code>str.length() 
+		&gt; index</code>が適切。</p>
+	</blockquote>
+	<p>空欄cについて</p>
+	<blockquote>
+		<p>　クラス<code>Pattern</code>は，コンストラクタで与えられた文字列照合用のパターン<code>pattern</code>を，パターン要素のリストに変換する。空欄cは，文字列照合用の<code>pattern</code>の1文字cが任意の1文字を表すパターン<code>'.'</code>であるとき，これを任意の1文字を表すパターン要素に変換し，そのパターン要素をリストの最後に追加している処理である。したがって空欄cで任意の1文字を表すパターン要素のクラス<code>AnyChar()</code>のコンストラクタを呼び出してオブジェクト<code>node</code>を生成し，これを<code>list.add(node)</code>によりリストの最後に追加すればよく，空欄cはイの<code>AnyChar()</code>が適切。</p>
+	</blockquote>
+	<p>空欄dについて</p>
+	<blockquote>
+		<p>　空欄dは，文字列照合用の<code>pattern</code>の1文字<code>c</code>が通常文字1文字を表すパターンであるとき，これを通常文字1文字を表すパターン要素に変換し，そのパターン要素をリストの最後に追加している処理である。したがって空欄dで通常文字1文字を表すパターン要素のクラス<code>OneChar(c)</code>のコンストラクタを呼び出してオブジェクト<code>node</code>を生成し，これを<code>list.add(node)</code>によりリストの最後に追加すればよく，空欄dはキの<code>OneChar(c)</code>が適切。</p>
+	</blockquote>
+	<p>空欄eについて</p>
+	<blockquote>
+		<p>　メソッド<code>main</code>では，テスト用の3つの文字列<code>&quot;home&quot;</code>，<code>&quot;shore&quot;</code>，<code>&quot;hotel&quot;</code>に対し，文字列照合用のパターン<code>&quot;ho.e$&quot;</code>をクラス<code>Patternのコンストラクタ</code>によりパターン要素のリストに変換した後，<code>if</code>文によりテスト用の文字列とパターン要素を照合している。したがって空欄eを条件とする<code>if</code>文で，与えられたテスト用の3つの文字列<code>str</code>をクラス<code>Pttern</code>のメソッド<code>matches</code>によりパターン要素のリスト<code>pattern</code>と照合すればよく，空欄eはエの<code>pattern.matches(str)</code>が適切。</p>
+	</blockquote>
+	<hr>
+	<p><a href="20F_P_E4.HTM#121">問題へ</a></p>
+	<hr>
+	<p><strong><a name="122">設問2</a></strong></p>
+	<p>〈解答〉　イ</p>
+	<p>〈解説〉</p>
+	<p>　変更後の<code>if</code>文の条件を構成する<code>i == 0</code>という条件は，<code>pattern</code>の先頭文字であることを表す。したがって<code>if</code>文の条件を<code>c 
+	== '^' &amp;&amp; i == 0</code>に変更した場合，パターン文字<code>'^'</code>は，引数<code>pattern</code>の先頭にあるときだけメタ文字として扱われ，それ以外は空欄dの通常文字として扱われる。</p>
+	<hr>
+	<p><a href="20F_P_E4.HTM#122">問題へ</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a> </p>
+	<hr>
+	<p><strong><a name="130">問13</a></strong></p>
+	<hr>
+	<p><strong><a name="131">設問1</a></strong></p>
+	<p>〈解答〉　a：ウ，b：ウ，c：イ，d：ア</p>
+	<p>〈解説〉</p>
+	<p>空欄aについて</p>
+	<blockquote>
+		<p>　副プログラム<code>SUMMARY</code>は，アンケートの16項目の質問に対するn人分の回答を集計し，グラフで出力する。n人分の回答は，先頭アドレス<code>GR1</code>から連続するn語の領域に，“はい”を1，“いいえ”を0とする16ビットのビット列として格納されている。プログラムの最初に，<code>GR2</code>に0を，<code>GR3</code>に空白をセットし，行番号8～15の<code>LOOP1</code>の繰返ループで，先頭アドレス<code>COUNTR</code>以下の16語のカウンタ領域を0で初期化する処理と先頭アドレス<code>PBUF</code>以下48語の出力バッファを空白で初期化している。出力バッファの初期化については，行番号9～11の<code>ST</code>命令でループを繰り返すごとに3語分を空白で初期化しているので，その直後の空欄aでループを繰返すごとに出力バッファのポインタ<code>GR5</code>を3語分更新する必要があり，ウの<code>LAD 
+		GR5,3,GR5</code>が適切。</p>
+	</blockquote>
+	<p>空欄bについて</p>
+	<blockquote>
+		<p>　<code>GR1</code>にはn人分の回答が格納されている領域の先頭アドレスが設定されており，行番号19の<code>LD</code>命令により，1人分の回答を<code>GR2</code>に格納している。行番号2の<code>SLL</code>命令による論理左シフトにより，<code>GR2</code>の左端ビットが“はい”に対応する1であればオーバフローするので，直後の空欄bでオーバフロー分岐命令<code>JOV</code>により行番号24のラベル<code>ON</code>に分岐し，カウンタ<code>GR3</code>に1を加算すればよい。したがって空欄bはウの<code>JOV 
+		ON</code>が適切。<code>GR2</code>の左端ビットが“いいえ”に対応する0であれば行番号23の<code>JUMP</code>命令により行番号31のラベル<code>OFF</code>に無条件分岐し，次の項目についてラベル<code>LOOP3</code>に戻り繰返す。</p>
+	</blockquote>
+	<p>空欄cについて</p>
+	<blockquote>
+		<p>　行番号20の<code>SLL</code>命令による論理左シフトにより<code>GR2</code>のビットがすべて0となれば，残りの項目はすべて“いいえ”で，<code>JZE</code>命令による零分岐によりラベル<code>NEXTW</code>に分岐し，空欄cの命令を実行している。空欄c直後の<code>SUBA</code>命令により<code>GR0</code>の回答者数から1だけデクリメントした後，<code>GR0</code>＞0である間は行番号35の<code>JPL</code>命令により<code>LOOP2</code>へ戻り，次の人の回答を<code>GR2</code>に取り出す処理を繰返している。したがって空欄cで回答領域のポインタ<code>GR1</code>を1だけインクリメントしておく必要があり，イの<code>LAD 
+		GR1,1,GR1</code>が適切。</p>
+	</blockquote>
+	<p>空欄dについて</p>
+	<blockquote>
+		<p>　<code>GR0</code>には回答者数nがセットされて主プログラムから渡されるので，行番号34の<code>SUBA</code>命令により<code>GR0</code>＝0となれば全回答処理済みであり，行番号36以下の集計結果を棒グラフで出力する処理に入る。行番号27の<code>CPA</code>命令による<code>GR3</code>と<code>GR5</code>の比較により<code>GR3</code>＞<code>GR5</code>の場合，<code>JPL</code>命令による正分岐によりラベル<code>CHANGE</code>に分岐し，<code>GR5</code>に大きい方の<code>GR3</code>を格納しているので，<code>GR5</code>には“はい”の回答数の最大値が最終的に<code>GR5</code>にセットされる。行番号42の<code>CPA</code>命令による比較で，アンケート項目に対応する（<code>COUNTR</code>＋<code>GR4</code>）のカウンタ領域の“はい”の回答数の集計結果と，<code>GR5</code>の“はい”の回答数の最大値とが一致すれば，行番号44の<code>ST</code>命令により，<code>GR0</code>にセットされた<code>'*'</code>を出力バッファ（<code>PBUF</code>＋<code>GR3</code>）に設定している。<code>GR4</code>は“はい”回答数の集計結果を格納するカウンタ領域のポインタで，初期値を0とし行番号47の<code>CPA</code>命令の比較で<code>GR4</code>＜16である間はラベル<code>LOOP5</code>に戻り，行番号44の出力バッファに<code>'*'</code>を設定する処理を繰返すが，16項目分出力バッファに格納できれば（<code>GR4</code>＝16になれば），行番号49の<code>OUT</code>命令により48語分の出力バッファの内容を出力する。<code>GR5</code>は出力バッファの内容の<code>OUT</code>命令による出力回数を制御するカウンタで，“はい”の回答数の最大値を初期値とし，<code>OUT</code>命令により出力するごとに行番号50の<code>SUBA</code>命令により1だけデクリメントしている。したがって<code>GR5</code>＞0である間は<code>JPL</code>命令により<code>LOOP4</code>に戻り繰返せばよく，空欄dはアの<code>JPL 
+		LOOP4</code>が適切。</p>
+	</blockquote>
+	<hr>
+	<p><a href="20F_P_E4.HTM#131">問題へ</a></p>
+	<hr>
+	<p><strong><a name="132">設問2</a></strong></p>
+	<p>〈解答〉　e：カ，f：イ</p>
+	<p>〈解説〉</p>
+	<p>空欄eについて</p>
+	<blockquote>
+		<p>　行番号20の<code>SLL</code>命令による論理左シフトにより，<code>GR2</code>の全ビットが0となる時点まで<code>SLL</code>命令が実行されるので，1人目の回答で8回，2人目の回答で5回，3人目の回答で7回実行される。したがって合計で8＋5＋7＝20回になる。</p>
+	</blockquote>
+	<p>空欄fについて</p>
+	<blockquote>
+		<p>　“はい”の回答数を集計すると以下のようになり，<code>GR5</code>の初期値として集計結果の最大値3がセットされる。<br>
+		<br>
+		<img border="0" src="img/ans22.png" width="329" height="116"><br>
+		<br>
+		　<code>GR5</code>の初期値を3とし，集計結果と一致するごとに行番号44の<code>ST</code>命令により<code>'*'</code>を出力バッファに設定し，<code>GR5</code>の値を1ずつ減らしながらこれを繰返す。したがって先ず集計結果の3で1回一致し，<code>ST</code>命令を1回実行する。次に<code>GR5</code>の値を1減らし，集計結果の2が3個あるので3回一致し，<code>ST</code>命令を3回実行する。さらに集計結果の1が2つあるので2回一致し，<code>ST</code>命令を2回実行する。したがって合計で1＋3＋2＝6回実行する。</p>
+	</blockquote>
+	<hr>
+	<p><a href="20F_P_E4.HTM#132">問題へ</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a></p>
+	<hr>
+	<p>　</p>
+</blockquote>
+
+</body>
+
+</html>

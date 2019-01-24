@@ -1,0 +1,392 @@
+<html>
+
+<head>
+<title>平成18年度 秋期 基本情報技術者試験 午後 問題</title>
+<style type="text/css">
+body{line-height:150%;}
+code{font-size:12pt;}
+</style>
+</head>
+
+<body>
+
+<blockquote>
+<hr>
+<h3 align="center">平成18年度秋期試験　問題(問6～問9)</h3>
+<div align="center">
+<table borderColor="#000000" cellSpacing="0" cellPadding="4" border="1">
+<tr>
+<td>　次の<strong>問6</strong>から<strong>問9</strong>までの4問については、この中から1問を選択し、答案用紙の選択欄の（選）をマークして解答してください。<br>
+　なお、2問以上選択した場合には、はじめの1問について採点します。</td>
+</tr>
+</table>
+</div>
+<hr>
+<p><strong><a name="60">問6</a></strong>　次のCプログラムの説明及びプログラムを読んで，設問に答えよ。</p>
+<p>〔プログラムの説明〕</p>
+<p>　プログラムが生成した各けたの数字が異なる4けたの目標数を，なるべく少ない回数の推測で当てるゲーム<code>GuessNumber</code>である。回答者は，各けたが異なる4けたの推測数を入力し，当たらなかった場合，次の情報を得ることができる。</p>
+<p>　①　目標数に含まれていて，けたも一致している数字の個数（以下，Hit数という）<br>
+　②　目標数に含まれているが，けたが一致していない数字の個数（以下，Blow数という）<br>
+　例えば，目標数が“1632”で推測数が“7613”の場合，“6”はけたも一致しているのでHit数が1，“1”と“3”はけたが一致していないのでBlow数が2となる。</p>
+<p>（1）　目標数はプログラムが自動的に生成する。生成した数字列は<code>char</code>型の配列<code>target</code>に格納される。推測数を文字列として標準入力から読み込み，<code>char</code>型の配列<code>num</code>に格納したうえで照合する。目標数と完全に一致するまで繰り返す。</p>
+<p>（2）　次の関数が用意されている。<br>
+　　<code>void createRandomNumber(char[] target)</code><br>
+　　　　機能：4けたの目標数を文字列として左のけたから順に配列<code>target</code>に格納する。各けたの数字はすべて異なっている。<br>
+　　<code>int　isValidNumber(char[] num)</code><br>
+　　　　機能：文字列<code>num</code>中の各文字がすべて異なる数字のとき<code>TRUE</code>を，それ以外のとき<code>FALSE</code>を返す。</p>
+<p>〔プログラム〕</p>
+<p><img border="0" src="img/06f-PM-06-1.png" width="782" height="1133"></p>
+<hr>
+<p><strong><a name="61">設問</a></strong>　プログラム中の に入れる正しい答えを，解答群の中から選べ。</p>
+<p>a，bに関する解答群</p>
+<table border="0" cellpadding="0" cellspacing="6" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber17">
+<tr>
+<td>ア</td>
+<td><code>isMatch(target, num) == FALSE</code></td>
+</tr>
+<tr>
+<td>イ</td>
+<td><code>isMatch(target, num) == TRUE</code></td>
+</tr>
+<tr>
+<td>ウ</td>
+<td><code>isvalidNumber(num) == FALSE</code></td>
+</tr>
+<tr>
+<td>エ</td>
+<td><code>isvalidNumber(num) == TRUE</code></td>
+</tr>
+</table>
+<p>cに関する解答群</p>
+<table border="0" cellpadding="0" cellspacing="6" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber18" width="75%">
+<tr>
+<td>ア　<code>num[i] == num[j]</code></td>
+<td>イ　<code>target[i] == num[i]</code></td>
+</tr>
+<tr>
+<td>ウ　<code>target[i] == num[j]</code></td>
+<td>エ　<code>target[i] == target[j]</code></td>
+</tr>
+<tr>
+<td>オ　<code>target[j] == num[j]</code></td>
+<td>　</td>
+</tr>
+</table>
+<p>dに関する解答群</p>
+<table border="0" cellpadding="0" cellspacing="6" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber19" width="100%">
+<tr>
+<td>ア　<code>i != j</code></td>
+<td>イ　<code>i &lt; j</code></td>
+</tr>
+<tr>
+<td>ウ　<code>i &lt;= j</code></td>
+<td>エ　<code>i == j</code></td>
+</tr>
+<tr>
+<td>オ　<code>i &gt; j</code></td>
+<td>カ　<code>i &gt;= j</code></td>
+</tr>
+</table>
+<p>eに関する解答群</p>
+<table border="0" cellpadding="0" cellspacing="6" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber20" width="100%">
+<tr>
+<td>ア　<code>numHit != DIGITS</code></td>
+<td>イ　<code>numHit + numBlow == DIGITS</code></td>
+</tr>
+<tr>
+<td>ウ　<code>numHit + numBlow &gt;= DIGITS</code></td>
+<td>エ　<code>numHit == DIGITS</code></td>
+</tr>
+<tr>
+<td>オ　<code>numHit == numBlow</code></td>
+<td>カ　<code>numHit &gt; numBlow</code></td>
+</tr>
+</table>
+<hr>
+<p><a href="18F_P_A3.HTM#61">設問の正解例と解説へ</a></p>
+<hr>
+<p><a href="INDEX.HTM">■メニューへ戻る</a></p>
+<hr>
+<p><strong><a name="70">問7</a></strong> 　次のCOBOLプログラムの説明及びプログラムを読んで，設問1，2に答えよ。</p>
+<p>〔プログラムの説明〕</p>
+<p>　更新指示に基づき，電話帳ファイルのレコードを追加，削除するプログラムである。</p>
+<p>（1）　電話帳ファイルのレコード様式は，次のとおりである。</p>
+<p><img border="0" src="img/06f-PM-07-1.png" width="485" height="89"></p>
+<p>①　氏名キーをキーとする索引ファイルである。<br>
+②　重複番号の初期値は1とし，同じ氏名の人が登録されるたびに1ずつ増える。同じ氏名の人は9人まで登録できるものとする。</p>
+<p><img border="0" src="img/06f-PM-07-2.png" width="535" height="101"></p>
+<p>（2）　更新指示は，32けたであり，次のレコード様式で入力される。</p>
+<p><img border="0" src="img/06f-PM-07-3.png" width="484" height="57"></p>
+<p>
+①　指示には，追加する場合“Ⅰ”，削除する場合“D”，プログラムを終了する場合“Q”が入力される。“Ⅰ”又は“D”のとき，氏名及び電話番号が省略されることはなく，各項目は左詰めで，残ったけたには空白が入力される。<br>
+　“Q”のとき，後ろ31けたには空白が詰められる。</p>
+<p>
+②　指示が“Ⅰ”のとき，電話帳ファイルに同じ氏名の人が登録されていない場合は，重複番号を1として電話帳ファイルに登録する。登録されている場合は，最後の重複番号に1を加えた数を，追加する人の重複番号とする。</p>
+<p>
+③　指示が“D”のとき，電話帳ファイルから氏名と電話番号が→致するレコードを検索し，削除する。同じ氏名の人がほかに登録されている場合は，重複番号が欠番にならないよう，後ろの人の重複番号を1ずつ繰り上げる。</p>
+<p>④　指示が“Q”のとき，プログラムを終了する。</p>
+<p>⑤　入力されるデータに誤りはなく，追加・削除の処理でエラーが発生した場合は，エラーメッセージを表示し，プログラムを終了させる。</p>
+<p>〔プログラム〕</p>
+<p><img border="0" src="img/06f-PM-07-4.png" width="836" height="1815"></p>
+<hr>
+<p><strong><a name="71">設問1</a></strong>　プログラム中の【　　a　　】～【　　d　　】に入れる正しい答えを，解答群の中から選べ。解答は，重複して選んでもよい。</p>
+<p>解答群</p>
+<table border="0" cellpadding="0" cellspacing="6" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber21">
+<tr>
+<td>ア</td>
+<td><code>AT END</code></td>
+</tr>
+<tr>
+<td>イ</td>
+<td><code>INVALID</code></td>
+</tr>
+<tr>
+<td>ウ</td>
+<td><code>NOT AT END</code></td>
+</tr>
+<tr>
+<td>エ</td>
+<td><code>NOT INVALID</code></td>
+</tr>
+<tr>
+<td>オ</td>
+<td><code>UNTIL W-BANGO = 9</code></td>
+</tr>
+<tr>
+<td>カ</td>
+<td><code>UNTIL W-BANGO &gt; 9</code></td>
+</tr>
+<tr>
+<td>キ</td>
+<td><code>VARYING W-BANGO FROM 1 BY 1 UNTIL UNTIL W-BANGO = 9</code></td>
+</tr>
+<tr>
+<td>ク</td>
+<td><code>VARYING W-BANGO FROM 1 BY 1 UNTIL UNTIL W-BANGO &gt; 9</code></td>
+</tr>
+</table>
+<hr>
+<p><code><a href="18F_P_A3.HTM#71">設問1の正解例と解説へ</a></code></p>
+<hr>
+<p><strong><a name="72">設問2</a></strong>　プログラム中の に入る正しい文の組合せを，解答群の中から選べ。</p>
+<p>なお，各文の実行は矢印の順に行うものとする。</p>
+<table border="0" cellpadding="0" cellspacing="6" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber22">
+<tr>
+<td valign="top">①</td>
+<td><code>COMPUTE D-BANGO = D-BNAGO - 1</code></td>
+</tr>
+<tr>
+<td valign="top">②</td>
+<td><code>COMPUTE D-BANGO = D-BNAGO + 1</code></td>
+</tr>
+<tr>
+<td valign="top">③</td>
+<td><code>DELETE DENWA-F<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INVALID DISPLAY &quot;DELETE ERROR2&quot;, W-SHIMEI,
+W-BANGO<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+STOP RUN<br>
+END-DELETE</code></td>
+</tr>
+<tr>
+<td valign="top">④</td>
+<td><code>REWRITE DENWA-R<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INVALID DISPLAY &quot;REWRITE ERROR&quot;, W-SHIMEI,
+W-BANGO<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+STOP RUN<br>
+END-REWRITE</code></td>
+</tr>
+<tr>
+<td valign="top">⑤</td>
+<td><code>WRITE DENWA-R<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INVALID DISPLAY &quot;WRITE ERROR2&quot;, W-SHIMEI, W-BANGO
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+STOP RUN<br>
+END-WRITE</code></td>
+</tr>
+</table>
+<p>解答群</p>
+<table border="0" cellpadding="0" cellspacing="6" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber23" width="100%">
+<tr>
+<td>ア　①→④</td>
+<td>イ　①→⑤</td>
+<td>ウ　①→⑤→②→③</td>
+</tr>
+<tr>
+<td>エ　③→①→⑤</td>
+<td>オ　③→②→⑤</td>
+<td>　</td>
+</tr>
+</table>
+<hr>
+<p><a href="18F_P_A3.HTM#72">設問2の正解例と解説へ</a></p>
+<hr>
+<p><a href="INDEX.HTM">■メニューへ戻る</a></p>
+<hr>
+<p><strong><a name="80">問8</a></strong> 　次のJavaプログラムの説明及びプログラムを読んで，設問に答えよ。</p>
+<p>（Javaプログラムで使用するAPIの説明は，<a href="java.htm" target="_blank">この冊子の末尾</a>を参照してください。）<br>
+<br>
+〔プログラムの説明〕</p>
+<p>　クラス<code>UniqueMap</code>は，キーと値を1対1た対応付けて保持する。</p>
+<p>
+　例えば，乗物の乗客（キー）と座席（値）との間に着席という関連があるとき，一つの座席には多くても1人の乗客だけが座り，1人の乗客は一つの席にしか座らない。クラス<code>UniqueMap</code>はこのような2種類のオブジェクトを，一方をキー，他方を値として1対1に対応させるクラスであり，次のメソッドをもつ。</p>
+<p><code>public V put(K key, V value)</code></p>
+<blockquote>
+<p>キー（<code>key</code>）と値（<code>value</code>）を1対1に対応付けて登録する。<code>key</code>又は<code>value</code>が<code>null</code>ならば，<code>NullPointerException</code>を投げる。また，<code>value</code>が既にほかのキーと対応付けられていれば，<code>IllegalArgumentException</code>を投げる。</p>
+<p><code>key</code>が既にほかの値と対応付けられていれば，その値を<code>value</code>で置き換え，置き換えられる前の値を返す。<code>key</code>に値が対応付けられていなければ，<code>null</code>を返す。</p>
+</blockquote>
+<p><code>public V get(K key)</code></p>
+<blockquote>
+<p>キー（<code>key</code>）に対応付けられた値を返す。<code>key</code>と値の対応付けがなければ，<code>null</code>を返す。</p>
+</blockquote>
+<p><code>public V remove(K key)</code></p>
+<blockquote>
+<p>キー（<code>key</code>）と値の対応付けを削除し，対応付けられていた値を返す。<code>key</code>と値の対応付けがなければ，<code>null</code>を返す。</p>
+</blockquote>
+<p><code>public void putForce(K key, V value)</code></p>
+<blockquote>
+<p>キー（<code>key</code>）と値（<code>value</code>）を1対1に対応付けて登録する。<code>value</code>が既にほかのキーと対応付けられていれば，その対応を削除したうえで登録する。戻り値はない。その他の仕様は，メソッド<code>put</code>と同一である。</p>
+</blockquote>
+<p>〔プログラム〕</p>
+<p><img border="0" src="img/06f-PM-08-1.png" width="774" height="853"></p>
+<hr>
+<p><strong><a name="81">設問</a></strong>　プログラム中の に入れる正しい答えを，解答群の中から選べ。</p>
+<p>aに関する解答群</p>
+<table border="0" cellpadding="0" cellspacing="6" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber24">
+<tr>
+<td>ア</td>
+<td><code>key == null || value == null</code></td>
+</tr>
+<tr>
+<td>イ</td>
+<td><code>key == null &amp;&amp; value == null</code></td>
+</tr>
+<tr>
+<td>ウ</td>
+<td><code>key != null || value != null</code></td>
+</tr>
+<tr>
+<td>エ</td>
+<td><code>key != null &amp;&amp; value != null</code></td>
+</tr>
+</table>
+<p>bに関する解答群</p>
+<table border="0" cellpadding="0" cellspacing="6" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber25" width="75%">
+<tr>
+<td>ア　<code>key, key</code></td>
+<td>イ　<code>key, value</code></td>
+</tr>
+<tr>
+<td>ウ　<code>value, key</code></td>
+<td>エ　<code>value, value</code></td>
+</tr>
+</table>
+<p>cに関する解答群</p>
+<table border="0" cellpadding="0" cellspacing="6" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber26" width="75%">
+<tr>
+<td>ア　<code>key</code></td>
+<td>イ　<code>reverse.get(value)</code></td>
+</tr>
+<tr>
+<td>ウ　<code>reverse.put(value, key)</code></td>
+<td>エ　<code>reverse.remove(value)</code></td>
+</tr>
+</table>
+<p>dに関する解答群</p>
+<table border="0" cellpadding="0" cellspacing="6" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber27" width="75%">
+<tr>
+<td>ア　<code>map.put</code></td>
+<td>イ　<code>put</code></td>
+</tr>
+<tr>
+<td>ウ　<code>putForce</code></td>
+<td>エ　<code>reverse.put</code></td>
+</tr>
+</table>
+<hr>
+<p><a href="18F_P_A3.HTM#81">設問の正解例と解説へ</a></p>
+<hr>
+<p><a href="INDEX.HTM">■メニューへ戻る</a></p>
+<hr>
+<p><strong><a name="90">問9</a></strong> 　次のアセンブラプログラムの説明及びプログラムを読んで，設問1，2に答えよ。</p>
+<p>〔プログラムの説明〕</p>
+<p>　2語の中にあるビット列を結合してレジスタに設定する副プログラム<code>COMBINE</code>と，レジスタ中のビット列を分割して2語に格納する副プログラム<code>DIVIDE</code>である。</p>
+<p>（1）　図1に<code>COMBINE</code>と<code>DIVIDE</code>のデータ形式と結果を示す。ただし，m＋n ≦ 16である。</p>
+<p><img border="0" src="img/06f-PM-09-1.png" width="728" height="302"></p>
+<p>（2）　<code>COMBINE</code>は，<code>GR1</code>～<code>GR4</code>にそれぞれ次の内容が設定されて主プログラムから呼ばれる。</p>
+<blockquote>
+<p><code>GR1</code>：C1のアドレス<br>
+<code>GR2</code>：C1のビット列の長さ（m）<br>
+<code>GR3</code>：C2のアドレス<br>
+<code>GR4</code>：C2のビット列の長さ（n）</p>
+</blockquote>
+<p>（3）　<code>COMBINE</code>は，結合したm＋nビットを<code>GR0</code>に左詰めで設定し，残りのビットには0を設定する。</p>
+<p>（4）　<code>DIVIDE</code>は，<code>GR0</code>～<code>GR4</code>にそれぞれ次の内容が設定されて主プログラムから呼ばれる。</p>
+<blockquote>
+<p><code>GR0</code>：分割するビット列<br>
+<code>GR1</code>：D1のアドレス<br>
+<code>GR2</code>：D1に格納するビット列の長さ（m）<br>
+<code>GR3</code>：D2のアドレス<br>
+<code>GR4</code>：D2に格納するビット列の長さ（n）</p>
+</blockquote>
+<p>（5）　<code>DIVIDE</code>は，D1にはmビットを，D2にはnビットをそれぞれ左詰めで格納し，残りのビットには0を格納する。</p>
+<p>（6）　<code>COMBINE</code>及び<code>DIVIDE</code>から戻るとき，汎用レジスタ<code>GR1</code>～<code>GR7</code>の内容は元に戻す。</p>
+<p>〔プログラム1〕</p>
+<p><img border="0" src="img/06f-PM-09-2.png" width="755" height="421"></p>
+<p>〔プログラム2〕</p>
+<p><img border="0" src="img/06f-PM-09-3.png" width="484" height="412"></p>
+<hr>
+<p><strong><a name="91">設問1</a></strong>　プログラム1及びプログラム2中の【　　　　】に入れる正しい答えを，解答群の中から選べ。</p>
+<p>解答群</p>
+<table border="0" cellpadding="0" cellspacing="6" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber28" width="75%">
+<tr>
+<td>ア　<code>SLL GR5,0,GR6</code></td>
+<td>イ　<code>SLL GR6,0,GR5</code></td>
+</tr>
+<tr>
+<td>ウ　<code>SRL GR0,0,GR5</code></td>
+<td>エ　<code>SRL GR0,0,GR6</code></td>
+</tr>
+<tr>
+<td>オ　<code>SRL GR5,0,GR6</code></td>
+<td>カ　<code>SRL GR6,0,GR5</code></td>
+</tr>
+</table>
+<hr>
+<p><a href="18F_P_A3.HTM#91">設問1の正解例と解説へ</a></p>
+<hr>
+<p><strong><a name="92">設問2</a></strong>　次の記述中の【　　　　】に入れる正しい答えを，解答群の中から選べ。</p>
+<p>　DIVIDEにおいて，データを格納しない部分は元の内容を保持したままとするためには，プログラム2中のα，βの部分を次のように変更する必要がある。</p>
+<p>　図2に変更後のデータ形式と結果を示す。</p>
+<p><img border="0" src="img/06f-PM-09-4.png" width="711" height="493"></p>
+<p>解答群</p>
+<table border="0" cellpadding="0" cellspacing="6" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber29" width="75%">
+<tr>
+<td>ア　<code>AND&nbsp;&nbsp; GR6,0,GR1</code></td>
+<td>イ　<code>AND&nbsp;&nbsp; GR6,0,GR2</code></td>
+<td>ウ　<code>AND&nbsp;&nbsp; GR7,0,GR1</code></td>
+</tr>
+<tr>
+<td>エ　<code>AND&nbsp;&nbsp; GR7,0,GR2</code></td>
+<td>オ　<code>OR&nbsp;&nbsp;&nbsp; GR5,GR6</code></td>
+<td>カ　<code>OR&nbsp;&nbsp;&nbsp; GR5,GR7</code></td>
+</tr>
+<tr>
+<td>キ　<code>OR&nbsp;&nbsp;&nbsp; GR7,GR5</code></td>
+<td>ク　<code>OR&nbsp;&nbsp;&nbsp; GR7,GR6</code></td>
+<td>　</td>
+</tr>
+</table>
+<hr>
+<p><a href="18F_P_A3.HTM#92">設問2の正解例と解説へ</a></p>
+<hr>
+<p><a href="18F_P_E4.htm#100">問10へ進む</a></p>
+<hr>
+<p><a href="INDEX.HTM">■メニューへ戻る</a></p>
+</blockquote>
+
+</body>
+
+</html>

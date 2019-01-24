@@ -1,0 +1,226 @@
+<html>
+
+<head>
+<title>平成18年度 秋期　基本情報技術者 午後 解説</title>
+<style type="text/css">
+body{line-height:150%;}
+code{font-size:12pt;}
+</style>
+</head>
+
+<body>
+
+<blockquote>
+<hr>
+<h3 align="center">平成18年度秋期試験　正解例と解説(問10～問13)</h3>
+<hr>
+<p><strong><a name="100">問10</a></strong></p>
+<hr>
+<p><strong><a name="101">設問1</a></strong></p>
+<p>〈解答〉　a　ア　　　b　オ　　　c　ア　　　d　イ</p>
+<p>〈解説〉</p>
+<blockquote>
+<p>空欄aについて</p>
+<blockquote>
+<p>条件文字列の文字<code>*cond</code>が以下の①または②の場合，<code>flg</code>＝0なので，<code>target++，cond++</code>として対象文字列と条件文字列の文字を次の文字に進め比較を繰返している。</p>
+<p>①’<code>@</code>’である</p>
+<p>②’<code>$</code>’，’<code>[</code>’，’<code>{</code>’のいずれでもなく，さらに’<code>@</code>’でもない場合，対象文字列の文字<code>*target</code>と条件文字列の文字<code>*cond</code>が一致する</p>
+<p>これは両方の文字列の英数字が一致した場合に該当する。したがって“<code>@</code>”は対象文字が任意の英数字であることを示すパターン文字列であり，空欄aはアが適切。</p>
+</blockquote>
+<p>空欄bについて</p>
+<blockquote>
+<p>条件文字列の文字<code>*cond</code>が’<code>$</code>’で，次に続く文字が’N’である場合，数字配列<code>numeral[i]</code>の数字と対象文字列の文字<code>*target</code>が一致しなければ<code>flg</code>＝1にセットされるが，一致すれば<code>flg</code>＝0にセットされ，<code>target++</code>，<code>cond++</code>として対象文字列と条件文字列の文字を次の文字に進め比較を繰返している。これは対象文字が数字であることを示すパターン文字列“<code>$N</code>”が出現した場合に該当する。したがって空欄bはオが適切。</p>
+</blockquote>
+<p>空欄cについて</p>
+<blockquote>
+<p>条件文字列の文字<code>*cond</code>が’<code>[</code>’で，次に’<code>]</code>’が出現するまでの間の文字のいずれかと対象文字列の文字<code>*target</code>が一致すれば<code>flg</code>＝0にセットされ，<code>target++</code>，<code>cond++</code>として対象文字列と条件文字列の文字を次の文字に進め比較を繰返している。これは対象文字が条件文字列の’<code>[</code>‘と’<code>]</code>’で囲まれた間の文字のいずれかであることを示すパターン文字“[XYZ]”が出現した場合に該当する。したがって空欄cはアが適切。</p>
+</blockquote>
+<p>空欄dについて</p>
+<blockquote>
+<p>条件文字列の文字<code>*cond</code>が’<code>{</code>’で，次に’<code>}</code>’が出現するまでの間の文字のいずれかと対象文字列の文字<code>*target</code>が一致すれば<code>flg</code>＝1にセットされるが，いずれとも一致しなければ<code>flg</code>＝0にセットされ，<code>target++</code>，<code>cond++</code>として対象文字列と条件文字列の文字を次の文字に進め比較を繰返している。これは対象文字が条件文字列の’<code>{</code>’と’<code>}</code>’で囲まれた間の文字のいずれでもないことを示すパターン文字“<code>{XYZ}</code>”が出現した場合に該当する。したがって空欄dはイが適切。</p>
+</blockquote>
+</blockquote>
+<hr>
+<p><a href="18F_P_E4.HTM#101">問題へ</a></p>
+<hr>
+<p><strong><a name="102">設問2</a></strong></p>
+<p>〈解答〉　e　ア　　　ｆ　カ</p>
+<p>〈解説〉</p>
+<blockquote>
+<p>空欄eについて</p>
+<blockquote>
+<p>対象文字列のすべて文字が条件文字列の条件を満足している場合<code>flg</code>＝0にセットされ，文字列の最後で終端文字’<code>＼</code>’が一致し<code>*target==*cond</code>となるので，返却値0が返される。したがって空欄aはアが適切。</p>
+</blockquote>
+<p>空欄ｆについて</p>
+<blockquote>
+<p>対象文字列の途中に条件文字列で与えた条件を満たさないものがあった場合，<code>flg</code>＝1にセットされるので，<code>while</code>ループの文字列比較の処理を途中で終了した後，返却値として<code>strlen(target)</code>の値を返す。<code>strlen(traget)</code>は対象文字列の文字列領域の現在のポインタ位置以降の文字数を返す。つまり対象文字列<code>traget</code>の検査の終了した最後の文字に現在のポインタがあり，検査の終了した最後の1文字を含めたそれ以降の文字数を返すので，検査していない対象文字数＋1を返すことになる。したがってカが適切。</p>
+</blockquote>
+</blockquote>
+<hr>
+<p><a href="18F_P_E4.htm#102">問題へ</a></p>
+<hr>
+<p><a href="INDEX.HTM">メニューへ戻る</a></p>
+<hr>
+<p><strong><a name="110">問11</a></strong></p>
+<hr>
+<p><strong><a name="111">設問1</a></strong></p>
+<p>〈解答〉　a　ア　　　b　オ　　　c　ア　</p>
+<p>〈解説〉</p>
+<blockquote>
+<p>空欄aについて</p>
+<blockquote>
+<p>空欄a直前の<code>MOVE</code>命令では，在庫ファイルの資材コードに製品出荷指示ファイルの製品コードがセットされ，に製品出荷指示ファイルの出荷数がセットされている。空欄a直後の<code>IF</code>文で必要数<code>W-HITSUYO-SU</code>が0より大きいか否かの判定を行っている。したがって空欄aでその製品コードの製品について在庫ファイルの製品の在庫数と割当て済み数を参照し，必要数の計算を行う必要がありる。これより空欄aはアの<code>PERFORM
+CHECK-ZAIKO</code>が適切。</p>
+</blockquote>
+<p>空欄bについて</p>
+<blockquote>
+<p>
+製品については，有効在庫数≦0または必要数＞有効在庫数の場合について，部品展開ファイルを参照し部品展開を行って，構成部品について在庫数のチェックと必要数，注文数の計算が必要になる。</p>
+<p>空欄b直前の<code>MOVE</code>命令では部品展開ファイルの製品コードに製品出荷指示ファイルの製品コードがセットされ，部品コードに<code>LOW-VALUE</code>がセットされて，部品展開キーのセットが行われている。空欄b直後の<code>PERFORM</code>命令のループ処理では，部品展開ファイルの製品コードと製品出荷指示ファイルの製品コードが不一致になるまで，同一製品について製品数<code>*</code>部品展開ファイルの部品の所要個数を計算している。したがって空欄bで部品展開ファイルの順読出しにより部品展開を行い部品の所要個数を取得する必要がある。これより空欄bはオの<code>PERFORM
+START-BUHIN</code>が適切。</p>
+</blockquote>
+<p>空欄cについて</p>
+<blockquote>
+<p>空欄b直前の<code>MOVE</code>命令では部品展開ファイルの部品展開キーを構成する製品コードに製品出荷指示ファイルの製品コードが，部品コードに<code>LOW-VALUE</code>がセットされている。したがってこの製品コードをもつ最も小さな部品コードのレコードに位置付けるため，<code>START</code>命令により空欄cで<code>KEY
+＞ B-BUHIN-KEY</code>とすればよく，アが適切。</p>
+</blockquote>
+</blockquote>
+<hr>
+<p><a href="18F_P_E4.htm#111">問題へ</a></p>
+<hr>
+<p><strong><a name="112">設問2</a></strong></p>
+<p>〈解答〉　イ</p>
+<p>〈解説〉</p>
+<blockquote>
+<p><code>BUHIN-F</code>については，<code>START-BUHIN</code>において<code>START</code>命令による<code>KEY</code>の位置付けを行って<code>READ</code>命令により索引ファイルの順読出しを行っているので，<code>ACCESS
+MODE</code>は<code>DYNAMIC</code>または<code>SEQUENTIAL</code>の指定が必要であり，イの<code>RANDOM</code>は不適切。</p>
+</blockquote>
+<hr>
+<p><a href="18F_P_E4.HTM#112">問題へ</a></p>
+<hr>
+<p><strong><a name="113">設問3</a></strong></p>
+<p>〈解答〉　d　エ</p>
+<p>〈解説〉</p>
+<blockquote>
+<p>空欄dについて</p>
+<blockquote>
+<p>有効在庫数<code>W-YUKO-ZSU</code>を余裕在庫数<code>Z-YOYUU-SU</code>だけ低く設定しておくことで，早めに在庫切れを起こすので，在庫に余裕を持って早めに部品注文ファイルに必要な部品注文レコードが出力される。したがってエが適切。</p>
+</blockquote>
+</blockquote>
+<hr>
+<p><a href="18F_P_E4.HTM#113">問題へ</a></p>
+<hr>
+<p><a href="INDEX.HTM">メニューへ戻る</a></p>
+<hr>
+<p><strong><a name="120">問12</a></strong></p>
+<hr>
+<p><strong><a name="121">設問1</a></strong></p>
+<p>〈解答〉　a　エ　　　b　カ　　　c　イ　</p>
+<p>〈解説〉</p>
+<blockquote>
+<p>空欄aについて</p>
+<blockquote>
+<p>書籍を表すクラス<code>RegularBook</code>，雑誌を表すクラス<code>Magazine</code>は抽象クラス<code>Book</code>を継承したサブクラスである。スーパークラス<code>Book</code>のコンストラクタはサブクラス<code>RegularBook</code>，<code>Magazine</code>には継承されないので，空欄aで<code>super(name，id)</code>としてスーパークラス<code>Book</code>のコンストラクタを呼び出せばよい。したがって空欄aはエが適切。</p>
+</blockquote>
+<p>空欄bについて</p>
+<blockquote>
+<p>空欄bを含むメソッド<code>checkoutBook</code>は，貸出し処理を実行するメソッドである。<code>if</code>文の条件<code>!
+availables.contains(book)</code>が成立つ場合，または<code>count &gt;= limit</code>の場合に，空欄bを含む処理が行われている。つまり貸出し可能な図書の集合<code>availables</code>の中になく既に図書が貸出されている場合，または貸出者<code>user</code>に一致するマップに登録されている図書のエントリーの数<code>count</code>が貸出し冊数の上限以上である場合に，空欄bに関する処理が行われている。この場合，<code>throw</code>文により例外処理を投げればよく，空欄bはカの<code>throw
+new Exception</code>が適切。</p>
+</blockquote>
+<p>空欄cについて</p>
+<blockquote>
+<p>空欄cを含むメソッド<code>returnBook</code>は，返却処理を実行するメソッドである。空欄c直後の処理<code>availables.add(book)</code>により返却された図書bookが貸出し可能な図書の集合<code>availables</code>に追加されている。したがってこの直前の空欄cで貸出し中の図書の集合<code>checkedOut</code>から返却された図書<code>book</code>を削除する処理を行えばよく，イの<code>checkedOut.remove</code>が適切。</p>
+</blockquote>
+</blockquote>
+<hr>
+<p><a href="18F_P_E4.HTM#121">問題へ</a></p>
+<hr>
+<p><strong><a name="122">設問2</a></strong></p>
+<p>〈解答〉　d　ア　　　e　ア</p>
+<p>〈解説〉</p>
+<blockquote>
+<p>空欄dについて</p>
+<blockquote>
+<p><code>latestMagazines</code>は，雑誌の最新号を表す集合である。雑誌の最新号の集合<code>latestMagazines</code>に含まれる雑誌<code>magazine2</code>について，新たに登録された雑誌<code>magazine</code>と雑誌の名が一致するものがあれば，空欄dのif文の条件が成立つ場合，return文でforループに戻りそのまま繰返すが，成立たない場合，雑誌の最新号の集合<code>latestMagazines</code>から<code>magazine2</code>を削除した後，<code>break</code>文により<code>for</code>ループを抜けている。したがって新たに登録された雑誌の号数＜最新号の雑誌の号数である場合，つまり<code>magazine.issueNo＜magazine2.issueNo</code>である場合は，
+<code>return</code>文により<code>for</code>ループに戻りそのまま繰返せばよい。したがって空欄dはアの＜が適切。</p>
+</blockquote>
+<p>空欄eについて</p>
+<blockquote>
+<p>空欄dの<code>if</code>文の条件<code>magazine.issueNo＜magazine2.issueNo</code>が成立たない場合，雑誌の最新号の集合<code>latestMagazines</code>から<code>magazine2</code>を削除した後，<code>break</code>文により<code>for</code>ループを抜けて，空欄eの処理を行っている。この場合，新たに登録した雑誌<code>magazine</code>が最新号になるので，<code>magazine</code>を雑誌の最新号の集合<code>latestMagazines</code>に追加する必要がある。したがって空欄eがこの追加処理に該当し，アの<code>latestMagazines.add(magazine)</code>が適切。</p>
+</blockquote>
+</blockquote>
+<hr>
+<p><a href="18F_P_E4.HTM#122">問題へ</a></p>
+<hr>
+<p><a href="INDEX.HTM">メニューへ戻る</a></p>
+<hr>
+<p><strong><a name="130">問13</a></strong></p>
+<hr>
+<p><strong><a name="131">設問1</a></strong></p>
+<p>〈解答〉　a　イ　　　b　ウ　　　c　ア　　　d　エ</p>
+<p>〈解説〉</p>
+<blockquote>
+<p>空欄aについて</p>
+<blockquote>
+<p>4行目の<code>LD</code>命令により，<code>GR6</code>に#8000つまり1000 0000 0000
+0000が格納される。次の5行目の算術右シフト命令<code>SRA</code>により<code>GR6</code>のビット列がn－1ビット右シフトされて，<code>GR6</code>には左端nビットが1でそれ以外が0であるマスクビットが作成される。つまりビット列Bのビット数nに対応したマスクビットが作成されたことになる。6行目の<code>LD</code>命令により<code>GR7</code>にはビット列Aが格納され，空欄aで<code>GR7</code>の左端nビット以外のビットを0にしている。したがって空欄aで<code>GR7</code>と<code>GR6</code>のマスクビットとの論理積をとればよく，イの<code>AND
+GR7,GR6</code>が適切。</p>
+</blockquote>
+<p>空欄bについて</p>
+<blockquote>
+<p>空欄a直後の<code>CPA</code>命令の比較により<code>GR7</code>の左端nビットと<code>GR2</code>のビット列Bが一致した場合，<code>JZE</code>命令により<code>MATCH</code>にジャンプする。ジャンプ先の<code>LD</code>命令により，<code>GR7</code>にビット列Aを格納し，次の論理左シフト命令<code>SLL</code>により一旦nビット左シフトした後，続く論理右シフト命令<code>SRL</code>により再びnビット右シフトして戻すことにで，左端nビットを0にしている。次の空欄bでビット列Cを左端nビットに設定し置換を行っている。したがって空欄bでは<code>GR7</code>と<code>GR3</code>のビット列Cとの論理和をとればよく，ウの<code>OR
+GR7,GR3</code>が適切。</p>
+</blockquote>
+<p>空欄cについて</p>
+<blockquote>
+<p>空欄b直後の<code>ST</code>命令により<code>GR7</code>の置換後のビット列を元の領域<code>GR1</code>に戻した後，次の<code>LD</code>命令で<code>GR0</code>に左循環シフトする<code>GR4</code>のビット数nをセットしている。一致する部分を置換えた場合，その部分ビット列の右隣のビット列から検索を続けるため，副プログラム<code>ROTSL</code>を<code>CALL</code>し<code>GR1</code>のビット列Aをnビット左循環シフトした後，空欄c直後の<code>JUMP</code>命令により<code>LOOP</code>に戻り繰返している。空欄c直前の<code>CPA</code>命令による比較で，<code>GR5</code>の未検査ビット数＜<code>GR4</code>の部分ビット列Bのビット数nであれば終了すればよく，空欄cはアの<code>JMI
+FIN</code>が適切。</p>
+</blockquote>
+<p>空欄dについて</p>
+<blockquote>
+<p>5行目と6行目の<code>LD</code>命令により，それぞれ<code>GR5</code>，<code>GR6</code>に左循環シフトを行うビット列が格納される。空欄d直前の論理左シフト命令<code>SLL</code>により，<code>GR5</code>のビット列をmビット左にシフトさせて，空欄dの処理の後，直後の<code>OR</code>命令により<code>GR5</code>と<code>GR6</code>との論理和をとっている。したがって空欄d直前の<code>SLL</code>命令により左にはみ出した左端mビットに相当するビット列が，<code>GR6</code>の右端mビットにセットされている必要がある。これより空欄dで<code>GR6</code>の左端mビットのビット列を16－mビット論理右シフトして右端に移動すればよく，エの<code>SRL
+GR6,GR4</code>が適切。</p>
+</blockquote>
+</blockquote>
+<hr>
+<p><a href="18F_P_E4.HTM#131">問題へ</a></p>
+<hr>
+<p><strong><a name="132">設問2</a></strong></p>
+<p>〈解答〉　ウ</p>
+<p>〈解説〉</p>
+<blockquote>
+<p>ビット列Bと一致しなければ<code>ROTSL</code>を<code>CALL</code>し1ビット左循環シフトを行い，一致すればビット列Cに置換えた後，<code>ROTSL</code>を<code>CALL</code>しn＝4ビット左循環シフトを行う。</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber3">
+<tr>
+<td>呼出し回数</td>
+<td><code>1 2 3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4 5 6 7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+8</code></td>
+</tr>
+<tr>
+<td>ビット列Ａ</td>
+<td><code>0 0 <font color="#FF0000">0 1 1 1</font> 0 1 0 <font color="#FF0000">0
+1 1 1</font> 0 0 1</code></td>
+</tr>
+</table>
+<p>1ビット目で不一致で1回目の<code>CALL</code>を行い1ビット左循環シフト<br>
+2ビット目で不一致で2回目の<code>CALL</code>を行い1ビット左循環シフト<br>
+3ビット目で一致するので置換え後3回目の<code>CALL</code>を行い4ビット左循環シフト<br>
+7ビット目で不一致で4回目の<code>CALL</code>を行い1ビット左循環シフト<br>
+8ビット目で不一致で5回目の<code>CALL</code>を行い1ビット左循環シフト<br>
+9ビット目で不一致で6回目の<code>CALL</code>を行い1ビット左循環シフト<br>
+10ビット目で一致するので置換え後7回目の<code>CALL</code>を行い4ビット左循環シフト<br>
+14ビット目で不一致で8回目の<code>CALL</code>を行い1ビット左循環シフトし終了する</p>
+<p>したがって8回呼び出し，ウが適切。</p>
+</blockquote>
+<hr>
+<p><a href="18F_P_E4.HTM#132">問題へ</a></p>
+<hr>
+<p><a href="INDEX.HTM">メニューへ戻る</a></p>
+<hr>
+<p>　</p>
+</blockquote>
+
+</body>
+
+</html>

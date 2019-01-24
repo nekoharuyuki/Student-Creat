@@ -1,0 +1,140 @@
+<html>
+
+<head>
+<title>平成17年度春期試験　問題(午後問1～2)</title>
+</head>
+
+<body bgcolor="#FFFFFF" topmargin="0" leftmargin="0">
+
+<blockquote>
+<hr>
+<h3 align="center">平成17年度春期試験　問題(問1～問2)</h3>
+<hr>
+<div align="center">
+<center>
+<table border="1" cellpadding="8" cellspacing="0" bordercolor="#000000">
+<tr>
+<td><strong>次の問1から問5までの5問については，全問解答してください。</strong></td>
+</tr>
+</table>
+</center>
+</div>
+<hr>
+<p><a name="10"><b>問1</b></a><b>　</b>リストに関する次の記述を読んで，設問1～3に答えよ。<br>
+リストの構造は図1のとおりとする。</p>
+<p align="center"><img border="0" src="./IMAGE/05s_kihon-gogo_0101.gif" width="620" height="97"></p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td valign="top">（1）</td>
+<td>ROOTは，リストの先頭を指す。</td>
+</tr>
+<tr>
+<td valign="top">（2）</td>
+<td>リストの要素は連続する2語からなる。第1語には値が，第2語には次の要素へのポインタが格納されている。</td>
+</tr>
+<tr>
+<td valign="top">（3）</td>
+<td>リストの各要素は値の昇順に連結されていて，値はすべて異なる。最後の要素の第2語にはポインタとして0000が格納されている。</td>
+</tr>
+<tr>
+<td valign="top">（4）</td>
+<td>図1の構造をもつリストが，図2のとおりに主記憶の00FF番地から0117番地までに格納されている。00FF番地はROOTである。</td>
+</tr>
+<tr>
+<td valign="top">（5）</td>
+<td>1語は16ビットからなり，語単位で番地が付いている。</td>
+</tr>
+</table>
+</div>
+<p align="center"><img border="0" src="./IMAGE/05s_kihon-gogo_0102.gif" width="521" height="322"></p>
+<hr>
+<p><a name="11"><b>設問1</b></a><b>　</b>010C番地の内容として正しい答えを，解答群の中から選べ。</p>
+<p>解答群<br>
+ア　0099　　　イ　00A1　　　ウ　00A3　　　エ　00A4　　　オ　00A5</p>
+<hr>
+<a href="17S_P_A1.HTM#11">設問1の正解例と解説へ</a>
+<hr>
+<p><a name="12"><b>設問2</b></a><b>　</b>次の記述中の［　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p>0110番地及び0111番地からなる要素をリストから削除するには，［　　a　　］番地の内容を［　　b　　］に変えればよい。</p>
+<p>解答群<br>
+ア　0101　　　　イ　0102　　　　ウ　0103　　　　エ　0104　　　　オ　0105<br>
+カ　0113　　　　キ　0114　　　　ク　0115　　　　ケ　0116　　　　コ　0117</p>
+<hr>
+<a href="17S_P_A1.HTM#12">設問2の正解例と解説へ</a>
+<hr>
+<p><a name="13"><b>設問3</b></a><b>　</b>次の記述中の［　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p>0118番地から011D番地に格納されている3要素からなるサブリストと，設問2で要素を削除する前のリストを併合するには，［　　c　　］番地の内容を011Aに，［　　d　　］番地の内容を0102に，［　　e　　］番地の内容を011Cに，［　　f　　]番地の内容を0108にそれぞれ変えればよい。</p>
+<p>解答群<br>
+ア　0109　　　　イ　010B　　　　ウ　010D　　　　エ　010F　　　　オ　0111<br>
+カ　0113　　　　キ　0115　　　　ク　0117　　　　ケ　0119　　　　コ　011B</p>
+<hr>
+<a href="17S_P_A1.HTM#13">設問3の正解例と解説へ</a>
+<hr>
+<a href="index.htm">■メニューへ戻る</a>
+<hr>
+<p><a name="20"><b>問2</b></a><b>　</b>次のプログラムの説明及びプログラムを読んで，設問に答えよ。</p>
+<p>〔プログラムの説明〕<br>
+　副プログラムReplaceは，文字列を置換するプログラムである。</p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td valign="top">（1）</td>
+<td>Replaceは，文字列Aを先頭からコピーして文字列Bを作る。このとき，文字列A中に文字列Sと一致する文字列を見つけるたびに，文字列Dの内容に置き換える。</td>
+</tr>
+<tr>
+<td valign="top">（2）</td>
+<td>このプログラムで扱う文字列は，1文字ずつ文字型配列の要素に順に格納されていて，最後の文字の次に定数EOSが格納されている。配列の添字は0から始まる。</td>
+</tr>
+<tr>
+<td valign="top">（3）</td>
+<td>文字列A，S，Dは，それぞれ文字型配列A[ ]，S[ ]，D[ ]に格納されていて，文字列Bは文字型配列B[ 
+]に格納する。文字型配列B[ ]は十分に大きいものとする。</td>
+</tr>
+<tr>
+<td valign="top">（4）</td>
+<td>副プログラムの引数の仕様を表に，実行例を図に示す。</td>
+</tr>
+</table>
+</div>
+<p align="center"><img border="0" src="./IMAGE/05s_kihon-gogo_0201-01.gif" width="342" height="193"></p>
+<p align="center"><img border="0" src="./IMAGE/05s_kihon-gogo_0201-02.gif" width="600" height="191"></p>
+<p align="center"><img border="0" src="./IMAGE/05s_kihon-gogo_0202.gif" width="613" height="670"></p>
+<hr>
+<p><b><a name="21">設問</a>　</b>プログラム中の［　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p>a，dに関する解答群</p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0" width="428">
+<tr>
+<td width="50%">ア　<code>B[Bidx] ← A[Aidx]</code></td>
+<td width="50%">イ　<code>B[Bidx] ← S[0]</code></td>
+</tr>
+<tr>
+<td width="50%">ウ　<code>Idx ← 0</code></td>
+<td width="50%">エ　<code>Idx ← 1</code></td>
+</tr>
+<tr>
+<td width="50%">オ　<code>Sidx ← 0</code></td>
+<td width="50%">カ　<code>Sidx ← 1</code></td>
+</tr>
+</table>
+</div>
+<p>b，cに関する解答群</p>
+<p>ア　<code>A[Aidx］ ≠ EOS</code><br>
+イ　<code>A[Aidx] ＝ S[Sidx]</code><br>
+ウ　<code>A[Aidx] ≠ S[Sidx]</code><br>
+エ　<code>A[Aidx］ ≠ S[Sidx] and S[Sidx]≠EOS</code><br>
+オ　<code>S[Sidx] ＝ EOS</code><br>
+カ　<code>S[Sidx］ ≠ EOS</code></p>
+<hr>
+<a href="17S_P_A1.HTM#21">設問の正解例と解説へ</a>
+<hr>
+<a href="17S_P_E2.HTM">■問3へ進む</a>
+<hr>
+<a href="index.htm">■メニューへ戻る</a>
+<hr>
+</blockquote>
+
+</body>
+
+</html>

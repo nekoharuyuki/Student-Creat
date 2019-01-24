@@ -1,0 +1,332 @@
+<HTML>
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<meta http-equiv="Content-Language" content="ja">
+<TITLE>平成14年度秋期試験　問題(問3～問5)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0">
+<blockquote>
+  <hr>
+  <H3 align="center">平成14年度秋期試験　問題(問3～問5)</H3>
+<HR WIDTH=100%>
+<A NAME="30">　<BR>
+<b>
+問3</b></a><b>　</b>関係データベースに関する次の記述を読んで，設問1，2に答えよ。<br>
+<br>
+  次の受注伝票をもとに関係データベースを構成する表を作成し，SQLを利用してデータを検索することを考える。<br>
+
+        <p><img border="0" src="image/FP03.gif"></p>
+        <p><br>
+</a><A NAME="31">　<BR>
+<b>
+設問1</b></a><b>　</b>次の表中の［　　　　］に入れる正しい答えを，解答群の中から選べ。<br>
+        <p><img border="0" src="image/FP03-1.gif"></p>
+        <p><br>
+解答群<br>
+        <table border="0" cellpadding="3" cellspacing="1">
+          <tr>
+            <td width="130">ア　金額</td>
+            <td width="130">イ　顧客番号</td>
+            <td width="130">ウ　顧客名</td>
+          </tr>
+          <tr>
+            <td>	エ　数量</td>
+            <td>	オ　品番</td>
+            <td>	カ　品名</td>
+	</tr>
+	</table>
+<br>
+<A NAME="31">
+<HR WIDTH=100%>
+</a>
+<A HREF="14F_P_A2.HTM#31">設問1の正解例と解説へ</A>
+<HR WIDTH=100%>
+<A NAME="32">　<BR>
+<b>
+設問2</b></a>　受注伝票ごとの受注額を確認するため，受注額表がビュー表として定義されている。これを利用して，次の情報を検索するためのSQL文を作成した。SQL文の［　　　　］に入れる正しい答えを，解答群の中から選べ。<br>
+<br>
+“顧客あたりの平均受注額が受注額の平均より高額な顧客についての，顧客番号とその顧客の平均受注額”<br>
+        <p><img border="0" src="image/FP03-2.gif"></p>
+        <p><br>
+
+解答群<br> 
+        <table border="0" cellpadding="3" cellspacing="1">
+          <tr>
+            <td width="130">ア　<code>CREATE VIEW</td>
+            <td width="130">イ　<code>EXISTS</td>
+            <td width="130">ウ　<code>HAVING</td>
+          </tr>
+          <tr>
+            <td>	エ　<code>SELECT</td>
+            <td>	オ　<code>SUM(AVG(受注額))</td>
+            <td>	カ　<code>SUM(受注額)</td>
+	</tr>
+          <tr>
+            <td>	キ　<code>WHERE</td>
+            <td>	ク　<code>(SELECT AVG(受注額) FROM 受注額表)</code></td>
+	</tr>
+	</table>
+
+<HR WIDTH=100%>
+<A HREF="14F_P_A2.HTM#32">設問2の正解例と解説へ</A>
+<HR WIDTH=100%>
+<p><A HREF="index.htm">メニューへ戻る</A>　</p>
+<HR WIDTH=100%>
+<A NAME="40">　<BR>
+<b>
+問4</b></a>　次のプログラムの説明，擬似言語の記述形式の説明及びプログラムを読んで，設問1，2に答えよ。<br><br>
+[プログラムの説明]<br>
+  　英数字及び記号からなる長さNの文字列を，編集して出力する副プログラムTextPrintである。<br>
+（1）文字列は，Text[1]，Text[2]，･･･，Text[N]（N ≧ 1）の各要素に1文字ずつ格納されている。<br>
+（2）編集の仕様は，次のとおりである。<br>
+　　<img border="0" src="image/01_maru.GIF">ピリオド（“.”）で改行する。<br>
+　　<img border="0" src="image/02_maru.GIF">指定した最大文字数（引数Moji）で改行する。<br>
+　　<img border="0" src="image/03_maru.GIF">指定した最大行数（引数Gyo）で改ページする。<br>
+　　<img border="0" src="image/04_maru.GIF">指定した文字数（引数Yohaku）だけ，左側に余白を挿入する。<br>
+（3）TextPrintは，1行分の文字列を取り出す副プログラムGetLine，編集結果の1ページ分の文字列を出力する副プログラムPageOut，配列を空白文字で初期化する副プログラムArrayInitを使用する。各副プログラムの引数の仕様を表1～4に示す。<br>
+<br>
+        <p><img border="0" src="image/FP041.gif"></p>
+        <p><br>
+        <p><img border="0" src="image/FP042.gif"></p>
+        <p><br>
+
+        <p><img border="0" src="image/FP043.gif"></p>
+        <p><br>
+
+        <p><img border="0" src="image/FP044.gif"></p>
+        <p><br>
+
+〔擬似言語の記述形式の説明〕<br>
+        <p><img border="0" src="image/FP045.gif"></p>
+        <p><br>
+〔プログラム〕<br>
+        <p><img border="0" src="image/FP046.gif"></p>
+        <p><br>
+        <p><img border="0" src="image/FP047.gif"></p>
+        <p><br>
+        <img border="0" src="image/FP048.gif"></p>
+
+        <p><img border="0" src="image/FP049.gif"></p>
+        <br>
+<HR WIDTH=100%>
+<A NAME="41">
+<b>　<BR>
+設問1</b></a><b>　</b>プログラム中の［　　　　］に入れる正しい答えを，解答群の中から選べ。<br>      
+<br>
+解答群<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td width="250">ア　Ep ＜ (Sp + Dan)</td>
+            <td>	イ　Ep ＜ (Sp + Moji)</td>
+          </tr>
+          <tr>
+            <td>	ウ　Ep ＜ (Sp + Moji - 1)</td>
+            <td>	エ　Mp ≦ Ep</td>
+          </tr>
+          <tr>
+            <td>	オ　Mp ＜ Ep</td>
+            <td>	カ　Sp ≦ Ep</td>
+          </tr>
+          <tr>
+            <td>	キ　Sp ＜ Ep</td>
+          </tr>
+        </table>
+<br>
+<HR WIDTH=100%>  
+<A HREF="14F_P_A2.HTM#41">設問1の正解例と解説へ</A>  
+<HR WIDTH=100%>  
+<A NAME="42">  
+　<BR> 
+<b> 
+設問2</b></a>  
+図のように，各ページを2段組で出力するようにプログラムのα，β，γ部分を変更した。1段目と2段目の間は2文字分空ける。変更部分中の［　　　　］に入れる正しい答えを，解答群の中から選べ。ここで，最大文字数（引数Moji）の値は4以上の偶数とする。<br>
+<br>
+        <p><img border="0" src="image/FP04-2-1.gif"></p>
+        <p>
+図　2段組のページ<br>
+<br>
+〔変更部分〕<br>
+        <p><img border="0" src="image/FP04-2-2.gif"></p>
+        <p><img border="0" src="image/FP04-2-3.gif"></p>
+        <p><img border="0" src="image/FP04-2-4.gif"></p>
+
+
+cに関する解答群<br>
+        ア　Moji／2　　　　イ　(Moji－2)／2　　　　ウ　Moji／2－2<br>
+<br><br>
+d，eに関する解答群<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td width="250">ア　Mp ← Yohaku</td>
+            <td>	イ　Mp ← Yohaku + 1</td>
+          </tr>
+          <tr>
+            <td>	ウ　Mp ← Yohaku + Dan</td>
+            <td>	エ　Mp ← Yohaku + Dan + 1</td>
+          </tr>
+          <tr>
+            <td>	オ　Mp ← Yohaku + Dan + 2</td>
+            <td>	カ　Mp ← Yohaku + Dan + 3</td>
+          </tr>
+        </table>
+<br><br>
+f，gに関する解答群<br>
+ア　Gp　　　　イ　Gp－1　　　　ウ　Gyo　　　　エ　Gyo－1<br>
+<br><br>
+<A NAME="42">  
+<HR WIDTH=100%>  
+</a>  
+<A HREF="14F_P_A2.HTM#42">設問2の正解例と解説へ</A>  
+<HR WIDTH=100%>
+<p><A HREF="index.htm">メニューへ戻る</A>　</p>
+<HR WIDTH=100%>
+  　<BR>
+<b><a name="50">問5</a>　</b>プログラム設計に関する次の記述を読んで，設問1～3に答えよ。<br>
+<br>
+　在庫管理システムの一機能として，在庫データを照会するプログラムを作成する。<br>
+　この在庫データ照会プログラムは，2種類のトランザクションを扱う。<br>
+トランザクション種別"A"は，指定した期間内の入出庫活動の照会であり，入出庫活動表を出力する。<br>
+　トランザクション種別"S"は，現在の部品在庫量の照会であり，在庫状況表を出力する。最低在庫量を下回っている部品があるときは，該当部品を"赤"で示す。<br>
+　トランザクションは，次に示す様式であり，各フィールドのけた数やデータ型などを検査する。また，在庫関連の表の利用認証を受けるため，利用許可番号をもたなければならない。トランザクションの利用許可番号が，利用許可番号表に存在するかどうかも検査する。これらの検査に合格しなかったトランザクションは，エラーとして処理する。<br>
+<br>
+〔トランザクションの様式〕<br>
+        <img border="0" src="image/FP051.gif"><br><br>
+〔在庫照会に関連するデータベースの様式の一部〕<br>
+        <img border="0" src="image/FP052.gif"><br><br>
+〔モジュール構造図〕<br>
+        <img border="0" src="image/FP053-1.gif"><br><br>
+〔フラグの様式〕<br>
+        <img border="0" src="image/FP054.gif"><br><br>
+<br>
+<hr>
+<p><b><a name="51">設問1</a>　</b>トランザクションの様式中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。<br>
+<br>
+aに関する解答群<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td width="200">ア　“A”</td>
+            <td>	イ　“AS”</td>
+          </tr>
+          <tr>
+            <td>	ウ　“S”</td>
+            <td>	エ　トランザクションの個数</td>
+          </tr>
+          <tr>
+            <td>	オ　入出庫種別</td>
+            <td>	カ　年月日時分</td>
+          </tr>
+          <tr>
+            <td>	キ　フラグ</td>
+            <td>	ク　利用許可番号</td>
+          </tr>
+        </table>
+<br>
+<A NAME="44">
+<HR WIDTH=100%>
+</a><a HREF="14F_P_A2.HTM#51">設問1の正解例と解説へ</a>
+<HR WIDTH=100%>
+  　<BR>
+<b><a name="52">設問2</a>　</b>モジュール構造図中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。<br>
+<br>b～fに関する解答群<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td width="300">ア　該当レコードの取得</td>
+            <td>	イ　在庫状況に関するレコードの処理</td>
+          </tr>
+          <tr>
+            <td>	ウ　在庫表の更新</td>
+            <td>	エ　トランザクション様式の検査</td>
+          </tr>
+          <tr>
+            <td>	オ　入出庫活動に関するレコードの処理</td>
+            <td>	カ　入出庫表の更新</td>
+          </tr>
+          <tr>
+            <td>	キ　発注メッセージの作成</td>
+            <td>	ク　利用許可番号の検査</td>
+          </tr>
+        </table>
+  　<BR>
+<A NAME="44">
+<HR WIDTH=100%>
+</a><a HREF="14F_P_A2.HTM#52">設問2の正解例と解説へ</a>
+<HR WIDTH=100%>
+  　<BR>
+<b><a name="53">設問3</a>　</b>モジュール間インタフェース中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。<br>
+<br>gに関する解答群<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td width="300">ア　トランザクション</td>
+            <td>	イ　トランザクション種別</td>
+          </tr>
+          <tr>
+            <td>	ウ　トランザクションの個数</td>
+            <td>	エ　年月日時分</td>
+          </tr>
+          <tr>
+            <td>	オ　部品番号</td>
+            <td>	カ　部品番号の個数</td>
+          </tr>
+          <tr>
+            <td>	キ　部品名称</td>
+            <td>	ク　利用許可番号</td>
+          </tr>
+          <tr>
+            <td>	ケ　利用許可番号表</td>
+          </tr>
+        </table>
+  　<BR>
+<br>hに関する解答群<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">ア</td>
+            <td>　在庫不足フラグ，部品番号なしフラグ</td>
+          </tr>
+          <tr>
+            <td valign="top">イ</td>
+            <td>　在庫不足フラグ，部品番号なしフラグ，様式検査フラグ</td>
+          </tr>
+          <tr>
+            <td valign="top">ウ</td>
+            <td>　在庫不足フラグ，部品番号なしフラグ，利用許可検査フラグ</td>
+          </tr>
+          <tr>
+            <td valign="top">エ</td>
+            <td>　在庫不足フラグ，様式検査フラグ</td>
+          </tr>
+          <tr>
+            <td valign="top">オ</td>
+            <td>　在庫不足フラグ，様式検査フラグ，利用許可検査フラグ</td>
+          </tr>
+          <tr>
+            <td valign="top">カ</td>
+            <td>　在庫不足フラグ，利用許可検査フラグ</td>
+          </tr>
+          <tr>
+            <td valign="top">キ</td>
+            <td>　部品番号なしフラグ，様式検査フラグ</td>
+          </tr>
+          <tr>
+            <td valign="top">ク</td>
+            <td>　部品番号なしフラグ，様式検査フラグ，利用許可検査フラグ</td>
+          </tr>
+          <tr>
+            <td valign="top">ケ</td>
+            <td>　部品番号なしフラグ，利用許可検査フラグ</td>
+          </tr>
+          <tr>
+            <td valign="top">コ</td>
+            <td>　様式検査フラグ，利用許可検査フラグ</td>
+          </tr>
+        </table>
+
+<A NAME="44">
+<HR WIDTH=100%>
+</a><a HREF="14F_P_A2.HTM#52">設問3の正解例と解説へ</a>
+<p align="center"> 
+<a href="14F_P_E3.HTM">■問6へ進む</a>　　　　　　<font size="3"><a HREF="INDEX.HTM">■メニューへ戻る</a></font></p>
+<HR WIDTH=100%>
+  <br>
+</blockquote>
+</BODY>
+</HTML>

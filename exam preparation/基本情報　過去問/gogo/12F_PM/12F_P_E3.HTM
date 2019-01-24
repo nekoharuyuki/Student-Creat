@@ -1,0 +1,1177 @@
+<HTML>
+<HEAD>
+<TITLE>平成12年度試験　問題</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0">
+<blockquote>
+  <hr>
+<H3 align="center">平成12年度秋期試験　問題(午後問7～問10)</H3>
+<hr>
+<P>
+次の問７から問10までの4問については、この中から1問を選択し、答案用紙の選択欄の             
+選 をマークして解答してください。<br>            
+　なお、2問以上選択した場合には、はじめの1問について採点します。<br>
+<HR WIDTH=100%>
+<a NAME="70">　<BR>
+<b>
+問7</b></a><b>　</b>次の C プログラムの説明及びプログラムを読んで、設問に答えよ。         
+<p>〔プログラムの説明〕<br>         
+関数 addrsync は、二つのアドレス帳の内容を同一にする（同期をとる）関数である。</p>         
+<table border="0" cellpadding="3" cellspacing="0">        
+  <tr>        
+    <td valign="top">(1)</td>        
+    <td> アドレス帳はデスクトップ型パソコン（デスクトップ PC）とノート型パソコン （ノート PC）上にあり、それぞれを個別に使用するので、1 日に 1 回同期処理を行う。</td>         
+  </tr>         
+  <tr>         
+    <td valign="top">(2)</td>        
+    <td> 各アドレス帳は複数件のレコードで構成される。１件のレコードは、フラグ、氏名、メールアドレス、更新日時で構成される。ただし、一つのアドレス帳に氏名が同一のレコードは存在しない。</td>        
+  </tr>        
+  <tr>        
+    <td valign="top">(3)</td>        
+    <td> 同期処理を行う際には、各アドレス帳を構造体 ADDR の配列 （以下 ADDR 配列と呼ぶ）に変換後，氏名の昇順に整列してから関数addrsync を呼び出す。関数 addrsyncの引数は、デスクトップ PC のアドレス帳の ADDR 配列、ノート PC の アドレス帳の ADDR 配列、及び同期した ADDR 配列である。 関数 addrsync の実行後、同期したADDR 配列から、新しいアドレス帳を作成する。</td>         
+  </tr>         
+  <tr>         
+    <td valign="top">(4)</td>        
+    <td> 構造体 ADDR の定義は、次のとおりである。<pre>typedef struct {
+　　char flag;　　 /* フラグ */
+　　char *name;　　/* 氏名へのポインタ */
+　　int nlen;　　　/* 氏名の長さ */
+　　char *addr;　　/* メールアドレスへのポインタ */
+　　int alen;　　　/* メールアドレスの長さ */
+　　char *time;　　/* 更新日時へのポインタ */
+} ADDR;</pre>        
+      <p>　フラグは現在のレコードの状態を示し、内容は次のとおりである。<br>
+       " "(空白)：同期後に変化なし（初期値）    "U"：同期後更新された<br>         
+       "A"：同期後追加された　                  "D"：同期後削除された<br>         
+       "E"： ADDR 配列の終端を示す。氏名、メールアドレスともに意味をもたず、氏名の長さ、<br>         
+      　　　　　　メールアドレスの長さには －1 が格納される。<br>         
+      　　　　更新日時の形式は "YYYY-MM-DD hh:mm:ss"（西暦年-月-日 時:分:秒）である。</td>         
+  </tr>         
+  <tr>         
+    <td valign="top">(5)</td>        
+    <td> デスクトップ PC のアドレス帳の ADDR 配列とノート PC のアドレス帳の ADDR 配列の各要素を、氏名をキーとして照合し、更新日時とフラグの内容に応じて処理することによって同期をとる。 氏名が片方にだけ存在する場合の処理内容を表 1 に、氏名が両方に存在する場合の処理内容を表 2 に示す。</td>         
+  </tr>         
+  <tr>         
+    <td valign="top">(6)</td>        
+    <td> strncmp（str1，str2，leng）関数は、str1 で指される配列を str2 で指される配列と leng 文字だけ比較し、大きいか、等しいか又は小さいかによって、それぞれ、正の整数、 0 又は負の整数を返す。</td>         
+  </tr>         
+</table>         
+<p>　         
+<p>表１　氏名が片方にだけ存在する場合の処理内容       
+       
+  <div align="left">       
+    <table border="1" cellPadding="3" bordercolorlight="#000000" cellspacing="0" bordercolor="#FFFFFF" bordercolordark="#FFFFFF">       
+      <tbody>       
+        <tr align="middle" vAlign="top">       
+          <td>　　フラグの内容　　</td>       
+          <td>処理内容（同期した ADDR         
+            配列への格納）</td>        
+        </tr>        
+        <tr>        
+          <td>        
+            <p align="center">“U”</p>        
+          </td>        
+          <td>格納する</td>        
+        </tr>        
+        <tr>        
+          <td>        
+            <p align="center">“A”</p>        
+          </td>        
+          <td>格納する</td>        
+        </tr>        
+        <tr>        
+          <td>        
+            <p align="center">“D”</p>        
+          </td>        
+          <td>格納しない</td>        
+        </tr>        
+      </tbody>        
+    </table>        
+  </div>        
+  <p>表２　氏名が両方に存在する場合の処理内容       
+  <table border="1" cellPadding="3" bordercolorlight="#000000" cellspacing="0" bordercolor="#FFFFFF" bordercolordark="#FFFFFF">       
+    <tbody>       
+      <tr>       
+        <td vAlign="center">       
+          <p align="center">フラグの内容の組合せ</p>       
+        </td>       
+        <td vAlign="top">       
+          <p align="center">処理内容（同期した ADDR         
+          配列への格納）</p>        
+        </td>        
+      </tr>        
+      <tr>        
+        <td vAlign="center">        
+          <p align="center">“ ”と“ ”</p>        
+        </td>        
+        <td vAlign="top">ノート PC の要素を格納する</td>        
+      </tr>        
+      <tr>        
+        <td vAlign="center">        
+          <p align="center">“ ”と“U”</p>        
+        </td>        
+        <td vAlign="top">“U”の要素を格納する</td>        
+      </tr>        
+      <tr>        
+        <td vAlign="center">        
+          <p align="center">“ ”と“A”</p>        
+        </td>        
+        <td vAlign="top">“A”の要素を格納する</td>        
+      </tr>        
+      <tr>        
+        <td vAlign="center">        
+          <p align="center">“ ”と“D”</p>        
+        </td>        
+        <td vAlign="top">格納しない</td>        
+      </tr>        
+      <tr>        
+        <td vAlign="center">        
+          <p align="center">“U”と“U”</p>        
+        </td>        
+        <td vAlign="top">更新日時の新しい方の要素を格納する</td>        
+      </tr>        
+      <tr>        
+        <td vAlign="center">        
+          <p align="center">“U”と“A”</p>        
+        </td>        
+        <td vAlign="top">更新日時の新しい方の要素を格納する</td>        
+      </tr>        
+      <tr>        
+        <td vAlign="center">        
+          <p align="center">“U”と“D”</p>        
+        </td>        
+        <td vAlign="top">“U”の要素の更新日時の方が新しいときだけ，格納する</td>        
+      </tr>        
+      <tr>        
+        <td vAlign="center">        
+          <p align="center">“A”と“A”</p>        
+        </td>        
+        <td vAlign="top">更新日時の新しい方の要素を格納する</td>        
+      </tr>        
+      <tr>        
+        <td vAlign="center">        
+          <p align="center">“A”と“D”</p>        
+        </td>        
+        <td vAlign="top">“A”の要素の更新日時の方が新しいときだけ，格納する</td>        
+      </tr>        
+      <tr>        
+        <td vAlign="center">        
+          <p align="center">“D”と“D”</p>        
+        </td>        
+        <td vAlign="top">格納しない</td>        
+      </tr>        
+    </tbody>        
+  </table>        
+        
+<p>　 
+<br> 
+〔プログラム〕&nbsp;  
+</p> 
+  <pre>#include &lt;string.h&gt;
+#include &lt;stdio.h&gt;
+typedef struct {
+    char flag;        /* フラグ */
+    char *name;       /* 氏名へのポインタ */
+    int  nlen;        /* 氏名の長さ */
+    char *addr;       /* メールアドレスへのポインタ */
+    int  alen;        /* メールアドレスの長さ */
+    char *time;       /* 更新日時へのポインタ */
+} ADDR;
+
+int namecmp(char *, int, char *, int);
+void addrsync(ADDR desk[], ADDR note[], ADDR sync[])
+{
+    int didx=0, nidx=0, sidx=0, comp;
+    while ( <b>[　　　　　　　ａ　　　　　　　]</b> ) {
+        comp = namecmp(desk[didx].name, desk[didx].nlen,
+                            note[nidx].name, note[nidx].nlen);
+        if (comp &lt; 0) {
+            if (desk[didx].flag != 'D') {
+                sync[sidx] = desk[didx];
+                sync[sidx++].flag = ' ';
+            }
+            <b>[　　　　　　　b　　　　　　　]</b>;
+        }
+        else if (comp &gt; 0) {
+            if (note[nidx].flag != 'D') {
+                sync[sidx] = note[nidx];
+                sync[sidx++].flag = ' ';
+            }
+            <b>[　　　　　　　c　　　　　　　]</b>;
+        }
+        else {
+            if (strncmp(desk[didx].time, note[nidx].time, 19) 
+                    &gt; 0) {
+                if (desk[didx].flag != 'D') {
+                    sync[sidx] = desk[didx];
+                    sync[sidx++].flag = ' ';
+                }
+            }
+            else {
+                if (note[nidx].flag != 'D') {
+                    sync[sidx] = note[nidx];
+                    sync[sidx++].flag = ' ';
+                }
+            }
+            <b>[　　　　　　　d　　　　　　　]</b>;
+        }
+    }
+    sync[sidx].flag = 'E';
+    sync[sidx].nlen = -1;
+    sync[sidx].alen = -1;
+}
+int namecmp(char *str1, int len1, char *str2, int len2)
+{
+    int leng, result;
+
+    if (len1 == -1) return 1;
+    if (len2 == -1) return -1;
+    leng = (len1 &lt; len2) ? len1 : len2;
+    result = strncmp(str1, str2, leng);
+    if (result == 0)
+        <b>[　　　　　　　e　　　　　　　]</b>;
+    return result;
+}
+</pre>
+<hr>  
+<a NAME="71">　<BR> 
+<b> 
+設問</b></a><b>　</b>プログラム中の<b>[　　　　　]</b>に入れる正しい答えを、解答群の中から選べ。<br>
+<br>
+a に関する解答群        
+<table border="0" cellpadding="3" cellspacing="0">       
+  <tr>       
+    <td valign="top">ア</td>       
+    <td>desk[didx].flag == 'E'</td>        
+  </tr>        
+  <tr>        
+    <td valign="top">  イ</td>       
+    <td>desk[didx].flag == 'E' &amp;&amp; note[nidx].flag == 'E'&nbsp;</td>       
+  </tr>       
+  <tr>       
+    <td valign="top">  ウ</td>       
+    <td>desk[didx].flag == 'E' || note[nidx].flag == 'E'&nbsp;</td>       
+  </tr>       
+  <tr>       
+    <td valign="top">  エ</td>       
+    <td>desk[didx].flag != 'E'&nbsp;</td>       
+  </tr>       
+  <tr>       
+    <td valign="top">  オ</td>       
+    <td>desk[didx].flag != 'E' &amp;&amp; note[nidx].flag != 'E'&nbsp;</td>       
+  </tr>       
+  <tr>       
+    <td valign="top">  カ</td>       
+    <td>desk[didx].flag != 'E' || note[nidx].flag != 'E'&nbsp;</td>       
+  </tr>       
+</table>       
+<p>　</p>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>b ～ d に関する解答群</td>        
+  </tr>        
+</table>        
+<table border="0" cellpadding="3" cellspacing="0">       
+  <tr>       
+    <td width="150">  ア　didx++</td>
+    <td width="150">イ　nidx++</td>
+    <td>ウ　sidx++</td>
+  </tr>
+  <tr>
+    <td>  エ　didx++, nidx++</td>        
+    <td>オ　didx++, sidx++</td>        
+    <td>カ　nidx++, sidx++</td>        
+  </tr>        
+  <tr>        
+    <td>  キ　didx++, nidx++, sidx++&nbsp;</td>       
+    <td></td>       
+    <td></td>       
+  </tr>       
+</table>       
+<table border="0" cellpadding="3" cellspacing="0">       
+  <tr>       
+    <td>　<br>
+      e に関する解答群</td>        
+  </tr>        
+</table>        
+<table border="0" cellpadding="3" cellspacing="0">       
+  <tr>       
+    <td valign="top">  ア</td>       
+    <td>result = 1&nbsp;</td>       
+  </tr>       
+  <tr>       
+    <td valign="top">  イ</td>       
+    <td>result = -1</td>        
+  </tr>        
+  <tr>        
+    <td valign="top">  ウ</td>       
+    <td>result = len1 - len2&nbsp;</td>       
+  </tr>       
+  <tr>       
+    <td valign="top">  エ</td>       
+    <td>result = len2 - len1</td>        
+  </tr>        
+  <tr>        
+    <td valign="top">  オ</td>       
+    <td>result = (len1 &lt; len2) ? len1 : len2</td>        
+  </tr>        
+  <tr>        
+    <td valign="top">  カ</td>       
+    <td>result = (len1 &lt; len2) ? len2 : len1</td>        
+  </tr>        
+</table>        
+<p>　</p> 
+<HR WIDTH=100%>   
+  <a HREF="12f_p_a3.htm#71">設問の正解例と解説へ</a>   
+<HR WIDTH=100%>   
+<p><A HREF="index.htm">メニューへ戻る</A>　</p>   
+<HR WIDTH=100%>   
+<a NAME="80">　<BR> 
+<b> 
+問8</b></a>　次の COBOL        
+プログラムの説明及びプログラムを読んで、設問に答えよ。<br>       
+<br>       
+〔プログラムの説明〕<br>       
+与えられた西暦年の年間カレンダーを作成する副プログラムである。<br>       
+  　
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">(1)</td>
+    <td> 作成するカレンダーの例を次に示す。休日には "*"を付ける。</td>        
+  </tr>        
+  <tr>        
+    <td valign="top"></td>       
+    <td>        
+      <table border="0" cellpadding="3" cellspacing="0">
+        <tr>
+          <td colspan="7">       2000  1 JAN&nbsp;</td> 
+        </tr> 
+        <tr> 
+          <td>       
+       SUN</td> 
+          <td> MON</td> 
+          <td> TUE</td> 
+          <td> WED</td> 
+          <td> THU</td> 
+          <td> FRI</td> 
+          <td> SAT</td> 
+        </tr> 
+        <tr> 
+          <td align="center"></td>
+          <td align="center"></td>
+          <td align="center"></td>
+          <td align="center"></td>
+          <td align="center"></td>
+          <td align="center"></td>
+          <td align="center">      
+                               *1</td>
+        </tr>
+        <tr>
+          <td align="center">      
+       *2</td>
+          <td align="center">&nbsp;3&nbsp;&nbsp;&nbsp;&nbsp;</td>
+          <td align="center">   4</td>
+          <td align="center">   5</td>
+          <td align="center">   6</td>
+          <td align="center">   7</td>
+          <td align="center">   8</td>
+        </tr>
+        <tr>
+          <td align="center">      
+       * 9</td> 
+          <td align="center"> *10</td>
+          <td align="center">  11</td>
+          <td align="center">  12</td>
+          <td align="center">  13</td>
+          <td align="center">  14</td>
+          <td align="center">  15</td>
+        </tr>
+        <tr>
+          <td align="center">      
+       *16</td>
+          <td align="center">  17</td>
+          <td align="center">  18</td>
+          <td align="center">  19</td>
+          <td align="center">  20</td>
+          <td align="center">  21</td>
+          <td align="center">  22</td>
+        </tr>
+        <tr>
+          <td align="center">*23</td>
+          <td align="center">  24</td>
+          <td align="center">  25</td>
+          <td align="center">26</td>
+          <td align="center">  27</td>
+          <td align="center">  28</td>
+          <td align="center">  29</td>
+        </tr>
+        <tr>
+          <td align="center">      
+       *30</td>
+          <td align="center">  31</td>
+          <td align="center"></td>
+          <td align="center"></td>
+          <td align="center"></td>
+          <td align="center"></td>
+          <td align="center"></td>
+        </tr>
+      </table>
+      <table border="0" cellpadding="3" cellspacing="0">
+        <tr>
+          <td colspan="7">　<br>
+            2000  2 FEB</td> 
+        </tr> 
+        <tr> 
+          <td align="center">      
+       SUN</td>
+          <td align="center"> MON</td>
+          <td align="center"> TUE</td>
+          <td align="center"> WED</td>
+          <td align="center"> THU</td>
+          <td align="center"> FRI</td>
+          <td align="center"> SAT</td>
+        </tr>
+        <tr>
+          <td align="center"></td>
+          <td align="center"></td>
+          <td align="center">      
+                 1</td>
+          <td align="center">   2</td>
+          <td align="center">   3</td>
+          <td align="center">   4</td>
+          <td align="center">5</td>
+        </tr>
+        <tr>
+          <td align="center">      
+       * 6</td> 
+          <td align="center">   7</td>
+          <td align="center">   8</td>
+          <td align="center">   9</td>
+          <td align="center">  10</td>
+          <td align="center"> *11</td>
+          <td align="center">  12</td>
+        </tr>
+        <tr>
+          <td align="center">      
+       *13</td>
+          <td align="center">  14</td>
+          <td align="center">  15</td>
+          <td align="center">  16</td>
+          <td align="center">  17</td>
+          <td align="center">  18</td>
+          <td align="center">  19</td>
+        </tr>
+        <tr>
+          <td align="center">      
+       *20</td>
+          <td align="center">  21</td>
+          <td align="center">  22</td>
+          <td align="center">  23</td>
+          <td align="center">  24</td>
+          <td align="center">  25</td>
+          <td align="center">  26</td>
+        </tr>
+        <tr>
+          <td align="center">      
+       *27</td>
+          <td align="center">  28</td>
+          <td align="center">  29</td>
+          <td align="center"></td>
+          <td align="center"></td>
+          <td align="center"></td>
+          <td align="center"></td>
+        </tr>
+        <tr>
+          <td colspan="7">
+            <p align="center"><b><font size="4">       
+                    :<br>       
+                    :</font></b></td>
+        </tr>
+      </table>
+    </td>       
+  </tr>       
+  <tr>       
+    <td valign="top">(2)</td>      
+    <td> 休日とは、日曜日、祝日及び祝日が日曜日のときの翌日とする。</td>      
+  </tr>      
+  <tr>      
+    <td valign="top">(3)</td>      
+    <td> yyyy 年 mm 月 dd 日の曜日は、次に示す Zeller の公式によって求める （ただし、1 月、2 月は前年の 13 月、14 月として計算する）。        
+      <p><img border="0" src="image/A00a08f1.gif" width="532" height="37"></p>      
+      <p>[n] は、n 以下で最大の整数を表す。<br>       
+   a mod b は、a を b で割った余りを表す。<br>        
+   計算結果が 0、1、2、3、4、5、6 のとき、それぞれ日、月、火、水、木、金、土を表す。</td>        
+  </tr>        
+  <tr>        
+    <td valign="top">(4)</td>       
+    <td>副プログラム MKSHUKU は、第 1 パラメタで西暦年を与えると、第 2 パラメタに祝日の月日を表形式で返す。</td>        
+  </tr>        
+  <tr>        
+    <td valign="top">(5)</td>       
+    <td> 各月のカレンダーの間には、空行を 1 行入れる。</td>        
+  </tr>        
+</table>        
+  <p>〔プログラム〕    
+  <pre> DATA              DIVISION.
+ FILE              SECTION.
+ FD  CALENDAR-FILE.
+ 01  C-REC         PIC X(30).
+ WORKING-STORAGE   SECTION.
+ 01  HYYYYMM.
+   02  HYEAR       PIC 9(4).
+   02  FILLER      PIC X.
+   02  HMONTH      PIC Z(2).
+   02  FILLER      PIC X.
+   02  HNAME       PIC X(3). 
+ 01  HDAYS         PIC X(27) VALUE &quot;SUN MON TUE WED THU FRI SAT&quot;.
+ 01  DAYS.          
+   02  FILLER      OCCURS 7.
+     03  DKYUJITSU PIC X.
+     03  DDAY      PIC Z(2).
+     03  FILLER    PIC X. 
+ 01  MONTH-INFO.
+   02  MNAME-INFO  PIC X(36)
+                   VALUE &quot;JANFEBMARAPRMAYJUNJULAUGSEPOCTNOVDEC&quot;.
+   02  MNAME-INFOR   REDEFINES  MNAME-INFO.
+     03  MNAME     PIC X(3)  OCCURS 12. 
+   02  MMAXDATE.
+     03  MMAX      PIC 9(2)  OCCURS 12.
+ 01  DATE-TABLE1   PIC X(24)  VALUE &quot;312831303130313130313031&quot;.
+ 01  DATE-TABLE2   PIC X(24)  VALUE &quot;312931303130313130313031&quot;.
+ 01  SHUKU-TABLE.
+   02  SIND        PIC 9(2).
+   02  FILLER      OCCURS 1 TO 30 DEPENDING ON SIND.      
+     03  SMONTH    PIC 9(2).
+     03  SDATE     PIC 9(2).
+ 01  WMONTH        PIC 9(2).
+ 01  WDAY          PIC 9(2).
+ 01  WYYYY         PIC 9(4).
+ 01  WMM           PIC 9(2).
+ 01  WDD           PIC 9(2).
+ 01  WDATE         PIC 9(4).
+ 01  WINDX         PIC 9(2).
+ 01  WINDY         PIC 9(2).
+ 01  WKYUJITSU     PIC X VALUE SPACE.
+ 01  WSHUKU        PIC 9 VALUE ZERO.
+ 01  WBKSHUKU      PIC 9.
+ LINKAGE           SECTION.
+ 01  YEAR          PIC 9(4).
+ PROCEDURE         DIVISION  USING YEAR.
+ MAIN-SHORI.
+     IF YEAR = (YEAR / 4) * 4 AND YEAR NOT = (YEAR / 100) * 100 OR
+        YEAR = (YEAR / 400) * 400
+        MOVE DATE-TABLE2 TO MMAXDATE
+     ELSE
+        MOVE DATE-TABLE1 TO MMAXDATE
+     END-IF.
+     CALL &quot;MKSHUKU&quot; USING  YEAR SHUKU-TABLE.
+     MOVE SPACE TO  HYYYYMM.
+     MOVE YEAR TO HYEAR.
+     OPEN OUTPUT CALENDAR-FILE.
+     PERFORM VARYING WMONTH FROM 1 BY 1 UNTIL WMONTH &gt; 12
+        MOVE WMONTH TO HMONTH
+        MOVE MNAME(WMONTH) TO HNAME
+        WRITE C-REC FROM HYYYYMM AFTER ADVANCING 2
+        WRITE C-REC FROM HDAYS AFTER ADVANCING 1
+        MOVE YEAR TO WYYYY
+        MOVE WMONTH TO WMM
+        MOVE 1 TO WDD
+        PERFORM YOUBI-SHORI
+        MOVE SPACE TO DAYS
+        PERFORM VARYING WDAY FROM 1 BY 1 UNTIL <b>[　　a　　]</b>
+           MOVE WDAY TO DDAY(WDATE)
+           PERFORM KYUJITSU-CHECK
+           MOVE WKYUJITSU TO DKYUJITSU(WDATE)
+           IF WDATE = 7
+              WRITE C-REC FROM DAYS AFTER ADVANCING 1
+              MOVE 1 TO WDATE
+              MOVE SPACE TO DAYS
+           ELSE
+              <b>[　 　b　 　]</b>
+           END-IF
+        END-PERFORM
+        IF WDATE &gt; 1
+           WRITE C-REC FROM DAYS AFTER ADVANCING 1
+        END-IF
+     END-PERFORM.
+     CLOSE CALENDAR-FILE.
+     EXIT  PROGRAM.
+ YOUBI-SHORI.
+     IF WMM &lt;= 2
+        COMPUTE WYYYY = WYYYY - 1
+        <b>[　　 c 　　]</b>
+     END-IF.
+     COMPUTE WDATE = WYYYY + (WYYYY / 4) - (WYYYY / 100) +
+                     (WYYYY / 400) + ((26 * WMM + 16) / 10) + WDD.
+     <b>[　 　d　　 ]</b>.
+ KYUJITSU-CHECK.
+     MOVE WSHUKU TO WBKSHUKU.
+     PERFORM VARYING WINDX FROM 1 BY 1 
+        UNTIL WINDX &gt; SIND OR WMONTH = SMONTH(WINDX) AND
+        WDAY = SDATE(WINDX)
+        CONTINUE
+     END-PERFORM. 
+     IF WINDX &lt;= SIND
+        MOVE 1 TO WSHUKU
+     ELSE
+        MOVE 0 TO WSHUKU
+     END-IF.
+
+     IF <b>[　 　e　 　]</b> 
+        MOVE &quot;*&quot; TO WKYUJITSU
+     ELSE
+        MOVE SPACE TO WKYUJITSU
+     END-IF.
+</pre>    
+<pre>
+</pre>      
+<HR WIDTH=100%>        
+  <a NAME="81"><b>　<BR>  
+設問</b></a><b>　</b>プログラム中の<b>[　　　　　]</b>に入れる正しい答えを、解答群の中から選べ。<br>
+<br>
+a，e に関する解答群        
+<table border="0" cellpadding="3" cellspacing="0">       
+  <tr>       
+    <td valign="top">ア</td>       
+    <td>WDATE = 0 OR WSHUKU = 1</td>        
+  </tr>        
+  <tr>        
+    <td valign="top">  イ</td>       
+    <td>WDATE = 1 OR WSHUKU = 1 OR WDATE = 2 AND WBKSHUKU = 1</td>        
+  </tr>        
+  <tr>        
+    <td valign="top">  ウ</td>       
+    <td>WDAY = MMAX(WMONTH)</td>        
+  </tr>        
+  <tr>        
+    <td valign="top">  エ</td>       
+    <td>WDAY > MMAX(WMONTH)</td>        
+  </tr>        
+  <tr>        
+    <td valign="top">  オ</td>       
+    <td>WSHUKU = 1 OR WDATE = 2 AND WBKSHUKU = 1</td>        
+  </tr>        
+</table>        
+<table border="0" cellpadding="3" cellspacing="0">       
+  <tr>       
+    <td>　<br>
+      　<br>
+      b ～ d に関する解答群</td>        
+  </tr>        
+</table>        
+<table border="0" cellpadding="3" cellspacing="0">       
+  <tr>       
+    <td valign="top">  ア</td>       
+    <td>COMPUTE WDATE = WDATE + 1</td>        
+  </tr>        
+  <tr>        
+    <td valign="top">  イ</td>       
+    <td>COMPUTE WDATE = WDATE - (WDATE / 7) * 7</td>        
+  </tr>        
+  <tr>        
+    <td valign="top">  ウ</td>       
+    <td>COMPUTE WDATE = WDATE - (WDATE / 7) * 7 + 1</td>        
+  </tr>        
+  <tr>        
+    <td valign="top">  エ</td>       
+    <td>COMPUTE WDAY = WDATE - (WDATE / 7) * 7</td>        
+  </tr>        
+  <tr>        
+    <td valign="top">  オ</td>       
+    <td>COMPUTE WDAY = WDATE - (WDATE / 7) * 7 + 1</td>        
+  </tr>        
+  <tr>        
+    <td valign="top">  カ</td>       
+    <td>COMPUTE WDAY = WDAY + 1</td>        
+  </tr>        
+  <tr>        
+    <td valign="top">  キ</td>       
+    <td>COMPUTE WDD = WDD + 1</td>        
+  </tr>        
+  <tr>        
+    <td valign="top">  ク</td>       
+    <td>COMPUTE WMM = WMM + 1</td>        
+  </tr>        
+  <tr>        
+    <td valign="top">  ケ</td>       
+    <td>COMPUTE WMM = WMM + 12</td>        
+  </tr>        
+</table>        
+<p>　</p>
+<HR WIDTH=100%> 
+<a HREF="12f_p_a3.htm#81">設問の正解例と解説へ</a> 
+<HR WIDTH=100%> 
+<A HREF="index.htm"><br> 
+メニューへ戻る<br> 
+</A> 
+<HR WIDTH=100%> 
+<p> 
+<a NAME="90"> 
+<b>問9</b></a><b>　</b>次の Fortran        
+プログラムの説明及びプログラムを読んで，設問に答えよ。</p>        
+<p>〔プログラムの説明〕       
+<p>関数の補間値を，反復法によって求めるプログラムである。       
+<table border="0" cellPadding="3" cellspacing="0">       
+  <tbody>       
+    <tr>       
+      <td noWrap vAlign="top">(1)</td>       
+      <td>       
+        <p>f(x) を区間 [a, b]        
+        で滑らかな関数とする。ただし，この関数値を計算するのは，非常に手間がかかる。        
+        [a, b] 内の相異なる複数の点（標本点と呼ぶ）xi        
+        に対する関数値 yi が与えられているとき，任意の t (a＜t＜b)        
+        に対する関数値 f(t)        
+        を与えられた関数値から推定することを補間と呼ぶ。</p>       
+      </td>       
+    </tr>       
+    <tr>       
+      <td noWrap vAlign="top">(2)</td>       
+      <td>       
+        <p>サブルーチン sample(n, x, y)        
+        で，関数表を読み込む。関数表には，区間 [a, b]        
+        において，両端を含む n 個の等間隔な標本点 xi (i＝1,        
+        …, n) に対する関数値 yi        
+        があらかじめ与えられている。 sample(n, x, y)        
+        は，標本点の個数 n，標本点の配列 x，関数値の配列 y        
+        を格納して主プログラムへ戻る。</p>       
+      </td>       
+    </tr>       
+    <tr>       
+      <td noWrap vAlign="top">(3)</td>       
+      <td>       
+        <p>補間を精度よく行う準備として，t        
+        に最も近い標本点をサブルーチン find        
+        によって求める。サブルーチン find(n, x, t, near)        
+        において，n, x の意味は sample の場合と同じである。 t        
+        に最も近い標本点の番号を near に格納して戻る。</p>       
+      </td>       
+    </tr>       
+    <tr>       
+      <td noWrap vAlign="top">(4)</td>       
+      <td>       
+        <p>(3) で得られた near を基にして，サブルーチン arrange        
+        (n, x, t, near, idx) で t に近いものから順に，標本点 xi        
+        と関数値 yi        
+        の対に番号を付ける。このプログラムでは，標本点が等間隔であることを利用して，順番を付けている（図1）。例えば，3        
+        番目に t に近い標本点は x(idx(3))，その関数値は        
+        y(idx(3))        
+        として参照することができる。これ以降の説明では簡単のため，x(idx(        
+        j)) を Xj，y (idx( j)) を Yj と表す。       
+        <p align="left"><img border="0" src="image/4_1.gif" width="425" height="114"><br>     
+        　　　図１　arrange による標本点の番号付け</td>       
+    </tr>       
+    <tr>       
+      <td noWrap vAlign="top">(5)</td>       
+      <td>       
+        <p>P(Xj)＝Yj を満たす X の多項式 P(X)        
+        を組み立てることによって，t に対する補間値 P(t)        
+        を求める。 k 個の標本点をすべて満たす (k－1)        
+        次の多項式は，次のように表される。       
+        <p align="left"><img border="0" src="image/4_2.gif" width="554" height="122">      
+        <p>上式では標本点の組 (X1, X2, …, Xk)        
+        を用いているので，これを Pk,1(t) と表す。標本点の組        
+        (Xj, Xj＋1, …, Xj＋k－1) を用いた補間値は Pk,j(t)        
+        と表す。</p>       
+      </td>       
+    </tr>       
+    <tr>       
+      <td noWrap vAlign="top">(6)</td>       
+      <td>       
+        <p>k＝1 のとき，(k－1) 次の多項式 P1,j(t) は定数 Yj        
+        となる。 k＝2 のとき，(k－1) 次の多項式 P2,j(t)        
+        は標本点の組 (Xj, Xj＋1) を用いた 1        
+        次式となる。同様に，k＝m のとき，Pm,j(t)        
+        は標本点の組 (Xj, Xj＋1, …, Xj＋m－1) を用いた (m－1)        
+        次式となる。これら多項式の間には，次の関係式が成り立つ。       
+        <p><img border="0" src="image/4_3.gif" width="494" height="36">      
+      </td>      
+    </tr>      
+    <tr>      
+      <td noWrap vAlign="top">(7)</td>      
+      <td>      
+        <p>(6)の式に従い，P1,1(t) と P1,2(t) から P2,1(t)        
+        を得ることができる。次に P1,3(t)を用いれば P2,2(t)，そして        
+        P3,1(t) を得ることができる。結局，Pk,1(t) が k        
+        個の標本点を用いた場合の，X＝t における関数値 f(t)        
+        の補間値となる（図2）。</p>       
+      </td>       
+    </tr>       
+    <tr>       
+      <td noWrap vAlign="top">(8)</td>       
+      <td>       
+        <p>(7)の手続を，終了条件 EPS &gt; | Pk,1(t) － Pk－1,1(t) |が満たされるまで，利用する標本点の個数        
+        k を増やしながら繰り返す。ここで，EPS        
+        はあらかじめ与えられている小さな値である。終了条件が満たされたときに，補間結果と利用した標本点の個数を表示してプログラムを終了する。また，k＝KMAX        
+        となっても終了条件を満たさないときには，エラーメッセージを表示してプログラムを終了する。       
+        <p align="left"><img border="0" src="image/4_4.gif" width="248" height="104"><br>      
+        図２　反復補間法</td>  
+    </tr>  
+  </tbody>  
+</table>  
+<p>〔プログラム〕  
+<pre>program interpolate
+      integer, parameter :: NMAX=100, KMAX=10
+      real, parameter ::  EPS=1.0e-5
+      real, dimension(NMAX) ::  x, y
+      real, dimension(NMAX,KMAX) ::  p
+      integer, dimension(NMAX) :: idx
+      integer :: i, near, k, n
+      real :: t, prev
+      call sample(n,x,y)　　! 関数表の読込み
+      read(*,*) t
+      call find(n,x,t,near)　　! t に最も近い点を探す
+      call arrange(n,x,t,near,idx)　! 標本点，関数値の順序付け
+      do i=1,KMAX
+        p(1,i)=y(idx(i))
+      enddo
+      prev=p(1,1)
+      do k=2,KMAX
+        do <b>[　　a　　]</b>
+          p(i+1,k-i)= (<b>[　　b　　]</b>) / (x(idx(k))-x(idx(k-i)))
+        enddo
+        if(abs(p(k,1)-prev) &lt; EPS) then
+          write(*,'(a,f10.5,a,i3)') 'value: ', p(k,1), ', step: ', k
+          stop
+        else
+          prev=p(k,1)
+        endif
+      enddo
+      write(*,*) 'ERROR: not converged'
+contains
+      subroutine arrange(n,x,t,near,idx)
+      integer :: n, near, i, j, k, m
+      real, dimension(:) :: x
+      integer, dimension(:) :: idx
+      idx(1)= near
+      if(t &gt;= x(near)) then
+        i=1
+      else
+        i=-1
+      endif
+      do m=2,n
+        k=idx(m-1)+i
+        if(k &lt;= 0) then
+          i=1
+          exit
+        else if(k &gt; n) then
+          i=-1
+          exit
+        else
+          idx(m)=k
+        endif
+        i= <b>[　　c　　]</b>　　! sign(A,B)は A の絶対値に B の符号を付けた値
+      enddo
+      do <b>[　　d　　]</b>
+        idx(j)=idx(j-1)+i
+      enddo
+      end subroutine arrange
+end program interpolate
+</pre>  
+<p>   
+　</p> 
+<HR WIDTH=100%> 
+<a NAME="91">　<BR> 
+<b> 
+設問</b></a>&nbsp;　プログラム中の <b>[　　　　] </b>に入れる正しい答えを，解答群の中から選べ。       
+<p>a に関する解答群       
+<table border="0" cellpadding="3" cellspacing="0">       
+  <tr>       
+    <td width="80">ア　i=1,k-1</td>
+    <td width="80">イ　i=1,k</td>
+    <td>ウ　i=1,k+1</td>
+  </tr>
+  <tr>
+    <td>エ　i=2,k-1</td>
+    <td>オ　i=2,k</td>
+    <td>カ　i=2,k+1</td>
+  </tr>
+</table>
+<p>b に関する解答群       
+<table border="0" cellpadding="3" cellspacing="0">       
+  <tr>       
+    <td valign="top">ア</td>       
+    <td>(x(idx(k))-t)*p(i,k-i)+(x(idx(k-i))-t)*p(i,k-i+1)</td>       
+  </tr>       
+  <tr>       
+    <td valign="top">イ</td>       
+    <td>(x(idx(k))-t)*p(i,k-i)-(x(idx(k-i))-t)*p(i,k-i+1)</td>       
+  </tr>       
+  <tr>       
+    <td valign="top">ウ</td>       
+    <td>(x(k)-t)*p(i,k-i)+(x(k-i)-t)*p(i,k-i+1)</td>       
+  </tr>       
+  <tr>       
+    <td valign="top">エ</td>       
+    <td>(x(k)-t)*p(i,k-i)-(x(k-i)-t)*p(i,k-i+1)</td>       
+  </tr>       
+</table>       
+<p>c に関する解答群       
+<table border="0" cellpadding="3" cellspacing="0">       
+  <tr>       
+    <td>ア</td>       
+    <td>sign(abs(i),-i)</td>       
+  </tr>       
+  <tr>       
+    <td>イ</td>       
+    <td>sign(abs(i)+1,-i)</td>       
+  </tr>       
+  <tr>       
+    <td>ウ</td>       
+    <td>sign(abs(i)-1,-i)</td>       
+  </tr>       
+  <tr>       
+    <td>エ</td>       
+    <td>sign(abs(i),i)</td>       
+  </tr>       
+  <tr>       
+    <td>オ</td>       
+    <td>sign(abs(i)+1,i)</td>       
+  </tr>       
+  <tr>       
+    <td>カ</td>       
+    <td>sign(abs(i)-1,i)</td>       
+  </tr>       
+</table>       
+<p>d に関する解答群       
+<table border="0" cellpadding="3" cellspacing="0">       
+  <tr>       
+    <td width="80">ア　j=1,n</td>
+    <td width="80">イ　j=2,n</td>
+    <td>ウ　j=m-1,n</td>
+  </tr>
+  <tr>
+    <td>エ　j=m,n</td>
+    <td>オ　j=m+1,n</td>
+    <td></td>
+  </tr>
+</table>
+<p>　</p>
+<HR WIDTH=100%>
+  <a HREF="12f_p_a3.htm#91">設問の正解例と解説へ</a>
+<HR WIDTH=100%>
+  　<BR>
+<b><a name="100">問10</a>　</b>次のアセンブラプログラムの説明及びプログラムを読んで，設問に答えよ。
+<p>〔プログラムの説明〕<br>
+単方向リストの作成と削除を行うための副プログラム群である。リストは        
+ROOT        
+から始まり，各要素は次の要素へのポインタと値によって構成される。リストの最後の要素のポインタには，NULL        
+が格納されている。単方向リストの例を図 1 に示す。       
+<p align="left"><img border="0" src="image/10a.gif" width="419" height="50"><br>      
+　　　　　　　図１　単方向リスト 
+<p>　 
+<table border="0" cellPadding="3" cellspacing="0"> 
+  <tbody> 
+    <tr> 
+      <td noWrap vAlign="top">(1)</td> 
+      <td> 
+        <p>リスト領域は，要素を格納するための FLIST（偶数番地）から始まる大きさ        
+        FLSIZE語の領域である。各要素は 2 語からなり，図 2        
+        に示す構造をしている。 F        
+        はその要素が使用されているかどうかを示す 1        
+        ビットのフラグであり，ガーベジコレクション（副プログラム        
+        GC）で使用される。 Address と F をあわせた 1        
+        語を，次の要素へのポインタとして使う。 NULL は #0000        
+        で表す。 V には要素の値を格納する。       
+        <p align="left"><img border="0" src="image/10b.gif" width="387" height="111"><br>      
+        　　　　　　　図２　リスト領域と要素の構造</td> 
+    </tr> 
+    <tr> 
+      <td noWrap vAlign="top">(2)</td> 
+      <td> 
+        <p>主プログラムの最初で，副プログラム FLINIT        
+        を呼び出して初期化を行う。</p>       
+      </td>       
+    </tr>       
+    <tr>       
+      <td noWrap vAlign="top">(3)</td>       
+      <td>       
+        <p>副プログラム FLINIT        
+        は，次の初期化を行う（プログラムは省略）。       
+        <ul>       
+          <li>ROOT に NULL を格納する。</li>       
+          <li>リスト領域の終端番地の次の番地（FLIST＋FLSIZE）を        
+            FLMAXP に格納する。　FLMAXP は副プログラム GC        
+            で使用する。       
+          <li>リスト領域のすべての要素を連結した単方向リスト（フリーリストと呼ぶ）を作成し，リストの先頭番地を        
+            FLPTR に格納する。</li>       
+        </ul>       
+      </td>       
+    </tr>       
+    <tr>       
+      <td noWrap vAlign="top">(4)</td>       
+      <td>       
+        <p>副プログラム GC        
+        は，リスト領域の使用されていない要素（F が“未使用”）を集めてフリーリストを作成し，リストの先頭番地を        
+        FLPTR に格納する（プログラムは省略）。</p>       
+      </td>       
+    </tr>       
+    <tr>       
+      <td noWrap vAlign="top">(5)</td>       
+      <td>       
+        <p>副プログラム GET は，フリーリストから要素を        
+        一つ取り出す。 GET        
+        は呼び出されるたびに，取り出した要素の先頭番地を        
+        GR1        
+        に格納する。ただし，フリーリストの要素がなくなった場合には，副プログラム        
+        GC        
+        を呼び出して，フリーリストを再度作成する。それでも要素がない場合には，メッセージを出力して実行を終了する。</p>       
+      </td>       
+    </tr>       
+    <tr>       
+      <td noWrap vAlign="top">(6)</td>       
+      <td>       
+        <p>副プログラム ADD は，GR0        
+        に格納されている値をもつ要素を作り， ROOT        
+        から始まるリストの先頭に挿入する。主プログラムは，追加するデータを        
+        GR0 に格納しADD を呼び出す。図 1 のリストに値 25        
+        の要素を追加する例を図 3 に示す。       
+        <p align="left"><img border="0" src="image/10c.gif" width="450" height="100"><br>      
+        　　　　　　　　　図３　リストへの挿入</td> 
+    </tr> 
+    <tr> 
+      <td noWrap vAlign="top">(7)</td> 
+      <td> 
+        <p>副プログラム DEL は，ROOT        
+        から始まるリストから要素を順に検索し，GR0        
+        と同じ値をもつ要素が見つかれば，その要素を削除する。主プログラムは削除するデータを        
+        GR0 に格納し，DEL を呼び出す。図 1 のリストから値 30        
+        の要素を削除する例を図 4 に示す。       
+        <p align="left"><img border="0" src="image/10d.gif" width="419" height="90"><br>      
+        　　　　図４　リストからの削除</td> 
+    </tr> 
+    <tr> 
+      <td noWrap vAlign="top">(8)</td> 
+      <td> 
+        <p>ADD 及び DEL から戻るとき，汎用レジスタ GR1 ～ GR3        
+        の内容を元に戻す。</p>       
+      </td>       
+    </tr>       
+    <tr>       
+      <td noWrap vAlign="top">(9)</td>       
+      <td>       
+        <p>GET から戻るとき，汎用レジスタ GR2，GR3        
+        の内容を元に戻す。</p>       
+      </td>       
+    </tr>       
+  </tbody>       
+</table>       
+<dir>       
+</dir>       
+<p>〔プログラム〕       
+<pre>; リストに要素を追加する
+; パラメタ GR0:追加する値
+ADD      PUSH   0,GR1         
+         ST     GR0,TEMP
+         CALL   GET          ; リストの要素を獲得する
+         LD     GR0,TEMP
+         <b>[　　　　　a　　　　　]</b>
+         LD     GR0,ROOT
+         <b>[　　　　　b　　　　　]</b>   ; リストに追加する
+         ST     GR1,ROOT
+         POP    GR1
+         RET
+
+; リストから要素を削除する
+; パラメタ GR0:削除する値
+DEL      PUSH   0,GR1
+         PUSH   0,GR2
+         PUSH   0,GR3
+         LEA    GR1,ROOT
+         LD     GR2,0,GR1
+DLOOP    LEA    GR2,0,GR2
+         JZE    DEND         ; リストの末尾
+         CPA    GR0,1,GR2    ; 同じ値が見つかったか
+         JZE    DELEND
+         LEA    GR1,0,GR2
+         <b>[　　c　　]</b>
+         JMP    DLOOP 
+DELEND   <b>[　　d　　]</b>
+         ST     GR3,0,GR1
+         LD     GR3,FLAG
+         ST     GR3,0,GR2
+DEND     POP    GR3
+         POP    GR2
+         POP    GR1
+         RET
+
+; フリーリストから要素を取り出す
+; パラメタ なし
+; 結果 GR1:要素の番地
+GET      LD     GR1,FLPTR
+         LEA    GR1,0,GR1
+         JNZ    GL01
+         CALL   GC           ; 副プログラムGCを呼び出す
+         LD     GR1,FLPTR
+         LEA    GR1,0,GR1
+         <b>[　　e　　]</b>
+         OUT    ERMSG,ERMLEN ; 空き要素なし
+         EXIT
+GL01     LD     GR0,0,GR1
+         ST     GR0,FLPTR
+         RET
+FLIST    DS     1000
+FLSIZE   DC     1000
+FLMAXP   DS     1
+FLPTR    DS     1
+FLAG     DC     1
+ERMSG    DC     'NO AVAILABLE ELEMENT'
+ERMLEN   DC     20
+ROOT     DS     1
+TEMP     DS     1
+         END
+</pre>       
+<p>　</p>
+<hr>
+<p><b><a name="101">設問</a>　</b>プログラム中の <b>[　　　　]</b> 
+に入れる正しい答えを，解答群の中から選べ。</p>       
+<p>a，b に関する解答群       
+<table border="0" cellpadding="3" cellspacing="0">       
+  <tr>       
+    <td width="150">ア　ST GR0,0,GR1</td>       
+    <td width="150">イ　ST GR0,1,GR1</td>       
+    <td>ウ　ST GR2,0,GR1</td>       
+  </tr>       
+  <tr>       
+    <td>エ　ST GR2,1,GR1</td>       
+    <td>オ　ST GR3,0,GR1</td>       
+    <td>カ　ST GR3,1,GR1</td>       
+  </tr>       
+</table>       
+<p>c，d に関する解答群       
+<table border="0" cellpadding="3" cellspacing="0">       
+  <tr>       
+    <td width="150">ア　LD GR0,0,GR2</td>       
+    <td width="150">イ　LD GR0,1,GR2</td>       
+    <td>ウ　LD GR2,0,GR2</td>       
+  </tr>       
+  <tr>       
+    <td>エ　LD GR2,1,GR2</td>       
+    <td>オ　LD GR3,0,GR2</td>       
+    <td>カ　LD GR3,1,GR2</td>       
+  </tr>       
+</table>       
+<p>e に関する解答群       
+<table border="0" cellpadding="3" cellspacing="0">       
+  <tr>       
+    <td width="150">ア　JMI GL01</td>       
+    <td width="150">イ　JNZ GL01</td>       
+    <td>ウ　JPZ GL01</td>       
+  </tr>       
+  <tr>       
+    <td>エ　JZE GL01</td>       
+    <td></td>       
+    <td></td>       
+  </tr>       
+</table>       
+<p>　</p>     
+<HR WIDTH=100%>     
+  <a HREF="12f_p_a3.htm#101">設問の正解例と解説へ</a>     
+<HR WIDTH=100%>     
+  <p align="center"><a HREF="12f_p_e4.htm">■問11へ進む</a>　　　　　　　<a href="index.htm">■メニューへ戻る</a>     
+<HR WIDTH=100%>     
+<p><BR>     
+</p>     
+  <p>　</p>     
+</blockquote>     
+</BODY>     
+</HTML>     

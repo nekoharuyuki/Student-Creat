@@ -1,0 +1,144 @@
+<HTML>
+<HEAD>
+<TITLE>平成14年度秋期試験　</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0">
+<blockquote>
+  <hr>
+  <H3 align="center">平成14年度秋期試験　正解例と解説(問6～問8)</H3>
+<hr>
+<p><b><a name="60">問6</a>　</b></p>
+<hr> 
+<p><b><a name="61">設問</a>　</b> 
+</p> 
+＜解答＞　a　ウ　　　b　ア　　　c　イ　　　d　エ<br>
+<br>＜解説＞素数factorの値を2として，最初に自然数numが2の倍数であるかを判定する。numが2の倍数である場合，(2)の手順<img border="0" src="image/02_maru.GIF">によりfactorの値2を素因数として抽出し，numをfactorで割った商を新たなnumとして繰返す。空欄aを含むwhileループ中で，num ％ factor = = 0となりnumがfactorで割り切れる場合，素数factorを抽出して印字した後で空欄aの処理を行なっている。したがって空欄aはnum /= factorとなる。続いて，素数factorの値を3から始めて2ずつ増やしながら，numを素数factorで割った結果がfactor以上である間，素因数factorの抽出を繰返す。したがって行17のfactor++は素数factorの値2を3に増やす処理である。続く行18以下の空欄bを繰返し条件とするwhileループで，自然数numが素数factorの倍数である場合，再びfactorの値を素因数として抽出し，numをfactorで割った商を新たなnumとして繰返している。したがって空欄bはnumを素数factorで割った結果がfactor以上である間繰返すという条件，つまりnum / factor ≧ factorになる。自然数numが素数factorの倍数でなくなれば，行19以下のwhileループを終了し，行25の空欄cの処理を行なう。したがって空欄cは素因数factorの値を2だけカウントアップする処理factor =+ 2に該当する。<br>
+空欄dで自然数numが最後の素数factorで割り切れてnum／factor＝1となれば，whileループを終了し，行28のif文の条件でnum＝factor＞1となるので，空欄dで最後の素数numを印字すればよい。<br>
+<br>
+<hr WIDTH="100%">
+  <a HREF="14F_P_E3.HTM#61">問題へ</a>
+<hr WIDTH="100%">
+<br>
+<a HREF="INDEX.HTM">メニューへ戻る</a><br>
+<HR WIDTH=100%>
+<a NAME="70">　<BR>
+<b>
+問7</b></a><b>　</b>
+<hr> 
+<a NAME="71">　<BR>
+<b>
+設問</b></a><b>1　</b>
+＜解答＞　a　ア　　　b　ウ<br>
+<br>＜解説＞配列W-TABLEの要素POINT-L（W-1)およびPOINT-R（W-1)を0に初期値設定する必要があるが，この初期値設定の処理がないので，これを空欄aで行なう必要があり空欄aはINITIALIZE  W-TABLEとなる。<br>
+このプログラムの処理では，まず顧客情報ファイルCUSTOM-INのデータを，先頭から順にテーブルW-TABLEに読み込んで，ユーザIDが二分探索木を形成するように，左ポインタと右ポインタの値を設定している。<br>
+読み込んだユーザID（IN-ID）がW-ID(W-1)より小さければ左の子をたどり，W-ID(W-1)より大きければ右の子をたどる。左ポインタまたは右ポインタが0となれば，これにIN-IDの要素番号W-KENSUをセットすることにより，ユーザIDの二分探索木を形成している。<br>
+        <p><img border="0" src="image/FPA7-1.GIF"></p>
+        <p><br>
+
+空欄bは，テーブルW-TABLEに形成された二分探索木を，顧客リストCUSTOM-OUTに出力する処理であり，WRITE　OUT-R　FROM　W-R(W-1)に該当する。<br>
+<br>
+<HR WIDTH=100%>  
+  <a HREF="14F_P_E3.HTM#71">問題へ</a>  
+<HR WIDTH=100%>  
+  <p><b><a name="72">設問2</a>　</b></p>
+＜解答＞　ウ<br>
+<br>＜解説＞<br>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top"><img border="0" src="image/01_maru.GIF"></td>
+            <td>まず顧客情報ファイルのレコードの順に先頭からテーブルW-TABLEに格納されて，以下のようにPOINT-LとPOINT-Rがすべて初期値0に設定される。</td>
+          </tr>
+          <tr>
+            <td valign="top"><img border="0" src="image/02_maru.GIF"></td>
+            <td>2番目の要素K24U83458YZ4はCK66527C824Wより大きいので，CK66527C824Wの右の子に2がセットされる。</td>
+          </tr>
+          <tr>
+            <td valign="top"><img border="0" src="image/03_maru.GIF"></td>
+            <td>3番目の要素A35V2294QE78はCK66527C824Wより小さいので，CK66527C824Wの左の子に3がセットされる。</td>
+          </tr>
+          <tr>
+            <td valign="top"><img border="0" src="image/04_maru.GIF"></td>
+            <td>4番目の要素JQ3526XNM445はCK66527C824Wより大きいので，右の子2をたどる。JQ3526XNM445はK24U83458YZ4より小さいので，K24U83458YZ4の左の子に4がセットされる。</td>
+          </tr>
+          <tr>
+            <td valign="top"><img border="0" src="image/05_maru.GIF"></td>
+            <td>5番目の要素G87E99R32MK3はCK66527C824Wより大きいので，右の子2をたどる。G87E99R32MK3はK24U83458YZ4より小さいので左の子4をたどる。G87E99R32MK3はJQ3526XNM445より小さく，JQ3526XNM445の左の子が0なので，JQ3526XNM445の左の子に5がセットされる。</td>
+          </tr>
+          <tr>
+            <td valign="top"><img border="0" src="image/06_maru.GIF"></td>
+            <td>6番目の要素SLB937RR244DはCK66527C824Wより大きいので，右の子2をたどる。SLB937RR244DはK24U83458YZ4より大きく，K24U83458YZ4の右の子が0なので，K24U83458YZ4の右の子に6がセットされる。</td>
+          </tr>
+          <tr>
+            <td valign="top"><img border="0" src="image/07_maru.GIF"></td>
+            <td>7番目の要素BDD234L876XAはCK66527C824Wより小さいので，左の子3をたどる。BDD234L876XAはA35V2294QE787より大きく，A35V2294QE787の右の子が0なので，A35V2294QE787の右の子に7がセットされる。</td>
+          </tr>
+        </table>
+        <p><img border="0" src="image/FPA7-2.GIF"></p>
+        <p><br>
+<hr WIDTH="100%">
+  <a HREF="14F_P_E3.HTM#72">問題へ</a>
+<hr WIDTH="100%">
+<p><a HREF="INDEX.HTM">メニューへ戻る</a>　</p> 
+<HR WIDTH=100%> 
+<a NAME="80">　<BR> 
+<b> 
+問8</b></a><br>  
+<A NAME="40">  
+<HR WIDTH=100%>  
+</a><a NAME="81"><b>　<BR>  
+設問</b></a><b><a NAME="81"></a>　</b>
+＜解答＞　a　イ　　　b　ウ　　　c　キ　　　d　ウ<br>
+<br>＜解説＞空欄aについて<br>
+クラスGATEでWire型のオブジェクト配列inputが宣言されているので，空欄aでWire型配列inputの生成が必要となる。次のfor文で要素数nInputsのインスタンスオブジェクトinput [ i ]を生成している。したがって空欄aで，要素数nInputsのWire型配列inputの生成が必要となり，空欄aはnew Wire [ nInputs ]に該当する。<br>
+<br>
+空欄bについて<br>
+空欄bは，出力信号線outputを指定されたゲートotherGateのnthInput番目の入力信号線input [ nthInput ]に接続するメソッドconnectOutputToにおける処理である。したがってotherGateのnthInput番目の入力信号線input [ nthInput ]に，メソッドsetValueにより出力信号線outputの論理値output.getValue ( )をセットすればよく，空欄bはotherGate. input [ nthInput ]. setValue ( output.getValue ( ) )となる。<br>
+<br>
+空欄cについて<br>
+NotGateクラスのメソッドtick ( )は否定論理演算を行なうメソッドで，入力信号線のboolean型の論理値の否定を出力信号線outputにセットして返せばよい。したがって空欄cは！input [ 0 ].getValue ( )に該当する。<br>
+<br>
+空欄dについて<br>
+AndGateクラスのメソッドtick ( )はAND演算を行なうメソッドで，2つの入力信号線のboolean型の論理値のAND演算の結果を出力信号線outputにセットして返せばよい。したがって空欄dはinput [ 0 ].getValue ( ) && input [ 1 ].getValue ( )に該当する。<br>
+<br>
+
+<a NAME="81">
+<hr WIDTH="100%">
+</a><a HREF="14F_P_E3.HTM#81">問題へ</a>
+<hr WIDTH="100%">
+  <a HREF="INDEX.HTM"><br>
+メニューへ戻る<br> 
+<HR WIDTH=100%> 
+<a NAME="90">　<BR> 
+<b> 
+問9</b></a>　　　（解説は省略します。）<br>  
+<A NAME="40">  
+<HR WIDTH=100%>  
+</a><a NAME="91"><b>　<BR>  
+設問</b></a><b><a NAME="91">1</a>　</b>
+  <p>＜解答＞　a　イ　　b　ア</p>
+<p>　</p> 
+<A NAME="91">  
+<HR WIDTH=100%>  
+</a><a HREF="14F_P_E3.HTM#91">問題へ</a> 
+<HR WIDTH=100%> 
+<p><b><a name="92">設問2</a>　</b></p>
+<p>＜解答＞　ウ<br>
+　</p>
+<a NAME="92">
+<hr WIDTH="100%">
+</a><a HREF="14F_P_E3.HTM#92">問題へ</a>
+<HR WIDTH=100%> 
+<p><b><a name="93">設問3</a>　</b></p>
+<p>＜解答＞　エ<br>
+　</p>
+<a NAME="93">
+<hr WIDTH="100%">
+</a><a HREF="14F_P_E3.HTM#93">問題へ</a>
+<hr WIDTH="100%">
+  <a HREF="INDEX.HTM"><br>
+メニューへ戻る<br>   </a> 
+<HR WIDTH=100%> 
+<p>　</p>
+</blockquote>
+</BODY>
+</HTML>

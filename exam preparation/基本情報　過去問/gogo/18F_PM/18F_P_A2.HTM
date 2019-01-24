@@ -1,0 +1,145 @@
+<html>
+
+<head>
+<title>平成18年度 秋期　基本情報技術者 午後 解説</title>
+<style type="text/css">
+body{line-height:150%;}
+code{font-size:12pt;}
+</style>
+</head>
+
+<body>
+
+<blockquote>
+<hr>
+<h3 align="center">平成18年度秋期試験　正解例と解説(問3～問5)</h3>
+<hr>
+<p><a name="30"><strong>問3</strong></a></p>
+<p><a name="31"><strong>設問</strong></a></p>
+<p>〈解答〉　a　ウ　　　b　イ　　　c　オ</p>
+<p>〈解説〉</p>
+<blockquote>
+<p>空欄aについて</p>
+<blockquote>
+<p>前進消去の変数iに関するループ処理（中間のループ処理）で，<code>FACTOR←a[i，k]÷Pivot</code>の処理を行っているが，<code>Pivot</code>の初期値設定がなく，ループ処理直前の空欄aで<code>Pivot</code>に初期値設定が必要になる。(1)①の前進消去の説明よりa<sub>kk
+</sub><sup>(n</sup><sup>－</sup><sup>1)</sup>をピボット(<code>Pivot</code>)と呼んでいるので，空欄aは解答群のウの<code>Pivot←a[k，k]</code>が適切。</p>
+<table border="1" cellpadding="0" cellspacing="6" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber1">
+<tr>
+<td>〈参考〉<br>
+<code>FACTOR←a[i，k]÷Pivot</code>の処理では，a<sub>ij</sub><sup>(k)</sup>＝a<sub>ij</sub><sup>(k－1)</sup>－a<sub>kj</sub><sup>k－1)</sup>×(
+a<sub>ik</sub><sup>(k－1)</sup>／a<sub>kk</sub><sup>(k－1)</sup> )の計算式における( a<sub>ik</sub><sup>(k－1)</sup>／a<sub>kk</sub><sup>(k－1)</sup>
+)の部分を計算している。</td>
+</tr>
+</table>
+</blockquote>
+<p>空欄bについて</p>
+<blockquote>
+<p>空欄bを含むループ処理は，後退代入の(1)②のx<sub>i</sub>に関する計算</p>
+<p><img src="img/math3.png">　　( i＝n－1，…，1 )</p>
+<p>を行っている処理である。空欄bはループ処理の変数iの初期値，繰返条件，増分値に関する部分になっている。i＝n－1，…，1の順に後退代入により計算するので，空欄bは解答群のイの「<code>i：n－1，i≧1，－1</code>」が適切。</p>
+</blockquote>
+<p>空欄cについて</p>
+<blockquote>
+<p>空欄cを含むループ中の処理で<code>Sum←Sum＋a[i，j]×x[j]</code>の加算処理を行っており，空欄cを含むループ処理が</p>
+<p><img src="img/math35.png"></p>
+<p>の計算に該当することが分かる。この計算では変数jの値をi＋1から1ずつ増やしながらnになるまで加算を行っている。空欄cはこの計算を行うループ処理の変数jの初期値，繰返条件，増分値に関する部分になっているので，解答群のオの「<code>j：i＋1，j≦n，1</code>」が適切。</p>
+<table border="1" cellpadding="0" cellspacing="6" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber2">
+<tr>
+<td>
+このプログラムの空欄は，初期値の設定と初期値，繰返条件，増分値に関する部分になっているので，ループのプログラムの説明文と計算式とプログラムのアルゴリズムを対比して考えれば，むしろ平易な問題である。
+</td>
+</tr>
+</table>
+</blockquote>
+</blockquote>
+<hr>
+<p><a href="18F_P_E2.HTM#31">問題へ</a> </p>
+<hr>
+<p><a name="40"><strong>問4</strong></a></p>
+<p><a name="41"><strong>設問1</strong></a></p>
+<p>〈解答〉　a　エ　　　b　ア　　　c　イ</p>
+<p>〈解説〉</p>
+<blockquote>
+<p>空欄aについて</p>
+<blockquote>
+<p>タブ位置＝間隔文字の開始位置＋タブ間隔＝<code>Didx</code>＋<code>TabGap</code>で表わせる。タブ位置＝タブ間隔×n＋1の関係より，<code>Didx</code>＋<code>TabGap</code>＝<code>TabGap</code>×n＋1が成り立つ。したがってn＝（<code>Didx</code>＋<code>TabGap</code>－1）÷<code>TabGap</code>となり，空欄aはエの<code>Didx＋TabGap－1</code>が適切。</p>
+</blockquote>
+<p>空欄bについて</p>
+<blockquote>
+<p>空欄bの直前で<code>Dst[Didx]←SPC</code>の処理により間隔文字を出力配列<code>Dst</code>に格納している。空欄bを含むループ処理では，タブ文字を一つ以上の間隔文字にタブ位置直前まで置き換えているが，置き換える文字位置Didxを次の位置に進める処理がなく，空欄bで<code>Didx</code>のインクリメントが必要になる。したがって空欄bはアの<code>Didx</code><code>←Didx＋1</code>が適切。</p>
+</blockquote>
+<p>空欄cについて</p>
+<blockquote>
+<p><code>Src[Sidx]＝TAB</code>でない場合，つまり入力文字配列の文字がタブ文字以外の場合は，そのまま<code>Dst</code>に格納すればよい。<code>Sidx＝1</code>，<code>Didx＝1</code>のとき先頭文字<code>Src[1]</code>が<code>TAB</code>でない場合，<code>Dst[1]</code>に格納する必要があるので，空欄cはイの<code>Dst[Didx]←Src[Sidx]</code>が適切。</p>
+</blockquote>
+</blockquote>
+<hr>
+<p><a href="18F_P_E2.HTM#41">問題へ</a> </p>
+<hr>
+<p><a name="42"><strong>設問2</strong></a></p>
+<p>〈解答〉　d　ア　　　e　カ</p>
+<p>〈解説〉</p>
+<blockquote>
+<p>空欄dについて</p>
+<blockquote>
+<p>空欄d，eを含むループ処理の直後のループ処理で，<code>Dst[Didx]←SPC</code>の処理によりタブ文字を間隔文字に<code>TabPos</code>直前まで置き換える処理を行っている。空欄dを含むループ処理の中で，<code>Tabset[Tidx]＝－1</code>となるか，<code>Loop＝false</code>となるまでタブ位置を格納した配列<code>TabSet</code>を検索し，条件<code>Didx＜TabSet[Tidx]</code>が成り立てば空欄dの処理の後，ループを抜けてタブ文字を間隔文字に置き換える処理に入っている。したがって空欄dを含むループ処理は，タブ位置を格納した配列<code>TabSet</code>を検索し，<code>Didx＜TabSrt[tidx]</code>となる次のタブ位置を検索している処理に該当する。</p>
+<p>条件<code>Didx＜TabSet[Tidx]</code>を満たすタブ位置が見つかれば，<code>TabSet[Tidx]</code>を<code>TabPos</code>にセットすればよい。したがって空欄dはアの<code>TabPos←TabSet[Tidx]</code>が適切。</p>
+</blockquote>
+<p>空欄eについて</p>
+<blockquote>
+<p>条件<code>Didx</code>＜<code>TabSet[Tidx]</code>が成り立たない間は，配列要素の添字<code>Tidx</code>を次の要素に進め検索を続ける必要があり，空欄eで<code>Tidx</code>のインクリメントが必要で，カの<code>Tidx←Tidx＋1</code>が適切。</p>
+</blockquote>
+</blockquote>
+<hr>
+<p><a href="18F_P_E2.HTM#42">問題へ</a> </p>
+<hr>
+<p><a href="INDEX.HTM">■メニューへ戻る</a> </p>
+<hr>
+<p><a name="50"></a><strong>問5</strong></p>
+<p><a name="51"></a><strong>設問1</strong></p>
+<p>〈解答〉　a　ア　　　b　キ　　　c　エ　</p>
+<p>〈解説〉</p>
+<blockquote>
+<p>空欄aについて</p>
+<blockquote>
+<p>
+必要量ファイルには，製造計画で決められた製造日，製品コード，ロット番号ごとに“牛乳の必要量”と単一か混合かを示す牧場区分が格納されているので，必要量計算のモジュールの処理は製造日，製品コード，ロット番号が変わるごとに繰返す。これに対して製造日ごとの各牧場の牛乳の必要量を集計し，総必要量として集計ファイルに格納するので，集計処理のモジュールは製造日が変わるごとに繰返し，必要量ファイルが終わるまで行う必要がある。したがって空欄aはアが適切。</p>
+</blockquote>
+<p>空欄bについて</p>
+<blockquote>
+<p>空欄bの条件が成り立つ場合に混合モジュールの処理を行っているので，空欄bの条件はキの牧場区分＝“Ｍ”が適切。</p>
+</blockquote>
+<p>空欄cについて</p>
+<blockquote>
+<p>空欄cの条件が成り立つ場合に単一モジュールの処理を行っているので，空欄cの条件はエの（牧場区分＝“Ｊ”）or（牧場区分＝“K”）or（牧場区分＝“L”）が適切。</p>
+</blockquote>
+</blockquote>
+<p><a name="52"><strong>設問2</strong></a></p>
+<p>〈解答〉　d　イ</p>
+<p>〈解説〉</p>
+<blockquote>
+<p>空欄dについて</p>
+<blockquote>
+<p>
+プログラムの説明①よりJ牧場，K牧場，L牧場の牛乳の必要量の計算は，小数点以下を切捨て，切捨て誤差はL牧場の必要量で補正する。wj，wkには小数点以下を切捨てた計算結果が格納されているので，牛乳の必要量－wj－wkにより切捨てられた小数点以下の誤差を含めたL牧場の必要量が計算できる。したがってイのwl←牛乳の必要量－wj－wkが適切。</p>
+</blockquote>
+</blockquote>
+<hr>
+<p><a href="18F_P_E2.HTM#52">問題へ</a> </p>
+<hr>
+<p><a name="53"><strong>設問3</strong></a></p>
+<p>〈解答〉　エ</p>
+<p>〈解説〉</p>
+<blockquote>
+<p>牧場区分に対応した牛乳の必要量を，それぞれwj，wk，wlに格納する必要があるので，これを第4階層のモジュール“単一”で行う必要がある。したがってエが適切。</p>
+</blockquote>
+<hr>
+<p><a href="18F_P_E2.HTM#53">問題へ</a> </p>
+<hr>
+<p><a href="INDEX.HTM">■メニューへ戻る</a> </p>
+<hr>
+</blockquote>
+
+</body>
+
+</html>

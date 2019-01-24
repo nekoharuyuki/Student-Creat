@@ -1,0 +1,766 @@
+<HTML>
+<HEAD>
+<TITLE>平成11年度春期試験　問題(問3～問6)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0">
+<BLOCKQUOTE>
+<hr>
+<H3 align="center">平成11年度春期試験　問題(午後問3～問6)</H3>
+<hr>
+<P>
+次の問３から問６までの4問については、この中から2問を選択し、答案用紙の選択欄の選をマークして解答してください。<br>
+なお、3問以上選択した場合には、はじめの2問について採点します。<br>
+<HR WIDTH=100%>
+<A NAME="30">　<BR>
+<b>
+問3</b></a><b>　</b>機械語のプログラムへのアセンブルに関する次の記述を読んで、設問      
+1、2に答えよ。     
+<p>二つの整数9と5の加算を行うアセンブラ言語CASLのプログラムを次に示す。<br>     
+なお、この計算機の１語は16ビットであり、命令語は２語長である。番地は、語単位に付けられている。また、16ビットの汎用レジスタ（GR）が５個あり、汎用レジスタ０番から４番までとする。このうち、１番から４番までのレジスタは、指標レジスタ（XR）としても用いる。</p>     
+<p>〔CASLのプログラム〕     
+<table border="0" cellpadding="3" cellspacing="0">     
+  <tr>     
+    <td><font size="2">ラベル&nbsp; 命令コード&nbsp; オペランド<br>     
+      KASAN&nbsp;&nbsp;      
+      START&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      ST&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GR1,SAGR1&nbsp;&nbsp;<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      ST&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GR3,SAGR3&nbsp;&nbsp;<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; LEA&nbsp;&nbsp;&nbsp;&nbsp;      
+      GR3,2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      LD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GR1,X&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ADD&nbsp;&nbsp;&nbsp;&nbsp;      
+      GR1,Y&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      ST&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GR1,Z,GR3&nbsp;&nbsp;<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      ;<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      LD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GR1,SAGR1&nbsp;&nbsp;<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      LD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GR3,SAGR3&nbsp;&nbsp;<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      EXIT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>     
+      SAGR1&nbsp;&nbsp; DS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>     
+      SAGR3&nbsp;&nbsp; DS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>     
+      X&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      9&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>     
+      Y&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>     
+      Z&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+      END&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font></td>     
+    <td><font size="2">注釈<br>     
+      &nbsp;;プログラムの先頭を示す<br>     
+      ;汎用レジスタ 1 番の内容をラベル SAGR1 の番地に格納<br>     
+      &nbsp;;汎用レジスタ 3 番に整数 2 を設定<br>     
+      ;汎用レジスタ 3 番の内容をラベル SAGR3 の番地に格納<br>     
+      &nbsp;;汎用レジスタ 1 番にラベル x の番地の内容を設定<br>     
+      ;汎用レジスタ 1 番の内容にラベル Y      
+      の番地の内容を加算<br>     
+      ;汎用レジスタ 1 番の内容を，ラベル Z      
+      の番地と指標レジスタ 3      
+      番の内容との加算値が示す番地に格納<br>     
+      ;汎用レジスタ 1 番にラベル SAGR1 の番地の内容を設定<br>     
+      ;汎用レジスタ 3 番にラベル SAGR3 の番地の内容を設定<br>     
+      ;プログラムの実行終了<br>     
+      ;1 語分の領域を確保し、その番地を SAGR1 で参照<br>     
+      &nbsp;;1 語分の領域を確保し、その番地を SAGR3 で参照<br>     
+      &nbsp;;1 語分の領域に整数 9 を格納し，その番地を X      
+      で参照<br>     
+      ;1 語分の領域に整数 5 を格納し，その番地を Y で参照<br>     
+      &nbsp;;4 語分の領域を確保し、その先頭の語の番地を Z      
+      で参照&nbsp;<br>     
+      &nbsp;;プログラムの終わりを示す</font></td>     
+  </tr>     
+</table>     
+<p>機械語命令の表記は、次のとおりであり、[　　　 ]で囲まれた部分は省略可能であることを示す。<br>     
+　
+<table border="0" cellpadding="10" cellspacing="0">
+  <tr>
+    <td>ラベル<br>
+      [label]&nbsp;</td>
+    <td>
+      <p align="center">&nbsp;命令コード<br>
+      op</td>
+    <td>オペランド<br>
+      GRi,adr[,XRj]</td>
+  </tr>
+</table>
+<p>ここで、機械語命令の構成を図のように定義する。オペランドアドレスには、adrの値が格納される。adrがラベル名の場合には、そのラベルに対応する番地が、プログラムの先頭を０番地とした相対番地で格納される。<br>
+　
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>1番目の語</td>
+    <td>
+      <table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolor="#FFFFFF" bordercolordark="#FFFFFF">
+        <tr>
+          <td width="120">
+            <p align="center">op：命令コード<br>
+            （8ビット）</td>
+          <td width="140">
+            <p align="center">i：汎用レジスタ番号<br>
+            （4ビット）</td>
+          <td width="140">
+            <p align="center">j：指標レジスタ番号<br>
+            （4ビット）</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>2番目の語</td>
+    <td>
+      <table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolor="#FFFFFF" bordercolordark="#FFFFFF" width="410">
+        <tr>
+          <td width="434">
+            <p align="center">adr：オペランドアドレス<br>
+            （16ビット）</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <p align="center">図　機械語命令の構成</td>
+  </tr>
+</table>
+<p align="left">　</p>
+<p>また、各機械語命令の命令コードは、次のとおりである。<br>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>ADD命令<br>
+      LD命令&nbsp;<br>
+      LEA命令<br>
+      ST命令&nbsp;</td>
+    <td>0100 1100<br>     
+      0100 0000<br>     
+      0100 0010<br>     
+      0100 0001</td>     
+  </tr>     
+</table>     
+<p>EXITはマクロ命令であり、1000 1000 0000 0000 1100 0000 0000 0000の<br>     
+2語からなる。 START、ENDは擬似命令であり、機械語に変換されない。<br>     
+　</p>
+<A NAME="30">
+<HR>
+</a><A NAME="31">　<BR>
+<b>
+設問1</b></a><b>　</b>このCASLプログラムをアセンブルすると、次の機械語のプログラムができる。<img border="0" src="image/box.gif" width="58" height="17">に入れる正しい答えを、解答群の中から選べ。<br>
+<p>〔機械語のプログラム〕<br>
+<img border="0" src="image/A99s03f2.gif" width="610" height="290"><br>
+<p>解答群<br>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>ア</td>
+    <td>0000 0000 0001 0001　　</td>
+    <td>イ</td>
+    <td>0000 0000 0001 0010</td>     
+  </tr>     
+  <tr>     
+    <td>ウ</td>     
+    <td>0000 0000 0001 0011</td>     
+    <td>エ</td>     
+    <td>0000 0000 0001 0100</td>     
+  </tr>     
+  <tr>     
+    <td>オ</td>     
+    <td>0000 0000 0001 0101</td>     
+    <td>カ</td>     
+    <td>0100 0000 0001 0011</td>     
+  </tr>     
+  <tr>     
+    <td>キ</td>     
+    <td>0100 0001 0001 0010</td>     
+    <td>ク</td>     
+    <td>0100 0001 0001 0011</td>     
+  </tr>     
+  <tr>     
+    <td>ケ</td>     
+    <td>0100 0001 0011 0001</td>     
+    <td>コ</td>     
+    <td>0100 0010 0001 0011</td>     
+  </tr>     
+</table>     
+<p>　</p>
+<HR WIDTH=100%>
+<A HREF="11s_p_a2.htm#31">設問1の正解例と解説へ</A>
+<HR WIDTH=100%>
+<A NAME="32">　<BR>
+<b>
+設問2</b></a>　加算結果は、機械語のプログラムのどの番地に格納されるか。正しい答えを解答群の中から選べ。
+<p>解答群
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>ア</td>
+    <td>0000 0000 0001 0101</td>    
+    <td>イ</td>    
+    <td>0000 0000 0001 0110</td>    
+  </tr>    
+  <tr>    
+    <td>ウ</td>    
+    <td>0000 0000 0001 0111</td>    
+    <td>エ</td>    
+    <td>0000 0000 0001 1000</td>    
+  </tr>    
+  <tr>    
+    <td>オ</td>    
+    <td>0000 0000 0001 1001</td>    
+    <td></td>    
+    <td></td>    
+  </tr>    
+</table>    
+<p>　</p>
+<HR WIDTH=100%>
+<A HREF="11s_p_a2.htm#32">設問2の正解例と解説へ</A>
+<HR WIDTH=100%>
+<p><A HREF="index.htm">メニューへ戻る</A>　</p>
+<HR WIDTH=100%>
+<A NAME="40">　<BR>
+<b>
+問4</b></a>　プログラムのテストに関する次の記述を読んで、設問      
+1～ 3に答えよ。     
+<p>宅配便の料金を計算するプログラムがある。宅配便の料金は配送先の地域と荷物の重量によって、表のとおり決められている。<br>     
+　     
+<table border="0" cellpadding="3" cellspacing="0">     
+  <tr>     
+    <td>表　宅配便の料金表　　　　　　単位：円</td>     
+  </tr>     
+</table>     
+<table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolor="#FFFFFF" bordercolordark="#FFFFFF" width="436">     
+  <tr>     
+    <td width="56">   
+      <p align="right"><font size="2">重量</font></p>  
+      <p align="right"><font size="2">地域　　　</font></p>  
+    </td>    
+    <td width="66">0kgを超え<br>    
+      2kg未満</td>    
+    <td width="66">2kgを超え<br>    
+      4kg未満</td>    
+    <td width="66">4kgを超え<br>    
+      6kg未満</td>    
+    <td width="66">6kgを超え<br>    
+      8kg未満</td>    
+    <td width="66">8kgを超え<br>    
+      10kg未満</td>    
+  </tr>    
+  <tr>    
+    <td width="56">第1地域</td>    
+    <td align="center" width="66">510</td>    
+    <td align="center" width="66">630</td>    
+    <td align="center" width="66">750</td>    
+    <td align="center" width="66">810</td>    
+    <td align="center" width="66">870</td>    
+  </tr>    
+  <tr>    
+    <td width="56">第2地域</td>    
+    <td align="center" width="66">610</td>    
+    <td align="center" width="66">770</td>    
+    <td align="center" width="66">930</td>    
+    <td align="center" width="66">1010</td>    
+    <td align="center" width="66">1090</td>    
+  </tr>    
+  <tr>    
+    <td width="56">第3地域</td>    
+    <td align="center" width="66">710</td>    
+    <td align="center" width="66">870</td>    
+    <td align="center" width="66">1030</td>    
+    <td align="center" width="66">1110</td>    
+    <td align="center" width="66">1190</td>    
+  </tr>    
+  <tr>    
+    <td width="56">第4地域</td>    
+    <td align="center" width="66">810</td>    
+    <td align="center" width="66">970</td>    
+    <td align="center" width="66">1130</td>    
+    <td align="center" width="66">1210</td>    
+    <td align="center" width="66">1290</td>    
+  </tr>    
+</table>    
+<table border="0" cellpadding="3" cellspacing="0">    
+  <tr>    
+    <td valign="top">(1)</td>    
+    <td>このプログラムは、地域コードと重量を引数として受け取り、料金を戻り値として返す。</td>    
+  </tr>    
+  <tr>    
+    <td valign="top">(2)</td>    
+    <td>地域コードは、１けたの整数で、第１地域から第４地域のそれぞれに対し、１～４の値が対応する。</td>    
+  </tr>    
+  <tr>    
+    <td valign="top">(3)</td>    
+    <td>重量は、kgを単位とする小数点以下１けたの実数である。</td>    
+  </tr>    
+  <tr>    
+    <td valign="top">(4)</td>    
+    <td>戻り値は、円を単位とする整数である。</td>    
+  </tr>    
+  <tr>    
+    <td valign="top">(5)</td>    
+    <td>地域コードに対応する地域が料金表にない場合は、戻り値として－1を返す。</td>    
+  </tr>    
+  <tr>    
+    <td valign="top">(6)</td>    
+    <td>重量が料金表にない場合は、戻り値として－2を返す。</td>    
+  </tr>    
+  <tr>    
+    <td valign="top">(7)</td>    
+    <td>このプログラムの流れ図は図のとおりである。なお、流れ図中のINT(      
+      )は、小数点以下を切り捨てる関数である。</td>     
+  </tr>     
+</table>     
+<p><img border="0" src="image/A99s04f2.gif" width="597" height="501"><br>    
+図　プログラムの流れ図<br>   
+</p>   
+<HR WIDTH=100%>   
+<A NAME="41">   
+<b>　<BR>   
+設問1</b></a><b> </b>このプログラムを限界値分析によるブラックボックステストによってテストしたい。地域コード＝      
+1に組み合わせる重量データの組みとして正しい答えを、解答群の中から選べ。     
+<p>解答群</p>     
+<table border="0" cellpadding="3" cellspacing="0">     
+  <tr>     
+    <td>ア</td>     
+    <td>0.0，0.1，1.9，2.0，2.1，3.9，4.0，4.1，5.9，6.0，6.1，7.9，8.0，8.1，9.9，10.0，10.1</td>     
+  </tr>     
+  <tr>     
+    <td>イ</td>     
+    <td>0.0，0.1，1.9，2.0，3.9，4.0，5.9，6.0，7.9，8.0，9.9，10.0</td>     
+  </tr>     
+  <tr>     
+    <td>ウ</td>     
+    <td>0.0，1.0，3.0，5.0，7.0，9.0，11.0</td>     
+  </tr>     
+  <tr>     
+    <td>エ</td>     
+    <td>0.0，2.0，4.0，6.0，8.0，10.0</td>     
+  </tr>     
+  <tr>     
+    <td>オ</td>     
+    <td>1.9，2.0，3.9，4.0，5.9，6.0，7.9，8.0，9.9</td>     
+  </tr>     
+  <tr>     
+    <td>カ</td>     
+    <td>1.9，3.9，5.9，7.9，9.0</td>     
+  </tr>     
+</table>     
+<p>　</p> 
+<HR WIDTH=100%> 
+<A HREF="11s_p_a2.htm#41">設問1の正解例と解説へ</A> 
+<HR WIDTH=100%> 
+<A NAME="42"> 
+　<BR> 
+<b> 
+設問2</b></a><b>&nbsp;</b>  
+ホワイトボックステストのためのテストデータ設定方法はどれか。正しい答えを、解答群の中から選べ。     
+<p>解答群</p>     
+<table border="0" cellpadding="3" cellspacing="0">     
+  <tr>     
+    <td valign="top">ア</td>     
+    <td>このプログラムを呼び出すプログラムから正しく呼び出されているかどうかを確認するデータを作成する。</td>     
+  </tr>     
+  <tr>     
+    <td valign="top">イ</td>     
+    <td>重量に11.0を設定して呼び出したときに、戻り値が－2になるかどうかを確認するデータを作成する。</td>     
+  </tr>     
+  <tr>     
+    <td valign="top">ウ</td>     
+    <td>正常値については、戻り値を求める４種類の計算式が正しいかどうかを確認するデータを作成する。</td>     
+  </tr>     
+  <tr>     
+    <td valign="top">エ</td>     
+    <td>地域コードと重量の組みを乱数によって作成する。</td>     
+  </tr>     
+  <tr>     
+    <td valign="top">オ</td>     
+    <td>料金表の各欄に対応する地域コードと重量の組合せのデータを作成する。</td>     
+  </tr>     
+</table>     
+<p>　</p>     
+<HR WIDTH=100%>     
+<A HREF="11s_p_a2.htm#42">設問2の正解例と解説へ</A>     
+<HR WIDTH=100%>     
+<A NAME="43">　<BR>     
+<b>     
+設問3</b></a>&nbsp;      
+このプログラムを、次のテストデータでテストした場合、命令網羅率（すべての命令の個数に対して、少なくとも１回は実行された命令の個数の比率）は何パーセントになるか。正しい答えを、解答群の中から選べ。ただし、流れ図中の一つの処理及び判断がプログラムの１命令に対応するものとする。<br>     
+<p>（地域コード，重量）＝（1，1.6），（1，3.8），（2，5.5），（3，8.0），（3，9.7），（4，10.5）<br>     
+<p>解答群<br>     
+ア　60　　　　イ　63　　　　ウ　69　　　　エ　70　　　　オ　75<br> 
+カ　80　　　　キ　81　　　　ク　88　　　　ケ　90　　　　コ　100<br> 
+</p> 
+<A NAME="43"> 
+<HR WIDTH=100%> 
+</a> 
+<A HREF="11s_p_a2.htm#43">設問3の正解例と解説へ</A> 
+<HR WIDTH=100%> 
+　<BR>
+<b><a name="50">問5</a>　</b>
+<p>関係データベースに関する次の記述を読んで、設問１～３に答えよ。
+<p>　生徒名簿表、クラス表、模擬試験結果表からなる関係データベースがある。<br>
+模擬試験は複数回行われ、各回の試験には試験番号が付けられている。
+<p>(1)　生徒名簿表は、各生徒の生徒番号、氏名及びその他のデータを表したものである。<br>
+　
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>生徒名簿表</td>
+  </tr>
+</table>
+<table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolor="#FFFFFF" bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100">生徒番号</td>
+    <td width="150">氏名</td>
+    <td width="150">その他</td>
+  </tr>
+</table>
+<p>(2)　クラス表は、各クラスとそこに所属する生徒を表したものである。<br>
+　
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>クラス表</td>
+  </tr>
+</table>
+<table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolor="#FFFFFF" bordercolordark="#FFFFFF">
+  <tr>
+    <td width="120">
+      <p align="center"><b>[　a　]</b></td>
+    <td width="120">生徒番号</td>
+  </tr>
+</table>
+<p>(3)　模擬試験結果表は、模擬試験別、受験者別の各科目の点数を表したものである。</p>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>模擬試験結果表</td>
+  </tr>
+</table>
+<table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolor="#FFFFFF" bordercolordark="#FFFFFF">
+  <tr>
+    <td width="80" align="center">試験番号</td>
+    <td width="80" align="center"><b>[　　b　　]</b></td>
+    <td width="80" align="center">英語</td>
+    <td width="80" align="center">数学</td>
+    <td width="80" align="center">国語</td>
+  </tr>
+</table>
+<p>(4)　それぞれの表は、次に示す項目から構成されている。</p>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">①</td>
+    <td>クラス番号、試験番号、生徒番号：各クラス、各模擬試験、各生徒を一意に識別するための数値</td>
+  </tr>
+  <tr>
+    <td>②</td>
+    <td>英語、数学、国語：各科目の得点を表す数値</td>
+  </tr>
+  <tr>
+    <td>③</td>
+    <td>氏名、その他：任意の文字列</td>
+  </tr>
+</table>
+<p>　</p>
+<hr>
+<p><b><a name="51">設問1</a>　</b>各表中の<b>[　　　　]</b>に入れる正しい答えを、解答群の中から選べ。<br>
+</p>
+<p>解答群
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td width="120">
+ア　英語</td>
+    <td width="120">イ　クラス番号</td>
+    <td>ウ　国語</td>
+  </tr>
+  <tr>
+    <td>
+エ　試験番号</td>
+    <td>オ　氏名&nbsp;</td>
+    <td>カ　数学</td>
+  </tr>
+  <tr>
+    <td>
+キ　生徒番号</td>
+  </tr>
+</table>
+<p>
+<A NAME="44">
+<HR WIDTH=100%>
+</a><a HREF="11s_p_a2.htm#51">設問1の正解例と解説へ</a>
+<HR WIDTH=100%>
+　<BR>
+<p><b><a name="52">設問2</a>　</b>次の記述中の<b>[　　　　]</b>に入れる正しい答えを、解答群の中から選べ。</p>
+<p>模擬試験別クラス別成績表
+<table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolor="#FFFFFF" bordercolordark="#FFFFFF">
+  <tr>
+    <td>試験番号</td>
+    <td>クラス番号</td>
+    <td>英語平均</td>
+    <td>数学平均</td>
+    <td>国語平均</td>
+  </tr>
+</table>
+<p>上の模擬試験別クラス別成績表を求めるためのＳＱＬ文は次のとおりである。
+<p>SELECT　試験番号，クラス番号，AVG(英語)　AS　英語平均，<br>
+　　　　　　　　　　　　　　　　　　　　AVG(数学)　AS　数学平均，<br>
+　　　　　　　　　　　　　　　　　　　　AVG(国語)　AS　国語平均<br>
+　　FROM クラス表，模擬試験結果表<br>    
+<b>    
+[　　　　　　　　　c　　　　　　　　　　　　]　</b><br>
+</p>
+<p>解答群</p>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">ア</td>
+    <td>WHERE　クラス表.生徒番号＝模擬試験結果表.生徒番号<br>
+      　　GROUP　BY　クラス番号</td>
+  </tr>
+  <tr>
+    <td valign="top">イ</td>
+    <td>WHERE　クラス表.生徒番号＝模擬試験結果表.生徒番号<br>
+      　　GROUP　BY　試験番号</td>
+  </tr>
+  <tr>
+    <td valign="top">ウ</td>
+    <td>WHERE　クラス表.生徒番号＝模擬試験結果表.生徒番号<br>
+      　　GROUP　BY　試験番号，クラス番号</td>
+  </tr>
+  <tr>
+    <td valign="top">エ</td>
+    <td>WHERE　クラス表.クラス番号＝模擬試験結果表.クラス番号<br>
+      　　GROUP　BY　クラス番号</td>
+  </tr>
+  <tr>
+    <td valign="top">オ</td>
+    <td>WHERE　クラス表.クラス番号＝模擬試験結果表.クラス番号<br>
+      　　GROUP　BY　試験番号</td>
+  </tr>
+  <tr>
+    <td valign="top">カ</td>
+    <td>WHERE　クラス表.クラス番号=模擬試験結果表.クラス番号<br>
+      　　GROUP　BY　試験番号，クラス番号</td>
+  </tr>
+</table>
+<p>　</p>
+<HR WIDTH=100%>
+<a HREF="11s_p_a2.htm#52">設問2の正解例と解説へ</a>
+<HR WIDTH=100%>
+<p><b><a name="53">設問3</a>　</b>次の記述中の[　　　]に入れる正しい答えを、解答群の中から選べ。</p>
+<p>SELECT　＊<br>
+　　FROM 模擬試験結果表の検索結果   
+<p>が図に示すようになるとき、</p>   
+<p>SELECT　生徒番号，MAX（英語＋数学＋国語）<br>
+　　FROM　模擬試験結果表<br>
+　　　GROUP BY 生徒番号</p>   
+<p>の検索結果は<b>[　　d　　]</b>である。<br>
+<br>
+　　　　01　341　70　60　85<br>
+　　　　01　543　65　55　90<br>
+　　　　01　123　50　60　80<br>
+　　　　02　543　70　60　90<br>
+　　　　02　765　50　60　75<br>
+　　　　03　123　75　80　70<br>
+　　　　03　873　90　85　75<br>
+　　　　　　図　検索結果<br>
+</p>
+<p>解答群</p>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">ア</td>
+    <td>341　215<br>
+      543　210<br>
+      123　180<br>
+      765　185<br>
+      873　250</td>
+    <td valign="top">イ</td>
+    <td>341　215<br>
+      543　210<br>
+      123　190<br>
+      765　185<br>
+      873　250</td>
+    <td valign="top">ウ</td>
+    <td>341　215<br>
+      543　220<br>
+      123　225<br>
+      765　185<br>
+      873　250</td>
+    <td valign="top">エ</td>
+    <td>341　215<br>
+      543　220<br>
+      123　235<br>
+      765　185<br>
+      873　250</td>
+  </tr>
+</table>
+<p>　</p>
+<A NAME="44">
+<HR WIDTH=100%>
+</a><a HREF="11s_p_a2.htm#53">設問3の正解例と解説へ</a>
+<hr>
+<p>
+<A HREF="index.htm">メニューへ戻る</A></p>
+<HR WIDTH=100%>
+<p><b><a name="60">問6</a>　</b>通信ネットワークに関する次の記述を読んで、設問１～３に答えよ。</p>
+<p>　A社では、本社、工場共用の情報提供サーバを設置して社内向けの情報提供サービスを行うことになった。
+<p>　図１に示すように、A社のネットワークは、本社と工場の    
+LANをルータで基幹網に接続しており、基幹網はファイアウォールを経由してインターネットに接続されている。トランスポート層には    
+TCP、ネットワーク層には IPを採用している。   
+<p>　本社及び工場の各クライアントでは、ブラウザと呼ばれる表示プログラムを用いている。ブラウザは、HTTPと呼ぶ応用層のプロトコルによって、インターネット上のさまざまなサーバと通信する。ルータを介した通信は、必ず代理サーバ（proxy）経由で行うように各装置が設定されている。<br>
+<p><img border="0" src="image/A99s06f1.gif" width="566" height="179"><br>
+　　　図１　A社の社内ネットワーク<br>
+<p>　ここで、社内向け情報提供サービスの通信経路は図２のとおりである。なお、HTTP、TCP、IPを用いた場合、応用層は、トランスポート層から直接サービスを受けることになる。<br>
+<p><img border="0" src="image/A99s06f2.gif" width="497" height="163"><br>
+　　　　　　　図２　社内向け情報提供サービスの通信経路<br>
+</p>
+<hr>
+<p><b><a name="61">設問1</a>　</b>図１中のクライアントｈ1が情報提供サーバと通信するための、ルータｈの通過許可（フィルタリング）の設定（発信元→あて先）として正しい答えを、解答群の中から二つ選べ。</p>
+<p>解答群</p>
+<table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolor="#FFFFFF" bordercolordark="#FFFFFF">
+  <tr>
+    <td>　</td>
+    <td>発信元</td>
+    <td>あて先</td>
+  </tr>
+  <tr>
+    <td>ア</td>
+    <td>クライアントh1</td>
+    <td>情報提供サーバ</td>
+  </tr>
+  <tr>
+    <td>イ</td>
+    <td>クライアントh1</td>
+    <td>代理サーバh</td>
+  </tr>
+  <tr>
+    <td>ウ</td>
+    <td>クライアントh1</td>
+    <td>ファイアウォール</td>
+  </tr>
+  <tr>
+    <td>エ</td>
+    <td>情報提供サーバ</td>
+    <td>クライアントh1</td>
+  </tr>
+  <tr>
+    <td>オ</td>
+    <td>情報提供サーバ</td>
+    <td>代理サーバh</td>
+  </tr>
+  <tr>
+    <td>カ</td>
+    <td>代理サーバh</td>
+    <td>クライアントh1</td>
+  </tr>
+  <tr>
+    <td>キ</td>
+    <td>代理サーバh</td>
+    <td>情報提供サーバ</td>
+  </tr>
+  <tr>
+    <td>ク</td>
+    <td>代理サーバh</td>
+    <td>ファイアウォール</td>
+  </tr>
+  <tr>
+    <td>ケ</td>
+    <td>ファイアウォール</td>
+    <td>クライアントh1</td>
+  </tr>
+  <tr>
+    <td>コ</td>
+    <td>ファイアウォール</td>
+    <td>代理サーバh</td>
+  </tr>
+</table>
+<A NAME="44">
+<p>　</p>
+<HR WIDTH=100%>
+</a><a HREF="11s_p_a2.htm#61">設問1の正解例と解説へ</a>
+<HR WIDTH=100%>
+<p><b><a name="62">設問2</a>　</b>図２中の装置の種類を表す①～③の組合せとして正しい答えを、解答群の中から選べ。</p>
+<p>解答群</p>
+<table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolor="#FFFFFF" bordercolordark="#FFFFFF">
+  <tr>
+    <td align="center">　</td>
+    <td align="center">①</td>
+    <td align="center">②</td>
+    <td align="center">③</td>
+  </tr>
+  <tr>
+    <td>ア</td>
+    <td>クライアント</td>
+    <td>情報提供サーバ</td>
+    <td>ルータ</td>
+  </tr>
+  <tr>
+    <td>イ</td>
+    <td>クライアント</td>
+    <td>ルータ</td>
+    <td>情報提供サーバ</td>
+  </tr>
+  <tr>
+    <td>ウ</td>
+    <td>情報提供サーバ</td>
+    <td>クライアント</td>
+    <td>ルータ</td>
+  </tr>
+  <tr>
+    <td>エ</td>
+    <td>情報提供サーバ</td>
+    <td>ルータ</td>
+    <td>クライアント</td>
+  </tr>
+  <tr>
+    <td>オ</td>
+    <td>ルータ</td>
+    <td>クライアント</td>
+    <td>情報提供サーバ</td>
+  </tr>
+  <tr>
+    <td>カ</td>
+    <td>ルータ</td>
+    <td>情報提供サーバ</td>
+    <td>クライアント</td>
+  </tr>
+</table>
+<p>　</p>
+<HR WIDTH=100%>
+<a HREF="11s_p_a2.htm#62">設問2の正解例と解説へ</a>
+<HR WIDTH=100%>
+<p><b><a name="63">設問3</a>　</b>次の障害の原因として考えられる記述はどれか。解答群の中から選べ。</p>
+<p>　本社 LAN及び工場 LANに接続されたすべてのクライアントは、インターネット上のサーバ及び情報提供サーバと通信することができた。<br>   
+　ところが、工場 LANにクライアントを１台追加したところ、このクライアントは、工場    
+LANに接続された他のクライアントと直接通信することはできたが、インターネット上のサーバと情報提供サーバのどちらとも通信ができなかった。<br>   
+　なお、追加したクライアントを含め、工場 LANに接続されたすべてのクライアントは同一の機器及びソフトウェアを用いており、ブラウザの設定も同じである。   
+<p>解答群</p>   
+<table border="0" cellpadding="3" cellspacing="0">   
+  <tr>   
+    <td valign="top">ア</td>   
+    <td>情報提供サーバに設定した IPアドレスによるアクセス制限が誤っていた。</td>   
+  </tr>   
+  <tr>   
+    <td valign="top">イ</td>   
+    <td>代理サーバＷに設定した IPアドレスによるアクセス制限が誤っていた。</td>   
+  </tr>   
+  <tr>   
+    <td valign="top">ウ</td>   
+    <td>ルータＷに設定した IPアドレスによるアクセス制限が誤っていた。</td>   
+  </tr>   
+  <tr>   
+    <td valign="top">エ</td>   
+    <td>ルータＷの設定が誤っており、HTTPプロトコルによる通信ができない状態であった。</td>   
+  </tr>   
+</table>   
+<p>　</p>   
+<HR WIDTH=100%>   
+<a HREF="11s_p_a2.htm#63">設問3の正解例と解説へ</a>   
+<HR WIDTH=100%>   
+<p align="center">  
+<a HREF="11s_p_e3.htm">■問7へ進む</a>　　　　　　　<a href="index.htm">■メニューへ戻る<br> 
+</a> 
+<HR WIDTH=100%> 
+</BLOCKQUOTE> 
+      <p>　 
+</BODY> 
+</HTML> 

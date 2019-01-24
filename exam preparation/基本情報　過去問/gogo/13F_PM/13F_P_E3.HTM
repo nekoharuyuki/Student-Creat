@@ -1,0 +1,802 @@
+<HTML>
+<HEAD>
+<TITLE>平成13年度秋期試験　問題</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0">
+<blockquote>
+  <hr>
+  <H3 align="center">平成13年度秋期試験　問題(問6～問8)</H3>
+<hr>
+<P>次の問6から問9までの4問については、この中から1問を選択し、答案用紙の選択欄の             
+選 をマークして解答してください。<br>            
+　なお、2問以上選択した場合には、はじめの1問について採点します。
+<hr>
+<p><b><a name="60">問6</a>　</b>次のCプログラムの説明及びプログラムを読んで，設問に答えよ。<br>
+<br>
+[プログラムの説明]<br>
+簡単な構造を持つ文字列を解析して，要素に分解するプログラムを作成した。</p>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">（1）</td>
+    <td>タグ付き文字列の構文規則を，次のように定義する。ここで，構文の記述に用いる記号の意味を，表1のように定める。また&lt;，>及び/は，字句要素である。<br>
+      &nbsp;<br>
+      表1　構文の記述に用いる記号の意味
+      <table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+        <tr>
+          <td>記号</td>
+          <td>	意味</td>
+        </tr>
+        <tr>
+          <td align="center">::=</td>
+          <td>	定義する</td>
+        </tr>
+        <tr>
+          <td align="center">|</td>
+          <td>	又は</td>
+        </tr>
+        <tr>
+          <td align="center">{ }*</td>       
+          <td>	“{”と“}”で囲まれた構文要素の0回以上の繰返し</td>       
+        </tr>       
+      </table>       
+      <p>タグ付き文字列　::=　{タグ構造}*<br>
+      タグ構造　::=　開始タグ　タグの値　{タグ構造}*　終了タグ<br>
+      開始タグ　::=　&lt;タグ名><br>
+      終了タグ　::=　&lt;/タグ名><br>
+      タグ名　::=　&lt;，>，/及び“＼0”を含まない文字列<br>
+      タグの値　::=　&lt;，>，/及び“＼0”を含まない文字列　|　空文字列<br>
+      文字列　::=　{文字}*<br>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">（2）</td>
+    <td>プログラムの仕様は，次のとおりである。
+      <table border="0" cellpadding="3" cellspacing="0">
+        <tr>
+          <td valign="top">①</td>
+          <td>関数parse_ml_stringは，与えられたタグ付き文字列mlstrを要素に分解して，開始タグの出現順に要素配列elmtblに格納する。要素数は，変数elmnumに格納する。ここで，要素は次の構造体で表す。
+            <p>typedef struct {<br>       
+            　　char *tag;   /* タグ名 */<br>       
+            　　int  depth;  /* 入れ子の深さ(1,2,･･･)*/<br>       
+            　　char *value; /* タグの値 */<br>       
+            } ELEMENT;</td>       
+        </tr>       
+        <tr>       
+          <td valign="top">②</td>      
+          <td>タグ付き文字列に含まれるタグの要素数が，256を超えることはない。</td>      
+        </tr>      
+        <tr>      
+          <td valign="top">③</td>      
+          <td>与えられるタグ付き文字列に，構文の誤りはない。</td>      
+        </tr>      
+      </table>      
+    </td>      
+  </tr>      
+  <tr>      
+    <td valign="top">（3）</td>      
+    <td>タグ構造が，別のタグ構造を含むこともある（図1参照）。      
+      <p><img border="0" src="image/pm6a.gif" width="244" height="94"><br>     
+    </td>     
+  </tr>     
+  <tr>     
+    <td valign="top">（4）</td>     
+    <td>入れ子の深さは，最上位のタグ構造を1として，上位から下位に向かって，1，2，3，･･･とする。</td>     
+  </tr>     
+  <tr>     
+    <td valign="top">（5）</td>     
+    <td>図2のタグ付き文字列に対するプログラムの実行結果は，表2のとおりである。     
+      <table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolor="#FFFFFF" bordercolordark="#FFFFFF">     
+        <tr>     
+          <td>&lt;STUDENT&gt;BILL&lt;AGE&gt;14&lt;/AGE&gt;&lt;SCHOOL&gt;Junior<br>     
+            &lt;PLACE&gt;Minato&lt;/PLACE&gt;&lt;/SCHOOL&gt;&lt;/STUDENT&gt;</td>     
+        </tr>     
+      </table>     
+      <b>　　　　　　　　　　　　　注</b>　文字列に改行は含まれない<br>
+      図2　タグ付き文字列mlstrの値
+      <table border="0" cellpadding="3" cellspacing="0">
+        <tr>
+          <td>　<br>
+            表2　要素配列elmtbl</td>
+        </tr>
+      </table>
+      <table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+        <tr>
+          <td>
+タグ名　tag</td>
+          <td>	入れ子の深さ　depth</td>
+          <td>	タグの値　value</td>
+        </tr>
+        <tr>
+          <td>
+“STUDENT”へのポインタ</td>
+          <td align="center">	1</td>
+          <td>	“BILL”へのポインタ</td>
+        </tr>
+        <tr>
+          <td> 
+“AGE”へのポインタ</td>
+          <td align="center">	2</td>
+          <td>	“14”へのポインタ</td>
+        </tr>
+        <tr>
+          <td> 
+“SCHOOL”へのポインタ</td>
+          <td align="center">	2</td>
+          <td>	“Junior”へのポインタ</td>
+        </tr>
+        <tr>
+          <td> 
+“PLACE”へのポインタ</td>
+          <td align="center">	3</td>
+          <td>“Minato”へのポインタ</td>
+        </tr>
+      </table>
+     
+    </td>
+  </tr>
+</table>
+<pre>[プログラム]
+#define MAXELMNUM 256
+
+typedef struct {
+　　char *tag;
+　　int depth;
+　　char *value;
+} ELEMENT;
+
+char *parse_ml_data(char *, int);
+ELEMENT elmtbl[MAXELMNUM];
+int elmnum = 0;
+
+void parse_ml_string(char *mlstr)
+{
+　　while (*mlstr != '＼0') {
+　　　mlstr = parse_ml_data(mlstr + 1, 1);
+}
+}
+
+char *parse_ml_data(char *mlstr, int level)
+{
+　　/*開始タグ処理*/
+　　elmtbl[elmnum].tag = <b>[ 　　a　　 ]</b>;
+　　elmtbl[elmnum].depth = level;
+　　for (; *mlstr != '&gt;'; mlstr++);
+　　*mlstr = '＼0';
+　　/*タグの値処理*/
+　　elmtbl[elmnum].value = <b>[ 　　b 　　]</b>;
+　　for (; *mlstr++; *mlstr != '&lt;'; mlstr++);
+　　*mlstr = '＼0';
+　　<b>[ 　　c 　　]</b>;
+　　/*下位のタグ構造処理*/
+　　while ( <b>[　　 d 　　]</b> )
+　　mlstr = parse_ml_data(mlstr + 1, level + 1);
+　　/*修了タグ処理*/
+　　for (mlstr += 2; *mlstr != '&gt;'; mlstr++);
+　　return mlstr + 1;
+}</pre> 
+<hr>  
+<p><b><a name="61">設問</a>　</b>プログラム中の<b>[　　　]</b>に入れる正しい答えを，解答群の中から選べ。  
+</p>  
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>a，bに関する解答群</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td width="100">ア　mlstr</td>
+    <td width="100">イ ++mlstr</td>      
+    <td width="100">	ウ　mlstr + 1</td>      
+    <td>	エ　*mlstr</td>
+  </tr>
+  <tr>
+    <td>	オ　*(++mlstr)</td>
+    <td>	カ　*mlstr++</td>
+    <td>	キ　*(mlstr + 1)</td>      
+    <td></td>      
+  </tr>      
+</table>      
+<table border="0" cellpadding="3" cellspacing="0">     
+  <tr>     
+    <td>　<br>
+      cに関する解答群</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td width="120">ア　elmnum++</td>
+    <td width="120">	イ　level++</td>
+    <td>	ウ　mlstr++</td>
+  </tr>
+  <tr>
+    <td>	エ　*elmnum++</td>
+    <td>	オ　*level++</td>
+    <td>	カ　*mlstr++</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>　<br>
+      dに関する解答群</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td width="160">ア　*(mlstr + 1) == '&lt;'</td>      
+    <td>	イ　*(mlstr + 1)! == '&lt;'</td>      
+  </tr>      
+  <tr>      
+    <td>ウ　*(mlstr + 1) == '/'</td>      
+    <td>	エ　*(mlstr + 1)! == '/'</td>      
+  </tr>      
+  <tr>      
+    <td>オ　*(mlstr + 1) == '>'</td>      
+    <td>	カ　*(mlstr + 1)! == '>'</td>      
+  </tr>      
+</table>      
+<p>　   
+</p>   
+<hr WIDTH="100%">  
+<a HREF="13f_p_a3.htm#61">設問1の正解例と解説へ</a>  
+<hr WIDTH="100%">  
+<br>  
+<a HREF="index.htm">メニューへ戻る</a><br>  
+<HR WIDTH=100%>  
+<a NAME="70">　<BR> 
+<b> 
+問7</b></a><b>　</b>次のCOBOLプログラムの説明及びプログラムを読んで，設問1，2に答えよ。<br>
+<br>
+[プログラムの説明]<br>
+Ａ社では，社員の必須研修コースの修了条件を出席率80%以上と定めている。年度末に年間受講履歴ファイルに登録されている出席状況から，修了したかどうかを判定する。
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">（1）</td>
+    <td>年間受講履歴ファイル（4月～翌年3月）のレコード様式は，次のとおりである。
+      <table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+        <tr>
+          <td colspan="2">受講番号</td>
+          <td rowspan="2">修了判定</td>
+          <td rowspan="2">授業回数</td>
+          <td colspan="3">出席状況</td>
+        </tr>
+        <tr>
+          <td>研修コード</td>
+          <td>社員番号</td>
+          <td>第1回</td>
+          <td>･･･</td>
+          <td>第15回</td>
+        </tr>
+        <tr>
+          <td>6けた</td>
+          <td>6けた</td>
+          <td>1けた</td>
+          <td>2けた</td>
+          <td>1けた</td>
+          <td>･･･</td>
+          <td>1けた</td>
+        </tr>
+      </table>
+      <table border="0" cellpadding="3" cellspacing="0">
+        <tr>
+          <td valign="top">①</td>
+          <td>受講番号をキーとする索引ファイルである。</td>
+        </tr>
+        <tr>
+          <td valign="top">②</td>
+          <td>授業回数には研修の授業の実施回数が記録されており，各研修の授業回数は1～15である。</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">（2）</td>
+    <td>年間受講履歴ファイルに対する処理は，次のとおりである。
+      <table border="0" cellpadding="3" cellspacing="0">
+        <tr>
+          <td valign="top">①</td>
+          <td>年度始めに，出席状況（第1～15回）をすべて0にする。</td>
+        </tr>
+        <tr>
+          <td valign="top">②</td>
+          <td>社員の授業への出席状況（1：出席，0：欠席）を回ごとに記録する。</td>
+        </tr>
+        <tr>
+          <td valign="top">③</td>
+          <td>年度末に出席状況を確認して，授業回数の80%以上の出席があった場合は修了判定を“Y”にし，80%未満の場合は“N”にする。</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<pre>[プログラム]
+
+DATA DIVISION.
+FILE SECTION.
+FD ATTENDANCE-F.
+01 ATTENDANCE-R.
+　　03 A-ID.
+　　　05 A-COURSE PIC X(6).
+　　　05 A-EMPLOYEE PIC X(6).
+　　03 A-COMPLETION PIC X.
+　　03 A-SESSIONS PIC 9(2).
+　　03 A-STATUS.
+　　　05 A-ATTENDANCE OCCURS 15 PIC X.
+WORKING-STORAGE SECTION.
+01 W-ATTENDANCE PIC 9(2).
+01 END-SW PIC X VALUE SPACE.
+01 W-COMPLETION PIC 9(3).
+PROCEDURE DIVISION.
+START-RTN.
+　　OPEN I-O ATTENDANCE-F.
+　　PERFORM UNTIL END-SW = &quot;E&quot;
+　　　READ ATTENDANCE-F
+　　　　AT END MOVE &quot;E&quot; TO END-SW
+　　　NOT AT END PERFORM CHECK-RTN
+　　END-READ
+　　END-PERFORM.
+　　CLOSE ATTENDANCE-F
+　　STOP-RUN.
+CHECK-RTN.
+　　MOVE ZERO TO W-ATTENDANCE.
+　　INSPECT <b>[ 　　a 　　]</b> TALLYING W-ATTENDANCE FOR ALL &quot;1&quot;.
+　　COMPUTE W-COMPLETION = A-SESSIONS * 8.
+　　IF <b>[ 　　b 　　]</b> THEN
+　　MOVE &quot;Y&quot; TO A-COMPLETION
+　　ELSE
+　　MOVE &quot;N&quot; TO A-COMPLETION
+　　END-IF.
+　　REWRITE ATTENDANCE-R
+　　INVALID DISPLAY &quot;REWRITE ERROR&quot;, A-ID.
+
+</pre>
+<hr>  
+<a NAME="71">　<BR> 
+<b> 
+設問</b></a><b>1　</b>プログラム中の<b>[　　]</b>に入れる正しい答えを，解答群の中から選べ。<br>
+<br>
+aに関する解答群
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td width="180">ア　A-ATTENDANCE</td>
+    <td>イ　A-STATUS</td>
+  </tr>
+  <tr>
+    <td>	ウ　ATTENDANCE-F</td>
+    <td>	エ　ATTENDANCE-R</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>　<br>
+      　<br>
+      bに関する解答群</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>ア</td>
+    <td>W-ATTENDANDE * 10 >= W-COMPLETION</td>      
+  </tr>      
+  <tr>      
+    <td>イ</td>      
+    <td>W-ATTENDANCE >= W-COMPLETION * 0.8</td>      
+  </tr>      
+  <tr>      
+    <td>ウ</td>      
+    <td>W-COMPLETION >= W-ATTENDANCE</td>      
+  </tr>      
+  <tr>      
+    <td>エ</td>      
+    <td>W-COMPLETION >= W-ATTENDANCE * 0.8</td>      
+  </tr>      
+</table>      
+<p>　</p> 
+<HR WIDTH=100%>    
+<a HREF="13f_p_a3.htm#71">設問の正解例と解説へ</a>    
+<HR WIDTH=100%>    
+<p><b><a name="72">設問2</a>　</b>次の記述中の[　　]に入れる正しい答えを，解答群の中から選べ。<br>
+<br>
+　このプログラムは，AT END指定のREAD文を使用して，年間受講履歴ファイルの全レコードを書き換えている。環境部のファイル管理段落では，ファイル編成は索引，呼出し法を<b>[　c　]</b>とし，レコードキーとして[　d　]を指定している。</p> 
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>解答群</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td width="150">ア　A-COURSE</td>
+    <td width="150">	イ　A-EMPLOYEE</td>
+    <td>	ウ　A-ID</td>
+  </tr>
+  <tr>
+    <td>エ　順呼出し</td>
+    <td>	オ　動的呼出</td>
+    <td>カ　乱呼出し</td>
+  </tr>
+</table>
+<p>　</p>
+<hr WIDTH="100%"> 
+<a HREF="13f_p_a3.htm#72">設問2の正解例と解説へ</a> 
+<hr WIDTH="100%"> 
+<p><A HREF="index.htm">メニューへ戻る</A>　</p>  
+<HR WIDTH=100%>  
+<a NAME="80">　<BR>  
+<b>  
+問8</b></a>　次のJavaプログラムの説明及びプログラムを読んで，設問に答えよ。<br>
+[プログラムの説明]<br>
+  　プログラムは，ある衣料品小売業A社の在庫管理システムで使用するクラスとそのテスト用プログラムからなる。現在A社で取り扱う商品はスラックス（Slacks）とジーンズ（Jeans）であり，両方に共通な属性である品番（code），サイズ（size）及び色（color）は抽象クラスpantsで定義する。サイズ及び色については，それぞれの属性値が引数の値と等しいかどうかを判定するメソッドとしてsizeIs及びcolorIsを定義する。<br>
+  　ジーンズ（Jeans）は，打ち合いがボタン留めであるかファスナー留めであるかを示す属性（buttonFront）をもつ。<br>
+  　テスト用クラスのメソッドmainを実行すると，次の実行結果を得る。<br>
+  　
+<table border="1" cellpadding="6" cellspacing="0" bordercolorlight="#000000" bordercolordark="#FFFFFF" bordercolor="#FFFFFF">
+  <tr>
+    <td>S1, 31, Black<br>      
+      S2, 31, Black<br>      
+      J1, 32, Black, zipper<br>      
+      J2, 34, Blue, button<br>      
+      true<br>      
+      true<br>      
+      false<br>      
+      false</td>      
+  </tr>      
+</table>      
+<table border="0" cellpadding="3" cellspacing="0">     
+  <tr>     
+    <td>図　実行結果</td>
+  </tr>
+</table>
+<pre>　</pre>
+<pre>[プログラム]
+public class TestPants { // テスト用クラス
+　public static void main (String[] args) {
+　　Pants[] pants = {
+　　　new Slacks(&quot;S1&quot;, 31, &quot;Black&quot;),
+　　　new Slacks(&quot;S2&quot;, 31, &quot;Black&quot;),
+　　　new Jeans(&quot;J1&quot;, 32,&quot;Black&quot;, false),
+　　　new Jeans(&quot;J2&quot;, 34,&quot;Blue&quot;, true),
+　　　};
+　　　String black = new String(&quot;Black&quot;);
+
+　　　for (int i = 0; i &lt; pants.length; i++) {
+　　　System.out.println(pants[i]);
+　　　}
+　　　System.out.println(pants[0].sizeIs(31));
+　　　System.out.println(pants[1].colorIs(black));
+　　　System.out.println(pants[2].sizeIs(30));
+　　　System.out.println(pants[3].colorIs(black));
+　　}
+　}
+abstract class Pants {
+　String code;
+　int size;
+　String color;
+　Pants(String code, int size, String color) {　
+　　this.code = code;
+　　this.size = size;
+　　this.color = color;
+　}
+public boolean sizeIs(int size) {
+　　return <b>[ 　　a　　 ]</b>;
+　}
+public boolean colorIs(String color) {
+　　return <b>[ 　　b 　　]</b>;
+　}
+
+public String toString() {
+　　return code + &quot;, &quot; + size + &quot;, &quot; + color;
+　}
+}
+
+class Slacks extends Pants {
+Slacks(String code, int size, String color) {
+super(code, size, color);
+}
+}
+
+class Jeans extends Pants {
+　boolean buttonFront;
+　Jeans(String code, int size, String color, boolean buttonFront) {
+　　<b>[ 　　c 　　]</b>;
+　　this.buttonFront = buttonFront;
+　}
+　public String toString() {
+　　return <b>[ 　　d　　 ]</b>;
+　}
+}</pre>
+<HR WIDTH=100%>  
+<a NAME="81"><b>　<BR>  
+設問</b></a>　プログラム中の<b>[　　]</b>に入れる正しい答えを，解答群の中から選べ。
+<p>　</p>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>a，bに関する解答群</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td width="180">ア　this.size = size</td>    
+    <td>	イ　this.size == size&nbsp;</td>   
+  </tr>   
+  <tr>   
+    <td>ウ　this.size.equals(size)</td>
+    <td>	エ　this.color = color</td>    
+  </tr>    
+  <tr>    
+    <td>オ　this.color == color</td>    
+    <td>	カ　this.color.equals(color)&nbsp;</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>　<br>
+      　<br>
+      cに関する解答群</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>ア</td>
+    <td>super(　)</td>
+  </tr>
+  <tr>
+    <td>イ</td>
+    <td>super(buttonFront)</td>
+  </tr>
+  <tr>
+    <td>ウ</td>
+    <td>super(code, size, color)</td>    
+  </tr>    
+  <tr>    
+    <td>エ</td>    
+    <td>super(code, size, color, buttonFront)</td>    
+  </tr>    
+</table>    
+<table border="0" cellpadding="3" cellspacing="0">   
+  <tr>   
+    <td>　<br>
+      dに関する解答群</td>
+  </tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td>ア</td>
+    <td>code + "," + size + "," + color</td>    
+  </tr>    
+  <tr>    
+    <td>イ</td>    
+    <td>code + "," + size + "," + color + "," + buttonFront</td>    
+  </tr>    
+  <tr>    
+    <td>ウ</td>    
+    <td>super.toString() + "," + buttonFront</td>    
+  </tr>    
+  <tr>    
+    <td>エ</td>    
+    <td>super.toString() + "," + (buttonFront ? "button" : "zipper")</td>    
+  </tr>    
+</table>    
+<p>　</p>  
+<A NAME="41">   
+<HR WIDTH=100%>   
+</a><a HREF="13f_p_a3.htm#81">設問の正解例と解説へ</a>  
+<a NAME="44"> 
+<hr WIDTH="100%"> 
+</a> 
+<A HREF="index.htm"><br>  
+メニューへ戻る<br>  
+</A>  
+<HR WIDTH=100%>  
+<a NAME="90">　<BR> 
+<b> 
+問9</b></a>　　次のアセンブラプログラムの説明及びプログラムを読んで，設問1～3に答えよ。<br>
+<br>
+[プログラムの説明]<br>
+  　副プログラムMULTは，正の整数mとnの積（m×n）を求める。
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td valign="top">（1）</td>
+    <td>GR1とGR2に，それぞれ次の値が格納されて，主プログラムから渡される。<br>
+      GR1:m<br>
+      GR2:n</td>
+  </tr>
+  <tr>
+    <td valign="top">（2）</td>
+    <td>計算結果をGR0に格納して，主プログラムに返す。</td>
+  </tr>
+  <tr>
+    <td valign="top">（3）</td>
+    <td>計算結果は，あふれないものとする。</td>
+  </tr>
+  <tr>
+    <td valign="top">（4）</td>
+    <td>GR0を除いて，副プログラムで使用する汎用レジスタの内容は保存される。</td>
+  </tr>
+</table>
+  <p></p>
+  <table border="0" cellpadding="3" cellspacing="0">
+    <tr>
+      <td colspan="4">[プログラム]<br>
+（行番号）</td>
+    </tr>
+    <tr>
+      <td>
+     1</td>
+      <td>MULT</td>
+      <td>   START</td>
+      <td>;</td>
+    </tr>
+    <tr>
+      <td>
+     2</td>
+      <td></td>
+      <td>         PUSH 0,　GR1</td>
+      <td>;　レジスタの退避</td>
+    </tr>
+    <tr>
+      <td>
+     3</td>
+      <td></td>
+      <td>         PUSH 0,　GR2&nbsp;</td>
+      <td>;&nbsp;</td>
+    </tr>
+    <tr>
+      <td> 
+     4</td>
+      <td></td>
+      <td> <b>         [　　           a 　　]&nbsp;</b></td>
+      <td>;　結果を初期化</td>
+    </tr>
+    <tr>
+      <td>
+     5&nbsp;</td>
+      <td>  LOOP</td>
+      <td>   SRL       GR2,1</td> 
+      <td> ;</td> 
+    </tr> 
+    <tr> 
+      <td>  
+     6</td> 
+      <td></td> 
+      <td>         JOV       ON</td> 
+      <td>;</td> 
+    </tr> 
+    <tr> 
+      <td> 
+     7</td> 
+      <td></td> 
+      <td>         JZE       FIN</td> 
+      <td> ;</td> 
+    </tr> 
+    <tr> 
+      <td>  
+     8</td> 
+      <td></td> 
+      <td>         JUMP      SHIFT</td> 
+      <td>;</td> 
+    </tr> 
+    <tr> 
+      <td> 
+     9</td> 
+      <td>  ON</td> 
+      <td> <b>     [ 　　b 　　]</b></td>
+      <td>;</td>
+    </tr>
+    <tr>
+      <td>
+    10</td>
+      <td>  SHIFT</td>
+      <td> SLL       GR1,1</td> 
+      <td>;</td> 
+    </tr> 
+    <tr> 
+      <td> 
+    11&nbsp;</td>
+      <td></td>
+      <td>         JUMP　LOOP</td>
+      <td>;</td>
+    </tr>
+    <tr>
+      <td>
+    12</td>
+      <td>  FIN</td>
+      <td>    POP       GR2</td> 
+      <td>;　レジスタの復元</td>
+    </tr>
+    <tr>
+      <td>
+    13</td>
+      <td></td>
+      <td>         POP GR1</td>
+      <td>;</td>
+    </tr>
+    <tr>
+      <td>
+    14&nbsp;</td>
+      <td></td>
+      <td>         RET&nbsp;</td>
+      <td>;</td>
+    </tr>
+    <tr>
+      <td>
+    15&nbsp;</td>
+      <td></td>
+      <td>         END</td>
+      <td>                       ;</td>
+    </tr>
+  </table>
+  <p>　</p>
+<HR WIDTH=100%>  
+<a NAME="91"><b>　<BR>  
+設問</b></a><b><a NAME="81">1</a>　</b>プログラム中の[　　]に入れる正しい答えを，解答群の中から選べ。<br>
+<br>
+解答群
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td width="180">ア　ADDA　GR0，GR1</td>
+    <td>イ　ADDA　GR0，GR2</td>
+  </tr>
+  <tr>
+    <td>ウ　ADDA　GR1，GR2</td>
+    <td>エ　ADDA　GR2，GR1</td>
+  </tr>
+  <tr>
+    <td>オ　SUBA　GR0，GR0</td>
+    <td>	カ　SUBA　GR0，GR1</td>
+  </tr>
+  <tr>
+    <td>キ　SUBA　GR0，GR2</td>
+    <td>	ク　SUBA　GR1，GR2</td>
+  </tr>
+</table>
+<p>　</p>
+<HR WIDTH=100%>  
+<a HREF="13f_p_a3.htm#91">設問1の正解例と解説へ</a>
+<a NAME="44">
+<hr WIDTH="100%">
+<p>
+</a><a NAME="92"><b>  
+設問</b></a><b><a NAME="81">2</a>　</b>GR1に3，GR2に38を格納して，主プログラムから呼び出したとき，行番号11のJUMP命令が実行される回数として正しい答えを，解答群の中から選べ。<br>
+<br>
+解答群<br>
+ア　4 　　　イ　5 　　　ウ　6　　　	エ　7</p>
+<p>　</p> 
+<A NAME="41">  
+<HR WIDTH=100%>  
+</a><a HREF="13f_p_a3.htm#92">設問2の正解例と解説へ</a>
+<a NAME="44">
+<hr WIDTH="100%">
+</a><b>　</b><a NAME="93" NAME="44"><b><br>
+設問</b></a><a NAME="93" NAME="44"><b>3</b></a><b>　</b>設問2において，行番号11のJUMP命令が2回目に実行されるときのGR0の内容として正しい答えを，解答群の中から選べ。<br>
+<br>
+解答群
+<table border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td width="200">ア　0000 0000 0000 0000</td>   
+    <td>	イ　0000 0000 0000 0011</td>   
+  </tr>   
+  <tr>   
+    <td>ウ　0000 0000 0000 0110</td>   
+    <td>	エ　0000 0000 0000 1001</td>   
+  </tr>   
+  <tr>   
+    <td>オ　0000 0000 0001 0010</td>   
+    <td></td>   
+  </tr>   
+</table>   
+<p>　</p> 
+<HR WIDTH=100%>   
+<a HREF="13f_p_a3.htm#93">設問3の正解例と解説へ</a>
+<hr WIDTH="100%">
+<p align="center">
+<a href="13f_p_e4.htm">■問10へ進む</a>　　　　　<a HREF="index.htm">■メニューへ戻る</a> 
+</p>
+<HR WIDTH=100%> 
+<p>　</p>
+<p>　</p>
+<p>　</p>
+<p>　</p>
+<p>　</p>
+<p>　</p>
+</blockquote>
+</BODY>
+</HTML>

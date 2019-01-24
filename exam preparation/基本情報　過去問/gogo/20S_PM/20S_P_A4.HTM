@@ -1,0 +1,205 @@
+<html>
+
+<head>
+<title>平成20年度 春期　基本情報技術者 午後 解説</title>
+<style type="text/css">
+body{line-height:150%;}
+code{font-size:12pt;}
+</style>
+</head>
+
+<body>
+
+<blockquote>
+	<hr>
+	<h3 align="center">平成20年度秋期試験　正解例と解説(問10～問13)</h3>
+	<hr>
+	<p><strong><a name="100">問10</a></strong></p>
+	<hr>
+	<p><strong><a name="101">設問</a></strong></p>
+	<p>〈解答〉　a　ア　　　b　ア　　　c　ウ　　　d　ウ　　　e　エ　　　f　エ</p>
+	<p>〈解説〉</p>
+	<p>空欄a，cについて</p>
+	<blockquote>
+		<p>プログラムは説明（3）の方法で，正の有限小数又は循環小数を既約分数に変換する。<code>str</code>は，プログラムへ入力された整数，有限小数，循環小数が格納された文字列で，<code>str</code>は文字列へのポインタでもある。したがって<code>*str</code>は，文字列へのポインタ<code>str</code>が指し示す文字列上の文字を表す。空欄aの<code>while</code>ループの繰返条件が成立つ間，ループの最初の処理で，<code>str</code>がポイントする文字<code>*str</code>が10進数字かを判定している。<code>*str</code>が10進数である場合，<code>if</code>文の条件<code>isdigit(*str)</code>が0以外となり条件が真となるので，空欄bに関する処理の後，<code>flag</code>に1が設定されていれば循環節を除く小数部のけた数<code>n</code>をインクリメントし，<code>flag</code>に2が設定されていれば循環節のけた数<code>k</code>をインクリメントしている。文字列末尾には終端を表す<code>'\0'</code>が格納されているので，<code>*str</code>が<code>'\0'</code>でない間は，<code>while</code>ループの繰返処理でけた数<code>n</code>と<code>k</code>のカウントを行えばよい。したがって空欄aはアの<code>*str 
+		!= '\0'</code>が適切。</p>
+	</blockquote>
+	<p>空欄bについて</p>
+	<blockquote>
+		<p>空欄b直後で，10進数の各けたの数字を文字から数値に変換したものを，<code>numeraror</code>に加算している。10進数の各けたの数字を加算する前に，空欄bで<code>numerator</code>の10進数を10倍し，1けた上位にシフトしておく必要がある。したがって空欄bはアの<code>*= 
+		10</code>が適切。</p>
+	</blockquote>
+	<p>空欄cについて</p>
+	<blockquote>
+		<p><code>while</code>ループを繰り返すごとに，次の文字をポイントするようにポインタ<code>str</code>を<code>+1</code>しインクリメントする必要がある。したがって空欄cはウの<code>str++</code>が適切。</p>
+	</blockquote>
+	<p>空欄dについて</p>
+	<blockquote>
+		<p><code>while</code>ループの繰返処理中で，文字列<code>str</code>が有限小数か循環小数である場合，<code>*str</code>に<code>'.'</code>が出現するので<code>flag 
+		= 1</code>にセットされるが，循環小数である場合，<code>*str</code>に<code>'{'</code>が出現するので<code>flag 
+		= 2</code>にセットされる。つまり有限小数である場合は<code>flag = 1</code>に，循環小数である場合は<code>flag 
+		= 2</code>にセットされる。また整数である場合は，<code>*str</code>に<code>'.'</code>，<code>'{'</code>のいずれも出現しないので初期値<code>flag 
+		= 0</code>のままである。空欄dは，文字列<code>str</code>が有限小数又は整数の場合の<code>flag</code>に関する条件で，この場合<code>flag</code>は0又は1にセットされているので，ウの<code>!= 
+		2</code>が適切。この空欄dの条件が成立つ場合，つまり有限小数又は整数の場合，循環節のけた数<code>k</code>は0なので，分母<code>denominator</code>は<code>power10(n)</code>に設定される。</p>
+	</blockquote>
+	<p>空欄eについて</p>
+	<blockquote>
+		<p>循環小数の場合，分母<code>denominator</code>は10<sup>n</sup>＊(10<sup>k</sup>－1)になるので，空欄eはエの<code>power(n) 
+		* (power(k) - 1)</code>が適切。</p>
+	</blockquote>
+	<p>空欄fについて</p>
+	<blockquote>
+		<p>空欄aの<code>while</code>ループ終了後，変数<code>numerator</code>には元の10進数Xを10<sup>n＋k</sup>倍した数値10<sup>n＋k</sup>Xが設定されている。したがって10<sup>n＋k</sup>Xから10<sup>n</sup>Xを差し引いた整数を分子<code>numerator</code>に求めるには，<code>numerator</code>から<code>numerator</code>を10<sup>k</sup>で割った<code>numerator 
+		/ power10(k)</code>を差し引けばよく，空欄dはエが適切。</p>
+	</blockquote>
+	<hr>
+	<p><a href="20S_P_E4.HTM#101">問題へ</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a> </p>
+	<hr>
+	<p><strong><a name="110">問11</a></strong></p>
+	<hr>
+	<p><strong><a name="111">設問1</a></strong></p>
+	<p>〈解答〉　a　エ　　　b　ウ　　　c　イ　　　d　ウ</p>
+	<p>〈解説〉</p>
+	<p>空欄aについて</p>
+	<blockquote>
+		<p>空欄aを含む<code>SORT</code>命令において，<code>S-INPUT-PROC</code>を入力手続，<code>S-OUTPUT-PROC</code>を出力手続として<code>SORT-F</code>の並べ替えを行っている。空欄aはソートキーの指定に該当する。入力手続では得票ファイル<code>VOTE-F</code>を先頭から順に読み，政党ごとに得票数を<code>1</code>～<code>NUM-SEATS</code>でそれぞれ割った商と政党名をそれぞれ<code>S-VPOINT</code>，<code>S-PARTY-NAME</code>に転送し<code>SORT-F</code>に出力している。この商の大きい順に議席定数に達するまで議席を各政党に配分するので，ソートキーを<code>S-VPOINT</code>として降順に並べ替えればよい。したがって空欄aはエの<code>DESCENDING 
+		KEY S-VPOINT</code>が適切。</p>
+	</blockquote>
+	<p>空欄bについて</p>
+	<blockquote>
+		<p>出力手続では，空欄bを含む<code>PERFORM</code>命令の繰返処理で<code>RETURN</code>命令により整列済み<code>SORT-F</code>を先頭から順に読み，手続<code>REGIST-RTBL</code>の繰返処理で<code>S-VPOINT</code>の大きい順に議席定数に達するまで議席を各政党に配分する処理を行っている。議席定数は<code>LINKAGE 
+		SECTION</code>で定義された<code>NUM-SEATS</code>にパラメータとして渡されている。空欄bは<code>RETURN</code>命令を含む<code>PERFORM</code>命令の終了条件に該当し，議席数<code>SEAT-CNT</code>が議席定数以上になるか，またはS<code>ORT-F</code>が<code>EOF</code>になれば終了すればよい。したがって空欄bはウの<code>UNTIL 
+		SEAT-CNT &gt; NUM-SEATS OR EOF-SW = 1</code>が適切。</p>
+	</blockquote>
+	<p>空欄cについて</p>
+	<blockquote>
+		<p>手続<code>REGIST-RTBL</code>では，議席を獲得した政党と獲得議席数を登録するテーブル<code>R-PARTY-NAME</code>と<code>R-SEATS</code>を用いて，テーブル集計を行っている。政党名のテーブル<code>R-PARTY-NAME</code>に既に登録済みの政党については，テーブルの獲得議席数<code>R-SEATS(WK-I)</code>をカウントアップすればよい。<code>IF</code>文の条件で<code>SORT-F</code>から読み込んだレコードの政党名<code>S-PARTY-NAME</code>が，テーブルに登録済み政党名<code>R-PARTY-NAME(WK-I)</code>と一致するものがあれば空欄cの処理を行っている。したがって空欄cで獲得議席数<code>R-SEATS(WK-I)</code>をカウントアップすればよく，イの<code>ADD 
+		1 TO R-SEATS(WK-I)</code>が適切。</p>
+	</blockquote>
+	<p>空欄dについて</p>
+	<blockquote>
+		<p>テーブルに登録済み政党名<code>R-PARTY-NAME(WK-I)</code>と一致するものがあれば，空欄cの直後の処理で，<code>FOUND-SW</code>に1がセットされるが，一致する政党名がなかった場合<code>FOUND-SW</code>は初期値0状態で，<code>WK-I 
+		&gt; R-CNT</code>の終了条件により<code>PERFORM</code>命令を終了する。したがってテーブルに一致する政党名のなかった未登録の政党名については，空欄d直前の<code>MOVE</code>命令より<code>R-PARTY-NAME(R-CNT)</code>に追加登録している。したがって空欄dでこの政党が始めて獲得した現時点での獲得議席数1を<code>R-SEATS(R-CNT)</code>に転送すればよく，ウの<code>MOVE 
+		1 TO R-SEATS(R-CNT)</code>が適切。</p>
+	</blockquote>
+	<hr>
+	<p><a href="20S_P_E4.htm#111">問題へ</a></p>
+	<hr>
+	<p><strong><a name="112">設問2</a></strong></p>
+	<p>〈解答〉　e　エ　　　f　オ</p>
+	<p>〈解説〉</p>
+	<p>空欄eについて</p>
+	<blockquote>
+		<p>手続<code>SET-BREAK</code>の処理では，<code>W-VPOINT</code>に退避された商と等しい商<code>S-VPOINT</code>が<code>SORT-F</code>に並んでいる場合の同点での当選数を，コントロールブレークにより以下の手順で<code>EQUAL-CNT</code>に集計している。ソート済みの<code>SORT-F</code>から読み込まれた<code>S-VPOINT</code>が<code>W-VPOINT</code>と等しい商である場合，<code>EQUAL-CNT</code>をインクリメントする。<code>W-VPOINT</code>と等しくない商（同点でない商）が出現すれば，当選順位<code>SEAT-CNT</code>を<code>EQUAL-FROM</code>にセットし，<code>EQUAL-CNT</code>を1にリセットした後，<code>W-VPOINT</code>を<code>S-VPOINT</code>に更新することにより，コントロールブレークにより集計している。したがって手続<code>SET-BREAK</code>の処理は，行55の<code>RETURN</code>命令により<code>SORT-F</code>のレコードを読み込むごとに行う必要があり，行56と57の間に入れるのが適切。</p>
+	</blockquote>
+	<p>空欄fについて</p>
+	<blockquote>
+		<p>空欄bを終了条件とする<code>PERFORM</code>命令は<code>SEAT-CNT &gt; NUM-SEATS</code>又は<code>EOF-SW 
+		= 1</code>となれば終了する。条件<code>EOF-SW = 1</code>を満たし終了した場合は，手続<code>CHECK-EQUAL</code>の<code>IF</code>文の処理は実行されないが，条件<code>SEAT-CNT 
+		&gt; NUM-SEATS</code>を満たし終了した場合は，<code>EOF-SW = 0</code>の状態で終了しているので，手続<code>CHECK-EQUAL</code>の<code>IF</code>文の処理が実行される。この場合，<code>SORT-F</code>に未処理のレコードを残して終了しているので，最終当選順位（<code>SEAT-CNT 
+		= NUM-SEATS</code>）の商と次点の順位の商が同じ場合について，コントロールブレークにより同点の当選数<code>EQUAL-CNT</code>の集計を続ける必要がある。その結果<code>EQUAL-CNT 
+		&gt; 1</code>であれば<code>DISPLAY</code>命令により<code>WARNING-MESSAGE</code>のメッセージを表示すればよい。したがって手続<code>CHECK-EQUAL</code>の処理を空欄bに関する<code>PERFORM</code>命令の終了後の行58と59の間に入れるのが適切。</p>
+	</blockquote>
+	<hr>
+	<p><a href="20S_P_E4.HTM#112">問題へ</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a> </p>
+	<hr>
+	<p><strong><a name="120">問12</a></strong></p>
+	<hr>
+	<p><strong><a name="121">設問1</a></strong></p>
+	<p>〈解答〉　a　ウ　　　b　イ　　　c　ア　　　d　ア</p>
+	<p>〈解説〉</p>
+	<p>空欄aについて</p>
+	<blockquote>
+		<p>〔プログラム2-1〕は，インタフェース<code>KeyValueWriter</code>の宣言である。このインタフェースで使用するメソッド<code>write</code>の宣言をしているが，空欄aはその引数の宣言に該当する。インタフェース<code>KeyValueWriter</code>を実装したクラス<code>ToTags</code>のメソッド<code>write</code>は，<code>String</code>型の二つの変数<code>key</code>と<code>value</code>を引数とするので，ウの<code>String 
+		key, String value</code>が適切。</p>
+	</blockquote>
+	<p>空欄bについて</p>
+	<blockquote>
+		<p>〔プログラム2-3〕で定義されているクラス<code>KeyValueWriterAdapter</code>はインタフェース<code>KeyValueWriter</code>を実装したクラスであり，インタフェース<code>KeyValueWriter</code>で定義されている全メソッドの省略時の実装を与える。〔プログラム2-4〕は，〔プログラム2-1〕をクラス<code>KeyValueWriterAdapter</code>に適用できるように変更したものなので，クラス<code>ToProperties</code>はクラス<code>KeyValueWriterAdapter</code>を継承したサブクラスとして定義すればよく，イが適切。</p>
+	</blockquote>
+	<p>空欄cについて</p>
+	<blockquote>
+		<p>メソッド<code>main()</code>の<code>write(new ToTages())</code>において，インタフェース<code>KeyValueWriter</code>を実装したクラス<code>ToTages</code>のコンストラクタを呼び出して生成したインスタンスを引数としてメソッド<code>write</code>を呼び出し，実行している。したがって空欄cでインスタンス引数<code>out</code>をインタフェース<code>KeyValueWriter</code>型の変数として定義しておく必要があり，アの<code>KeyValueWriter</code>が適切。</p>
+	</blockquote>
+	<p>空欄dについて</p>
+	<blockquote>
+		<p><code>String</code>型の配列<code>pairs</code>は2次元配列として定義されているのに対し，<code>String</code>型配列<code>pair</code>は1次元配列である。したがって空欄dのメソッド<code>write</code>の引数はアの<code>pair[0], 
+		pair[1]</code>が適切。</p>
+	</blockquote>
+	<hr>
+	<p><a href="20S_P_E4.HTM#121">問題へ</a></p>
+	<hr>
+	<p><strong><a name="122">設問2</a></strong></p>
+	<p>〈解答〉　e　エ　　　f　イ　　　g　ア　　　h　ウ</p>
+	<p>〈解説〉</p>
+	<p>空欄eについて</p>
+	<blockquote>
+		<p>〔プログラム2-4〕においてクラス<code>ToProperties</code>は，インタフェース<code>KeyValueWritr</code>を実装したクラス<code>KeyValueWriterAdapter</code>を継承したサブクラスとして定義される。クラス<code>KeyValueWriterAdapter</code>はインタフェース<code>KeyValueWriter</code>で定義される全メソッド省略時の実装を与える。したがって空欄エに関するプロパティ形式でコメントの出力を行うメソッド<code>writeComment</code>の定義の実装は，〔プログラム2-4〕のクラス<code>ToProperties</code>の中で行うのが適切。</p>
+	</blockquote>
+	<p>空欄fについて</p>
+	<blockquote>
+		<p>タグ形式でコメントの出力を行うメソッド<code>writeComment</code>の定義の実装は，〔プログラム2-2〕のインタフェース<code>KeyValueWriter</code>を継承するクラス<code>ToTags</code>の中で行うのが適切。</p>
+	</blockquote>
+	<p>空欄gについて</p>
+	<blockquote>
+		<p>インタフェース<code>KeyValueWriter</code>で用いるメソッドとして<code>writeComment</code>を宣言しておく必要があり，〔プログラム2-1〕のインタフェース<code>KeyValueWriter</code>の宣言の中に追加するのが適切。</p>
+	</blockquote>
+	<p>空欄hについて</p>
+	<blockquote>
+		<p>メソッド<code>writerComment</code>の実装が空なので，インタフェース<code>KeyValueWriter</code>で定義される全メソッド省略時の実装を与えるクラス<code>KeyValueWriterAdapter</code>の中に追加するのが適切。</p>
+	</blockquote>
+	<hr>
+	<p><a href="20S_P_E4.HTM#122">問題へ</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a> </p>
+	<hr>
+	<p><strong><a name="130">問13</a></strong></p>
+	<hr>
+	<p><strong><a name="131">設問</a></strong></p>
+	<p>〈解答〉　a　ウ　　　b　ウ　　　c　イ　　　d　ア　　　e　エ　　　f　ア</p>
+	<p>〈解説〉</p>
+	<p>空欄aについて</p>
+	<blockquote>
+		<p>プログラム<code>MAIN</code>は，入力ファイル中の1～3けたの数字列からなるレコードを入力して，この数字列を10進数とみなしたときの最大値，最小値及び平均値を10進数の数字列で出力する。プログラム<code>MAIN</code>は三つの副プログラム<code>INPUT</code>，<code>DIVIDE</code>及び<code>PRINT</code>を使用する。〔プログラムの説明〕（5）より副プログラム<code>PRINT</code>は，主プログラムから<code>GR1</code>にセットされて渡された2進数を3けたの10進数に変換して出力する。空欄a直前で，<code>LD</code>命令によりメモリアドレス<code>MIN</code>の1語に格納された最小値を<code>GR1</code>にセットし，<code>CALL</code>命令により副プログラム<code>PRINT</code>を呼び出して最小値を10進数の数字列で出力している。空欄a直後の<code>CALL</code>命令では副プログラム<code>PRINT</code>を呼び出して平均値を10進数の数字列で出力している。そのためには空欄aで平均値を<code>GR1</code>にセットし，副プログラム<code>PRINT</code>に渡す必要がある。ラベル<code>FIN1</code>で<code>CALL</code>命令により副プログラム<code>DIVIDE</code>を呼び出して，その商として平均値を計算し，平均値が<code>GR3</code>に設定されている。したがって空欄aで<code>GR3</code>の平均値を<code>GR1</code>に格納すればよく，ウの<code>LD 
+		GR1,GR3</code>が適切。</p>
+	</blockquote>
+	<p>空欄bについて</p>
+	<blockquote>
+		<p>空欄bを含む前後の四つの命令により<code>GR4</code>の内容を10倍している。空欄b直前の<code>LD</code>命令で<code>GR4</code>の数値を<code>GR5</code>に格納し，空欄b直後の<code>SLL</code>命令により<code>GR4</code>の数値を1ビット左シフトして2倍した後，<code>GR4</code>に<code>GR5</code>の数値を加算することで10倍している。そのためには<code>GR5</code>に<code>GR4</code>の数値を8倍したものが格納されている必要があり，空欄bで<code>SLL</code>命令により<code>GR5</code>の数値を3ビット左シフトして8倍すればよく，ウの<code>SLL 
+		GR5,3</code>が適切。</p>
+	</blockquote>
+	<p>空欄cについて</p>
+	<blockquote>
+		<p>副プログラム<code>INPUT</code>は，入力ファイル中の1～3けたの数字列からなるレコードを入力し，この数字列を2進数に変換して<code>GR0</code>にセットし主プログラムに戻る。レコードの数字列は<code>IBUF</code>を先頭アドレスとして，けた数分の語数<code>ILEN</code>の領域に読み込まれている。<code>GR0</code>には読み込んだ数字列のけた数<code>ILEN</code>がセットされている。ラベル<code>LOOP2</code>の<code>LD</code>命令により，アドレス<code>(IBUF＋GR1)</code>の1語に格納されている一つのけたの数字を<code>GR3</code>に取り出した後，次の<code>AND</code>命令による<code>#000F</code>との論理積により<code>GR3</code>の数字を数値に変換している。空欄b前後の四つの命令により<code>GR4</code>の内容を10倍して上位けたにシフトした後，<code>GR4</code>に<code>GR3</code>の数値を加算している。<code>CPA</code>命令直前の<code>ADDA</code>命令により，けた数のカウンタ<code>GR1</code>を1だけインクリメントした後，次の<code>CPA</code>命令により<code>GR1</code>と数字列の語数との比較をしている。<code>GR1</code>＜<code>GR0</code>である間は，<code>LOOP2</code>に戻りアドレス<code>(IBUF＋GR1)</code>の領域から数字を取り出し，処理を繰返す必要がある。したがって空欄cはイの<code>JMI 
+		LOOP2</code>が適切。</p>
+	</blockquote>
+	<p>空欄dについて</p>
+	<blockquote>
+		<p>副プログラム<code>DIVIDE</code>は除算を行う。主プログラムから被除数は<code>GR2</code>に，除数は<code>GR1</code>に設定されて渡される。この副プログラムでは，<code>GR3</code>に商の初期値として0をセットし，空欄d直前で<code>CPA</code>命令により<code>GR2</code>と<code>GR1</code>を比較した後，空欄dより2行後の<code>SUBA</code>命令により被除数<code>GR2</code>から除数<code>GR1</code>を差し引くごとに，<code>ADDA</code>命令で<code>GR3</code>の商を1だけインクリメントする処理を<code>LOOP3</code>に戻り繰り返している。したがって<code>CPA</code>命令による比較で<code>GR2</code>＜<code>GR1</code>になり，<code>GR2</code>から<code>GR1</code>を差し引けなくなれば<code>FIN3</code>にジャンプし<code>RET</code>命令により主プログラムに戻ればよく，空欄dは<code>JMI 
+		FIN3</code>が適切。この結果<code>GR2</code>に剰余，<code>GR3</code>に商が求まる。</p>
+	</blockquote>
+	<p>空欄eについて</p>
+	<blockquote>
+		<p>副プログラム<code>PRINT</code>は，主プログラムから<code>GR1</code>にセットされて渡された2進数を3けたの10進数に変換して出力する。主プログラムは，最大値，最小値，平均値をそれぞれ<code>GR1</code>に設定して<code>PRINT</code>に渡している。<code>GR1</code>に設定された数値を<code>GR2</code>に，10を<code>GR1</code>にセットし，<code>LOOP4</code>の<code>CALL</code>命令により副プログラム<code>DIVIDE</code>を呼出して数値を10で割った剰余を<code>GR2</code>に，商を<code>GR3</code>に求めている。次の<code>OR</code>命令による<code>#0030</code>との論理和により剰余を数字に変換し，数字の最下位けたから順にメモリアドレス<code>(OBUF＋GR4)</code>の語に退避する処理を繰り返している。したがって空欄e直前で被除数<code>GR2</code>に格納された<code>GR3</code>の商が0でない間は，<code>LOOP4</code>に戻り繰り返せばよく，空欄eはエの<code>JNZ 
+		LOOP4</code>が適切。</p>
+	</blockquote>
+	<p>空欄fについて</p>
+	<blockquote>
+		<p><code>LOOP5</code>の<code>SUBA</code>命令直前の<code>LD</code>命令で<code>GR2</code>に空白<code>#0020</code>をセットした後，空欄fを含む<code>LOOP5</code>の繰返処理で，全体が3文字になるように数字の残りのけた位置に空白文字を入れる処理を繰り返している。<code>GR4</code>には初期値として出力けた数の3がセットされており，数字または空白文字をメモリアドレス<code>(OBUF＋GR4)</code>の語に退避するごとに<code>GR4</code>を1だけデクリメントする。したがって<code>GR4</code>＜<code>0</code>になれば繰返処理を終了し<code>FIN4</code>にジャンプすればよく，空欄fはアの<code>JMI 
+		FIN4</code>が適切。</p>
+	</blockquote>
+	<hr>
+	<p><a href="20S_P_E4.HTM#131">問題へ</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a></p>
+	<hr>
+	<p>　</p>
+</blockquote>
+
+</body>
+
+</html>

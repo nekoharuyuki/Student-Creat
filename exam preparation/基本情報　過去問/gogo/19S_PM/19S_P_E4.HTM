@@ -1,0 +1,434 @@
+<html>
+
+<head>
+<title>平成19年度 春期 基本情報技術者試験 午後 問題</title>
+<style type="text/css">
+body{line-height:150%;}
+code{font-size:12pt;}
+</style>
+</head>
+
+<body>
+
+<blockquote>
+<hr>
+<h3 align="center">平成19年度春期試験　問題(問10～問13)</h3>
+<hr>
+<div align="center">
+<table borderColor="#000000" cellSpacing="0" cellPadding="4" border="1">
+<tr>
+<td>　次の<strong>問10</strong>から<strong>問13</strong>までの4問については、この中から1問を選択し、答案用紙の選択欄の（選）をマークして解答してください。<br>
+　なお、2問以上選択した場合には、はじめの1問について採点します。</td>
+</tr>
+</table>
+</div>
+<hr>
+<p><strong><a name="100">問10</a></strong> 　次のCプログラムの説明及びプログラムを読んで，設問1，2に答えよ。</p>
+<p>〔プログラムの説明〕<br>
+　リーグ戦の勝敗表を出力するプログラムである。<br>
+（1）勝敗表の出力例を図1に示す。</p>
+<p><img border="0" src="IMAGE/pm-q10-1.png" width="587" height="152"></p>
+<p>（2）チームの勝敗情報は構造体<code>RECORD</code>で表現する。引き分けはないものとする。</p>
+<p><img border="0" src="IMAGE/pm-q10-2.png" width="587" height="108"></p>
+<p>
+　全チームの勝敗情報は構造体<code>RECORD</code>の配列<code>team</code>に格納されている。チーム名，勝ち数，負け数はあらかじめ格納されているが，勝率は格納されていない。</p>
+<p>（3）プログラム中の関数<code>calcAverage</code>と<code>print</code>の仕様は次のとおりである。<br>
+　<code>void calcAverage()</code><br>
+　　　機能：全チームの勝率を計算し，それぞれのメンバ<code>average</code>に格納する。試合数が0の場合，勝率は<code>0.0</code>とする。<br>
+　　<code>void print()</code><br>
+　　　機能：勝敗表を出力する。</p>
+<p>〔プログラム1〕</p>
+<p><img border="0" src="IMAGE/pm-q10-3.png" width="592" height="568"></p>
+<hr>
+<p><strong><a name="101">設問1</a></strong>　プログラム1中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p>aに関する解答群</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber1">
+<tr>
+<td>ア</td>
+<td><code>team[i].average &lt; 0.0</code></td>
+<td>イ</td>
+<td><code>team[i].average &gt; 0．0</code></td>
+</tr>
+<tr>
+<td>ウ</td>
+<td><code>total != 0</code></td>
+<td>エ</td>
+<td><code>total == 0</code></td>
+</tr>
+</table>
+<p>bに関する解答群</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber2">
+<tr>
+<td>ア</td>
+<td><code>(double)team[i].average = team[i].wins / total</code></td>
+</tr>
+<tr>
+<td>イ</td>
+<td><code>team[i].average = (double)(team[i].wins / total)</code></td>
+</tr>
+<tr>
+<td>ウ</td>
+<td><code>team[i].average = (double)team[i].wins / total</code></td>
+</tr>
+<tr>
+<td>エ</td>
+<td><code>team[i].average　＝team[i].wins / total</code></td>
+</tr>
+</table>
+<hr>
+<p><a href="19S_P_A4.HTM#101">設問1の正解例と解説へ</a></p>
+<hr>
+<p><strong><a name="102">設問2</a></strong>　順位の項目を加え，勝率の高いチームから順に出力する関数<code>printRank</code>を作成した。勝率順の勝敗表の出力例を図2に示す。勝率が同率の場合は同順位とする。</p>
+<p><img border="0" src="IMAGE/pm-q10-4.png" width="587" height="164"></p>
+<p>　処理手順は次のとおりである。</p>
+<p>（1）<code>TEAMNUM</code>個の要素をもつボインタ配列<code>pTeam</code>を定義する。</p>
+<p>（2）配列<code>team</code>の各要素のアドレスを，先頭要素から順番に配列<code>pTeam</code>の各要素に格納する。これによって要素番号<code>i</code>に対応するチームの勝率<code>team[i].average</code>は，<code>pTeam[i]-&gt;average</code>によっても参照できる。</p>
+<p>（3）配列<code>team</code>自体を整列する代わりに配列<code>pTeam</code>の要素を整列して，勝率順の勝敗表を出力する。</p>
+<p>　次の関数があらかじめ定義されているものとする。<br>
+　<code>void sort(RECORD *pTeam[TEAMNUM])</code><br>
+　　　機能：<code>TEAMNUM</code>個の要素からなり，各要素が<code>RECORD</code>型の構造体へのポインタである配列<code>pTeam</code>の要素を，勝率の降順になるように整列する。</p>
+<p>　プログラム2中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p>〔プログラム2〕</p>
+<p><img border="0" src="IMAGE/pm-q10-5.png" width="587" height="400"></p>
+<p>cに関する解答群</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber3">
+<tr>
+<td>ア</td>
+<td><code>pTeam[i] = &amp;team[i]</code></td>
+<td>イ</td>
+<td><code>pTeam[i] = team</code></td>
+</tr>
+<tr>
+<td>ウ</td>
+<td><code>team[i] = **pTeam</code></td>
+<td>エ</td>
+<td>エ　<code>team[i] = *pTeam[i]</code></td>
+</tr>
+</table>
+<p>dに関する解答群</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber4">
+<tr>
+<td>ア</td>
+<td><code>rank++</code></td>
+<td>イ</td>
+<td><code>rank = i</code></td>
+</tr>
+<tr>
+<td>ウ</td>
+<td><code>rank = i + 1</code></td>
+<td>エ</td>
+<td><code>rank = TEAMNUM - (i + 1)</code></td>
+</tr>
+<tr>
+<td>オ</td>
+<td><code>rank = TEAMNUM - i</code></td>
+<td>　</td>
+<td>　</td>
+</tr>
+</table>
+<p>eに関する解答群</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber5">
+<tr>
+<td>ア</td>
+<td><code>(&amp;team[i])</code></td>
+<td>イ</td>
+<td><code>(&amp;team[rank])</code></td>
+</tr>
+<tr>
+<td>ウ</td>
+<td><code>pTeam[i]</code></td>
+<td>エ</td>
+<td><code>pTeam[rank]</code></td>
+</tr>
+</table>
+<hr>
+<p><a href="19S_P_A4.HTM#102">設問2の正解例と解説へ</a></p>
+<hr>
+<p><a href="INDEX.HTM">■メニューへ戻る</a></p>
+<hr>
+<p><strong><a name="110">問11</a></strong> 　次のCOBOLプログラムの説明及びプログラムを読んで，設問1，2に答えよ。</p>
+<p>〔プログラムの説明〕<br>
+　ある小学校における保護者名簿の作成プログラムである。昨年度の保護者名簿及び新入学児童（新1年生）の保護者名簿を入力し，本年度の保護者名簿を作成する。</p>
+<p>（1）昨年度の保護者名簿及び本年度の保護者名簿は，次のレコード様式の順ファイルである。</p>
+<p><img border="0" src="IMAGE/pm-q11-1.png" width="587" height="110"></p>
+<p>　①　レコードは，先頭から33けたのデータ（保護者氏名及び電話番号）の昇順に整列されている。<br>
+　②　在校児童欄には，保護者が保護する在校児童の学年と氏名が格納されている。<br>
+　③　在校児童が複数いる場合，学年で昇順に整列されている。<br>
+　④　在校児童が4人以下の場合，左詰めで格納され，残りの額域には空白が詰められている。<br>
+　　例：3年生と5年生に在校児童をもつ保護者の場合，次のように格納される。</p>
+<p><img border="0" src="IMAGE/pm-q11-2.png" width="587" height="43"></p>
+<p>（2）新入学児童の保護者名簿は次のレコード様式の順ファイルである。</p>
+<p><img border="0" src="IMAGE/pm-q11-3.png" width="587" height="90"></p>
+<p>　①　レコードは，先頭から33けたのデータ（保護者氏名及び電話番号）の昇順に整列されている。<br>
+　②　児童氏名には，保護者が保護する新入学児童の氏名が格納されている。<br>
+　③　新入学児童が4人以下の場合，左詰めで格納され，残りの領域には空白が詰められている。</p>
+<p>（3）1人の保護者が保護する児童は5人を超えないものとする。<br>
+（4）在校児童の学年は無条件に1学年繰り上げ，6学年を修了した児童は卒業する。<br>
+（5）転入や転出は考慮しない。<br>
+（6）保護している在校児童がすべて卒業し，かつ保護する新入学児童がいない場合，その保護者のレコードを削除する。<br>
+（7）新入学児童の保護者が未登録だった場合，その保護者のレコードを新規に登録する。</p>
+<p>〔プログラム〕</p>
+<p><img border="0" src="IMAGE/pm-q11-4.png" width="587" height="1424"></p>
+<hr>
+<p><strong><a name="111">設問1</a></strong>　プログラム中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p>aに関する解答群</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber6">
+<tr>
+<td>ア</td>
+<td><code>NOT (OLD-EOF AND ENT-EOF)</code></td>
+<td>イ</td>
+<td><code>NOT (OLD-EOF OR ENT-EOF)</code></td>
+</tr>
+<tr>
+<td>ウ</td>
+<td><code>OLD-EOF AND ENT-EOF</code></td>
+<td>エ</td>
+<td><code>OLD-EOF OR ENT-EOF</code></td>
+</tr>
+</table>
+<p>b～dに関する解答群</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber7">
+<tr>
+<td>ア</td>
+<td><code>ADD 1 TO OLD-NUM(OLD-CNT)</code></td>
+</tr>
+<tr>
+<td>イ</td>
+<td><code>MOVE OLD-ID TO NEW-ID</code></td>
+</tr>
+<tr>
+<td>ウ</td>
+<td><code>MOVE OLD-PUPIL(ENT-CNT) TO NEW-PUPIL(NEW-CNT)</code></td>
+</tr>
+<tr>
+<td>エ</td>
+<td><code>MOVE OLD-PUPIL(OLD-CNT) TO NEW-PUPIL(NEW-CNT)</code></td>
+</tr>
+<tr>
+<td>オ</td>
+<td><code>MOVE W-OLD-REC TO W-NEW-REC</code></td>
+</tr>
+<tr>
+<td>カ</td>
+<td><code>PERFORM ENT-ADD-PROC</code></td>
+</tr>
+</table>
+<hr>
+<p><a href="19S_P_A4.HTM#111">設問1の正解例と解説へ</a></p>
+<hr>
+<p><strong><a name="112">設問2</a></strong>　保護者名簿から削除される保護者，つまり，昨年度の保護者名簿には登録されていたが，本年度の保護者名簿には登録されない保護者の氏名と電話番号を画面に表示するようにプログラムを改造したい。正しい答えを，解答群の中から選べ。</p>
+<p>解答群</p>
+<p><img border="0" src="IMAGE/pm-q11-5.png" width="587" height="466"></p>
+<hr>
+<p><a href="19S_P_A4.HTM#112">設問2の正解例と解説へ</a></p>
+<hr>
+<p><a href="INDEX.HTM">■メニューへ戻る</a></p>
+<hr>
+<p><strong><a name="120">問12</a></strong> 　次のJavaプログラムの説明及びプログラムを読んで，設問1，2に答えよ。</p>
+<p>〔プログラムの説明〕<br>
+　三目並べを行うプログラムである。<br>
+　盤は3×3の升（ます）目をもち，2人のプレーヤは交互に自分の記号（<code>o</code>又は<code>x</code>）を書く。たて，横，斜めでの三つの升の並びを列と呼び，先に，どれかの列で三つの升すべてに，自分の記号を書いた方を勝ちとする。また，盤のすべての升に記号が書かれていて，どちらの勝ちでもないときは，引き分けとする。先手は<code>o</code>，後手は<code>x</code>を使う。先手（<code>o</code>）が勝ちの例を図1に示す。</p>
+<p><img border="0" src="IMAGE/pm-q12-1.png" width="587" height="107"></p>
+<p>　列挙型<code>Mark</code>は記号を表し，先手は<code>Mark.CIRCLE</code>，後手は<code>Mark.CROSS</code>を使うこととする。また，升に何も書かれていない状態を<code>Mark.BLANK</code>で表す。<br>
+　クラス<code>TicTacToeBoard</code>は盤を表し，（1）～（4）のメソッドをもつ。</p>
+<p>（1）<code>Progress put(int x, int y, Mark mark)</code><br>
+　　　盤の位置<code>(x, 
+y)</code>に<code>mark</code>で表される記号を書く。盤の状態を列挙型<code>Progress</code>で返す。戻り値と盤の状態の対応は，次のとおりである。<br>
+　　　<code>Progress.CIRCLE_WON</code> ― 先手の勝ち<br>
+　　　<code>Progress.CROSS_WON</code> ― 後手の勝ち<br>
+　　　<code>Progress.DRAWN</code> ― 引き分け<br>
+　　　<code>Progress.IN_PROGRESS</code> ― 進行中<br>
+　　指定位置が盤の範囲外のときは<code>ArrayIndexOutOfBoundsException</code>を投げる。既に勝敗が決まっているとき（引き分けを含む）は<code>IllegalStateException</code>を投げ，次のいずれかに該当するときは<code>IllegalArgumentException</code>を投げる。<br>
+　　①　指定位置に既に記号が書かれている。<br>
+　　②　指定された記号が書けるプレーヤの番ではない。</p>
+<p>（2）<code>boolean check(int x, int y, int dx, int dy, Mark mark)</code><br>
+　　　盤のある一つの列の三つの升すべてに，指定された記号が書かれているか否かを検査する。位置<code>(x, y)</code>，<code>(x + dx, y 
++ dy)</code>，<code>(x + 2 * dx, y + 2 * dy)</code>の三つの升に書かれている記号が，<code>mark</code>と等しければ<code>true</code>を返す。</p>
+<p>（3）<code>Mark get(int x, int y)</code><br>
+　　　盤の位置<code>(x, y)</code>に書かれている記号を返す。</p>
+<p>（4）<code>void undo()</code><br>
+　　　直前に書いた記号を消す。ただし，勝敗が決まった後は消すことができない。</p>
+<p>　クラス<code>TicTester</code>はテスト用のプログラムである。実行結果の一部を図2に示す。</p>
+<p><img border="0" src="IMAGE/pm-q12-2.png" width="587" height="289"></p>
+<p>〔参考：列挙（<code>enum</code>）について〕<br>
+　プログラム中の<code>Mark</code>と<code>Progress</code>はそれぞれ列挙型であり，列挙型<code>Mark</code>は三つの列挙定数<code>CIRCLE</code>，<code>CROSS</code>，<code>BLANK</code>を，列挙型<code>Progress</code>は四つの列挙定数<code>CIRCLE_WON</code>，<code>CROSS_WON</code>，<code>DRAWN</code>，<code>IN_PROGRESS</code>をもつ。列挙型はクラスの一種であり，列挙定数は列挙型のインスタンスである。</p>
+<p>〔プログラム1〕</p>
+<p><img border="0" src="IMAGE/pm-q12-3.png" width="587" height="137"></p>
+<p>〔プログラム2〕</p>
+<p><img border="0" src="IMAGE/pm-q12-4.png" width="587" height="916"></p>
+<p>〔プログラム3〕</p>
+<p><img border="0" src="IMAGE/pm-q12-5.png" width="587" height="416"></p>
+<hr>
+<p><strong><a name="121">設問1</a></strong>　プログラム中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p>aに関する解答群</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber8">
+<tr>
+<td>ア</td>
+<td><code>Mark.BLANK</code></td>
+<td>イ</td>
+<td><code>Mark.CIRCLE</code></td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>ウ　<code>Mark.CROSS</code></td>
+<td>エ</td>
+<td><code>null</code></td>
+</tr>
+</table>
+<p>bに関する解答群</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber9">
+<tr>
+<td>ア</td>
+<td><code>count &lt; 0</code></td>
+</tr>
+<tr>
+<td>イ</td>
+<td><code>count &gt;= 9</code></td>
+</tr>
+<tr>
+<td>ウ</td>
+<td><code>progress != Progress.IN_PROGRESS</code></td>
+</tr>
+<tr>
+<td>エ</td>
+<td><code>progress == Progress.IN_PROGRESS</code></td>
+</tr>
+</table>
+<p>cに関する解答群</p>
+<p>　ア　<code>-1, -1</code>　　　イ　<code>-1, 1</code>　　　ウ　<code>1, -1</code>　　　エ　<code>1, 
+1</code></p>
+<p>dに関する解答群</p>
+<p>　ア　<code>i</code>　　　イ　<code>i % 2</code>　　　ウ　<code>i &amp; 2</code>　　　エ　<code>i / 
+2</code></p>
+<hr>
+<p><a href="19S_P_A4.HTM#121">設問1の正解例と解説へ</a></p>
+<hr>
+<p><strong><a name="122">設問2</a></strong>　クラス<code>TicTacToeBoard</code>のメソッド<code>undo</code>に関する記述として正しい答えを，解答群の中から<u>二つ</u>選べ。</p>
+<p>解答群</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber10">
+<tr>
+<td>ア</td>
+<td>2手目以降で続けて2回呼ぶと，二つ消せる。</td>
+</tr>
+<tr>
+<td>イ</td>
+<td>2手目以降で続けて2回呼ぶと，呼ばなかった状態に戻る。</td>
+</tr>
+<tr>
+<td>ウ</td>
+<td>2手目以降で続けて2回呼んでも，消せるのは一つだけである。</td>
+</tr>
+<tr>
+<td>エ</td>
+<td>ゲーム中で先手後手とも，それぞれ1回しか消せない。</td>
+</tr>
+<tr>
+<td>オ</td>
+<td>消すことができなければ例外を投げる。</td>
+</tr>
+</table>
+<hr>
+<p><a href="19S_P_A4.HTM#122">設問2の正解例と解説へ</a></p>
+<hr>
+<p><a href="INDEX.HTM">■メニューへ戻る</a></p>
+<hr>
+<p><strong><a name="130">問13</a></strong> 　次のアセンブラプログラムの説明及びプログラムを読んで，設問1，2に答えよ。</p>
+<p>〔プログラムの説明〕<br>
+　メモリプールの管理を行う副プログラム<code>MPMGR</code>である。<br>
+　<code>MPMGR</code>は，割当て要求に対して，要素領域中の未使用の1要素を割り当てる。また，返却要求に対して，指定された1要素を未使用の状態にする。</p>
+<p>（1）メモリプールは，要素領域と，それを管理する管理領域からなる。要素領域は連続する80要素からなり，各要素は連続する2語からなる。<br>
+　各要素には，管理領域の1ビットずつが先頭から順に対応する。管理領域のビットの値が1のとき，対応する要素領域の要素は使用中とし，管理領域のビットの値が0のとき，対応する要素領域の要素は未使用とする。</p>
+<p><img border="0" src="IMAGE/pm-q13-1.png" width="587" height="150"></p>
+<p>（2）<code>MPMGR</code>は，<code>GR1</code>に設定された値によって，次の処理を行う。括弧内は各処理に対応したラベルである。<br>
+　　０：初期化（<code>MINI</code>）<br>
+　　　　すべての要素を未使用に設定する。<br>
+　　１：要素の割当て（<code>MSER</code>）<br>
+　　　　未使用要素を検索し，見つかればその要素の先頭アドレスを<code>GR0</code>に設定するとともに，その要素を使用中に設定する。未使用要素がなければ，<code>GR0</code>に－1を設定する。<br>
+　　２：要素の返却（<code>MREL</code>）<br>
+　　　　<code>GR0</code>に設定されたアドレスに対応する要素を未使用に設定する。</p>
+<p>（3）副プログラムから戻るとき，汎用レジスタ<code>GR1</code>～<code>GR7</code>の内容は元に戻す。</p>
+<p>〔プログラム〕</p>
+<p><img border="0" src="IMAGE/pm-q13-2.png" width="587" height="933"></p>
+<hr>
+<p><strong><a name="131">設問1</a></strong>　プログラム中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p>aに関する解答群</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber11">
+<tr>
+<td>ア　<code>CALL 0,GR1</code></td>
+<td>イ　<code>CALL 1,GR1</code></td>
+<td>ウ　<code>CALL LTBL,GR1</code></td>
+</tr>
+<tr>
+<td>エ　<code>JUMP 0,GR1</code></td>
+<td>オ　<code>JUMP 1,GR1</code></td>
+<td>カ　<code>JUMP LTBL,GR1</code></td>
+</tr>
+</table>
+<p>bに関する解答群</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber12">
+<tr>
+<td>ア　<code>JMI LP1</code></td>
+<td>イ　<code>JMI LP2</code></td>
+<td>ウ　<code>JNZ LP1</code></td>
+</tr>
+<tr>
+<td>エ　<code>JNZ LP2</code></td>
+<td>オ　<code>JOV LP1</code></td>
+<td>カ　<code>JOV LP2</code></td>
+</tr>
+</table>
+<p>cに関する解答群</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber13">
+<tr>
+<td>ア　<code>AND GR7,GR1</code></td>
+<td>イ　<code>OR GR7,GR1</code></td>
+<td>ウ　<code>SLL GR7,0,GR1</code></td>
+</tr>
+<tr>
+<td>エ　<code>SLL GR7,0,GR3</code></td>
+<td>オ　<code>SRL GR7,0,GR1</code></td>
+<td>カ　<code>SRL GR7,0,GR3</code></td>
+</tr>
+</table>
+<p>dに関する解答群</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber14">
+<tr>
+<td>ア　<code>AND GR1,=#8000</code></td>
+<td>イ　<code>AND GR1,=#FFFF</code></td>
+<td>ウ　<code>OR GR1,=#8000</code></td>
+</tr>
+<tr>
+<td>エ　<code>OR GR1,=#FFFF</code></td>
+<td>オ　<code>XOR GR1,=#8000</code></td>
+<td>カ　<code>XOR GR1,=#FFFF</code></td>
+</tr>
+</table>
+<hr>
+<p><a href="19S_P_A4.HTM#131">設問1の正解例と解説へ</a></p>
+<hr>
+<p><strong><a name="132">設問2</a></strong>　管理領域の最初の語の値が<code>#C800</code>のとき，<code>GR1</code>に1を設定して<code>MPMGR</code>を呼び出した。<br>
+　ラベル<code>FIND</code>に制御が移ったときの<code>GR3</code>の内容として，正しい答えを解答群の中から選べ。</p>
+<p>解答群</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber15">
+<tr>
+<td>ア　0</td>
+<td>イ　1</td>
+<td>ウ　2</td>
+</tr>
+<tr>
+<td>エ　3</td>
+<td>オ　4</td>
+<td>カ　5</td>
+</tr>
+</table>
+<hr>
+<p><a href="19S_P_A4.HTM#132">設問2の正解例と解説へ</a></p>
+<hr>
+<p><a href="INDEX.HTM">■メニューへ戻る</a></p>
+<hr>
+<p>　</p>
+</blockquote>
+
+</body>
+
+</html>

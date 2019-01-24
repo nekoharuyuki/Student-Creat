@@ -1,0 +1,261 @@
+<HTML>
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<meta http-equiv="Content-Language" content="ja">
+<TITLE>平成16年度秋期試験　問題(問3～問5)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0">
+<blockquote>
+  <hr>
+  <H3 align="center">平成16年度秋期試験　問題(問3～問5)</H3>
+<HR WIDTH=100%>
+<A NAME="30">　<BR>
+<b>
+問3</b></a><b>　</b>コンピュータ資源へのアクセス権の設定に関する次の記述を読んで，設問に答えよ。<br>
+<br>
+あるプログラムの実行環境では，プログラムが実行時に使用できるコンピュータ資源（以下，資源と呼ぶ）へのアクセス権をテキストファイルに記述する。プログラム実行環境は，プログラムの実行時に，資源へのアクセス要求があるごとに記述されたアクセス権を評価し，要求された資源へのアクセスを許可するかどうかを決める。テキストファイルはgrant文の並びであり，grant文の形式は次のとおりである。<br>
+　　　　grant プログラム名 資源の種類 資源名 アクセス権;<br>
+<br>
+ <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">（1）</td>
+            <td>grant文はキーワードgrantで始まり;（セミコロン）で終わる。</td>
+          </tr>
+          <tr>
+            <td valign="top">（2）</td>
+            <td>プログラム名，ファイル名及びホスト名は”（二重引用符）で囲み，*をワイルドカード文字として使用できる。例えば，“a*n” はaで始まりnで終わる任意の長さの文字列を表し，“an”，“afternoon”などと一致する。</td>
+          </tr>
+          <tr>
+            <td valign="top">（3）</td>
+            <td>資源は，資源の種類と資源名で指定する。指定できる資源の種類及び資源名は，次のとおりである。</td>
+          </tr>
+        </table>
+<BR>
+<img border="0" src="image/PM03_01.gif" width="80%" height="50%"><br>
+<BR>
+ <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">（4）</td>
+            <td>アクセス権は，資源の種類ごとに次のとおり指定する。アクセス権はキーワードで示し，複数あるときはコンマで区切る。</td>
+          </tr>
+        </table>
+<BR>
+<img border="0" src="image/PM03_02.gif" width="80%" height="50%"><br>
+<BR>
+例えば，texteditorというプログラムにすべてのテキストファイル（ファイル名は.txtで終わるものとする）の読み書きとキーボードからの入力イベントの受取りを許可するとき，次のとおりに記述する。<BR>
+<BR>
+　　　　grant "texteditor" file "*.txt" read, write;<BR>
+　　　　grant "texteditor" inputevent "keyboard" listen;<BR>
+<BR>
+<HR WIDTH=100%>
+</a><A NAME="31">　<BR>
+<b>
+設問</b></a><b>　</b>次の記述中の［　　　　］に入れる正しい答えを，解答群の中から選べ。<br>
+<br>
+あるサイトからダウンロードしたプログラムを実行する場合を想定する。ダウンロードしたプログラムが信頼できるかどうかわからないときに，そのプログラムを試用するために必要な最小限のアクセス権の設定を行いたい。例えば，GUI（グラフィカルユーザインタフェース）とゲームサーバ用のホストgames.example.jpを使用し，ネットワークを通して行う対戦型ゲームプログラムnetgameを考える。GUI操作に必要なキーボードとマウスからの入力イベントの受取り及びnetgameからホストgames.example.jpへのネットワーク接続に限って許可するとき，次のとおりに記述する。<br>
+        grant "netgame" inputevent "keyboard", "mouse"［　　a　　］;<br>
+        grant "netgame" network "games.example.jp" ［　　b　　］;<br>
+<br>
+同様に，かな漢字変換入力プログラムkkinputとその辞書kkdict.datをダウンロードしたとする。kkinputは，入力イベントフィルタとして働き，キーボードから入力イベントとして受け取った平仮名やローマ字を，辞書を参照して漢字に変換し，キーボードからの入力イベントを破棄し，新たにキーボードの入力イベントを生成してアプリケーションに通知する。学習及び単語登録用の個人辞書mydict.datが使用できる。実行に必要な最小限のアクセス権を設定してこのプログラムを試用したいときは，次のとおりに記述する。ただし，kkinputはnetgameと組み合わせて使用しないものとする。<br>
+        grant "kkinput" inputevent "keyboard"［　　c　　］;<br>
+        grant "kkinput" file［　　d　　］;<br>
+        grant "kkinput" file［　　e　　］;<br>
+<br>
+<br>
+a～cに関する解答群<br>
+ア　accept, connect　　　　　イ　connect　　　　　ウ　create<br>
+エ　create, listen　　　　　　　オ　listen　　　　　　　カ　read<br>
+キ　read, write　　　　　　　　ク　write<br>
+<br>
+d，eに関する解答群<br>
+ア　"*.dat" read<br>
+イ　"*.dat" read, write<br>
+ウ　"*.dat" write<br>
+エ　"kkdict.dat" read<br>
+オ　"kkdict.dat" read, write<br>
+カ　"kkdict.dat" write<br>
+キ　"mydict.dat" read<br>
+ク　"mydict.dat" read, write<br>
+ケ　"mydict.dat" write<br>
+<br>
+<br>
+<HR WIDTH=100%>
+</a>
+<A HREF="16F_P_A2.HTM#31">設問の正解例と解説へ</A>
+<HR WIDTH=100%>
+<p><A HREF="index.htm">メニューへ戻る</A>　</p>
+<HR WIDTH=100%>
+<A NAME="40">　<BR>
+<b>
+問4</b></a>　次のプログラムの説明及びプログラムを読んで，設問に答えよ。<BR>
+<BR>
+〔プログラムの説明〕<BR>
+関数RadixConvは，M進数字列（2≦M≦16）を，N進数字列（2≦N≦16）に基数変換するプログラムである。<br>
+ <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td valign="top">（1）</td>
+            <td>M進数字列は，文字であるM進数字だけで構成され，空白文字は含まない。11～16進数の10以上の数字には，“A”～“F”のアルファベットを用いる。</td>
+          </tr>
+          <tr>
+            <td valign="top">（2）</td>
+            <td>RadixConvは，M進数字列を整数値に変換した後，その整数値をN進数字列に変換する。M進数字列を整数値に変換する関数はMToInt，整数値をN進数字列に変換する関数はIntToNである。</td>
+          </tr>
+          <tr>
+            <td valign="top">（3）</td>
+            <td>関数MToIntと関数IntToNでは，次の関数を利用する。<br>
+①　1文字の数字P（“0”，“1”，･･･，“F”のいずれか）を整数値に変換する関数ToInt<br>
+②　整数値Q（0≦Q≦15）を1文字の数字（“0”，“1”，･･･，“F”のいずれか）に変換する関数ToStr<br>
+③　文字列の長さを返す既定義の関数Length<br>
+④　文字列の一部を取り出す既定義の関数Substr</td>
+          </tr>
+          <tr>
+            <td valign="top">（4）</td>
+            <td>関数の引数と返却値の仕様を表1～5に示す。</td>
+          </tr>
+        </table>
+<img border="0" src="image/PM04_01.gif" width="70%" height="32%"><br>
+<br>
+<img border="0" src="image/PM04_02.gif" width="70%" height="32%"><br>
+<br>
+<img border="0" src="image/PM04_03.gif" width="70%" height="32%"><br>
+<br>
+<img border="0" src="image/PM04_04.gif" width="70%" height="22%"><br>
+<br>
+<img border="0" src="image/PM04_05.gif" width="70%" height="22%"><br>
+<br>
+〔プログラム〕<br>
+<img border="0" src="image/PM04_06.gif" width="60%" height="132%"><br>
+<br>
+<HR WIDTH=100%>
+<A NAME="41">
+<b>　<BR>
+設問</b></a><b>　</b>プログラム中の［　　　　］に入れる正しい答えを，解答群の中から選べ。<br>
+<br>
+aに関する解答群<BR>
+ア　Rdx　　　イ　Val　　　ウ　Val×Rdx　　　エ　Val÷Rdx<BR>
+<BR>
+b～dに関する解答群<BR>
+ア　Quo ← Quo÷Rdx　　　イ　Quo ← Quo÷Rem<BR>
+ウ　Quo ← Rdx　　　　　　　エ　Quo ← Rem÷Rdx<BR>
+オ　Quo ← Val　　　　　　　カ　Rem ← Rdx<BR>
+キ　Rem ← Val　　　　　　　ク　Tmp ← ToStr(Quo) + Tmp<BR>
+ケ　Tmp ← ToStr(Rem) + Tmp<BR>
+<BR>
+eに関する解答群<BR>
+ア　P ＜ Code[Idx]　　　　　イ　P ＞ Code[Idx]<BR>
+ウ　P ≦ Code[Idx]　　　　　エ　P ≧ Code[Idx]<BR>
+<BR>
+<HR WIDTH=100%>  
+<A HREF="16F_P_A2.HTM#41">設問の正解例と解説へ</A>  
+<HR WIDTH=100%>
+<A HREF="index.htm">メニューへ戻る</A>
+<HR WIDTH=100%>
+  　<BR>
+<b><a name="50">問5</a>　</b>プログラム設計に関する次の記述を読んで，設問1，2に答えよ。<br>
+<br>
+ある小売業者は，本社と30の支店からなっている。毎日各支店から本社に次に示すレコード様式の各商品の売上実績ファイルが送付される。<br>
+<br>
+<img border="0" src="image/PM05_01.gif" width="40%" height="8%"><br>
+<br>
+本社でまとめられた売上実績ファイルは，支店コード別，商品コード別で昇順に整列されている。扱う商品の種類の総数は8,000種類であり，各支店で取扱いのない商品及び売上げがない商品も売上金額が0として記録されている。各支店では平均6,000種類の商品が取り扱われている。<br>
+本社では，売上実績ファイルから支店別の売上実績表を作成しており，全支店での売上金額の多い順に50商品を選び，それらの商品が各支店では何番目の売上げであったかを，全支店での順位とともに図1に示すように印字する。売上金額が等しい商品には，商品コードの昇順に順位を付ける。<br>
+なお，この問題において整列処理は安定であるとする。<br>
+<br>
+<img border="0" src="image/PM05_02.gif" width="60%" height="28%"><br>
+<br>
+支店別の売上実績表を作成する方法について，図2に示す処理の流れ図を作成した。<br>
+<br>
+〔売上上位50商品の抽出〕<br>
+商品コードをキーとして売上実績ファイルを整列する。商品コードごとに販売数量の合計と売上金額の合計とを計算し，売上金額の多い順に上位50商品をFファイルに出力する。<br>
+<br>
+〔支店ごとの順位付け〕<br>
+支店コード，売上金額（降順）をキーとして売上実績ファイルを整列する。支店ごとに売上金額の多い順に支店データの順位を付け，Gファイルに出力する。<br>
+<br>
+〔全支店データと支店別データの照合〕<br>
+全支店データ（Fファイル）をメモリに格納した後，支店別データ（Gファイル）と照合して，1レコードに編集した次の様式のHファイルを作成する。<br>
+<br>
+<img border="0" src="image/PM05_03.gif" width="60%" height="12%"><br>
+<br>
+〔支店別売上実績表の作成〕<br>
+支店コード，全支店データの順位をキーとしてHファイルを整列する。商品名称表示のために商品マスタファイルを参照しながら，支店別に売上実績表を印字する。<br>
+<br>
+<img border="0" src="image/PM05_04.gif" width="45%" height="60%"><br>
+
+<br>
+<hr>
+<p><b><a name="51">設問1</a>　</b>次の記述中の［　　　　］に入れる正しい答えを，解答群の中から選べ。<br>
+<br>
+図2の処理で，Fファイルとして必要最小限の項目をもつレコード様式は［　　a　　］である。また，Hファイルのレコード件数は［　　b　　］件である。<br>
+<br>
+<img border="0" src="image/PM05_1_1.gif" width="50%" height="45%"><br>
+<br>
+bに関する解答群<br>
+ア　1,500　　　　  イ　6,000　　　　　ウ　8,000　　　　 エ　40,000<br>
+オ　180,000　　　カ　240,000　　　キ　320,000　　　ク　400,000<br>
+<br>
+	<HR WIDTH=100%>
+</a><a HREF="16F_P_A2.HTM#51">設問1の正解例と解説へ</a>
+<HR WIDTH=100%>
+  　<BR>
+<b><a name="52">設問2</a>　</b>次の記述中の［　　　　］に入れる正しい答えを，解答群の中から選べ。<BR>
+<BR>
+各支店で売上金額の多い順に50商品を選び，それらの商品が全支店では何位の売上であったかを，支店データの順位とともに図3に示すように印字する。<BR>
+なお，売上金額が等しい商品は，商品コードの昇順に順位を付ける。<BR>
+<BR>
+<img border="0" src="image/PM05_2_1.gif" width="66%" height="38%"><br>
+<BR>
+この売上実績表を作成するために，図4に示す処理の流れ図を作成した。<BR>
+<BR>
+〔売上合計の計算〕<BR>
+商品コードをキーとして売上実績ファイルを整列する。商品コードごとの販売数量の合計と売上金額の合計とを計算し，全件をLファイルに出力する。<BR>
+<BR>
+〔ステップ1〕<BR>
+Lファイルを［　　c　　］に整列し，全支店順位を付けて，全件をL1ファイルに出力する。<BR>
+<BR>
+〔ステップ2〕<BR>
+L1ファイルを［　　d　　］に整列し，L2ファイルを作成する。<BR>
+<BR>
+〔売上上位商品の抽出〕<BR>
+支店コード，売上金額（降順）をキーとして売上実績ファイルを整列する。支店ごとに商品の売上金額による順位を付け，売上実績表の作成に必要な［　　e　　］件だけをMファイルに出力する。<BR>
+<BR>
+〔商品コードで整列〕<BR>
+Mファイルを商品コードの昇順に整列し，M1ファイルを作成する。<BR>
+<BR>
+〔全支店データと支店別データの照合〕<BR>
+L2ファイル（全支店データ）とM1ファイル（支店別データ）を照合して，Nファイルを作成する。<BR>
+<BR>
+〔支店別売上実績表の作成〕<BR>
+支店コード，その支店データの順位をキーとしてNファイルを整列する。商品名称表示のために商品マスタファイルを参照しながら，支店別に売上実績表を印字する。<BR>
+<BR>
+<img border="0" src="image/PM05_2_2.gif" width="45%" height="85%"><br>
+<BR>
+c，dに関する解答群<BR>
+        <table border="0" cellpadding="3" cellspacing="0">
+          <tr>
+            <td width="300">ア　売上金額の昇順</td>
+            <td>	イ　売上金額の降順</td>
+          </tr>
+          <tr>
+            <td>	ウ　商品コードの昇順</td>
+            <td>	エ　商品コードの降順</td>
+          </tr>
+          <tr>
+            <td>	オ　全支店データの順位の昇順</td>
+            <td>	カ　全支店データの順位の降順</td>
+          </tr>
+        </table>
+<BR>
+eに関する解答群<BR>
+ア　1,500　　　　 イ　6,000　　　　 ウ　8,000　　　　 エ　40,000<BR>
+オ　180,000　　　カ　240,000　　　キ　320,000　　　ク　400,000<BR>
+<BR>
+<HR WIDTH=100%>
+</a><a HREF="16F_P_A2.HTM#52">設問2の正解例と解説へ</a>
+<HR WIDTH=100%>
+<p align="center"> 
+<a href="16F_P_E3.HTM">■問6へ進む</a>　　　　　　<font size="3"><a HREF="INDEX.HTM">■メニューへ戻る</a></font></p>
+<HR WIDTH=100%>
+  <br>
+</blockquote>
+</BODY>
+</HTML>

@@ -1,0 +1,135 @@
+<HTML>
+<HEAD>
+<TITLE>平成14年度春期試験　</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0">
+<blockquote>
+  <hr>
+  <H3 align="center">平成14年度春期試験　正解例と解説(問10～問13)</H3>
+<hr>
+<BR>
+<b><a name="100">問10</a></b>
+<hr> 
+<p><b><a name="101">設問</a>　</b></p> 
+＜解答＞　a　カ　　　b　オ　　　c　イ　　　d　ア　　　e　オ　　　f　イ<br>
+<br>＜解説＞空欄a，b，cについて<br>
+関数main( )では最初に元ファイルsource_fileと展開ファイルdest_fileをオープンし，while文の条件中のfgets命令により元ファイルのプログラムコード1行分を配列linbufに読み込んでいる。その後，関数divide_line( )の戻り値を変数tokcntにセットしている。関数divide_line( )は，配列linbufの1行分のプログラムコードを，区切り文字ごとに命令コードに分けて配列tokenに格納し，1行のプログラムコードに出現した命令コードの個数を戻り値tokcntとして返す。したがって配列token[0]には，プログラムの各行の先頭の命令コードが格納される。while文中のif文の条件strcmp( token[0], label ) == 0 は”$STRDEF”で始まる行の場合，つまりマクロ定義の行である場合に該当し，このときマクロ名token[1]を配列orig[mcrcnt]に，展開コードtoken[2]をexpand[mcrcnt]に格納している。したがってその後の空欄aでは，格納先の配列要素を1つ進めるために要素番号mcrcntをインクリメントする処理が必要になり，空欄aはmcrcnt++に該当する。<br>
+If文のelse以降は，マクロ定義以外の行の場合の処理である。<br>
+空欄bはidx1に関するforループの終値である。この場合，配列要素token[0]からtoken[tokcnt－1]までについて繰り返せばよいので，空欄bはtokcntになる。<br>
+空欄e直前のforループ中のif文では，マクロ定義のマクロ名orig[idx2]と一致する命令コードtoken[idx1]がその行に存在すれば，flgを1にセットする。次の空欄cを条件とするif文では，空欄cが成り立つときマクロ名以外の命令コードtoken[idx1]を展開ファイルに出力し，空欄cが成り立たないとき展開コードexpand[idx2]を展開ファイルに出力している。したがって空欄cの条件はtoken[idx1]がマクロ名以外，つまりマクロ名orig[idx2]と一致せずflgが0である場合になるので，空欄cの条件をflg == 0とすればよい。<br>
+<br>
+空欄d，e，fについて<br>
+関数divide_line( )のdoループ中のfor文では，配列要素linbuf[lidx]の文字が区切り文字でない間は，linbuf[lidx]の文字を2次元配列の配列要素token[tokcnt][tidx]に1文字ごとに格納している。そして配列要素linbuf[lidx]の文字に区切り文字が出現すれば，配列要素token[tokcnt][tidx]に空欄dをセットし，配列要素delm[tokcnt]には空欄eをセットしている。命令コードの文字列末尾に終端コード“＼0”を格納する必要があり，空欄dがこの終端コード“＼0”に該当する。またdelm[tokcnt]には，出現した区切り文字linbuf[lidx]をセットすればよく，空欄eはlinbuf[lidx]に該当する。次の空欄fでは，出現した区切り文字の次の文字に進めるためlidxをインクリメントする必要があり，空欄fでlidx++とすればよい。その直後におけるtokcnt++は，区切り文字で区切られた命令コードが出現するごとにその個数tokcntをインクリメントしている処理に該当する。<br>
+<br>
+
+<HR WIDTH=100%>    
+  <a HREF="14S_P_E4.HTM#101">問題へ</a>   
+<HR WIDTH=100%>   
+  　<BR>
+<A HREF="index.htm">メニューへ戻る</A>
+<HR WIDTH=100%>
+<BR>
+<b><a name="110">問11</a></b>
+<hr> 
+<p><b><a name="111">設問</a>　</b></p> 
+＜解答＞　a　カ　　　b　イ　　　c　カ　　　d　ア　　　e　イ　　　f　オ<br>
+<br>＜解説＞空欄a，bについて<br>
+TEXT-FILEをOPENした後，ファイルがEOFでなければ，DECOMPOSE-WRITEの処理を行っている。空欄a直後のPERFORM文中のINSPECT命令により，入力レコードテーブルTEXT-CHUNKに読み込んだ1レコード100けたの文字列から開始位置TEXT-LOC以降で段落の終端文字；を検索し，最初に一致する直前までの文字数をTEXT-LENにセットしている。PERFORM文の終了条件TEXT-LOC＞100となるまでこの検索を繰り返す。したがってPERFORM文直前の空欄aでTEXT-LOCに対する初期値1の設定が必要である。これより空欄aはMOVE 1 TO TEXT-LOC。またTEXT-LENには，開始位置TEXT-LOC以降に最初に出現する終端文字；直前までの文字数を検索ごとにセットするので，INSPECT命令直前の空欄bでTEXT-LENのゼロクリアが必要である。したがって空欄bはMOVE 0 TO TEXT-LEN。<br>
+<br>
+空欄c，d，e，fについて<br>
+空欄eを含むIF文の条件では，段落の文字数が100けた以内であるかを判定している。TEXT-LOC＋TEXT-LEN≦100であれば，出力レコードテーブルRECD-PRE-PARA-PECDの内容を出力し，出力レコードテーブルの格納開始位置RECD-LOCを1に初期設定している。TEXT-LOC＋TEXT-LEN＞100である場合は，出力レコードテーブルの格納開始位置RECD-LOCをRECD-LOC＋TEXT-LENに更新している。さらに空欄fで入力レコードの検索開始位置TEXT-LOCをTEXT-LOC＋TEXT-LEN＋1に更新する必要がある。したがって空欄eは≦，空欄fはTEXT-LOC＋TEXT-LEN＋1となる。空欄c，dを含むMOVE命令は，入力レコードテーブルより検索した段落の文字列を，出力レコードテーブルRECD-PRE-PARA-PECDに転送する処理である。TEXT-CHUNK(TEXT-LOC : TEXT-LEN) をRECD-PRE-PARA-PECD(RECD-LOC : TEXT-LEN)に転送すればよいので，空欄cはTEXT-LOC : TEXT-LEN，空欄dはRECD-LOC : TEXT-LENとなる。<br>
+<br>
+<HR WIDTH=100%>    
+  <a HREF="14S_P_E4.HTM#111">問題へ</a>   
+<HR WIDTH=100%>   
+  　<BR>
+<A HREF="INDEX.HTM">メニューへ戻る</A>
+<HR WIDTH=100%>
+<BR>
+<b><a name="120">問12</a></b>
+<hr> 
+<p><b><a name="121">設問1</a>　</b></p> 
+<br>＜解答＞　a　イ　　　b　ア　　　c　オ　　　d　ク<br>
+<br>＜解説＞空欄aについて<br>
+テスト用のクラスMileageTestのコンストラクタMileageTestの引数は，利用者名Passenger，出発地from，到着地to，無料往復チケット指定awardTripである。無料往復チケットに交換する場合は，awardTripに交換に必要なマイレージを指定するが，交換しない場合は0に指定する。空欄aを条件とするif文で，空欄aが0でない場合に新しい積算マイレージを計算し，実行結果を表示しているので，空欄aはawardTripに該当する。<br>
+<BR>
+空欄bについて<br>
+passengerは利用者を表す抽象クラスなので，空欄bでabstractの指定が必要。<br>
+<BR>
+空欄cについて<br>
+空欄cは抽象クラスPassengerのコンストラクタの宣言である。ここでコンストラクタの初期値を定義している。<br>
+<BR>
+空欄dについて<br>
+空欄dを含むメソッドawardTravel( int award )では，指定された無料往復チケットawardの交換が可能か否かの判定を行い，可能であれば積算マイレージtotalMileageから無料往復チケット交換に必要なマイレージawardを減算し，不可能であれば例外処理によってメッセージを出力する。空欄dに関する条件が成り立つ場合，無料往復チケットに交換できない場合の処理NotEnoughMileageExceptionを行い，成り立たない場合totalMileageからawardを減算しているので，空欄dに関する条件はaward＞totalMileageで，空欄bはtotalMileage。<br>
+<br>
+<HR WIDTH=100%>    
+  <a HREF="14S_P_E4.HTM#121">問題へ</a>   
+<HR WIDTH=100%>   
+<BR>
+<A HREF="INDEX.HTM">メニューへ戻る</A>
+<HR WIDTH=100%>
+<b><a name="122">設問2</a>　</b></p> 
+＜解答＞　ウ<br>
+<br>＜解説＞NomalPassengerのコンストラクタの定義におけるsuper( name, totalMileage )により，スーパークラスPassengerのコンストラクタを継承し，サブクラスNomalPassengerのインスタンスjuneのtotalMileageの初期値が5,000に設定される。<br>
+行11のnew MileageTest( june, PARIS, KANSAI, US_ROUND_TRIP )により，juneの利用区間はPARISからKANSAIで，fromが3，toが1，US_ROUND_TRIPが4,000である。したがって基準距離Mileage[3][1]は6,100となる。<br>
+行17のjune.addMileage( 3, 1 )によりNomalPassengerのインスタンスjuneのメソッドaddMileage( 3, 1 )が呼び出されて，totalMileage=5,000＋6,100×1.0=56,100となる。awardTrip=US_ROUND_TRIP=4,000にセットされるので，行22のPassernger.awardTravel( awardTrip )によりjuneのメソッドawardTravel( 4,000 )が呼び出される。Awrd＜awardTravelなのでtotalMileage=56,100－40,000=16,100と計算される。<br>
+<br>
+
+<HR WIDTH=100%>    
+  <a HREF="14S_P_E4.HTM#122">問題へ</a>   
+<HR WIDTH=100%>   
+  　<BR>
+<A HREF="INDEX.HTM">メニューへ戻る</A>
+<HR WIDTH=100%>
+<p><b><a name="123">設問3</a>　</b></p> 
+＜解答＞　エ<br>
+<br>＜解説＞基準距離の配列要素Mileage[from][to]の値がfrom＜toの場合について定義されていないが，対角要素について対称で，Mileage[from][to]= Mileage[to][from]となっている。したがってfrom＜toの場合は，fromとtoを入れ替えた位置にある要素を参照すればよく，行78と行87の直後に<br><br>
+　　　if ( from < to ) {<br>
+　　　　　 int tmp = from;<br>
+　　　　　 from = to;<br>
+　　　　　 to = tmp;<br>
+　　　}<br>
+<br>
+を挿入すればよい。<br>
+<br>
+<HR WIDTH=100%>    
+  <a HREF="14S_P_E4.HTM#123">問題へ</a>   
+<HR WIDTH=100%>   
+  　<BR>
+<A HREF="INDEX.HTM">メニューへ戻る</A>
+<HR WIDTH=100%>
+
+<a NAME="130">　<BR>  
+<b>  
+問13</b></a>　　　（解説は省略します。）
+<hr> 
+<a NAME="131">　<BR> 
+<b> 
+設問1</b></a><b><a NAME="131"></a>　</b>
+  <p>＜解答＞a　カ　　b　ク<br>
+<HR WIDTH=100%> 
+  <a HREF="14S_P_E4.HTM#131">問題へ</a> 
+<HR WIDTH=100%> 
+<b> 
+設問2</b></a><b><a NAME="132"></a>　</b>
+  <p>＜解答＞c　オ　　d　イ<br>
+<br>
+<HR WIDTH=100%> 
+  <a HREF="14S_P_E4.HTM#132">問題へ</a> 
+<HR WIDTH=100%> 
+<b> 
+設問3</b></a><b><a NAME="133"></a>　</b>
+  <p>＜解答＞e　ア　　f　ク<br>
+<HR WIDTH=100%> 
+  <a HREF="14S_P_E4.HTM#133">問題へ</a> 
+<HR WIDTH=100%> 
+  <b>　</b> 
+<a NAME="132"> 
+<p><a HREF="INDEX.HTM">メニューへ戻る</a>　</p>
+<HR WIDTH=100%>
+  　<BR>
+<BR>
+  <p>　</p>
+</blockquote>
+</BODY>
+</HTML>

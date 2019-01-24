@@ -1,0 +1,377 @@
+<html>
+
+<head>
+<title>平成17年度春期試験　問題(問6～問9)</title>
+</head>
+
+<body bgcolor="#FFFFFF" topmargin="0" leftmargin="0">
+
+<blockquote>
+<hr>
+<h3 align="center">平成17年度春期試験　問題(問6～問9)</h3>
+<hr>
+<p>次の問6から問9までの4問については、この中から1問を選択し、答案用紙の選択欄の<img border="0" src="IMAGE/select.gif">（選）をマークして解答してください。<br>
+なお、2問以上選択した場合には、はじめの1問について採点します。</p>
+<hr>
+<p><b><a name="60">問6</a>　</b>次のCプログラムの説明及びプログラムを読んで，設問に答えよ。</p>
+<p>〔プログラムの説明〕<br>
+関数<code>print_string</code>は，欧文ピッチ処理（文字固有の字幅に従って字送りする）を行って印刷するとき，単語の途中で改行されないように英文を出力するプログラムである。</p>
+<div align="left">
+<table border="0" cellpadding="8" cellspacing="0">
+<tr>
+<td valign="top">（1）</td>
+<td valign="top">関数<code>print_string</code>の引数は，次のとおりである。<br>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><code>line_w</code></td>
+<td>1行の行幅（ポイント数）</td>
+</tr>
+<tr>
+<td><code>str_list</code></td>
+<td>出力する英文を構成する単語の配列<br>
+（最後の要素には，<code>NULL</code>が格納されている）</td>
+</tr>
+<tr>
+<td><code>char_list</code></td>
+<td>出力する単語を構成する文字とその文字幅（ポイント数）のリスト（構造体<code>CHARPROF</code>の配列）</td>
+</tr>
+<tr>
+<td><code>space_w</code></td>
+<td>空白文字の文字幅（ポイント数）</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr>
+<td valign="top">（2）</td>
+<td valign="top">文字幅は，文字ごとに次に示す構造体<code>CHARPROF</code>で定義される。
+<p><img border="0" src="IMAGE/05s_kihon-gogo_0600.gif"></td>
+</tr>
+<tr>
+<td valign="top">（3）</td>
+<td valign="top">単語幅は，単語を構成する各文字の文字幅の和である。単語幅を求めるために，関数<code>word_width</code>を用いる。</td>
+</tr>
+<tr>
+<td valign="top">（4）</td>
+<td valign="top">単語を出力しようとしたときに，1行の行幅を超える場合は，その単語が次の行の先頭になるように出力する。ただし，どの単語幅も行幅を超えることはない。</td>
+</tr>
+<tr>
+<td valign="top">（5）</td>
+<td valign="top">単語は，空白を含まない文字列である。単語と単語の間には，1文字の空白文字を出力する。ただし，行の最後に出力する単語の後には，空白文字は出力しない。
+<p><img border="0" src="IMAGE/05s_kihon-gogo_0601.gif"></p>
+<p><img border="0" src="IMAGE/05s_kihon-gogo_0602.gif"></td>
+</tr>
+</table>
+</div>
+<hr>
+<p><b><a name="61">設問</a>　</b>プログラム中のに入れる正しい答えを，解答群の中から選べ。</p>
+<p>aに関する解答群</p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0" width="376">
+<tr>
+<td width="15">ア</td>
+<td width="160"><code>idx &lt;= line_w</code></td>
+<td width="14">イ</td>
+<td width="147"><code>idx &lt; line_w</code></td>
+</tr>
+<tr>
+<td width="15">ウ</td>
+<td width="160"><code>idx + 1 &lt; line_w</code></td>
+<td width="14">エ</td>
+<td width="147"><code>str_list[idx] != NULL</code></td>
+</tr>
+<tr>
+<td width="15">オ</td>
+<td width="160"><code>str_list[idx] = NULL</code></td>
+<td width="14">カ</td>
+<td width="147"><code>str_list[idx] == NULL</code></td>
+</tr>
+</table>
+</div>
+<p>b，cに関する解答群</p>
+<table border="0" cellpadding="4" cellspacing="0" width="374">
+<tr>
+<td width="15">ア</td>
+<td width="161"><code>cur_w += space_w</code></td>
+<td width="14">イ</td>
+<td width="144"><code>cur_w += str_w</code></td>
+</tr>
+<tr>
+<td width="15">ウ</td>
+<td width="161"><code>cur_w = 0</code></td>
+<td width="14">エ</td>
+<td width="144"><code>cur_w = space_w</code></td>
+</tr>
+<tr>
+<td width="15">オ</td>
+<td width="161"><code>cur_w = space_w + str_w</code></td>
+<td width="14">カ</td>
+<td width="144"><code>cur_w = str_w</code></td>
+</tr>
+</table>
+<p>dに関する解答群</p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td>ア　<code>*str != *char_list[idx].char_p</code><br>
+イ　<code>*str != char_list[idx].char_p</code><br>
+ウ　<code>*str == *char_list[idx].char_p</code><br>
+エ　<code>*str == char_list[idx].char_p</code><br>
+オ　<code>str != char_list[idx].char_p</code><br>
+カ　<code>str == char_list[idx].char_p</code></td>
+</tr>
+</table>
+</div>
+<hr>
+<a href="17S_P_A3.HTM#61">設問の正解例と解説へ</a>
+<hr>
+<a href="index.htm">■メニューへ戻る</a>
+<hr>
+<p><a name="70"><b>問7</b></a><b>　</b>次のCOBOLプログラムの説明及びプログラムを読んで，設問1，2に答えよ。</p>
+<p>〔プログラムの説明〕<br>
+あるイべントの来場者アンケートを集計し，年代別職業別参加人数表を出力するプログラムである。</p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td valign="top">（1）</td>
+<td valign="top">アンケートファイルのレコード様式は，次のとおりである。
+<p align="center"><img border="0" src="IMAGE/05s_kihon-gogo_0701.gif"></p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td valign="top">①</td>
+<td valign="top">年齢は，年代別にコード化されており，次のいずれかが記録されている。<br>
+　　1：10～19歳，2：20～29歳，3：30～39歳，<br>
+　　4：その他（9歳以下又は40歳以上）</td>
+</tr>
+<tr>
+<td valign="top">②</td>
+<td valign="top">職業は，学生，自営業，会社員などに分類してコード化されており，次のいずれかが記録されている。<br>
+　　1：学生，2：自営業，3：会社員，4：その他</td>
+</tr>
+<tr>
+<td valign="top">③</td>
+<td valign="top">興味は，来場の主目的が，体験，セミナ，展示などのどれであるかをコード化したものであり，次のいずれかが記録されている。<br>
+　　1：体験，2：セミナ，3：展示，4：その他</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr>
+<td valign="top">（2）</td>
+<td valign="top">来場者アンケートを集計して，次の年代別職業別参加人数表を出力する。
+<p><img border="0" src="IMAGE/05s_kihon-gogo_0702.gif"></p>
+<p>①各参加人数は，来場者アンケートを集計した結果で，総参加人数は最大6けたである。<br>
+②年代別，職業別に参加人数を印字し，さらに年代別の合計を印字する。<br>
+③参加人数及び合計人数以外の文字は，あらかじめ印字されている。</td>
+</tr>
+<tr>
+<td valign="top">（3）</td>
+<td valign="top">アンケートファイルのレコードの各項目にエラーはない。</td>
+</tr>
+</table>
+</div>
+<p><img border="0" src="IMAGE/05s_kihon-gogo_07012.gif"></p>
+<hr>
+<p><a name="71"><b>設問</b></a><b><a name="71">1</a>　</b>プログラム中の［　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p>aに関する解答群<br>
+ア　<code>1</code>　　　　イ　<code>2</code>　　　　ウ　<code>3</code>　　　　エ　<code>4</code></p>
+<p>b，cに関する解答群<br>
+ア　<code>COMPUTE GOKEI = GOKEI + B(X Y)</code><br>
+イ　<code>COMPUTE GOKEI = NINZUU(Z)+ B(X Y)</code><br>
+ウ　<code>COMPUTE NINZUU(Z)= GOKEI + B(X Y)</code><br>
+エ　<code>MOVE B(X Y） TO GOKEI</code><br>
+オ　<code>MOVE X TO Z</code><br>
+カ　<code>MOVE Y TO Z</code><br>
+キ　<code>MOVE Z TO Y</code><br>
+ク　<code>SET X TO Z</code><br>
+ケ　<code>SET Y TO Z</code><br>
+コ　<code>SET Z TO Y</code></p>
+<hr>
+<a href="17S_P_A3.HTM#71">設問1の正解例と解説へ</a>
+<hr>
+<p><b><a name="72">設問2</a>　</b>出力用紙に次の用紙を使い，職業別目的別参加人数表を出力するとき，プログラム中の<img border="0" src="IMAGE/05S_alpha.GIF">をどの文と置換すればよいか，正しい答えを，解答群の中から選べ。</p>
+<p align="center"><img border="0" src="IMAGE/05s_kihon-gogo_0704.gif"></p>
+<p>解答群<br>
+ア　<code>COMPUTE B(E-KYOMI E-NENREI) = B(E-KYOMI E-NENREI) + 1</code><br>
+イ　<code>COMPUTE B(E-KYOMI E-SHOKUGYO) = B(E-KYOMI E-SHOKUGYO) + 1</code><br>
+ウ　<code>COMPUTE B(E-NENREI E-KYOMI) = B(E-NENREI E-KYOMI) + 1</code><br>
+エ　<code>COMPUTE B(E-NENREI E-SHOKUGYO) = B(E-NENREI E-SHOKUGYO) + 1</code><br>
+オ　<code>COMPUTE B(E-SHOKUGYO E-KYOMI) = B(E-SHOKUGYO E-KYOMI) + 1</code><br>
+カ　<code>COMPUTE B(E-SHOKUGYO E-NENREI) = B(E-SHOKUGYO E-NENREI) + 1</code></p>
+<hr>
+<a href="17S_P_A3.HTM#72">設問2の正解例と解説へ</a>
+<hr>
+<a href="index.htm">■メニューへ戻る</a>
+<hr>
+<p><a name="80"><b>問8</b></a>　次のJavaプログラムの説明及びプログラムを読んで，設問1，2に答えよ。</p>
+<p>〔プログラムの説明〕<br>
+次の図のような長方形領域内を移動する点を描画するプログラムである。</p>
+<p align="center"><img border="0" src="IMAGE/05s_kihon-gogo_0801.gif"></p>
+<p>点はクラス<code>Point</code>で表され，点の位置を表す座標（x，y）と速さ（<code>speed</code>）を保持する。速さは，正の値で単位時間にx軸方向及びy軸方向に移動する距離を表す。<br>
+図の長方形領域はクラス<code>Space</code>で与えられ，次のクラスメソッドを呼び出すことができる。</p>
+<p>（1）<code>public static int getMaxX()</code><br>
+　長方形領域のx座標の最大値（正の値）を返す。<br>
+（2）<code>public static int getMaxY()</code><br>
+　長方形領域のy座標の最大値（正の値）を返す。<br>
+（3）<code>public static void draw(Point)</code><br>
+　引数で指定された点をその座標位置に描画する。<br>
+（4）<code>public static void erase(Point)</code><br>
+　引数で指定された点を消去する。</p>
+<p>抽象クラス<code>Motion</code>は，点が移動する様子を示すために，コンストラクタに<code>Point</code>で与えられた点を初期値とし，点の描画，移動及び消去をこの順番で繰り返す。点の移動後の座標位置は抽象メソッド<code>update</code>で与えられる。<br>
+<code>Motion</code>のサブクラス<code>SimpleMotion</code>は，メソッド<code>update</code>と<code>main</code>を実装する。メソッド<code>update</code>は，長方形内では，一定の速さで直線運動し，長方形の境界で反射するような点の動きを表す。メソッド<code>main</code>はプログラムをテストする。<br>
+なお，メソッド<code>main</code>で生成される<code>Point</code>の座標の初期値は長方形領域内にあるものとし，点同士の衝突は考えないものとする。</p>
+<p><img border="0" src="IMAGE/05s_kihon-gogo_0802.gif"></p>
+<p><img border="0" src="IMAGE/05s_kihon-gogo_0803.gif"></p>
+<hr>
+<p><b><a name="81">設問1</a>　</b>プログラム中の［　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p>aに関する解答群</p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0" width="431">
+<tr>
+<td width="15">ア</td>
+<td width="175"><code>current = update(current)</code></td>
+<td width="14">イ</td>
+<td width="187"><code>current = update(point)</code></td>
+</tr>
+<tr>
+<td width="15">ウ</td>
+<td width="175"><code>point = update(point)</code></td>
+<td width="14">エ</td>
+<td width="187"><code>update(current)</code></td>
+</tr>
+<tr>
+<td width="15">オ</td>
+<td width="175"><code>update(point)</code></td>
+<td width="14">　</td>
+<td width="187">　</td>
+</tr>
+</table>
+</div>
+<p>bに関する解答群</p>
+<table border="0" cellpadding="4" cellspacing="0" width="432">
+<tr>
+<td width="15">ア</td>
+<td width="174"><code>new Motion(points[i])</code></td>
+<td width="14">イ</td>
+<td width="189"><code>new Point(points[i])</code></td>
+</tr>
+<tr>
+<td width="15">ウ</td>
+<td width="174"><code>new Runnable(points[i])</code></td>
+<td width="14">エ</td>
+<td width="189"><code>new SimpleMotion(points[i])</code></td>
+</tr>
+<tr>
+<td width="15">オ</td>
+<td width="174"><code>points[i]</code></td>
+<td width="14">　</td>
+<td width="189">　</td>
+</tr>
+</table>
+<hr>
+<a href="17S_P_A3.HTM#81">設問1の正解例と解説へ</a>
+<hr>
+<p><b><a name="82">設問2</a>　</b>クラス<code>SimpleMotion</code>のコンストラクタに与えられた<code>Point</code>が次の図の点Pで<code>speed</code>の値が1のとき，メソッド<code>run</code>を実行したときの点Pの動きとして正しい答えを，解答群の中から選べ。ただし，プログラム中の［　　　　］にはすべて正しい答えが入っているものとする。</p>
+<p align="center"><img border="0" src="IMAGE/05s_kihon-gogo_0804.gif"></p>
+<p>解答群<br>
+ア　矢印①のように進む。<br>
+イ　矢印②のように進む。<br>
+ウ　矢印③のように進む。<br>
+エ　矢印④のように進む。</p>
+<hr>
+<a href="17S_P_A3.HTM#82">設問2の正解例と解説へ</a>
+<hr>
+<a href="index.htm">■メニューへ戻る</a>
+<hr>
+<p><a name="90"><b>問9</b></a><b>　</b>次のアセンブラプログラムの説明及びプログラムを読んで，設問1，2に答えよ。</p>
+<p>〔プログラムの説明〕<br>
+ある商店の在庫状況を記録した在庫表から，商品番号をキーとして，商品の在庫量を2分探索法で検索する副プログラム<code>BSEARCH</code>である。</p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td valign="top">（1）</td>
+<td valign="top">在庫表は，先頭に扱い商品数N，その後ろに商品番号とその商品の在庫量の対を商品番号順（昇順）に格納したものである。扱い商品数，商品番号，在庫量は，それぞれ0以上の整数値で1語に格納されている。
+<p><img border="0" src="IMAGE/05s_kihon-gogo_0901.gif"></td>
+</tr>
+<tr>
+<td valign="top">（2）</td>
+<td valign="top">主プログラムは，商品番号（検索キー）を<code>GR1</code>に，在庫表の先頭アドレスを<code>GR2</code>に設定し，<code>BSEARCH</code>を呼ぶ。</td>
+</tr>
+<tr>
+<td valign="top">（3）</td>
+<td valign="top"><code>BSEARCH</code>は，検索キーに対応する在庫量を<code>GR0</code>に設定し，主プログラムに戻る。該当する商品番号が在庫表に存在しない場合は，－1を<code>GR0</code>に設定し，主プログラムに戻る。</td>
+</tr>
+<tr>
+<td valign="top">（4）</td>
+<td valign="top">副プログラムから戻るとき，汎用レジスタ<code>GR1</code>～<code>GR7</code>の内容は元に戻す。</td>
+</tr>
+</table>
+</div>
+<p><img border="0" src="IMAGE/05s_kihon-gogo_0902.gif"></p>
+<hr>
+<p><a name="91"><b>設問1</b></a>　プログラム中の［　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p>aに関する解答群</p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0" width="370">
+<tr>
+<td width="14">ア</td>
+<td width="98"><code>LAD　GR5,1,GR5</code></td>
+<td width="15">イ</td>
+<td width="98"><code>LAD　GR5,2,GR5</code></td>
+<td width="15">ウ</td>
+<td width="70"><code>SLL　GR5,1</code></td>
+</tr>
+<tr>
+<td width="14">エ</td>
+<td width="98"><code>SLL　GR5,2</code></td>
+<td width="15">オ</td>
+<td width="98"><code>SRL　GR5,1</code></td>
+<td width="15">　</td>
+<td width="70">　</td>
+</tr>
+</table>
+</div>
+<p>bに関する解答群</p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0" width="402">
+<tr>
+<td width="14">ア</td>
+<td width="98"><code>JMI　RTSET</code></td>
+<td width="15">イ</td>
+<td width="98"><code>JMI　SLOOP</code></td>
+<td width="15">ウ</td>
+<td width="102"><code>JPL　RTSET</code></td>
+</tr>
+<tr>
+<td width="14">エ</td>
+<td width="98"><code>JPL　SLOOP</code></td>
+<td width="15">オ</td>
+<td width="98"><code>LAD　GR2,1,GR2</code></td>
+<td width="15">カ</td>
+<td width="102"><code>LD 　GR5,GR6</code></td>
+</tr>
+</table>
+</div>
+<hr>
+<a href="17S_P_A3.HTM#91">設問1の正解例へ</a>
+<hr>
+<p><a name="92"><b>設問</b></a><b>2　</b><code>GR1</code>と<code>GR2</code>を次のように設定して副プログラム<code>BSEARCH</code>を呼び出したとき，行番号20の命令は何回実行されるか，正しい答えを，解答群の中から選べ。</p>
+<p><img border="0" src="IMAGE/05s_kihon-gogo_0903.gif"></p>
+<p>解答群<br>
+ア　0　　　　イ　1　　　　ウ　2　　　　エ　3　　　　オ　4<br>
+カ　7　　　　キ　8</p>
+<hr>
+<a href="17S_P_A3.HTM#92">設問2の正解例へ</a>
+<hr>
+<a href="17S_P_E4.HTM">■問10へ進む</a>
+<hr>
+<a href="INDEX.HTM">■メニューへ戻る</a>
+</blockquote>
+
+</body>
+
+</html>

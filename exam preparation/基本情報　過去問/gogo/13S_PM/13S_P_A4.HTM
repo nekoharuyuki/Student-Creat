@@ -1,0 +1,134 @@
+<HTML>
+<HEAD>
+<TITLE>平成13年度春期試験　</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="0" leftmargin="0">
+<blockquote>
+  <hr>
+  <H3 align="center">平成13年度春期試験　正解例と解説(問9～問11)</H3>
+<hr>
+<P>        
+<a NAME="90">        
+<b>問9</b></a><b>　</b><br>
+<HR WIDTH=100%>       
+<a NAME="91"><BR>       
+<b>       
+設問1</b></a>&nbsp;　
+  <p>＜解答＞　イ</p>
+  <p>＜解説＞　DrawCurveの処理で座標（p1x, p1y), (p2x, p2y), (p3x, p3y), (p4x, p4y), (p5x, p5y), (p6x, p6y)の座標を計算している処理があります。この処理では以下のような線分の中点を計算しています。</p> 
+  <table border="1" cellpadding="3" cellspacing="0" bordercolorlight="#000000" bordercolordark="#FFFFFF" bordercolor="#FFFFFF"> 
+    <tr> 
+      <td>点Ｐ1（p1x, p1y)</td>  
+      <td>点Ｓと点Ｃ1を結ぶ線分の中点</td>  
+    </tr>  
+    <tr>  
+      <td>点Ｐ2 (p2x, p2y)</td>  
+      <td>点Ｃ1と点Ｃ2を結ぶ線分の中点</td>  
+    </tr>  
+    <tr>  
+      <td>点Ｐ3 (p3x, p3y)</td>  
+      <td>点Ｃ2と点Ｅを結ぶ線分の中点</td>  
+    </tr>  
+    <tr>  
+      <td>点Ｐ4 (p4x, p4y),</td>  
+      <td>点Ｐ1と点Ｐ2を結ぶ線分の中点</td>  
+    </tr>  
+    <tr>  
+      <td>点Ｐ5 (p5x, p5y)</td>  
+      <td>点Ｐ2と点Ｐ3を結ぶ線分の中点</td>  
+    </tr>  
+    <tr>  
+      <td>点Ｐ6 (p6x, p6y)</td>  
+      <td>点Ｐ4と点Ｐ5を結ぶ線分の中点</td>  
+    </tr>  
+  </table>  
+  <p>新たな折れ線の4つの頂点は，上記のような中点として計算され，イの方法が正しい。<br>  
+  </p>  
+<HR WIDTH=100%>  
+  <a HREF="13s_p_e4.htm#91">問題へ</a> 
+<hr> 
+<p><b><a name="92">設問2</a></b></p> 
+  <p>＜解答＞　ウ</p>
+  <p>＜解説＞　CompLineの処理では，点(xs, ys)と点(xe, ye)を結ぶ線分の両端のｘ座標の差，及びｙ座標の差が引数lenよりも小さい場合，戻り値として1を返します。つまりこれは点(xs, ys)と点(xe, ye)を結ぶ線分が，引数len を1辺とする正方形に含まれる長さになった場合に相当します。したがってDrawCurveにおける再帰処理の分割処理の終了条件</p>  
+  <p>CmpLine( sx, sy, x1, y1, len ) &amp;&amp;<br>  
+        CmpLine( x1, y1, x2, y2, len ) &amp;&amp;<br>  
+        CmpLine( x2, y2, ex, ey, len )</p>  
+  <p>は，折れ線の三つの線分それぞれが，引数len を1辺とする正方形に含まれる長さになった場合に相当します。<br>  
+  </p>  
+<HR WIDTH=100%>  
+  <a HREF="13s_p_e4.htm#92">問題へ</a> 
+<HR WIDTH=100%> 
+<b>　</b><a NAME="93"> 
+<b> 
+<br> 
+設問</b></a><b><a NAME="113">3</a>　</b>（解説は省略します。）
+  <p>＜解答＞　ａ　ア　　ｂ　ウ<br>
+  　</p>
+<HR WIDTH=100%>
+  <a HREF="13s_p_e4.htm#93">問題へ</a>
+<HR WIDTH=100%>
+<a NAME="94">
+<b>
+<br>
+設問</b></a><b>4　</b>（解説は省略します。）
+  <p>＜解答＞　エ<br>
+  　</p>
+<HR WIDTH=100%>
+  <a HREF="13s_p_e4.htm#94">問題へ</a>
+<HR WIDTH=100%>
+<p><a HREF="index.htm">メニューへ戻る</a>　</p>
+<HR WIDTH=100%>
+  　　<BR>
+<b><a name="100">問10</a></b>
+<hr> 
+<p><b><a name="101">設問</a>　</b></p> 
+<p>＜解答＞　a　コ　　b　キ　　c　エ　　d　カ　　e　ア　　f　イ</p> 
+  <p>＜解説＞空欄ａについて<br>
+  　空欄ａの直後の処理で研修開催ファイルSEMINAR-FILEを読んでいますが，このファイルは索引ファイルです。したがって直前の空欄ａでレコードキーである研修番号SEM-NOに，研修申込ファイルの研修番号APP-SEM-NO(CNT1)をセットして読み込む必要があります。</p>
+  <p>空欄ｂについて<br>
+  　空欄ｂを含むPERFORM文の繰り返し処理は，CHK-TBLの開催日を格納するCHK-YMD(CNT2)に，SEM-YMDと同一の開催日があるかをテーブル検索している処理です。空欄ｂはテーブルの添字CNT2に関する終了条件に該当します。このPERFORM文直後のIF文の処理で，一致する開催日がテーブルになかった場合（つまり異なる開催日が出現するごとに）CHK-CNTが＋１だけカウントアップされています。つまりこのCHK-CNTは，テーブルCHK-YMD(CNT2)の最後尾の要素の要素番号になっています。したがって終了条件はCNT2＞CHK-CNTになります。</p>
+  <p>空欄ｃについて<br>
+  　開催日がテーブルの要素CHK-YMD(CNT2)と一致した場合，CHK-NUM(CNT3)を＋１だけカウントアップしています。したがって一致したテーブル要素の要素番号CNT2をCNT3にセットし，カウントアップするテーブル要素CHK-NUM(CNT3)を特定する処理が，空欄ｃに必要です。</p>
+  <p>空欄ｄについて<br>
+  　空欄ｄを含むPERFORM文の処理では，CNT1が＋１カウントアップするごとに，開催日の重複する研修番号が開催日ごとに1行ずつ改行して印字されます。空欄ｄは異なる開催日の数だけの行数を印字するための終了条件になっています。異なる開催日の数はCHK-CNTにセットされているので，空欄ｄの終了条件はCNT1＞CHK-CNTになります。</p>
+  <p>空欄ｅについて<br>
+  　空欄ｅは，開催日が重複しているエラーデータだけを印字するための条件になっています。開催日が重複する場合，CNT1＞1となるので，CNT1＞1であるデータだけを印字すればよい。</p>
+  <p>空欄ｆについて<br>
+  　空欄ｆを含むPERFORM文では，開催日が同一の研修番号を印字用テーブルに格納している処理に相当します。したがって開催日が同じである研修番号CHK-SEM-NO(CNT1 CNT2)をPRI-SEM-NO(CNT2)に，CNT2を＋１ごとに変えて転送すればよい。<br>  
+  </p>  
+<HR WIDTH=100%>    
+  <a HREF="13s_p_e4.htm#101">問題へ</a>   
+<HR WIDTH=100%>   
+  　<BR>
+<A HREF="index.htm">メニューへ戻る</A>
+<HR WIDTH=100%>   
+<a NAME="110">　<BR>  
+<b>  
+問11</b></a>　　　（解説は省略します。）
+<hr> 
+<a NAME="111">　<BR> 
+<b> 
+設問</b></a><b><a NAME="111">1</a>　</b>
+  <p>＜解答＞　a　イ　　b　カ　　c　キ　　d　ア　　e　カ　　f　カ<br>
+  &nbsp;</p>
+<HR WIDTH=100%> 
+  <a HREF="13s_p_e4.htm#111">問題へ</a> 
+<HR WIDTH=100%> 
+  <b>　</b> 
+<a NAME="112"> 
+<b> 
+<br>
+設問</b></a><b>2　</b>
+  <p>＜解答＞　ウ</p>
+  <p>　</p>
+<HR WIDTH=100%>
+  <a HREF="13s_p_e4.htm#112">問題へ</a>
+<HR WIDTH=100%>
+<p><a HREF="index.htm">メニューへ戻る</a>　</p>
+<HR WIDTH=100%>
+  　<BR>
+<BR>
+  <p>　</p>
+</blockquote>
+</BODY>
+</HTML>

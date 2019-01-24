@@ -1,0 +1,136 @@
+<html>
+
+<head>
+<title>平成19年度 春期 基本情報技術者試験 問題（午後問1～2）</title>
+<style type="text/css">
+body{line-height:150%;}
+code{font-size:12pt;}
+</style>
+</head>
+
+<body>
+
+<blockquote>
+<hr>
+<h3 align="center">平成19年度秋期試験　問題(問1～問2)</h3>
+<hr>
+<div align="center">
+<center>
+<table border="1" cellpadding="8" cellspacing="0" bordercolor="#000000">
+<tr>
+<td>次の<strong>問1</strong>から<strong>問5</strong>までの5問については，全問解答してください。</td>
+</tr>
+</table>
+</center>
+</div>
+<hr>
+<p><a name=" 10"><strong>問1</strong></a>　機械語命令の実行に関する次の記述を読んで，設問に答えよ。</p>
+<p>（1）1語は16ビットで，命令語は1語長である。命令語の形式は図1のとおりである。</p>
+<p><img border="0" src="IMAGE/pm-q1-1.png" width="585" height="100"></p>
+<p>（2）op，r及びvの意味を表1に示す。<br>
+レジスタは，1語長で16個（レジスタ番号0～F）ある。op，r，v及びレジスタの内容は，16進数で表示する。<br>
+<img border="0" src="IMAGE/pm-q1-2.png" width="587" height="131"></p>
+<p>（3）命令の仕様（一部）を表2に示す。<br>
+<img border="0" src="IMAGE/pm-q1-3.png" width="587" height="248"></p>
+<p><strong>設問</strong>　次の記述中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。レジスタ1～5の内容は，図2のとおりとする。</p>
+<p><img border="0" src="IMAGE/pm-q1-4.png" width="587" height="171"></p>
+<p>（1）図2の状態で，次の命令語を実行するとレジスタ2の内容は［　　a　　］になる。</p>
+<p><code>　　　命令語：　3021</code></p>
+<p>（2）図2の状態で，次の4個の命令語を順に実行するとレジスタ3の内容は［　　b　　］に，レジスタ4の内容は［　　c　　］になる。</p>
+<p><code>　　　命令語：　1034<br>
+　　　　　　　　4038<br>
+　　　　　　　　5048<br>
+　　　　　　　　3043</code><br>
+<br>
+（3）図2の状態で，次の4個の命令語を順に実行するとレジスタ5の内容は10倍になる（レジスタ5：0010→00A0）。<br>
+<br>
+<code>　　　命令語：1065<br>
+　　　　　　　4063<br>
+　　　　　　　40［　　d　　］<br>
+　　　　　　　2056</code></p>
+<p>aに関する解答群</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber2">
+<tr>
+<td>ア　9375</td>
+<td>イ　9395</td>
+<td>ウ　9575</td>
+<td>エ　9595</td>
+</tr>
+</table>
+<p>b，cに関する解答群</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber1">
+<tr>
+<td>ア　005F</td>
+<td>イ　008B</td>
+<td>ウ　00C3</td>
+<td>エ　2A00</td>
+</tr>
+<tr>
+<td>オ　2A5F</td>
+<td>カ　8B00</td>
+<td>キ　8BC3</td>
+<td>ク　C38B</td>
+</tr>
+</table>
+<hr>
+<p><a href="19S_P_A1.HTM#11">設問の正解例と解説へ</a> </p>
+<hr>
+<p><a href="index.htm">■メニューへ戻る</a> </p>
+<hr>
+<p><a name=" 20"><strong>問2</strong></a>　関係データベースに関する次の記述を読んで，設問1，2に答えよ。</p>
+<p>ある情報システム開発会社は，顧客であるA社の組織情報を関係データベースにすることになり，まず，部門と所属についての設計を行った。<br>
+　A社の部門は，英字2文字からなる部門コードで一意に識別できる。A社の社員は，4けたの数字からなる社員番号で一意に識別でき，必ず一つの部門に所属しているものとする。<br>
+　図1にA社の部門と所属の情報を示す。括弧内は，部門コード又は社員番号である。</p>
+<p><img border="0" src="IMAGE/pm-q2-1.png" width="587" height="125"></p>
+<p><a name="21"><strong>設問1</strong></a>　次の記述中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p>
+　情報システム開発会社の初級技術者B君は，案1と案2の二つの関係データベースの構造を考えた。しかし，上級技術者から，案1と案2の両方で，A社の組織を表すには不都合な［　　a　　］という現象が起こり，案1では，更に［　　b　　］という不都合な現象も起こることが指摘された。<br>
+　そこでB君は，指摘に基づき，案3を考えた。<br>
+　案1～3を，図2に示す。下線は，その項目が主キーであることを表す。</p>
+<p><img border="0" src="IMAGE/pm-q2-2.png" width="587" height="189"></p>
+<p>解答群<br>
+　ア　転属した社員の所属部門を，変更することができない<br>
+　イ　新入社員を，登録することができない<br>
+　ウ　退職した社員を，削除することができない<br>
+　エ　同姓同名の社員を，登録することができない<br>
+　オ　配属者未定の新設部門を，登録することができない</p>
+<hr>
+<p><a href="19S_P_A1.HTM#21">設問1の正解例と解説へ</a> </p>
+<hr>
+<p><a name="22"><strong>設問2</strong></a><b>　</b>次の記述中の［　　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p>　A社の制度が変更され，社員が本務として所属する部門に加え，その他の1部門までの兼務ができることになった。<br>
+　このたび，新設部門として宣伝（SD）が設置され，本務が営業（EG）である綾瀬恵と本務が庶務（SM）である上戸満夫が，兼務として宣伝（SD）に配属されることになった。<br>
+　B君は，これらに対応し，どの項目の内容も空にならない案4を考えた。<br>
+　案4のデータベース構造において，今回の制度の変更，部門の新設及び配属の後，兼務の登録件数（行数）は，［　　c　　］となる。<br>
+　案4を図3に示す。下線は，その項目が主キーであることを表す。</p>
+<p><img border="0" src="IMAGE/pm-q2-3.png" width="587" height="122"></p>
+<p>cに関する解答群</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber3">
+<tr>
+<td>ア　1</td>
+<td>イ　2</td>
+<td>ウ　3</td>
+<td>エ　8</td>
+<td>オ　9</td>
+</tr>
+</table>
+<p>d，eに関する解答群</p>
+<table border="0" cellpadding="0" cellspacing="16" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber4">
+<tr>
+<td>ア　氏名</td>
+<td>イ　社員番号</td>
+<td>ウ　部門コード</td>
+</tr>
+</table>
+<hr>
+<p><a href="19S_P_A1.HTM#22">設問2の正解例と解説へ</a> </p>
+<hr>
+<p><a href="19S_P_E2.HTM">■問3へ進む</a> </p>
+<hr>
+<p><a href="index.htm">■メニューへ戻る</a> </p>
+<hr>
+</blockquote>
+
+</body>
+
+</html>

@@ -1,0 +1,132 @@
+<html>
+
+<head>
+<title>平成21年度 春期　基本情報技術者 午後 解説</title>
+<style type="text/css">
+body{line-height:150%;}
+code{font-size:12pt;}
+</style>
+</head>
+
+<body>
+
+<blockquote>
+	<hr>
+	<h3 align="center">平成21年度春期試験　正解例と解説(問10～問13)</h3>
+	<hr>
+	<p><strong><a name="100">問10</a></strong></p>
+	<hr>
+	<p><strong><a name="101">設問1</a></strong></p>
+	<p>〈解答〉　a：ア，b：ウ，c：カ，d：ウ，e：ア</p>
+	<p>〈解説〉</p>
+	<p>●空欄aについて<br>
+	入力手続<code>SORT-1-INPUT</code>で売上ファイルのレコードを整列用ファイル<code>SORT-F</code>のレコードに転送し，整列後<code>TEMP-F</code>に出力している。空欄aはその整列キーの指定であり，整列キー<code>SORT-CD</code>の昇順に整列を行えばよく，アが適切。</p>
+	<p>●空欄bについて<br>
+	入力手続<code>SORT-2-INPUT</code>において，<code>PERFORM</code>命令によるループ処理で整列済みの<code>TEMP-F</code>を販売店コードの昇順に読み，コントロールブレークにより販売店コードがブレークするごとに販売店コード別に集計した売上金額を，<code>SORT-F</code>に書き出しているのが分かる。したがって<code>SORT-F</code>を販売店コードごとの集計金額の降順に整列すればよく，空欄bの整列キーの指定はウが適切。</p>
+	<p>●空欄cについて<br>
+	行番号65で<code>TEMP-F</code>から読込まれたレコードのキー<code>TEMP-CD</code>が<code>W-SORT-CD</code>と異なる場合に，キー<code>TEMP-CD</code>を<code>W-SORT-CD</code>と<code>SORT-CD</code>に転送した後，空欄cの処理を行っている。つまり空欄cはキーがブレークした場合の処理の一つである。したがって空欄cでは，キーがブレークした直後の売上金額<code>TEMP-SALES</code>を<code>SORT-SALES</code>に転送すればよく，カが適切。</p>
+	<p>●空欄dについて<br>
+	空欄dは，<code>TEMP-F</code>から読み込まれたレコードのキー<code>TEMP-CD</code>が<code>W-SORT-CD</code>と一致した場合の処理なので，読み込まれたレコードの売上金額<code>TEMP-SALES</code>を<code>SORT-SALES</code>に加算する処理を行えばよく，ウが適切。</p>
+	<p>●空欄eについて<br>
+	空欄eは，キーが一致するか否かに関わらず行っている処理なので，読込まれたレコードの売上金額<code>TEMP-SALES</code>を総合計用の作業領域<code>GROSS-SUM</code>に加算する処理を行えばよく，アが適切。</p>
+	<hr>
+	<p><a href="21S_P_E4.HTM#101">問題へ</a></p>
+	<hr>
+	<p><strong><a name="102">設問2</a></strong></p>
+	<p>〈解答〉　f：イ，g：イ</p>
+	<p>〈解説〉</p>
+	<p>●空欄fについて<br>
+	パラメータで指定する1～3の値に対応して，それぞれ販売店コード，商品コード，顧客コード別に集計できるようにするため，要素数3のテーブル<code>S-CD</code>を用いて，<code>SALES-F</code>のレコード<code>SALES-REC</code>を<code>SALES-REC-R</code>により再定義しているのが，空欄fの処理である。これによりテーブル要素<code>S-CD(1)</code>～<code>S-CD(3)</code>に<code>SALES-REC</code>の<code>S-SHOP-CD</code>，<code>S-PRODUCT-CD</code>，<code>S-CUSTOMER-CD</code>を格納できる。したがって空欄fはイの<code>S-CD 
+	PIC X(10) OCCURS 3</code>が適切。</p>
+	<p>●空欄gについて<br>
+	<code>LINKAGE SECTION</code>で定義している<code>SUM-CD</code>は，パラメータの値を格納するためのデータ名である。空欄gに関する処理で，パラメータ<code>SUM-CD</code>で指定されたテーブル要素<code>S-CD(SUM-CD)</code>の集計用キーを整列用ファイル<code>SORT-F</code>の整列キー<code>SORT-CD</code>に転送している。したがって空欄gの処理は，行番号52で整列用ファイルに書き出す直前に行うべきであり，イの行番号51と52の間が適切。</p>
+	<hr>
+	<p><a href="21S_P_E4.HTM#102">問題へ</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a> </p>
+	<hr>
+	<p><strong><a name="110">問11</a></strong></p>
+	<hr>
+	<p><strong><a name="111">設問</a></strong></p>
+	<p>〈解答〉　a：ア，b：ウ，c：ウ，d：エ，e：ウ，f：オ</p>
+	<p>〈解説〉</p>
+	<p>●空欄aについて<br>
+	メソッド<code>insert</code>は，メソッド<code>confirmGap</code>を呼んで引数<code>offset</code>の位置にギャップを移動した上で，<code>buffer[gapOffset++] 
+	= ch</code>の処理によりギャップの先頭位置<code>gapOffset</code>（引数<code>offfset</code>で指定した位置）に，文字<code>ch</code>を挿入する。挿入によるギャップの先頭位置を1文字後にずらす処理をしているのが<code>gapOffset++</code>である。また挿入操作によってギャップサイズが1文字分小さくなるので，この処理を空欄aで行う必要がある。したがって空欄aはアの<code>gapSize--</code>が適切。</p>
+	<p>●空欄bについて<br>
+	メソッド<code>charAt</code>は，引数<code>offset</code>で指定された位置にあるギャップバッファの文字<code>buffer[offset]</code>を返す。ギャップバッファには，ギャップの先頭位置<code>gapOffset</code>以降に<code>gapSize</code>で指定したサイズのギャップがあるので，<code>offset</code>に<code>gapSize</code>だけ加算した位置の文字<code>buffer[offset]</code>を<code>return</code>命令で返す必要がある。したがって空欄bはウの<code>gapSize</code>が適切。</p>
+	<p>●空欄cについて<br>
+	メソッド<code>length</code>はテキストの文字数を返す。したがってギャップバッファのサイズ<code>buffer.length</code>からギャップのサイズ<code>gapSize</code>を差し引いた値を返せばよく，空欄cはウの<code>buffer.length 
+	- gapSize</code>が適切。</p>
+	<p>●空欄dについて<br>
+	クラス<code>Editor</code>は，クラス<code>GapBuffer</code>を利用して簡易エディタを実現する。<code>Editor(String 
+	text)</code>は，クラス<code>Editor</code>のコンストラクタで，引数<code>text</code>で指定された文字列をテキストの初期値としてギャップバッファ<code>buf</code>を生成する。したがって空欄dの<code>buf</code>に対する型指定に<code>GapBuffr</code>型を指定すればよく，空欄dはエが適切。</p>
+	<p>●空欄eについて<br>
+	<code>while</code>ループにおいてメソッド<code>get</code>によりターミナルから読込まれた文字<code>ch</code>がクラス<code>CharReader</code>の制御文字<code>CharReader.DELETE</code>である場合の処理である。この場合カーソル直後の1文字を削除する。したがってメソッド<code>delete</code>の引数に<code>cursor</code>を指定し削除すればよく，空欄eはウが適切。</p>
+	<p>●空欄fについて<br>
+	制御文字以外の文字が入力されたときは，カーソルの位置に文字を挿入し，カーソルを1文字分進める。したがってメソッド<code>insert</code>の引数に<code>cursor++</code>を指定し挿入すればよく，空欄fはオが適切。</p>
+	<hr>
+	<p><a href="21S_P_E4.htm#111">問題へ</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a> </p>
+	<hr>
+	<p><strong><a name="120">問12</a></strong></p>
+	<hr>
+	<p><strong><a name="121">設問1</a></strong></p>
+	<p>〈解答〉　a：ウ，b：ウ，c：エ</p>
+	<p>〈解説〉</p>
+	<p>●空欄aについて<br>
+	3行目，4行目の<code>LAD</code>命令により積の上位語，積の下位語を格納するレジスタ<code>GR6</code>，<code>GR7</code>を0に初期化している。5行目の<code>LD</code>命令によりアドレス<code>GR1</code>に格納されている被乗数の上位語を<code>GR4</code>に取り出し，6行目の<code>LD</code>命令によりアドレス<code>GR1</code>＋1に格納されている被乗数の下位語を<code>GR5</code>に取り出している。7行目の<code>SRL</code>命令により<code>GR2</code>の乗数を1ビット右シフトした結果，<code>GR2</code>が0になれば<code>JZE</code>命令により<code>FIN</code>に零分岐し，乗算結果を格納し終了する。10行目の<code>JUMP</code>命令による<code>NEXT</code>への無条件分岐は，加算処理をスキップする命令であり，7行目の右シフトの結果オーバフローしたビットが0である場合に<code>NEXT</code>に分岐すればよい。したがって空欄aは，7行目の右シフトの結果オーバフローしたビットが1である場合の処理に該当する。<code>ADD32</code>の<code>ADDL</code>命令による論理加算により，<code>GR6</code>の積の上位語に<code>GR4</code>の被乗数の上位語を加算している。さらに次の<code>ADDL</code>命令により，<code>GR7</code>の積の下位語に<code>GR5</code>の被乗数の下位語を加算している。したがって空欄aで<code>JOV</code>命令により<code>ADD32</code>にオーバフロー分岐すればよく，ウが適切。</p>
+	<p>●空欄bについて<br>
+	空欄bの直前の<code>ADDL</code>命令によりGR7の積の下位語にGR5の被乗数の下位語を加算しているが，積の下位語<code>GR7</code>がオーバフローすれば，<code>ADJ1</code>に分岐して積の上位語に1を論理加算するけた上げ処理を行う必要がある。したがって空欄bで<code>JOV</code>命令により<code>ADJ1</code>にオーバフロー分岐すればよく，ウが適切。</p>
+	<p>●空欄cについて<br>
+	空欄cの直前の<code>SLL</code>命令により<code>GR4</code>を1ビット左シフトしているが，これは<code>GR4</code>の被乗数の上位語を1ビット左シフトすることにより位取りをしている処理である。したがって空欄cでは，<code>GR5</code>の被乗数の下位語を1ビット左シフトすることにより位取りを行う処理が必要で，<code>SLL</code>命令により<code>GR5</code>を1ビット左シフトすればよく，エが適切。</p>
+	<hr>
+	<p><a href="21S_P_E4.HTM#121">問題へ</a></p>
+	<hr>
+	<p><strong><a name="122">設問2</a></strong></p>
+	<p>〈解答〉　d：オ，e：カ</p>
+	<p>〈解説〉</p>
+	<p>●空欄dについて<br>
+	副プログラム<code>MUL</code>は，<code>MULS</code>を利用して32ビット同士の乗算を行うプログラムである。被乗数，乗数，積の上位語のアドレスが，それぞれ<code>GR1</code>，<code>GR2</code>，<code>GR3</code>に設定されてプログラム<code>MUL</code>に渡される。32ビットの被乗数と16ビットの乗数を受取り，32ビットの積を返す<code>MULS</code>を利用するには，被乗数と積の上位語のアドレスを<code>GR1</code>と<code>GR3</code>に設定し，<code>GR2</code>に16ビットの乗数を設定して<code>MALS</code>を呼び出す必要がある。そのため4行目の<code>LD</code>命令により，アドレス<code>GR2</code>＋1の乗数の下位語を取り出し<code>GR2</code>に設定して6行目の<code>CALL</code>命令により<code>MULS</code>を呼び出している。この<code>MULS</code>の呼出しにより，被乗数と乗数下位語の積が<code>GR6</code>に設定された後，<code>ST</code>命令によりアドレス<code>GR3</code>以下の2語に格納される。<br>
+	10行目の<code>CALL</code>命令による<code>MULS</code>の呼出しでは，被乗数と乗数上位語の積が<code>GR6</code>に設定される。したがって10行目の<code>MULS</code>の呼出しを行う前には，乗数の上位語を<code>GR2</code>に設定しておく必要がある。空欄dの直前の<code>POP</code>命令により，スタックに退避された乗数の上位語のアドレスが<code>GR2</code>に取り出されているので，空欄dで<code>LD</code>命令によりアドレス<code>GR2</code>の乗数の上位語を<code>GR2</code>に設定すればよく，オが適切。</p>
+	<p><img border="0" src="img/21S_P_8.jpg" width="781" height="654"></p>
+	<p><br>
+	<img border="0" src="img/21S_P_9.jpg" width="778" height="708"></p>
+	<p>●空欄eについて<br>
+	9行目の<code>LAD</code>命令により積の結果の格納先アドレス<code>SV</code>を<code>GR3</code>に設定しているので，10行目の<code>MULS</code>の呼出しにより，被乗数と乗数上位語の積が<code>GR6</code>に設定された後，<code>ST</code>命令によりアドレス<code>SV</code>以下の2語に格納される。13行目の<code>ADDL</code>命令により，被乗数と乗数下位語の積の上位語と，被乗数と乗数上位語の積の下位語を論理加算している。この直前の<code>POP</code>命令によりスタックに退避されていた被乗数と乗数下位語の積の上位語のアドレスが，<code>GR3</code>に戻されている。したがって被乗数と乗数上位語の積の下位語が<code>GR6</code>に設定されている必要がある。この時点で9行目の<code>LAD</code>命令により被乗数と乗数上位語の積の上位語のアドレス<code>SV</code>が<code>GR3</code>に設定されているので，<code>LD</code>命令によりアドレス<code>GR3</code>＋1から被乗数と乗数上位語の積の下位語を<code>GR6</code>に取り出せばよく，空欄eはカが適切。</p>
+	<hr>
+	<p><a href="21S_P_E4.HTM#122">問題へ</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a> </p>
+	<hr>
+	<p><strong><a name="130">問13</a></strong></p>
+	<hr>
+	<p><strong><a name="131">設問</a></strong></p>
+	<p>〈解答〉　a：エ，b：イ，c：エ，d：カ，e：ア，f：イ，g：ア</p>
+	<p>〈解説〉</p>
+	<p>●空欄aについて<br>
+	セルE2には，照合合計関数により販売計画表の商品M2について4月計画量を集計する。空欄aは照合合計関数の照合範囲の指定であり，セル$A2の商品名を販売計画表のB2～B10の商品名と照合すればよいが，セルE2に入力した式を列方向にF2～J2に複写するので，列名Bを絶対参照にしておく必要がある。したがって空欄aの照合範囲に$B2～$B10を指定すればよく，エが適切。</p>
+	<p>●空欄bについて<br>
+	空欄bは照合合計関数の対応範囲の指定であり，販売計画表の商品M2について4月計画量を集計するには，販売計画表のC2～C10の計画量を対応する商品名の行について集計すればよい。セルE2に入力した式を列方向にF2～J2に複写するので，列名Cは相対参照にしておけばよい。したがって空欄bの対応範囲にC2～C10を指定すればよく，イが適切。</p>
+	<p>●空欄cについて<br>
+	セルD3には，3月の必要在庫量を計算する。3月の必要在庫量は翌月の4月の販売計画量の120％を入力する（小数点以下切上げ）。切上げ（E2＊1.2）により計算すればよい。セルD3の式をセルE3～I3に列方向に複写するので，列名Eは相対参照とすればよく，空欄cはエが適切。</p>
+	<p>●空欄dについて<br>
+	セルE4には4月の繰越在庫量を計算する。4月の繰越在庫量は，前月の3月の繰越在庫量D4と必要生産量D5の合計から当月4月の販売計画量E2を差し引けばよく，D4＋D5－E2により計算できる。E4の式をセルF4～I4に列方向に複写するので，列名は相対参照とすればよく，カが適切。</p>
+	<p>●空欄eについて<br>
+	セルD5には，3月の必要生産量を計算する。3月の必要生産量は3月の必要在庫量D3から繰越在庫量D4を差し引いたD3－D4により計算できるが，繰越在庫量D4が必要在庫量D3以上である場合は0とする。したがって空欄eのIF関数の条件はD3≦D4とすればよい。セルD5の式をセルE5～I5に列方向に複写するので，列名は相対参照とすればよく，アが適切。</p>
+	<p>●空欄fについて<br>
+	セルI6には8月の繰上生産量を計算する。8月の繰上生産量は，当月8月の必要生産量I5と翌月9月の繰上生産量J6の合計から，当月8月の計画生産量I7を差し引けばよく，I5＋J6－I7により計算できる。セルI6の式をセルD6～H6に列方向に複写するので，列番号は相対参照とすればよく，イが適切。</p>
+	<p>●空欄gについて<br>
+	セルI7には8月の計画生産量を計算する。計画生産量は当月8月の必要生産量I5と翌月9月の繰上生産量J6の合計I5＋J6であるが，最大生産量B2を超える場合は，最大生産量B2とする。したがって空欄gのIF関数の条件はI5＋J6≦B2であるが，I7の式をD7～H7に列方向に複写するので，列番号Bに関しては絶対参照とする必要があり，アのI5＋J6≦$B2が適切。</p>
+	<hr>
+	<p><a href="21S_P_E4.HTM#131">問題へ</a></p>
+	<hr>
+	<p><a href="INDEX.HTM">■メニューへ戻る</a></p>
+	<hr>
+	<p>　</p>
+</blockquote>
+
+</body>
+
+</html>

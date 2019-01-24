@@ -1,0 +1,700 @@
+<html>
+
+<head>
+<title>平成17年度春期試験　問題(問10～問13)</title>
+</head>
+
+<body bgcolor="#FFFFFF" topmargin="0" leftmargin="0">
+
+<blockquote>
+<hr>
+<h3 align="center">平成17年度春期試験　問題(問10～問13)</h3>
+<hr>
+<div align="center">
+<center>
+<table border="1" cellpadding="4" cellspacing="0" bordercolor="#000000">
+<tr>
+<td>次の<strong>問10</strong>から<strong>問13</strong>までの4問については、この中から1問を選択し、答案用紙の選択欄の<img border="0" src="IMAGE/select.gif" width="29" height="18">（選）をマークして解答してください。なお、2問以上選択した場合には、はじめの1問について採点します。</td>
+</tr>
+</table>
+</center>
+</div>
+<hr>
+<p><b><a name="100">問10</a>　</b>次のCプログラムの説明及びプログラムを読んで，設問1，2に答えよ。</p>
+<p>〔プログラムの説明〕<br>
+関数<code>make_fare_table</code>は，ある鉄道路線における始発駅から終着駅までの隣接駅間の距離から，その鉄道路線上の全駅間の運賃を求め，運賃表を作成するプログラムである。</p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td valign="top">（1）</td>
+<td valign="top">関数<code>make_fare_table</code>の引数は，次のとおりである。<br>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td valign="top"><code>num</code></td>
+<td valign="top">始発駅から終着駅までの駅数</td>
+</tr>
+<tr>
+<td valign="top"><code>dist_list</code></td>
+<td valign="top">隣接駅間の距離（km）を格納した配列（図1参照）</td>
+</tr>
+<tr>
+<td valign="top"><code>cost_list</code></td>
+<td valign="top">距離運賃体系表（構造体COSTUNITの配列）</td>
+</tr>
+<tr>
+<td valign="top"><code>fare_table</code></td>
+<td valign="top">運賃表<br>
+<code>fare_table[m][n]</code>（0≦<code>m</code>≦<code>num</code>－1，0≦<code>n</code>≦<code>num</code>－1かつ<code>m</code>≠<code>n</code>）には，駅<code>m</code>と駅<code>n</code>の間の運賃を格納する。<br>
+<code>fare_table[k][k]</code>（0≦<code>k</code>≦<code>num</code>－1）には，ゼロを格納する。</td>
+</tr>
+</table>
+</div>
+<p><img border="0" src="IMAGE/05s_kihon-gogo_1001.gif" width="581" height="130"></td>
+</tr>
+<tr>
+<td valign="top">（2）</td>
+<td valign="top">距離から運賃を求めるために，関数<code>calc_fare</code>を用いる。<br>
+関数<code>calc_fare</code>の引数及び返却値は，次のとおりである。<br>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td valign="top"><code>dist</code></td>
+<td valign="top">2駅間の距離（km）</td>
+</tr>
+<tr>
+<td valign="top"><code>cost_list</code></td>
+<td valign="top">距離運賃体系表（構造体<code>COSTUNIT</code>の配列）</td>
+</tr>
+<tr>
+<td valign="top">返却値</td>
+<td valign="top">運賃（円）</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr>
+<td valign="top">（3）</td>
+<td valign="top">2駅間を幾つかの区間に分け，区間ごとに計算した運賃を合計したものを，2駅間の運賃とする。</td>
+</tr>
+<tr>
+<td valign="top">（4）</td>
+<td valign="top">各区間の運賃は，次の①～④のとおりである（図2参照）。<br>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td valign="top">①</td>
+<td valign="top">最初の20km以下の区間（区間<code>[0]</code>の運賃は，5km増えるごとに100円加算する。</td>
+</tr>
+<tr>
+<td valign="top">②</td>
+<td valign="top">20kmを超え100km以下の区間（区間<code>[1]</code>）の運賃は，10km増えるごとに180円加算する。</td>
+</tr>
+<tr>
+<td valign="top">③</td>
+<td valign="top">100kmを超え500km以下の区間（区間<code>[2]</code>）の運賃は，50km増えるごとに850円加算する。</td>
+</tr>
+<tr>
+<td valign="top">④</td>
+<td valign="top">500kmを超える区間（区間<code>[3]</code>）の運賃は，100km増えるごとに1,650円加算する。</td>
+</tr>
+</table>
+</div>
+<p><img border="0" src="IMAGE/05s_kihon-gogo_1002.gif" width="564" height="457"></td>
+</tr>
+<tr>
+<td valign="top">（5）</td>
+<td valign="top">例えば，距離が385kmある駅間の運賃の求め方は，次のとおりである。<br>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td valign="top">①</td>
+<td valign="top">最初の20km以下の区間（区間<code>[0]</code>）の運賃は，5km増えるごとに100円加算されるので，次の式で求められる。<br>
+　　100円×ceil（20km÷5km）＝400円</td>
+</tr>
+<tr>
+<td valign="top">②</td>
+<td valign="top">20kmを超え100km以下の区間（区間<code>[1]</code>）の運賃は，10km増えるごとに180円加算されるので，次の式で求められる。<br>
+　　180円×ceil（（100km－20km）÷10km）＝1,440円</td>
+</tr>
+<tr>
+<td valign="top">③</td>
+<td valign="top">100kmを超え385km以下の区間（区間<code>[2]</code>）の運賃は，50km増えるごとに850円加算されるので，次の式で求められる。<br>
+　　850円×ceil（（385km－100km）÷50km）＝5,100円</td>
+</tr>
+</table>
+</div>
+<p>運賃は，①～③の合計で，6,940円になる。ここで，計算式中のceil（X）は，Xの小数点以下を切り上げた値を表す。</td>
+</tr>
+<tr>
+<td valign="top">（6）</td>
+<td valign="top">各区間の上限距離と単位距離は，距離運賃体系表で与える。距離運賃体系表は，上限距離の小さい区間から順に各要素を格納する。最後の要素の上限距離はゼロを格納し，距離の上限がないことを表す。
+<p><img border="0" src="IMAGE/05s_kihon-gogo_1003.gif" width="598" height="211"></td>
+</tr>
+<tr>
+<td valign="top">（7）</td>
+<td valign="top">各区間の上限距離，単位距離及び単位距離ごとの運賃は，次に示す構造体<code>COSTUNIT</code>で定義される。
+<p><img border="0" src="IMAGE/05s_kihon-gogo_1000.gif" width="551" height="89"></p>
+<p><img border="0" src="IMAGE/05s_kihon-gogo_1004-01.gif" width="622" height="511"><br>
+<img border="0" src="IMAGE/05s_kihon-gogo_1004-02.gif" width="622" height="361"></td>
+</tr>
+</table>
+</div>
+<hr>
+<p><b><a name="101">設問1</a>　</b>プログラム中の［　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p>aに関する解答群</p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0" width="496">
+<tr>
+<td width="15">ア</td>
+<td width="209"><code>dist += dist_list[idx0]</code></td>
+<td width="14">イ</td>
+<td width="218"><code>dist += dist_list[idx0 - 1]</code></td>
+</tr>
+<tr>
+<td width="15">ウ</td>
+<td width="209"><code>dist += dist_list[idx1]</code></td>
+<td width="14">エ</td>
+<td width="218"><code>dist += dist_list[idx1 - 1]</code></td>
+</tr>
+<tr>
+<td width="15">オ</td>
+<td width="209"><code>dist = dist_list[idx0]</code></td>
+<td width="14">カ</td>
+<td width="218"><code>dist = dist_list[idx0 - 1]</code></td>
+</tr>
+<tr>
+<td width="15">キ</td>
+<td width="209"><code>dist = dist_list[idx1]</code></td>
+<td width="14">ク</td>
+<td width="218"><code>dist = dist_list[idx1 - 1]</code></td>
+</tr>
+</table>
+</div>
+<p>bに関する解答群</p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td>ア　<code>upper_limit != 0 &amp;&amp; dist &gt; (double)lower_limit</code><br>
+イ　<code>upper_limit != 0 &amp;&amp; dist &gt; (double)upper_limit</code><br>
+ウ　<code>upper_limit != 0 || dist &gt; (double)lower_limit</code><br>
+エ　<code>upper_limit != 0 || dist &gt; (double)upper_limit</code><br>
+オ　<code>upper_limit == 0 &amp;&amp; dist &lt;= (double)lower_limit</code><br>
+カ　<code>upper_limit == 0 &amp;&amp; dist &lt;= (double)upper_limit</code><br>
+キ　<code>upper_limit == 0 || dist &lt;= (double)lower_limit</code><br>
+ク　<code>upper_limit == 0 || dist &lt;= (double)upper_limit</code></td>
+</tr>
+</table>
+</div>
+<p>c，eに関する解答群</p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td>ア　<code>((double)upper_limit - dist)</code><br>
+イ　<code>(dist - (double)lower_limit)</code><br>
+ウ　<code>(double)(upper_limit - lower_limit)</code><br>
+エ　<code>(double)lower_limit</code><br>
+オ　<code>(double)upper_limit</code><br>
+カ　<code>dist</code></td>
+</tr>
+</table>
+</div>
+<p>dに関する解答群</p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0" width="384">
+<tr>
+<td width="15">ア</td>
+<td width="58"><code>++idx</code></td>
+<td width="13">イ</td>
+<td width="63"><code>--idx</code></td>
+<td width="26">ウ</td>
+<td width="58"><code>idx</code></td>
+<td width="14">エ</td>
+<td width="57"><code>idx++</code></td>
+</tr>
+<tr>
+<td width="15">オ</td>
+<td width="58"><code>idx--</code></td>
+<td width="13">カ</td>
+<td width="63"><code>idx + 1</code></td>
+<td width="26">キ</td>
+<td width="58"><code>idx - 1</code></td>
+<td width="14">　</td>
+<td width="57">　</td>
+</tr>
+</table>
+</div>
+<hr>
+<a href="17S_P_A4.HTM#101">設問1の正解例と解説へ</a>
+<hr>
+<p><b><a name="102">設問2</a>　</b>次の記述中の［　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p>鉄道路線の運営会社が，始発駅及び終着駅以外の途中駅を境に2社に分割され，運賃の計算方法が次のように変更された。</p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td valign="top">（1）</td>
+<td valign="top">どちらか1社の鉄道路線だけを利用する場合は，従来どおりの方法で運賃を計算する。</td>
+</tr>
+<tr>
+<td valign="top">（2）</td>
+<td valign="top">2社の鉄道路線を乗り継いで利用する場合は，各社の利用部分の運賃を個別に計算し，それを合計する。<br>
+　これに対応するためには，関数<code>make_fare_table</code>の引数に，境となる駅の番号<code>term_no</code>（1≦<code>term_no</code>≦<code>num</code>－2）を追加し，プログラム中の<img border="0" src="IMAGE/05S_alpha.GIF" width="24" height="25">を次のように変更すればよい。
+<p align="center"><img border="0" src="IMAGE/05s_kihon-gogo_1005.gif" width="540" height="171"></td>
+</tr>
+</table>
+</div>
+<p>解答群</p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0" width="458">
+<tr>
+<td width="15">ア</td>
+<td width="181"><code>idx0 == term_no - 1</code></td>
+<td width="14">イ</td>
+<td width="208"><code>idx0 == term_no</code></td>
+</tr>
+<tr>
+<td width="15">ウ</td>
+<td width="181"><code>idx0 == term_no + 1</code></td>
+<td width="14">エ</td>
+<td width="208"><code>idx1 == term_no - 1</code></td>
+</tr>
+<tr>
+<td width="15">オ</td>
+<td width="181"><code>idx1 == term_no</code></td>
+<td width="14">カ</td>
+<td width="208"><code>idx1 == term_no + 1</code></td>
+</tr>
+</table>
+</div>
+<hr>
+<a href="17S_P_A4.HTM#102">設問2の正解例と解説へ</a>
+<hr>
+<a href="INDEX.HTM">■メニューへ戻る</a>
+<hr>
+<p><a name="110"><b>問11</b></a>　次のCOBOLプログラムの説明及びプログラムを読んで，設問1，2に答えよ。</p>
+<p>〔プログラムの説明〕<br>
+ローン条件情報を受け取り，“返済回数指定の月払元金均等方式”で，ローン返済計画書を出力するサブプログラムである。<br>
+返済回数指定の月払元金均等方式とは，元金部分は返済回数による均等額，利息部分は元金残高に利率を乗じて算出し，それらの合計を毎月の返済額とする返済方式である。</p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td valign="top">（1）</td>
+<td valign="top">ローン条件情報（<code>COND-R</code>）のレコード様式は，次のとおりである。
+<p align="center"><img border="0" src="IMAGE/05s_kihon-gogo_1101.gif" width="544" height="66"></p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td valign="top">①</td>
+<td valign="top">ローン借入日及び初回返済日は，4けたの西暦年，2けたの月，2けたの日で構成される8けたの日付とする（例：2005年7月1日の場合は，20050701）。</td>
+</tr>
+<tr>
+<td valign="top">②</td>
+<td valign="top">毎月返済日は，1～31の値とする。返済日に対応する日が存在しない月は，月末の日を返済日とする。</td>
+</tr>
+<tr>
+<td valign="top">③</td>
+<td valign="top">年利は，％を単位とし，整数部2けた小数部3けたで構成される5けたの数値とする（例：年利5.0％の場合は05000）。返済回数は1～420とする。</td>
+</tr>
+<tr>
+<td valign="top">④</td>
+<td valign="top">ローン条件情報で与えられたデータには，誤りがないものとする。</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr>
+<td valign="top">（2）</td>
+<td valign="top">ローン返済計画書の出力例を次に示す。
+<p align="center"><img border="0" src="IMAGE/05s_kihon-gogo_1102.gif" width="629" height="224"></p>
+<p>ローン返済計画書の見出し部分（出力例の1，2行目）は，あらかじめ印字されているものとする。</td>
+</tr>
+<tr>
+<td valign="top">（3）</td>
+<td valign="top">毎月返済額の元金部分及び利息部分の計算は，次のように行う。<br>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td valign="top">①</td>
+<td valign="top">毎月の元金返済に充てる金額は，“ローン元金÷返済回数”で求める。この元金返済部分を，毎月の返済ごとにローン元金から減算し，ローン元金残高を更新する。</td>
+</tr>
+<tr>
+<td valign="top">②</td>
+<td valign="top">“ローン元金÷返済回数”が割り切れない場合，毎月の元金返済額は小数点以下を切上<br>
+げとし，最終回の元金返済額は次の端数の金額となる。<br>
+　　端数＝ローン元金－毎月元金返済額×（返済回数－1）</td>
+</tr>
+<tr>
+<td valign="top">③</td>
+<td valign="top">毎月の利息は，“ローン元金残高×（年利÷10）×日数÷365”で求め，割り切れない場合は切り捨てる。ここで日数は，最初の返済の場合はローン借入日から初回返済日までの日数，2回目以降は前回返済日の翌日から当月返済日までの日数とする。</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr>
+<td valign="top">（4）</td>
+<td valign="top">関数<code>INTEGER-OF-DATE</code>は，8けたの日付をグレゴリオ暦で1601年1月1日を1とする通算日に変換した整数値を返す。</td>
+</tr>
+<tr>
+<td valign="top">（5）</td>
+<td valign="top">日付が正しいかどうかを調べるために，副プログラム<code>DATECHK</code>を使用する。<code>DATECHK</code>は，与えられた日付がカレンダーにある正しい日付かどうかを調べ，正しければ0，正しくなければ1を結果に返す。<code>DATECHK</code>の呼出し方法は，次のとおりである。
+<p><img border="0" src="IMAGE/05s_kihon-gogo_1103.gif" width="449" height="371"><br>
+<img border="0" src="IMAGE/05s_kihon-gogo_1104.gif" width="577" height="935"><br>
+<img border="0" src="IMAGE/05s_kihon-gogo_1105.gif" width="579" height="931"><br>
+<img border="0" src="IMAGE/05s_kihon-gogo_1106.gif" width="450" height="214"></td>
+</tr>
+</table>
+</div>
+<hr>
+<p><b><a name="111">設問1</a>　</b>プログラム中の［　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p>aに関する解答群</p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td>ア　<code>CD-KAISU TIMES</code><br>
+イ　<code>VARYING W-KAISU FROM 1 BY 1 UNTIL W-KAISU &lt; CD-KAISU<br>
+</code>ウ　<code>VARYING W-KAISU FROM 1 BY 1 UNTIL W-KAISU = CD-KAISU</code><br>
+エ　<code>VARYING W-KAISU FROM 1 BY 1 UNTIL W-KAISU &gt; CD-KAISU</code></td>
+</tr>
+</table>
+</div>
+<p>b，cに関する解答群</p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td>ア</td>
+<td><code>JDATE2 + JDATE1</code></td>
+<td>イ</td>
+<td><code>JDATE2 - CD-SHOKAI-YMD</code></td>
+</tr>
+<tr>
+<td>ウ</td>
+<td><code>JDATE2 - JDATE1</code></td>
+<td>エ</td>
+<td><code>JDATE2 - JDATE1 + 1</code></td>
+</tr>
+<tr>
+<td>オ</td>
+<td><code>JDATE2 - W-HENSAI-YMD</code></td>
+<td>　</td>
+<td>　</td>
+</tr>
+</table>
+</div>
+<p>dに関する解答群</p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td>ア　<code>CD-GANKIN * JDATE2 * CD-NENRI / 100 /365</code><br>
+イ　<code>CD-GANKIN * W-NISSU * CD-NENRI / 100 /365</code><br>
+ウ　<code>W-ZANDAKA * JDATE2 * CD-NENRI / 100 /365</code><br>
+エ　<code>W-ZANDAKA * W-NISSU * CD-NENRI / 100 /365</code></td>
+</tr>
+</table>
+</div>
+<p>eに関する解答群</p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td>ア　<code>ADD 1 TO W-HENSAI-DD</code><br>
+イ　<code>ADD 1 TO W-HENSAI-YY</code><br>
+ウ　<code>SUBTRACT 1 FROM W-HENSAI-DD</code><br>
+エ　<code>SUBTRACT 1 FROM W-HENSAI-MM</code></td>
+</tr>
+</table>
+</div>
+<hr>
+<a href="17S_P_A4.HTM#111">設問1の正解例と解説へ</a>
+<hr>
+<p><b><a name="112">設問2</a>　</b>このブログラムでは，ローン元金が返済回数で割り切れない場合の端数調整を最終回の返済で行っている。パラメタ指定によって初回の返済でも調整できるようにプログラムを変更したい。行番号50と51の間に次の行を挿入し，ローン条件情報に端数調整方法を追加する。この値が1のときは初回調整，0のときは最終回調整とする。</p>
+<p align="center"><img border="0" src="IMAGE/05s_kihon-gogo_1110.gif" width="309" height="25"></p>
+<p>あわせて，プログラム中の行番号86を変更すべき内容として正しい答えを，解答群の中から選べ。<br>
+初回調整の場合のローン返済計画書の出力例を，次に示す。</p>
+<p><img border="0" src="IMAGE/05s_kihon-gogo_1107.gif" width="629" height="224"></p>
+<p>解答群</p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td valign="top">ア</td>
+<td valign="top"><code>IF CD-HASUU = 0 AND W-KAISU = CD-KAISU THEN</code></td>
+</tr>
+<tr>
+<td valign="top">イ</td>
+<td valign="top"><code>IF CD-HASUU = 1 AND W-KAISU = 1 THEN</code></td>
+</tr>
+<tr>
+<td valign="top">ウ</td>
+<td valign="top"><code>IF CD-HASUU = 0 AND W-KAISU = CD-KAISU AND<br>
+&nbsp;&nbsp; CD-HASUU = 1 AND W-KAISU = 1 THEN</code></td>
+</tr>
+<tr>
+<td valign="top">エ</td>
+<td valign="top"><code>IF CD-HASUU = 0 AND W-KAISU = CD-KAISU OR<br>
+&nbsp;&nbsp; CD-HASUU = 1 AND W-KAISU = 1 THEN</code></td>
+</tr>
+<tr>
+<td valign="top">オ</td>
+<td valign="top"><code>IF W-AMARI NOT = 0 OR<br>
+&nbsp;&nbsp; CD-HASUU = 0 AND W-KAISU = CD-KAISU OR<br>
+&nbsp;&nbsp; CD-HASUU = 1 AND W-KAISU = 1 THEN</code></td>
+</tr>
+</table>
+</div>
+<hr>
+<a href="17S_P_A4.HTM#112">設問2の正解例と解説へ</a>
+<hr>
+<a href="INDEX.HTM">■メニューへ戻る</a>
+<hr>
+<p><b><a name="120">問12</a>　</b>次のJavaプログラムの説明及びプログラムを読んで，設問1，2に答えよ。</p>
+<p>〔プログラムの説明〕<br>
+整数値の加減乗除の演算をする電卓プログラムである。入出力部分はテスト用のプログラムによって用意され，電卓本体部分のプログラムのテストができるようになっている。</p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td valign="top">（1）</td>
+<td valign="top">クラス<code>CalculatorEvent</code>は電卓のキーが押されたときに発生するイべントである。イべントにはタイプがありフィールド<code>type</code>の値で表される。タイプは<code>DIGIT</code>，<code>OPERATOR</code>，<code>CLEAR</code>のいずれかであり，それぞれ電卓の数字キー（0～9），演算キー（＋など）及びイコールキー（=），クリアキー（C）を表す。タイプが<code>DIGIT</code>のときは数字キーに対応する数値を，<code>OPERATOR</code>のときは演算の種類を表す文字又は<code>'＝'</code>をフィールド<code>value</code>に保持する。タイプが<code>CLEAR</code>のときは，<code>value</code>は使用しない。</td>
+</tr>
+<tr>
+<td valign="top">（2）</td>
+<td valign="top">インタフェース<code>CalculatorOutput</code>は，電卓上に数値やエラーを表示するメソッド<code>display</code>を宣言する。</td>
+</tr>
+<tr>
+<td valign="top">（3）</td>
+<td valign="top">クラス<code>Calculator</code>は電卓本体である。メソッド<code>eventDispatched</code>はイべントを受け取り，イべントのタイプに応じて演算処理などを行う。<br>
+なお，二つの数値に対する加減乗除の演算結果はJavaのint型の演算結果に一致するものとする。</td>
+</tr>
+<tr>
+<td valign="top">（4）</td>
+<td valign="top">クラス<code>CalculatorTest</code>は<code>Calculator</code>をテストするプログラムである。<code>CalculatorOutput</code>を匿名クラスとして実装する。この実装では，メソッド<code>display</code>は指定された数値又は文字列を<code>System.out</code>に出力する。メソッド<code>main</code>は，引数<code>args[0]</code>で与えられた文字列から<code>CalculatorEvent</code>を生成して，<code>Calculator</code>のメソッド<code>eventDispatched</code>を呼び出す。文字と電卓のキーの対応は，次の表のとおりである。
+<p align="center"><img border="0" src="IMAGE/05s_kihon-gogo_1201.gif" width="280" height="264"></td>
+</tr>
+</table>
+</div>
+<p>例えば，文字列“<code>2+7=</code>”は，電卓キー2，＋，7，＝が順に押されたことを表し，この文字列が引数<code>args[0]</code>としてメソッド<code>main</code>に渡されたとき，プログラムは次のとおり出力する。</p>
+<p align="center"><img border="0" src="IMAGE/05s_kihon-gogo_1202.gif" width="125" height="102"></p>
+<p><img border="0" src="IMAGE/05s_kihon-gogo_1203.gif" width="464" height="362"></p>
+<p><img border="0" src="IMAGE/05s_kihon-gogo_1204.gif" width="529" height="863"><br>
+<img border="0" src="IMAGE/05s_kihon-gogo_1205.gif" width="604" height="877"></p>
+<hr>
+<p><b><a name="121">設問1</a>　</b>プログラム中の［　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p>aに関する解答群</p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td>ア　<code>CalculatorEvent(type, 0)</code><br>
+イ　<code>new CalculatorEvent(type, 0)</code><br>
+ウ　<code>return new CalculatorEvent(type, 0)</code><br>
+エ　<code>super(type, 0)</code><br>
+オ　<code>this(type, 0)</code></td>
+</tr>
+</table>
+</div>
+<p>bに関する解答群</p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td>ア　<code>implements CalculatorOutput()</code><br>
+イ　<code>interface CalculatorOutput()</code><br>
+ウ　<code>new CalculatorOutput()</code><br>
+エ　<code>new Temp() implements CalculatorOutput</code><br>
+オ　<code>public class Temp implements CalculatorOutput</code></td>
+</tr>
+</table>
+</div>
+<p>cに関する解答群</p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td>ア　<code>c - '0', CalculatorEvent.DIGIT</code><br>
+イ　<code>c, CalculatorEvent.DIGIT</code><br>
+ウ　<code>CalculatorEvent.DIGIT</code><br>
+エ　<code>CalculatorEvent.DIGIT, c</code><br>
+オ　<code>CalculatorEvent.DIGIT, c - '0'</code></td>
+</tr>
+</table>
+</div>
+<hr>
+<a href="17S_P_A4.HTM#121">設問1の正解例と解説へ</a>
+<hr>
+<p><b><a name="122">設問2</a>　</b>次の表は文字列を引数としてメソッド<code>main</code>を実行したときに，最後に出力された結果を表している。表中の［　　　　］に入れる正しい答えを，解答群の中から選べ。ただし，プログラム中の［　　　　］にはすべて正しい答えが入っているものとする。</p>
+<p align="center"><img border="0" src="IMAGE/05s_kihon-gogo_1206.gif" width="202" height="171"></p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0" width="382">
+<tr>
+<td width="15">ア</td>
+<td width="70"><code>0</code></td>
+<td width="13">イ</td>
+<td width="64"><code>3</code></td>
+<td width="15">ウ</td>
+<td width="58"><code>4</code></td>
+<td width="14">エ</td>
+<td width="53"><code>5</code></td>
+</tr>
+<tr>
+<td width="15">オ</td>
+<td width="70"><code>7</code></td>
+<td width="13">カ</td>
+<td width="64"><code>12</code></td>
+<td width="15">キ</td>
+<td width="58"><code>17</code></td>
+<td width="14">ク</td>
+<td width="53"><code>53</code></td>
+</tr>
+<tr>
+<td width="15">ケ</td>
+<td width="70"><code>/ by zero</code></td>
+<td width="13">コ</td>
+<td width="64"><code>Error</code></td>
+<td width="15">　</td>
+<td width="58">　</td>
+<td width="14">　</td>
+<td width="53">　</td>
+</tr>
+</table>
+</div>
+<hr>
+<a href="17S_P_A4.HTM#122">設問2の正解例と解説へ</a>
+<hr>
+<a href="INDEX.HTM">■メニューへ戻る</a>
+<hr>
+<p><a name="130"><b>問13</b></a>　次のアセンブラプログラムの説明及びプログラムを読んで，設問1～3に答えよ。</p>
+<p>〔プログラムの説明〕<br>
+10進数の読取りを行う副プログラム<code>NREAD</code>と，<code>NREAD</code>から呼ばれる副プログラム<code>DTOB</code>である。</p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td valign="top">（1）</td>
+<td valign="top"><code>NREAD</code>は，入力装置から1レコードを読み取り，読み込んだ文字列を2進数に変換し，結果を<code>GR0</code>に格納して，主プログラムに戻る。</td>
+</tr>
+<tr>
+<td valign="top">（2）</td>
+<td valign="top"><code>NREAD</code>は，入力された文字列中の間隔文字を読み飛ばし，間隔文字以外について，次の条件を検査する。<br>
+　　①最初の文字は数字又は負符号（－）<br>
+　　②2番目以降の文字はすべて数字<br>
+　　③一つ以上の数字を含む。<br>
+条件を満たしていないとき，<code>GR0</code>に－32768を設定して主プログラムに戻る。条件を満たしているとき，<code>DTOB</code>を呼び出し，<code>DTOB</code>の戻り値<code>GR0</code>をそのまま<code>NREAD</code>の戻り値とする。</td>
+</tr>
+<tr>
+<td valign="top">（3）</td>
+<td valign="top"><code>DTOB</code>は，先頭アドレスを<code>GR1</code>に設定して渡された数字列を2進数に変換し，<code>GR0</code>に格納して呼出し元に戻る。このとき，変換結果が－32767～32767に収まらない場合はエラーとし，<code>GR0</code>に－32768を設定して呼出し元に戻る。
+<p><img border="0" src="IMAGE/05s_kihon-gogo_1301.gif" width="552" height="218"></td>
+</tr>
+<tr>
+<td valign="top">（4）</td>
+<td valign="top">副プログラムから戻るとき，汎用レジスタ<code>GR1</code>～<code>GR7</code>の内容は元に戻す。</td>
+</tr>
+</table>
+</div>
+<p><img border="0" src="IMAGE/05s_kihon-gogo_1302.gif" width="559" height="934"></p>
+<p><img border="0" src="IMAGE/05s_kihon-gogo_1303.gif" width="615" height="754"></p>
+<hr>
+<p><a name="131"><b>設問</b></a><b><a name="131">1</a>　</b>プログラム中の［　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p>aに関する解答群</p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0" width="385">
+<tr>
+<td width="14">ア</td>
+<td width="91"><code>JNZ NEXT</code></td>
+<td width="15">イ</td>
+<td width="95"><code>JNZ NUMCHK</code></td>
+<td width="15">ウ</td>
+<td width="95"><code>JPL CNV</code></td>
+</tr>
+<tr>
+<td width="14">エ</td>
+<td width="91"><code>JPL EXIT</code></td>
+<td width="15">オ</td>
+<td width="95"><code>JZE CNV</code></td>
+<td width="15">カ</td>
+<td width="95"><code>JZE EXIT</code></td>
+</tr>
+</table>
+</div>
+<p>bに関する解答群</p>
+<table border="0" cellpadding="4" cellspacing="0" width="385">
+<tr>
+<td width="14">ア</td>
+<td width="91"><code>ADDL GR0,GR4</code></td>
+<td width="15">イ</td>
+<td width="95"><code>ADDL GR0,GR5</code></td>
+<td width="15">ウ</td>
+<td width="95"><code>ADDL GR5,GR0</code></td>
+</tr>
+<tr>
+<td width="14">エ</td>
+<td width="91"><code>ADDL GR5,GR4</code></td>
+<td width="15">オ</td>
+<td width="95"><code>SLL GR0,1</code></td>
+<td width="15">カ</td>
+<td width="95"><code>SLL GR4,1</code></td>
+</tr>
+<tr>
+<td width="14">キ</td>
+<td width="91"><code>SLL GR4,2</code></td>
+<td width="15">ク</td>
+<td width="95"><code>SLL GR5,1</code></td>
+<td width="15"><code>　</code></td>
+<td width="95"><code>　</code></td>
+</tr>
+</table>
+<p>cに関する解答群</p>
+<div align="left">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td>ア</td>
+<td><code>AND GR0,=#7FFF</code></td>
+<td>イ</td>
+<td><code>AND GR0,GR3</code></td>
+</tr>
+<tr>
+<td>ウ</td>
+<td><code>OR&nbsp; GR0,=#8000</code></td>
+<td>エ</td>
+<td><code>OR&nbsp; GR0,GR3</code></td>
+</tr>
+<tr>
+<td>オ</td>
+<td><code>XOR GR0,=#8000</code></td>
+<td>カ</td>
+<td><code>XOR GR0,=#FFFF</code></td>
+</tr>
+<tr>
+<td>キ</td>
+<td><code>XOR GR0,GR3</code></td>
+<td>　</td>
+<td>　</td>
+</tr>
+</table>
+</div>
+<hr>
+<a href="17S_P_A4.HTM#131">設問1の正解例へ</a>
+<hr>
+<p><a name="132"><b>設問</b></a><b>2　</b>次の記述中の［　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p><code>IN</code>命令によって，文字列“<code>△-5△24-△9</code>”（<code>△</code>は間隔文字）が入力されたとき，〔プログラム1〕の<code>ERR</code>へは，行番号［　　d　　］の命令から制御が移る。<code>ERR</code>に制御が移ったときの<code>GR5</code>の値は［　　e　　］である。</p>
+<p>dに関する解答群<br>
+ア　5　　　　イ　6　　　　ウ　26　　　　エ　28　　　　オ　37</p>
+<p>eに関する解答群<br>
+ア　1　　　　イ　2　　　　ウ　4　　　　エ　5　　　　オ　6<br>
+カ　7　　　　キ　8</p>
+<hr>
+<a href="17S_P_A4.HTM#132">設問2の正解例へ</a>
+<hr>
+<p><b><a name="133">設問3</a>　</b>次の［　　　　］に入れる正しい答えを，解答群の中から選べ。</p>
+<p>次の数字列が<code>NREAD</code>から渡されたとき，<code>DTOB</code>の戻り値は16進表記で［　　f　　］である。ここで，<code>DTOB</code>の一部である行番号20～22の3行を“<code>SLL&nbsp;&nbsp; 
+GR0, 2</code>”の1行で置き換える。同じ文字列が<code>NREAD</code>から渡されたとき，<code>DTOB</code>の戻り値は16進表記で［　　g　　］となる。<br>
+なお，いずれの場合も，〔プログラム2〕の行番号15で最後の文字<code>'0'</code>を取り出したとき，<code>GR0</code>の値は10進数表記で8192（16進表記で2000）となっている。</p>
+<p align="center"><img border="0" src="IMAGE/05s_kihon-gogo_1304.gif" width="418" height="131"></p>
+<p>解答群<br>
+ア　0　　　　イ　2000　　　　ウ　4000　　　　エ　8000　　　　オ　F000</p>
+<hr>
+<a href="17S_P_A4.HTM#133">設問3の正解例へ</a>
+<hr>
+<a href="INDEX.HTM">■メニューへ戻る</a>
+<hr>
+</blockquote>
+
+</body>
+
+</html>

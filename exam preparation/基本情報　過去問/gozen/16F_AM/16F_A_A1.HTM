@@ -1,0 +1,260 @@
+<HTML>
+<HEAD>
+<TITLE>平成16年度秋期試験　正解例と解説(午前問01～問20)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<BLOCKQUOTE>
+<hr>
+<H3 align="center">平成16年度秋期試験　正解例と解説(問01～問20)</H3>
+<HR WIDTH=100%>
+<A NAME="01">　<BR>
+<b>
+問1</b></a>
+<br><br><select name="17FA01" size="1"><option selected>解答例</option><option>エ</option></select><br>
+<br>＜解説＞16進数(0.248)<sub>16</sub>を10進数に基数変換して，分数で表せばよい。<br>
+<br>
+<img border="0" src="image/A_AM01_1.jpg"><br>
+<br>
+<br>
+<A NAME="01"></a>
+<HR WIDTH=100%>
+<A HREF="16F_A_E1.HTM#01">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="02">　<BR>
+<b>
+問2</b></a>
+<br><br><select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select><br>
+<br>＜解説＞16ビットの固定小数点の2進数を，16進数の各けたに分けて下位けたから順にスタックに格納するには，2進数の4ビットが16進数の1けたに対応するので，下位けたから順に4ビットずつ取り出してスタックに格納すればよい。<br>
+下位4ビットを取出すには000F<sub>16</sub>との論理積（AND演算）を取ります。順に取り出すには，2進数を右に4ビットずつ論理シフトしながら，これを繰返して下位4ビットずつ取出します。したがって<br>
+(1)　n AND 000F<sub>16</sub>をxに代入する<br>
+(2)　xをスタックにプッシュ<br>
+(3)　nを右に4ビット論理シフト<br>
+<br>
+<A NAME="02"></a>
+<HR WIDTH=100%>
+<A HREF="16F_A_E1.HTM#02">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="03">　<BR>
+<b>
+問3</b></a>
+<br><br><select name="17FA01" size="1"><option selected>解答例</option><option>ウ</option></select><br>
+<br>＜解説＞16進数小数(0.FEDC)<sub>16</sub>を4倍するには，2進数のビット列に変換して左に2ビット算術シフトした後，16進数に変換すればよい。<br>
+<br>
+<img border="0" src="image/A_AM03_1.jpg"><br>
+<br>
+<A NAME="03"></a>
+<HR WIDTH=100%>
+<A HREF="16F_A_E1.HTM#03">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="04">　<BR>
+<b>
+問4</b></a>
+<br><br><select name="17FA01" size="1"><option selected>解答例</option><option>エ</option></select><br>
+<br>＜解説＞数値を浮動小数点形式で表した場合，仮数部の最上位けたが0以外になるようにする操作を「正規化」という。例えば0.0001011×2<sup>5</sup>を正規化すると，0.1011×2<sup>2</sup>となる。<br>
+<br>
+<HR WIDTH=100%>
+<A HREF="16F_A_E1.HTM#04">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="05">　<BR>
+<b>
+問5</b></a>
+<br><br><select name="17FA01" size="1"><option selected>解答例</option><option>ウ</option></select><br>
+<br>＜解説＞事象Aと事象Bが独立であるとは，事象Aが起こるか否かに関わらず事象Bの起こる確率が同じである場合をいう。この場合P(A∩B)＝P(A)・P(B)が成立つ。<br>
+<br>
+<HR WIDTH=100%>
+<A HREF="16F_A_E1.HTM#05">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="06">　<BR>
+<b>
+問6</b></a>
+<br><br><select name="17FA01" size="1"><option selected>解答例</option><option>ア</option></select><br>
+<br>＜解説＞各得点に出現確率1／6を掛けて加算すれば期待値が求まる。<br>
+5と6の目に対する得点は0なので<br>
+期待値＝1×1／6＋2×1／6＋3×1／6＋4×1／6＋0×1／6＋0×1／6＝5／3<br>
+となる。<br>
+<br>
+<HR WIDTH=100%>
+<A HREF="16F_A_E1.HTM#06">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="07">　<BR>
+<b>
+問7</b></a>
+<br><br><select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select><br>
+<br>
+＜解説＞平均が0mm，標準偏差0.5mmの正規分布は，u＝(x－0)／0.5により，平均0mm，標準偏差1mmの標準正規分布に変換できるので，<BR>
+①誤差≦1mmとなる確率は，標準正規分布表より求まり，<BR>
+確率変数u＝(1－0)／0.5＝2.00のときの分布関数値0.9773となるので，<BR>
+誤差が許容範囲1mmを越える確率は1－0.9773＝0.0227となる。<BR>
+<BR>
+<img border="0" src="image/A_AM07_1.jpg"><br>
+ <BR>
+②分布の対称性から，誤差が許容範囲－1mm以下となる確率は，0.0227<BR>
+したがって誤差が許容範囲±1mmを越える確率，つまり不良品の発生率は0.0227×2×100＝4.54％<BR>
+<BR>
+<img border="0" src="image/A_AM07_2.jpg"><br>
+ <BR>
+<HR WIDTH=100%>
+<A HREF="16F_A_E1.HTM#07">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="08">　<BR>
+<b>
+問8</b></a>
+<br><br><select name="17FA01" size="1"><option selected>解答例</option><option>ウ</option></select><br>
+<br>＜解説＞00000000との排他的論理和をとると，0のビットは0のままで，1のビットも1のままである。11111111との排他的論理和をとると，0のビットは1に反転し，1のビットは0に反転する。したがって反転させたいビットに対応するビットを1に，反転させないビットに対応するビットを0にしたビット列との排他的論理和をとればよい。したがって上位6ビットが1，下位2ビットが0のビット列1111 1100つまり(FC)<sub>16</sub>との排他的論理和をとればよい。<br>
+<br>
+<A NAME="08"></a>
+<HR WIDTH=100%>
+<A HREF="16F_A_E1.HTM#08">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="09">　<BR>
+<b>
+問9</b></a>
+<br><br><select name="17FA01" size="1"><option selected>解答例</option><option>ウ</option></select><br>
+<br>＜解説＞<br>
+<br>
+<img border="0" src="image/A_AM09_1.jpg"><br>
+<br>
+<br>
+<HR WIDTH=100%>
+<A HREF="16F_A_E1.HTM#09">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="10">　<BR>
+<b>
+問10</b></a>
+<br><br><select name="17FA01" size="1"><option selected>解答例</option><option>ウ</option></select><br>
+<br>＜解説＞<br>
+N<sub>2</sub>＝7，N<sub>3</sub>＝6，N<sub>4</sub>＝2，C＝4なので<br>
+mod(N<sub>1</sub>＋7×2＋6×3＋2×4，10)＝mod(N<sub>1</sub>＋40，10)＝4<br>
+したがってN<sub>1</sub>＋40を10で割った剰余が4となる必要があるで，N<sub>1</sub>＝4である。<br>
+<br>
+<HR WIDTH=100%>
+<A HREF="16F_A_E1.HTM#10">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="11">　<BR>
+<b>
+問11</b></a>
+<br><br><select name="17FA01" size="1"><option selected>解答例</option><option>ウ</option></select><br>
+<br>＜解説＞<br>
+アの＋0010の場合<br>
+入力文字　　　 ＋　　　0　　　 0　　　 1　　　 0<br>
+状態遷移　 a　→　c　→　b　→　b　→　b　→　b　　合格<br>
+<br>
+イの－1の場合<br>
+入力文字　　　－　　　 1<br>
+状態遷移　 a　→　c　→　b　　合格<br>
+<br>
+ウの12.2の場合<br>
+入力文字  　　 1　　　　2　　　 ．　　　2<br>
+状態遷移 　a　→　b　→　b　→　d　→　e　　不合格<br>
+<br>
+エの9.△の場合<br>
+入力文字　　　 9　　　 ．　　　△<br>
+状態遷移　 a　→　b　→　d　→　a　　合格<br>
+<br>
+<HR WIDTH=100%>
+<A HREF="16F_A_E1.HTM#11">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="12">　<BR>
+<b>
+問12</b></a>
+<br><br><select name="17FA01" size="1"><option selected>解答例</option><option>ウ</option></select><br>
+<BR>＜解説＞削除要素12の位置に移動すべき要素は，左部分木のどの要素よりも大きく，右部分木のどの要素よりも小さくなくてはならない。したがって左部分木で最大の11，もしくは右部分木で最小の13のいずれかを移動すべきであるが，解答群に11がないので，13を移動すればよい。<br>
+<br>
+<HR WIDTH=100%>
+<A HREF="16F_A_E1.HTM#12">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="13">　<BR>
+<b>
+問13</b></a>
+<br><br><select name="17FA01" size="1"><option selected>解答例</option><option>ウ</option></select><br>
+<br>＜解説＞基準値を境に，基準値より小さい要素と大きな要素に振り分けることを繰返してソートを行う手法はクイックソートになる。<br>
+アは挿入法，イは選択法，エは隣接交換法(バブルソート)。<br>
+<br>
+<HR WIDTH=100%>
+<A HREF="16F_A_E1.HTM#13">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="14">　<BR>
+<b>
+問14</b></a>
+<br><br><select name="17FA01" size="1"><option selected>解答例</option><option>イ</option></select><br>
+<br>＜解説＞mod(5＋4＋3＋2＋1，13)＝mod(15，13)＝2<br>
+<br>
+<HR WIDTH=100%>
+<A HREF="16F_A_E1.HTM#14">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="15">　<BR>
+<b>
+問15</b></a>
+<br><br><select name="17FA01" size="1"><option selected>解答例</option><option>エ</option></select><br>
+<br>＜解説＞1科目でも60点未満の科目があれば3科目合計得点が260点未満となるので，不合格となる。したがってエが適切。<br>
+アの場合，英語の得点が90点以上でも3科目合計得点が260点未満，もしくは業務経験年数が5年未満なら不合格になるので，不適切。<br>
+イの場合，英語の得点が90点未満でも3科目合計得点が260点以上で，かつ業務経験年数が5年以上なら仮合格となるので，不適切。<br>
+ウの場合，業務経験年数が5年以上でも3科目合計得点が260点未満なら不合格となるので，不適切。<br>
+<br>
+<A NAME="15"><BR></a>
+<HR WIDTH=100%>
+<A HREF="16F_A_E1.HTM#15">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="16">　<BR>
+<b>
+問16</b></a>
+<br><br><select name="17FA01" size="1"><option selected>解答例</option><option>ア</option></select><br>
+<br>＜解説＞DRAMは電荷を蓄えた状態か否かにより1ビットの情報を記憶し，主記憶として用いられる素子。イはマスクROM，ウはEPROM，エはSRAM。<br>
+<A NAME="16"><BR></a>
+<HR WIDTH=100%>
+<A HREF="16F_A_E1.HTM#16">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="17">　<BR>
+<b>
+問17</b></a>
+<br><br><select name="17FA01" size="1"><option selected>解答例</option><option>ア</option></select><br>
+<br>＜解説＞各論理素子の出力を記入すると以下のようになる。<br>
+<br>
+<img border="0" src="image/A_AM17_1.jpg"><br>
+<A NAME="17"><BR></a>
+<HR WIDTH=100%>
+<A HREF="16F_A_E1.HTM#17">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="18">　<BR>
+<b>
+問18</b></a>
+<br><br><select name="17FA01" size="1"><option selected>解答例</option><option>ア</option></select><br>
+<br>＜解説＞アドレス部がポイントするメモリアドレスに，データの格納先アドレスが格納されているので，間接アドレス指定である。<BR>
+<A NAME="18"><BR></a>
+<HR WIDTH=100%>
+<A HREF="16F_A_E1.HTM#18">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="19">　<BR>
+<b>
+問19</b></a>
+<br><br><select name="17FA01" size="1"><option selected>解答例</option><option>エ</option></select><br>
+<br>＜解説＞1GHzは1×10<sup>9</sup>クロック／秒なので<br>
+1秒間の命令実行数＝1×10<sup>9</sup>クロック／秒÷0.8クロック／命令<br>
+＝100,000÷0.8×10<sup>4</sup>命令<br>
+＝125,000×10<sup>4</sup>命令<br>
+＝125,000万命令<br>
+<A NAME="19"><BR></a>
+<HR WIDTH=100%>
+<A HREF="16F_A_E1.HTM#19">問題へ</A>
+<HR WIDTH=100%>
+<A NAME="20">　<BR>
+<b>
+問20</b></a>
+<br><br><select name="17FA01" size="1"><option selected>解答例</option><option>エ</option></select><br>
+<br>＜解説＞エが外部割込み，ア，イ，ウが内部割込みになる。<br>
+外部割込みはハードウェア割込みともいい，①入出力動作の終了による入出力割込み②ハードウェアの故障や誤動作時の割込み③タイマー割込みがある。<br>
+内部割込みはソフトウェア割込みともいい，①仮想記憶管理におけるページフォルト②OSの特権命令によるシステムコールによる割込み③ゼロによる除算や桁あふれなどによるプログラム割込みなどがある。<br>
+<A NAME="20"><BR></a>
+<HR WIDTH=100%>
+<a HREF="16F_A_E1.HTM#20">問題へ</a>
+<HR WIDTH=100%>
+　<BR>
+<A HREF="INDEX.HTM">メニューへ戻る</A><BR>
+　<BR>
+<HR WIDTH=100%>
+<ADDRESS>
+<BR>
+</ADDRESS>
+</BLOCKQUOTE>
+</BODY>
+</HTML>

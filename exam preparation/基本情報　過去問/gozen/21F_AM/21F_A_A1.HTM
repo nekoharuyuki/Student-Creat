@@ -1,0 +1,303 @@
+<html>
+<head>
+<title>平成21年度 秋期 基本情報技術者 午前 解答例と解説（問1～問20）</title>
+<style type="text/css"><!--
+body{line-height:150%;}
+code{font-size:12pt;}
+h3{text-align:center;}
+div.caution{border:solid 1px #000000; padding:0.5em;}
+--></style>
+</head>
+<body>
+<blockquote>
+<hr>
+<h3>平成21年度　秋期　基本情報技術者<br>
+午前　解答例と解説（問1～問20）</h3>
+<hr>
+<p><strong><a name="01">問1</a></strong></p>
+<p><select name="21FA01" size="1">
+<option selected>解答例</option>
+<option>エ</option>
+</select></p>
+<p>〈解説〉　例えば<em>S</em>＝105，<em>N</em>＝10のとき　<em>S</em>／<em>N</em>＝10.5で，これを四捨五入すると11になる。<br/>
+　<em>S</em>＝105，<em>N</em>＝10としてア～エの式の値を求めると以下のようになる。</p>
+
+<p>　アの場合　［<em>S</em>／<em>N</em>－0.5］＝［10.5－0.5］＝［10］＝10となり，11にならない。<br/>
+　イの場合　［<em>S</em>／<em>N</em>－0.5］＝［10.5－0.4］＝［10.1］＝10となり，11にならない。<br/>
+　ウの場合　［<em>S</em>／<em>N</em>－0.5］＝［10.5＋0.4］＝［10.9］＝10となり，11にならない。<br/>
+　エの場合　［<em>S</em>／<em>N</em>－0.5］＝［10.5＋0.5］＝［11］＝11となり一致する。</p>
+
+<p>【別解】　<em>S</em>／<em>N</em>の整数部を<em>n</em>とする。</p>
+
+<p>●切捨てとなる場合<br/>
+　<em>n</em>≦<em>S</em>／<em>N</em>＜<em>n</em>＋0.5のとき，<em>S</em>／<em>N</em>の小数第1位を四捨五入すると<em>n</em>になる。<br/>
+　0.5を加えると<em>n</em>＋0.5≦<em>S</em>／<em>N</em>＋0.5＜<em>n</em>＋1なので，［<em>S</em>／<em>N</em>＋0.5］＝<em>n</em><br/>
+●切上げとなる場合<br/>
+　<em>n</em>＋0.5≦<em>S</em>／<em>N</em>＜<em>n</em>＋1のとき，<em>S</em>／<em>N</em>の小数第1位を四捨五入すると<em>n</em>＋1になる。<br/>
+　0.5を加えると<em>n</em>＋1≦<em>S</em>／<em>N</em>＋0.5＜<em>n</em>＋1.5なので，［<em>S</em>／<em>N</em>＋0.5］＝<em>n</em>＋1</p>
+
+<p>したがってエが適切である。</p>
+
+<p>　<em>S</em>／<em>N</em>の小数第2位を四捨五入する式［<em>S</em>／<em>N</em>×10＋0.5］／10を選択させる類題が平成9年春 問5で出題されたが，今回は小数第1位を四捨五入する式［<em>S</em>／<em>N</em>＋0.5］を選択させる類題で，平成9年春試験の出題よりは平易である。</p>
+<hr>
+<p><a href="21F_A_E1.HTM#01">問題へ</a></p>
+<hr>
+<p><strong><a name="02">問2</a></strong></p>
+<p><select name="21FA02" size="1">
+<option selected>解答例</option>
+<option>ア</option>
+</select></p>
+<p>〈解説〉　浮動小数点表記では，実数<em>a</em>を基数を<em>r</em>としてそのべき乗<em>a</em>＝<em>f</em>×<em>r</em><sup><em>e</em></sup>で表し，<em>f</em>を仮数，<em>e</em>を指数という。</p>
+<hr>
+<p><a href="21F_A_E1.HTM#02">問題へ</a></p>
+<hr>
+<p><strong><a name="03">問3</a></strong></p>
+<p><select name="21FA03" size="1">
+<option selected>解答例</option>
+<option>ウ</option>
+</select></p>
+<p>〈解説〉　逆ポーランド法は後置表記法とも呼ばれ，演算子をデータ（又は演算結果）の後に置く表記法で，アからエを逆ポーランド法で表すと以下のようになる。</p>
+
+<p>ア　×　AB＋CD－＋G÷EF÷－<br/>
+イ　×　AB＋CD－÷GEF－÷＋<br/>
+ウ　○　EF－G÷CD－AB＋÷＋<br/>
+エ　×　FE－G÷CD－AB＋＋÷</p>
+<hr>
+<p><a href="21F_A_E1.HTM#03">問題へ</a></p>
+<hr>
+<p><strong><a name="04">問4</a></strong></p>
+<p><select name="21FA04" size="1">
+<option selected>解答例</option>
+<option>ア</option>
+</select></p>
+<p>〈解説〉ア　○<br/>
+イ　×　フィードフォワード制御の説明<br/>
+ウ　×　フィードバック制御の説明<br/>
+エ　×　ファジー制御の説明</p>
+
+<p>　産業機器の自動制御方式に関する新傾向問題である。自動制御方式の種類程度は区別できるようにしておきたい。</p>
+<hr>
+<p><a href="21F_A_E1.HTM#04">問題へ</a></p>
+<hr>
+<p><strong><a name="05">問5</a></strong></p>
+<p><select name="21FA05" size="1">
+<option selected>解答例</option>
+<option>ア</option>
+</select></p>
+<p>〈解説〉　pushにより1，2，3，4，5がスタックに格納されるが，popにより直前にpushされたデータが取り出される。popにより2，4，5が取り出されるので，1と3がスタックに残る。</p>
+
+<p><img src="img/ama01.png"></p>
+<hr>
+<p><a href="21F_A_E1.HTM#05">問題へ</a></p>
+<hr>
+<p><strong><a name="06">問6</a></strong></p>
+<p><select name="21FA06" size="1">
+<option selected>解答例</option>
+<option>ウ</option>
+</select></p>
+<p>〈解説〉　クイックソートは，基準値との大小比較の結果に基づいて，基準値の左右にソート対象データを振り分けて格納する処理を再帰的に行う整列方法。</p>
+
+<p>ア　×　挿入法の説明<br/>
+イ　×　選択法の説明<br/>
+ウ　○<br/>
+エ　×　隣接交換法の説明</p>
+<hr>
+<p><a href="21F_A_E1.HTM#06">問題へ</a></p>
+<hr>
+<p><strong><a name="07">問7</a></strong></p>
+<p><select name="21FA07" size="1">
+<option selected>解答例</option>
+<option>ウ</option>
+</select></p>
+<p>〈解説〉ア　×　非ノイマン型アーキテクチャのプログラム方式で，データ駆動型プログラムの特徴<br/>
+イ　×　手続型プログラムの特徴<br/>
+ウ　○<br/>
+エ　×　関数型プログラムの特徴</p>
+<hr>
+<p><a href="21F_A_E1.HTM#07">問題へ</a></p>
+<hr>
+<p><strong><a name="08">問8</a></strong></p>
+<p><select name="21FA08" size="1">
+<option selected>解答例</option>
+<option>エ</option>
+</select></p>
+<p>〈解説〉　AjaxはAsynchronous JavaScript＋XMLの略で，JavaScriptからXMLの非同期通信を利用した技術。JavaScriptからXMLHttpRequestオブジェクトを利用し，バックグラウンドで非同期にサーバと通信しダイナミックHTMLにより動的にページ内容を更新する。従来クリックにより地図をスクロールしていたのが，Ajaxの技術によってドラッグによりリアルタイムに画面遷移を行うことができる。</p>
+
+<p>　Webにおいて地図などの画面遷移に利用されているAjaxに関する新傾向問題である。</p>
+<hr>
+<p><a href="21F_A_E1.HTM#08">問題へ</a></p>
+<hr>
+<p><strong><a name="09">問9</a></strong></p>
+<p><select name="21FA09" size="1">
+<option selected>解答例</option>
+<option>ウ</option>
+</select></p>
+<p>〈解説〉　フラッシュメモリは，電気的に書換え可能な半導体メモリで，一括または部分的に高速に消去・書換えができる。ディジタルカメラの記録メディアとして用いられる。</p>
+
+<p>ア　×　DRAMはメインメモリとして利用されている<br/>
+イ　×　SRAMはキャッシュメモリとして利用されている<br/>
+ウ　○<br/>
+エ　×　BIOSなどを格納するシステムROMとして利用されている</p>
+<hr>
+<p><a href="21F_A_E1.HTM#09">問題へ</a></p>
+<hr>
+<p><strong><a name="10">問10</a></strong></p>
+<p><select name="21FA10" size="1">
+<option selected>解答例</option>
+<option>イ</option>
+</select></p>
+<p>〈解説〉　メモリインタリーブは，主記憶をメモリバンクと呼ばれる幾つかの区画に分割し，メモリバンクへの同時並列的なアクセスによりメモリアクセスを高速化する。</p>
+
+<p>ア　×　キャッシュメモリのライトスルー方式の説明<br/>
+イ　○<br/>
+ウ　×　キャッシュメモリの説明<br/>
+エ　×　ハーバード方式のバスシステムの説明</p>
+<hr>
+<p><a href="21F_A_E1.HTM#10">問題へ</a></p>
+<hr>
+<p><strong><a name="11">問11</a></strong></p>
+<p><select name="21FA11" size="1">
+<option selected>解答例</option>
+<option>ウ</option>
+</select></p>
+<p>〈解説〉<br/>
+ア　×　EIDEの説明<br/>
+イ　×　SCSIの説明<br/>
+ウ　○<br/>
+エ　×　IrDAの説明</p>
+<hr>
+<p><a href="21F_A_E1.HTM#11">問題へ</a></p>
+<hr>
+<p><strong><a name="12">問12</a></strong></p>
+<p><select name="21FA12" size="1">
+<option selected>解答例</option>
+<option>ア</option>
+</select></p>
+<p>〈解説〉　複数ディスクにデータを細分化し分割して書き込むことをストライピングという。データディスクとは別のパリティ用のディスクに，障害ディスクを特定するためのエラーチェック用のパリティ情報を格納している。</p>
+<hr>
+<p><a href="21F_A_E1.HTM#12">問題へ</a></p>
+<hr>
+<p><strong><a name="13">問13</a></strong></p>
+<p><select name="21FA13" size="1">
+<option selected>解答例</option>
+<option>エ</option>
+</select></p>
+<p>〈解説〉　ファイルを割り当てる単位である1ブロックのサイズは500×8＝4,000バイトである。<br/>
+　　①2,000バイトのファイルに対しても1ブロック必要である<br/>
+　　②9,000バイトのファイルには3ブロック必要である<br/>
+　したがって，①～②の合計で4ブロック必要になるので，割当てに必要なセクタ数は4ブロック×8セクタ／ブロック＝32セクタになる。</p>
+<hr>
+<p><a href="21F_A_E1.HTM#13">問題へ</a></p>
+<hr>
+<p><strong><a name="14">問14</a></strong></p>
+<p><select name="21FA14" size="1">
+<option selected>解答例</option>
+<option>ア</option>
+</select></p>
+<p>〈解説〉<br/>
+ア　○<br/>
+イ　×　密結合システムはマルチプロセッサ方式で採用する並列プロセッサの方式であり不適切。<br/>
+ウ　×　クライアントとサーバの機能が逆になっている。<br/>
+エ　×　サービスを提供するのはサーバで，サーバ内にデータベースを設置する。</p>
+
+<p>　クライアントサーバシステムに関しては時々出題されている。紛らわしい選択肢があるが，惑わされないようにしたい。クライアントとサーバの役割を理解していれば惑わされることはない基礎的な問題である。</p>
+<hr>
+<p><a href="21F_A_E1.HTM#14">問題へ</a></p>
+<hr>
+<p><strong><a name="15">問15</a></strong></p>
+<p><select name="21FA15" size="1">
+<option selected>解答例</option>
+<option>ア</option>
+</select></p>
+<p>〈解説〉　ホットスタンバイ方式は，同じシステムを予備系として並行稼動しておき，障害発生時に予備系に切り替える，現用系の処理を直ちに引き継ぐ方式。ウはデュアルシステムの説明である。</p>
+
+<p>　ホットスタンバイ方式に関しては最近よく出題されている。コールドスタンバイ方式，デュアルシステム，デュプレックスシステムとの違いをよく理解しておこう。</p>
+<hr>
+<p><a href="21F_A_E1.HTM#15">問題へ</a></p>
+<hr>
+<p><strong><a name="16">問16</a></strong></p>
+<p><select name="21FA16" size="1">
+<option selected>解答例</option>
+<option>イ</option>
+</select></p>
+<p>〈解説〉<br/>
+　システム全体の稼働率<br/>
+　　＝（A，Bいずれか1台が稼動している場合の稼働率）×（Cの稼働率）<br/>
+　　＝（1－（A，Bともに稼動していない確率））×（Cの稼働率）<br/>
+　　＝（1－（Aが稼動していない確率）×（Bが稼動していない確率））×（Cの稼働率）<br/>
+　　＝（1－（1－Aの稼働率）×（1－Bの稼働率））×（Cの稼働率）<br/>
+　　＝（1－（1－0.8）×（1－0.8））×0.8<br/>
+　　＝（1－0.2×0.2）×0.8<br/>
+　　＝0.96×0.8<br/>
+　　＝0.768</p>
+<hr>
+<p><a href="21F_A_E1.HTM#16">問題へ</a></p>
+<hr>
+<p><strong><a name="17">問17</a></strong></p>
+<p><select name="21FA17" size="1">
+<option selected>解答例</option>
+<option>エ</option>
+</select></p>
+<p>〈解説〉<br/>
+　1トランザクションの平均処理時間<br/>
+　　＝60万命令の実行時間＋ファイルの平均アクセス時間×2<br/>
+により求まる。<br/>
+①60万命令の実行時間<br/>
+　CPU性能が30 MIPSであるため，1秒間に30×10<sup>6</sup>命令実行できる。したがって，平均60万命令の実行時間は<br/>
+　　60×10<sup>4</sup>÷（30×10<sup>6</sup>）＝0.02秒＝20ミリ秒<br/>
+になる。<br/>
+②ファイルの平均アクセス時間は30ミリ秒である。<br/>
+　したがって<br/>
+　　1トランザクションの平均処理時間<br/>
+　　＝①＋②×2<br/>
+　　＝20＋30×2<br/>
+　　＝80ミリ秒。</p>
+<hr>
+<p><a href="21F_A_E1.HTM#17">問題へ</a></p>
+<hr>
+<p><strong><a name="18">問18</a></strong></p>
+<p><select name="21FA18" size="1">
+<option selected>解答例</option>
+<option>ウ</option>
+</select></p>
+<p>〈解説〉　可変長方式では，最良適合化方式などでサイズの適合するメモリ領域の区画を選択するアルゴリズムが必要で，固定長方式に比べアルゴリズムが複雑になるため，処理速度が遅くなる。これに対し，固定長方式ではアルゴリズムが単純で，処理速度が速く一定である。また可変長方式では，サイズの適合するメモリ領域の区画を獲得するため，メモリ効率が良いが，固定長方式では区画に無駄な領域が発生し，メモリ効率が悪い。</p>
+
+<p>　メモリプール管理における可変長方式と固定長方式の特徴の比較に関する新傾向問題である。</p>
+<hr>
+<p><a href="21F_A_E1.HTM#18">問題へ</a></p>
+<hr>
+<p><strong><a name="19">問19</a></strong></p>
+<p><select name="21FA19" size="1">
+<option selected>解答例</option>
+<option>エ</option>
+</select></p>
+<p>〈解説〉　最初に\A\Bで指定されるカレントディレクトリは○印のBである。ここから矢印の順に移動する。<br/>
+　したがって最終的に\B\Aになる。</p>
+
+<p><img src="img/ama02.png"></p>
+
+<hr>
+<p><a href="21F_A_E1.HTM#19">問題へ</a></p>
+<hr>
+<p><strong><a name="21">問20</a></strong></p>
+<p><select name="21FA20" size="1">
+<option selected>解答例</option>
+<option>ア</option>
+</select></p>
+<p>〈解説〉　上流CASEツールには，システム分析ツール，システム設計（外部設計・内部設計）ツールなどが含まれる。DFD分析ツールはシステム分析ツールに含まれる。</p>
+
+<p>ア　○<br/>
+イ　×　下流CASEツール<br/>
+ウ　×　下流CASEツール<br/>
+エ　×　下流CASEツール</p>
+<hr>
+<p><a href="21F_A_E1.HTM#20">問題へ</a></p>
+<hr>
+<p><a href="INDEX.HTM">メニューへ戻る</a></p>
+<hr>
+</form>
+</blockquote>
+
+</body>
+
+</html>

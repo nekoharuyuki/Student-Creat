@@ -1,0 +1,313 @@
+<html>
+
+<head>
+<title>平成17年度秋期試験　正解例と解説（午前問1～問20）</title>
+</head>
+
+<body>
+<form>
+<blockquote>
+
+<hr>
+<div align="center">
+<h3>平成17年度秋期試験　正解例と解説（午前問1～問20）</h3>
+</div>
+
+
+
+<hr>
+<p><strong><a name="01">問1</a></strong></p>
+<p><select name="17FA01" size="1"><option selected>解答例</option><option>ウ</option></select></p>
+<p>〈解説〉</p>
+<p>10進小数を8進数に変換するには小数部に8を掛け，整数部を取り出したものが8進小数の各けたになる。</p>
+<p>ア　×<br>
+0.3×8＝2.4　→2<br>
+0.4×8＝3.2　→3<br>
+0.2×8＝1.6　→1<br>
+0.6×8＝4.8　→4<br>
+0.8×8＝6.4　→6<br>
+0.4×8＝3.2　→3<br>
+　：<br>
+以下繰返すので，循環小数0.231463…。</p>
+<p>イ　×<br>
+循環小数0.31463…</p>
+<p>ウ　○<br>
+0.5×8＝4.0　→4<br>
+有限小数0.4</p>
+<p>エ　×<br>
+0.8×8＝6.4→6<br>
+0.4×8＝3.2→3<br>
+循環小数0.631463…</p>
+<hr>
+<a href="17F_A_E1.HTM#01">問題へ</a>
+
+
+
+<hr>
+<p><strong><a name="02">問2</a></strong></p>
+<p><select name="17FA02" size="1"><option selected>解答例</option><option>ア</option></select></p>
+<p>〈解説〉</p>
+<p>キー値55550を11進数と見なし，10進数に変換すると，<br>
+　5×11<sup>4</sup>＋5×11<sup>3</sup>＋5×11<sup>2</sup>＋5×11<sup>1</sup><br>
+＝5×11×（11<sup>3</sup>＋11<sup>2</sup>＋11＋1）<br>
+＝55×（1331＋121＋11＋1）<br>
+＝80520<br>
+80520の下4けた0520に0.5を乗じた結果「0260」がレコードのアドレスになる。</p>
+<hr>
+<a href="17F_A_E1.HTM#02">問題へ</a>
+
+
+
+<hr>
+<p><strong><a name="03">問3</a></strong></p>
+<p><select name="17FA03" size="1"><option selected>解答例</option><option>エ</option></select></p>
+<p>〈解説〉</p>
+<p>3ビット左にシフトすると，2<sup>3</sup>倍になる。<br>
+したがってm×2<sup>3</sup>＋m＝9×m，つまり9倍になる。</p>
+<hr>
+<a href="17F_A_E1.HTM#03">問題へ</a>
+
+
+
+<hr>
+<p><strong><a name="04">問4</a></strong></p>
+<p><select name="17FA04" size="1"><option selected>解答例</option><option>エ</option></select></p>
+<p>〈解説〉</p>
+<p>n＝kp＋m（0≦m＜p）なので，m＝n－kp</p>
+<p>つまり，0≦n－kp＜pを満たす必要がある。<br>
+（－10000）mod 32768の場合，n＝－10000，p＝32768なので，</p>
+<p>0≦－10000－32768k＜32768</p>
+<p><img border="0" src="IMAGE/q4-1.gif" align="middle" width="74" height="52">＜k≦<img border="0" src="IMAGE/q4-2.gif" align="middle" width="74" height="48"></p>
+<p>kはこれを満たす整数で，k＝－1になる。<br>
+したがって，－10000＝－1×32768＋22768となるので，</p>
+<p>(－10000） mod 32768＝22768</p>
+<p>つまり22768に一致するものをア～エより選べばよい。</p>
+<p>ア　×　　10000＝　0×32768＋10000なので，－（10000 mod 32768）＝－10000<br>
+イ　×　－22768＝－1×32768＋10000なので，（－22768） mod 32768＝10000<br>
+ウ　×　　10000＝　0×32768＋10000なので，10000 mod 32768＝10000<br>
+エ　○　　22768＝　0×32768＋22768なので，22768 mod 32768＝22768</p>
+<hr>
+<a href="17F_A_E1.HTM#04">問題へ</a>
+
+
+
+<hr>
+<p><strong><a name="05">問5</a></strong></p>
+<p><select name="17FA05" size="1"><option selected>解答例</option><option>イ</option></select></p>
+<p>〈解説〉</p>
+<p>例えば，00000001の2の補数を求めると11111111になる。<br>
+00000001とその2の補数11111111を加算すると100000000になるが，8ビットの演算では桁あふれを起こして00000000になる。</p>
+<p>つまり2の補数は，元の数と絶対値の等しい負数を意味し，減算を行う代わりに2の補数の加算として処理できることを意味する。</p>
+<hr>
+<a href="17F_A_E1.HTM#05">問題へ</a>
+
+
+
+<hr>
+<p><strong><a name="06">問6</a></strong></p>
+<p><select name="17FA06" size="1"><option selected>解答例</option><option>イ</option></select></p>
+<p>〈解説〉</p>
+<p>ア　×　オーバフロー<br>
+イ　○　丸め誤差<br>
+ウ　×　情報落ち<br>
+エ　×　けた落ち</p>
+<hr>
+<a href="17F_A_E1.HTM#06">問題へ</a>
+
+
+
+<hr>
+<p><strong><a name="07">問7</a></strong></p>
+<p><select name="17FA07" size="1"><option selected>解答例</option><option>ウ</option></select></p>
+<p>〈解説〉</p>
+<p>あるコンピュータで100元連立方程式の解を求めるのに2秒かかったとすると，その4倍の計算速度をもつコンピュータでは</p>
+<p>2（秒）÷4＝0.5（秒）</p>
+<p>かかることになる。したがって1000元連立方程式の解を求めるときの計算時間をxとすると，</p>
+<p>100<sup>3</sup>：1000<sup>3</sup>＝0.5：x</p>
+<p>よって，x＝0.5×1000<sup>3</sup>÷100<sup>3</sup>＝0.5×1000＝500（秒）</p>
+<hr>
+<a href="17F_A_E1.HTM#07">問題へ</a>
+
+
+
+<hr>
+<p><strong><a name="08">問8</a></strong></p>
+<p><select name="17FA08" size="1"><option selected>解答例</option><option>エ</option></select></p>
+<p>〈解説〉</p>
+<p>排他的論理和ではビットの値が同じ場合0，異なる場合1となる。</p>
+<p>
+入力1101に対するユニットAの出力は，この1101と内部かぎ0001との排他的論理和1100となる。また，ユニットCの入力と内部かぎ1101との排他的論理和が出力1111となるので，ユニットCの入力ビット列は1101をビット反転した0010であることになる。</p>
+<p>したがって，ユニットBの入力1100とユニットBの内部かぎとの排他的論理和が0010となる必要がある。これよりユニットBの内部かぎは1110となる。</p>
+<hr>
+<a href="17F_A_E1.HTM#08">問題へ</a>
+
+
+
+<hr>
+<p><strong><a name="09">問9</a></strong></p>
+<p><select name="17FA09" size="1"><option selected>解答例</option><option>イ</option></select></p>
+<p>〈解説〉</p>
+<p>論理積を・，論理和を＋，Xの否定を<span style="text-decoration: overline">X</span>としてX NAND Yを<span style="text-decoration: overline">X・Y</span>で表し，ド・モルガンの定理を用いて書き換えると，以下のようになる。</p>
+<p><img border="0" src="IMAGE/q9.gif" width="521" height="391"></p>
+<hr>
+<a href="17F_A_E1.HTM#09">問題へ</a>
+
+
+
+<hr>
+<p><strong><a name="10">問10</a></strong></p>
+<p><select name="17FA10" size="1"><option selected>解答例</option><option>エ</option></select></p>
+<p>〈解説〉</p>
+<p>正規表現[A－Z]＋[0－9]＊の規則に合致するのは，1文字以上の英字で始まり，その後に0個以上の数字が続くものになる。したがって</p>
+<p>ア　×　英字で始まらない<br>
+イ　×　英数字でない＊が入っている<br>
+ウ　×　英数字でない＋が入っている<br>
+エ　○</p>
+<hr>
+<a href="17F_A_E1.HTM#10">問題へ</a>
+
+
+
+<hr>
+<p><strong><a name="11">問11</a></strong></p>
+<p><select name="17FA11" size="1"><option selected>解答例</option><option>ア</option></select></p>
+<p>〈解説〉</p>
+<p>2分探索の場合，1回の探索を行うごとに探索するデータ範囲の個数が1／2になるので，目的のデータがk回の探索で見つかったとすると2<sup>k</sup>≦ｎ。両辺の対数をとりk≦log<sub>2</sub>n。</p>
+<p>線形探索の場合，目的のデータがデータ列の最後尾にあっても，最大n回の探索で見つかる。</p>
+<p>
+ハッシュ探索の場合，ハッシュ値の衝突がなければ1回の探索で，逆にハッシュ値の衝突があってもハッシュ値の同じシノニムのリンクをたどるなどして，数回のシノニム探索で見つかる。</p>
+<hr>
+<a href="17F_A_E1.HTM#11">問題へ</a>
+
+
+
+<hr>
+<p><strong><a name="12">問12</a></strong></p>
+<p><select name="17FA12" size="1"><option selected>解答例</option><option>ウ</option></select></p>
+<p>〈解説〉</p>
+<p>深さがk＝3のとき，図のようにn＝15となるので，ア～エについてk＝3のときのnを求めて，比較する</p>
+<p>ア　×　k＝3のときn＝3×4＋1＝13<br>
+イ　×　k＝3のときn＝2<sup>3</sup>＋3＝11<br>
+ウ　○　k＝3のときn＝2<sup>4</sup>－1＝15<br>
+エ　×　k＝3のときn＝（3－1）（3＋1）＋4＝12</p>
+<p>〈別解〉</p>
+<p>n＝1＋2＋2<sup>2</sup>＋…＋2<sup>k</sup>＝（2－1）（2<sup>k</sup>＋…＋2<sup>2</sup>＋2＋1）＝2<sup>k＋1</sup>－1</p>
+<hr>
+<a href="17F_A_E1.HTM#12">問題へ</a>
+
+
+
+<hr>
+<p><strong><a name="13">問13</a></strong></p>
+<p><select name="17FA13" size="1"><option selected>解答例</option><option>ウ</option></select></p>
+<p>〈解説〉</p>
+<p>ア　×　すべての節で2つの子を持つとは限らない。必ず2つの子を持つのは完全2分木<br>
+イ　×　スタックは後入れ先出し<br>
+ウ　○<br>
+エ　×　説明に相当するのはリスト</p>
+<hr>
+<a href="17F_A_E1.HTM#13">問題へ</a>
+
+
+
+<hr>
+<p><strong><a name="14">問14</a></strong></p>
+<p><select name="17FA14" size="1"><option selected>解答例</option><option>ア</option></select></p>
+<p>〈解説〉</p>
+<p>ア　○<br>
+イ　×　データ数が少ない場合は，線形探索のほうが速い<br>
+ウ　×　データ列を2分した中央のデータと比較する<br>
+エ　×　比較回数はlog<sub>2</sub>n</p>
+<hr>
+<a href="17F_A_E1.HTM#14">問題へ</a>
+
+
+
+<hr>
+<p><strong><a name="15">問15</a></strong></p>
+<p><select name="17FA15" size="1"><option selected>解答例</option><option>エ</option></select></p>
+<p>〈解説〉</p>
+<p>k＝0またはk＝nのときf（n，k）＝1となるので，この値を用いて再帰的にさかのぼって計算する。</p>
+<p>f（4，2）＝f（3，1）＋f（3，2）<br>
+f（3，1）＝f（2，0）＋f（2，1）＝1＋f（2，1）<br>
+f（3，2）＝f（2，1）＋f（2，2）＝f（2，1）＋1<br>
+f（2，1）＝f（1，0）＋f（1，1）＝1＋1＝2<br>
+f（3，1）＝1＋2＝3<br>
+f（3，2）＝2＋1＝3</p>
+<p>したがって，f（4，2）＝3＋3＝6</p>
+<hr>
+<a href="17F_A_E1.HTM#15">問題へ</a>
+
+
+
+<hr>
+<p><strong><a name="16">問16</a></strong></p>
+<p><select name="17FA16" size="1"><option selected>解答例</option><option>エ</option></select></p>
+<p>〈解説〉</p>
+<p>XOR回路は，2つの入力値が同じ場合は0，異なる場合は1を出力する回路である。</p>
+<p>例えばXOR回路の入力がすべて1である場合，2つのXOR回路からの出力はともに0となる。</p>
+<p>したがって，アの場合は最後のAND回路からの出力は0，ウの場合は最後のXOR回路からの出力は0となり，1の入力数が偶数であっても出力は1にはならない。また，イの場合は中間のOR回路からの出力が0となるため，NOT回路からの出力は1となる。さらに，エの場合も中間のXOR回路からの出力が0となるため，NOT回路からの出力は1となる。</p>
+<p>ところが，最初のXOR回路への入力が0と1で異なるとXOR回路の出力は1となる。すると，イの場合は中間のOR回路からの出力が1となるため，NOT回路からの出力は0になってしまう。一方，エの場合は中間のXOR回路からの出力が0となるため，NOT回路からの出力は1となる。</p>
+<p>イの場合，1の入力数が偶数個であっても，1にはならないケースがある。</p>
+<p>エの場合，1の入力数が奇数のときは，最初の2つのXOR回路からの出力が必ず一方が0，他方が1となり，中間のXOR回路からの出力が1となるため，NOT回路からの出力は0となる。一方，1の入力数が偶数個のときは，最初の2つのXOR回路からの出力が両方とも0となり，中間のXOR回路からの出力も同じく0となるため，NOT回路からの出力は1となる。</p>
+<hr>
+<a href="17F_A_E1.HTM#16">問題へ</a>
+
+
+
+<hr>
+<p><strong><a name="17">問17</a></strong></p>
+<p><select name="17FA17" size="1"><option selected>解答例</option><option>ウ</option></select></p>
+<p>〈解説〉</p>
+<p>
+パイプラインは，1つの命令の実行サイクルを複数のステージに分割し，各命令のステージを重ね，並列実行することにより1命令あたりの実行効率を上げる方式。</p>
+<p>1命令で5サイクル<br>
+2命令で6サイクル<br>
+3命令で7サイクル<br>
+：<br>
+n命令で（n＋4）サイクル</p>
+<p><img border="0" src="IMAGE/q17.gif" width="255" height="132"></p>
+<p>したがって，20命令では24サイクルになる。</p>
+<hr>
+<a href="17F_A_E1.HTM#17">問題へ</a>
+
+
+
+<hr>
+<p><strong><a name="18">問18</a></strong></p>
+<p><select name="17FA18" size="1"><option selected>解答例</option><option>ア</option></select></p>
+<p>〈解説〉</p>
+<p>実効アドレス＝命令語のアドレス部＋インデックスレジスタの値＝100＋10＝110</p>
+<hr>
+<a href="17F_A_E1.HTM#18">問題へ</a>
+
+
+
+<hr>
+<p><strong><a name="19">問19</a></strong></p>
+<p><select name="17FA19" size="1"><option selected>解答例</option><option>エ</option></select></p>
+<p>〈解説〉</p>
+<p><img border="0" src="IMAGE/q19.gif" width="476" height="104"></p>
+<hr>
+<a href="17F_A_E1.HTM#19">問題へ</a>
+
+
+
+<hr>
+<p><strong><a name="20">問20</a></strong></p>
+<p><select name="17FA20" size="1"><option selected>解答例</option><option>ウ</option></select></p>
+<p>〈解説〉</p>
+<p>ア　×　内部割込み（メモリ保護例外）<br>
+イ　×　内部割込み（OSの機能の呼出し）<br>
+ウ　○　外部割込み（機械チェック割込み）<br>
+エ　×　内部割込み（プログラム割込み）</p>
+<hr>
+<a href="17F_A_E1.HTM#20">問題へ</a>
+<hr>
+<p><a href="INDEX.HTM">メニューへ戻る</a></p>
+<hr>
+
+</blockquote>
+</form>
+</body>
+</html>
