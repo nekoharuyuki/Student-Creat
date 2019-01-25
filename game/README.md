@@ -8,9 +8,9 @@
 
 ***DEMO:***
 
-![Demo](https://github.com/nekoharuyuki/Student-Creat/blob/master/screenshot/image00.jpg)
-![Demo](https://github.com/nekoharuyuki/Student-Creat/blob/master/screenshot/image02.jpg)
-![Demo](https://github.com/nekoharuyuki/Student-Creat/blob/master/screenshot/image03.jpg)
+![Demo](https://github.com/nekoharuyuki/Student-Creat/blob/master/game/screenshot/image00.jpg)
+![Demo](https://github.com/nekoharuyuki/Student-Creat/blob/master/game/screenshot/image02.jpg)
+![Demo](https://github.com/nekoharuyuki/Student-Creat/blob/master/game/screenshot/image03.jpg)
 
 ## 制作目的
 - DirectXの機能を学ぶために授業で学んだことを活かし作成しました。
